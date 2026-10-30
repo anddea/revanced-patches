@@ -711,7 +711,7 @@ public final class NavigationButtonsPatch {
             var iconName = renderer.getIcon().getYtIconType().name();
             if (!NavigationBar.NavigationButton.HOME.ytEnumNames.contains(iconName)) return;
 
-            String label = str("morphe_watch_later_navigation_label");
+            String label = str("revanced_change_start_page_entry_watch_later");
             byte[] watchLaterRenderer = renderer.toBuilder()
                     .setPivotIdentifier(WATCH_LATER_PIVOT_IDENTIFIER)
                     .setNavigationEndpoint(NavigationEndpoint.newBuilder()

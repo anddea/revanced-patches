@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -65,6 +66,30 @@ public final class FeedComponentsFilter extends Filter {
     public static void clearBrowseId() {
         browseId = "";
     }
+
+    /**
+     * Browse id of the Movies page of the Explore menu.
+     */
+    private static final String MOVIES_PAGE_BROWSE_ID = "FEstorefront";
+
+    /**
+     * Pages of the Explore menu, other than the pages ending with {@link #EXPLORE_PAGE_BROWSE_ID_SUFFIX},
+     * such as Podcasts. Music, Live, Gaming, Sports, News, Fashion &amp; beauty and Learning are
+     * channels of YouTube.
+     */
+    private static final Set<String> EXPLORE_PAGE_BROWSE_IDS = Set.of(
+            MOVIES_PAGE_BROWSE_ID,
+            "FEchannel_memberships",
+            "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+            "UC4R8DWoMoI7CAwX8_LjQHig",
+            "UCOpNcN46UbXVtpKMrmU4Abg",
+            "UCEgdi0XIXXZ-qJOFPf4JSKw",
+            "UCYfdidRxbB8Qhf0Nx7ioOYw",
+            "UCrpQ4p1Ql_hG8rKXIKM1MOQ",
+            "UCtFRv9O2AHqOZjjynzrv-xg"
+    );
+
+    private static final String EXPLORE_PAGE_BROWSE_ID_SUFFIX = "_destination";
 
     private final String BROWSE_ID_CLIP = "FEclips";
     private final String BROWSE_ID_COURSES = "FEcourses_destination";
@@ -514,6 +539,14 @@ public final class FeedComponentsFilter extends Filter {
             return hideSearch;
         }
 
+        // The pages of the Explore menu show their videos in horizontal shelves, so hiding the shelves
+        // left them empty (https://github.com/MorpheApp/morphe-patches/issues/1362).
+        final String currentBrowseId = browseId;
+        if (EXPLORE_PAGE_BROWSE_IDS.contains(currentBrowseId)
+                || currentBrowseId.endsWith(EXPLORE_PAGE_BROWSE_ID_SUFFIX)) {
+            return false;
+        }
+
         NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
         // Unknown tab, treat the same as home.
         if (selectedNavButton == null) {
@@ -653,7 +686,9 @@ public final class FeedComponentsFilter extends Filter {
             if (contentIndex == 0) {
                 return playablesBuffer.check(buffer).isFiltered()
                         || ticketShelfBuffer.check(buffer).isFiltered()
-                        || movieShelfBuffer.check(buffer).isFiltered()
+                        // The movies of the Movies page are its content.
+                        || (!MOVIES_PAGE_BROWSE_ID.equals(browseId)
+                        && movieShelfBuffer.check(buffer).isFiltered())
                         || (!carouselShelfExceptions.matches(path) && hideShelves());
             }
             return false;

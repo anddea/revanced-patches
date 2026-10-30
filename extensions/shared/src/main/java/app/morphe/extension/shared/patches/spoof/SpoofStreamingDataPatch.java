@@ -52,6 +52,11 @@ public class SpoofStreamingDataPatch {
         return SpoofVideoStreamsPatch.blockInitPlaybackRequest(originalUrlString);
     }
 
+    /** Uses the client of the streams supplied for this video, even when other fetches finish later. */
+    public static boolean disableSABR(@Nullable String videoId) {
+        return SpoofVideoStreamsPatch.disableSABR(videoId);
+    }
+
     public static boolean disableSABR() {
         return SpoofVideoStreamsPatch.disableSABR();
     }

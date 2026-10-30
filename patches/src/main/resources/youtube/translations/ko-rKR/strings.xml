@@ -59,10 +59,21 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">무선 오디오 미연결 시 일시 정지</string>
     <string name="morphe_auto_pause_on_screen_lock_title">기기 잠금 시 자동 일시 정지</string>
     <string name="morphe_auto_translate_additional_languages_summary">자동 번역 메뉴에 언어를 추가합니다</string>
-    <string name="morphe_auto_translate_additional_languages_title">자동 번역 언어 추가하기</string>
+    <string name="morphe_auto_translate_additional_languages_title">추가 자동 번역 언어</string>
+    <string name="morphe_caption_block_translation_failed">일부 자막은 번역을 제공하지 않습니다. 번역이 제공되는 자막만 표시합니다</string>
+    <string name="morphe_caption_blocks_too_large">이 플레이어에서는 두 가지 자막 언어를 동시에 표시할 공간이 부족합니다. 기본 자막 언어만 표시합니다</string>
+    <string name="morphe_caption_scale_summary">단일 언어 자막과 이중 언어 자막 모두에 적용됩니다</string>
+    <string name="morphe_caption_scale_title">자막 크기</string>
+    <string name="morphe_captions_screen_summary">자동 자막 및 자막 쿠키를 관리할 수 있습니다</string>
+    <string name="morphe_captions_screen_title">자막</string>
     <string name="morphe_copy_comments_success">댓글이 클립보드에 복사되었습니다</string>
     <string name="morphe_copy_comments_summary">댓글을 길게 탭하여 복사할 수 있도록 합니다</string>
     <string name="morphe_copy_comments_title">댓글 복사</string>
+    <string name="morphe_copy_select_text_copy_all">모두 복사</string>
+    <string name="morphe_copy_select_text_dialog_title">텍스트 선택하기</string>
+    <string name="morphe_copy_select_text_success">텍스트를 클립보드에 복사하였습니다</string>
+    <string name="morphe_copy_select_text_summary">동영상 설명이나 게시물을 길게 탭하면 원하는 부분을 선택하여 복사할 수 있습니다</string>
+    <string name="morphe_copy_select_text_title">설명 및 게시물 텍스트 선택하기</string>
     <string name="morphe_copy_video_title_success">동영상 제목이 클립보드에 복사되었습니다</string>
     <string name="morphe_copy_video_title_summary">동영상 제목을 길게 탭하여 복사할 수 있도록 합니다</string>
     <string name="morphe_copy_video_title_title">동영상 제목 복사</string>
@@ -106,6 +117,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_system_splash_title">시스템 스플래시 비활성화하기</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube에서 구독 탭이 홈 화면 상단으로 이동한 경우, 구독 탭을 하단바에 표시합니다</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">툴바 탐색 탭 비활성화하기</string>
+    <string name="morphe_dual_captions_enabled_title">이중 언어 자막</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
@@ -116,7 +128,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_external_potoken_provider_user_dialog_message">이 기능이 작동하지 않는다면, MicroG를 강제로 종료하세요</string>
     <string name="morphe_feed_long_press_menu_summary">피드 동영상에서 아무 곳이나 길게 탭하면 해당 동영상 메뉴가 열립니다</string>
     <string name="morphe_feed_long_press_menu_title">길게 탭하여 동영상 메뉴 열기</string>
-    <string name="morphe_feed_watch_later_button_summary">피드 동영상 썸네일에 \'나중에 볼 동영상에 저장\' 버튼을 표시합니다. 버튼을 길게 탭하면 재생목록에 저장됩니다</string>
+    <string name="morphe_feed_watch_later_button_summary">피드 동영상의 썸네일에 \'나중에 보기\' 버튼이 표시되며, 동영상이 저장된 경우 체크 표시가 나타납니다. 이 버튼을 탭하면 동영상을 저장하거나 제거하며, 길게 누르면 \'재생목록에 저장\' 메뉴가 열립니다</string>
     <string name="morphe_feed_watch_later_button_title">썸네일에 \'나중에 볼 동영상에 저장\' 버튼 표시하기</string>
     <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\' 또는 \'TV\'로 변경하세요</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
@@ -193,6 +205,32 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube 작동의 원리\' 메뉴 숨기기</string>
     <string name="morphe_light_theme_custom_color_title">사용자 정의 밝은 테마 색상</string>
     <string name="morphe_light_theme_title">밝은 테마</string>
+    <string name="morphe_live_chat_translate_bold_summary">번역 텍스트를 굵게 표시합니다</string>
+    <string name="morphe_live_chat_translate_bold_title">굵은 번역 텍스트</string>
+    <string name="morphe_live_chat_translate_color_summary">번역 텍스트의 헥스 코드를 설정하세요</string>
+    <string name="morphe_live_chat_translate_color_title">번역 텍스트 색상</string>
+    <string name="morphe_live_chat_translate_copied">메시지를 클립보드에 복사하였습니다</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">모든 채팅 메시지에 작은 복사 버튼을 추가합니다</string>
+    <string name="morphe_live_chat_translate_copy_button_title">메시지 복사 버튼 표시하기</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL API 키를 입력하세요. DeepL 번역에 실패할 경우 Google 번역이 대신 사용됩니다 (예시: API 키의 월간 사용 한도에 도달한 경우)</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API 키</string>
+    <string name="morphe_live_chat_translate_exclude_summary">쉼표로 구분된 언어 코드를 입력하세요 (예시: id,en). 해당 언어로 작성된 메시지는 번역하지 않습니다</string>
+    <string name="morphe_live_chat_translate_exclude_title">제외된 언어</string>
+    <string name="morphe_live_chat_translate_language_title">번역 언어</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">제한 없음</string>
+    <string name="morphe_live_chat_translate_max_length_summary">설정한 길이보다 긴 메시지는 번역하지 않고 원본 그대로 표시합니다</string>
+    <string name="morphe_live_chat_translate_max_length_title">최대 메시지 길이</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">실시간 채팅과 실시간 채팅 다시보기 메시지를 번역할 수 있습니다</string>
+    <string name="morphe_live_chat_translate_screen_title">실시간 채팅 번역</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">원본 (번역)</string>
+    <string name="morphe_live_chat_translate_style_title">번역 스타일</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(번역) 원본</string>
+    <string name="morphe_live_chat_translate_style_translated_only">번역만</string>
+    <string name="morphe_live_chat_translate_summary">실시간 채팅 및 실시간 채팅 다시보기 메시지가 화면에 표시되면 번역합니다</string>
+    <string name="morphe_live_chat_translate_title">실시간 채팅 번역하기</string>
+    <string name="morphe_live_chat_translate_use_color_summary">번역된 텍스트에 사용자 정의 색상을 적용합니다</string>
+    <string name="morphe_live_chat_translate_use_color_title">사용자 정의 번역 텍스트 색상</string>
     <string name="morphe_livestream_dvr_not_available">"'실시간 스트림 DVR 활성화하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
@@ -253,7 +291,7 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_potoken_provider_unavailable_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 이 기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
-    <string name="morphe_preferred_caption_language_summary">제공자가 제공하는 자막을 먼저 선택한 다음, 선호하는 언어로 자동 번역합니다</string>
+    <string name="morphe_preferred_caption_language_summary">동영상마다 자막 언어를 자동으로 선택합니다</string>
     <string name="morphe_preferred_caption_language_title">선호하는 자막 언어 설정</string>
     <string name="morphe_queue_manager_check_failed_auth">로그인하지 않았습니다</string>
     <string name="morphe_queue_manager_check_failed_video_id">동영상 ID가 없습니다</string>
@@ -281,10 +319,6 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_save_to_watch_later_button_title">\'나중에 볼 동영상에 저장\' 버튼 표시하기</string>
     <string name="morphe_save_to_watch_later_error_toast">이 동영상을 \'나중에 볼 동영상\' 재생목록에 저장할 수 없습니다</string>
     <string name="morphe_save_to_watch_later_flyout_title">나중에 볼 동영상에 저장</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">피드 메뉴로 관련 동영상에 있는 Kids 동영상을 \'나중에 볼 동영상\'에 저장할 수 있습니다</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Kids 동영상에 \'나중에 볼 동영상에 저장\' 메뉴 표시하기</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">피드 메뉴로 Shorts를 '나중에 볼 동영상' 재생목록에 저장할 수 있습니다</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts에 '나중에 볼 동영상' 버튼 표시하기</string>
     <string name="morphe_save_to_watch_later_success_toast">동영상을 \'나중에 볼 동영상\' 재생목록에 성공적으로 저장하였습니다</string>
     <string name="morphe_search_comments_applied">정렬 순서를 변경하거나 댓글을 다시 열어 검색하세요</string>
     <string name="morphe_search_comments_clear">지우기</string>
@@ -292,6 +326,8 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_search_comments_hint">검색어 입력</string>
     <string name="morphe_search_comments_summary">댓글에서 검색 버튼을 탭하면 현재 불러온 댓글 중 검색한 단어가 모두 포함된 댓글만 표시됩니다. 구문을 검색하려면 단어를 따옴표로 묶으세요</string>
     <string name="morphe_search_comments_title">댓글 검색</string>
+    <string name="morphe_secondary_caption_language_summary">자막과 함께 두 번째 언어를 표시하고, 자막 메뉴에 이중 언어 자막 전환 기능을 추가합니다</string>
+    <string name="morphe_secondary_caption_language_title">보조 자막 언어</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">가장 많이 다시 본 장면</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">재생바를 드래그하는 동안에 동영상 썸네일을 표시합니다</string>
     <string name="morphe_seekbar_thumbnail_preview_title">재생바 썸네일 활성화하기</string>
@@ -374,6 +410,8 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다</string>
+    <string name="morphe_stable_caption_blocks_summary">단일 언어 자동 자막은 안정적이고 읽기 쉬운 문장 단위로 묶어 표시합니다. 이중 언어 자막은 항상 문장 단위의 블록으로 표시합니다. 일부 단어는 실제로 발음되기 전에 자막에 먼저 표시될 수 있습니다</string>
+    <string name="morphe_stable_caption_blocks_title">안정적인 자막 블록</string>
     <string name="morphe_swap_save_and_queue_actions_summary">버튼을 탭하여 현재 재생목록 옵션을 실행할 수 있고, 길게 탭하면 \'나중에 볼 동영상\'에 저장됩니다</string>
     <string name="morphe_swap_save_and_queue_actions_title">저장과 현재 재생목록 작업 교환하기</string>
     <string name="morphe_tablet_layout_in_player_summary">"이전 플레이어 레이아웃을 복원합니다
@@ -1908,7 +1946,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_offline_action_share">공유</string>
     <string name="revanced_offline_already_downloaded">이 동영상은 이미 다운로드되었습니다</string>
     <string name="revanced_offline_already_downloading">이 동영상은 이미 다운로드 중입니다</string>
-    <string name="revanced_offline_av1_unplayable_toast">이 기기에서는 이 AV1 비디오를 재생하지 못할 수 있습니다. 화면이 검게 나올 수 있습니다</string>
+    <string name="revanced_offline_av1_unplayable_toast">이 기기에서는 이 AV1 동영상을 재생하지 못할 수 있습니다. 이 경우 화면이 검게 나올 수 있습니다</string>
     <string name="revanced_offline_close">닫기</string>
     <string name="revanced_offline_delete_message">이 기기에서 \'%s\'를 삭제하시겠습니까?</string>
     <string name="revanced_offline_delete_title">다운로드 삭제</string>
@@ -1932,6 +1970,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_offline_library_resume">%s에서 재개</string>
     <string name="revanced_offline_library_search">다운로드 검색</string>
     <string name="revanced_offline_library_sort">정렬</string>
+    <string name="revanced_offline_library_sort_newest">최신순</string>
+    <string name="revanced_offline_library_sort_oldest">오래된순</string>
+    <string name="revanced_offline_library_sort_size">크기순</string>
     <string name="revanced_offline_library_sort_title">제목</string>
     <string name="revanced_offline_library_title">다운로드</string>
     <string name="revanced_offline_loading_formats">사용 가능한 화질을 불러오는 중...</string>
@@ -2243,7 +2284,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_replace_channel_handle_summary_on">채널 이름을 사용합니다</string>
     <string name="revanced_replace_channel_handle_title">채널 핸들 변경하기</string>
     <string name="revanced_replace_downloads_page_summary_off">YouTube 다운로드 페이지가 표시됩니다</string>
-    <string name="revanced_replace_downloads_page_summary_on">YouTube 다운로드 페이지에서 오프라인 라이브러리가 열립니다</string>
+    <string name="revanced_replace_downloads_page_summary_on">YouTube 다운로드 페이지에서 오프라인 보관함이 열립니다</string>
     <string name="revanced_replace_downloads_page_title">다운로드 페이지 교체하기</string>
     <string name="revanced_replace_time_stamp_action_summary_off">타임스탬프를 탭하면 남은 시간을 표시할 수 있습니다</string>
     <string name="revanced_replace_time_stamp_action_summary_on">타임스탬프를 탭하면 동영상 재생 속도 또는 동영상 화질 설정 메뉴 구성요소를 열 수 있습니다</string>
@@ -2949,7 +2990,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_original_audio_volume_title">원본 오디오 볼륨</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">번역 준비 중에도 동영상이 계속 재생됩니다</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">번역을 요청하면 동영상이 일시 정지되고, 번역된 음성이 준비되면 다시 재생됩니다</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_title">번역 준비 중 비디오 일시 정지</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">번역 준비 중 동영상 일시 정지</string>
     <string name="revanced_vot_playback_error">번역 오디오를 재생할 수 없습니다</string>
     <string name="revanced_vot_proxy_url_fetch_failed">VOT 워커 프록시 호스트를 가져올 수 없습니다</string>
     <string name="revanced_vot_proxy_url_fetch_success">VOT 워커 프록시 호스트가 %s로 업데이트되었습니다</string>

@@ -517,16 +517,16 @@ val toolBarComponentsPatch = bytecodePatch(
 
         if (is_20_15_or_greater) {
             val searchSuggestionEndpointField = SearchSuggestionEndpoint2021Fingerprint
-                .instructionMatches.first().instruction.getReference<FieldReference>()!!
+                .instructionMatches.first().fieldReference
             val searchSuggestionEndpointClass = searchSuggestionEndpointField.definingClass
 
             SearchBoxTypingStringFingerprint.let {
                 it.method.apply {
                     // Includes trending searches ("You may like") and search history.
                     val searchSuggestionCollectionField =
-                        it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                        it.instructionMatches.first().fieldReference
                     val typedStringField =
-                        it.instructionMatches[2].instruction.getReference<FieldReference>()!!
+                        it.instructionMatches[2].fieldReference
 
                     val helperMethod = ImmutableMethod(
                         definingClass,

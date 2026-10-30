@@ -59,10 +59,21 @@ A jelentések nyilvánosak, és felülvizsgálják őket, mielőtt egy csatorna 
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Szüneteltetés, hacsak nincs vezeték nélküli hang csatlakoztatva</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatikus szüneteltetés, ha az eszköz le van zárva</string>
     <string name="morphe_auto_translate_additional_languages_summary">Több nyelv kerül a automatikus fordítás menübe</string>
-    <string name="morphe_auto_translate_additional_languages_title">További automatikus fordítási nyelvek hozzáadása</string>
+    <string name="morphe_auto_translate_additional_languages_title">További automatikus fordítási nyelvek</string>
+    <string name="morphe_caption_block_translation_failed">Némely feliratfordítás nem érhető el. A rendelkezésre álló feliratok jelennek meg</string>
+    <string name="morphe_caption_blocks_too_large">Mindkét feliratnyelv nem fér bele ebbe a lejátszóba. A primer nyelv jelenik meg</string>
+    <string name="morphe_caption_scale_summary">Egynyelvű és kétnyelvű feliratokra is vonatkozik</string>
+    <string name="morphe_caption_scale_title">Feliratméret</string>
+    <string name="morphe_captions_screen_summary">A feliratok automatikus fordításának és a feliratok cookie-jainak kezelése</string>
+    <string name="morphe_captions_screen_title">Feliratok</string>
     <string name="morphe_copy_comments_success">A hozzászólás a vágólapra lett másolva</string>
     <string name="morphe_copy_comments_summary">Tartsd lenyomva a hozzászólást a másoláshoz</string>
     <string name="morphe_copy_comments_title">Hozzászólások másolása</string>
+    <string name="morphe_copy_select_text_copy_all">Összes kimásolása</string>
+    <string name="morphe_copy_select_text_dialog_title">Szöveg kijelölése</string>
+    <string name="morphe_copy_select_text_success">Szöveg a vágólapra másolva</string>
+    <string name="morphe_copy_select_text_summary">Nyomja hosszan egy videó leírását vagy egy bejegyzést a kijelöléshez és bármely részének kimásolásához</string>
+    <string name="morphe_copy_select_text_title">Leírások és bejegyzések szövegének kijelölése</string>
     <string name="morphe_copy_video_title_success">A videó címe a vágólapra lett másolva</string>
     <string name="morphe_copy_video_title_summary">Tartsd lenyomva a videó címét a másoláshoz</string>
     <string name="morphe_copy_video_title_title">Videó címének másolása</string>
@@ -94,6 +105,7 @@ A videókat a hash-elt videóazonosító rövid előtagjával kérik le, így a 
     <string name="morphe_disable_scrolling_speed_limit_title">Görgetési sebességkorlát letiltása. ,\"key\":\"morphe_disable_scrolling_speed_limit_title\",\"context\":\"morphe_disable_scrolling_speed_limit_title\nlayout.disableScrollSpeedLimitPatch\",\"maxLength\":null,\"terms\":[]}</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Megjeleníti az Előfizetéseket a navigációs sávban, ha a YouTube lapra przenti őket a Kezdőlap tetejére</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Toolbar navigációs lapok kikapcsolása</string>
+    <string name="morphe_dual_captions_enabled_title">Kétnyelvű feliratok</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR-időtartamának bővítése' nem érhető el
 
 A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
@@ -104,7 +116,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_external_potoken_provider_user_dialog_message">Ha nem működik, próbálja meg kényszerűen leállítani a MicroG-t</string>
     <string name="morphe_feed_long_press_menu_summary">A posztfolyamat videóján bárhol koppintás és hosszú nyomás nyitja meg annak menüt</string>
     <string name="morphe_feed_long_press_menu_title">Koppints és nyomd meg hosszan a videómenü megnyitásához</string>
-    <string name="morphe_feed_watch_later_button_summary">A Néssebb később gomb megjelenik a posztfolyamati videók képkockáján. Koppintás és hosszú nyomása esetén Megnyitás listában lehetőséget nyújt</string>
+    <string name="morphe_feed_watch_later_button_summary">A hírfolyam videóinak thumbnailjein megjelenik egy Később megnézem gomb, pipával, ha a videó mentve van. A rákoppintás menti vagy eltávolítja a videót, a hosszú nyomás pedig megnyitja a Leházrolistába mentés lehetőséget</string>
     <string name="morphe_feed_watch_later_button_title">Mutassa a Néssebb később gombot a képkockákon</string>
     <string name="morphe_force_original_audio_not_available">A funkció használatához állítsd át a „Spoof video streams” opciót bármelyik kliensre az „Android Studio” és „Android VR Downgraded” kivételével</string>
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
@@ -179,6 +191,32 @@ Az 'Audio Track' menü megjelenítéséhez állítsa a 'Videóstream-ek megtéve
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menü elrejtése</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menü elrejtése</string>
     <string name="morphe_hide_youtube_works_menu_title">Rejtse el a \"A YouTube működése\" menüt</string>
+    <string name="morphe_live_chat_translate_bold_summary">Félkövérben jeleníti meg a lefordított szöveget</string>
+    <string name="morphe_live_chat_translate_bold_title">Félkövér fordított szöveg</string>
+    <string name="morphe_live_chat_translate_color_summary">Állítsa be a lefordított szöveg hex színkódját</string>
+    <string name="morphe_live_chat_translate_color_title">Fordított szöveg színe</string>
+    <string name="morphe_live_chat_translate_copied">Üzenet másolva a vágólapra</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Kisebb másolás gombot ad hozzá minden csevegési üzenethez</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Üzenet másolás gomb megjelenítése</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">A DeepL API kulcsa. A Google Fordító zostanie használata, ha a DeepL hibát jelez, például ha a kulcs havi limitje lejárt</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API kulcs</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Vesszővel elválasztott nyelvjelek, például id,en. Ezek a nyelveken írt üzenetek nem lesznek lefordítva</string>
+    <string name="morphe_live_chat_translate_exclude_title">Kizárt nyelvek</string>
+    <string name="morphe_live_chat_translate_language_title">Fordítási nyelv</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Nincs korlát</string>
+    <string name="morphe_live_chat_translate_max_length_summary">A hosszabb üzenetek fordítás nélkül jelennek meg</string>
+    <string name="morphe_live_chat_translate_max_length_title">Maximum üzenethossz</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Fordítsa az élő csevegés és az élő csevegés lejtszási üzeneteit</string>
+    <string name="morphe_live_chat_translate_screen_title">Élő csevegés fordítása</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Eredeti (lefordítva)</string>
+    <string name="morphe_live_chat_translate_style_title">Fordítási stílus</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Lefordítva) eredeti</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Csak lefordítva</string>
+    <string name="morphe_live_chat_translate_summary">Lefordítja az élő csevegés és az élő csevegés lejtszási üzeneteit, amint megjelennek a képernyőn</string>
+    <string name="morphe_live_chat_translate_title">Élő csevegés fordítása</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Egyedi színt alkalmaz a lefordított szövegre</string>
+    <string name="morphe_live_chat_translate_use_color_title">Egyedi fordított szöveg színe</string>
     <string name="morphe_livestream_dvr_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR engedélyezése' nem érhető el
 
 A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
@@ -225,7 +263,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_post_image_download_started_single">Kép letöltése…</string>
     <string name="morphe_post_image_download_summary">A képekkel vagy GIF-ekkel rendelkező bejegyzések Megosztás gombja mellett megjelenik egy letöltés gomb, és a menüjükhez egy letöltési elem kerül hozzá</string>
     <string name="morphe_post_image_download_title">Bejegyzési képek letöltése</string>
-    <string name="morphe_preferred_caption_language_summary">Először a szolgáltató feliratait választja ki, majd automatikusan lefordítja az előnyben részesített nyelvre</string>
+    <string name="morphe_preferred_caption_language_summary">Automatikusan választ egy feliratnyelvet minden videóhoz</string>
     <string name="morphe_preferred_caption_language_title">Feliratok előnyben részesített nyelve</string>
     <string name="morphe_queue_manager_check_failed_auth">Nem jelentkezett be</string>
     <string name="morphe_queue_manager_check_failed_video_id">Nincs videóazonosító</string>
@@ -253,10 +291,6 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_save_to_watch_later_button_title">Mentés későbbre gomb megjelenítése</string>
     <string name="morphe_save_to_watch_later_error_toast">A videó nem menthető a „Később megnézem” lejátszási listára</string>
     <string name="morphe_save_to_watch_later_flyout_title">Mentés későbbre</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Lehetővé teszi gyerekeknek szóló videók mentését a \'Watch later\' listába a felugró menüből</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mentés későbbre gomb megjelenítése a gyerekvideókban</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Lehetővé teszi a Shorts mentését a \'Watch later\' listába a felugró menüből</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">A \'Watch later\' mentése gomb megjelenítése a Shorts felugró menüjében</string>
     <string name="morphe_save_to_watch_later_success_toast">A videó sikeresen mentve a „Később megnézem” lejátszási listára</string>
     <string name="morphe_search_comments_applied">Módosítsa a rendezési sorrendet, vagy nyissa újra a hozzászólásokat a kereséshez</string>
     <string name="morphe_search_comments_clear">Törlés</string>
@@ -264,6 +298,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_search_comments_hint">Keresett szavak</string>
     <string name="morphe_search_comments_summary">Koppintson a kereső gombra a hozzászólások között, hogy csak a betöltött, és az összes keresett szót tartalmazó hozzászólások jelenjenek meg. A pontos kifejezések kereséséhez tegye a szavakat idézőjelek közé</string>
     <string name="morphe_search_comments_title">Hozzászólások keresése</string>
+    <string name="morphe_secondary_caption_language_summary">Megjelenít egy második nyelvet a feliratokkal, és hozzáad egy Kétnyelvű feliratok kapcsolót a feliratmenühöz</string>
+    <string name="morphe_secondary_caption_language_title">Másodlagos feliratnyelv</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Legtöbbször újrajátszott</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Videó bélyegképet jelenít meg a keresősáv húzásakor</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Engedélyezze a keresősáv bélyegképeit</string>
@@ -344,6 +380,8 @@ A lejátszás nem működhet"</string>
 
 Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szükséges"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat</string>
+    <string name="morphe_stable_caption_blocks_summary">Csoportolja az egynyelvű automatikus feliratokat stabil, jól olvasható blokkokba. A kétnyelvű feliratok mindig blokkokat használnak. Egyes szavak megjelenhetnek, mielőtt kimondnák őket</string>
+    <string name="morphe_stable_caption_blocks_title">Stabil feliratsorok</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Koppintson a sor beállításaihoz, tartsa lenyomva a \'Megnézem később\' listára mentéshez. ,\"key\":\"morphe_swap_save_and_queue_actions_summary\",\"context\":\"morphe_swap_save_and_queue_actions_summary\",\"maxLength\":null,\"terms\":[]}</string>
     <string name="morphe_swap_save_and_queue_actions_title">Csere a Mentés és a Sorba rendezés műveletekhez</string>
     <string name="morphe_tablet_layout_in_player_summary">"A régi lejátszó elrendezés visszaállítása

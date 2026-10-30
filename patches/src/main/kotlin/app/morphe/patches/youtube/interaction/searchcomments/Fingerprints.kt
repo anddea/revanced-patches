@@ -87,3 +87,18 @@ internal object SectionListRefreshFingerprint : Fingerprint(
         )
     )
 )
+
+/** Older section-list controllers expose the list through an abstract getter. */
+internal object SectionListViewFingerprint : Fingerprint(
+    classFingerprint = SectionListControllerFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.ABSTRACT),
+    returnType = "Landroid/view/View;",
+    parameters = listOf()
+)
+
+/** The older controller has no View field in its constructor. */
+internal object SectionListLegacyConstructorFingerprint : Fingerprint(
+    classFingerprint = SectionListControllerFingerprint,
+    name = "<init>",
+    filters = listOf(opcode(Opcode.RETURN_VOID, MatchAfterLast()))
+)

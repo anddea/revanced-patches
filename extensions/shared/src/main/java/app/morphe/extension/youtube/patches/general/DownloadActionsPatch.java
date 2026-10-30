@@ -55,8 +55,6 @@ import static app.morphe.extension.youtube.utils.VideoUtils.launchVideoExternalD
 
 import android.app.Dialog;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +99,11 @@ public final class DownloadActionsPatch {
         return flyoutVideoId;
     }
 
+    /** @return The playlist of the feed menu, or empty for video menus. */
+    public static String getFlyoutPlaylistId() {
+        return flyoutPlaylistId;
+    }
+
     /** Native flyout entry names and indices, used to invoke the selected feed action. */
     public static List<Pair<String, Integer>> getVisibleFlyoutButtons() {
         return visibleFlyoutButtons;
@@ -122,6 +125,9 @@ public final class DownloadActionsPatch {
     private static final List<Pair<String, Integer>> visibleFlyoutButtons = new ArrayList<>();
     private static Dialog queueBottomSheetFlyout;
     private static String flyoutVideoId = "";
+    private static String flyoutPlaylistId = "";
+    private static final byte[] PLAYLIST_ID_PREFIX_BYTES =
+            "playlist?list=".getBytes(StandardCharsets.US_ASCII);
     private static String currentFlyoutButtonName = "";
     private static int currentFlyoutButtonIndex;
 
@@ -144,21 +150,15 @@ public final class DownloadActionsPatch {
 
         queueBottomSheetFlyout = dialog;
         FlyoutUtils.setBottomSheetFlyout(dialog);
-        Handler visibilityHandler = new Handler(Looper.getMainLooper());
-        visibilityHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (dialog.isShowing()) {
-                    visibilityHandler.postDelayed(this, 100);
-                } else {
-                    flyoutVideoId = "";
-                }
-            }
-        });
     }
 
-    public static void clearFlyoutVideoId() {
+    /** Clears endpoint and native-item state when the last menu window detaches. */
+    public static void resetFlyoutIds() {
+        visibleFlyoutButtons.clear();
+        currentFlyoutButtonName = "";
+        currentFlyoutButtonIndex = 0;
         flyoutVideoId = "";
+        flyoutPlaylistId = "";
     }
 
     private static void dismissQueueBottomSheetFlyout() {
@@ -171,7 +171,6 @@ public final class DownloadActionsPatch {
      * Injection point. Extracts the sender view and protocol-buffer holder for feed flyout.
      */
     public static void extractFlyoutVideoId(@Nullable Map<?, ?> map) {
-        FlyoutUtils.setVideoMarkedAsShorts(null);
         if (map == null) {
             return;
         }
@@ -194,6 +193,9 @@ public final class DownloadActionsPatch {
     public static void extractFlyoutVideoId(@Nullable Object bufferObject) {
         try {
             FlyoutUtils.setVideoMarkedAsShorts(null);
+            FlyoutUtils.resetSaveButton();
+            flyoutVideoId = "";
+            flyoutPlaylistId = "";
 
             if (bufferObject instanceof FlyoutMenuVideoIdInterface videoIdInterface) {
                 String videoId = videoIdInterface.patch_getVideoId();
@@ -232,6 +234,7 @@ public final class DownloadActionsPatch {
                 }
             }
 
+            setFlyoutPlaylistId(flyoutBuffer);
             FlyoutUtils.setVideoMarkedAsShorts(flyoutBuffer);
 
             for (byte[] prefix : VIDEO_ID_PREFIXES_BYTES) {
@@ -255,6 +258,42 @@ public final class DownloadActionsPatch {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "extractFlyoutVideoId failure", ex);
+        }
+    }
+
+    @SuppressWarnings("ExtractMethodRecommender")
+    private static void setFlyoutPlaylistId(byte[] flyoutBuffer) {
+        final int index = indexOf(flyoutBuffer, PLAYLIST_ID_PREFIX_BYTES);
+
+        if (index >= 0) {
+            final int playlistIdStart = index + PLAYLIST_ID_PREFIX_BYTES.length;
+
+            int playlistIdEnd = playlistIdStart;
+            while (playlistIdEnd < flyoutBuffer.length) {
+                byte b = flyoutBuffer[playlistIdEnd];
+                if (!((b >= 'A' && b <= 'Z') || (b >= 'a' && b <= 'z') || (b >= '0' && b <= '9') ||
+                        b == '-' ||
+                        b == '_')) {
+                    break;
+                }
+                playlistIdEnd++;
+            }
+            // "playlist?list=" always ends with a character extraneous to the
+            // playlist ID, so verify that the current index of being
+            // searched bytes does not belong to this element.
+            final int playlistLength = playlistIdEnd - playlistIdStart - 1;
+
+            if (playlistLength >= 18) {
+                flyoutPlaylistId = new String(
+                        flyoutBuffer,
+                        playlistIdStart,
+                        playlistLength,
+                        StandardCharsets.US_ASCII
+                );
+                Logger.printDebug(() -> "Flyout Playlist ID found: " +
+                        flyoutPlaylistId
+                );
+            }
         }
     }
 
@@ -339,6 +378,7 @@ public final class DownloadActionsPatch {
      */
     public static void setCurrentFlyoutButton(@Nullable Enum<?> buttonEnum,
                                               @Nullable CharSequence buttonText) {
+        FlyoutUtils.setCurrentButtonInfo(buttonEnum);
         if (buttonEnum == null || buttonText == null || buttonText.toString().isEmpty()) {
             return;
         }

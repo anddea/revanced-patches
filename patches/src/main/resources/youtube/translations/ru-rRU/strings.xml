@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Ставить на паузу, если не подключено беспроводное аудио</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Автоматическая пауза при блокировке устройства</string>
     <string name="morphe_auto_translate_additional_languages_summary">Добавляет больше языков в меню автоперевода</string>
-    <string name="morphe_auto_translate_additional_languages_title">Добавить дополнительные языки для автоперевода</string>
+    <string name="morphe_auto_translate_additional_languages_title">Дополнительные языки автоперевода</string>
+    <string name="morphe_caption_block_translation_failed">Некоторые переводы субтитров недоступны. Показ доступных субтитров</string>
+    <string name="morphe_caption_blocks_too_large">Оба языка субтитров не помещаются в этом плеере. Показ основного языка</string>
+    <string name="morphe_caption_scale_summary">Применяется к одноязычным и двуязычным субтитрам</string>
+    <string name="morphe_caption_scale_title">Размер субтитров</string>
+    <string name="morphe_captions_screen_summary">Управление автоматическими субтитрами и cookie-файлами субтитров</string>
+    <string name="morphe_captions_screen_title">Субтитры</string>
     <string name="morphe_copy_comments_success">Комментарий скопирован в буфер обмена</string>
     <string name="morphe_copy_comments_summary">Нажмите и удерживайте комментарий, чтобы скопировать его</string>
     <string name="morphe_copy_comments_title">Копировать комментарии</string>
+    <string name="morphe_copy_select_text_copy_all">Копировать всё</string>
+    <string name="morphe_copy_select_text_dialog_title">Выделить текст</string>
+    <string name="morphe_copy_select_text_success">Текст скопирован в буфер обмена</string>
+    <string name="morphe_copy_select_text_summary">Нажмите и удерживайте описание видео или пост, чтобы выделить и скопировать любую его часть</string>
+    <string name="morphe_copy_select_text_title">Выделение текста в описаниях и постах</string>
     <string name="morphe_copy_video_title_success">Название видео скопировано в буфер обмена</string>
     <string name="morphe_copy_video_title_summary">Нажмите и удерживайте название видео, чтобы скопировать его</string>
     <string name="morphe_copy_video_title_title">Копировать название видео</string>
@@ -106,6 +117,7 @@
     <string name="morphe_disable_system_splash_title">Отключить системную заставку</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Показывать «Подписки» в панели навигации, если YouTube перенесет их во вкладку в верхней части Главной</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Отключить вкладки навигации на панели инструментов</string>
+    <string name="morphe_dual_captions_enabled_title">Двуязычные субтитры</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR прямых трансляций» может быть недоступно
 
 Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
@@ -116,7 +128,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">Если не работает, попробуйте принудительно закрыть MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">Нажатие и удержание в любом месте видео из ленты открывает его меню</string>
     <string name="morphe_feed_long_press_menu_title">Нажмите и удерживайте, чтобы открыть меню видео</string>
-    <string name="morphe_feed_watch_later_button_summary">На превью видео из ленты отображается кнопка «Позже». Нажатие и удержание открывает сохранение в плейлист</string>
+    <string name="morphe_feed_watch_later_button_summary">Кнопка «Смотреть позже» отображается на миниатюрах видео в ленте, с галочкой, если видео сохранено. Нажатие сохраняет или удаляет видео, а долгое нажатие открывает «Сохранить в плейлист»</string>
     <string name="morphe_feed_watch_later_button_title">Показывать кнопку «Позже» на превью видео</string>
     <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \'Подмена видеопотоков\' на любой клиент, кроме \'Android Studio\' и \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
@@ -193,6 +205,32 @@
     <string name="morphe_hide_youtube_works_menu_title">Скрыть меню \"Принцип работы YouTube\"</string>
     <string name="morphe_light_theme_custom_color_title">Пользовательский цвет светлой темы</string>
     <string name="morphe_light_theme_title">Светлая тема</string>
+    <string name="morphe_live_chat_translate_bold_summary">Выделяет переведенный текст жирным шрифтом</string>
+    <string name="morphe_live_chat_translate_bold_title">Жирный шрифт для переведенного текста</string>
+    <string name="morphe_live_chat_translate_color_summary">Установите hex-цвет переведенного текста</string>
+    <string name="morphe_live_chat_translate_color_title">Цвет переведенного текста</string>
+    <string name="morphe_live_chat_translate_copied">Сообщение скопировано в буфер обмена</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Добавляет маленькую кнопку копирования к каждому сообщению чата</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Показать кнопку копирования сообщения</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Ваш API-ключ DeepL. Google Переводчик используется, если DeepL не срабатывает, например, при достижении месячного лимита ключа</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">API-ключ DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Коды языков через запятую, например id,en. Сообщения на этих языках не будут переводиться</string>
+    <string name="morphe_live_chat_translate_exclude_title">Исключенные языки</string>
+    <string name="morphe_live_chat_translate_language_title">Язык перевода</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Без ограничений</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Более длинные сообщения отображаются без перевода</string>
+    <string name="morphe_live_chat_translate_max_length_title">Максимальная длина сообщения</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Перевод сообщений живого чата и повторов живого чата</string>
+    <string name="morphe_live_chat_translate_screen_title">Перевод живого чата</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Оригинал (перевод)</string>
+    <string name="morphe_live_chat_translate_style_title">Стиль перевода</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Перевод) оригинал</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Только перевод</string>
+    <string name="morphe_live_chat_translate_summary">Переводит сообщения живого чата и повторов живого чата, как только они появляются на экране</string>
+    <string name="morphe_live_chat_translate_title">Переводить живой чат</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Применяет пользовательский цвет к переведенному тексту</string>
+    <string name="morphe_live_chat_translate_use_color_title">Свой цвет переведенного текста</string>
     <string name="morphe_livestream_dvr_not_available">"«Включить DVR для прямых трансляций» может быть недоступно
 
 Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
@@ -251,7 +289,7 @@
 Если у вас YouTube Premium, эта настройка может не понадобиться"</string>
     <string name="morphe_potoken_provider_title">PoToken провайдер</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Исправляет проблемы с воспроизведением с помощью встроенного поставщика PoToken (экспериментально)</string>
-    <string name="morphe_preferred_caption_language_summary">Сначала выбирает субтитры поставщика, затем автоматически переводит их на предпочитаемый язык</string>
+    <string name="morphe_preferred_caption_language_summary">Автоматически выбирает язык субтитров для каждого видео</string>
     <string name="morphe_preferred_caption_language_title">Предпочитаемый язык субтитров</string>
     <string name="morphe_queue_manager_check_failed_auth">Не вошел в систему</string>
     <string name="morphe_queue_manager_check_failed_video_id">ID видео не указан</string>
@@ -279,10 +317,6 @@
     <string name="morphe_save_to_watch_later_button_title">Показывать кнопку «Сохранить в „Смотреть позже“»</string>
     <string name="morphe_save_to_watch_later_error_toast">Не удалось сохранить это видео в плейлист \"Смотреть позже\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">Сохранить в „Смотреть позже“</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Позволяет сохранять детские видео в «Посмотреть позже» из всплывающего меню</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Показывать кнопку «Сохранить в „Смотреть позже“» в детских видео</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Позволяет сохранять шортсы в «Посмотреть позже» из всплывающего меню</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Показывать кнопку «Сохранить в „Посмотреть позже“» во всплывающем меню шортсов</string>
     <string name="morphe_save_to_watch_later_success_toast">Видео успешно сохранено в плейлист \"Смотреть позже\"</string>
     <string name="morphe_search_comments_applied">Измените порядок сортировки или снова откройте комментарии, чтобы выполнить поиск по ним</string>
     <string name="morphe_search_comments_clear">Очистить</string>
@@ -290,6 +324,8 @@
     <string name="morphe_search_comments_hint">Слова для поиска</string>
     <string name="morphe_search_comments_summary">Нажмите кнопку поиска в комментариях, чтобы отобразить только те загруженные комментарии, которые содержат все искомые слова. Чтобы найти фразу, заключите слова в кавычки</string>
     <string name="morphe_search_comments_title">Поиск комментариев</string>
+    <string name="morphe_secondary_caption_language_summary">Отображает второй язык вместе с субтитрами и добавляет переключатель «Двуязычные субтитры» в меню субтитров</string>
+    <string name="morphe_secondary_caption_language_title">Второй язык субтитров</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Чаще всего пересматривают</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Показывает миниатюру видео во время перетаскивания полосы прокрутки</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Включить миниатюры на полосе прокрутки</string>
@@ -370,6 +406,8 @@
 
 Если Вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Выключение этой настройки может привести к возникновению проблем с воспроизведением</string>
+    <string name="morphe_stable_caption_blocks_summary">Группирует одноязычные автоматические субтитры в стабильные, читабельные блоки. Двуязычные субтитры всегда используют блоки. Некоторые слова могут появиться до того, как они будут произнесены</string>
+    <string name="morphe_stable_caption_blocks_title">Стабильные блоки субтитров</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Нажмите для параметров очереди, нажмите и удерживайте для сохранения в «Смотреть позже»</string>
     <string name="morphe_swap_save_and_queue_actions_title">Поменять местами действия \"Сохранить\" и \"В очередь\"</string>
     <string name="morphe_tablet_layout_in_player_summary">"Восстанавливает старый макет плеера
@@ -1897,6 +1935,9 @@ Shorts
     <string name="revanced_offline_library_resume">Продолжить с %s</string>
     <string name="revanced_offline_library_search">Поиск скачанных видео</string>
     <string name="revanced_offline_library_sort">Сортировать</string>
+    <string name="revanced_offline_library_sort_newest">Сначала новые</string>
+    <string name="revanced_offline_library_sort_oldest">Сначала старые</string>
+    <string name="revanced_offline_library_sort_size">По размеру</string>
     <string name="revanced_offline_library_sort_title">Наименование</string>
     <string name="revanced_offline_library_title">Скачанное</string>
     <string name="revanced_offline_loading_formats">Загружаем доступные варианты качества…</string>

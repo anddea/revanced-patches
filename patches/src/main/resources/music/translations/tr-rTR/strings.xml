@@ -141,9 +141,9 @@ Adımlar:
     <string name="morphe_music_downloads_unknown_track">İndirilecek parça tanımlanamadı</string>
     <string name="morphe_music_in_app_downloads_summary">YouTube Music içinde ses indirir; harici indirme uygulamasını açmak yerine</string>
     <string name="morphe_music_in_app_downloads_title">Uygulama içi indirme</string>
-    <string name="morphe_music_lyrics_about_summary">"Şarkı sözleri başlık ve sanatçıyla eşleştirilir, olağandışı meta veriler hiçbir şey veya yanlış versiyon bulabilir. Versiyonları değiştirmek için yenile'yi kullanın. * ile işaretlenen sağlayıcılar bir belirteç gerektirir. Etkinleştirilmiş tüm sağlayıcılardan her zaman talep edilmeyebilir, ancak hızlarına göre yanıt verirler
+    <string name="morphe_music_lyrics_about_summary">"Şarkı sözleri başlık ve sanatçıyla eşleştirilir, olağandışı meta veriler hiçbir şey veya yanlış versiyon bulabilir. Versiyonları değiştirmek için yenile'yi kullanın. * ile işaretlenen sağlayıcılar bir anahtar gerektirir. Etkinleştirilmiş tüm sağlayıcılardan her zaman talepte bulunulmaz; bunun yerine, sağlayıcılar kendi hızlarına bağlı olarak yanıt verirler
 
-Şarkı sözleri RVX ile bağlantısı, sponsorluğu veya onayı olmayan üçüncü taraf hizmetlerden gelir. Her biri olduğu gibi kullanılır; şarkı sözleri, kullanılabilirlikleri ve lisanslama hakları bu hizmetlerde ve lisans verenlerde kalır, kullanım hizmet şartlarına tabi olabilir. Etkinleştirilen bir hizmete ulaşan yalnızca istediğiniz arama sorgusudur - başlık, sanatçı ve hizmetin ihtiyaç duyduğu durumlarda video Kimliği. İsteğe bağlı AI uç noktası ve QuickLRC transkripsiyonu yalnızca bunları yapılandırdıktan sonra çalışır ve şarkı sözü metnini veya parçanın video URL'sini alır"</string>
+Şarkı sözleri RVX ile bağlantısı, sponsorluğu veya RVX'nin onaylamadığı üçüncü taraf hizmetlerden gelir. Her biri olduğu gibi kullanılır; şarkı sözleri, kullanılabilirlikleri ve lisanslama hakları bu hizmetlerde ve lisans verenlerde kalır, kullanım hizmet şartlarına tabi olabilir. Etkinleştirilen bir hizmete ulaşan yalnızca istediğiniz arama sorgusudur - başlık, sanatçı ve hizmetin ihtiyaç duyduğu durumlarda video kimliği. İsteğe bağlı AI uç noktası ve QuickLRC transkripsiyonu yalnızca siz yapılandırdıktan sonra çalışır ve yalnızca şarkı sözü metnini veya parçanın video URL'sini alır"</string>
     <string name="morphe_music_lyrics_about_title">Üçüncü taraf şarkı sözleri hakkında</string>
     <string name="morphe_music_lyrics_ai_config_api_token_label">API anahtarı (isteğe bağlı)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API uç noktası URL\'si (örn. https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions)</string>
@@ -154,6 +154,7 @@ Adımlar:
     <string name="morphe_music_lyrics_ai_config_extra_body_label">Ek istek gövdesi (isteğe bağlı JSON)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">İsim ve değerleri tırnak içine alın, örn. {\"api-key\": \"abc\"}. Tırnak içine alınmamış / : veya sayı içeren bir değer reddedilir. Boş bir değer bir başlığı kaldırır</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">Ek istek başlıkları (isteğe bağlı JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Modelleri getir</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Modeller alınamadı. API anahtarını veya bağlantıyı kontrol edin</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">Bir Model Seçin</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">Modeller getiriliyor…</string>
@@ -164,16 +165,17 @@ Adımlar:
     <string name="morphe_music_lyrics_ai_config_status_invalid">Ayarlar eksik veya sağlayıcı tarafından reddedildi</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Temel URL http:// veya https:// ile başlamalıdır</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Bağlantı doğrulanıyor…</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Bağlantıyı test et</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Çeviri &amp; Romanizasyon ayarları kaydedildi</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Yer tutucular: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Yer tutucular: {task}, {language}, {title}, {artist}, {count}, {lines}. Bilinmeyenler yazıldığı gibi bırakılır</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">İstem Şablonu</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">İstem kaydedildi, ancak AI uç noktası henüz kullanılabilir değil. Önce AI ayarlarından yapılandırın</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">İstem sıfırlandı</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">İstem kaydedildi</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Şarkı sözü kaynağından Latin olmayan okumalara izin ver; kapalıyken yalnızca Latin harflerini, aksanlı harfleri ve ses tonu rakamlarını koru</string>
-    <string name="morphe_music_lyrics_allow_transliteration_title">Transkripsiyonu etkinleştir</string>
+    <string name="morphe_music_lyrics_allow_transliteration_title">Transliterasyonu etkinleştir</string>
     <string name="morphe_music_lyrics_clear_cache_done">%1$s MB temizlendi</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Bu cihazda saklanan şarkı sözlerinin %1$s MB\'ını sil</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Bu cihazda saklanan %1$s MB şarkı sözlerini sil</string>
     <string name="morphe_music_lyrics_clear_cache_title">Saklanan şarkı sözlerini temizle</string>
     <string name="morphe_music_lyrics_contribute_credit">Bu LRC\'yi kaydetmek için kopyala düğmesine uzun basın; zamanlamaları ince ayarlayabilir ve topluluk sağlayıcılarıyla paylaşabilirseniz minnettar oluruz</string>
     <string name="morphe_music_lyrics_copied">Panoya kopyalandı</string>
@@ -203,7 +205,6 @@ Adımlar:
     <string name="morphe_music_lyrics_local_romanization_dict_building">Okuma %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Çince kelimeler (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Yunan, Slav Kiril alfabesi (Rusça, Ukraynaca, Bulgarca, Sırpça, Beyaz Rusça, Makedonca dahil), Gürcü, Ermeni, İbranice, Arapça, Amharca ve Süryanice transkripsiyon (CLDR, ~0.5 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">En az bir sözlük seçin</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">İndirme başarısız oldu - yeniden denemek için bunu kapatıp tekrar açın</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japonca (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Okumalar hazır (%1$d kayıt)</string>
@@ -246,26 +247,26 @@ Her iki sınır için de geçerlidir. 1,75 değerinde, dört tam genişlikteki k
     <string name="morphe_music_lyrics_rime_char_source_none">Karakter okuma yok</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Mandarin karakterleri</string>
     <string name="morphe_music_lyrics_rime_dict_add">Ekle</string>
-    <string name="morphe_music_lyrics_rime_dict_add_hint">Söz dizimi gibi 字 ham ve 典 din2 satırları içeren bir .dict.yaml dosyası veya bunu içeren bir zip. Liste işaretlediğinizde ve Kaydet\'e tıkladığınızda çekilir ve lisansı sizin kontrolünüze sunulur</string>
-    <string name="morphe_music_lyrics_rime_dict_add_title">Rime Kelime Listesi Ekle</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">字 ham ve 典 din2 gibi satırları içeren bir .dict.yaml dosyası veya bunu içeren bir zip. Liste, onu işaretlediğinizde ve Kaydet\'e tıkladığınızda çekilir ve lisansın kontrolünü sağlamak size kalmıştır</string>
+    <string name="morphe_music_lyrics_rime_dict_add_title">Rime Kelime Listesi ekle</string>
     <string name="morphe_music_lyrics_rime_dict_added">%1$s eklendi - indirmek için işaretleyin ve Kaydet\'e dokunun</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">Kod hak örneğindeki gibi iki veya üç harfli olmalıdır</string>
-    <string name="morphe_music_lyrics_rime_dict_bad_field">Ad ve dikey çizgi içeremez</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_field">İsim ve adres, dikey çizgi içeremez</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">Adres https:// ile başlamalıdır</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Okuma kelime listesi oluşturuluyor: %1$d%%</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Kelime listesi okunuyor: %1$d%%</string>
     <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s için zaten bir kelime tablosu var</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"Rime Kelime Listesi için de UniDict gerekir: Çevrimdışı Sözlük sağlayıcısında \"Çince ve Kantonca karakterler (UniDict)\" kutucuğunu işaretleyin ve indirmenin bitmesini bekleyin. Bu olmadan, karakterleri okuyan bir liste hiçbir ses vermez
 
 Rime Kelime Listesi'nin okuması gereken listeleri işaretleyin, sonra onlar için indirmek üzere Kaydet'e dokunun. Eklendiğiniz bir liste, işaretini kaldırdığınızda kaldırılır
 
-Her liste size özel kelime-okuma tablonuzdur, .dict.yaml dosyasında şu satırlar gibi:
+Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içeren bir .dict.yaml dosyasıdır:
 字 ham
 典 din2
-İlk sütun kelimedir, ikinci sütunun okunuşudur; ek sütunlar ve sekme içermeyen satırlar dikkate alınmaz"</string>
+İlk sütun kelimedir, ikinci sütun okunuşudur; ek sütunlar ve sekme içermeyen satırlar dikkate alınmaz"</string>
     <string name="morphe_music_lyrics_rime_dict_failed">Kelime listesi indirilemedi - yeniden denemek için tekrar Kaydet\'e dokunun</string>
     <string name="morphe_music_lyrics_rime_dict_field_char_source">Kelimede olmayan karakterler</string>
     <string name="morphe_music_lyrics_rime_dict_field_code">Dil kodu</string>
-    <string name="morphe_music_lyrics_rime_dict_field_code_hint">iki veya üç harfli olmalı, örn. hak veya wuu</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code_hint">İki veya üç harf, örn. hak veya wuu</string>
     <string name="morphe_music_lyrics_rime_dict_field_label">Ad</string>
     <string name="morphe_music_lyrics_rime_dict_field_label_hint">Hakka (Meixian) örneğindeki gibi okunmanın altında gösterilir</string>
     <string name="morphe_music_lyrics_rime_dict_field_url">Kelime listesi adresi</string>
@@ -274,16 +275,16 @@ Her liste size özel kelime-okuma tablonuzdur, .dict.yaml dosyasında şu satır
     <string name="morphe_music_lyrics_rime_dict_no_table">Yukarıdaki dil için seçilmiş hiç Rime kelime listesi yok. Bir tane seçmek için bu isme dokunun veya listesi olan başka bir dil seçin</string>
     <string name="morphe_music_lyrics_rime_dict_ready">Kelime listeleri hazır</string>
     <string name="morphe_music_lyrics_rime_dict_ready_toast">Kelime listeleri hazır (%1$d girdi)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s yerleşik romaniyaze tarafından okunur ve kelime listesi alamaz</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s yerleşik romanizer tarafından okunur ve kelime listesi alamaz</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Kullanılmıyor: Bu dilin zaten kendi okuması var, kaldırılması için işaretini kaldırın</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime Kelime Listesi</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Çevrimdışı Sözlük</string>
-    <string name="morphe_music_lyrics_romanization_provider_title">Romanizasyon veya Transkripsiyon</string>
-    <string name="morphe_music_lyrics_romanization_target_language">"Transliterasyon hedef dili:
+    <string name="morphe_music_lyrics_romanization_provider_title">Romanizasyon veya transliterasyon</string>
+    <string name="morphe_music_lyrics_romanization_target_language">"Romanizasyon veya transliterasyon hedef dili:
 %s"</string>
     <string name="morphe_music_lyrics_romanize_failed">Şarkı sözleri romanize edilemedi</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanize</string>
-    <string name="morphe_music_lyrics_romanize_language_title">Romanizasyon veya Transkripsiyon Dili</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Romanizasyon veya transliterasyon dili</string>
     <string name="morphe_music_lyrics_romanize_only">Sadece romanize</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanize eden: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Okunuşu sağlayan: Google</string>
@@ -301,8 +302,8 @@ Her liste size özel kelime-okuma tablonuzdur, .dict.yaml dosyasında şu satır
     <string name="morphe_music_lyrics_show_copy_button_title">Kopyala düğmesini göster</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">Sonraki şarkı sözleri adayına geçmek için dokunun, şarkı sözlerini şarkı başlığı ve sanatçı ile aramak için basılı tutun</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Yenile düğmesini göster</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanizasyonu veya transkripsiyonu açıp kapatmak için dokunun; yalnızca romanizasyon veya transkripsiyon yapmak için uzun basın. Etkin romanizasyon sağlayıcılarını sıralarına göre kullanır</string>
-    <string name="morphe_music_lyrics_show_romanize_button_title">Romanizasyon veya Transkripsiyon düğmesini göster</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanizasyonu veya transliterasyonu açıp kapatmak için dokunun; yalnızca romanizasyon veya transliterasyon yapmak için uzun basın. Etkin romanizasyon sağlayıcılarını sıralarına göre kullanır</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">Romanize veya Transliterate et düğmesini göster</string>
     <string name="morphe_music_lyrics_show_section_summary">Şarkı sözlerinin her yeni bölümünü Verse veya Chorus gibi küçük bir etiketle işaretleyin</string>
     <string name="morphe_music_lyrics_show_section_title">Bölüm etiketlerini göster</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Çeviriyi açıp kapatmak için dokunun; yalnızca çeviri görmek için uzun basın. Etkin çeviri sağlayıcılarını sıralarına göre kullanır</string>
@@ -312,7 +313,7 @@ Her liste size özel kelime-okuma tablonuzdur, .dict.yaml dosyasında şu satır
     <string name="morphe_music_lyrics_source_reset_message">Sağlayıcıları varsayılan öncelik sırasına geri yükle</string>
     <string name="morphe_music_lyrics_source_reset_title">Sağlayıcı sırası sıfırlansın mı?</string>
     <string name="morphe_music_lyrics_source_title">Şarkı Sözü Servisi</string>
-    <string name="morphe_music_lyrics_split_background_summary">Arka plan vokallerini ve uyumu ana satırdan ayırır. Parantez içinde yazılan arka plan vokallerini, örn. \"(Oh) Senistiyorum\", ana söylenen satırdan çıkarıp kendi karartılmış satırına taşır</string>
+    <string name="morphe_music_lyrics_split_background_summary">Arka plan vokallerini ve uyumu ana satırdan ayırır. Parantez içinde yazılan arka plan vokallerini, örn. \"(Oh) Seni istiyorum\", ana satırdan çıkarıp kendine özgü bir karartılmış satıra taşır</string>
     <string name="morphe_music_lyrics_split_background_title">Arka plan vokallerini ayrı göster</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Şarkı sözü satırlarının sonundaki noktaları, virgülleri, iki noktaları ve noktalı virgülleri kaldırır. Soru işaretleri, ünlem işaretleri, üç noktalar, tırnaklar ve parantezler korunur</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Sondaki noktalama işaretlerini kaldır</string>
@@ -351,7 +352,7 @@ Her liste size özel kelime-okuma tablonuzdur, .dict.yaml dosyasında şu satır
     <string name="morphe_music_lyrics_translation_provider_title">Çeviri</string>
     <string name="morphe_music_lyrics_translation_target_language">"Çeviri hedef dili:
 %s"</string>
-    <string name="morphe_music_lyrics_use_ai_section_summary">Sağlayıcı Nakarat veya Verse gibi bölüm etiketleri göndermediğinde yalnızca kullanılır; OpenAI-uyumlu modeliniz bunları o zaman tespit eder. Satırı düzenlemek onun prompt\'unu da açar</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Yalnızca sağlayıcı Nakarat veya Verse gibi bölüm etiketleri göndermediğinde kullanılır; bu durumda bunları OpenAI-uyumlu modeliniz tespit eder. Satırı düzenlemek onun istemini de açar</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Bölümleri yapay zeka ile tespit et</string>
     <string name="morphe_music_lyrics_word_sync_summary">Mümkün olduğunda kelime kelime şarkı sözlerine öncelik ver. Şarkı sözleri kelime zamanlaması içeriyorsa, her kelimeyi veya heceyi müzikle eş zamanlı olarak vurgular</string>
     <string name="morphe_music_lyrics_word_sync_title">Senkronize kelimeleri veya heceleri vurgula</string>
@@ -860,9 +861,9 @@ APl anahtarının nasıl verileceğini görmek için tıklayın"</string>
 7. &lt;b&gt;SONRAKİ&lt;/b&gt; butonuna tıklayın.&lt;br&gt;
 8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil değildir</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı sorunu</string>
-    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike, YouTube'un 2021'de gizlediği dislike sayılarını geri getirir. Sayılar, kaldırma işleminden önce arşivlenen verilerden gelir ve daha yeni videolar için kullanıcıların oylarından tahmin edilir, bu nedenle yaklaşıktır ve birkaç günde bir güncellenir
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike, YouTube'nin 2021 yılında gizlediği beğenilmeme sayılarını geri getirir. Sayılar, kaldırılmasından önce arşivlenen verilerden gelir ve yeni videolar için kullanıcılarının oylarından tahmin edilir, bu nedenle yaklaşık sayılardır ve her birkaç gün güncellenir
 
-İzlediğiniz videonun kimliği Return YouTube Dislike API'sine gönderilir ve beğenileriniz ve beğenmeme işlemleriniz, tahminleri iyileştirmek için anonim olarak gönderilir.}],\"action\":\"translate\"}"</string>
+İzlediğiniz videonun kimliği Return YouTube Dislike API'sine gönderilir, ayrıca tahminleri iyileştirmek için beğeni ve beğenmeme işlemleriniz anonim olarak gönderilir"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Yer kazanmak için Beğen düğmesinin genişliğini azaltır</string>
     <string name="revanced_ryd_compact_layout_title">Ufak Beğen düğmesi kullan</string>

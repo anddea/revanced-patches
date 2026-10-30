@@ -160,6 +160,7 @@ Lirik berasal dari layanan pihak ketiga yang tidak berafiliasi, disponsori, atau
     <string name="morphe_music_lyrics_ai_config_extra_body_label">Body permintaan tambahan (JSON opsional)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">Beri nama dan nilai tanda kutip, mis. {\"api-key\": \"abc\"}. Nilai tanpa tanda kutip yang mengandung / : atau angka ditolak. Nilai kosong menghapus header</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">Header permintaan ekstra (JSON opsional)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Ambil model</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Gagal mengambil model. Periksa kunci API atau koneksi</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">Pilih Model</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">Mengambil model…</string>
@@ -170,8 +171,9 @@ Lirik berasal dari layanan pihak ketiga yang tidak berafiliasi, disponsori, atau
     <string name="morphe_music_lyrics_ai_config_status_invalid">Pengaturan tidak lengkap atau ditolak oleh penyedia</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">URL dasar harus diawali dengan http:// atau https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Memvalidasi koneksi…</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Uji koneksi</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Setelan Terjemahan &amp; Romanisasi disimpan</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Placeholder: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Placeholder: {task}, {language}, {title}, {artist}, {count}, {lines}. Yang tidak dikenal akan tetap seperti yang diketik</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Templat Prompt</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Permintaan disimpan, tetapi endpoint AI belum dapat digunakan. Konfigurasikan terlebih dahulu di Pengaturan AI</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt diatur ulang</string>
@@ -209,7 +211,6 @@ Lirik berasal dari layanan pihak ketiga yang tidak berafiliasi, disponsori, atau
     <string name="morphe_music_lyrics_local_romanization_dict_building">Membaca %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Kata Tionghoa (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Transliterasi Yunani, Slavia Cyrillic (termasuk Rusia, Ukraina, Bulgaria, Serbia, Belarusia, Makedonia), Georgia, Armenia, Ibrani, Arab, Amharik, dan Syria (CLDR, ~0,5 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Pilih setidaknya satu kamus</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Pengunduhan gagal - matikan dan nyalakan kembali untuk mencoba lagi</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Jepang (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Pembacaan siap (%1$d entri)</string>

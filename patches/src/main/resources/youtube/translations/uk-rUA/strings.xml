@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Призупиняти, якщо не підключено бездротовий звук</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Автоматично призупиняти, коли пристрій заблоковано</string>
     <string name="morphe_auto_translate_additional_languages_summary">Додає більше мов до меню автоперекладу</string>
-    <string name="morphe_auto_translate_additional_languages_title">Додати додаткові мови автоперекладу</string>
+    <string name="morphe_auto_translate_additional_languages_title">Додаткові мови автоперекладу</string>
+    <string name="morphe_caption_block_translation_failed">Деякі переклади субтитрів недоступні. Показано доступні субтитри</string>
+    <string name="morphe_caption_blocks_too_large">Обидві мови субтитрів не вміщуються в цьому плеєрі. Показано основну мову</string>
+    <string name="morphe_caption_scale_summary">Застосовується до одномовних і двомовних субтитрів</string>
+    <string name="morphe_caption_scale_title">Розмір субтитрів</string>
+    <string name="morphe_captions_screen_summary">Керування автоматичними субтитрами та cookies субтитрів</string>
+    <string name="morphe_captions_screen_title">Субтитри</string>
     <string name="morphe_copy_comments_success">Коментар скопійовано в буфер обміну</string>
     <string name="morphe_copy_comments_summary">Натисніть і утримуйте коментар, щоб скопіювати його</string>
     <string name="morphe_copy_comments_title">Копіювати коментарі</string>
+    <string name="morphe_copy_select_text_copy_all">Копіювати все</string>
+    <string name="morphe_copy_select_text_dialog_title">Вибрати текст</string>
+    <string name="morphe_copy_select_text_success">Текст скопійовано в буфер обміну</string>
+    <string name="morphe_copy_select_text_summary">Натисніть і утримуйте опис відео або допис, щоб вибрати та скопіювати будь-яку його частину</string>
+    <string name="morphe_copy_select_text_title">Вибирати текст описів та дописів</string>
     <string name="morphe_copy_video_title_success">Назву відео скопійовано в буфер обміну</string>
     <string name="morphe_copy_video_title_summary">Натисніть і утримуйте назву відео, щоб скопіювати</string>
     <string name="morphe_copy_video_title_title">Копіювати назву відео</string>
@@ -106,6 +117,7 @@
     <string name="morphe_disable_system_splash_title">Вимкнути системну заставку</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Показує \"Підписки\" на панелі навігації, якщо YouTube переносить їх на вкладку вгорі \"Головної\"</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Вимкнути вкладки навігації на панелі інструментів</string>
+    <string name="morphe_dual_captions_enabled_title">Двомовні субтитри</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -116,7 +128,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">Якщо це не працює, спробуйте примусово закрити MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">Натискання та утримування будь-де на відео в стрічці відкриває його меню</string>
     <string name="morphe_feed_long_press_menu_title">Натисніть та утримуйте, щоб відкрити меню відео</string>
-    <string name="morphe_feed_watch_later_button_summary">Кнопка \"Дивитися пізніше\" показується на мініатюрах відео в стрічці. Натискання та утримування її відкриває \"Зберегти в список відтворення\"</string>
+    <string name="morphe_feed_watch_later_button_summary">Кнопка \"Дивитися пізніше\" показується на мініатюрах відео в стрічці, із галочкою, якщо відео збережено. Натискання зберігає або видаляє відео, а натискання та утримування відкриває \"Зберегти в список відтворення\"</string>
     <string name="morphe_feed_watch_later_button_title">Показувати кнопку \"Дивитися пізніше\" на мініатюрах</string>
     <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\" або \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
@@ -193,6 +205,32 @@
     <string name="morphe_hide_youtube_works_menu_title">Приховати меню \"Як працює YouTube\"</string>
     <string name="morphe_light_theme_custom_color_title">Власний колір світлої теми</string>
     <string name="morphe_light_theme_title">Світла тема</string>
+    <string name="morphe_live_chat_translate_bold_summary">Показує перекладений текст жирним шрифтом</string>
+    <string name="morphe_live_chat_translate_bold_title">Жирний шрифт для перекладеного тексту</string>
+    <string name="morphe_live_chat_translate_color_summary">Задайте hex-колір перекладеного тексту</string>
+    <string name="morphe_live_chat_translate_color_title">Колір перекладеного тексту</string>
+    <string name="morphe_live_chat_translate_copied">Повідомлення скопійовано в буфер обміну</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Додає невелику кнопку копіювання до кожного повідомлення чату</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Показувати кнопку копіювання повідомлення</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Ваш API-ключ DeepL. Google Translate використовується, якщо DeepL не працює, наприклад, коли досягнуто місячного ліміту ключа</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">API-ключ DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Коди мов, розділені комами, наприклад id,en. Повідомлення цими мовами не перекладаються</string>
+    <string name="morphe_live_chat_translate_exclude_title">Виключені мови</string>
+    <string name="morphe_live_chat_translate_language_title">Мова перекладу</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Без обмежень</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Довші повідомлення показуються без перекладу</string>
+    <string name="morphe_live_chat_translate_max_length_title">Максимальна довжина повідомлення</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Перекладати повідомлення живого чату та повтору чату</string>
+    <string name="morphe_live_chat_translate_screen_title">Переклад живого чату</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Оригінал (переклад)</string>
+    <string name="morphe_live_chat_translate_style_title">Стиль перекладу</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Переклад) оригінал</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Лише переклад</string>
+    <string name="morphe_live_chat_translate_summary">Перекладає повідомлення живого чату та повтору чату, щойно вони з\'являються на екрані</string>
+    <string name="morphe_live_chat_translate_title">Перекладати живий чат</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Застосовує власний колір до перекладеного тексту</string>
+    <string name="morphe_live_chat_translate_use_color_title">Власний колір перекладеного тексту</string>
     <string name="morphe_livestream_dvr_not_available">"\"Увімкнути DVR для прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -250,7 +288,7 @@
     <string name="morphe_potoken_provider_title">Провайдер PoToken</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
 ​Щоб використовувати цю функцію, вимкніть \' Підміна відеопотоків \'"</string>
-    <string name="morphe_preferred_caption_language_summary">Спочатку вибирає субтитри постачальника, потім автоматично перекладає їх на бажану мову</string>
+    <string name="morphe_preferred_caption_language_summary">Автоматично вибирає мову субтитрів для кожного відео</string>
     <string name="morphe_preferred_caption_language_title">Бажана мова субтитрів</string>
     <string name="morphe_queue_manager_check_failed_auth">Не увійшли в систему</string>
     <string name="morphe_queue_manager_check_failed_video_id">Немає ID відео</string>
@@ -278,10 +316,6 @@
     <string name="morphe_save_to_watch_later_button_title">Показати кнопку \"Зберегти для перегляду пізніше\"</string>
     <string name="morphe_save_to_watch_later_error_toast">Не вдалося зберегти це відео у списку відтворення \"Подивитися пізніше\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">\"Зберегти для перегляду пізніше\"</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Дозволяє зберегти відео для дітей у \"Дивитися пізніше\" зі спливного меню</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Показувати кнопку \"Зберегти для перегляду пізніше\" у дитячих відео</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Дозволяє зберегти Shorts в \"Дивитися пізніше\" зі спливного меню</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Показувати кнопку \"Зберегти в \'Дивитися пізніше\'\" у спливному меню Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Відео збережено у списку відтворення \"Подивитися пізніше\"</string>
     <string name="morphe_search_comments_applied">Змініть порядок сортування або відкрийте коментарі знову, щоб здійснити в них пошук</string>
     <string name="morphe_search_comments_clear">Очистити</string>
@@ -289,6 +323,8 @@
     <string name="morphe_search_comments_hint">Слова для пошуку</string>
     <string name="morphe_search_comments_summary">Натисніть кнопку пошуку в коментарях, щоб показати лише завантажені коментарі, які містять усі шукані слова. Візьміть слова в лапки, щоб шукати фразу</string>
     <string name="morphe_search_comments_title">Пошук у коментарях</string>
+    <string name="morphe_secondary_caption_language_summary">Показує другу мову разом із субтитрами та додає перемикач \"Двомовні субтитри\" до меню субтитрів</string>
+    <string name="morphe_secondary_caption_language_title">Додаткова мова субтитрів</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Найпопулярніші моменти</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Показує мініатюру відео під час перетягування смуги відтворення</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Увімкнути мініатюри на смузі перемотування</string>
@@ -371,6 +407,8 @@
 
 Якщо Ви користуєтеся YouTube Premium, ця опція може бути не потрібна"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Вимкнення цього налаштування може спричинити проблеми з відтворенням</string>
+    <string name="morphe_stable_caption_blocks_summary">Групує одномовні автоматичні субтитри в стабільні, читабельні блоки. Двомовні субтитри завжди використовують блоки. Деякі слова можуть з\'являтися до того, як їх вимовлять</string>
+    <string name="morphe_stable_caption_blocks_title">Стабільні блоки субтитрів</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Натисніть для параметрів черги, утримуйте, щоб зберегти до \"Переглянути пізніше\"</string>
     <string name="morphe_swap_save_and_queue_actions_title">Поміняти місцями кнопки \"Зберегти\" та \"Додати в чергу\"</string>
     <string name="morphe_tablet_layout_in_player_summary">"Відновлює старий макет плеєра

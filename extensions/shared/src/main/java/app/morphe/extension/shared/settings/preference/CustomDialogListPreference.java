@@ -160,6 +160,11 @@ public class CustomDialogListPreference extends ListPreference {
         this.newEntryColor = color;
     }
 
+    /** Removes an acknowledged option from subsequent dialog instances. */
+    void removeNewEntryValue(String value) {
+        if (newEntryValues != null) newEntryValues.remove(value);
+    }
+
     /**
      * Returns entries for display in the dialog.
      * If highlighted entries exist, they are used; otherwise, the original entries are returned.
@@ -419,6 +424,7 @@ public class CustomDialogListPreference extends ListPreference {
 
         // Show the dialog.
         dialog.show();
+        NewSettingsIndicator.watchVisibleEntries(listView, this, entriesToShow, entryValues);
     }
 
     /**

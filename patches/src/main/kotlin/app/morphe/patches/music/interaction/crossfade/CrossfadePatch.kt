@@ -521,6 +521,7 @@ val crossfadePatch = bytecodePatch(
         // resolve to the concrete implementation via Fingerprint.
         val sharedStateClass = if (AccessFlags.INTERFACE.isSet(sharedStateInterfaceClass.accessFlags)) {
             Fingerprint(
+                name = "<init>",
                 interfaces = listOf(sharedStateFieldRef.type),
                 custom = { _, classDef ->
                     !AccessFlags.INTERFACE.isSet(classDef.accessFlags)
@@ -542,6 +543,7 @@ val crossfadePatch = bytecodePatch(
             || AccessFlags.ABSTRACT.isSet(sharedCallbackInterfaceClass.accessFlags)
         ) {
             Fingerprint(
+                name = "<init>",
                 custom = { _, classDef ->
                     !AccessFlags.INTERFACE.isSet(classDef.accessFlags)
                         && !AccessFlags.ABSTRACT.isSet(classDef.accessFlags)
@@ -586,6 +588,7 @@ val crossfadePatch = bytecodePatch(
         // Video surface - resolved by finding a class that holds an ExoPlayer field
         // and is itself a field on the coordinator (not one of the already-known types).
         val videoSurfaceClass = Fingerprint(
+            name = "<init>",
             custom = { _, classDef ->
                 !AccessFlags.INTERFACE.isSet(classDef.accessFlags)
                     && classDef.fields.any { it.type == EXO_PLAYER_TYPE }
@@ -797,6 +800,7 @@ val crossfadePatch = bytecodePatch(
         // and no interfaces (rules out the inner engine handler cqb which also matches field counts).
         val exoImplFields = allFieldsInHierarchy(exoPlayerImplClass.type)
         val playbackInfoClass = Fingerprint(
+            name = "<init>",
             custom = { _, classDef ->
                 classDef.interfaces.isEmpty()
                     && classDef.fields.count { it.type == "I" } >= 3
@@ -1728,8 +1732,7 @@ val crossfadePatch = bytecodePatch(
         // class instead. A public field (9.15) keeps the original direct iput.
         val guardFieldToClear = guardField
         val guardTypeToClear = guardAbstractType
-        val guardNeedsHelper = guardFieldToClear != null && guardTypeToClear != null
-            && !AccessFlags.PUBLIC.isSet(guardFieldToClear.accessFlags)
+        val guardNeedsHelper = guardFieldToClear != null && !AccessFlags.PUBLIC.isSet(guardFieldToClear.accessFlags)
         if (guardNeedsHelper) {
             val helperType = guardTypeToClear!!
             mutableClassDefBy(helperType).methods.add(

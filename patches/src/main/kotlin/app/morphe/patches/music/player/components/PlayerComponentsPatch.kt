@@ -656,7 +656,7 @@ val playerComponentsPatch = bytecodePatch(
                         .getInstruction<ReferenceInstruction>().reference
                 val colorMathPlayerIGetReference =
                     legacyToggleMatch.instructionMatches[4]
-                        .getInstruction<ReferenceInstruction>().reference as FieldReference
+                        .fieldReference
 
                 val constructor = ModernMiniPlayerConstructorFingerprint.method
                 val colorGreyIndex = constructor.indexOfFirstInstructionReversedOrThrow {

@@ -307,8 +307,8 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(returnType: String): String {
-            methodOrThrow().apply {
+        fun Fingerprint.getPlayerResponseInstruction(returnType: String): String {
+            method.apply {
                 val targetReference = getInstruction<ReferenceInstruction>(
                     indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
@@ -321,6 +321,9 @@ val videoInformationPatch = bytecodePatch(
                 return "invoke-interface {v$REGISTER_PLAYER_RESPONSE_MODEL}, $targetReference"
             }
         }
+
+        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(returnType: String): String =
+            second.getPlayerResponseInstruction(returnType)
 
         videoEndFingerprint.methodOrThrow().apply {
             findMethodOrThrow(definingClass).let {
@@ -346,7 +349,7 @@ val videoInformationPatch = bytecodePatch(
             )
         }
 
-        mdxPlayerDirectorSetVideoStageFingerprint.methodOrThrow().apply {
+        mdxPlayerDirectorSetVideoStageFingerprint.method.apply {
             findMethodOrThrow(definingClass).let {
                 mdxConstructorMethod = it
                 mdxConstructorInsertIndex = it.indexOfFirstInstructionOrThrow {
@@ -359,7 +362,7 @@ val videoInformationPatch = bytecodePatch(
 
             // Create extension interface methods.
             addSeekInterfaceMethods(
-                mdxPlayerDirectorSetVideoStageFingerprint.mutableClassOrThrow(),
+                mdxPlayerDirectorSetVideoStageFingerprint.classDef,
                 this,
                 seekSourceMethodName,
                 "overrideMDXVideoTime",

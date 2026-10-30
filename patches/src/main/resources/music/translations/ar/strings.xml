@@ -40,6 +40,7 @@
     <string name="morphe_crossfade_duration_750ms">750 جزء من الثانية</string>
     <string name="morphe_crossfade_duration_8000ms">8 ثوانٍ</string>
     <string name="morphe_crossfade_duration_9000ms">9 ثوانٍ</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Arabic</string>
     <string name="morphe_custom_branding_icon_title">أيقونة التطبيق</string>
     <string name="morphe_custom_branding_name_title">اسم التطبيق</string>
     <string name="morphe_dark_theme_title">مظهر مظلم</string>
@@ -143,6 +144,7 @@
     <string name="morphe_music_lyrics_ai_config_extra_body_label">جسم طلب إضافي (JSON اختياري)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">قم بوضع علامات الاقتباس على الأسماء والقيم، على سبيل المثال {\"api-key\": \"abc\"}. يتم رفض القيمة غير المشمولة بعلامتي اقتباس تحتوي على / : أو رقم. القيمة الفارغة تزيل الرأس</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">رؤوس الطلب الإضافية (JSON اختياري)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">جلب النماذج</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">فشل جلب النماذج. تحقق من مفتاح API أو الاتصال</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">اختر نموذجاً</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">جاري جلب النماذج...</string>
@@ -153,8 +155,9 @@
     <string name="morphe_music_lyrics_ai_config_status_invalid">الإعدادات غير مكتملة أو تم رفضها من قبل المزود</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">يجب أن يبدأ عنوان URL الأساسي بـ http:// أو https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">جارٍ التحقق من الاتصال…</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">اختبار الاتصال</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">تم حفظ إعدادات الترجمة وRomanization</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">العناصر النائبة: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">عناصر نائبة: {task}، {language}، {title}، {artist}، {count}، {lines}. تترك العناصر غير المعروفة كما هي مكتوبة</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">قالب المطالبة</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">تم حفظ الموجه، لكن نقطة نهاية الذكاء الاصطناعي غير صالحة للاستخدام بعد. قم بتكوينها تحت إعدادات الذكاء الاصطناعي أولاً</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">تم إعادة تعيين المطالبة</string>
@@ -192,7 +195,6 @@
     <string name="morphe_music_lyrics_local_romanization_dict_building">جاري قراءة %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">الكلمات الصينية (pinyin-pro، ~17 ميغابايت)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">النقل الحرفي للغات اليونانية والسلافية السييريانية (بما في ذلك الروسية والأوكرانية والبلغارية والصربية والبيلاروسية والمقدونية)، والجورجية والأرمنية والعبرية والعربية والعفرية والسريانية (CLDR، ~0.5 ميغابايت)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">اختر قاموسًا واحدًا على الأقل</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">فشل التنزيل - قم بإيقاف هذا الأمر وتشغيله مرة أخرى للمحاولة مجددًا</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">اليابانية (SudachiDict، ~75 ميغابايت)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">القراءات جاهزة (%1$d إدخال)</string>
@@ -336,7 +338,7 @@
     <string name="morphe_music_lyrics_translated_by_ai">تمت الترجمة بواسطة %s</string>
     <string name="morphe_music_lyrics_translated_by_google">تمت الترجمة بواسطة Google</string>
     <string name="morphe_music_lyrics_translating">جارٍ الترجمة...</string>
-    <string name="morphe_music_lyrics_translation_language_title">لغة الترجمة</string>
+    <string name="morphe_music_lyrics_translation_language_title">Arabic</string>
     <string name="morphe_music_lyrics_translation_provider_title">الترجمة</string>
     <string name="morphe_music_lyrics_translation_target_language">"لغة هدف الترجمة:
 %s"</string>

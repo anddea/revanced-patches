@@ -822,9 +822,9 @@ val shortsAutoplayPatch = bytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         // Variable names are only a rough guess of what these methods do.
         val userActionMethodReference = ReelPlaybackFingerprint.instructionMatches[1]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
+            .methodReference
         val reelSequenceControllerMethodReference = ReelPlaybackFingerprint.instructionMatches[2]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
+            .methodReference
 
         ReelPlaybackRepeatFingerprint.method.apply {
             // Find the first call modified by extension code above.

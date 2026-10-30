@@ -22,6 +22,7 @@ import app.morphe.patches.youtube.utils.patch.PatchList.SEARCH_COMMENTS
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.Utils.printWarn
@@ -55,7 +56,13 @@ val searchCommentsPatch = bytecodePatch(
             execute {
                 copyResources(
                     "searchcomments",
-                    ResourceGroup("drawable", "morphe_search_comments_button.xml")
+                    ResourceGroup(
+                        "drawable",
+                        "morphe_search_comments_button.xml",
+                        "morphe_search_comments_button_active.xml",
+                        "morphe_search_comments_button_bold.xml",
+                        "morphe_search_comments_button_active_bold.xml"
+                    )
                 )
             }
         }
@@ -64,10 +71,8 @@ val searchCommentsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
-        // Older section-list controllers do not expose the list-view field used by the reload bridge.
-        // Do not install the filter or expose a setting when its controller bridge cannot be added.
-        if (!is_20_05_or_greater) {
-            printWarn("\"Search comments\" is not supported in this version. Use YouTube 20.05 or greater.")
+        if (!is_19_25_or_greater) {
+            printWarn("\"Search comments\" is not supported in this version. Use YouTube 19.28 or greater.")
             return@execute
         }
 
@@ -103,17 +108,27 @@ val searchCommentsPatch = bytecodePatch(
         // The comments are reloaded after a search, as when the sort order is changed,
         // so the search applies to all of them.
         val refreshMatches = SectionListRefreshFingerprint.instructionMatches
-        val reloadContinuationType = refreshMatches.first().getFieldAccessed()
+        val reloadContinuationType = refreshMatches.first().fieldReference
         val hasContinuationMethod = refreshMatches[1].getMethodCalled()
         val reloadMethod = refreshMatches.last().getMethodCalled()
-        val listViewField = SectionListControllerConstructorFingerprint.instructionMatches.first().getFieldAccessed()
+        val constructor = if (is_20_05_or_greater) SectionListControllerConstructorFingerprint
+            else SectionListLegacyConstructorFingerprint
+        val getListView = if (is_20_05_or_greater) {
+            val field = constructor.instructionMatches.first().fieldReference
+            "iget-object v0, p0, $field"
+        } else {
+            """
+                invoke-virtual { p0 }, ${SectionListViewFingerprint.method}
+                move-result-object v0
+            """
+        }
 
-        mutableClassDefBy(listViewField.definingClass).apply {
+        mutableClassDefBy(constructor.method.definingClass).apply {
             interfaces.add(SECTION_LIST_ACCESS_INTERFACE)
             addBridge(
                 "patch_getListView", listOf(), "Landroid/view/View;", 2,
                 """
-                    iget-object v0, p0, $listViewField
+                    $getListView
                     return-object v0
                 """
             )
@@ -131,7 +146,7 @@ val searchCommentsPatch = bytecodePatch(
             )
         }
 
-        SectionListControllerConstructorFingerprint.let {
+        constructor.let {
             it.method.apply {
                 addInstruction(
                     it.instructionMatches.last().index,

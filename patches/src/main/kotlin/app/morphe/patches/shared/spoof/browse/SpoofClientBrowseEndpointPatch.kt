@@ -11,7 +11,6 @@ import app.morphe.patches.shared.authenticationChangeListenerFingerprint
 import app.morphe.patches.shared.clientTypeFingerprint
 import app.morphe.patches.shared.indexOfClientInfoInstruction
 import app.morphe.patches.shared.indexOfMessageLiteBuilderReference
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -31,7 +30,7 @@ val spoofClientBrowseEndpointPatch = bytecodePatch(
     description = "spoofClientBrowseEndpointPatch"
 ) {
     execute {
-        clientTypeFingerprint.methodOrThrow().apply {
+        clientTypeFingerprint.method.apply {
             val clientInfoIndex = indexOfClientInfoInstruction(this)
             val messageLiteBuilderIndex =
                 indexOfFirstInstructionReversedOrThrow(clientInfoIndex) {
@@ -45,7 +44,7 @@ val spoofClientBrowseEndpointPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(messageLiteBuilderIndex).reference as FieldReference
         }
 
-        authenticationChangeListenerFingerprint.methodOrThrow().apply {
+        authenticationChangeListenerFingerprint.method.apply {
             val messageLiteBuilderIndex =
                 indexOfMessageLiteBuilderReference(this, messageLiteBuilderField.definingClass)
 

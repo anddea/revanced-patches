@@ -59,10 +59,21 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">ওয়্যারলেস অডিও সংযুক্ত না থাকলে বিরতি</string>
     <string name="morphe_auto_pause_on_screen_lock_title">ডিভাইস লক থাকলে স্বয়ংক্রিয়ভাবে বিরতি</string>
     <string name="morphe_auto_translate_additional_languages_summary">অটো-অনুবাদ মেনুতে আরও বেশি ভাষা যোগ করে</string>
-    <string name="morphe_auto_translate_additional_languages_title">অতিরিক্য অটো-অনুবাদ ভাষা যোগ করুন</string>
+    <string name="morphe_auto_translate_additional_languages_title">অতিরিক্ত অটো-ট্রান্সলেট ভাষা</string>
+    <string name="morphe_caption_block_translation_failed">কিছু ক্যাপশন অনুবাদ অনুপলব্ধ। উপলব্ধ ক্যাপশনগুলো দেখানো হচ্ছে।</string>
+    <string name="morphe_caption_blocks_too_large">উভয় ক্যাপশন ভাষা এই প্লেয়ারে ধরে যাচ্ছে না। প্রাথমিক ভাষা দেখানো হচ্ছে।</string>
+    <string name="morphe_caption_scale_summary">একক-ভাষা এবং দ্বিভাষিক ক্যাপশনের ক্ষেত্রে প্রযোজ্য</string>
+    <string name="morphe_caption_scale_title">ক্যাপশনের আকার</string>
+    <string name="morphe_captions_screen_summary">স্বয়ংক্রিয় ক্যাপশন এবং ক্যাপশন কুকি পরিচালনা করুন</string>
+    <string name="morphe_captions_screen_title">ক্যাপশন</string>
     <string name="morphe_copy_comments_success">মন্তব্য ক্লিপবোর্ডে কপি করা হয়েছে</string>
     <string name="morphe_copy_comments_summary">একটি মন্তব্য কপি করতে ট্যাপ করে ধরে রাখুন</string>
     <string name="morphe_copy_comments_title">মন্তব্য কপি করুন</string>
+    <string name="morphe_copy_select_text_copy_all">সব কপি করুন</string>
+    <string name="morphe_copy_select_text_dialog_title">টেক্সট নির্বাচন করুন</string>
+    <string name="morphe_copy_select_text_success">টেক্সট ক্লিপবোর্ডে অনুলিপি করা হয়েছে</string>
+    <string name="morphe_copy_select_text_summary">কোনো ভিডিওর বর্ণনা বা পোস্টের যেকোনো অংশ নির্বাচন এবং কপি করতে সেটি চেপে ধরে রাখুন</string>
+    <string name="morphe_copy_select_text_title">বর্ণনা এবং পোস্টের টেক্সট নির্বাচন করুন</string>
     <string name="morphe_copy_video_title_success">ভিডিওর শিরোনাম ক্লিপবোর্ডে কপি করা হয়েছে</string>
     <string name="morphe_copy_video_title_summary">ভিডিওর শিরোনাম কপি করতে ট্যাপ করে ধরে রাখুন</string>
     <string name="morphe_copy_video_title_title">ভিডিওর শিরোনাম কপি করুন</string>
@@ -94,6 +105,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_disable_scrolling_speed_limit_title">স্ক্রলিং গতির সীমা অক্ষম করুন</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">যদি YouTube এটিকে হোমের উপরের একটি ট্যাবে সরিয়ে নেয়, তবে এটি নেভিগেশন বারে সাবস্ক্রিপশনগুলো দেখাবে</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">টুলবার নেভিগেশন ট্যাব নিষ্ক্রিয় করুন</string>
+    <string name="morphe_dual_captions_enabled_title">দ্বিভাষিক ক্যাপশন</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'লাইভ স্ট্রিম ডিভিআর সময়কাল বাড়ান' উপলব্ধ নাও হতে পারে
 
 এটি ঠিক করতে, 'ভিডিও স্ট্রিম স্পুফ করুন' চালু করুন এবং 'ডিফল্ট ক্লায়েন্ট' পরিবর্তন করে 'TV Simply' বা 'visionOS' করুন"</string>
@@ -104,7 +116,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_external_potoken_provider_user_dialog_message">যদি এটি কাজ না করে, তাহলে MicroG জোর করে বন্ধ করার চেষ্টা করুন।</string>
     <string name="morphe_feed_long_press_menu_summary">ফিডের যেকোনো ভিডিওতে ট্যাপ করে ধরে রাখলে এর মেনুটি খুলে যায়</string>
     <string name="morphe_feed_long_press_menu_title">ভিডিও মেনু খুলতে ট্যাপ করুন এবং ধরে রাখুন</string>
-    <string name="morphe_feed_watch_later_button_summary">ফিড ভিডিওর থাম্বনেইলগুলিতে একটি \'পরে দেখুন\' বাটন দেখানো হয়। এটি ট্যাপ করে ধরে রাখলে প্লেলিস্টে সংরক্ষণ করা হয়</string>
+    <string name="morphe_feed_watch_later_button_summary">ফিড ভিডিওর থাম্বনেইলে একটি \'পরে দেখুন\' বোতাম দেখানো হয়, এবং ভিডিওটি সংরক্ষিত থাকলে একটি চেক মার্ক থাকে। এতে ট্যাপ করলে ভিডিওটি সংরক্ষণ বা সরিয়ে ফেলা হয়, এবং ট্যাপ করে ধরে রাখলে \'প্লেলিস্টে সংরক্ষণ করুন\' অপশনটি খোলে</string>
     <string name="morphe_feed_watch_later_button_title">থাম্বনেইলগুলিতে \'পরে দেখুন\' বাটন দেখান</string>
     <string name="morphe_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'ভিডিও স্ট্রিম স্পুফ করুন\' \'Android Studio\' এবং \'Android VR Downgraded\' ছাড়া অন্য কোনো ক্লায়েন্টে পরিবর্তন করুন</string>
     <string name="morphe_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
@@ -179,6 +191,32 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_hide_youtube_premium_menu_title">YouTube প্রিমিয়াম প্রচারণা লুকান</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube স্টুডিও মেনু লুকান</string>
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube à®à®°à® à®à®à®®à®¨à¯\' à®®à®¨à¯</string>
+    <string name="morphe_live_chat_translate_bold_summary">অনুবাদিত টেক্সটটি বোল্ড করে দেখায়</string>
+    <string name="morphe_live_chat_translate_bold_title">অনুবাদিত টেক্সট বোল্ড করুন</string>
+    <string name="morphe_live_chat_translate_color_summary">অনুবাদিত টেক্সটের হেক্স কালার সেট করুন</string>
+    <string name="morphe_live_chat_translate_color_title">অনুবাদিত টেক্সট কালার</string>
+    <string name="morphe_live_chat_translate_copied">মেসেজ ক্লিপবোর্ডে কপি করা হয়েছে</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">প্রতিটি চ্যাট মেসেজে একটি ছোট কপি বোতাম যোগ করে</string>
+    <string name="morphe_live_chat_translate_copy_button_title">মেসেজ কপি বোতাম দেখান</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">আপনার DeepL API কী। DeepL ব্যর্থ হলে, যেমন যখন কী-এর মাসিক সীমা শেষ হয়ে যায়, তখন Google Translate ব্যবহৃত হয়</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API কী</string>
+    <string name="morphe_live_chat_translate_exclude_summary">কমা দিয়ে আলাদা করা ল্যাঙ্গুয়েজ কোড যেমন id,en। এই ভাষাগুলোর মেসেজ অনুবাদ করা হবে না</string>
+    <string name="morphe_live_chat_translate_exclude_title">বাদ দেওয়া ভাষা</string>
+    <string name="morphe_live_chat_translate_language_title">অনুবাদ ভাষা</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">কোন সীমা নেই</string>
+    <string name="morphe_live_chat_translate_max_length_summary">বেশি লম্বা মেসেজগুলো অনুবাদহীন অবস্থায় দেখানো হয়</string>
+    <string name="morphe_live_chat_translate_max_length_title">মেসেজের সর্বোচ্চ দৈর্ঘ্য</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">লাইভ চ্যাট এবং লাইভ চ্যাট রিপ্লে মেসেজ অনুবাদ করুন</string>
+    <string name="morphe_live_chat_translate_screen_title">লাইভ চ্যাট অনুবাদ</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">মূল (অনুবাদিত)</string>
+    <string name="morphe_live_chat_translate_style_title">অনুবাদ শৈলী</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(অনুবাদিত) মূল</string>
+    <string name="morphe_live_chat_translate_style_translated_only">শুধুমাত্র অনুবাদিত</string>
+    <string name="morphe_live_chat_translate_summary">লাইভ চ্যাট এবং লাইভ চ্যাট রিপ্লে মেসেজগুলো স্ক্রিনে আসার পর অনুবাদ করে</string>
+    <string name="morphe_live_chat_translate_title">লাইভ চ্যাট অনুবাদ করুন</string>
+    <string name="morphe_live_chat_translate_use_color_summary">অনুবাদিত টেক্সটে একটি কাস্টম কালার প্রয়োগ করে</string>
+    <string name="morphe_live_chat_translate_use_color_title">কাস্টম অনুবাদের টেক্সট কালার</string>
     <string name="morphe_livestream_dvr_not_available">"'লাইভ স্ট্রিম ডিভিআর সক্রিয় করুন' উপলব্ধ নাও হতে পারে
 
 এটি ঠিক করতে, 'ভিডিও স্ট্রিম স্পুফ করুন' চালু করুন এবং 'ডিফল্ট ক্লায়েন্ট' পরিবর্তন করে 'TV Simply' বা 'visionOS' করুন"</string>
@@ -225,7 +263,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_post_image_download_started_single">ছবি ডাউনলোড করা হচ্ছে…</string>
     <string name="morphe_post_image_download_summary">ছবি বা GIF যুক্ত পোস্টের শেয়ার বাটনের পাশে একটি ডাউনলোড বাটন দেখানো হবে, এবং তাদের মেনুতে একটি ডাউনলোড আইটেম যোগ করা হবে</string>
     <string name="morphe_post_image_download_title">পোস্টের ছবি ডাউনলোড করুন</string>
-    <string name="morphe_preferred_caption_language_summary">প্রথমে প্রদানকারীর সাবটাইটেল নির্বাচন করে, তারপর স্বয়ংক্রিয়ভাবে পছন্দের ভাষায় অনুবাদ করে</string>
+    <string name="morphe_preferred_caption_language_summary">প্রতিটি ভিডিওর জন্য স্বয়ংক্রিয়ভাবে একটি ক্যাপশন ভাষা নির্বাচন করে</string>
     <string name="morphe_preferred_caption_language_title">পছন্দের ক্যাপশন ভাষা</string>
     <string name="morphe_queue_manager_check_failed_auth">লগইন করা হয়নি</string>
     <string name="morphe_queue_manager_check_failed_video_id">ভিডিও আইডি নেই</string>
@@ -253,10 +291,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_save_to_watch_later_button_title">পরে দেখুন-এ সেভ বাটন দেখান</string>
     <string name="morphe_save_to_watch_later_error_toast">এই ভিডিওটি পরে দেখার প্লেলিস্টে সেভ করা যায়নি</string>
     <string name="morphe_save_to_watch_later_flyout_title">পরে দেখুন-এ সেভ</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">ফ্লাইআউট মেনু থেকে \'পরে দেখুন\'-এ শিশু-সম্পর্কিত ভিডিও সংরক্ষণ করার অনুমতি দেয়</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">কিডস ভিডিওতে পরে দেখুন-এ সেভ বাটন দেখান</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">ফ্লাইআউট মেনু থেকে \'পরে দেখুন\'-এ শর্টস সংরক্ষণ করার অনুমতি দেয়</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">শর্টস ফ্লাইআউটে \'পরে দেখুন\'-এ সংরক্ষণ করার বোতাম দেখান</string>
     <string name="morphe_save_to_watch_later_success_toast">ভিডিওটি সফলভাবে পরে দেখার প্লেলিস্টে সেভ করা হয়েছে</string>
     <string name="morphe_search_comments_applied">সর্টিং অর্ডার পরিবর্তন করুন অথবা অনুসন্ধান করার জন্য পুনরায় মন্তব্যগুলো খুলুন</string>
     <string name="morphe_search_comments_clear">মুছে ফেলুন</string>
@@ -264,6 +298,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_search_comments_hint">অনুসন্ধান করার শব্দ</string>
     <string name="morphe_search_comments_summary">শুধুমাত্র লোড হওয়া সেই মন্তব্যগুলো দেখানোর জন্য মন্তব্যের সার্চ বাটনে ট্যাপ করুন যেগুলোতে অনুসন্ধান করা সমস্ত শব্দ রয়েছে। কোনো নির্দিষ্ট শব্দগুচ্ছ অনুসন্ধান করতে শব্দগুলোকে উদ্ধৃতি চিহ্নের মধ্যে রাখুন</string>
     <string name="morphe_search_comments_title">মন্তব্য অনুসন্ধান করুন</string>
+    <string name="morphe_secondary_caption_language_summary">ক্যাপশনের সাথে দ্বিতীয় একটি ভাষা দেখায় এবং ক্যাপশন মেনুতে একটি দ্বিভাষিক ক্যাপশন টগল যোগ করে</string>
+    <string name="morphe_secondary_caption_language_title">সেকেন্ডারি ক্যাপশন ভাষা</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">সবচেয়ে বেশি রিপ্লে করা</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">সীকবಾರ್ টেনে আনার সময় একটি ভিডিও থাম্বনেইল দেখায়</string>
     <string name="morphe_seekbar_thumbnail_preview_title">সিকবার থাম্বনেইল সক্ষম করুন</string>
@@ -344,6 +380,8 @@ AV1 দিয়ে ভিডিও প্লেব্যেকে বিড়�
 
 আপনি যদি YouTube Premium ব্যবহারকারী হন, তাহলে এই সেটিংটির প্রয়োজন নাও হতে পারে"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">এই সেটিং বন্ধ করলে প্লেব্যাক সমস্যা হতে পারে</string>
+    <string name="morphe_stable_caption_blocks_summary">একক-ভাষার স্বয়ংক্রিয় ক্যাপশনগুলিকে স্থিতিশীল, পাঠযোগ্য ব্লকে গ্রুপ করে। দ্বিভাষিক ক্যাপশন সবসময় ব্লক ব্যবহার করে। কিছু শব্দ উচ্চারণের আগেই প্রদর্শিত হতে পারে</string>
+    <string name="morphe_stable_caption_blocks_title">স্থিতিশীল ক্যাপশন ব্লক</string>
     <string name="morphe_swap_save_and_queue_actions_summary">কিউ অপশনের জন্য ট্যাপ করুন, ওয়াচ লেটারে সংরক্ষণ করতে ট্যাপ করে ধরে রাখুন</string>
     <string name="morphe_swap_save_and_queue_actions_title">সেভ এবং কিউ অ্যাকশনগুলির স্থান পরিবর্তন করুন</string>
     <string name="morphe_tablet_layout_in_player_summary">"পুরানো প্লেয়ার লেআউট ফিরিয়ে আনুন

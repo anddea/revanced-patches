@@ -453,7 +453,7 @@ val miniplayerPatch = bytecodePatch(
 
             MiniplayerHorizontalRepositionFingerprint.method.apply {
                 val previousRectParamFieldAccess = MiniplayerRectDragFieldsNameFingerprint
-                    .instructionMatches[1].instruction.getReference<FieldReference>()!!
+                    .instructionMatches[1].fieldReference
 
                 addInstructions(
                     0,

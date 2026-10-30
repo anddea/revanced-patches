@@ -29,8 +29,13 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.registersUsed
+import app.morphe.patches.shared.VideoStreamingDataConstructorFingerprint
+import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
+import app.morphe.patches.shared.misc.request.hookMediaRequest
+import app.morphe.patches.shared.misc.request.hookMediaResponseChunk
+import app.morphe.patches.shared.misc.request.mediaRequestPatch
 import app.morphe.patches.shared.misc.request.buildRequestPatch
 import app.morphe.patches.shared.misc.request.hookBuildRequest
 import app.morphe.patches.youtube.utils.patch.PatchList.SPOOF_VIDEO_STREAMS
@@ -49,7 +54,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -106,7 +110,8 @@ internal fun spoofVideoStreamsPatch(
     dependsOn(
         fixProtoLibraryPatch,
         spoofVideoStreamsResourcePatch,
-        buildRequestPatch
+        buildRequestPatch,
+        mediaRequestPatch
     )
 
     execute {
@@ -162,31 +167,35 @@ internal fun spoofVideoStreamsPatch(
             "$EXTENSION_CLASS->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
         )
 
+        // Make the media requests of the streams of TV clients name the TV client.
+        hookMediaRequest("$EXTENSION_CLASS->onMediaRequest", replacesRequest = true)
+        hookMediaResponseChunk("$EXTENSION_CLASS->onMediaResponseChunk")
+
         CreateStreamingDataFingerprint.let {
             it.method.apply {
                 val videoDetailsMatch = it.instructionMatches[5]
                 val videoDetailsIndex = videoDetailsMatch.index
                 val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
-                val videoDetailsClass = videoDetailsMatch.instruction.getReference<FieldReference>()!!.type
+                val videoDetailsClass = videoDetailsMatch.fieldReference.type
 
                 val playerProtoClass = parameterTypes.first().toString()
-                val getStreamingDataField = it.instructionMatches.first().instruction.getReference<FieldReference>()!!
-                val setStreamingDataField = it.instructionMatches[1].instruction.getReference<FieldReference>()!!
-                val setPlayerConfigField = it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+                val getStreamingDataField = it.instructionMatches.first().fieldReference
+                val setStreamingDataField = it.instructionMatches[1].fieldReference
+                val setPlayerConfigField = it.instructionMatches.last().fieldReference
                 val playerConfigClass = setPlayerConfigField.type
                 val (mediaCommonConfigField, mediaUstreamerRequestConfig) =
                     with(abrStateDataFingerprint(playerConfigClass)) {
                         Pair(
-                            instructionMatches[1].instruction.getReference<FieldReference>()!!,
-                            instructionMatches[2].instruction.getReference<FieldReference>()!!,
+                            instructionMatches[1].fieldReference,
+                            instructionMatches[2].fieldReference,
                         )
                     }
 
                 val (createBuilderMethod, mergeFromMethod) =
                     with(PlayerConfigBuilderFingerprint) {
                         Pair(
-                            instructionMatches[2].instruction.getReference<MethodReference>()!!,
-                            instructionMatches[4].instruction.getReference<MethodReference>()!!,
+                            instructionMatches[2].methodReference,
+                            instructionMatches[4].methodReference,
                         )
                     }
 
@@ -194,7 +203,7 @@ internal fun spoofVideoStreamsPatch(
                     with(PlayerConfigBuilderFingerprint) {
                         Pair(
                             instructionMatches[5].instruction.getReference<TypeReference>()!!,
-                            instructionMatches[6].instruction.getReference<MethodReference>()!!
+                            instructionMatches[6].methodReference
                         )
                     }
 
@@ -362,6 +371,11 @@ internal fun spoofVideoStreamsPatch(
             }
             val sabrFieldReference = getInstruction<ReferenceInstruction>(sabrFieldIndex).reference as FieldReference
 
+            // Several videos are set up at once, such as the next track of the queue,
+            // so the choice is made from the streams of the video the decision is for.
+            val videoStreamingDataType = VideoStreamingDataToStringFingerprint.classDef.type
+            val videoIdField = VideoStreamingDataConstructorFingerprint.instructionMatches[1].fieldReference
+
             Fingerprint(
                 returnType = definingClass,
                 filters = opcodesToFilters(
@@ -369,12 +383,15 @@ internal fun spoofVideoStreamsPatch(
                     Opcode.RETURN_OBJECT,
                 ),
                 custom = { method, _ ->
-                    !method.parameterTypes.isEmpty()
+                    // Player config and the streaming data of the video.
+                    method.parameterTypes.size == 2
+                            && method.parameterTypes[1].toString() == videoStreamingDataType
                 }
             ).method.addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { }, $EXTENSION_CLASS->disableSABR()Z
+                    iget-object v0, p2, $videoIdField
+                    invoke-static { v0 }, $EXTENSION_CLASS->disableSABR(Ljava/lang/String;)Z
                     move-result v0
                     if-eqz v0, :ignore
                     sget-object v0, $sabrFieldReference

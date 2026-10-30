@@ -111,7 +111,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
 
         PreferenceKeyFingerprint.let {
             val preferenceKeyField = it.instructionMatches.first()
-                .instruction.getReference<FieldReference>()!!
+                .fieldReference
 
             it.classDef.apply {
                 getPreferenceKeyMethod = ImmutableMethod(
@@ -139,7 +139,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
 
         FindPreferenceByIndexFingerprint.let {
             val getAllPreferenceField = it.instructionMatches.last()
-                .instruction.getReference<FieldReference>()!!
+                .fieldReference
 
             it.classDef.apply {
                 helperMethod = ImmutableMethod(

@@ -14,7 +14,12 @@ logger = logging.getLogger("xml_tools")
 
 
 def parse_keys_from_kotlin(file_path: Path) -> set[str]:
-    """Parse VisualPreferencesIcons.kt."""
+    """Parse preference keys, excluding map entries used as shared icon sources.
+
+    Shared icons may retain an old preference key after its XML preference is removed.
+    Both revanced_ and morphe_ preferences need validation; other entries such as
+    SponsorBlock keys are supplied outside revanced_prefs.xml.
+    """
     if not file_path.exists():
         logger.error("Kotlin file not found at '%s'", file_path)
         return set()
@@ -30,7 +35,11 @@ def parse_keys_from_kotlin(file_path: Path) -> set[str]:
         logger.warning("Could not find 'rvxPreferenceKey' map in the Kotlin file.")
     else:
         map_block = map_block_match.group(1)
-        rvx_keys.update(re.findall(r'"(revanced_[^"]+)"\s*to', map_block))
+        icon_map = dict(re.findall(r'"([^"]+)"\s*to\s*"([^"]+)"', map_block))
+        shared_icon_keys = set(icon_map.values()) & icon_map.keys()
+        rvx_keys.update(
+            key for key in icon_map if key.startswith(("revanced_", "morphe_")) and key not in shared_icon_keys
+        )
     logger.debug("Found %d keys in rvxPreferenceKey.", len(rvx_keys))
 
     # Parse emptyTitles

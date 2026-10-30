@@ -132,6 +132,11 @@ public final class LegacyLithoFilterPatch {
      * from {@link #bufferThreadLocal}, which existing legacy filters rely on.
      */
     private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<DirectByteBufferCache> directByteBufferCacheThreadLocal = new ThreadLocal<>();
+
+    /** Retains one copy while subcomponents share the same direct FlatBuffer. */
+    private record DirectByteBufferCache(ByteBuffer source, byte[] copy) { }
+
 
     static {
         for (Filter filter : filters) {
@@ -249,6 +254,40 @@ public final class LegacyLithoFilterPatch {
         directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
     }
 
+    /** @return The current component buffer for filters that also run before the v20.21 bridge. */
+    public static byte[] getDirectProtoBuffer() {
+        byte[] buffer = directBufferThreadLocal.get();
+        return buffer == null ? EMPTY_BYTE_ARRAY : buffer;
+    }
+
+    /**
+     * Injection point for Elements components backed by a FlatBuffer instead of UPB.
+     *
+     * <p>Direct buffers cannot expose an array. Copy them once per backing buffer and reuse the
+     * copy while its subcomponents are converted.</p>
+     */
+    public static void setDirectProtoBuffer(@Nullable ByteBuffer buffer) {
+        if (buffer == null) {
+            setDirectProtoBuffer(EMPTY_BYTE_ARRAY);
+            return;
+        }
+        if (buffer.hasArray()) {
+            setDirectProtoBuffer(buffer.array());
+            return;
+        }
+
+        DirectByteBufferCache cache = directByteBufferCacheThreadLocal.get();
+        if (cache == null || cache.source() != buffer) {
+            ByteBuffer duplicate = buffer.duplicate();
+            duplicate.clear();
+            byte[] copy = new byte[duplicate.remaining()];
+            duplicate.get(copy);
+            cache = new DirectByteBufferCache(buffer, copy);
+            directByteBufferCacheThreadLocal.set(cache);
+        }
+        setDirectProtoBuffer(cache.copy());
+    }
+
     /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
@@ -310,17 +349,6 @@ public final class LegacyLithoFilterPatch {
 
             if (identifierSearchTree.matches(identifier, parameter)
                     || pathSearchTree.matches(parameter.path, parameter)) {
-                // The root component of the element, such as 'identifier|CellType|',
-                // means that the whole element is hidden.
-                final int identifierLength = identifier == null ? 0 : identifier.length();
-                if (identifier != null && pathBuilder.length() > identifierLength + 1
-                        && pathBuilder.charAt(identifierLength) == '|'
-                        && pathBuilder.indexOf("|", identifierLength + 1) == pathBuilder.length() - 1
-                        && pathBuilder.indexOf(identifier) == 0) {
-                    if (object instanceof ContextInterface contextInterface) {
-                        LithoFilterPatch.removeListItem(contextInterface);
-                    }
-                }
                 return true;
             }
 

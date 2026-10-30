@@ -30,10 +30,10 @@ import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_FORM_FACTOR
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_22_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -64,7 +64,7 @@ val changeFormFactorPatch = bytecodePatch(
 
         val formFactorEnumClass = formFactorEnumConstructorFingerprint.originalClassDef.type
 
-        createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
+        createPlayerRequestBodyWithModelFingerprint.method.apply {
             val ordinalIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<FieldReference>()
                 opcode == Opcode.IGET &&
@@ -125,7 +125,7 @@ val changeFormFactorPatch = bytecodePatch(
             "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
             "SETTINGS: CHANGE_FORM_FACTOR",
         )
-        if (!is_20_22_or_greater) {
+        if (!is_20_22_or_greater || is_20_31_or_greater) {
             preferences += "SETTINGS: TABLET_LAYOUT_IN_PLAYER"
         }
         addPreference(preferences.toTypedArray(), CHANGE_FORM_FACTOR)

@@ -51,10 +51,21 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Tạm dừng trừ khi có thiết bị âm thanh không dây được kết nối</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Tạm dừng khi khóa thiết bị</string>
     <string name="morphe_auto_translate_additional_languages_summary">Thêm nhiều ngôn ngữ hơn vào menu tự dịch</string>
-    <string name="morphe_auto_translate_additional_languages_title">Thêm ngôn ngữ tự dịch bổ sung</string>
+    <string name="morphe_auto_translate_additional_languages_title">Các ngôn ngữ tự động dịch bổ sung</string>
+    <string name="morphe_caption_block_translation_failed">Một số bản dịch phụ đề không khả dụng. Đang hiển thị các phụ đề có sẵn</string>
+    <string name="morphe_caption_blocks_too_large">Cả hai ngôn ngữ phụ đề đều không vừa với trình phát này. Đang hiển thị ngôn ngữ chính</string>
+    <string name="morphe_caption_scale_summary">Áp dụng cho phụ đề đơn ngôn ngữ và song ngữ</string>
+    <string name="morphe_caption_scale_title">Kích thước phụ đề</string>
+    <string name="morphe_captions_screen_summary">Quản lý phụ đề tự động và cookie phụ đề</string>
+    <string name="morphe_captions_screen_title">Phụ đề</string>
     <string name="morphe_copy_comments_success">Đã sao chép bình luận vào bảng tạm</string>
     <string name="morphe_copy_comments_summary">Chạm và giữ một bình luận để sao chép</string>
     <string name="morphe_copy_comments_title">Sao chép bình luận</string>
+    <string name="morphe_copy_select_text_copy_all">Sao chép tất cả</string>
+    <string name="morphe_copy_select_text_dialog_title">Chọn văn bản</string>
+    <string name="morphe_copy_select_text_success">Đã sao chép văn bản vào bảng nhớ tạm</string>
+    <string name="morphe_copy_select_text_summary">Nhấn và giữ mô tả video hoặc một bài đăng để chọn và sao chép bất kỳ phần nào của nội dung đó</string>
+    <string name="morphe_copy_select_text_title">Chọn văn bản của mô tả và bài đăng</string>
     <string name="morphe_copy_video_title_success">Đã sao chép tiêu đề video vào bảng tạm</string>
     <string name="morphe_copy_video_title_summary">Chạm và giữ tiêu đề video để sao chép</string>
     <string name="morphe_copy_video_title_title">Sao chép tiêu đề video</string>
@@ -98,6 +109,7 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_disable_system_splash_title">Vô hiệu hóa màn hình khởi động hệ thống</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Hiển thị Mục đăng ký trong thanh điều hướng, nếu YouTube chuyển nó thành một tab ở đầu Trang chủ</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Vô hiệu hóa các tab điều hướng trên thanh công cụ</string>
+    <string name="morphe_dual_captions_enabled_title">Phụ đề song ngữ</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
 
 Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
@@ -108,7 +120,7 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_external_potoken_provider_user_dialog_message">Nếu nó không hoạt động, hãy thử buộc đóng MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">Chạm và giữ ở bất kỳ đâu trên video nguồn sẽ mở menu của video đó</string>
     <string name="morphe_feed_long_press_menu_title">Chạm và giữ để mở menu video</string>
-    <string name="morphe_feed_watch_later_button_summary">Nút Xem sau được hiển thị trên hình thu nhỏ của các video nguồn. Chạm và giữ vào nút này để lưu vào danh sách phát</string>
+    <string name="morphe_feed_watch_later_button_summary">Nút Xem sau được hiển thị trên hình thu nhỏ của các video trong nguồn cấp dữ liệu, với dấu kiểm nếu video đã được lưu. Nhấn vào nút này để lưu hoặc xóa video, và nhấn giữ để mở Lưu vào danh sách phát</string>
     <string name="morphe_feed_watch_later_button_title">Hiển thị nút Xem sau trên hình thu nhỏ</string>
     <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành bất kỳ client nào ngoại trừ \'Android Studio\' và \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
@@ -184,6 +196,32 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_hide_youtube_studio_menu_title">Ẩn menu YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">Ẩn menu \'Cách YouTube hoạt động\'</string>
     <string name="morphe_light_theme_custom_color_title">Tùy chỉnh cho giao diện sáng</string>
+    <string name="morphe_live_chat_translate_bold_summary">Hiển thị văn bản dịch ở dạng in đậm</string>
+    <string name="morphe_live_chat_translate_bold_title">In đậm văn bản dịch</string>
+    <string name="morphe_live_chat_translate_color_summary">Đặt màu hex cho văn bản dịch</string>
+    <string name="morphe_live_chat_translate_color_title">Màu văn bản dịch</string>
+    <string name="morphe_live_chat_translate_copied">Đã sao chép tin nhắn vào bảng nhớ tạm</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Thêm một nút sao chép nhỏ vào mỗi tin nhắn trò chuyện</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Hiện nút sao chép tin nhắn</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Khóa API DeepL của bạn. Google Translate sẽ được sử dụng nếu DeepL bị lỗi, ví dụ như khi đạt đến giới hạn hàng tháng của khóa</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">Khóa API DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Các mã ngôn ngữ cách nhau bởi dấu phẩy, ví dụ như id,en. Các tin nhắn bằng những ngôn ngữ này sẽ không được dịch</string>
+    <string name="morphe_live_chat_translate_exclude_title">Các ngôn ngữ bị loại trừ</string>
+    <string name="morphe_live_chat_translate_language_title">Ngôn ngữ dịch</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Không giới hạn</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Các tin nhắn dài hơn sẽ không được dịch</string>
+    <string name="morphe_live_chat_translate_max_length_title">Độ dài tin nhắn tối đa</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Dịch các tin nhắn trò chuyện trực tiếp và phát lại trò chuyện trực tiếp</string>
+    <string name="morphe_live_chat_translate_screen_title">Dịch trò chuyện trực tiếp</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Gốc (bản dịch)</string>
+    <string name="morphe_live_chat_translate_style_title">Kiểu dịch thuật</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Bản dịch) gốc</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Chỉ bản dịch</string>
+    <string name="morphe_live_chat_translate_summary">Dịch các tin nhắn trò chuyện trực tiếp và phát lại trò chuyện trực tiếp khi chúng xuất hiện trên màn hình</string>
+    <string name="morphe_live_chat_translate_title">Dịch trò chuyện trực tiếp</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Áp dụng màu tùy chỉnh cho văn bản dịch</string>
+    <string name="morphe_live_chat_translate_use_color_title">Màu văn bản dịch tùy chỉnh</string>
     <string name="morphe_livestream_dvr_not_available">"Việc bật 'DVR phát trực tiếp' có thể không khả dụng
 
 Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
@@ -242,7 +280,7 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_potoken_provider_unavailable_summary">"Khắc phục các vấn đề phát lại khi sử dụng trình cung cấp PoToken tích hợp (Thử nghiệm)
 
 Để sử dụng tính năng này, hãy tắt tùy chọn \'Giả lập luồng video\' (Spoof video streams)"</string>
-    <string name="morphe_preferred_caption_language_summary">Chọn phụ đề từ nhà cung cấp trước, sau đó tự động dịch sang ngôn ngữ ưa thích</string>
+    <string name="morphe_preferred_caption_language_summary">Tự động chọn ngôn ngữ phụ đề cho mỗi video</string>
     <string name="morphe_preferred_caption_language_title">Ngôn ngữ phụ đề ưa thích</string>
     <string name="morphe_queue_manager_check_failed_auth">Chưa đăng nhập</string>
     <string name="morphe_queue_manager_check_failed_video_id">Không có ID video</string>
@@ -270,10 +308,6 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_save_to_watch_later_button_title">Hiển thị nút Lưu vào Xem sau</string>
     <string name="morphe_save_to_watch_later_error_toast">Không thể lưu video này vào danh sách xem sau</string>
     <string name="morphe_save_to_watch_later_flyout_title">Lưu vào Xem sau</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Cho phép lưu video liên quan đến trẻ em vào \'Xem sau\' từ menu bật lên</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Hiển thị nút Lưu vào Xem sau trong video dành cho trẻ em</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Cho phép lưu Shorts vào \'Xem sau\' từ menu bật lên</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Hiển thị nút Lưu vào Xem sau trong menu bật lên của Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video đã được lưu thành công vào danh sách xem sau</string>
     <string name="morphe_search_comments_applied">Thay đổi thứ tự sắp xếp hoặc mở lại phần bình luận để tìm kiếm chúng</string>
     <string name="morphe_search_comments_clear">Xóa</string>
@@ -281,6 +315,8 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_search_comments_hint">Từ cần tìm kiếm</string>
     <string name="morphe_search_comments_summary">Nhấn nút tìm kiếm trong phần bình luận để chỉ hiển thị các bình luận đã tải có chứa tất cả các từ tìm kiếm. Đặt các từ trong dấu ngoặc kép để tìm kiếm một cụm từ</string>
     <string name="morphe_search_comments_title">Tìm kiếm bình luận</string>
+    <string name="morphe_secondary_caption_language_summary">Hiển thị ngôn ngữ thứ hai cùng với phụ đề và thêm nút bật/tắt phụ đề song ngữ vào menu phụ đề</string>
+    <string name="morphe_secondary_caption_language_title">Ngôn ngữ phụ đề thứ hai</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Được phát lại nhiều nhất</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Hiển thị hình thu nhỏ trong khi vuốt để tua trên thanh tiến trình</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Bật hình thu nhỏ trên thanh tiến trình</string>
@@ -361,6 +397,8 @@ Có thể gặp lỗi khi phát"</string>
 
 Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần thiết"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát</string>
+    <string name="morphe_stable_caption_blocks_summary">Nhóm các phụ đề tự động đơn ngôn ngữ thành các khối ổn định, dễ đọc. Phụ đề song ngữ luôn sử dụng các khối. Một số từ có thể xuất hiện trước khi được nói</string>
+    <string name="morphe_stable_caption_blocks_title">Các khối phụ đề ổn định</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Chạm để xem các tùy chọn hàng đợi, chạm và giữ để lưu vào Watch later</string>
     <string name="morphe_swap_save_and_queue_actions_title">Đổi chỗ Lưu và tùy chọn Hàng chờ</string>
     <string name="morphe_tablet_layout_in_player_summary">"Khôi phục bố cục trình phát cũ

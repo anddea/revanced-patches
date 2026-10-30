@@ -87,7 +87,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
@@ -550,7 +549,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
                     val protoListBuilderFingerprint = Fingerprint(
                         accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-                        returnType = insertMatch.instruction.getReference<FieldReference>()!!.type,
+                        returnType = insertMatch.fieldReference.type,
                         parameters = listOf("Ljava/util/Collection;")
                     )
                     val protoListBuilderMethod = protoListBuilderFingerprint.method
@@ -842,14 +841,9 @@ val navigationBarComponentsPatch = bytecodePatch(
                     getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
                 }
 
+            SetEnumMapFingerprint.clearMatch()
             SetEnumMapFingerprint.method.apply {
-                val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.definingClass == "Ljava/util/EnumMap;" &&
-                            reference.name == "put" &&
-                            reference.parameterTypes.firstOrNull() == "Ljava/lang/Enum;"
-                }
+                val enumMapIndex = SetEnumMapFingerprint.instructionMatches.last().index
                 val (enumMapRegister, enumRegister) = getInstruction<FiveRegisterInstruction>(
                     enumMapIndex
                 ).let {
@@ -879,12 +873,9 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         if (is_20_05_or_greater) {
             val watchLaterIcon = WatchLaterIconEnumFingerprint.instructionMatches.last().getFieldAccessed()
+            SetEnumMapFingerprint.clearMatch()
             SetEnumMapFingerprint.method.apply {
-                val putIndex = indexOfFirstInstructionReversedOrThrow {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.definingClass == "Ljava/util/EnumMap;" && reference.name == "put"
-                }
+                val putIndex = SetEnumMapFingerprint.instructionMatches.last().index
                 val mapRegister = getInstruction<FiveRegisterInstruction>(putIndex).registerC
                 val insertIndex = putIndex + 1
                 val iconRegister = findFreeRegister(insertIndex, mapRegister)

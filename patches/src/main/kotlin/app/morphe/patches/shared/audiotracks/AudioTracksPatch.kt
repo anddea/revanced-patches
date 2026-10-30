@@ -76,7 +76,6 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -234,13 +233,13 @@ internal fun audioTracksPatch(
 
             val setAudioTrackMethod =
                 getAudioTrackItemOnClickFingerprint(audioTrackRecordClass)
-                    .instructionMatches.last().instruction.getReference<MethodReference>()!!
+                    .instructionMatches.last().methodReference
 
             val playerControllerClass = setAudioTrackMethod.definingClass
 
             val audioTrackRecordArrayField =
                 getCurrentAudioFormatConstructorFingerprint(audioTrackRecordClass)
-                    .instructionMatches.last().instruction.getReference<FieldReference>()!!
+                    .instructionMatches.last().fieldReference
 
             getSetVideoQualityListFingerprint(
                 audioVideoFormatClass = audioTrackRecordArrayField.definingClass,

@@ -17,8 +17,6 @@
 
 package app.morphe.patches.youtube.feed.components
 
-import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH as SHARED_COMPONENTS_PATH
-import app.morphe.patches.shared.litho.context.EXTENSION_CONTEXT_INTERFACE
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -383,8 +381,6 @@ val feedComponentsPatch = bytecodePatch(
                         invoke-static { $byteArrayParameter }, $FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :show
-                        # The whole element is hidden, so its item is removed from the list (such as the feed).
-                        invoke-static { }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->removeParsedElementListItem()V
                         move-object v$returnEmptyComponentRegister, p1
                         goto :return_empty_component
                         :show
@@ -393,11 +389,6 @@ val feedComponentsPatch = bytecodePatch(
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
 
-                // The conversion context parameter is reused before the filter is called.
-                addInstruction(
-                    0,
-                    "invoke-static/range { p2 .. p2 }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->setParsedElementContext($EXTENSION_CONTEXT_INTERFACE)V"
-                )
             }
         }
 

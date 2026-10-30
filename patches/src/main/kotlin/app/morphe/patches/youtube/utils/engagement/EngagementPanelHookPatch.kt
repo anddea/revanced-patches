@@ -6,13 +6,11 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.findFreeRegister
-import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SHARED_PATH/EngagementPanel;"
@@ -35,7 +33,7 @@ val engagementPanelHookPatch = bytecodePatch(
         EngagementPanelControllerFingerprint.let {
             it.method.apply {
                 val panelIdField =
-                    it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+                    it.instructionMatches.last().fieldReference
                 val insertIndex = it.instructionMatches[5].index
 
                 val (freeRegister, panelRegister) =

@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.utils;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getColor;
@@ -5,10 +15,49 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getDrawable;
 import static app.morphe.extension.shared.utils.ResourceUtils.getStyleIdentifier;
 
 import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.util.TypedValue;
+import android.widget.TextView;
+import androidx.annotation.AttrRes;
 
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 
 public class ThemeUtils extends BaseThemeUtils {
+
+    /**
+     * @return The resource a theme attribute points to, such as a style or a drawable,
+     *         or 0 if the theme does not set it.
+     */
+    public static int getThemeResourceId(Context context, @AttrRes int attribute) {
+        TypedValue value = new TypedValue();
+        return context.getTheme().resolveAttribute(attribute, value, true)
+                ? value.resourceId
+                : 0;
+    }
+
+    /**
+     * Styles the text the way {@code android:textAppearance} and {@code android:textColor}
+     * set to theme attributes do in a layout.
+     */
+    public static void setThemeTextStyle(TextView view, @AttrRes int textAppearanceAttribute,
+                                         @AttrRes int textColorAttribute) {
+        Context context = view.getContext();
+        final int textAppearance = getThemeResourceId(context, textAppearanceAttribute);
+        if (textAppearance != 0) {
+            view.setTextAppearance(textAppearance);
+        }
+
+        TypedValue textColor = new TypedValue();
+        if (context.getTheme().resolveAttribute(textColorAttribute, textColor, true)) {
+            if (textColor.resourceId != 0) {
+                view.setTextColor(context.getColorStateList(textColor.resourceId));
+            } else {
+                view.setTextColor(textColor.data);
+            }
+        }
+    }
+
+
 
     public static int getThemeId() {
         final String themeName = isDarkModeEnabled()

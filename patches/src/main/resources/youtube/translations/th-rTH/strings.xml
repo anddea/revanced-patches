@@ -58,10 +58,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">หยุดเว้นแต่เชื่อมต่อเสียงไร้สาย</string>
     <string name="morphe_auto_pause_on_screen_lock_title">หยุดอัตโนมัติเมื่อล็อกอุปกรณ์</string>
     <string name="morphe_auto_translate_additional_languages_summary">เพิ่มภาษาต่าง ๆ ในเมนูการแปลอัตโนมัติ</string>
-    <string name="morphe_auto_translate_additional_languages_title">เพิ่มภาษาอื่น ๆ สำหรับการแปลอัตโนมัติ</string>
+    <string name="morphe_auto_translate_additional_languages_title">ภาษาแปลอัตโนมัติเพิ่มเติม</string>
+    <string name="morphe_caption_block_translation_failed">คำแปลคำบรรยายบางส่วนไม่พร้อมใช้งาน กำลังแสดงคำบรรยายที่มีอยู่</string>
+    <string name="morphe_caption_blocks_too_large">ภาษาคำบรรยายทั้งสองภาษาไม่พอดีกับเครื่องเล่นนี้ กำลังแสดงภาษาหลัก</string>
+    <string name="morphe_caption_scale_summary">ใช้กับคำบรรยายภาษาเดียวและสองภาษา</string>
+    <string name="morphe_caption_scale_title">ขนาดคำบรรยาย</string>
+    <string name="morphe_captions_screen_summary">จัดการคำบรรยายอัตโนมัติและคุกกี้คำบรรยาย</string>
+    <string name="morphe_captions_screen_title">คำบรรยาย</string>
     <string name="morphe_copy_comments_success">คัดลอกความคิดเห็นไปยังคลิปบอร์ดแล้ว</string>
     <string name="morphe_copy_comments_summary">แตะค้างที่ความคิดเห็นเพื่อคัดลอก</string>
     <string name="morphe_copy_comments_title">คัดลอกความคิดเห็น</string>
+    <string name="morphe_copy_select_text_copy_all">คัดลอกทั้งหมด</string>
+    <string name="morphe_copy_select_text_dialog_title">เลือกข้อความ</string>
+    <string name="morphe_copy_select_text_success">คัดลอกข้อความไปยังคลิปบอร์ด</string>
+    <string name="morphe_copy_select_text_summary">แตะค้างที่คำอธิบายวิดีโอหรือโพสต์เพื่อเลือกและคัดลอกส่วนใดส่วนหนึ่ง</string>
+    <string name="morphe_copy_select_text_title">เลือกข้อความของคำอธิบายและโพสต์</string>
     <string name="morphe_copy_video_title_success">คัดลอกชื่อวิดีโอไปยังคลิปบอร์ดแล้ว</string>
     <string name="morphe_copy_video_title_summary">แตะค้างที่ชื่อวิดีโอเพื่อคัดลอก</string>
     <string name="morphe_copy_video_title_title">คัดลอกชื่อวิดีโอ</string>
@@ -94,6 +105,7 @@
     <string name="morphe_disable_scrolling_speed_limit_title">ปิดใช้งานการจำกัดความเร็วในการเลื่อน</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">แสดงการติดตามในแถบนำทาง หาก YouTube ย้ายไปไว้ในแท็บที่ด้านบนของหน้าหลัก</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">ปิดใช้งานแท็บการนำทางบนแถบเครื่องมือ</string>
+    <string name="morphe_dual_captions_enabled_title">คำบรรยายสองภาษา</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -104,7 +116,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">หากไม่ได้ผล ให้ลองบังคับปิด MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">การแตะและค้างไว้ที่ใดก็ได้บนวิดีโอฟีดจะเปิดเมนูของวิดีโอนั้น</string>
     <string name="morphe_feed_long_press_menu_title">แตะค้างไว้เพื่อเปิดเมนูวิดีโอ</string>
-    <string name="morphe_feed_watch_later_button_summary">จะแสดงปุ่มดูภายหลังบนภาพย่อของวิดีโอในฟีด การแตะและค้างไว้จะทำให้บันทึกไปยังเพลย์ลิสต์</string>
+    <string name="morphe_feed_watch_later_button_summary">ปุ่ม \"ดูภายหลัง\" จะแสดงบนภาพตัวอย่างของวิดีโอในฟีด โดยจะมีเครื่องหมายถูกหากวิดีโอถูกบันทึกไว้ การแตะจะบันทึกหรือลบวิดีโอ และการแตะค้างไว้จะเปิด \"บันทึกไปยังเพลย์ลิสต์\"</string>
     <string name="morphe_feed_watch_later_button_title">แสดงปุ่มดูภายหลังบนภาพย่อ</string>
     <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น \'Android Studio\' และ \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
@@ -180,6 +192,32 @@
     <string name="morphe_hide_youtube_studio_menu_title">ซ่อนเมนู YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">ซ่อนเมนู \'วิธีการทำงานของ YouTube\'</string>
     <string name="morphe_light_theme_title">ธีมสว่าง</string>
+    <string name="morphe_live_chat_translate_bold_summary">แสดงข้อความที่แปลแล้วเป็นตัวหนา</string>
+    <string name="morphe_live_chat_translate_bold_title">ตัวหนาสำหรับข้อความที่แปล</string>
+    <string name="morphe_live_chat_translate_color_summary">กำหนดสีรหัส hex ของข้อความที่แปล</string>
+    <string name="morphe_live_chat_translate_color_title">สีข้อความที่แปล</string>
+    <string name="morphe_live_chat_translate_copied">คัดลอกข้อความไปยังคลิปบอร์ดแล้ว</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">เพิ่มปุ่มคัดลอกขนาดเล็กในทุกข้อความแชท</string>
+    <string name="morphe_live_chat_translate_copy_button_title">แสดงปุ่มคัดลอกข้อความ</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">คีย์ API ของ DeepL ของคุณ จะมีการใช้ Google Translate หาก DeepL ล้มเหลว เช่น เมื่อถึงขีดจำกัดรายเดือนของคีย์</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">คีย์ API ของ DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">รหัสภาษาที่คั่นด้วยเครื่องหมายจุลภาค เช่น id,en ข้อความในภาษาเหล่านี้จะไม่ถูกแปล</string>
+    <string name="morphe_live_chat_translate_exclude_title">ภาษาที่ยกเว้น</string>
+    <string name="morphe_live_chat_translate_language_title">ภาษาที่ใช้แปล</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">ไม่จำกัด</string>
+    <string name="morphe_live_chat_translate_max_length_summary">ข้อความที่ยาวกว่านี้จะแสดงแบบไม่แปล</string>
+    <string name="morphe_live_chat_translate_max_length_title">ความยาวข้อความสูงสุด</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">แปลข้อความแชทสดและข้อความรีเพลย์แชทสด</string>
+    <string name="morphe_live_chat_translate_screen_title">การแปลแชทสด</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">ต้นฉบับ (แปล)</string>
+    <string name="morphe_live_chat_translate_style_title">รูปแบบการแปล</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(แปล) ต้นฉบับ</string>
+    <string name="morphe_live_chat_translate_style_translated_only">เฉพาะข้อความที่แปลแล้ว</string>
+    <string name="morphe_live_chat_translate_summary">แปลข้อความแชทสดและข้อความรีเพลย์แชทสดเมื่อข้อความปรากฏบนหน้าจอ</string>
+    <string name="morphe_live_chat_translate_title">แปลแชทสด</string>
+    <string name="morphe_live_chat_translate_use_color_summary">ใช้สีที่กำหนดเองกับข้อความที่แปล</string>
+    <string name="morphe_live_chat_translate_use_color_title">สีข้อความที่แปลแบบกำหนดเอง</string>
     <string name="morphe_livestream_dvr_not_available">"'เปิดใช้งาน DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -226,7 +264,7 @@
     <string name="morphe_post_image_download_started_single">กำลังดาวน์โหลดรูปภาพ…</string>
     <string name="morphe_post_image_download_summary">ปุ่มดาวน์โหลดจะแสดงขึ้นถัดจากปุ่มแชร์ของโพสต์ที่มีรูปภาพหรือ GIF และจะมีการเพิ่มรายการดาวน์โหลดลงในเมนูของโพสต์ดังกล่าว</string>
     <string name="morphe_post_image_download_title">ดาวน์โหลดรูปภาพในโพสต์</string>
-    <string name="morphe_preferred_caption_language_summary">เลือกคำบรรยายที่ผู้ให้บริการจัดเตรียมไว้ก่อน จากนั้นจึงแปลเป็นภาษาที่ต้องการโดยอัตโนมัติ</string>
+    <string name="morphe_preferred_caption_language_summary">เลือกภาษาคำบรรยายโดยอัตโนมัติสำหรับแต่ละวิดีโอ</string>
     <string name="morphe_preferred_caption_language_title">ภาษาคำบรรยายที่ต้องการ</string>
     <string name="morphe_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
     <string name="morphe_queue_manager_check_failed_video_id">ไม่มี ID วิดีโอ</string>
@@ -254,10 +292,6 @@
     <string name="morphe_save_to_watch_later_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\'</string>
     <string name="morphe_save_to_watch_later_error_toast">ไม่สามารถบันทึกวิดีโอนี้ลงในรายการดูภายหลังได้</string>
     <string name="morphe_save_to_watch_later_flyout_title">บันทึกไปยังดูภายหลัง</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">อนุญาตให้บันทึกวิดีโอที่เกี่ยวข้องกับเด็กไว้ใน \'ดูภายหลัง\' จากเมนูแบบเลื่อนออก</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\' ในวิดีโอสำหรับเด็ก</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">อนุญาตให้บันทึก Shorts ไว้ใน \'ดูภายหลัง\' จากเมนูแบบเลื่อนออก</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">แสดงปุ่มบันทึกไปยังดูภายหลังในเมนูแบบเลื่อนออกของ Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">บันทึกวิดีโอลงในรายการดูภายหลังเรียบร้อยแล้ว</string>
     <string name="morphe_search_comments_applied">เปลี่ยนลำดับการจัดเรียงหรือเปิดความคิดเห็นอีกครั้งเพื่อค้นหา</string>
     <string name="morphe_search_comments_clear">ล้าง</string>
@@ -265,6 +299,8 @@
     <string name="morphe_search_comments_hint">คำที่ต้องการค้นหา</string>
     <string name="morphe_search_comments_summary">แตะปุ่มค้นหาในความคิดเห็นเพื่อแสดงเฉพาะความคิดเห็นที่โหลดแล้วซึ่งมีคำที่ค้นหาครบทุกคำ ใส่คำในเครื่องหมายคำพูดเพื่อค้นหาเป็นวลี</string>
     <string name="morphe_search_comments_title">ค้นหาความคิดเห็น</string>
+    <string name="morphe_secondary_caption_language_summary">แสดงภาษาที่สองพร้อมกับคำบรรยาย และเพิ่มปุ่มสลับคำบรรยายสองภาษาในเมนูคำบรรยาย</string>
+    <string name="morphe_secondary_caption_language_title">ภาษาคำบรรยายรอง</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">เล่นซ้ำมากที่สุด</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">แสดงภาพขนาดย่อของวิดีโอขณะลากแถบเลื่อน</string>
     <string name="morphe_seekbar_thumbnail_preview_title">เปิดใช้งานภาพขนาดย่อของแถบเลื่อน</string>
@@ -345,6 +381,8 @@
 
 หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
+    <string name="morphe_stable_caption_blocks_summary">รวมคำบรรยายอัตโนมัติภาษาเดียวให้เป็นบล็อกที่คงที่และอ่านง่าย คำบรรยายสองภาษาจะใช้บล็อกเสมอ คำบางคำอาจปรากฏก่อนที่จะมีการพูด</string>
+    <string name="morphe_stable_caption_blocks_title">บล็อกคำบรรยายแบบเสถียร</string>
     <string name="morphe_swap_save_and_queue_actions_summary">แตะเพื่อดูตัวเลือกในคิว แตะค้างไว้เพื่อบันทึกไปยังดูภายหลัง</string>
     <string name="morphe_swap_save_and_queue_actions_title">สลับการดำเนินการบันทึกและคิว</string>
     <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบเครื่องเล่นแบบเก่า

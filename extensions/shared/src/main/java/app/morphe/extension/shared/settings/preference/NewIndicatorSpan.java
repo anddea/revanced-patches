@@ -30,7 +30,7 @@ public class NewIndicatorSpan extends ReplacementSpan {
     /**
      * Dot radius and the gap before the dot, as a fraction of the text size.
      */
-    private static final float DOT_RADIUS_TEXT_SIZE_RATIO = 0.18f;
+    private static final float DOT_RADIUS_TEXT_SIZE_RATIO = 0.25f;
     private static final float DOT_GAP_TEXT_SIZE_RATIO = 0.3f;
 
     /**
@@ -53,6 +53,12 @@ public class NewIndicatorSpan extends ReplacementSpan {
     @ColorInt
     private final int color;
     private final boolean rtl;
+    private float opacity = 1f;
+
+    /** Fades only the dot, preserving the title and its layout during the animation. */
+    void setOpacity(float opacity) {
+        this.opacity = opacity;
+    }
 
     private NewIndicatorSpan(@ColorInt int color, boolean rtl) {
         this.color = color;
@@ -94,6 +100,7 @@ public class NewIndicatorSpan extends ReplacementSpan {
         final int originalColor = paint.getColor();
         final Paint.Style originalStyle = paint.getStyle();
         paint.setColor(color);
+        paint.setAlpha(Math.round(paint.getAlpha() * opacity));
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(dotCenterX, dotCenterY, radius, paint);
         paint.setColor(originalColor);

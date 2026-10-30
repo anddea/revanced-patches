@@ -276,9 +276,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final StringSetting LYRICS_ROMANIZE_LANGUAGE = new StringSetting("morphe_music_lyrics_romanize_language", "DEFAULT", false, parentsAll(parent(LYRICS_ENABLED), parent(LYRICS_SHOW_ROMANIZE_BUTTON)));
 
     /**
-     * The dictionaries the user agreed to download, as comma separated {@code ja} and {@code zh}
-     * entries. Blank means the romanization language decides, which keeps an upgraded install
-     * fetching both the way earlier versions did.
+     * Comma separated provider names ({@code sudachi}, {@code unidict}, {@code pinyin},
+     * {@code cldr}), or {@code none} for a saved choice of none. Blank means the user never chose.
      */
     public static final StringSetting LYRICS_LOCAL_DICTIONARIES = new StringSetting("morphe_music_lyrics_local_dictionaries", "", false, parentsAll(parent(LYRICS_ENABLED), parent(LYRICS_SHOW_ROMANIZE_BUTTON)));
 
@@ -341,7 +340,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting LYRICS_MINIPLAYER = new BooleanSetting("morphe_music_lyrics_miniplayer", FALSE, false, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_FORCE_CAPITALIZE = new BooleanSetting("morphe_music_lyrics_force_capitalize", FALSE, false, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_STRIP_TRAILING_PUNCTUATION = new BooleanSetting("morphe_music_lyrics_strip_trailing_punctuation", FALSE, false, parent(LYRICS_ENABLED));
-    public static final BooleanSetting LYRICS_MINI_LINE_LIMITS = new BooleanSetting("morphe_music_lyrics_mini_line_limits", FALSE, false, false, null, parentsAll(parent(LYRICS_ENABLED), parentsAny(LYRICS_MINIPLAYER, LYRICS_MEDIASESSION)));
     public static final StringSetting LYRICS_MINI_TRACK_FORMAT = new StringSetting("morphe_music_lyrics_mini_track_format", MiniLyricsFormatter.DEFAULT_TRACK_FORMAT, false, parentsAll(parent(LYRICS_ENABLED), parentsAny(LYRICS_MINIPLAYER, LYRICS_MEDIASESSION)));
     public static final StringSetting LYRICS_MINI_ENCAPSULATION = new StringSetting("morphe_music_lyrics_mini_encapsulation", MiniLyricsFormatter.DEFAULT_ENCAPSULATION, false, parentsAll(parent(LYRICS_ENABLED), parentsAny(LYRICS_MINIPLAYER, LYRICS_MEDIASESSION)));
     public static final IntegerSetting LYRICS_MINI_CHAR_LIMIT = new IntegerSetting("morphe_music_lyrics_mini_char_limit", 0, false, parentsAll(parent(LYRICS_ENABLED), parentsAny(LYRICS_MINIPLAYER, LYRICS_MEDIASESSION)));
@@ -437,6 +435,7 @@ public class Settings extends SharedYouTubeSettings {
 
     private static final BooleanSetting DEPRECATED_LYRICS_USE_AI_TRANSLATION = new BooleanSetting("morphe_music_lyrics_use_ai_translation", FALSE, false);
     private static final BooleanSetting DEPRECATED_LYRICS_USE_AI_ROMANIZATION = new BooleanSetting("morphe_music_lyrics_use_ai_romanization", FALSE, false);
+    private static final BooleanSetting DEPRECATED_LYRICS_LOCAL_ROMANIZATION = new BooleanSetting("morphe_music_lyrics_local_romanization", FALSE, false);
 
     /**
      * Before the switch existed a stored key alone turned QuickLRC on, so leaving the new switch
@@ -452,6 +451,36 @@ public class Settings extends SharedYouTubeSettings {
         }
     }
 
+    /** The three switches of v2.0.0 became entries of the provider lists. */
+    private static void migrateLyricsProviderSwitches() {
+        // Writing the defaults back would pin them, so a future default change would never apply.
+        if (DEPRECATED_LYRICS_USE_AI_TRANSLATION.isSetToDefault()
+                && DEPRECATED_LYRICS_USE_AI_ROMANIZATION.isSetToDefault()
+                && DEPRECATED_LYRICS_LOCAL_ROMANIZATION.isSetToDefault()) {
+            return;
+        }
+
+        if (DEPRECATED_LYRICS_USE_AI_TRANSLATION.get()) {
+            LYRICS_TRANSLATION_PROVIDERS.save(AiProviders.withProviderEnabled(
+                    LYRICS_TRANSLATION_PROVIDERS.get(), AiProviders.TRANSLATION_ORDER,
+                    AiProviders.OPENAI_COMPATIBLE, true));
+        }
+        if (DEPRECATED_LYRICS_USE_AI_ROMANIZATION.get()) {
+            LYRICS_ROMANIZATION_PROVIDERS.save(AiProviders.withProviderEnabled(
+                    LYRICS_ROMANIZATION_PROVIDERS.get(), AiProviders.ROMANIZATION_ORDER,
+                    AiProviders.OPENAI_COMPATIBLE, true));
+        }
+        if (DEPRECATED_LYRICS_LOCAL_ROMANIZATION.get()) {
+            LYRICS_ROMANIZATION_PROVIDERS.save(AiProviders.withProviderEnabled(
+                    LYRICS_ROMANIZATION_PROVIDERS.get(), AiProviders.ROMANIZATION_ORDER,
+                    AiProviders.LOCAL, true));
+        }
+
+        DEPRECATED_LYRICS_USE_AI_TRANSLATION.resetToDefault();
+        DEPRECATED_LYRICS_USE_AI_ROMANIZATION.resetToDefault();
+        DEPRECATED_LYRICS_LOCAL_ROMANIZATION.resetToDefault();
+    }
+
     /** The artist first switch was replaced with the track label format. */
     private static void migrateLyricsArtistFirstToTrackFormat() {
         if (DEPRECATED_LYRICS_DISPLAY_ARTIST_FIRST.get() && LYRICS_MINI_TRACK_FORMAT.isSetToDefault()) {
@@ -465,6 +494,7 @@ public class Settings extends SharedYouTubeSettings {
         migrateLyricsArtistFirstToTrackFormat();
 
         migrateQuickLrcEnabled();
+        migrateLyricsProviderSwitches();
 
         // Old spoof versions that no longer work reliably.
         String spoofAppVersionTarget = SPOOF_APP_VERSION_TARGET.get();

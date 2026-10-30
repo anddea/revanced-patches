@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">השהה אלא אם כן אודיו אלחוטי מחובר</string>
     <string name="morphe_auto_pause_on_screen_lock_title">השהייה אוטומטית כשהמכשיר נעול</string>
     <string name="morphe_auto_translate_additional_languages_summary">מוסיף עוד שפות לתפריט התרגום האוטומטי</string>
-    <string name="morphe_auto_translate_additional_languages_title">הוספת שפות נוספות לתרגום אוטומטי</string>
+    <string name="morphe_auto_translate_additional_languages_title">שפות תרגום אוטומטי נוספות</string>
+    <string name="morphe_caption_block_translation_failed">חלק מתרגומי הכתוביות אינם זמינים. מציג כתוביות זמינות</string>
+    <string name="morphe_caption_blocks_too_large">שתי שפות הכתוביות אינן נכנסות בנגן זה. מציג את השפה הראשית</string>
+    <string name="morphe_caption_scale_summary">חל על כתוביות בשפה אחת או דו-לשוניות</string>
+    <string name="morphe_caption_scale_title">גודל כתוביות</string>
+    <string name="morphe_captions_screen_summary">ניהול כתוביות אוטומטיות ועוגיות כתוביות</string>
+    <string name="morphe_captions_screen_title">כותבים</string>
     <string name="morphe_copy_comments_success">התגובה הועתקה ללוח</string>
     <string name="morphe_copy_comments_summary">הקש והחזק תגובה כדי להעתיק אותה</string>
     <string name="morphe_copy_comments_title">העתקת תגובות</string>
+    <string name="morphe_copy_select_text_copy_all">העתק הכל</string>
+    <string name="morphe_copy_select_text_dialog_title">בחר טקסט</string>
+    <string name="morphe_copy_select_text_success">הטקסט הועתק אל הלוח</string>
+    <string name="morphe_copy_select_text_summary">לחץ והחזק על תיאור סרטון או פוסט כדי לבחור ולהעתיק כל חלק ממנו</string>
+    <string name="morphe_copy_select_text_title">בחירת טקסט מתיאורים ופוסטים</string>
     <string name="morphe_copy_video_title_success">כותרת הסרטון הועתקה ללוח</string>
     <string name="morphe_copy_video_title_summary">הקש והחזק את כותרת הסרטון כדי להעתיק אותה</string>
     <string name="morphe_copy_video_title_title">העתקת כותרת הסרטון</string>
@@ -94,6 +105,7 @@
     <string name="morphe_disable_scrolling_speed_limit_title">השבת מגבלת מהירות גלילה</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">מציג את \"מנויים\" בסרגל הניווט, אם YouTube מעביר זאת ללשונית בחלק העליון של דף הבית</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">בטל לשוניות ניווט בסרגל הכלים</string>
+    <string name="morphe_dual_captions_enabled_title">כתוביות דו-לשוניות</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך ה-DVR לשידורים חיים' אולי לא תהיה זמינה
 
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
@@ -104,7 +116,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">אם זה לא עובד, נסה לסגור בכוח את MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">חיפוש ועורך בכל מקום בודק המשיר פתחם את מהשיר שלו</string>
     <string name="morphe_feed_long_press_menu_title">חיפוש ועורך להזמן מהשיר וישדור</string>
-    <string name="morphe_feed_watch_later_button_summary">בטו׳דת \"הצג בידוע חור\" תציע בתויערות של וידועי המשיר. חיפוש ועורך הו מזמן חסון לכריזה</string>
+    <string name="morphe_feed_watch_later_button_summary">לחצן \"צפייה מאוחר יותר\" מופיע על תמונות המנהרה של סרטוני הפיד, עם סימן וי אם הסרטון נשמר. לחיצה עליו שומרת או מסירה את הסרטון, ולחיצה ארוכה פותחת את \"שמירה לפלייליסט\"</string>
     <string name="morphe_feed_watch_later_button_title">הצג את בטו׳דת \"הצג בידוע חור\" בתויערות</string>
     <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד \'Android Studio\' ו\'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
@@ -179,6 +191,32 @@
     <string name="morphe_hide_youtube_premium_menu_title">הסתר תפריט YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">הסתר תפריט YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">הסתר תפריט \'איך YouTube עובד\'</string>
+    <string name="morphe_live_chat_translate_bold_summary">מציג את הטקסט המתורגם בכתב מודגש</string>
+    <string name="morphe_live_chat_translate_bold_title">טקסט מתורגם במודגש</string>
+    <string name="morphe_live_chat_translate_color_summary">הגדר את צבע ההקס של הטקסט המתורגם</string>
+    <string name="morphe_live_chat_translate_color_title">צבע טקסט מתורגם</string>
+    <string name="morphe_live_chat_translate_copied">ההודעה הועתקה ללוח</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">מוסיף לחצן העתקה קטן לכל הודעת צ\'אט</string>
+    <string name="morphe_live_chat_translate_copy_button_title">הצג לחצן העתקת הודעה</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">מפתח ה-API של DeepL שלך. Google Translate משמש במקרה ש-DeepL נכשל, למשל כאשר הגעת למכסה החודשית של המפתח</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">מפתח API של DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">קודי שפות מופרדים בפסיקים, כגון id,en. הודעות בשפות אלו לא יתורגמו</string>
+    <string name="morphe_live_chat_translate_exclude_title">שפות מוחרגות</string>
+    <string name="morphe_live_chat_translate_language_title">שפת תרגום</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">ללא הגבלה</string>
+    <string name="morphe_live_chat_translate_max_length_summary">הודעות ארוכות יותר יוצגו ללא תרגום</string>
+    <string name="morphe_live_chat_translate_max_length_title">אורך הודעה מקסימלי</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">תרגום הודעות בצ\'אט חי ובניגון חוזר של צ\'אט חי</string>
+    <string name="morphe_live_chat_translate_screen_title">תרגום צ\'אט חי</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">מקור (מתורגם)</string>
+    <string name="morphe_live_chat_translate_style_title">סגנון תרגום</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(מתורגם) מקור</string>
+    <string name="morphe_live_chat_translate_style_translated_only">מתורגם בלבד</string>
+    <string name="morphe_live_chat_translate_summary">מתרגם הודעות בצ\'אט חי ובניגון חוזר של צ\'אט חי ברגע שהן מופיעות על המסך</string>
+    <string name="morphe_live_chat_translate_title">תרגם צ\'אט חי</string>
+    <string name="morphe_live_chat_translate_use_color_summary">מחיל צבע מותאם אישית על הטקסט המתורגם</string>
+    <string name="morphe_live_chat_translate_use_color_title">צבע מותאם אישית לטקסט מתורגם</string>
     <string name="morphe_livestream_dvr_not_available">"'הפעלת ה-DVR לשידורים חיים' אולי לא תהיה זמינה
 
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
@@ -225,7 +263,7 @@
     <string name="morphe_post_image_download_started_single">מוריד תמונה…</string>
     <string name="morphe_post_image_download_summary">כפתור הורדה מוצג לצד כפתור השיתוף של פוסטים עם תמונות או GIF, ופריט הורדה מתווסף לתפריט שלהם</string>
     <string name="morphe_post_image_download_title">הורדת תמונות פוסט</string>
-    <string name="morphe_preferred_caption_language_summary">בוחר תחילה בכתוביות של הספק, ולאחר מכן מתרגם אותן אוטומטית לשפה המועדפת</string>
+    <string name="morphe_preferred_caption_language_summary">בוחר אוטומטית שפת כתוביות עבור כל סרטון</string>
     <string name="morphe_preferred_caption_language_title">שפת כתוביות מועדפת</string>
     <string name="morphe_queue_manager_check_failed_auth">לא מחובר</string>
     <string name="morphe_queue_manager_check_failed_video_id">מזהה וידאו לא נמצא</string>
@@ -253,10 +291,6 @@
     <string name="morphe_save_to_watch_later_button_title">הצג כפתור שמירה לצפייה מאוחרת</string>
     <string name="morphe_save_to_watch_later_error_toast">לא ניתן לשמור סרטון זה בפלייליסט \'צפייה מאוחרת\'</string>
     <string name="morphe_save_to_watch_later_flyout_title">שמור לצפייה מאוחרת</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">מאפשר לשמור סרטונים הקשורים לילדים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">הצג כפתור שמירה לצפייה מאוחרת בסרטוני ילדים</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">מאפשר לשמור סרטונים קצרים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">הצג כפתור שמירה ל\'צפה מאוחר יותר\' בתפריט הנפתח של הסרטונים הקצרים</string>
     <string name="morphe_save_to_watch_later_success_toast">הסרטון נשמר בהצלחה בפלייליסט \'צפייה מאוחרת\'</string>
     <string name="morphe_search_comments_applied">שנו את סדר המיון או פתחו שוב את התגובות כדי לחפש בהן</string>
     <string name="morphe_search_comments_clear">נקה</string>
@@ -264,6 +298,8 @@
     <string name="morphe_search_comments_hint">מילים לחיפוש</string>
     <string name="morphe_search_comments_summary">הקישו על כפתור החיפוש בתגובות כדי להציג רק את התגובות שנטענו ומכילות את כל המילים שחפשתם. הקיפו מילים במרכאות כדי לחפש ביטוי</string>
     <string name="morphe_search_comments_title">חיפוש תגובות</string>
+    <string name="morphe_secondary_caption_language_summary">מציג שפה שנייה לצד הכתוביות, ומוסיף תהליך החלפה לכתוביות דו-לשוניות בתפריט הכתוביות</string>
+    <string name="morphe_secondary_caption_language_title">שפת כתוביות משנית</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
     <string name="morphe_seekbar_thumbnail_preview_title">אפשר תמונות ממוזערות בסרגל החיפוש</string>
@@ -344,6 +380,8 @@
 
 אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה</string>
+    <string name="morphe_stable_caption_blocks_summary">מקבץ כתוביות אוטומטיות בשפה אחת לבלוקים יציבים וקריאים. כתוביות דו-לשוניות תמיד משתמשות בבלוקים. ייתכן שחלק מהמילים יופיעו לפני שייאמרו</string>
+    <string name="morphe_stable_caption_blocks_title">בלוקים יציבים של כתוביות</string>
     <string name="morphe_swap_save_and_queue_actions_summary">הקש כדי לראות אפשרויות תור, הקש והחזק כדי לשמור לצפייה מאוחרת</string>
     <string name="morphe_swap_save_and_queue_actions_title">החלף בין פעולות שמירה לתור</string>
     <string name="morphe_tablet_layout_in_player_summary">"משחזר את פריסת הנגן הישנה

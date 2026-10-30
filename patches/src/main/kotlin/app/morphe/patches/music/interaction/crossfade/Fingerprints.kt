@@ -41,7 +41,10 @@ internal object PlayNextInQueueFingerprint : Fingerprint(
     filters = listOf(
         opcode(Opcode.IGET_OBJECT),
     ),
-    strings = listOf("gapless.seek.next", "playNextInQueue."),
+    strings = listOf(
+        string("gapless.seek.next", StringComparisonType.CONTAINS),
+        string("playNextInQueue.", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /** Audio/video toggle button class (nba). */
@@ -59,17 +62,21 @@ internal object PauseVideoFingerprint : Fingerprint(
 
 internal object PlayVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("playVideo", "MedialibPlayer.playVideo()"),
+    strings = listOf(
+        string("playVideo", StringComparisonType.CONTAINS),
+        string("MedialibPlayer.playVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /**
  * ExoPlayer concrete implementation (cpp) — unique "ExoPlayerImpl" log tag.
  * Must also check that the class implements ExoPlayer, because a synthetic Runnable
  * (coz) also references "ExoPlayerImpl" as a log tag.
+ * Matches seekTo, since newer app versions log with this tag in more than one method.
  */
 internal object ExoPlayerImplFingerprint : Fingerprint(
     interfaces = listOf("Landroidx/media3/exoplayer/ExoPlayer;"),
-    strings = listOf("ExoPlayerImpl"),
+    strings = listOf("ExoPlayerImpl", "seekTo ignored because an ad is playing"),
 )
 
 /** MedialibPlayer loadVideo method (atzq.o). Scoped to StopVideoFingerprint class. */

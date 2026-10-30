@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">إيقاف التشغيل إلا إذا كان الصوت اللاسلكي متصلًا</string>
     <string name="morphe_auto_pause_on_screen_lock_title">إيقاف التشغيل تلقائيًا عند قفل الجهاز</string>
     <string name="morphe_auto_translate_additional_languages_summary">يضيف المزيد من اللغات إلى قائمة الترجمة التلقائية</string>
-    <string name="morphe_auto_translate_additional_languages_title">إضافة لغات إضافية للترجمة التلقائية</string>
+    <string name="morphe_auto_translate_additional_languages_title">لغات إضافية للترجمة التلقائية</string>
+    <string name="morphe_caption_block_translation_failed">بعض ترجمات التسميات التوضيحية غير متاحة. يتم عرض التسميات التوضيحية المتاحة</string>
+    <string name="morphe_caption_blocks_too_large">كلتا لغتي الترجمة النصية لا تتناسبان مع هذا المشغل. يتم عرض اللغة الأساسية</string>
+    <string name="morphe_caption_scale_summary">ينطبق على الترجمات الأحادية والثنائية اللغة</string>
+    <string name="morphe_caption_scale_title">حجم الترجمة</string>
+    <string name="morphe_captions_screen_summary">التحكم في الترجمة التلقائية وملفات تعريف ارتباط الترجمة</string>
+    <string name="morphe_captions_screen_title">الترجمة</string>
     <string name="morphe_copy_comments_success">تم نسخ التعليق إلى الحافظة</string>
     <string name="morphe_copy_comments_summary">اضغط مع الاستمرار على تعليق لنسخه</string>
     <string name="morphe_copy_comments_title">نسخ التعليقات</string>
+    <string name="morphe_copy_select_text_copy_all">نسخ الكل</string>
+    <string name="morphe_copy_select_text_dialog_title">تحديد النص</string>
+    <string name="morphe_copy_select_text_success">تم نسخ النص إلى الحافظة</string>
+    <string name="morphe_copy_select_text_summary">اضغط مع الاستمرار على وصف فيديو أو منشور لتحديد ونسخ أي جزء منه</string>
+    <string name="morphe_copy_select_text_title">تحديد نص الأوصاف والمنشورات</string>
     <string name="morphe_copy_video_title_success">تم نسخ عنوان الفيديو إلى الحافظة</string>
     <string name="morphe_copy_video_title_summary">اضغط مع الاستمرار على عنوان الفيديو لنسخه</string>
     <string name="morphe_copy_video_title_title">نسخ عنوان الفيديو</string>
@@ -87,6 +98,7 @@
     <string name="morphe_dearrow_error_generic">DeArrow غير متوفر مؤقتًا</string>
     <string name="morphe_dearrow_titles_icon_summary">يُظهر أيقونة DeArrow على عناوين الفيديو المُقدَّمة من المجتمع</string>
     <string name="morphe_dearrow_titles_icon_title">عرض أيقونة DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">يستبدل عناوين الفيديو بعناوين من الجمهور المقدمة إلى DeArrow</string>
     <string name="morphe_dearrow_titles_title">عناوين DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">يمنع الخلاصات من التحديث تلقائيًا بعد أن تصبح قديمة</string>
     <string name="morphe_disable_auto_feed_refresh_title">تعطيل تحديث الخلاصة تلقائيًا</string>
@@ -105,6 +117,7 @@
     <string name="morphe_disable_system_splash_title">تعطيل شاشة بدء تشغيل النظام</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">يعرض الاشتراكات في شريط التنقل، إذا قام YouTube بنقلها إلى علامة تبويب في أعلى الصفحة الرئيسية</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">تعطيل علامات تبويب التنقل في شريط الأدوات</string>
+    <string name="morphe_dual_captions_enabled_title">ترجمات ثنائية اللغة</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -115,7 +128,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">إذا لم ينجح الأمر، جرّب إيقاف MicroG إجباريًا</string>
     <string name="morphe_feed_long_press_menu_summary">يؤدي الضغط مع الاستمرار في أي مكان على فيديو في الخلاصة إلى فتح قائمته</string>
     <string name="morphe_feed_long_press_menu_title">الضغط مع الاستمرار لفتح قائمة الفيديو</string>
-    <string name="morphe_feed_watch_later_button_summary">يتم عرض زر المشاهدة لاحقًا على مصغرات فيديوهات الخلاصة. يؤدي الضغط مع الاستمرار عليه إلى فتح الحفظ في قوائم التشغيل</string>
+    <string name="morphe_feed_watch_later_button_summary">يظهر زر المشاهدة لاحقًا على الصور المصغرة لفيديوهات الخلاصة، مع علامة اختيار إذا كان الفيديو محفوظًا. يؤدي النقر عليه إلى حفظ الفيديو أو إزالته، ويؤدي النقر مع الاستمرار إلى فتح حفظ في قائمة التشغيل</string>
     <string name="morphe_feed_watch_later_button_title">عرض زر \"المشاهدة لاحقًا\" على المصغرات</string>
     <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\' و \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
@@ -192,6 +205,32 @@
     <string name="morphe_hide_youtube_works_menu_title">إخفاء قائمة \'كيف يعمل YouTube\'</string>
     <string name="morphe_light_theme_custom_color_title">لون مظهر فاتح مخصص</string>
     <string name="morphe_light_theme_title">لون مظهر فاتح</string>
+    <string name="morphe_live_chat_translate_bold_summary">يعرض النص المترجم بخط عريض</string>
+    <string name="morphe_live_chat_translate_bold_title">نص مترجم بخط عريض</string>
+    <string name="morphe_live_chat_translate_color_summary">تعيين رمز اللون للنص المترجم</string>
+    <string name="morphe_live_chat_translate_color_title">لون النص المترجم</string>
+    <string name="morphe_live_chat_translate_copied">تم نسخ الرسالة إلى الحافظة</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">يضيف زر نسخ صغير لكل رسالة محادثة</string>
+    <string name="morphe_live_chat_translate_copy_button_title">عرض زر نسخ الرسالة</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">مفتاح DeepL API الخاص بك. يتم استخدام ترجمة Google في حال فشل DeepL، كما هو الحال عند الوصول إلى الحد الشهري للمفتاح</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">مفتاح DeepL API</string>
+    <string name="morphe_live_chat_translate_exclude_summary">رموز اللغات مفصولة بفواصل مثل id,en. الرسائل بهذه اللغات غير مترجمة</string>
+    <string name="morphe_live_chat_translate_exclude_title">اللغات المستبعدة</string>
+    <string name="morphe_live_chat_translate_language_title">لغة الترجمة</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">بلا حدود</string>
+    <string name="morphe_live_chat_translate_max_length_summary">الرسائل الطويلة تظهر بدون ترجمة</string>
+    <string name="morphe_live_chat_translate_max_length_title">الحد الأقصى لطول الرسالة</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">ترجمة رسائل المحادثة المباشرة وإعادة تشغيل المحادثة المباشرة</string>
+    <string name="morphe_live_chat_translate_screen_title">ترجمة المحادثة المباشرة</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">الأصل (مترجمة)</string>
+    <string name="morphe_live_chat_translate_style_title">أسلوب الترجمة</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(مترجمة) الأصل</string>
+    <string name="morphe_live_chat_translate_style_translated_only">مترجم فقط</string>
+    <string name="morphe_live_chat_translate_summary">يترجم رسائل المحادثة المباشرة ورد المحادثة المباشرة بمجرد ظهورها على الشاشة</string>
+    <string name="morphe_live_chat_translate_title">ترجمة المحادثة المباشرة</string>
+    <string name="morphe_live_chat_translate_use_color_summary">يطبق لون مخصص على النص المترجم</string>
+    <string name="morphe_live_chat_translate_use_color_title">لون النص المترجم المخصص</string>
     <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين التنقل في البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -240,6 +279,10 @@
     <string name="morphe_post_image_download_started_single">جارٍ تنزيل الصورة…</string>
     <string name="morphe_post_image_download_summary">يظهر زر التنزيل بجانب زر المشاركة في المنشورات التي تحتوي على صور أو ملفات GIF، كما يتم إضافة عنصر تنزيل إلى القائمة الخاصة بها</string>
     <string name="morphe_post_image_download_title">تنزيل صور المنشورات</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"الرمز المدمج في هذا الإصدار من مزود PoToken لم يعد يعمل
+
+قم بتفعيل 'محاكاة تدفقات الفيديو' لإصلاح التشغيل</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">مزود PoToken لم يعد يعمل</string>
     <string name="morphe_potoken_provider_summary">"يُصلح هذا التحديث مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي)
 
 إذا كنتَ مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد. "</string>
@@ -247,7 +290,7 @@
     <string name="morphe_potoken_provider_unavailable_summary">"يُصلح مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي) 
 
 لاستخدام هذه الميزة، قم بإيقاف تشغيل  \'بث فيديو ساخر \'"</string>
-    <string name="morphe_preferred_caption_language_summary">يقوم باختيار ترجمات المزود أولًا، ثم يترجم تلقائيًا إلى اللغة المفضلة</string>
+    <string name="morphe_preferred_caption_language_summary">يختار تلقائيًا لغة الترجمة لكل فيديو</string>
     <string name="morphe_preferred_caption_language_title">لغة الترجمة المفضلة</string>
     <string name="morphe_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
     <string name="morphe_queue_manager_check_failed_video_id">لا يوجد معرّف فيديو</string>
@@ -275,10 +318,6 @@
     <string name="morphe_save_to_watch_later_button_title">عرض زر الحفظ في المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_error_toast">لا يمكن حفظ هذا الفيديو في قائمة المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_flyout_title">الحفظ في المشاهدة لاحقًا</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">عرض زر الحفظ في المشاهدة لاحقًا بفيديوهات الأطفال</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">عرض زر \"الحفظ للمشاهدة لاحقًا\" في قائمة Shorts المنبثقة</string>
     <string name="morphe_save_to_watch_later_success_toast">تم حفظ الفيديو بنجاح في قائمة المشاهدة لاحقًا</string>
     <string name="morphe_search_comments_applied">قم بتغيير ترتيب الفرز أو أعد فتح التعليقات للبحث فيها</string>
     <string name="morphe_search_comments_clear">مسح</string>
@@ -286,6 +325,8 @@
     <string name="morphe_search_comments_hint">كلمات للبحث عنها</string>
     <string name="morphe_search_comments_summary">انقر على زر البحث في التعليقات لعرض التعليقات المحمَّلة فقط التي تحتوي على كل الكلمات التي تم البحث عنها. ضع الكلمات بين علامات الاقتباس للبحث عن عبارة محددة</string>
     <string name="morphe_search_comments_title">البحث في التعليقات</string>
+    <string name="morphe_secondary_caption_language_summary">يعرض لغة ثانية مع الترجمات، ويضيف خيار تمكين الترجمات الثنائية إلى قائمة الترجمات</string>
+    <string name="morphe_secondary_caption_language_title">لغة الترجمة الفرعية الثانية</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">الأكثر إعادة</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">يعرض صورة مصغرة للفيديو أثناء سحب شريط التقدم</string>
     <string name="morphe_seekbar_thumbnail_preview_title">تمكين مصغرات شريط التقدم</string>
@@ -366,6 +407,8 @@
 
 إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل</string>
+    <string name="morphe_stable_caption_blocks_summary">تجميع الترجمات التلقائية أحادية اللغة في كتل ثابتة وسهلة القراءة. أما الترجمات الثنائية اللغة فتستخدم الكتل دائمًا. قد تظهر بعض الكلمات قبل نطقها</string>
+    <string name="morphe_stable_caption_blocks_title">تنسيق الترجمة الآلية</string>
     <string name="morphe_swap_save_and_queue_actions_summary">انقر لخيارات قائمة المحتوى التالي، واضغط مع الاستمرار للحفظ في المشاهدة لاحقًا</string>
     <string name="morphe_swap_save_and_queue_actions_title">تبديل إجراءات حفظ وإضافة إلى قائمة المحتوى التالي</string>
     <string name="morphe_tablet_layout_in_player_summary">"استعادة تخطيط المشغل القديم
@@ -950,6 +993,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_gemini_error_transcription_parse">فشل تحليل بيانات النص التلقائي</string>
     <string name="revanced_gemini_error_translation_failed">فشل في ترجمة Gemini</string>
     <string name="revanced_gemini_error_translation_parse_failed">تحليل ترجمة Gemini فشلت</string>
+    <string name="revanced_gemini_highlight_words_summary">قم بتسليط الضوء على كل كلمة منطوقة في ترجمة الفيديو</string>
+    <string name="revanced_gemini_highlight_words_title">تسليط الضوء على الكلمات المنطوقة</string>
     <string name="revanced_gemini_loading_default">جار التحميل...</string>
     <string name="revanced_gemini_loading_summarize">تلخيص مقطع الفيديو</string>
     <string name="revanced_gemini_loading_transcribe">جار كتابة النص التلقائي...</string>
@@ -1042,6 +1087,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
 • مشاهده مرة أخرى"</string>
     <string name="revanced_hide_carousel_shelf_title">إخفاء الرفوف الدوارة</string>
     <string name="revanced_hide_category_bar_in_comments_summary_off">الفيديو ليس مترجم</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">مخفي في التعليقات</string>
     <string name="revanced_hide_category_bar_in_comments_title">إخفاء في التعليقات</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">يُعرض في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">مخفي في الموجز</string>
@@ -1123,6 +1169,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_hide_connect_button_summary_off">العربية</string>
     <string name="revanced_hide_connect_button_summary_on">Connect button is shown</string>
     <string name="revanced_hide_connect_button_title">إخفاء زر الاتصال</string>
+    <string name="revanced_hide_corrections_section_summary_off">قسم التصحيحات موضح</string>
     <string name="revanced_hide_corrections_section_title">إخفاء قسم التصحيحات</string>
     <string name="revanced_hide_course_progress_section_summary_on">Kannada English</string>
     <string name="revanced_hide_course_progress_section_title">إخفاء قسم تقدّم الدورة التدريبية</string>

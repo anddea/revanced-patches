@@ -53,7 +53,7 @@ private const val LYRICS_PANEL_FILTER =
 @Suppress("unused")
 val lyricsPatch = bytecodePatch(
     name = "Third-party lyrics",
-    description = "Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel."
+    description = "Adds an option to show synced lyrics with experience enhancement from 19+ providers in the lyrics panel."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -340,6 +340,13 @@ val lyricsPatch = bytecodePatch(
         // The panel content is built by Elements, so there is no view to hook. The timed
         // lyrics component is the earliest signal that the opened panel is the lyrics one.
         addLithoFilter(LYRICS_PANEL_FILTER)
+
+        // Some accounts get lyrics as a player tab instead of an engagement panel. A tab page can
+        // be built long before it is selected, so the litho filter alone can't install the panel.
+        TabbedViewTabSelectedFingerprint.method.addInstruction(
+            0,
+            "invoke-static { p0 }, $PANEL_INSTALLER_CLASS->onTabSelected(Landroid/view/ViewGroup;)V"
+        )
 
         // Some accounts get the panel without a heading, and then nothing in the view tree
         // tells the lyrics panel from the other panels sharing the same container. The panel

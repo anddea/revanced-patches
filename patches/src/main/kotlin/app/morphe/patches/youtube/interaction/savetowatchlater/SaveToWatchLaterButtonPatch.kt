@@ -17,8 +17,6 @@ import app.morphe.patches.youtube.utils.playercontrols.addTopControl
 import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.morphe.patches.youtube.utils.playlist.playlistPatch
-import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
-import app.morphe.patches.youtube.utils.proto.hookElement
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -36,7 +34,6 @@ private val saveToWatchLaterButtonResourcePatch = resourcePatch {
             arrayOf(
                 "PREFERENCE_SCREEN: PLAYER",
                 "PREFERENCE_SCREENS: PLAYER_BUTTONS",
-                "PREFERENCE_SCREENS: FLYOUT_MENU",
                 "SETTINGS: SAVE_TO_WATCH_LATER",
             ),
             SAVE_TO_WATCH_LATER,
@@ -56,9 +53,6 @@ private val saveToWatchLaterButtonResourcePatch = resourcePatch {
 private const val EXTENSION_BUTTON_DESCRIPTOR =
     "Lapp/morphe/extension/youtube/videoplayer/SaveToWatchLaterButton;"
 
-private const val EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR =
-    "Lapp/morphe/extension/youtube/patches/utils/FlyoutUtils;"
-
 @Suppress("unused")
 val saveToWatchLaterButtonPatch = bytecodePatch(
     SAVE_TO_WATCH_LATER.title,
@@ -71,7 +65,6 @@ val saveToWatchLaterButtonPatch = bytecodePatch(
         videoInformationPatch,
         authHookPatch,
         downloadActionsPatch,
-        elementProtoParserHookPatch,
         bytecodePatch {
             finalize {
                 addTopControl(
@@ -86,7 +79,6 @@ val saveToWatchLaterButtonPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
-        hookElement("$EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->onCommentsLoaded([B)[B")
         injectControl(EXTENSION_BUTTON_DESCRIPTOR)
     }
 }

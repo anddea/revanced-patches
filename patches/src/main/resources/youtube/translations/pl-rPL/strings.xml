@@ -59,10 +59,21 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Wstrzymuj, chyba że podłączono bezprzewodowe słuchawki lub głośnik</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatyczne wstrzymywanie po zablokowaniu urządzenia</string>
     <string name="morphe_auto_translate_additional_languages_summary">Dodaje więcej języków do menu automatycznego tłumaczenia</string>
-    <string name="morphe_auto_translate_additional_languages_title">Dodaj więcej języków automatycznego tłumaczenia</string>
+    <string name="morphe_auto_translate_additional_languages_title">Dodatkowe języki tłumaczenia automatycznego</string>
+    <string name="morphe_caption_block_translation_failed">Niektóre tłumaczenia napisów są niedostępne. Wyświetlanie dostępnych napisów</string>
+    <string name="morphe_caption_blocks_too_large">Oba języki napisów nie mieszczą się w tym odtwarzaczu. Wyświetlanie głównego języka</string>
+    <string name="morphe_caption_scale_summary">Dotyczy napisów jednojęzycznych i dwujęzycznych</string>
+    <string name="morphe_caption_scale_title">Rozmiar napisów</string>
+    <string name="morphe_captions_screen_summary">Zarządzaj automatycznymi napisami i plikami cookie napisów</string>
+    <string name="morphe_captions_screen_title">Napisy</string>
     <string name="morphe_copy_comments_success">Skopiowano komentarz do schowka</string>
     <string name="morphe_copy_comments_summary">Przytrzymaj komentarz, aby go skopiować</string>
     <string name="morphe_copy_comments_title">Kopiuj komentarze</string>
+    <string name="morphe_copy_select_text_copy_all">Skopiuj wszystko</string>
+    <string name="morphe_copy_select_text_dialog_title">Zaznacz tekst</string>
+    <string name="morphe_copy_select_text_success">Skopiowano tekst do schowka</string>
+    <string name="morphe_copy_select_text_summary">Przytrzymaj opis filmu lub post, aby zaznaczyć i skopiować dowolny jego fragment</string>
+    <string name="morphe_copy_select_text_title">Zaznacz tekst opisów i postów</string>
     <string name="morphe_copy_video_title_success">Skopiowano tytuł filmu do schowka</string>
     <string name="morphe_copy_video_title_summary">Przytrzymaj tytuł filmu, aby go skopiować</string>
     <string name="morphe_copy_video_title_title">Kopiuj tytuł filmu</string>
@@ -106,6 +117,7 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_disable_system_splash_title">Wyłącz powitanie systemowe</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Wyświetla Subskrypcje na pasku nawigacji, jeśli YouTube przeniesie je do zakładki na górze strony głównej</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Wyłącz zakładki nawigacji na pasku narzędzi</string>
+    <string name="morphe_dual_captions_enabled_title">Napisy dwujęzyczne</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -116,7 +128,7 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_external_potoken_provider_user_dialog_message">Jeśli to nie zadziała, spróbuj wymusić zatrzymanie microG</string>
     <string name="morphe_feed_long_press_menu_summary">Przytrzymanie filmu w dowolnym miejscu na liście otwiera jego menu</string>
     <string name="morphe_feed_long_press_menu_title">Przytrzymaj, aby otworzyć menu filmu</string>
-    <string name="morphe_feed_watch_later_button_summary">Na miniaturkach filmów na liście wyświetlany jest przycisk \"Do obejrzenia\". Przytrzymanie go otwiera opcję \"Zapisz na playliście\"</string>
+    <string name="morphe_feed_watch_later_button_summary">Na miniaturkach filmów na stronie głównej wyświetlany jest przycisk \"Do obejrzenia\" ze znacznikiem wyboru, jeśli film jest zapisany. Dotknięcie go zapisuje lub usuwa film, a przytrzymanie otwiera okno \"Zapisz na playliście\"</string>
     <string name="morphe_feed_watch_later_button_title">Pokaż przycisk \"Do obejrzenia\" na miniaturkach</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
@@ -193,6 +205,32 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_hide_youtube_works_menu_title">Ukryj menu \"Jak działa YouTube\"</string>
     <string name="morphe_light_theme_custom_color_title">Niestandardowy kolor motywu jasny</string>
     <string name="morphe_light_theme_title">Jasny motyw</string>
+    <string name="morphe_live_chat_translate_bold_summary">Wyświetla przetłumaczony tekst pogrubioną czcionką</string>
+    <string name="morphe_live_chat_translate_bold_title">Pogrub przetłumaczony tekst</string>
+    <string name="morphe_live_chat_translate_color_summary">Ustaw kolor przetłumaczonego tekstu w formacie HEX</string>
+    <string name="morphe_live_chat_translate_color_title">Kolor przetłumaczonego tekstu</string>
+    <string name="morphe_live_chat_translate_copied">Skopiowano wiadomość do schowka</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Dodaje mały przycisk kopiowania przy każdej wiadomości na czacie</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Pokaż przycisk kopiowania wiadomości</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Twój klucz API DeepL. W razie błędu DeepL (np. po osiągnięciu miesięcznego limitu klucza) używany jest Tłumacz Google</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">Klucz API DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Kody języków oddzielone przecinkami, np. id,en. Wiadomości w tych językach nie są tłumaczone</string>
+    <string name="morphe_live_chat_translate_exclude_title">Wykluczone języki</string>
+    <string name="morphe_live_chat_translate_language_title">Język tłumaczenia</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Bez limitu</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Dłuższe wiadomości są wyświetlane bez tłumaczenia</string>
+    <string name="morphe_live_chat_translate_max_length_title">Maksymalna długość wiadomości</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Tłumacz wiadomości na czacie na żywo oraz w powtórce czatu</string>
+    <string name="morphe_live_chat_translate_screen_title">Tłumaczenie czatu na żywo</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Oryginał (tłumaczenie)</string>
+    <string name="morphe_live_chat_translate_style_title">Styl tłumaczenia</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Tłumaczenie) oryginał</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Tylko tłumaczenie</string>
+    <string name="morphe_live_chat_translate_summary">Tłumaczy wiadomości na czacie na żywo oraz w powtórce czatu, gdy pojawią się na ekranie</string>
+    <string name="morphe_live_chat_translate_title">Tłumacz czat na żywo</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Nadaje przetłumaczonemu tekstowi wybrany kolor</string>
+    <string name="morphe_live_chat_translate_use_color_title">Własny kolor przetłumaczonego tekstu</string>
     <string name="morphe_livestream_dvr_not_available">"Opcja \"Włącz przewijanie transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -253,7 +291,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="morphe_potoken_provider_unavailable_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
 
 Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</string>
-    <string name="morphe_preferred_caption_language_summary">Najpierw wybiera napisy dostawcy, a następnie automatycznie tłumaczy je na preferowany język</string>
+    <string name="morphe_preferred_caption_language_summary">Automatycznie wybiera język napisów dla każdego filmu</string>
     <string name="morphe_preferred_caption_language_title">Preferowany język napisów</string>
     <string name="morphe_queue_manager_check_failed_auth">Nie zalogowano</string>
     <string name="morphe_queue_manager_check_failed_video_id">Brak identyfikatora filmu</string>
@@ -281,10 +319,6 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_save_to_watch_later_button_title">Pokaż przycisk Zapisz do obejrzenia</string>
     <string name="morphe_save_to_watch_later_error_toast">Nie udało się zapisać na playliście \"Do obejrzenia\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">Zapisz do obejrzenia</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Umożliwia zapisywanie filmów przeznaczonych dla dzieci na liście \"Do obejrzenia\" z poziomu menu</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Pokaż przycisk Zapisz do obejrzenia w filmach dla dzieci</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Umożliwia zapisywanie filmów Short na liście \"Do obejrzenia\" z poziomu menu</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Pokaż przycisk \"Zapisz do obejrzenia\" w menu Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Zapisano na playliście \"Do obejrzenia\"</string>
     <string name="morphe_search_comments_applied">Zmień kolejność sortowania lub otwórz komentarze ponownie, aby je przeszukać</string>
     <string name="morphe_search_comments_clear">Wyczyść</string>
@@ -292,6 +326,8 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_search_comments_hint">Szukane słowa</string>
     <string name="morphe_search_comments_summary">Dotknij przycisku wyszukiwania w sekcji komentarzy, aby wyświetlić tylko te wczytane komentarze, które zawierają wszystkie szukane słowa. Ujmij słowa w cudzysłów, aby wyszukać dokładną frazę</string>
     <string name="morphe_search_comments_title">Szukaj w komentarzach</string>
+    <string name="morphe_secondary_caption_language_summary">Wyświetla drugi język wraz z napisami i dodaje przełącznik \"Napisy dwujęzyczne\" do menu napisów</string>
+    <string name="morphe_secondary_caption_language_title">Drugi język napisów</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Najczęściej odtwarzane</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Wyświetla podgląd filmu podczas przeciągania paska postępu</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Włącz podgląd na pasku postępu</string>
@@ -302,8 +338,8 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_settings_name_custom_item_hint">Wprowadź nazwę</string>
     <string name="morphe_settings_name_empty_warning">Nazwa nie może być pusta</string>
     <string name="morphe_settings_name_title">Nazwa ustawień RVX</string>
-    <string name="morphe_settings_new_indicator_days_summary">Liczba dni, przez które kropka jest wyświetlana obok ustawień i opcji dodanych w aktualizacji</string>
-    <string name="morphe_settings_new_indicator_days_title">Wyróżnij nowe ustawienia</string>
+    <string name="morphe_settings_new_indicator_days_summary">Liczba dni, przez które obok ustawień i opcji dodanych w aktualizacji wyświetlana jest kropka</string>
+    <string name="morphe_settings_new_indicator_days_title">Wyróżniaj nowe ustawienia</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Skracane są tylko pauzy trwające co najmniej tak długo. Zmiana wejdzie w życie po uruchomieniu kolejnego filmu</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimalna długość pauzy</string>
     <string name="morphe_skip_silence_summary">Automatycznie pomija ciche fragmenty w dźwięku filmu</string>
@@ -373,6 +409,8 @@ Aby korzystać z tej funkcji, wyłącz dostawcę PoToken"</string>
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może powodować problemy z odtwarzaniem</string>
+    <string name="morphe_stable_caption_blocks_summary">Grupuje jednojęzyczne napisy automatyczne w stabilne, czytelne bloki. Napisy dwujęzyczne zawsze używają bloków. Niektóre słowa mogą pojawiać się, zanim zostaną wypowiedziane</string>
+    <string name="morphe_stable_caption_blocks_title">Stabilne bloki napisów</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Dotknij, aby wyświetlić opcje kolejki. Przytrzymaj, aby zapisać do obejrzenia</string>
     <string name="morphe_swap_save_and_queue_actions_title">Zamień akcje Zapisz i Kolejka</string>
     <string name="morphe_tablet_layout_in_player_summary">"Przywraca stary układ odtwarzacza
@@ -1917,6 +1955,9 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo"</string>
     <string name="revanced_offline_library_resume">Wznów w %s</string>
     <string name="revanced_offline_library_search">Wyszukaj pliki do pobrania</string>
     <string name="revanced_offline_library_sort">Sortować</string>
+    <string name="revanced_offline_library_sort_newest">Najnowszy</string>
+    <string name="revanced_offline_library_sort_oldest">Najstarszy</string>
+    <string name="revanced_offline_library_sort_size">Rozmiar</string>
     <string name="revanced_offline_library_sort_title">Tytuł</string>
     <string name="revanced_offline_library_title">Pliki pobrania</string>
     <string name="revanced_offline_loading_formats">Ładowanie dostępnych jakości…</string>

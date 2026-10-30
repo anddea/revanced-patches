@@ -42,6 +42,8 @@ import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.HideAud
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.StringRef;
+import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.DeepLAvailability;
+import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationProvider;
 import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationStyle;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
@@ -100,11 +102,20 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    public static final BooleanSetting STABLE_CAPTION_BLOCKS = new BooleanSetting("morphe_stable_caption_blocks", FALSE, true,
+            () -> android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q);
+    public static final BooleanSetting DUAL_CAPTIONS_ENABLED = new BooleanSetting("morphe_dual_captions_enabled", TRUE);
+    public static final StringSetting SECONDARY_CAPTION_LANGUAGE = new StringSetting("morphe_secondary_caption_language", "off", true,
+            () -> android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q);
+    public static final IntegerSetting CAPTION_SCALE = new IntegerSetting("morphe_caption_scale", 100, true);
+
     // Live chat translation
     public static final int LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT = 500;
     public static final BooleanSetting LIVE_CHAT_TRANSLATE = new BooleanSetting("morphe_live_chat_translate", FALSE);
     public static final StringSetting LIVE_CHAT_TRANSLATE_LANGUAGE = new StringSetting("morphe_live_chat_translate_language", "default", parent(LIVE_CHAT_TRANSLATE));
     public static final StringSetting LIVE_CHAT_TRANSLATE_EXCLUDE = new StringSetting("morphe_live_chat_translate_exclude", "", parent(LIVE_CHAT_TRANSLATE));
+    public static final EnumSetting<TranslationProvider> LIVE_CHAT_TRANSLATE_PROVIDER = new EnumSetting<>("morphe_live_chat_translate_provider", TranslationProvider.GOOGLE, parent(LIVE_CHAT_TRANSLATE));
+    public static final StringSetting LIVE_CHAT_TRANSLATE_DEEPL_API_KEY = new StringSetting("morphe_live_chat_translate_deepl_api_key", "", new DeepLAvailability());
     public static final BooleanSetting LIVE_CHAT_TRANSLATE_COPY_BUTTON = new BooleanSetting("morphe_live_chat_translate_copy_button", FALSE, parent(LIVE_CHAT_TRANSLATE));
     public static final EnumSetting<TranslationStyle> LIVE_CHAT_TRANSLATE_STYLE = new EnumSetting<>("morphe_live_chat_translate_style", TranslationStyle.ORIGINAL_AND_TRANSLATED, parent(LIVE_CHAT_TRANSLATE));
     public static final BooleanSetting LIVE_CHAT_TRANSLATE_BOLD = new BooleanSetting("morphe_live_chat_translate_bold", FALSE, parent(LIVE_CHAT_TRANSLATE));
@@ -876,8 +887,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting UNLOCK_QUEUE = new BooleanSetting("morphe_unlock_queue", TRUE);
     public static final BooleanSetting RELOAD_VIDEO = new BooleanSetting("morphe_reload_video", FALSE);
     public static final BooleanSetting SAVE_TO_WATCH_LATER_BUTTON = new BooleanSetting("morphe_save_to_watch_later_button", FALSE);
-    public static final BooleanSetting KIDS_SAVE_TO_WATCH_LATER_BUTTON = new BooleanSetting("morphe_save_to_watch_later_kids_flyout_button", TRUE);
-    public static final BooleanSetting SHORTS_SAVE_TO_WATCH_LATER_BUTTON = new BooleanSetting("morphe_save_to_watch_later_shorts_flyout_button", TRUE);
     public static final BooleanSetting SWAP_SAVE_AND_QUEUE_ACTIONS = new BooleanSetting("morphe_swap_save_and_queue_actions", TRUE, true, parent(SAVE_TO_WATCH_LATER_BUTTON));
     public static final EnumSetting<PlaybackSpeedMenuType> SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG_TYPE = new EnumSetting<>("revanced_shorts_custom_actions_speed_dialog_type", IS_19_34_OR_GREATER ? PlaybackSpeedMenuType.CUSTOM_MODERN : PlaybackSpeedMenuType.CUSTOM_LEGACY,
             true, IS_19_34_OR_GREATER ? null : "revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message", parent(SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG));
@@ -1245,6 +1254,7 @@ public class Settings extends SharedYouTubeSettings {
             };
 
     static {
+        SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(CAPTION_SCALE, 30, 150, 5, "%"));
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(LIVE_CHAT_TRANSLATE_MAX_LENGTH,
                 20, LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT, 20, "", 1,
                 StringRef.sfc("morphe_live_chat_translate_max_length_no_limit")));

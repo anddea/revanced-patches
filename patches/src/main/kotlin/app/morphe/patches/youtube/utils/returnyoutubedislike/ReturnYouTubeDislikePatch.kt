@@ -80,7 +80,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_RYD_CLASS_DESCRIPTOR =
@@ -233,10 +232,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // same endpoint names but omit the video ID, so passing both values lets the extension
         // reject them without generating incorrect RYD requests.
         val endpointServiceNameField = EndpointServiceNameFingerprint
-            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+            .instructionMatches.last().fieldReference
         val likeEndpointParserClass = DislikeFingerprint.classDef.superclass!!
         val videoIdField = requestParameterCheckFingerprint(likeEndpointParserClass)
-            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+            .instructionMatches.last().fieldReference
 
         likeEndpointParserFingerprint(likeEndpointParserClass).let {
             it.method.apply {

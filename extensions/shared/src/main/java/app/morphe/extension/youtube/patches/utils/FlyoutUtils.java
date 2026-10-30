@@ -21,8 +21,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +32,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.shared.utils.Logger;
@@ -67,11 +67,22 @@ public final class FlyoutUtils {
             @Nullable PopupWindow popupWindow
     ) {}
 
-    private static final List<byte[]> KIDS_VIDEO_ELEMENTS_BYTES = List.of(
-            getAsciiBytes("video_metadata_carousel.e"),
-            getAsciiBytes("com.google.android.apps.youtube.kids"),
-            getAsciiBytes("https://www.youtube.com/myfamily/#mf-compare")
-    );
+    /**
+     * The icon names of the Save to playlist item, by preference.
+     * The item uses the icon of a playlist or of a bookmark, depending on the app version.
+     */
+    private static final String[] SAVE_TO_PLAYLIST_ICON_NAMES = {"PLAYLIST_ADD", "ADD_TO_PLAYLIST", "BOOKMARK", "SAVE"};
+    private static final Pattern APP_SAVE_BUTTON_PATTERN =
+            Pattern.compile("WATCH_LATER|" + String.join("|", SAVE_TO_PLAYLIST_ICON_NAMES));
+    /**
+     * If the app menu has a save item, also if the item is hidden by a Morphe setting.
+     */
+    private static boolean flyoutHasAppSaveButton;
+    /**
+     * Injected save item. The app menu can bind its items after the injected items are added.
+     */
+    private static WeakReference<View> injectedSaveButtonRef = new WeakReference<>(null);
+    private static WeakReference<LinearLayout> injectedSaveContainerRef = new WeakReference<>(null);
 
     private static final List<byte[]> SHORTS_VIDEO_ELEMENTS_BYTES = List.of(
             getAsciiBytes("shorts_pivot_item.e"),
@@ -91,9 +102,12 @@ public final class FlyoutUtils {
 
     private static final List<WeakReference<TextView>> customItemTextRefs = new ArrayList<>();
 
+    /**
+     * If the elements were added to the open menu. Menus opened on top of it stay as they are.
+     */
+    private static boolean flyoutElementsAdded;
     private static Dialog flyoutDialog;
     private static PopupWindow flyoutPopupWindow;
-    private static boolean videoMarkedAsForKids;
     private static boolean videoMarkedAsShorts;
 
     private FlyoutUtils() {
@@ -124,21 +138,6 @@ public final class FlyoutUtils {
     }
 
     /**
-     * Injection point.
-     * Detect specific elements for videos marked as for kids, displayed
-     * via the video player's comments button.
-     */
-    public static byte[] onCommentsLoaded(byte[] bytes) {
-        List<Integer> kidsVideoElementsBytesIndexes = byteIndexesOf(bytes, KIDS_VIDEO_ELEMENTS_BYTES);
-        if (!kidsVideoElementsBytesIndexes.isEmpty() &&
-                kidsVideoElementsBytesIndexes.size() == KIDS_VIDEO_ELEMENTS_BYTES.size() - 1) {
-            videoMarkedAsForKids = true;
-        }
-
-        return bytes;
-    }
-
-    /**
      * Marks the current feed flyout payload as a Shorts item.
      *
      * @param bytes the serialized feed endpoint payload, or null when no payload is available
@@ -150,21 +149,13 @@ public final class FlyoutUtils {
     /**
      * Injection point.
      */
-    public static void setVideoMarkedAsForKids() {
-        videoMarkedAsForKids = false;
-    }
-
-    /**
-     * Injection point.
-     */
     public static void setBottomSheetFlyout(@Nullable Dialog dialog) {
         try {
             if (dialog == null) {
                 return;
             }
-            FeedVideoActionsPatch.onBottomSheetFlyout(dialog);
+            FeedVideoActionsPatch.onFlyoutCreated();
             flyoutDialog = dialog;
-            runFlyoutPanelVisibilityHandler(dialog);
 
             Window window = dialog.getWindow();
             if (window == null) {
@@ -172,12 +163,12 @@ public final class FlyoutUtils {
                 return;
             }
 
+            addFlyoutElementsWhenShown(dialog, window.getDecorView());
+
             WeakReference<Dialog> dialogRef = new WeakReference<>(dialog);
             ViewTreeObserver viewTreeObserver = window.getDecorView().getViewTreeObserver();
             viewTreeObserver.addOnPreDrawListener(
                     new ViewTreeObserver.OnPreDrawListener() {
-                        private boolean alreadyInjectedButton;
-
                         @Override
                         public boolean onPreDraw() {
                             try {
@@ -193,16 +184,10 @@ public final class FlyoutUtils {
                                     if (menuInfo == null) {
                                         return true;
                                     }
-                                    if (!alreadyInjectedButton) {
-                                        addFlyoutElements(dialog);
-                                        alreadyInjectedButton = true;
-                                    }
                                     onFlyoutListBound(dialog);
                                     // Do not draw the old measurements while custom rows or the
                                     // native list spacing still require another layout pass.
                                     return !menuInfo.menuContainer().isLayoutRequested();
-                                } else {
-                                    alreadyInjectedButton = false;
                                 }
                             } catch (Exception ex) {
                                 Logger.printException(() -> "setBottomSheetFlyout onPreDraw failure", ex);
@@ -224,12 +209,15 @@ public final class FlyoutUtils {
             if (popupWindow == null) {
                 return;
             }
-            FeedVideoActionsPatch.onPopupWindowFlyout(popupWindow);
+            FeedVideoActionsPatch.onFlyoutCreated();
             flyoutPopupWindow = popupWindow;
-            runFlyoutPanelVisibilityHandler(popupWindow);
-
-            addFlyoutElements(popupWindow);
-            onFlyoutListBound(popupWindow);
+            // The app can set the content view after this call, in the same method that shows the popup.
+            Utils.runOnMainThreadDelayed(() -> {
+                View contentView = popupWindow.getContentView();
+                if (contentView != null) {
+                    addFlyoutElementsWhenShown(popupWindow, contentView);
+                }
+            }, 0);
         } catch (Exception ex) {
             Logger.printException(() -> "setPopupWindowFlyout failure", ex);
         }
@@ -265,15 +253,11 @@ public final class FlyoutUtils {
             );
         }
 
-        boolean showKidsSaveToWatchLater = Settings.KIDS_SAVE_TO_WATCH_LATER_BUTTON.get()
-                && !flyoutVideoId.isEmpty()
-                && videoMarkedAsForKids;
-        boolean showShortsSaveToWatchLater = Settings.SHORTS_SAVE_TO_WATCH_LATER_BUTTON.get()
-                && !flyoutVideoId.isEmpty()
-                && videoMarkedAsShorts;
-
-        if (showKidsSaveToWatchLater || showShortsSaveToWatchLater) {
-            nextButtonIndex = addFlyoutButton(
+        // Only if the menu has no save item of the app, otherwise there are two items for the same action.
+        // The menus of playlists have no video to save.
+        if (!flyoutVideoId.isEmpty() && !hasAppSaveButton()
+                && DownloadActionsPatch.getFlyoutPlaylistId().isEmpty()) {
+            nextButtonIndex = addFlyoutSaveButton(
                     flyoutPanel,
                     saveToWatchLaterDrawable,
                     saveToWatchLaterButtonName,
@@ -375,7 +359,6 @@ public final class FlyoutUtils {
             }
 
             copyListItemTypeface(itemList);
-            FeedVideoActionsPatch.onFlyoutListBound(itemList);
         } catch (Exception ex) {
             Logger.printException(() -> "onFlyoutListBound failure", ex);
         }
@@ -456,6 +439,80 @@ public final class FlyoutUtils {
         return addFlyoutMenuItem(flyoutPanel, icon, text, clickListener, index, false);
     }
 
+    /**
+     * Adds a save item, which is removed if the app menu binds its own save item afterwards.
+     */
+    public static int addFlyoutSaveButton(
+            Object flyoutPanel,
+            Drawable icon,
+            String text,
+            View.OnClickListener clickListener,
+            int index
+    ) {
+        final int nextIndex = addFlyoutButton(flyoutPanel, icon, text, clickListener, index);
+        if (nextIndex >= 0 && !customItemTextRefs.isEmpty()) {
+            View view = customItemTextRefs.get(customItemTextRefs.size() - 1).get();
+            FlyoutMenuInfo menuInfo = getFlyoutMenuInfo(flyoutPanel, index);
+            if (menuInfo != null) {
+                LinearLayout container = menuInfo.menuContainer();
+                while (view != null && view.getParent() instanceof ViewGroup parent && parent != container) {
+                    view = parent;
+                }
+                injectedSaveButtonRef = new WeakReference<>(view);
+                injectedSaveContainerRef = new WeakReference<>(container);
+            }
+        }
+        return nextIndex;
+    }
+
+    /**
+     * @return If the app menu has its own item to save the video. The name of the item does not depend on the language.
+     */
+    public static boolean hasAppSaveButton() {
+        return flyoutHasAppSaveButton;
+    }
+
+    /** Clears the save-item state when the feed endpoint for a new menu is received. */
+    public static void resetSaveButton() {
+        flyoutHasAppSaveButton = false;
+        injectedSaveButtonRef = new WeakReference<>(null);
+        injectedSaveContainerRef = new WeakReference<>(null);
+    }
+
+    /**
+     * Records native save items before hidden or empty entries are skipped.
+     * Rows in this fork are direct children of the menu container rather than an InjectedItemsScrollView.
+     */
+    public static void setCurrentButtonInfo(@Nullable Enum<?> buttonEnum) {
+        // Before the checks below, as a save item hidden by a Morphe setting must not be replaced by the injected one.
+        if (buttonEnum != null && !flyoutHasAppSaveButton) {
+            String name = buttonEnum.name();
+            if (APP_SAVE_BUTTON_PATTERN.matcher(name).find() && !name.contains("REMOVE")) {
+                flyoutHasAppSaveButton = true;
+
+                View view = injectedSaveButtonRef.get();
+                LinearLayout container = injectedSaveContainerRef.get();
+                injectedSaveButtonRef = new WeakReference<>(null);
+                injectedSaveContainerRef = new WeakReference<>(null);
+                if (view != null && container != null && view.getParent() == container) {
+                    customItemTextRefs.removeIf(ref -> ref.get() == null || view.findViewById(ITEM_TEXT_ID) == ref.get());
+                    int index = container.indexOfChild(view);
+                    container.removeView(view);
+                    if (customItemTextRefs.isEmpty()) {
+                        // The divider is right after the injected items.
+                        View divider = container.getChildAt(index);
+                        if (divider instanceof ViewGroup group && group.getChildCount() == 0) {
+                            container.removeView(divider);
+                        }
+                    }
+                    if (flyoutPopupWindow != null && flyoutPopupWindow.isShowing()) {
+                        flyoutPopupWindow.update();
+                    }
+                }
+            }
+        }
+    }
+
     @SuppressWarnings("UnusedReturnValue")
     private static int addDivider(Object flyoutPanel, int index) {
         return addFlyoutMenuItem(flyoutPanel, null, null, null, index, true);
@@ -510,35 +567,53 @@ public final class FlyoutUtils {
         return -1;
     }
 
-    private static void runFlyoutPanelVisibilityHandler(Object flyoutObject) {
-        if (flyoutObject == null) {
-            return;
-        }
+    /**
+     * The menu is not shown yet when it is created. The show and dismiss listeners of the menu
+     * are used by the app, while a view can have any number of attach listeners.
+     *
+     * @param flyoutView View that is attached to the window while the menu is open.
+     */
+    private static void addFlyoutElementsWhenShown(Object flyoutPanel, View flyoutView) {
+        Runnable addElements = () -> {
+            if (!flyoutElementsAdded) {
+                flyoutElementsAdded = true;
+                addFlyoutElements(flyoutPanel);
+                onFlyoutListBound(flyoutPanel);
+            }
+        };
 
-        final Handler visibilityHandler = new Handler(Looper.getMainLooper());
-        visibilityHandler.post(new Runnable() {
+        flyoutView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
             @Override
-            public void run() {
-                final boolean isShowing;
+            public void onViewAttachedToWindow(@NonNull View view) {
+                // After the current layout pass, that binds the items of the menu.
+                view.post(addElements);
+            }
 
-                if (flyoutObject instanceof Dialog flyoutDialogHandler) {
-                    isShowing = flyoutDialogHandler.isShowing();
-                } else if (flyoutObject instanceof PopupWindow flyoutPopupWindowHandler) {
-                    isShowing = flyoutPopupWindowHandler.isShowing();
-                } else {
-                    isShowing = false;
-                }
-
-                if (isShowing) {
-                    visibilityHandler.postDelayed(this, 100);
-                } else {
-                    Utils.runOnMainThreadDelayed(
-                            DownloadActionsPatch::clearFlyoutVideoId,
-                            500
-                    );
-                }
+            @Override
+            public void onViewDetachedFromWindow(@NonNull View view) {
+                view.removeOnAttachStateChangeListener(this);
+                // A dialog is still showing while its window is removed.
+                Utils.runOnMainThreadDelayed(() -> {
+                    if ((flyoutDialog == null || !flyoutDialog.isShowing())
+                            && (flyoutPopupWindow == null || !flyoutPopupWindow.isShowing())) {
+                        resetFlyoutIds();
+                    }
+                }, 0);
             }
         });
+
+        // The app can show the menu before this call.
+        if (flyoutView.isAttachedToWindow()) {
+            flyoutView.post(addElements);
+        }
+    }
+
+    /** Resets the menu state after the last flyout detaches, without replacing app listeners. */
+    private static void resetFlyoutIds() {
+        flyoutElementsAdded = false;
+        resetSaveButton();
+        videoMarkedAsShorts = false;
+        DownloadActionsPatch.resetFlyoutIds();
     }
 
     @Nullable

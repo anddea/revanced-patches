@@ -147,6 +147,7 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_ai_config_extra_body_label">額外請求主體(選填JSON)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">引用名稱和值，例如 {\"api-key\": \"abc\"}。未引用且包含 / : 或數值的值將被拒絕。空值會移除標頭。</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">額外請求標頭（可選 JSON）</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">獲取模型</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">無法獲取模型。請檢查API金鑰或連線狀態。</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">選擇模型</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">正在獲取模型…</string>
@@ -157,8 +158,9 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">設置不完整或被提供者拒絕</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Base URL 必須以 http:// 或 https:// 開頭</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">正在驗證連線…</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">測試連線</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">已儲存翻譯及羅馬拼音設定</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">佔位符：{language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">預留位置：{task}、{language}、{title}、{artist}、{count}、{lines}。未知項目將維持原樣</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">提示詞範本</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">已儲存提示，但 AI 端點尚無法使用。請先在「AI 設定」中進行配置</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">已重設提示詞</string>
@@ -196,7 +198,6 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_local_romanization_dict_building">正在建立讀音 %1$s：%2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">漢語詞彙（pinyin-pro，約 17 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">希臘語、斯拉夫語西里爾字母（包括俄語、烏克蘭語、保加利亞語、塞爾維亞語、白俄羅斯語、馬其頓語）、格魯吉亞語、亞美尼亞語、希伯來語、阿拉伯語、阿姆哈拉語和敘利亞語轉寫（CLDR，約 0.5 MB）</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">請至少選擇一個字典</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">下載失敗 - 關閉並重新開啟此選項以重試</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">日語（SudachiDict，約 75 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">讀音就緒 (%1$d 個條目)</string>
@@ -224,7 +225,7 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_mini_line_limits_title">行長度限制</string>
     <string name="morphe_music_lyrics_mini_line_limits_weight">"全形字元權重
 適用於兩種限制。若設為 1.75，四個全形字元將計為 7 個。"</string>
-    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">調整迷你播放器與 MediaSession 中顯示下一行歌詞的時間。如果歌詞顯示較慢，例如在鎖定螢幕上，請使用負值</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">調整迷你播放器與 MediaSession 中顯示下一行歌詞的時間。如果歌詞顯示較慢，例如在鎖定畫面上，請使用負值</string>
     <string name="morphe_music_lyrics_mini_next_offset_ms_title">迷你播放器和 MediaSession 時間偏移</string>
     <string name="morphe_music_lyrics_mini_track_format_summary">在迷你播放器和 MediaSession 中與歌詞一同顯示的曲目格式。{t} 為標題，{a} 為藝人，{v} 為版本，例如 Acoustic，若歌詞來源有提供時。兩個冒號之間的文字僅在其中所有變數均有值時顯示；若要顯示普通冒號，請輸入 \\:。每行將依次顯示，並在歌詞變更時切換</string>
     <string name="morphe_music_lyrics_mini_track_format_title">歌曲標題/藝人格式</string>

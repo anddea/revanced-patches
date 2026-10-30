@@ -55,7 +55,7 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
             dislikeFingerprint to Vote.DISLIKE,
             removeLikeFingerprint to Vote.REMOVE_LIKE,
         ).forEach { (fingerprint, vote) ->
-            fingerprint.methodOrThrow().addInstructions(
+            fingerprint.method.addInstructions(
                 0,
                 """
                     const/4 v0, ${vote.value}

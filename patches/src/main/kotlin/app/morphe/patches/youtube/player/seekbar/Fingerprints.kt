@@ -10,6 +10,7 @@
 
 package app.morphe.patches.youtube.player.seekbar
 
+import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
@@ -284,15 +285,6 @@ internal object FullscreenLargeSeekbarStateWriterFingerprint : Fingerprint(
 )
 
 // region Livestream DVR
-
-internal object VideoStreamingDataToStringFingerprint : Fingerprint(
-    name = "toString",
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Ljava/lang/String;",
-    filters = listOf(
-        string("VideoStreamingData(itags=")
-    )
-)
 
 internal object VideoStreamingDataAllowSeekingFingerprint : Fingerprint(
     classFingerprint = VideoStreamingDataToStringFingerprint,

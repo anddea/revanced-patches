@@ -72,7 +72,11 @@ import app.morphe.extension.shared.utils.Utils;
 
 public class StreamOrDetailsDataRequest {
 
-    public record StreamData(byte[] streamingData, @Nullable byte[] playerConfig, boolean hasAndroidMedia) {
+    /**
+     * @param client Client the streams are of.
+     */
+    public record StreamData(byte[] streamingData, @Nullable byte[] playerConfig, boolean hasAndroidMedia,
+                             ClientType client) {
     }
 
     public static boolean getLastSpoofedClientUseSABR() {
@@ -133,8 +137,26 @@ public class StreamOrDetailsDataRequest {
     private static final Map<String, StreamOrDetailsDataRequest> detailsCache = Collections.synchronizedMap(
             Utils.createSizeRestrictedMap(50));
 
+    /**
+     * Client of the streams last given to the player.
+     * Several videos are fetched at once, such as the inline previews of the search results
+     * or the next track of the queue, so the last fetch to finish can be of another video.
+     */
     private static volatile ClientType lastSpoofedClientType;
-    private static volatile boolean fallbackWithTVDash;
+
+    /**
+     * Clients of the streams given to the player, by video id.
+     * The streams of another video can be given before the player is set up for a video,
+     * so the player chooses SABR from the client of that video and not from the last one.
+     */
+    private static final Map<String, ClientType> playerClients = Collections.synchronizedMap(
+            Utils.createSizeRestrictedMap(50));
+
+    /**
+     * If the last TV SABR response built on the thread is of a live stream, which is fetched again with TV DASH.
+     * A fetch runs on a single thread, and other fetches running at the same time must not see this.
+     */
+    private static final ThreadLocal<Boolean> fallbackWithTVDashOnThread = ThreadLocal.withInitial(() -> false);
     private static volatile boolean authHeadersOverrides;
     private static volatile Map<String, String> lastPlayerHeaders = Collections.emptyMap();
 
@@ -151,8 +173,32 @@ public class StreamOrDetailsDataRequest {
         }
     }
 
+    /**
+     * @param client Client of the streams given to the player for the video,
+     *               or null if the player uses the streams of the app.
+     */
+    public static void setPlayerClient(String videoId, @Nullable ClientType client) {
+        lastSpoofedClientType = client;
+        if (client == null) {
+            playerClients.remove(videoId);
+        } else {
+            playerClients.put(videoId, client);
+        }
+    }
+
+    /**
+     * @return If the streams given to the player for the video are SABR streams.
+     */
+    public static boolean playerClientUsesSABR(@Nullable String videoId) {
+        ClientType client = videoId == null ? null : playerClients.get(videoId);
+        return client != null && client.requireSABR;
+    }
+
     private final String videoId;
     private final boolean isInline;
+    @Nullable
+    private final String authorization;
+    private final ClientType[] clientOrder;
 
     private final Future<Object> future;
 
@@ -176,6 +222,8 @@ public class StreamOrDetailsDataRequest {
         }
         this.videoId = videoId;
         this.isInline = isInline;
+        this.authorization = playerHeaders == null ? null : playerHeaders.get(AUTHORIZATION_HEADER);
+        this.clientOrder = clientStreamOrderOverride;
 
         this.future = submitOnBackgroundThread(() ->
                 fetch(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride, forDownload));
@@ -210,13 +258,27 @@ public class StreamOrDetailsDataRequest {
         if (fetchHeaders != null && !fetchHeaders.isEmpty()) {
             lastPlayerHeaders = fetchHeaders;
         }
-        streamCache.put(videoId, new StreamOrDetailsDataRequest(
-                null,
-                videoId,
-                isInline,
-                fetchHeaders,
-                clientStreamOrderOverride
-        ));
+        ClientType[] clientOrder = clientStreamOrderOverride == null || clientStreamOrderOverride.length == 0
+                ? clientStreamOrderToUse : clientStreamOrderOverride;
+        synchronized (streamCache) {
+            // The app can ask for the same video again while the first fetch is still running.
+            // A fetch that is done is never reused, because its streams can be expired or missing.
+            StreamOrDetailsDataRequest existing = streamCache.get(videoId);
+            if (existing != null && existing.isFetchInProgress(isInline, fetchHeaders, clientOrder)) {
+                Logger.printDebug(() -> "Using the fetch in progress for: " + videoId);
+                return;
+            }
+            streamCache.put(videoId, new StreamOrDetailsDataRequest(null, videoId, isInline, fetchHeaders,
+                    clientOrder));
+        }
+    }
+
+    private boolean isFetchInProgress(boolean isInline, Map<String, String> playerHeaders,
+                                      ClientType[] clientOrder) {
+        return !future.isDone()
+                && this.isInline == isInline
+                && this.clientOrder == clientOrder
+                && Objects.equals(authorization, playerHeaders.get(AUTHORIZATION_HEADER));
     }
 
     /**
@@ -443,7 +505,7 @@ public class StreamOrDetailsDataRequest {
                         && (clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U)
                         && Utils.containsAny(streamingData.getServerAbrStreamingUrl(), "yt_live_broadcast", "yt_premiere_broadcast")) {
                     Logger.printDebug(() -> "Livestream detected, fallback to TV dash");
-                    fallbackWithTVDash = true;
+                    fallbackWithTVDashOnThread.set(true);
                     return null;
                 }
 
@@ -523,7 +585,7 @@ public class StreamOrDetailsDataRequest {
                     playerConfigBuffer = playerConfigBuilder.build().toByteArray();
                 }
 
-                return new StreamData(streamingDataBuffer, playerConfigBuffer, hasAndroidMedia);
+                return new StreamData(streamingDataBuffer, playerConfigBuffer, hasAndroidMedia, clientType);
             } else {
                 String response = new BufferedReader(new InputStreamReader(inputStream))
                         .lines()
@@ -574,12 +636,13 @@ public class StreamOrDetailsDataRequest {
                 }
 
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
+                fallbackWithTVDashOnThread.set(false);
                 Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline, isDownload);
 
                 // Include TV_SABR_WII_U (Morphe 5c6b8418).
                 if ((clientTypeStream == ClientType.TV_SABR || clientTypeStream == ClientType.TV_SABR_WII_U)
-                        && fallbackWithTVDash) {
-                    fallbackWithTVDash = false;
+                        && fallbackWithTVDashOnThread.get()) {
+                    fallbackWithTVDashOnThread.set(false);
                     clientTypeStream = ClientType.TV_DASH;
                     HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
                     playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, videoId, isInline, isDownload);
@@ -587,7 +650,8 @@ public class StreamOrDetailsDataRequest {
 
                 if (playerResponseBuffer != null) {
                     if (!isDownload) {
-                        lastSpoofedClientType = clientTypeStream;
+                        // Stats for nerds and the SABR choice describe what is playing,
+                        // so the client is set when the streams are given to the player, and not here.
                         // The first attempt is with the default client.
                         PreferredClientCheck.onStreamsFetched(videoId, i == 1, clientTypeStream);
                     }
@@ -600,7 +664,6 @@ public class StreamOrDetailsDataRequest {
                 return null;
             }
 
-            lastSpoofedClientType = null;
             handleConnectionError(str("morphe_spoof_video_streams_no_clients_toast"), null, true);
         } else {
             ClientType targetClient = null;

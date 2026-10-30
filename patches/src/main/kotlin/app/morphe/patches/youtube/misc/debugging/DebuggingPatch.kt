@@ -18,7 +18,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.webview.webViewPatch
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.originalMethodOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -62,11 +61,11 @@ val debuggingPatch = bytecodePatch(
                 )
 
             val watchNextResponseProcessingDelayField =
-                playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+                playbackStartParametersToStringFingerprint.originalMethod
                     .findFieldFromToString(WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING)
 
             playbackStartParametersConstructorFingerprint
-                .methodOrThrow(playbackStartParametersToStringFingerprint)
+                .match(playbackStartParametersToStringFingerprint.classDef).method
                 .apply {
                     val index = indexOfFirstInstructionReversedOrThrow {
                         opcode == Opcode.IPUT &&

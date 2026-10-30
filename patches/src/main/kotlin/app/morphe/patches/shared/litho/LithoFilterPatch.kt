@@ -52,7 +52,6 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.bytecodePatch
@@ -66,8 +65,6 @@ import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACK
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH
-import app.morphe.patches.shared.litho.context.ConversionContextToStringFingerprint
-import app.morphe.patches.shared.litho.context.conversionContextClassDef
 import app.morphe.patches.shared.litho.context.conversionContextPatch
 import app.morphe.patches.youtube.utils.litho.rendernext.disableRenderNextPatch
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
@@ -83,7 +80,6 @@ import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
@@ -92,12 +88,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -109,14 +103,6 @@ private const val EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR = "$COMPONENTS_PATH/Li
 private const val EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR = "$COMPONENTS_PATH/LegacyLithoFilterPatch;"
 internal const val EXTENSION_FILTER_ARRAY_DESCRIPTOR = "[$COMPONENTS_PATH/Filter;"
 internal var emptyComponentLabel = ""
-
-private const val EXTENSION_LIST_ITEM_DECORATOR_INTERFACE =
-    $$"Lapp/morphe/extension/shared/patches/components/LithoFilterPatch$ListItemDecoratorInterface;"
-
-private const val COMMAND_EVENT_DATA_DECORATORS_PROPERTY = ", globalCommandEventDataDecoratorsInternal="
-
-private const val EXTENSION_LIST_SECTION_INTERFACE =
-    $$"Lapp/morphe/extension/shared/patches/components/LithoFilterPatch$ListSectionInterface;"
 
 // Registers used in extension helperMethod.
 private const val REGISTER_FILTER_CLASS = 0
@@ -288,7 +274,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // Find the identifier/path fields of the conversion context.
 
-            val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+            val conversionContextMatch = conversionContextFingerprintToString2.match()
             val conversionContextClass = conversionContextMatch.originalClassDef
             val conversionContextIdentifierField = conversionContextMatch.method
                 .findFieldFromToString("identifierProperty=")
@@ -525,6 +511,54 @@ val lithoFilterPatch = bytecodePatch(
                 "invoke-static { p2 }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
             )
 
+            // FlatBuffer converters do not implement the UPB encoder. Read the backing buffer
+            // from the current element, rather than the last unrelated parser invocation.
+            if (!isYouTubeMusic) {
+                val elementInterface = componentCreateFingerprint.methodOrThrow().parameterTypes[2].toString()
+                val bufferClass = byteBufferFingerprint.matchOrThrow().classDef
+                val byteBufferField = bufferClass.fields.single { it.type == "Ljava/nio/ByteBuffer;" }
+                var flatElement: FlatBufferElementReferences? = null
+                classDefForEach { candidate ->
+                    if (!candidate.interfaces.contains(elementInterface)) return@classDefForEach
+                    candidate.fields.forEach { field ->
+                        var type: String? = field.type
+                        while (type != null && type != "Ljava/lang/Object;") {
+                            if (type == bufferClass.type) {
+                                check(flatElement == null) { "Multiple FlatBuffer elements for $elementInterface" }
+                                flatElement = FlatBufferElementReferences(candidate.type, field, byteBufferField)
+                                break
+                            }
+                            type = try { classDefBy(type).superclass } catch (_: Exception) { null }
+                        }
+                    }
+                }
+                val flat = checkNotNull(flatElement) { "Missing FlatBuffer element for $elementInterface" }
+                componentCreateFingerprint.methodOrThrow().apply {
+                    // Conversion renders children recursively. Capture the parent's buffer only
+                    // after that work, immediately before its filter, or a child's invocation
+                    // overwrites the thread-local buffer before the parent can search it.
+                    val index = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                    val registers = getFreeRegisterProvider(index, 2)
+                    val buffer = registers.getFreeRegister()
+                    val test = registers.getFreeRegister()
+                    addInstructionsAtControlFlowLabel(index, """
+                        move-object/from16 v$buffer, p3
+                        instance-of v$test, v$buffer, ${flat.elementClass}
+                        if-eqz v$test, :no_flat_buffer
+                        check-cast v$buffer, ${flat.elementClass}
+                        iget-object v$buffer, v$buffer, ${flat.elementField}
+                        iget-object v$buffer, v$buffer, ${flat.byteBufferField}
+                        invoke-static { v$buffer }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer(Ljava/nio/ByteBuffer;)V
+                        goto :flat_buffer_set
+                        :no_flat_buffer
+                        const/4 v$buffer, 0x0
+                        invoke-static { v$buffer }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer(Ljava/nio/ByteBuffer;)V
+                        :flat_buffer_set
+                        nop
+                    """)
+                }
+            }
+
             // endregion
 
             // region Hook the method that parses bytes into a ComponentContext
@@ -536,7 +570,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // Find the identifier/path fields of the conversion context.
             val conversionContextClass = conversionContextFingerprintToString2
-                .matchOrThrow()
+                .match()
                 .originalClassDef
 
             val conversionContextIdentifierField = componentContextParserFingerprint2.matchOrThrow().let {
@@ -650,12 +684,12 @@ val lithoFilterPatch = bytecodePatch(
                         goto :set_buffer
 
                         :empty_buffer
-                        const/4 v$freeRegister, 0x0
-                        new-array v$bufferRegister, v$freeRegister, [B
+                        goto :filter_component
 
                         :set_buffer
                         invoke-static { v$bufferRegister }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
 
+                        :filter_component
                         move-object/from16 v$freeRegister, p2
                         instance-of v$identifierRegister, v$freeRegister, ${conversionContextClass.type}
                         if-eqz v$identifierRegister, :unfiltered
@@ -827,181 +861,6 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
         }
-
-        // region Remove the items of the lists whose whole element is filtered.
-
-        // Older YouTube contexts have no event decorators. Keep the interface's default null
-        // implementation and the existing component filtering on those versions.
-        if (!isYouTubeMusic && ConversionContextToStringFingerprint.originalMethod.indexOfFirstInstruction {
-            getReference<StringReference>()?.string?.contains(COMMAND_EVENT_DATA_DECORATORS_PROPERTY) == true
-        } >= 0) {
-            // Give the extension the decorators of the conversion context.
-            val decoratorsMethod = commandEventDataDecoratorsFingerprint(
-                ConversionContextToStringFingerprint.method
-                    .findFieldFromToString(COMMAND_EVENT_DATA_DECORATORS_PROPERTY)
-            ).method
-
-            conversionContextClassDef.methods.add(
-                ImmutableMethod(
-                    conversionContextClassDef.type,
-                    "patch_getCommandEventDataDecorators",
-                    listOf(),
-                    "Ljava/util/List;",
-                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(2),
-                ).toMutable().apply {
-                    addInstructions(
-                        0,
-                        """
-                            invoke-virtual { p0 }, $decoratorsMethod
-                            move-result-object v0
-                            return-object v0
-                        """
-                    )
-                }
-            )
-
-            // Give the extension the item that the decorator holds.
-            CommandEventDataDecoratorFingerprint.let {
-                val dataType = it.instructionMatches.first()
-                    .instruction.getReference<MethodReference>()!!.definingClass
-                val itemField = mutableClassDefBy(dataType).fields.single { field ->
-                    field.type == "Ljava/lang/Object;"
-                }
-
-                mutableClassDefBy(
-                    it.instructionMatches.last().instruction.getReference<MethodReference>()!!.definingClass
-                ).apply {
-                    val dataField = fields.single { field -> field.type == dataType }
-
-                    interfaces.add(EXTENSION_LIST_ITEM_DECORATOR_INTERFACE)
-
-                    methods.add(
-                        ImmutableMethod(
-                            type,
-                            "patch_getListItem",
-                            listOf(),
-                            "Ljava/lang/Object;",
-                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                            null,
-                            null,
-                            MutableMethodImplementation(2),
-                        ).toMutable().apply {
-                            addInstructionsWithLabels(
-                                0,
-                                """
-                                    iget-object v0, p0, $dataField
-                                    if-eqz v0, :no_data
-                                    iget-object v0, v0, $itemField
-                                    :no_data
-                                    return-object v0
-                                """
-                            )
-                        }
-                    )
-                }
-            }
-
-            // Keep the observable lists, to remove the items from them.
-            ObservableListConstructorFingerprint.method.apply {
-                addInstruction(
-                    implementation!!.instructions.lastIndex,
-                    "invoke-static { p0 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->addObservableList(Ljava/util/List;)V"
-                )
-            }
-
-            // Keep the sections of the lists, to remove the items from them. Some grids, such as
-            // the related videos, group the items of a section into rows, which the section lays
-            // out again when an item is removed.
-            ListSectionRemoveItemFingerprint.let {
-                val itemsField = it.instructionMatches[2].instruction.getReference<FieldReference>()!!
-                val removeItemMethod = it.method
-
-                // Removing an item does not lay out the rows again when the section is no longer
-                // a grid, such as when a single item is left, and the old rows that are views of
-                // the items would throw on the next access.
-                val (isGridMethod, layOutRowsMethod, updateSectionMethod) =
-                    ListSectionUpdateRowsFingerprint.instructionMatches.let { matches ->
-                        listOf(0, 3, 4).map { index ->
-                            matches[index].instruction.getReference<MethodReference>()!!
-                        }
-                    }
-
-                it.classDef.apply {
-                    interfaces.add(EXTENSION_LIST_SECTION_INTERFACE)
-
-                    methods.add(
-                        ImmutableMethod(
-                            type,
-                            "patch_removeListItem",
-                            listOf(ImmutableMethodParameter("Ljava/lang/Object;", null, "item")),
-                            "Z",
-                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                            null,
-                            null,
-                            MutableMethodImplementation(4),
-                        ).toMutable().apply {
-                            addInstructionsWithLabels(
-                                0,
-                                """
-                                    iget-object v0, p0, $itemsField
-                                    invoke-interface { v0, p1 }, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-                                    move-result v0
-                                    if-eqz v0, :done
-                                    invoke-direct { p0 }, $isGridMethod
-                                    move-result v1
-                                    invoke-virtual { p0, p1 }, $removeItemMethod
-                                    if-eqz v1, :done
-                                    invoke-direct { p0 }, $isGridMethod
-                                    move-result v1
-                                    if-nez v1, :done
-                                    iget-object v1, p0, $itemsField
-                                    invoke-interface { v1 }, Ljava/util/List;->isEmpty()Z
-                                    move-result v1
-                                    if-nez v1, :done
-                                    invoke-virtual { p0 }, $layOutRowsMethod
-                                    invoke-virtual { p0 }, $updateSectionMethod
-                                    :done
-                                    return v0
-                                """
-                            )
-                        }
-                    )
-
-                    // The released sections stop receiving the removed items.
-                    ListSectionReleaseFingerprint.method.addInstruction(
-                        0,
-                        "invoke-static/range { p0 .. p0 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->" +
-                                "removeListSection($EXTENSION_LIST_SECTION_INTERFACE)V"
-                    )
-
-                    // Only the constructors that call the constructor of the superclass,
-                    // the others call those.
-                    methods.filter { method -> MethodUtil.isConstructor(method) }.forEach { constructor ->
-                        val superConstructorIndex = constructor.indexOfFirstInstruction {
-                            opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.let { reference ->
-                                reference.name == "<init>" && reference.definingClass == superclass
-                            } == true
-                        }
-                        if (superConstructorIndex < 0) return@forEach
-
-                        // The instance the superclass was initialized with.
-                        val sectionRegister = constructor
-                            .getInstruction<FiveRegisterInstruction>(superConstructorIndex).registerC
-
-                        constructor.addInstruction(
-                            superConstructorIndex + 1,
-                            "invoke-static/range { v$sectionRegister .. v$sectionRegister }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->" +
-                                    "addListSection($EXTENSION_LIST_SECTION_INTERFACE)V"
-                        )
-                    }
-                }
-            }
-        }
-
-        // endregion
     }
 
     finalize {

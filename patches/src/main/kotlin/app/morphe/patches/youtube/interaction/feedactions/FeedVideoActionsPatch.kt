@@ -11,7 +11,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.general.downloads.downloadActionsPatch
-import app.morphe.patches.youtube.utils.auth.authHookPatch
+import app.morphe.patches.youtube.utils.commandrouter.commandRouterHookPatch
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.feedcards.feedVideoCardsHookPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -34,10 +34,10 @@ val feedVideoActionsPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
-        // Finds the video id of the menu, and hooks the menu dialogs.
+        // Finds the video id of the menu, to learn the description of the menu button.
         downloadActionsPatch,
-        // Account header for the Watch later request.
-        authHookPatch,
+        // Runs the commands of the Watch later button.
+        commandRouterHookPatch,
         // Finds the video of each card, to hide the button while it plays in the feed.
         feedVideoCardsHookPatch,
     )

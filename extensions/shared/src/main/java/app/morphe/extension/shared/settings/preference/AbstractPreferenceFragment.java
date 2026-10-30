@@ -429,6 +429,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
+        } else if (pref instanceof SeekBarPreference) {
+            // The dialog reads and saves its Setting directly, so there is no UI value to sync.
         } else if (pref.getClass().equals(Preference.class)) {
             updatePreferenceSummary(pref, setting);
         } else {
@@ -640,6 +642,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     private void attachPreferenceLongClickListener(@Nullable Dialog dialog) {
         if (dialog == null) return;
         ListView listView = dialog.findViewById(android.R.id.list);
+        if (listView != null) NewSettingsIndicator.watchVisiblePreferences(listView);
         if (listView != null && listView.getOnItemLongClickListener() == null) {
             listView.setOnItemLongClickListener(this::onPreferenceLongClick);
         }
@@ -714,6 +717,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (rootView == null) return;
         ListView listView = getView().findViewById(android.R.id.list);
         if (listView == null) return;
+        NewSettingsIndicator.watchVisiblePreferences(listView);
         listView.setDivider(null);
         listView.setDividerHeight(0);
         if (listView.getOnItemLongClickListener() == null) {

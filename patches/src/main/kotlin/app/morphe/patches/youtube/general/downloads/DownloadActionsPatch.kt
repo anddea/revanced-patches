@@ -71,7 +71,6 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
-import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
@@ -283,7 +282,7 @@ val downloadActionsPatch = bytecodePatch(
             val match = fingerprint.matchOrNull()
             if (match != null) {
                 val messageType = fingerprint.instructionMatches[1]
-                    .instruction.getReference<FieldReference>()!!.type
+                    .fieldReference.type
                 addFlyoutVideoIdInterface(messageType)
             }
         }
@@ -400,11 +399,6 @@ val downloadActionsPatch = bytecodePatch(
                 )
             }
         }
-
-        startVideoInformerFingerprint.methodOrThrow().addInstruction(
-            0,
-            "invoke-static { }, $EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->setVideoMarkedAsForKids()V",
-        )
 
         // endregion
 

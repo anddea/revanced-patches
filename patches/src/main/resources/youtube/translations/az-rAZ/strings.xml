@@ -56,10 +56,21 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Simsiz səs qoşulmadıqca fasilə ver</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilidləndikdə avtomatik fasilə</string>
     <string name="morphe_auto_translate_additional_languages_summary">Avtomatik tərcümə menyusuna daha çox dil əlavə edir</string>
-    <string name="morphe_auto_translate_additional_languages_title">Əlavə avtomatik tərcümə dilləri əlavə et</string>
+    <string name="morphe_auto_translate_additional_languages_title">Əlavə avtomatik tərcümə dilləri</string>
+    <string name="morphe_caption_block_translation_failed">Bəzi altyazı tərcümələri əlçatmazdır. Mövcud altyazıları göstərir</string>
+    <string name="morphe_caption_blocks_too_large">Hər iki titr dili bu oynadıcıya uyğun gəlmir. Əsas dili göstərir</string>
+    <string name="morphe_caption_scale_summary">Tək dilli və ikidilli titrlərə tətbiq olunur</string>
+    <string name="morphe_caption_scale_title">Titr ölçüsü</string>
+    <string name="morphe_captions_screen_summary">Avtomatik titrləri və titr bazaların idarə et</string>
+    <string name="morphe_captions_screen_title">Titrlər</string>
     <string name="morphe_copy_comments_success">Şərh buferə köçürüldü</string>
     <string name="morphe_copy_comments_summary">Şərhi köçürmək üçün toxunub saxla</string>
     <string name="morphe_copy_comments_title">Şərhləri köçür</string>
+    <string name="morphe_copy_select_text_copy_all">Hamısını köçür</string>
+    <string name="morphe_copy_select_text_dialog_title">Mətni seç</string>
+    <string name="morphe_copy_select_text_success">Mətn buferə köçürüldü</string>
+    <string name="morphe_copy_select_text_summary">Video təsvirini və ya postu seçmək və onun istənilən hissəsini köçürmək üçün ona toxunub saxla</string>
+    <string name="morphe_copy_select_text_title">Təsvirlərin və postların mətnini seç</string>
     <string name="morphe_copy_video_title_success">Video başlığı buferə köçürüldü</string>
     <string name="morphe_copy_video_title_summary">Videonun başlığını köçürmək üçün üzərinə toxunub saxla</string>
     <string name="morphe_copy_video_title_title">Video başlığını köçür</string>
@@ -91,6 +102,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_disable_scrolling_speed_limit_title">Sürüşdürmə sürət həddini qapat</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube onu Əsas Səhifənin yuxarısındakı vərəqə köçürərsə, fəaliyyət cərgəsində Abunəlikləri göstərir</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Alət cərgəsi fəaliyyət səhifələrini qapat</string>
+    <string name="morphe_dual_captions_enabled_title">İkidilli titrlər</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayım DVR müddətini genişləndir' əlçatan olmaya bilər
 
 Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
@@ -101,8 +113,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_external_potoken_provider_user_dialog_message">Əgər bu işləmirsə, MicroG-ni məcburi qapatmağa çalışın</string>
     <string name="morphe_feed_long_press_menu_summary">Axında videonun istənilən yerinə toxunub saxlamaq onun menyusunu açır</string>
     <string name="morphe_feed_long_press_menu_title">Video menyusunu açmaq üçün toxunub saxla</string>
-    <string name="morphe_feed_watch_later_button_summary">Daha sonra izlə düyməsi axın videolarının miniatürlərində göstərilir. Ona toxunub saxlamaq Pleylistdə saxlanı açır</string>
-    <string name="morphe_feed_watch_later_button_title">Miniatürlərdə Daha sonra izlə düyməsini göstər</string>
+    <string name="morphe_feed_watch_later_button_summary">Sonra izləyin düyməsi axın videolarının miniatürlərində göstərilir, əgər video saxlanılıbsa işarələnir. Ona toxunmaq videonu saxlayır və ya silir, basıb saxlamaq isə Pleylistdə saxlayını açır</string>
+    <string name="morphe_feed_watch_later_button_title">Miniatürlərdə Sonra izləyin düyməsini göstər</string>
     <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \'Video yayımların saxtalaşdırı\' \'Android Studio\' və \'Android VR Downgraded\' istisna istənilən qəbulediciyə dəyiş</string>
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
@@ -176,6 +188,32 @@ Məhdudiyyətlər:
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menyusunu gizlət</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menyusunu gizlət</string>
     <string name="morphe_hide_youtube_works_menu_title">\"YouTube necə işləyir\" menyusunu gizlət</string>
+    <string name="morphe_live_chat_translate_bold_summary">Tərcümə olunmuş mətni qalın göstərir</string>
+    <string name="morphe_live_chat_translate_bold_title">Qalın tərcümə olunmuş mətn</string>
+    <string name="morphe_live_chat_translate_color_summary">Tərcümə olunmuş mətnin altı dəyərli rəngini təyin et</string>
+    <string name="morphe_live_chat_translate_color_title">Tərcümə olunmuş mətn rəngi</string>
+    <string name="morphe_live_chat_translate_copied">Mesaj buferə köçürüldü</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Hər söhbət mesajına kiçik köçürmə düyməsi əlavə edir</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Mesajı köçür düyməsini göstər</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL API açarınız. Google Tərcümə, DeepL uğursuz olduqda, məsələn, açarın aylıq limitinə çatıldıqda istifadə olunur</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API açarı</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Vergüllə ayrılmış, məsələn; id,en kimi dil kodları. Bu dillərdəki mesajlar tərcümə olunmur</string>
+    <string name="morphe_live_chat_translate_exclude_title">İstisna edilmiş dillər</string>
+    <string name="morphe_live_chat_translate_language_title">Tərcümə dili</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Limitsiz</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Daha uzun mesajlar tərcümə olunmadan göstərilir</string>
+    <string name="morphe_live_chat_translate_max_length_title">Maksimum mesaj uzunluğu</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Canlı söhbət və canlı söhbətin təkrar mesajlarını tərcümə et</string>
+    <string name="morphe_live_chat_translate_screen_title">Canlı söhbət tərcüməsi</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Orijinal (tərcümə olunmuş)</string>
+    <string name="morphe_live_chat_translate_style_title">Tərcümə üslubu</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Tərcümə olunmuş) orijinal</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Yalnız tərcümə edilmiş</string>
+    <string name="morphe_live_chat_translate_summary">Canlı söhbət və canlı söhbət təkrar mesajlarını ekranda olan kimi tərcümə edir</string>
+    <string name="morphe_live_chat_translate_title">Canlı söhbəti tərcümə et</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Tərcümə olunmuş mətnə xüsusi rəng tətbiq edir</string>
+    <string name="morphe_live_chat_translate_use_color_title">Fərdi tərcümə olunmuş mətn rəngi</string>
     <string name="morphe_livestream_dvr_not_available">"'Canlı yayım DVR-ni aktivləşdir' əlçatan olmaya bilər
 
 Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
@@ -222,7 +260,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_post_image_download_started_single">Şəkli yükləyir…</string>
     <string name="morphe_post_image_download_summary">Yükləmə düyməsi Şəkil və ya GIF olan postların Paylaş düyməsi ilə yanaşı göstərilir və yükləmə elementi menyularına əlavə edilir</string>
     <string name="morphe_post_image_download_title">Post şəkillərini yüklə</string>
-    <string name="morphe_preferred_caption_language_summary">Əvvəlcə təminatçının altyazılarını seçir, sonra avtomatik üstünlük verilən dilə tərcümə edir</string>
+    <string name="morphe_preferred_caption_language_summary">Hər video üçün avtomatik altyazı dilini seçir</string>
     <string name="morphe_preferred_caption_language_title">Üstünlük verilmiş titr dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Daxil olunmayıb</string>
     <string name="morphe_queue_manager_check_failed_video_id">Video ID-si yoxdur</string>
@@ -246,14 +284,10 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
     <string name="morphe_save_to_watch_later_already_exists_toast">Bu video artıq sonra izləyin pleylistində saxlanılıb</string>
-    <string name="morphe_save_to_watch_later_button_summary">Daha sonra Baxmağa saxlamaq üçün toxun, növbə seçimləri üçün toxun və saxla</string>
-    <string name="morphe_save_to_watch_later_button_title">Daha sonra İzləmək üçün Saxla düyməsini Göstər</string>
+    <string name="morphe_save_to_watch_later_button_summary">Sonra izləməyə əlavə etmək üçün toxun, növbə seçimləri üçün toxun və saxla</string>
+    <string name="morphe_save_to_watch_later_button_title">Sonra İzləyin Səhifəsinə Əlavə Et Düyməsini Göstər</string>
     <string name="morphe_save_to_watch_later_error_toast">Bu videonu sonra izləyin pleylistində saxlamaq olmur</string>
-    <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izləmək üçün saxla</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Uşaqlarla əlaqəli videoları açılan menyudan \"Sonra izləyin\" bölməsində saxlamağa imkan verir</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Uşaq videolarında Daha sonra İzləmək üçün Saxlanı göstər</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Shorts-ları açılan menyudan \"Sonra izləyin\" bölməsində saxlamağa imkan verir</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts açılan menyusunda \"Daha sonra İzləmək üçün Saxla\" düyməsini göstər</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Sonra izləmək üçün saxla</string>
     <string name="morphe_save_to_watch_later_success_toast">Video uğurla sonra izləyin pleylistində saxlanıldı</string>
     <string name="morphe_search_comments_applied">Onları axtarmaq üçün çeşidləmə sırasını dəyişin və ya şərhləri təkrar açın</string>
     <string name="morphe_search_comments_clear">Təmizlə</string>
@@ -261,6 +295,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_search_comments_hint">Axtarılacaq sözlər</string>
     <string name="morphe_search_comments_summary">Yalnız axtarılan sözlərin hamısını ehtiva edən yüklənilmiş şərhləri göstərmək üçün şərhlərdəki axtarış düyməsinə toxun. İfadəni axtarmaq üçün sözləri dırnaq arasında yaz</string>
     <string name="morphe_search_comments_title">Şərhləri axtar</string>
+    <string name="morphe_secondary_caption_language_summary">Titrlərlə ikinci dili göstərir və altyazılar menyusuna İkidilli altyazılar keçidi əlavə edir</string>
+    <string name="morphe_secondary_caption_language_title">İkinci dərəcəli titr dili</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Ən çox təkrar oynadılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Çəkmə cizgisin sürükləyərkən video miniatürün göstərir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Çəkmə cizgisinin miniatürlərini aktiv et</string>
@@ -341,7 +377,9 @@ Oynatma işləməyə bilər"</string>
 
 Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər</string>
-    <string name="morphe_swap_save_and_queue_actions_summary">Növbə seçimləri üçün toxun, sonra Baxmağa saxlamaq üçün toxun və saxla</string>
+    <string name="morphe_stable_caption_blocks_summary">Tək dilli, avtomatik titrləri sabit, rahat oxunan bloklarda qruplaşdırır. İkidilli altyazılar həmişə blokları istifadə edir. Bəzi sözlər deyilməzdən əvvəl görünə bilər</string>
+    <string name="morphe_stable_caption_blocks_title">Stabil titr blokları</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Növbə seçimləri üçün toxun, sonra izləyinə əlavə etmək üçün toxun və saxla</string>
     <string name="morphe_swap_save_and_queue_actions_title">Saxla və Növbə fəaliyyətlərini dəyişdir</string>
     <string name="morphe_tablet_layout_in_player_summary">"Köhnə oynadıcı tərtibatını bərpa edir
 

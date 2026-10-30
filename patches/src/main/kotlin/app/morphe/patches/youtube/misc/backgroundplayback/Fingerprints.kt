@@ -19,14 +19,28 @@ import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val AUTOMATIC_FOREGROUND_PLAYBACK_RESUME_FLAG = 45770945L
+
 internal object AutomaticForegroundPlaybackResumeFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
-        literal(45770945L),
+        literal(AUTOMATIC_FOREGROUND_PLAYBACK_RESUME_FLAG)
+    )
+)
+
+/**
+ * Saves and restores if the video was playing when the app went to the background. Its class and
+ * the class of the main activity that restores it read the automatic foreground playback resume flag
+ * when the app goes to the background and returns to the foreground.
+ */
+internal object PlayingWhenBackgroundedFingerprint : Fingerprint(
+    filters = listOf(
+        string("was_playing_when_backgrounded")
     )
 )
 

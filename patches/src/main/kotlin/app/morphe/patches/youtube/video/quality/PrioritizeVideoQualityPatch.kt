@@ -8,7 +8,7 @@ import app.morphe.patcher.newInstance
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.numberOfParameterRegistersLogical
-import app.morphe.patches.youtube.player.seekbar.VideoStreamingDataToStringFingerprint
+import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.cloneMutableAndPreserveParameters

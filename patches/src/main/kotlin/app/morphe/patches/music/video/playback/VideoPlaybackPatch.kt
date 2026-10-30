@@ -78,9 +78,7 @@ import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableClassOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.matchOrNull
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.fingerprint.originalMethodOrThrow
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -264,11 +262,11 @@ val videoPlaybackPatch = bytecodePatch(
         }
 
         val initialResolutionField =
-            playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+            playbackStartParametersToStringFingerprint.originalMethod
                 .findFieldFromToString(FIXED_RESOLUTION_STRING)
 
         playbackStartParametersConstructorFingerprint
-            .methodOrThrow(playbackStartParametersToStringFingerprint)
+            .match(playbackStartParametersToStringFingerprint.classDef).method
             .apply {
                 val index = indexOfFirstInstructionReversedOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&

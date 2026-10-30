@@ -8,7 +8,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
-import app.morphe.patcher.util.getReference
 import app.morphe.patches.all.misc.transformation.IMethodCall
 import app.morphe.patches.all.misc.transformation.filterMapInstruction35c
 import app.morphe.patches.all.misc.transformation.transformInstructionsPatch
@@ -21,7 +20,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val PLAYER_CLASS_DESCRIPTOR_PREFIX = "$PLAYER_PATH/PlayerPatch"
 
@@ -76,7 +74,7 @@ val hapticFeedbackPatch = bytecodePatch(
         }
 
         val vibratorField = TapAndHoldHapticsHandlerFingerprint.match()
-            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+            .instructionMatches.last().fieldReference
 
         val tapAndHoldHapticsFingerprint = Fingerprint(
             accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),

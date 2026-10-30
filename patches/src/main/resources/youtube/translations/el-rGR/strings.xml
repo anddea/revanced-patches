@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Παύση εκτός αν είναι συνδεδεμένη ασύρματη συσκευή ήχου</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Αυτόματη παύση όταν η συσκευή είναι κλειδωμένη</string>
     <string name="morphe_auto_translate_additional_languages_summary">Προσθέτει περισσότερες γλώσσες στο μενού αυτομάτης μετάφρασης</string>
-    <string name="morphe_auto_translate_additional_languages_title">Προσθήκη επιπλέον γλωσσών αυτομάτου μεταφρασμού</string>
+    <string name="morphe_auto_translate_additional_languages_title">Πρόσθετες γλώσσες αυτόματης μετάφρασης</string>
+    <string name="morphe_caption_block_translation_failed">Ορισμένες μεταφράσεις υπότιτλων δεν είναι διαθέσιμες. Εμφάνιση διαθέσιμων υπότιτλων</string>
+    <string name="morphe_caption_blocks_too_large">Και οι δύο γλώσσες υπότιτλων δεν χωράνε σε αυτόν τον πρόγραμμα αναπαραγόγης. Εμφάνιση της κύριας γλώσσας</string>
+    <string name="morphe_caption_scale_summary">Εφαρμόζεται σε υπότιτλους μιας γλώσσας και σε δίγλωσσους υπότιτλους</string>
+    <string name="morphe_caption_scale_title">Μέγεθος υπότιτλων</string>
+    <string name="morphe_captions_screen_summary">Απόκρυψη τμήματος «Βασικές έννοιες»</string>
+    <string name="morphe_captions_screen_title">Υπότιτλοι</string>
     <string name="morphe_copy_comments_success">Το σχόλιο αντιγράφηκε στο πρόχειρο</string>
     <string name="morphe_copy_comments_summary">Πατήστε παρατεταμένα ένα σχόλιο για να το αντιγράψετε</string>
     <string name="morphe_copy_comments_title">Αντιγραφή σχολίων</string>
+    <string name="morphe_copy_select_text_copy_all">Αντιγραφή όλων</string>
+    <string name="morphe_copy_select_text_dialog_title">Επιλογή κειμένου</string>
+    <string name="morphe_copy_select_text_success">Το κείμενο αντιγράφηκε στο πρόχειρο</string>
+    <string name="morphe_copy_select_text_summary">Πατήστε και κρατήστε μια περιγραφή βίντεο ή μια ανάρτηση για να επιλέξετε και να αντιγράψετε οποιοδήποτε μέρος της</string>
+    <string name="morphe_copy_select_text_title">Επιλογή κειμένου περιγραφών και αναρτήσεων</string>
     <string name="morphe_copy_video_title_success">Ο τίτλος του βίντεο αντιγράφηκε στο πρόχειρο</string>
     <string name="morphe_copy_video_title_summary">Πατήστε παρατεταμένα τον τίτλο του βίντεο για να τον αντιγράψετε</string>
     <string name="morphe_copy_video_title_title">Αντιγραφή τίτλου βίντεο</string>
@@ -94,6 +105,7 @@
     <string name="morphe_disable_scrolling_speed_limit_title">Απενεργοποίηση ορίου ταχύτητας κύλισης</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Εμφανίζει τις Συνδρομές στη γραμμή πλοήγησης, εάν το YouTube τις μεταφέρει σε μια καρτέλα στο πάνω μέρος της Αρχικής</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Απενεργοποίηση καρτελών πλοήγησης στη γραμμή εργαλείων</string>
+    <string name="morphe_dual_captions_enabled_title">Δίγλωσσοι υπότιτλοι</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Επέκταση διάρκειας DVR ζωντανής μετάδοσης' μπορεί να μην είναι διαθέσιμη
 
 Για να το διορθώσετε, ενεργοποιήστε το 'Πλαστογράφηση του βίντεο' και αλλάξτε το 'Προεπιλεγμένο πρόγραμμα-πελάτη' σε 'TV Simply' ή 'visionOS'"</string>
@@ -104,7 +116,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">Εάν δεν λειτουργεί, προσπαθήστε να κλείσετε αναγκαστικά το MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">Το πάτημα και το κράτημα πατημένο οπουδήποτε σε ένα βίντεο feed ανοίγει το μενού του</string>
     <string name="morphe_feed_long_press_menu_title">Πατήστε και κρατήστε πατημένο για να ανοίξετε το μενού βίντεο</string>
-    <string name="morphe_feed_watch_later_button_summary">Ένα κουμπί προβολής αργότερα εμφανίζεται στις μικρογραφίες των βίντεο feed. Το πάτημα και το κράτημα πατημένο το ανοίγει την αποθήκευση στη λίστα αναπαραγωγής</string>
+    <string name="morphe_feed_watch_later_button_summary">Ένα κουμπί \"Προσθήκη στην ουρά προβολής\" εμφανίζεται στις μικρογραφίες των βίντεο της ροής, με ένα σημάδι ελέγχου εάν το βίντεο έχει αποθηκευτεί. Πατώντας το, το βίντεο αποθηκεύεται ή αφαιρείται, και πατώντας και κρατώντας το, ανοίγει η επιλογή Αποθήκευση σε λίστα αναπαραγωγής</string>
     <string name="morphe_feed_watch_later_button_title">Εμφάνιση κουμπιού προβολής αργότερα στα μικρογραφίες</string>
     <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το «Android Studio» και το «Android VR Downgraded»</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
@@ -179,6 +191,32 @@
     <string name="morphe_hide_youtube_premium_menu_title">Απόκρυψη μενού \"YouTube Premium\"</string>
     <string name="morphe_hide_youtube_studio_menu_title">Απόκρυψη μενού \"YouTube Studio\"</string>
     <string name="morphe_hide_youtube_works_menu_title">Απόκρυψη μενού \"Πώς λειτουργεί το YouTube\"</string>
+    <string name="morphe_live_chat_translate_bold_summary">Εμφανίζει το μεταφρασμένο κείμενο με έντονα γράμματα</string>
+    <string name="morphe_live_chat_translate_bold_title">Έντονο μεταφρασμένο κείμενο</string>
+    <string name="morphe_live_chat_translate_color_summary">Ορίστε το χρώμα hex του μεταφρασμένου κειμένου</string>
+    <string name="morphe_live_chat_translate_color_title">Χρώμα μεταφρασμένου κειμένου</string>
+    <string name="morphe_live_chat_translate_copied">Το μήνυμα αντιγράφηκε στο πρόχειρο</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Προσθέτει ένα μικρό κουμπί αντιγραφής σε κάθε μήνυμα συνομιλίας</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Εμφάνιση κουμπιού αντιγραφής μηνύματος</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Το κλειδί API DeepL σας. Το Google Translate χρησιμοποιείται εάν το DeepL αποτύχει, όπως όταν γίνει የተlepτο το μηνιαίο όριο του κλειδιού</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">Κλειδί API DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Κώδικες γλωσσών χωρισμένοι με κόμμα, όπως id,en. Τα μηνύματα σε αυτές τις γλώσσες δεν μεταφράζονται</string>
+    <string name="morphe_live_chat_translate_exclude_title">Εξairekrétες γλώσσες</string>
+    <string name="morphe_live_chat_translate_language_title">Γλώσσα μετάφρασης</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Χωρίς όριο</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Τα μακρύτερα μηνύματα εμφανίζονται χωρίς μετάφραση</string>
+    <string name="morphe_live_chat_translate_max_length_title">Μέγιστο μήκος μηνύματος</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Μετάφραση μηνυμάτων της ζωντανής συνομιλίας και των αναπαραγώγων της</string>
+    <string name="morphe_live_chat_translate_screen_title">Μετάφραση ζωντανής συνομιλίας</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Πρωτότυπο (μεταφρασμένο)</string>
+    <string name="morphe_live_chat_translate_style_title">Στυλ μετάφρασης</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Μεταφρασμένο) πρωτότυπο</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Μόνο η μετάφραση</string>
+    <string name="morphe_live_chat_translate_summary">Μεταφράζει μηνύματα της ζωντανής συνομιλίας και των αναπαραγώγων της μόλις εμφανιστούν στην οθόνη</string>
+    <string name="morphe_live_chat_translate_title">Μετάφραση ζωντανής συνομιλίας</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Εφαρμόζει ένα προσαρμοσμένο χρώμα στο μεταφρασμένο κείμενο</string>
+    <string name="morphe_live_chat_translate_use_color_title">Προσαρμοσμένο χρώμα μεταφρασμένου κειμένου</string>
     <string name="morphe_livestream_dvr_not_available">"'Ενεργοποίηση DVR ζωντανής μετάδοσης' μπορεί να μην είναι διαθέσιμη
 
 Για να το διορθώσετε, ενεργοποιήστε το 'Πλαστογράφηση ροών βίντεο' και αλλάξτε το 'Προεπілегμένο πρόγραμμα-πελάτη' σε 'TV Simply' ή 'visionOS'"</string>
@@ -225,7 +263,7 @@
     <string name="morphe_post_image_download_started_single">Λήψη εικόνας…</string>
     <string name="morphe_post_image_download_summary">Ένα κουμπί λήψης εμφανίζεται δίπλα στο κουμπί Κοινοποίησης των αναρτήσεων με εικόνες ή GIF, και ένα στοιχείο λήψης προστίθεται στο μενού τους</string>
     <string name="morphe_post_image_download_title">Λήψη εικόνων ανάρτησης</string>
-    <string name="morphe_preferred_caption_language_summary">Επιλέγει πρώτα τους υποτίτλους του παρόχου και στη συνέχεια μεταφράζει αυτόματα στην προτιμώμενη γλώσσα</string>
+    <string name="morphe_preferred_caption_language_summary">Επιλέγει αυτόματα μια γλώσσα υπότιτλων για κάθε βίντεο</string>
     <string name="morphe_preferred_caption_language_title">Προτιμώμενη γλώσσα υποτίτλων</string>
     <string name="morphe_queue_manager_check_failed_auth">Δεν έχετε συνδεθεί</string>
     <string name="morphe_queue_manager_check_failed_video_id">Δεν υπάρχει ID βίντεο</string>
@@ -253,10 +291,6 @@
     <string name="morphe_save_to_watch_later_button_title">Εμφάνιση κουμπιού \'Αποθήκευση για αργότερα\'</string>
     <string name="morphe_save_to_watch_later_error_toast">Δεν είναι δυνατή η αποθήκευση αυτού του βίντεο στη λίστα παρακολούθησης αργότερα</string>
     <string name="morphe_save_to_watch_later_flyout_title">Αποθήκευση στην Παρακολούθηση αργότερα</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Επιτρέπει την αποθήκευση βίντεο που αφορούν παιδιά στη λίστα «Παρακολούθηση αργότερα» από το αναδυόμενο μενού</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Εμφάνιση κουμπιού \'Αποθήκευση για αργότερα\' σε παιδικά βίντεο</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Επιτρέπει την αποθήκευση των Shorts στη λίστα «Παρακολούθηση αργότερα» από το αναδυόμενο μενού</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Εμφάνιση του κουμπιού «Αποθήκευση για παρακολούθηση αργότερα» στο αναδυόμενο μενού των Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Το βίντεο αποθηκεύτηκε επιτυχώς στη λίστα παρακολούθησης αργότερα</string>
     <string name="morphe_search_comments_applied">Αλλάξτε τη σειρά ταξινόμησης ή ανοίξτε ξανά τα σχόλια για να τα αναζητήσετε</string>
     <string name="morphe_search_comments_clear">Καθαρισμός</string>
@@ -264,6 +298,8 @@
     <string name="morphe_search_comments_hint">Λέξεις προς αναζήτηση</string>
     <string name="morphe_search_comments_summary">Πατήστε το κουμπί αναζήτησης στα σχόλια για να εμφανίσετε μόνο τα φορτωμένα σχόλια που περιέχουν όλες τις λέξεις αναζήτησης. Τοποθετήστε τις λέξεις σε εισαγωγικά για να αναζητήσετε μια φράση</string>
     <string name="morphe_search_comments_title">Αναζήτηση σχολίων</string>
+    <string name="morphe_secondary_caption_language_summary">Εμφανίζει μια δεύτερη γλώσσα μαζί με τους υπότιτλους και προσθέτει έναν διακόπτη Δίγλωσσων υπότιτλων στο μενού υπότιτλων</string>
+    <string name="morphe_secondary_caption_language_title">Δευτερεύουσα γλώσσα υπότιτλων</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Πιο πολυαναπαραγόμενο</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Εμφανίζει μια μικρογραφία βίντεο κατά τη μετακίνηση της γραμμής αναζήτησης</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Ενεργοποίηση μικρογραφιών γραμμής αναζήτησης</string>
@@ -344,6 +380,8 @@
 
 Αν είστε χρήστης YouTube Premium, αυτή η ρύθμιση μπορεί να μην απαιτείται"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής</string>
+    <string name="morphe_stable_caption_blocks_summary">Ομαδοποιεί τους αυτόματους υπότιτλους μιας γλώσσας σε σταθερά, αναγνώσιμα τμήματα. Οι δίγλωσσοι υπότιτλοι χρησιμοποιούν πάντα τμήματα. Ορισμένες λέξεις ενδέχεται να εμφανιστούν πριν προφερθούν</string>
+    <string name="morphe_stable_caption_blocks_title">Σταθερά τμήματα λεζάντας</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Πατήστε για επιλογές ουράς, πατήστε παρατεταμένα για αποθήκευση στην Παρακολούθηση αργότερα</string>
     <string name="morphe_swap_save_and_queue_actions_title">Αντιμετάθεση των ενεργειών Αποθήκευσης και Προσθήκης στην ουρά</string>
     <string name="morphe_tablet_layout_in_player_summary">"Επαναφέρει την παλιά διάταξη του παίκτη

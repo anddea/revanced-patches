@@ -72,6 +72,22 @@ public class PlayerControlsPatch {
     }
 
     /**
+     * YouTube can re-anchor the legacy fullscreen control after inflation when spoofing an
+     * older version. Keep its icon centered on the configured overlay row after each layout.
+     */
+    private static void centerLegacyFullscreenButton(View fullscreenButton) {
+        if (!(fullscreenButton.getParent() instanceof ViewGroup container)) return;
+
+        View row = container.findViewById(ResourceUtils.getIdIdentifier("revanced_overlay_buttons_scroll_view"));
+        if (row == null || !"morphe_legacy_overlay".equals(row.getTag())) return;
+
+        float rowCenter = row.getY() + row.getHeight() / 2f;
+        float iconCenter = fullscreenButton.getTop() + (fullscreenButton.getHeight()
+                + fullscreenButton.getPaddingTop() - fullscreenButton.getPaddingBottom()) / 2f;
+        fullscreenButton.setTranslationY(rowCenter - iconCenter);
+    }
+
+    /**
      * Use one custom-button slot between icon centers, including the wider native fullscreen
      * slot. Translate the row as a unit so scrolling and internal button spacing stay intact.
      * When fullscreen is hidden, reclaim its slot even if the button remains offscreen for
@@ -117,6 +133,7 @@ public class PlayerControlsPatch {
             try {
                 styleSourceButtonBackground(imageButton);
                 centerModernOverlay(imageButton);
+                centerLegacyFullscreenButton(imageButton);
                 spaceOverlayButtons(imageButton);
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not update fullscreen button styling", ex);

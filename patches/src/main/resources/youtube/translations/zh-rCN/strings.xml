@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非连接无线音频，否则暂停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">设备锁定时自动暂停</string>
     <string name="morphe_auto_translate_additional_languages_summary">在自动翻译菜单中添加更多语言</string>
-    <string name="morphe_auto_translate_additional_languages_title">添加更多自动翻译语言</string>
+    <string name="morphe_auto_translate_additional_languages_title">额外的自动翻译语言</string>
+    <string name="morphe_caption_block_translation_failed">部分字幕翻译不可用。正在显示可用字幕。</string>
+    <string name="morphe_caption_blocks_too_large">两种字幕语言都无法适配此播放器。正在显示主要语言。</string>
+    <string name="morphe_caption_scale_summary">适用于单语言和双语字幕</string>
+    <string name="morphe_caption_scale_title">字幕大小</string>
+    <string name="morphe_captions_screen_summary">显示搜索按钮</string>
+    <string name="morphe_captions_screen_title">字幕</string>
     <string name="morphe_copy_comments_success">评论已复制到剪贴板</string>
     <string name="morphe_copy_comments_summary">点按并按住评论即可复制</string>
     <string name="morphe_copy_comments_title">复制评论</string>
+    <string name="morphe_copy_select_text_copy_all">全部复制</string>
+    <string name="morphe_copy_select_text_dialog_title">选择文本</string>
+    <string name="morphe_copy_select_text_success">文本已复制到剪贴板</string>
+    <string name="morphe_copy_select_text_summary">长按视频描述或帖子，即可选择并复制其中任何部分</string>
+    <string name="morphe_copy_select_text_title">选择描述和帖子中的文本</string>
     <string name="morphe_copy_video_title_success">视频标题已复制到剪贴板</string>
     <string name="morphe_copy_video_title_summary">点按并按住视频标题即可复制</string>
     <string name="morphe_copy_video_title_title">复制视频标题</string>
@@ -94,6 +105,7 @@
     <string name="morphe_disable_scrolling_speed_limit_title">禁用滚动速度限制</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 将“订阅”移至主页顶部的标签页，则在导航栏中显示“订阅”</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">禁用工具栏导航标签</string>
+    <string name="morphe_dual_captions_enabled_title">双语字幕</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
@@ -104,7 +116,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">在信息流视频中任意位置长按可打开其菜单</string>
     <string name="morphe_feed_long_press_menu_title">长按打开视频菜单</string>
-    <string name="morphe_feed_watch_later_button_summary">信息流视频的缩略图上会显示“稍后观看”按钮，点击并长按该按钮可将其保存到播放列表</string>
+    <string name="morphe_feed_watch_later_button_summary">在 Feed 视频的缩略图上显示“稍后观看”按钮，如果视频已保存则显示勾选标记。点击可保存或移除视频，长按可打开“保存到播放列表”</string>
     <string name="morphe_feed_watch_later_button_title">在缩略图上显示稍后观看按钮</string>
     <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
@@ -179,6 +191,32 @@
     <string name="morphe_hide_youtube_premium_menu_title">隐藏YouTube Premium菜单</string>
     <string name="morphe_hide_youtube_studio_menu_title">隐藏YouTube Studio菜单</string>
     <string name="morphe_hide_youtube_works_menu_title">隐藏“YouTube 运作方式”菜单</string>
+    <string name="morphe_live_chat_translate_bold_summary">以加粗形式显示翻译后的文本</string>
+    <string name="morphe_live_chat_translate_bold_title">加粗翻译文本</string>
+    <string name="morphe_live_chat_translate_color_summary">设置翻译文本的十六进制颜色代码</string>
+    <string name="morphe_live_chat_translate_color_title">翻译文本颜色</string>
+    <string name="morphe_live_chat_translate_copied">消息已复制到剪贴板</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">为每条聊天消息添加一个小复制按钮</string>
+    <string name="morphe_live_chat_translate_copy_button_title">显示复制消息按钮</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">您的 DeepL API 密钥。如果 DeepL 失败，例如达到密钥的每月限制，将使用 Google 翻译</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API 密钥</string>
+    <string name="morphe_live_chat_translate_exclude_summary">由逗号分隔的语言代码，例如 id,en。这些语言的消息将不会被翻译</string>
+    <string name="morphe_live_chat_translate_exclude_title">排除的语言</string>
+    <string name="morphe_live_chat_translate_language_title">翻译目标语言</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">无限制</string>
+    <string name="morphe_live_chat_translate_max_length_summary">较长的消息将不被翻译</string>
+    <string name="morphe_live_chat_translate_max_length_title">最大消息长度</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">翻译实时聊天和实时聊天回放消息</string>
+    <string name="morphe_live_chat_translate_screen_title">实时聊天翻译</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">原文 (翻译)</string>
+    <string name="morphe_live_chat_translate_style_title">翻译样式</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(翻译) 原文</string>
+    <string name="morphe_live_chat_translate_style_translated_only">仅显示翻译内容</string>
+    <string name="morphe_live_chat_translate_summary">当实时聊天和实时聊天回放消息出现在屏幕上时对其进行翻译</string>
+    <string name="morphe_live_chat_translate_title">翻译实时聊天</string>
+    <string name="morphe_live_chat_translate_use_color_summary">为翻译后的文本应用自定义颜色</string>
+    <string name="morphe_live_chat_translate_use_color_title">自定义翻译文本颜色</string>
     <string name="morphe_livestream_dvr_not_available">"“启用直播 DVR”可能不可用
 
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
@@ -225,7 +263,7 @@
     <string name="morphe_post_image_download_started_single">正在下载图片……</string>
     <string name="morphe_post_image_download_summary">在带有图片或 GIF 的帖子中，分享按钮旁边会显示下载按钮，并且其菜单中会添加一个下载选项</string>
     <string name="morphe_post_image_download_title">下载帖子图片</string>
-    <string name="morphe_preferred_caption_language_summary">先选择提供方字幕，然后自动翻译为首选语言</string>
+    <string name="morphe_preferred_caption_language_summary">为每个视频自动选择字幕语言</string>
     <string name="morphe_preferred_caption_language_title">首选字幕语言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登录</string>
     <string name="morphe_queue_manager_check_failed_video_id">没有视频ID</string>
@@ -253,10 +291,6 @@
     <string name="morphe_save_to_watch_later_button_title">显示“保存到稍后观看”按钮</string>
     <string name="morphe_save_to_watch_later_error_toast">无法将此视频保存到稍后观看播放列表</string>
     <string name="morphe_save_to_watch_later_flyout_title">保存到稍后观看</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">允许从弹出菜单中将与儿童相关的视频保存到“稍后观看”</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">在儿童视频中显示“保存到稍后观看”按钮</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">允许从弹出菜单中将短视频保存到“稍后观看”</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">在短视频弹出菜单中显示“保存到稍后观看”按钮</string>
     <string name="morphe_save_to_watch_later_success_toast">视频已成功保存到稍后观看播放列表</string>
     <string name="morphe_search_comments_applied">更改排序顺序或重新打开评论以进行搜索</string>
     <string name="morphe_search_comments_clear">清除</string>
@@ -264,6 +298,8 @@
     <string name="morphe_search_comments_hint">要搜索的词语</string>
     <string name="morphe_search_comments_summary">点击评论中的搜索按钮，仅显示包含所有搜索词的已加载评论。将词组放在引号中可搜索特定短语</string>
     <string name="morphe_search_comments_title">搜索评论</string>
+    <string name="morphe_secondary_caption_language_summary">在字幕中显示第二种语言，并在字幕菜单中添加“双语字幕”开关</string>
+    <string name="morphe_secondary_caption_language_title">次要字幕语言</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">播放最多的片段</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">拖动进度条时显示视频缩略图</string>
     <string name="morphe_seekbar_thumbnail_preview_title">启用进度条缩略图</string>
@@ -344,6 +380,8 @@
 
 如果您是 YouTube Premium 用户，此设置可能不需要"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题</string>
+    <string name="morphe_stable_caption_blocks_summary">将单语言自动字幕分组为稳定、可读的块。双语字幕始终使用分块。某些单词可能会在说出之前出现</string>
+    <string name="morphe_stable_caption_blocks_title">稳定字幕块</string>
     <string name="morphe_swap_save_and_queue_actions_summary">点击可查看队列选项，长按可保存到“稍后观看”</string>
     <string name="morphe_swap_save_and_queue_actions_title">交换保存和队列操作</string>
     <string name="morphe_tablet_layout_in_player_summary">"恢复旧版播放器布局

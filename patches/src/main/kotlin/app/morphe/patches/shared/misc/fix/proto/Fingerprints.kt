@@ -5,11 +5,23 @@
 
 package app.morphe.patches.shared.misc.fix.proto
 
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+/**
+ * A generated protobuf message creates its default instance in its static initializer.
+ */
+internal fun protoDefaultInstanceFingerprint(messageType: String) = Fingerprint(
+    definingClass = messageType,
+    name = "<clinit>",
+    filters = listOf(
+        fieldAccess(definingClass = messageType, type = messageType, opcode = Opcode.SPUT_OBJECT)
+    )
+)
 
 internal object EmptyRegistryFingerprint : Fingerprint(
     definingClass = "Lcom/google/protobuf/ExtensionRegistryLite;",
@@ -31,7 +43,14 @@ internal object ProtobufClassParseByteArrayFingerprint : Fingerprint(
     name = "parseFrom",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     returnType = "L",
-    parameters = listOf("L", "[B")
+    parameters = listOf("L", "[B"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.SGET_OBJECT,
+            definingClass = "Lcom/google/protobuf/ExtensionRegistryLite;",
+            type = "Lcom/google/protobuf/ExtensionRegistryLite;"
+        )
+    )
 )
 
 internal object ProtobufClassParseByteArrayWithRegistryFingerprint : Fingerprint(

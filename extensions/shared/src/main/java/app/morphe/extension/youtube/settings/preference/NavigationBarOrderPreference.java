@@ -42,10 +42,10 @@ package app.morphe.extension.youtube.settings.preference;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
-import android.os.Build;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -63,17 +63,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
-import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
+import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.shared.utils.Utils;
@@ -281,7 +281,7 @@ public class NavigationBarOrderPreference extends Preference {
 
     private static String getLabel(NavigationButton button) {
         return button == NavigationButton.WATCH_LATER
-                ? str("morphe_watch_later_navigation_label")
+                ? str("revanced_change_start_page_entry_watch_later")
                 : str("revanced_change_start_page_entry_" + button.name().toLowerCase(Locale.ROOT));
     }
 
@@ -331,16 +331,16 @@ public class NavigationBarOrderPreference extends Preference {
         }
 
         boolean isEnabled(NavigationButton button) {
-            boolean swapped = values.get(Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON);
+            boolean swapped = Boolean.TRUE.equals(values.get(Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON));
             if ((button == NavigationButton.CREATE && swapped)
                     || (button == NavigationButton.NOTIFICATIONS && !swapped)) return false;
-            boolean value = values.get(settingFor(button));
-            return isShowSetting(button) ? value : !value;
+            boolean value = Boolean.TRUE.equals(values.get(settingFor(button)));
+            return isShowSetting(button) == value;
         }
 
         void toggle(NavigationButton button) {
             boolean enabled = !isEnabled(button);
-            values.put(settingFor(button), isShowSetting(button) ? enabled : !enabled);
+            values.put(settingFor(button), isShowSetting(button) == enabled);
             if (enabled && (button == NavigationButton.CREATE || button == NavigationButton.NOTIFICATIONS)) {
                 values.put(Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON,
                         button == NavigationButton.NOTIFICATIONS);
@@ -391,6 +391,7 @@ public class NavigationBarOrderPreference extends Preference {
             return getItem(position).ordinal();
         }
 
+        @SuppressLint({"ClickableViewAccessibility", "SetTextI18n"})
         @NonNull
         @Override
         public View getView(int position, View convertView, @NonNull ViewGroup parent) {
@@ -428,11 +429,7 @@ public class NavigationBarOrderPreference extends Preference {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     ClipData clipData = ClipData.newPlainText("navigation_button", button.name());
                     View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        view.startDragAndDrop(clipData, shadowBuilder, button, 0);
-                    } else {
-                        view.startDrag(clipData, shadowBuilder, button, 0);
-                    }
+                    view.startDragAndDrop(clipData, shadowBuilder, button, 0);
                 }
                 return true;
             });

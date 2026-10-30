@@ -147,6 +147,7 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_ai_config_extra_body_label">Extra kérés törzse (opcionális JSON)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">Idézze a neveket és értékeket, például {\"api-key\": \"abc\"}. Egy idézetlen érték, amely / : vagy számot tartalmaz, elutasításra kerül. Egy üres érték eltávolítja a fejlécet</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">Extra kérelem fejlécek (opcionális JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Modellek lekérése</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Sikertetlen modellek lekérése. Ellenorizze az API-kulcsot vagy a kapcsolatot</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">Válasszon egy modellt</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">Modellek lekérése…</string>
@@ -157,8 +158,9 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_ai_config_status_invalid">A beállítások hiányosak vagy a szolgáltató elutasította azokat</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">A Base URL-nek http:// vagy https:// előtaggal kell kezdődnie</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Kapcsolat ellenőrzése…</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Kapcsolat tesztelése</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">A fordítási &amp; romanizációs beállítások mentve</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Helyőrzők: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Helyőrzők: {task}, {language}, {title}, {artist}, {count}, {lines}. Az ismeretlenek úgy maradnak, ahogy be vannak írva</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Prompt sablon</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Bejegyzés elmentve, de az AI végpont még nem használható. Először konfigurálja az AI beállításokban</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt alapértékekre visszaállítva</string>
@@ -196,7 +198,6 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_local_romanization_dict_building">Olvasás %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Kínai szavak (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Görög, szláv cirill (beleértve az orosz, ukrán, bolgár, szerb, belorusz, macedon), grúz, örmény, héber, arab, amhara és szír ábécésítés (CLDR, ~0.5 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Válasszon legalább egy szótárt</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Letöltés sikertelen - próbálja újra ezt a funkcióki/bekapcsolással</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japán (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Kész olvasások (%1$d bejegyzés)</string>

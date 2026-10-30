@@ -59,10 +59,21 @@ Raporlar herkese açıktır ve bir kanal listeye eklenmeden önce incelenir. Kal
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Kablosuz ses bağlı değilse duraklat</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilitliyken otomatik duraklat</string>
     <string name="morphe_auto_translate_additional_languages_summary">Otomatik çeviri menüsüne daha fazla dil ekler</string>
-    <string name="morphe_auto_translate_additional_languages_title">Ek otomatik çeviri dilleri ekleyin</string>
+    <string name="morphe_auto_translate_additional_languages_title">Ek otomatik çeviri dilleri</string>
+    <string name="morphe_caption_block_translation_failed">Bazı altyazı çevirileri kullanılamıyor. Kullanılabilir altyazılar gösteriliyor</string>
+    <string name="morphe_caption_blocks_too_large">Her iki altyazı dili bu oynatıcıya sığmıyor. Birincil dil gösteriliyor</string>
+    <string name="morphe_caption_scale_summary">Tek ve iki dilli altyazılara uygulanır</string>
+    <string name="morphe_caption_scale_title">Altyazı boyutu</string>
+    <string name="morphe_captions_screen_summary">Otomatik altyazıları ve altyazı çerezlerini yönetin</string>
+    <string name="morphe_captions_screen_title">Altyazılar</string>
     <string name="morphe_copy_comments_success">Yorum panoya kopyalandı</string>
     <string name="morphe_copy_comments_summary">Bir yorumu kopyalamak için dokunup basılı tutun</string>
     <string name="morphe_copy_comments_title">Yorumları kopyala</string>
+    <string name="morphe_copy_select_text_copy_all">Tümünü kopyala</string>
+    <string name="morphe_copy_select_text_dialog_title">Metin seç</string>
+    <string name="morphe_copy_select_text_success">Metin panoya kopyalandı</string>
+    <string name="morphe_copy_select_text_summary">Herhangi bir kısmını kopyalamak için video açıklamasına veya gönderiye dokunup basılı tutun</string>
+    <string name="morphe_copy_select_text_title">Açıklamaların ve gönderilerin metnini seç</string>
     <string name="morphe_copy_video_title_success">Video başlığı panoya kopyalandı</string>
     <string name="morphe_copy_video_title_summary">Videonun başlığını kopyalamak için dokunup basılı tutun</string>
     <string name="morphe_copy_video_title_title">Video başlığını kopyala</string>
@@ -106,6 +117,7 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_disable_system_splash_title">Sistem sıçramasını devre dışı bırak</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube, Abonelikler\'i Ana Sayfa\'nın üstündeki bir sekmeye taşırsa, onu gezinti çubuğunda gösterir</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Araç çubuğu gezinti sekmelerini devre dışı bırak</string>
+    <string name="morphe_dual_captions_enabled_title">İki dilli altyazılar</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini genişlet' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
@@ -114,9 +126,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
     <string name="morphe_explore_menu_screen_title">Keşfet menüsü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Çalışmazsa, MicroG\'u zorla kapatmayı deneyin</string>
-    <string name="morphe_feed_long_press_menu_summary">Akış video üzerinde herhangi bir yere dokunup basılı tutmak, menüyü açar</string>
+    <string name="morphe_feed_long_press_menu_summary">Akış videosu üzerinde herhangi bir yere dokunup basılı tutmak, menüsünü açar</string>
     <string name="morphe_feed_long_press_menu_title">Video menüsünü açmak için dokunun ve basılı tutun</string>
-    <string name="morphe_feed_watch_later_button_summary">Akış videolarının küçük resimlerinde bir Daha Sonra İzle düğmesi gösterilir. Dokunulup basılı tutulduğunda Çalma listesine kaydet açılır</string>
+    <string name="morphe_feed_watch_later_button_summary">Akış videolarının küçük resimlerinde, video kaydedilmişse bir onay işaretiyle birlikte bir \'Daha sonra izle\' düğmesi gösterilir. Buna dokunmak videoyu kaydeder veya kaldırır, basılı tutmak ise \'Oynatma listesine kaydet\' seçeneğini açar</string>
     <string name="morphe_feed_watch_later_button_title">Küçük resimlerde Daha Sonra İzle düğmesini göster</string>
     <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
@@ -193,6 +205,32 @@ Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube\'un nasıl çalıştığı\' menüsünü gizle</string>
     <string name="morphe_light_theme_custom_color_title">Özel ışık teması rengi</string>
     <string name="morphe_light_theme_title">Işık teması</string>
+    <string name="morphe_live_chat_translate_bold_summary">Çevrilmiş metni kalın harflerle göster</string>
+    <string name="morphe_live_chat_translate_bold_title">Kalın çevrilmiş metin</string>
+    <string name="morphe_live_chat_translate_color_summary">Çevrilmiş metnin hex rengini ayarla</string>
+    <string name="morphe_live_chat_translate_color_title">Çevrilmiş metin rengi</string>
+    <string name="morphe_live_chat_translate_copied">Mesaj panoya kopyalandı</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Her sohbet mesajına küçük bir kopyalama düğmesi ekler</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Mesajı kopyala düğmesini göster</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL API anahtarınız. Anahtarın aylık limitine ulaşılması gibi durumlarda DeepL başarısız olursa Google Çeviri kullanılır</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API anahtarı</string>
+    <string name="morphe_live_chat_translate_exclude_summary">id,en gibi virgüllerle ayrılmış dil kodları. Bu dillerdeki mesajlar çevrilmez</string>
+    <string name="morphe_live_chat_translate_exclude_title">Hariç tutulan diller</string>
+    <string name="morphe_live_chat_translate_language_title">Çeviri dili</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Limitsiz</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Daha uzun mesajlar çevrilmeden gösterilir</string>
+    <string name="morphe_live_chat_translate_max_length_title">Maksimum mesaj uzunluğu</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Canlı sohbeti ve sohbet tekrar mesajlarını çevir</string>
+    <string name="morphe_live_chat_translate_screen_title">Canlı sohbet çevirisi</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Orijinal (çevrilmiş)</string>
+    <string name="morphe_live_chat_translate_style_title">Çeviri stili</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Çevrilmiş) orijinal</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Sadece çevrilmiş</string>
+    <string name="morphe_live_chat_translate_summary">Canlı sohbet ve sohbet tekrar mesajlarını ekrana geldiklerinde çevirir</string>
+    <string name="morphe_live_chat_translate_title">Canlı sohbeti çevir</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Çevrilmiş metne özel bir renk uygular</string>
+    <string name="morphe_live_chat_translate_use_color_title">Özel çevrilmiş metin rengi</string>
     <string name="morphe_livestream_dvr_not_available">"'It canlı yayın DVR'ı etkinleştir' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
@@ -243,7 +281,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_post_image_download_title">Gönderi görsellerini indir</string>
     <string name="morphe_potoken_provider_expired_dialog_turn_on">Aç</string>
     <string name="morphe_potoken_provider_title">PoToken sağlayıcısı</string>
-    <string name="morphe_preferred_caption_language_summary">Önce sağlayıcı altyazılarını seçer, ardından otomatik olarak tercih edilen dile çevirir</string>
+    <string name="morphe_preferred_caption_language_summary">Her video için otomatik olarak bir altyazı dili seçer</string>
     <string name="morphe_preferred_caption_language_title">Tercih edilen altyazı dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Giriş yapılmadı</string>
     <string name="morphe_queue_manager_check_failed_video_id">Video kimliği yok</string>
@@ -271,10 +309,6 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_save_to_watch_later_button_title">Daha sonra izle düğmesini göster</string>
     <string name="morphe_save_to_watch_later_error_toast">Bu video daha sonra izle listesine kaydedilemiyor</string>
     <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izle</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Açılır menüden çocuklarla ilgili videoları “Daha sonra izle” bölümüne kaydetmeye olanak tanır</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Çocuk videolarında daha sonra izle düğmesini göster</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Açılır menüden shorts videolarını “Daha sonra izle” bölümüne kaydetmeye olanak tanır</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">“Daha sonra izle” butonunu shorts açılır menüsünde göster</string>
     <string name="morphe_save_to_watch_later_success_toast">Video, daha sonra izle listesine başarıyla kaydedildi</string>
     <string name="morphe_search_comments_applied">Yorumları aramak için sıralamayı değiştirin veya yorumları tekrar açın</string>
     <string name="morphe_search_comments_clear">Temizle</string>
@@ -282,6 +316,8 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_search_comments_hint">Aranacak kelimeler</string>
     <string name="morphe_search_comments_summary">Yalnızca yüklü yorumlarda aranan tüm kelimeleri içeren yorumları görüntülemek için yorumlardaki arama düğmesine dokunun. Bir ifadeyi aramak için kelimeleri tırnak içine alın</string>
     <string name="morphe_search_comments_title">Yorumları ara</string>
+    <string name="morphe_secondary_caption_language_summary">Altyazılarla birlikte ikinci bir dil gösterir ve altyazılar menüsüne İki dilli altyazılar seçeneği ekler</string>
+    <string name="morphe_secondary_caption_language_title">İkincil altyazı dili</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">İlerleme çubuğu küçük resimlerini etkinleştir</string>
@@ -362,6 +398,8 @@ Oynatma çalışmayabilir"</string>
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir</string>
+    <string name="morphe_stable_caption_blocks_summary">Tek dilli otomatik altyazıları düzgün ve okunabilir bloklar halinde grupla. İki dilli altyazılar her zaman blokları kullanır. Bazı kelimeler konuşulmadan önce gösterilebilir</string>
+    <string name="morphe_stable_caption_blocks_title">Sabit altyazı blokları</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Sıra seçenekleri için dokunun, \'Daha Sonra İzle\'ye kaydetmek için basılı tutun</string>
     <string name="morphe_swap_save_and_queue_actions_title">Kaydet ve Sıra eylemlerini değiştir</string>
     <string name="morphe_tablet_layout_in_player_summary">"Eski oynatıcı düzenini geri yükler
@@ -2110,9 +2148,9 @@ Bir API anahtarının nasıl alınacağını görmek için tıklayın"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Yeni bir proje oluştur&lt;/a&gt; adresine gidin.&lt;br&gt;2. &lt;b&gt;OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; adresine gidin.&lt;br&gt;4. &lt;b&gt;ETKİNLEŞTİR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;5. &lt;b&gt;KİMLİK BİLGİLERİ OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;6. &lt;b&gt;Herkese açık veri&lt;/b&gt; seçeneğini seçin.&lt;br&gt;7. &lt;b&gt;İLERİ&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil edilmemiştir</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı al</string>
     <string name="revanced_ryd_about">Hakkında</string>
-    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike, YouTube'un 2021'de gizlediği dislike sayılarını geri getirir. Sayılar, kaldırma işleminden önce arşivlenen verilerden gelir ve daha yeni videolar için kullanıcıların oylarından tahmin edilir, bu nedenle yaklaşıktır ve birkaç günde bir güncellenir
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike, YouTube'nin 2021 yılında gizlediği beğenilmeme sayılarını geri getirir. Sayılar, kaldırılmasından önce arşivlenen verilerden gelir ve yeni videolar için kullanıcılarının oylarından tahmin edilir, bu nedenle yaklaşık sayılardır ve her birkaç gün güncellenir
 
-İzlediğiniz videonun kimliği Return YouTube Dislike API'sine gönderilir ve beğenileriniz ve beğenmeme işlemleriniz, tahminleri iyileştirmek için anonim olarak gönderilir.}],\"action\":\"translate\"}"</string>
+İzlediğiniz videonun kimliği Return YouTube Dislike API'sine gönderilir, ayrıca tahminleri iyileştirmek için beğeni ve beğenmeme işlemleriniz anonim olarak gönderilir"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğenme düğmesi en iyi görünüm için biçimlendirilir</string>
     <string name="revanced_ryd_compact_layout_summary_on">Beğenme düğmesi en az genişlik için biçimlendirilir</string>

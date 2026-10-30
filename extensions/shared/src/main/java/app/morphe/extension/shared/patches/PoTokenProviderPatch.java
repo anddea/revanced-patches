@@ -19,7 +19,6 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Map;
@@ -28,6 +27,7 @@ import java.util.WeakHashMap;
 import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.spoof.SabrResponseReader;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.ui.ReminderDialog;
 import app.morphe.extension.shared.utils.Logger;
@@ -69,8 +69,6 @@ public class PoTokenProviderPatch {
     private static int responsesWithoutMedia;
     @Nullable
     private static volatile Boolean providerInUse;
-    @Nullable
-    private static volatile Field requestUrlField;
 
     /**
      * Injection point.
@@ -149,12 +147,12 @@ public class PoTokenProviderPatch {
      * Injection point.
      * Called off the main thread when a media request starts.
      */
-    public static void onMediaRequest(Object request, Object callbacks) {
+    public static void onMediaRequest(MediaHttpRequest request, Object callbacks) {
         try {
             if (!isProviderInUse()) {
                 return;
             }
-            String url = getRequestUrl(request);
+            String url = request.patch_getUrl();
             // Live streams can have responses without media while the stream waits for new segments.
             if (url != null && url.contains("/videoplayback") && url.contains("sabr=1")
                     && !url.contains("yt_live_broadcast") && !url.contains("yt_premiere_broadcast")) {
@@ -171,7 +169,7 @@ public class PoTokenProviderPatch {
     private static synchronized void onSabrRequest(Object callbacks) {
         SabrResponseReader previous = lastSabrResponseReader;
         if (previous != null) {
-            if (previous.sawMedia) {
+            if (previous.sawMedia()) {
                 responsesWithoutMedia = 0;
             } else if (++responsesWithoutMedia >= RESPONSES_WITHOUT_MEDIA_LIMIT) {
                 responsesWithoutMedia = 0;
@@ -183,39 +181,22 @@ public class PoTokenProviderPatch {
         lastSabrResponseReader = reader;
     }
 
-    @Nullable
-    private static String getRequestUrl(Object request) throws IllegalAccessException {
-        Field field = requestUrlField;
-        if (field == null) {
-            // The URL is the only String field of the request.
-            for (Field candidate : request.getClass().getDeclaredFields()) {
-                if (candidate.getType() == String.class) {
-                    candidate.setAccessible(true);
-                    field = candidate;
-                    break;
-                }
-            }
-            if (field == null) {
-                return null;
-            }
-            requestUrlField = field;
-        }
-        return (String) field.get(request);
-    }
-
     /**
      * Injection point.
      * Called with each chunk of a media response, before native code reads it.
      */
     public static void onMediaResponseChunk(Object callbacks, @Nullable ByteBuffer chunk) {
-        if (chunk == null || sabrResponseReaders.isEmpty()) {
-            return;
-        }
-        SabrResponseReader reader = sabrResponseReaders.get(callbacks);
-        if (reader == null) {
+        if (chunk == null) {
             return;
         }
         try {
+            if (sabrResponseReaders.isEmpty()) {
+                return;
+            }
+            SabrResponseReader reader = sabrResponseReaders.get(callbacks);
+            if (reader == null) {
+                return;
+            }
             if (reader.read(chunk) == ATTESTATION_REQUIRED) {
                 sabrResponseReaders.remove(callbacks);
                 onTokenRejected("attestation is required");
@@ -251,131 +232,5 @@ public class PoTokenProviderPatch {
                     Utils.restartApp(activity);
                 }
         );
-    }
-
-    /**
-     * Reads a UMP response for its stream protection status and whether it has media. Media parts
-     * are skipped without copying them, and parts and headers can be split across any number of chunks.
-     */
-    private static final class SabrResponseReader {
-        private static final int PART_MEDIA = 21;
-        private static final int PART_STREAM_PROTECTION_STATUS = 58;
-        private static final int MAX_STATUS_PART_SIZE = 1024;
-
-        private final byte[] header = new byte[5];
-        private int headerLength;
-        private long partType = -1;
-        private long partRemaining = -1;
-        @Nullable
-        private byte[] statusPart;
-        private int statusPartLength;
-        volatile boolean sawMedia;
-
-        /**
-         * @return The status of the last status part completed in this chunk, or -1 if none was.
-         */
-        synchronized int read(ByteBuffer chunk) {
-            // A duplicate, so the position native code reads from is not changed.
-            ByteBuffer buffer = chunk.duplicate();
-            int status = -1;
-            while (buffer.hasRemaining()) {
-                if (partType < 0 && (partType = readInteger(buffer)) < 0) {
-                    break;
-                }
-                if (partRemaining < 0) {
-                    if ((partRemaining = readInteger(buffer)) < 0) {
-                        break;
-                    }
-                    if (partType == PART_MEDIA) {
-                        sawMedia = true;
-                    } else if (partType == PART_STREAM_PROTECTION_STATUS) {
-                        if (partRemaining > MAX_STATUS_PART_SIZE) {
-                            throw new IllegalStateException("Status part is too large: " + partRemaining);
-                        }
-                        statusPart = new byte[(int) partRemaining];
-                        statusPartLength = 0;
-                    }
-                }
-
-                final int count = (int) Math.min(partRemaining, buffer.remaining());
-                if (statusPart != null) {
-                    buffer.get(statusPart, statusPartLength, count);
-                    statusPartLength += count;
-                } else {
-                    buffer.position(buffer.position() + count);
-                }
-                partRemaining -= count;
-
-                if (partRemaining == 0) {
-                    if (statusPart != null) {
-                        status = readStatus(statusPart);
-                        statusPart = null;
-                    }
-                    partType = -1;
-                    partRemaining = -1;
-                }
-            }
-            return status;
-        }
-
-        /**
-         * UMP integers: the leading bits of the first byte give the size, not a continuation bit.
-         *
-         * @return The integer, or -1 if the chunk ended before it.
-         */
-        private long readInteger(ByteBuffer buffer) {
-            if (headerLength == 0) {
-                if (!buffer.hasRemaining()) {
-                    return -1;
-                }
-                header[headerLength++] = buffer.get();
-            }
-            final int first = header[0] & 0xFF;
-            final int size = first < 0x80 ? 1 : first < 0xC0 ? 2 : first < 0xE0 ? 3 : first < 0xF0 ? 4 : 5;
-            while (headerLength < size && buffer.hasRemaining()) {
-                header[headerLength++] = buffer.get();
-            }
-            if (headerLength < size) {
-                return -1;
-            }
-            headerLength = 0;
-
-            if (size == 5) {
-                // The first byte only gives the size, the value follows in little endian.
-                return (header[1] & 0xFFL) | (header[2] & 0xFFL) << 8
-                        | (header[3] & 0xFFL) << 16 | (header[4] & 0xFFL) << 24;
-            }
-            long value = first & (0xFF >> size);
-            for (int i = 1; i < size; i++) {
-                value |= (header[i] & 0xFFL) << (8 - size + 8 * (i - 1));
-            }
-            return value;
-        }
-
-        /**
-         * @return Field 1 of the StreamProtectionStatus message, or -1 if it is missing.
-         */
-        private static int readStatus(byte[] part) {
-            int position = 0;
-            while (position < part.length) {
-                final int tag = part[position++] & 0xFF;
-                if ((tag & 7) != 0) {
-                    // The message has only varint fields.
-                    return -1;
-                }
-                long value = 0;
-                for (int shift = 0; position < part.length; shift += 7) {
-                    final byte b = part[position++];
-                    value |= (long) (b & 0x7F) << shift;
-                    if (b >= 0) {
-                        break;
-                    }
-                }
-                if (tag >> 3 == 1) {
-                    return (int) value;
-                }
-            }
-            return -1;
-        }
     }
 }

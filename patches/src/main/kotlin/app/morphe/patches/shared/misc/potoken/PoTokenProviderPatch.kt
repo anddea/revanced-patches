@@ -11,10 +11,12 @@
 
 package app.morphe.patches.shared.misc.potoken
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.ResourcePatchContext
+import app.morphe.patches.shared.misc.request.hookMediaRequest
+import app.morphe.patches.shared.misc.request.hookMediaResponseChunk
+import app.morphe.patches.shared.misc.request.mediaRequestPatch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.registersUsed
@@ -22,6 +24,7 @@ import app.morphe.patches.shared.extension.Constants.EXTENSION_PATCH_STATUS_CLAS
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.updatePatchStatus
 import org.w3c.dom.Element
+
 
 private const val EXTENSION_CLASS = "Lapp/morphe/extension/shared/patches/PoTokenProviderPatch;"
 private const val LOCAL_PO_TOKEN_SERVICE_ACTION = "app.morphe.extension.potokens.service.START"
@@ -48,7 +51,7 @@ internal fun poTokenProviderPatch(
 ) {
     block()
 
-    dependsOn(poTokenProviderResourcePatch)
+    dependsOn(poTokenProviderResourcePatch, mediaRequestPatch)
 
     execute {
         resourceContext.document("AndroidManifest.xml").use { document ->
@@ -144,14 +147,8 @@ internal fun poTokenProviderPatch(
         }
 
         // Watch media responses for the server rejecting the token the provider made.
-        NetFetchStartFetchTaskFingerprint.method.addInstruction(
-            0,
-            "invoke-static/range { p1 .. p2 }, $EXTENSION_CLASS->onMediaRequest(Ljava/lang/Object;Ljava/lang/Object;)V"
-        )
-        NetFetchResponseChunkFingerprint.method.addInstruction(
-            0,
-            "invoke-static/range { p0 .. p1 }, $EXTENSION_CLASS->onMediaResponseChunk(Ljava/lang/Object;Ljava/nio/ByteBuffer;)V"
-        )
+        hookMediaRequest("$EXTENSION_CLASS->onMediaRequest")
+        hookMediaResponseChunk("$EXTENSION_CLASS->onMediaResponseChunk")
 
         updatePatchStatus(EXTENSION_PATCH_STATUS_CLASS_DESCRIPTOR, "PoTokenProvider")
 

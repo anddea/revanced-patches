@@ -541,6 +541,7 @@ val overlayButtonsPatch = resourcePatch(
                         // the scroll container also preserves portrait/landscape button limits.
                         if (!isExploderLayout && id == "@+id/revanced_overlay_buttons_scroll_view") {
                             node.setAttribute("android:layout_height", layoutHeightWidth)
+                            node.setAttribute("android:tag", "morphe_legacy_overlay")
                         }
 
                         if (isButton) {

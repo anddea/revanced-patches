@@ -103,6 +103,18 @@ public final class FeedVideoCards {
 
     private static final byte[] THUMBNAIL_PATH = "/vi".getBytes(StandardCharsets.US_ASCII);
 
+    /**
+     * Delimiter of the parts of the accessibility description of a video card,
+     * such as "Title - 12 minutes - Channel - 4.7M views - 2 days ago - play video".
+     */
+    private static final String DESCRIPTION_DELIMITER = " - ";
+
+    /**
+     * Invisible format characters, such as the ones the elements of the classic layout add
+     * after the title (U+2060 to U+2064), which the card does not show.
+     */
+    private static final Pattern FORMAT_CHARACTERS_PATTERN = Pattern.compile("\\p{Cf}+");
+
     /** Text -> video id, or {@link #AMBIGUOUS}. Oldest texts are removed first. */
     @GuardedBy("itself")
     private static final Map<String, String> textVideoIds = Utils
@@ -202,6 +214,13 @@ public final class FeedVideoCards {
         return false;
     }
 
+    /**
+     * @return The text as it's matched between an element and a card.
+     */
+    private static String normalizeText(CharSequence text) {
+        return FORMAT_CHARACTERS_PATTERN.matcher(text).replaceAll("").trim();
+    }
+
     private static boolean isVideoText(String text) {
         return text.length() >= MIN_TEXT_LENGTH
                 && !text.contains("/vi")
@@ -267,7 +286,7 @@ public final class FeedVideoCards {
 
             synchronized (textVideoIds) {
                 for (ProtoNode node : textNodes) {
-                    String text = node.getText().trim();
+                    String text = normalizeText(node.getText());
                     if (!isVideoText(text)) {
                         continue;
                     }
@@ -320,7 +339,7 @@ public final class FeedVideoCards {
         if (textContent != null) {
             for (CharSequence text : textContent.getTextItems()) {
                 if (text != null) {
-                    String item = text.toString().trim();
+                    String item = normalizeText(text);
                     if ((item.length() <= MAX_DURATION_TEXT_LENGTH && DURATION_PATTERN.matcher(item).find())
                             || BADGE_PATTERN.matcher(item).matches()) {
                         return true;
@@ -341,7 +360,7 @@ public final class FeedVideoCards {
         if (textContent != null) {
             for (CharSequence text : textContent.getTextItems()) {
                 if (text != null) {
-                    String item = text.toString().trim();
+                    String item = normalizeText(text);
                     if (isVideoText(item) && !texts.contains(item)) {
                         texts.add(item);
                     }
@@ -459,6 +478,35 @@ public final class FeedVideoCards {
         // The texts of a mix or a playlist, which are never shared with a video.
         // A single short text can belong to an element of another video that was not seen.
         return findBestMatch(scores);
+    }
+
+    /**
+     * Litho draws only the part of a card that is shown, so a card that enters from the bottom
+     * of the list shows its thumbnail before its texts, and its video is not known by its texts.
+     * The accessibility description of the card is set already, and starts with the title,
+     * such as "Title - 12 minutes - Channel - 4.7M views - 2 days ago - play video".
+     *
+     * @return The video of the card found by the start of its description, or null if not known.
+     */
+    @Nullable
+    public static String findVideoIdByDescription(ComponentHost root) {
+        CharSequence description = root.getContentDescription();
+        if (description == null) {
+            return null;
+        }
+        String text = description.toString();
+        synchronized (textVideoIds) {
+            // A title can contain the delimiter too, so the longest start of the description
+            // that is a text of a video is used.
+            for (int end = text.lastIndexOf(DESCRIPTION_DELIMITER); end > 0;
+                 end = text.lastIndexOf(DESCRIPTION_DELIMITER, end - 1)) {
+                String videoId = textVideoIds.get(normalizeText(text.substring(0, end)));
+                if (videoId != null) {
+                    return videoId.equals(AMBIGUOUS) ? null : videoId;
+                }
+            }
+        }
+        return null;
     }
 
     /**

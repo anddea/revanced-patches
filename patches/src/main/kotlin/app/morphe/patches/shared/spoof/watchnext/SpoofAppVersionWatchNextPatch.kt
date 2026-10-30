@@ -55,10 +55,10 @@ fun spoofAppVersionWatchNextPatch(
                 getReference(index) as FieldReference
 
             val (clientInfoClass, clientInfoReference, clientVersionReference) =
-                clientTypeFingerprint.matchOrThrow().let {
+                clientTypeFingerprint.match().let {
                     with(it.method) {
                         val clientInfoIndex = indexOfClientInfoInstruction(this)
-                        val dummyClientVersionIndex = it.stringMatches!!.first().index
+                        val dummyClientVersionIndex = it.stringMatches.first().index
                         val dummyClientVersionRegister =
                             getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
                         val clientVersionIndex =
@@ -96,7 +96,7 @@ fun spoofAppVersionWatchNextPatch(
 
             // region patch for spoof client body for the '/get_watch' endpoint
 
-            createPlayerRequestBodyFingerprint.matchOrThrow().let {
+            createPlayerRequestBodyFingerprint.match().let {
                 it.method.apply {
                     val helperMethodName = "setClientInfo"
                     val checkCastIndex = it.instructionMatches.first().index

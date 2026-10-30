@@ -60,9 +60,20 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_auto_pause_on_screen_lock_title">端末の画面ロック時に再生を一時停止</string>
     <string name="morphe_auto_translate_additional_languages_summary">自動翻訳メニューにさらに言語を追加します。</string>
     <string name="morphe_auto_translate_additional_languages_title">追加の自動翻訳言語を追加</string>
+    <string name="morphe_caption_block_translation_failed">一部の字幕翻訳を利用できません。利用可能な字幕を表示しています。</string>
+    <string name="morphe_caption_blocks_too_large">両方の字幕言語はこのプレーヤーに収まりません。メイン言語を表示しています。</string>
+    <string name="morphe_caption_scale_summary">単一言語および二ヶ国語字幕に適用されます</string>
+    <string name="morphe_caption_scale_title">字幕サイズ</string>
+    <string name="morphe_captions_screen_summary">自動字幕表示の設定と字幕 Cookie を管理します</string>
+    <string name="morphe_captions_screen_title">字幕</string>
     <string name="morphe_copy_comments_success">コメントがクリップボードにコピーされました。</string>
     <string name="morphe_copy_comments_summary">コメントを長押しするとコピーできます。</string>
     <string name="morphe_copy_comments_title">コメントをコピー</string>
+    <string name="morphe_copy_select_text_copy_all">すべてコピー</string>
+    <string name="morphe_copy_select_text_dialog_title">テキストを選択</string>
+    <string name="morphe_copy_select_text_success">テキストをクリップボードにコピーしました</string>
+    <string name="morphe_copy_select_text_summary">動画の説明文または投稿を長押しして、任意の部分を選択してコピーします</string>
+    <string name="morphe_copy_select_text_title">説明文と投稿のテキストを選択</string>
     <string name="morphe_copy_video_title_success">動画のタイトルがクリップボードにコピーされました。</string>
     <string name="morphe_copy_video_title_summary">動画のタイトルを長押しするとコピーできます。</string>
     <string name="morphe_copy_video_title_title">動画のタイトルをコピー</string>
@@ -108,6 +119,7 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_disable_system_splash_title">システムスプラッシュを無効化</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube が [登録チャンネル] ボタンをホームフィード上部のタブに移動するレイアウトを有効にした場合、そのレイアウトを無効にし、下部のナビゲーションバーに [登録チャンネル] ボタンを戻します。</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">ナビゲーションボタンの最上部への移動を無効化</string>
+    <string name="morphe_dual_captions_enabled_title">二ヶ国語字幕</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"[ライブ配信の DVR の制限を拡張] をオンにしたときに正常に動作しない可能性があります。
 
 この問題を解決するには、[動画ストリームを偽装] をオンにして [デフォルトのクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
@@ -195,6 +207,32 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_hide_youtube_works_menu_title">「YouTube の仕組み」を非表示</string>
     <string name="morphe_light_theme_custom_color_title">カスタムライトテーマの色</string>
     <string name="morphe_light_theme_title">Light theme</string>
+    <string name="morphe_live_chat_translate_bold_summary">翻訳後のテキストを太字で表示します</string>
+    <string name="morphe_live_chat_translate_bold_title">翻訳テキストを太字にする</string>
+    <string name="morphe_live_chat_translate_color_summary">翻訳後のテキストの 16 進数カラーを設定します</string>
+    <string name="morphe_live_chat_translate_color_title">翻訳テキストの色</string>
+    <string name="morphe_live_chat_translate_copied">メッセージをクリップボードにコピーしました</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">すべてのチャットメッセージに小さなコピーボタンを追加します</string>
+    <string name="morphe_live_chat_translate_copy_button_title">メッセージのコピーボタンを表示</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL APIキー。キーの月間制限に達した場合など、DeepLで失敗した場合はGoogle翻訳が使用されます</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL APIキー</string>
+    <string name="morphe_live_chat_translate_exclude_summary">id、en のようにカンマで区切った言語コードを入力してください。これらの言語のメッセージは翻訳されません</string>
+    <string name="morphe_live_chat_translate_exclude_title">除外する言語</string>
+    <string name="morphe_live_chat_translate_language_title">翻訳言語</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">上限なし</string>
+    <string name="morphe_live_chat_translate_max_length_summary">長いメッセージは翻訳されずに表示されます</string>
+    <string name="morphe_live_chat_translate_max_length_title">最大メッセージ長</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">ライブチャットとライブチャットのリプレイメッセージを翻訳します</string>
+    <string name="morphe_live_chat_translate_screen_title">ライブチャット翻訳</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">原文 (翻訳後)</string>
+    <string name="morphe_live_chat_translate_style_title">翻訳スタイル</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(翻訳後) 原文</string>
+    <string name="morphe_live_chat_translate_style_translated_only">翻訳のみ</string>
+    <string name="morphe_live_chat_translate_summary">ライブチャットとライブチャットのリプレイメッセージが画面に表示されると翻訳されます</string>
+    <string name="morphe_live_chat_translate_title">ライブチャットを翻訳</string>
+    <string name="morphe_live_chat_translate_use_color_summary">翻訳後のテキストにカスタムカラーを適用します</string>
+    <string name="morphe_live_chat_translate_use_color_title">翻訳テキストのカスタムカラー</string>
     <string name="morphe_livestream_dvr_not_available">"[すべてのライブ配信で DVR を有効化] をオンにしたときに正常に動作しない場合があります。
 
 この問題を解決するには、[動画ストリームを偽装] をオンにして、[偽装するクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
@@ -283,10 +321,6 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_save_to_watch_later_button_title">[[後で見る] に保存] ボタンを表示</string>
     <string name="morphe_save_to_watch_later_error_toast">この動画は「後で見る」に保存できません。</string>
     <string name="morphe_save_to_watch_later_flyout_title">[後で見る] に保存</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">子ども向け動画の関連動画のフライアウトメニューに [[後で見る] に保存] ボタンを表示します。</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">子ども向け動画の関連動画に [[後で見る] に保存] ボタンを表示</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">フィードのフライアウトメニューから、ショート動画を「後で見る」再生リストに保存できるようにします。</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">ショート動画での保存ボタン</string>
     <string name="morphe_save_to_watch_later_success_toast">動画を「後で見る」に保存しました。</string>
     <string name="morphe_search_comments_applied">検索によるフィルタを適用するには、コメントの並び順 (フィルタ) を変更するかコメント欄を開き直してください。</string>
     <string name="morphe_search_comments_clear">消去</string>
@@ -294,6 +328,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_search_comments_hint">検索ワード</string>
     <string name="morphe_search_comments_summary">コメント欄に検索ボタンを表示します。\n\nコメント欄の検索ボタンをタップすると、読み込み済みのコメントのうち、検索したすべての単語を含むものだけが表示されます。フレーズを検索するには、単語を引用符で囲んでください。</string>
     <string name="morphe_search_comments_title">コメントを検索</string>
+    <string name="morphe_secondary_caption_language_summary">字幕と一緒に 2 つ目の言語を表示し、字幕メニューに「二ヶ国語字幕」の切り替えスイッチを追加します</string>
+    <string name="morphe_secondary_caption_language_title">補助字幕言語</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">リプレイ回数が最も多い部分</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">シークバーをドラッグしてシークしている際に、シーク位置の映像を縮小した画像をシークバーの上に表示します。</string>
     <string name="morphe_seekbar_thumbnail_preview_title">シーク位置の映像を縮小表示</string>
@@ -366,6 +402,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_spoof_video_streams_summary_off">"動画ストリームを偽装します\n\nYouTube Premium に加入している場合、この設定は必要ない可能性があります。"</string>
     <string name="morphe_spoof_video_streams_summary_on">"動画ストリームを偽装します\n\nYouTube Premium に加入している場合、この設定は必要ない可能性があります。"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">この設定をオフにすると、再生に問題が発生する可能性があります。</string>
+    <string name="morphe_stable_caption_blocks_summary">単一言語の自動字幕を、安定して読みやすいブロックにまとめます。二ヶ国語字幕は常にブロックを使用します。一部の単語は話される前に表示される場合があります</string>
+    <string name="morphe_stable_caption_blocks_title">安定した字幕ブロック</string>
     <string name="morphe_swap_save_and_queue_actions_summary">タップするとキューオプションを表示します。長押しすると、動画を「後で見る」に保存します。</string>
     <string name="morphe_swap_save_and_queue_actions_title">[後で見るに保存] ボタンの動作を入れ替え</string>
     <string name="morphe_tablet_layout_in_player_summary">"動画プレーヤーのレイアウトを旧スタイルに戻します。
@@ -2391,7 +2429,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_outro">終了画面 / クレジット (アウトロ)</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画の終了画面が表示されている場面です。情報を含む結論は含まれません。</string>
     <string name="revanced_sb_segments_preview">予告 / 要約</string>
-    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
+    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。</string>
     <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボした人に関する内容を含みます。</string>
     <string name="revanced_sb_segments_sponsor">スポンサー</string>

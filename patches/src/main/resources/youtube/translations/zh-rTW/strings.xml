@@ -59,10 +59,21 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非連接無線音訊，否則暫停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">裝置鎖定時自動暫停</string>
     <string name="morphe_auto_translate_additional_languages_summary">在自動翻譯選單中增加更多語言</string>
-    <string name="morphe_auto_translate_additional_languages_title">新增額外自動翻譯語言</string>
+    <string name="morphe_auto_translate_additional_languages_title">額外自動翻譯語言</string>
+    <string name="morphe_caption_block_translation_failed">部份字幕無法提供。顯示可用的字幕。</string>
+    <string name="morphe_caption_blocks_too_large">兩個字幕語言無法在這個播放器中完整顯示。顯示主要語言。</string>
+    <string name="morphe_caption_scale_summary">套用於單語言和雙語字幕</string>
+    <string name="morphe_caption_scale_title">字幕大小</string>
+    <string name="morphe_captions_screen_summary">管理自動字幕和字幕 Cookie</string>
+    <string name="morphe_captions_screen_title">字幕</string>
     <string name="morphe_copy_comments_success">留言已複製到剪貼簿</string>
     <string name="morphe_copy_comments_summary">長按留言即可複製</string>
     <string name="morphe_copy_comments_title">複製留言</string>
+    <string name="morphe_copy_select_text_copy_all">複製全部</string>
+    <string name="morphe_copy_select_text_dialog_title">選取文字</string>
+    <string name="morphe_copy_select_text_success">已將文字複製到剪貼簿</string>
+    <string name="morphe_copy_select_text_summary">長按影片說明或貼文，即可選取並複製其中任何部分</string>
+    <string name="morphe_copy_select_text_title">選取說明和貼文的文字</string>
     <string name="morphe_copy_video_title_success">影片標題已複製到剪貼簿</string>
     <string name="morphe_copy_video_title_summary">長按影片標題即可複製</string>
     <string name="morphe_copy_video_title_title">複製影片標題</string>
@@ -94,6 +105,7 @@
     <string name="morphe_disable_scrolling_speed_limit_title">停用捲動速度限制</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 將「訂閱」移至首頁頂端的分頁，則在導覽列中顯示訂閱</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">停用工具列導覽分頁</string>
+    <string name="morphe_dual_captions_enabled_title">雙語字幕</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"「延長直播 DVR 時長」可能無法使用
 
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
@@ -104,7 +116,7 @@
     <string name="morphe_external_potoken_provider_user_dialog_message">如果無法運作，請嘗試強制關閉 MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">在資訊流影片的任意位置輕觸並按住，即可開啟其選單</string>
     <string name="morphe_feed_long_press_menu_title">輕觸並按住以開啟影片選單</string>
-    <string name="morphe_feed_watch_later_button_summary">資訊流影片的縮圖上會顯示「稍後觀看」按鈕。輕觸並按住該按鈕可進入「新增至播放清單」功能</string>
+    <string name="morphe_feed_watch_later_button_summary">在饋送影片的縮圖上會顯示「稍後觀看」按鈕，若影片已儲存則會顯示勾選標記。輕觸按鈕可儲存或移除影片，長按則可開啟「儲存至播放清單」</string>
     <string name="morphe_feed_watch_later_button_title">在縮圖上顯示稍後觀看按鈕</string>
     <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 和 Android VR Downgraded 以外的任何用戶端。</string>
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
@@ -179,6 +191,32 @@
     <string name="morphe_hide_youtube_premium_menu_title">隱藏 YouTube Premium 選單</string>
     <string name="morphe_hide_youtube_studio_menu_title">隱藏 YouTube Studio 選單</string>
     <string name="morphe_hide_youtube_works_menu_title">隱藏「YouTube 運作方式」選單</string>
+    <string name="morphe_live_chat_translate_bold_summary">顯示加粗的翻譯後文字</string>
+    <string name="morphe_live_chat_translate_bold_title">粗體翻譯文字</string>
+    <string name="morphe_live_chat_translate_color_summary">設定翻譯文字的十六進位顏色</string>
+    <string name="morphe_live_chat_translate_color_title">翻譯文字顏色</string>
+    <string name="morphe_live_chat_translate_copied">訊息已複製到剪貼簿</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">在每個聊天訊息中新增一個複製按鈕</string>
+    <string name="morphe_live_chat_translate_copy_button_title">顯示複製訊息按鈕</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">您的 DeepL API 金鑰。如果 DeepL 失敗（例如達到金鑰的每月上限），將使用 Google 翻譯</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API 金鑰</string>
+    <string name="morphe_live_chat_translate_exclude_summary">以逗號分隔的語言代碼，例如 id、en。這些語言的訊息不會做翻譯。</string>
+    <string name="morphe_live_chat_translate_exclude_title">排除的語言</string>
+    <string name="morphe_live_chat_translate_language_title">翻譯語言</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">無限制</string>
+    <string name="morphe_live_chat_translate_max_length_summary">較長的消息將不翻譯顯示</string>
+    <string name="morphe_live_chat_translate_max_length_title">最長訊息長度</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">翻譯直播聊天與直播重播訊息</string>
+    <string name="morphe_live_chat_translate_screen_title">直播聊天翻譯</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">原文（已翻譯）</string>
+    <string name="morphe_live_chat_translate_style_title">翻譯風格</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(已翻譯) 原文</string>
+    <string name="morphe_live_chat_translate_style_translated_only">僅譯文</string>
+    <string name="morphe_live_chat_translate_summary">當訊息顯示在螢幕上時，翻譯直播聊天和直播聊天重播訊息</string>
+    <string name="morphe_live_chat_translate_title">翻譯直播聊天</string>
+    <string name="morphe_live_chat_translate_use_color_summary">將自訂顏色套用到翻譯的文字</string>
+    <string name="morphe_live_chat_translate_use_color_title">自訂翻譯文字顏色</string>
     <string name="morphe_livestream_dvr_not_available">"「啟用直播 DVR」可能無法使用
 
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
@@ -225,7 +263,7 @@
     <string name="morphe_post_image_download_started_single">正在下載圖片……</string>
     <string name="morphe_post_image_download_summary">在包含圖片或 GIF 的貼文中，「分享」按鈕旁會顯示下載按鈕，且其選單中會新增下載選項</string>
     <string name="morphe_post_image_download_title">下載貼文圖片</string>
-    <string name="morphe_preferred_caption_language_summary">先選取提供者提供的字幕，再自動翻譯成偏好語言</string>
+    <string name="morphe_preferred_caption_language_summary">自動選取每個影片的字幕語言。</string>
     <string name="morphe_preferred_caption_language_title">偏好字幕語言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登入</string>
     <string name="morphe_queue_manager_check_failed_video_id">沒有影片 ID</string>
@@ -253,10 +291,6 @@
     <string name="morphe_save_to_watch_later_button_title">顯示「稍後觀看」按鈕</string>
     <string name="morphe_save_to_watch_later_error_toast">無法將此影片儲存至稍後觀看播放清單</string>
     <string name="morphe_save_to_watch_later_flyout_title">儲存至「稍後觀看」</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">允許將與兒童相關的影片從彈出式選單儲存到「稍後觀看」中</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">在兒童影片中顯示「稍後觀看」按鈕</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">允許將 Shorts 儲存在彈出式選單的「稍後觀看」中</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">在 Shorts 彈出視窗中顯示「儲存以稍後觀看」按鈕</string>
     <string name="morphe_save_to_watch_later_success_toast">影片已成功儲存至稍後觀看播放清單</string>
     <string name="morphe_search_comments_applied">更改排序順序或重新開啟評論以進行搜尋</string>
     <string name="morphe_search_comments_clear">清除</string>
@@ -264,6 +298,8 @@
     <string name="morphe_search_comments_hint">要搜尋的字詞</string>
     <string name="morphe_search_comments_summary">點擊評論中的搜尋按鈕，僅顯示包含所有搜尋字詞的已載入評論。將字詞放入引號中以搜尋特定短語</string>
     <string name="morphe_search_comments_title">搜尋評論</string>
+    <string name="morphe_secondary_caption_language_summary">顯示第二種語言的字幕，並在字幕功能表中新增雙語字幕切換開關。</string>
+    <string name="morphe_secondary_caption_language_title">次要字幕語言</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">最多重播</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">在拖動搜尋條時顯示影片縮圖</string>
     <string name="morphe_seekbar_thumbnail_preview_title">啟用跳轉列縮圖預覽</string>
@@ -344,6 +380,8 @@ AV1 視訊播放可能會卡頓或丟格"</string>
 
 如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題</string>
+    <string name="morphe_stable_caption_blocks_summary">將單一語言的自動字幕整合為穩定、易讀的區塊。雙語字幕則會使用區塊。有些詞彙可能在被說出之前就出現。</string>
+    <string name="morphe_stable_caption_blocks_title">穩定字幕區塊</string>
     <string name="morphe_swap_save_and_queue_actions_summary">點擊以開啟佇列選項，長按以儲存至「稍後觀看」</string>
     <string name="morphe_swap_save_and_queue_actions_title">交換「儲存」和「加入佇列」動作</string>
     <string name="morphe_tablet_layout_in_player_summary">"還原舊版播放器版面

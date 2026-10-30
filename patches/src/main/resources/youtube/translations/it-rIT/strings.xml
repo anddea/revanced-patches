@@ -59,10 +59,21 @@ Le segnalazioni sono pubbliche e vengono esaminate prima che un canale venga agg
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausa a meno che non sia connesso un audio wireless</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automatica quando il dispositivo è bloccato</string>
     <string name="morphe_auto_translate_additional_languages_summary">Aggiunge più lingue al menu di traduzione automatica</string>
-    <string name="morphe_auto_translate_additional_languages_title">Aggiungi ulteriori lingue per la traduzione automatica</string>
+    <string name="morphe_auto_translate_additional_languages_title">Ulteriori lingue di traduzione automatica</string>
+    <string name="morphe_caption_block_translation_failed">Alcune traduzioni dei sottotitoli non sono disponibili. Vengono mostrati i sottotitoli disponibili</string>
+    <string name="morphe_caption_blocks_too_large">Entrambe le lingue dei sottotitoli non rientrano in questo player. Viene mostrata la lingua principale</string>
+    <string name="morphe_caption_scale_summary">Si applica ai sottotitoli in lingua singola e bilingue</string>
+    <string name="morphe_caption_scale_title">Dimensioni sottotitoli</string>
+    <string name="morphe_captions_screen_summary">Gestisci i sottotitoli automatici ed i cookie dei sottotitoli</string>
+    <string name="morphe_captions_screen_title">Sottotitoli</string>
     <string name="morphe_copy_comments_success">Commento copiato negli appunti</string>
     <string name="morphe_copy_comments_summary">Tocca e tieni premuto un commento per copiarlo</string>
     <string name="morphe_copy_comments_title">Copia commenti</string>
+    <string name="morphe_copy_select_text_copy_all">Copia tutto</string>
+    <string name="morphe_copy_select_text_dialog_title">Seleziona testo</string>
+    <string name="morphe_copy_select_text_success">Testo copiato negli appunti</string>
+    <string name="morphe_copy_select_text_summary">Tieni premuta la descrizione di un video o un post per selezionare e copiare qualsiasi parte di esso</string>
+    <string name="morphe_copy_select_text_title">Seleziona testo di descrizioni e post</string>
     <string name="morphe_copy_video_title_success">Titolo del video copiato negli appunti</string>
     <string name="morphe_copy_video_title_summary">Tocca e tieni premuto il titolo del video per copiarlo</string>
     <string name="morphe_copy_video_title_title">Copia titolo video</string>
@@ -106,6 +117,7 @@ I video vengono richiesti tramite un breve prefisso dell'ID video con hash, quin
     <string name="morphe_disable_system_splash_title">Disattiva la schermata iniziale del sistema</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Mostra gli Iscritti nella barra di navigazione, se YouTube li sposta in una scheda nella parte superiore della Home</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Disabilita le schede di navigazione della barra degli strumenti</string>
+    <string name="morphe_dual_captions_enabled_title">Sottotitoli bilingue</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Espandi durata DVR in diretta\' potrebbe non essere disponibile
 
 Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
@@ -116,7 +128,7 @@ Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica
     <string name="morphe_external_potoken_provider_user_dialog_message">Se non funziona, prova a forzare la chiusura di MicroG</string>
     <string name="morphe_feed_long_press_menu_summary">Toccare e tenere premuto ovunque su un video nel feed apre il relativo menu</string>
     <string name="morphe_feed_long_press_menu_title">Tocca e tieni premuto per aprire il menu video</string>
-    <string name="morphe_feed_watch_later_button_summary">Un pulsante Guarda più tardi viene visualizzato sulle miniature dei video nel feed. Toccare e tenere premuto su di esso per Salva in playlist</string>
+    <string name="morphe_feed_watch_later_button_summary">Un pulsante \"Guarda più tardi\" viene mostrato sulle miniature dei video del feed, con un segno di spunta se il video è salvato. Toccandolo si salva o rimuove il video, mentre tenendolo premuto si apre \"Salva in playlist\"</string>
     <string name="morphe_feed_watch_later_button_title">Mostra il pulsante Guarda più tardi sulle miniature</string>
     <string name="morphe_force_original_audio_not_available">Per usare questa funzionalità, imposta \'Falsificazione dei flussi video\' su Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizza audio predefinito</string>
@@ -193,6 +205,32 @@ Per mostrare il menu \'Traccia Audio\', cambia \'Falsificazione dei flussi video
     <string name="morphe_hide_youtube_works_menu_title">Nascondi il menù \'Come funziona YouTube\'</string>
     <string name="morphe_light_theme_custom_color_title">Colore personalizzato per il tema chiaro</string>
     <string name="morphe_light_theme_title">Tema chiaro</string>
+    <string name="morphe_live_chat_translate_bold_summary">Mostra il testo tradotto in grassetto</string>
+    <string name="morphe_live_chat_translate_bold_title">Testo tradotto in grassetto</string>
+    <string name="morphe_live_chat_translate_color_summary">Imposta il colore esadecimale del testo tradotto</string>
+    <string name="morphe_live_chat_translate_color_title">Colore del testo tradotto</string>
+    <string name="morphe_live_chat_translate_copied">Messaggio copiato negli appunti</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Aggiunge un piccolo pulsante copia a ogni messaggio della chat</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Mostra pulsante copia messaggio</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">La tua chiave API DeepL. Google Translate viene utilizzato se DeepL fallisce, ad esempio quando viene raggiunto il limite mensile della chiave</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">Chiave API DeepL</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Codici lingua separati da virgola, come id,en. I messaggi in queste lingue non vengono tradotti</string>
+    <string name="morphe_live_chat_translate_exclude_title">Lingue escluse</string>
+    <string name="morphe_live_chat_translate_language_title">Lingua di traduzione</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Senza limite</string>
+    <string name="morphe_live_chat_translate_max_length_summary">I messaggi più lunghi vengono mostrati senza traduzione</string>
+    <string name="morphe_live_chat_translate_max_length_title">Lunghezza massima del messaggio</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Traduci i messaggi della chat dal vivo e delle riproduzioni della chat dal vivo</string>
+    <string name="morphe_live_chat_translate_screen_title">Traduzione chat dal vivo</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Originale (tradotto)</string>
+    <string name="morphe_live_chat_translate_style_title">Stile di traduzione</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Tradotto) originale</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Solo traduzione</string>
+    <string name="morphe_live_chat_translate_summary">Traduce i messaggi della chat dal vivo e delle riproduzioni della chat dal vivo quando appaiono sullo schermo</string>
+    <string name="morphe_live_chat_translate_title">Traduci chat dal vivo</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Applica un colore personalizzato al testo tradotto</string>
+    <string name="morphe_live_chat_translate_use_color_title">Colore personalizzato del testo tradotto</string>
     <string name="morphe_livestream_dvr_not_available">"\'Abilita registrazione DVR in diretta\' potrebbe non essere disponibile
 
 Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
@@ -253,7 +291,7 @@ Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere nec
     <string name="morphe_potoken_provider_unavailable_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi video\'"</string>
-    <string name="morphe_preferred_caption_language_summary">Seleziona prima i sottotitoli del provider, poi li traduce automaticamente nella lingua preferita</string>
+    <string name="morphe_preferred_caption_language_summary">Seleziona automaticamente una lingua dei sottotitoli per ogni video</string>
     <string name="morphe_preferred_caption_language_title">Lingua preferita per i sottotitoli</string>
     <string name="morphe_queue_manager_check_failed_auth">Non connesso</string>
     <string name="morphe_queue_manager_check_failed_video_id">ID video non trovato</string>
@@ -281,10 +319,6 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_save_to_watch_later_button_title">Mostra il pulsante Salva in Guarda più tardi</string>
     <string name="morphe_save_to_watch_later_error_toast">Impossibile salvare questo video nella lista di riproduzione Guarda più tardi</string>
     <string name="morphe_save_to_watch_later_flyout_title">Salva in Guarda più tardi</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Consente di salvare video per bambini in \'Guarda più tardi\' dal menu a comparsa</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostra il pulsante Salva in Guarda più tardi nei video per bambini</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Consente di salvare gli Shorts in \'Guarda più tardi\' dal menu a comparsa</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Mostra il pulsante Salva in Guarda più tardi nel menu a comparsa degli Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video salvato con successo nella lista di riproduzione Guarda più tardi</string>
     <string name="morphe_search_comments_applied">Cambia l\'ordine di ordinamento o apri nuovamente i commenti per cercarli</string>
     <string name="morphe_search_comments_clear">Disattiva</string>
@@ -292,6 +326,8 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_search_comments_hint">Parole da cercare</string>
     <string name="morphe_search_comments_summary">Tocca il pulsante di ricerca nei commenti per mostrare solo i commenti caricati che contengono tutte le parole cercate. Inserisci le parole tra virgolette per cercare una frase</string>
     <string name="morphe_search_comments_title">Cerca nei commenti</string>
+    <string name="morphe_secondary_caption_language_summary">Mostra una seconda lingua con i sottotitoli e aggiunge l\'opzione Sottotitoli bilingue al menu dei sottotitoli</string>
+    <string name="morphe_secondary_caption_language_title">Lingua secondaria dei sottotitoli</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Più riprodotti</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra un\'anteprima in miniatura del video durante il trascinamento della barra di ricerca</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Abilita miniature della barra di avanzamento</string>
@@ -374,6 +410,8 @@ Per usare questa funzione, disattiva \'Fornitore PoToken\'"</string>
 
 Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione</string>
+    <string name="morphe_stable_caption_blocks_summary">Raggruppa i sottotitoli automatici in lingua singola in blocchi stabili e leggibili. I sottotitoli bilingue utilizzano sempre i blocchi. Alcune parole potrebbero apparire prima di essere pronunciate</string>
+    <string name="morphe_stable_caption_blocks_title">Blocchi sottotitoli stabili</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Tocca per le opzioni della coda, tocca e tieni premuto per salvare in Guarda più tardi</string>
     <string name="morphe_swap_save_and_queue_actions_title">Scambia le azioni Salva e Metti in coda</string>
     <string name="morphe_tablet_layout_in_player_summary">"Ripristina l\'interfaccia precedente del rirproduttore
@@ -1914,6 +1952,9 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_offline_library_resume">Riprende a %s</string>
     <string name="revanced_offline_library_search">Cerca contenuti scaricati</string>
     <string name="revanced_offline_library_sort">Ordina</string>
+    <string name="revanced_offline_library_sort_newest">Più recenti</string>
+    <string name="revanced_offline_library_sort_oldest">Meno recenti</string>
+    <string name="revanced_offline_library_sort_size">Dimensione</string>
     <string name="revanced_offline_library_sort_title">Titolo</string>
     <string name="revanced_offline_library_title">Contenuti scaricati</string>
     <string name="revanced_offline_loading_formats">Caricamento qualità disponibili…</string>

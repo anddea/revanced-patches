@@ -165,7 +165,7 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_ai_config_summary">Configure API keys, models, endpoints, and prompts</string>
     <string name="morphe_music_lyrics_ai_config_test_connection">Test Connection</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Translation &amp; Romanization settings saved</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Placeholders: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Placeholders: {task}, {language}, {title}, {artist}, {count}, {lines}. Unknown ones are left as typed</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Prompt Template</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt saved, but the AI endpoint is not usable yet. Configure it under AI Settings first</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt reset</string>
@@ -204,7 +204,6 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Chinese words (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Greek, Slavic Cyrillic (incl. Russian, Ukrainian, Bulgarian, Serbian, Belarusian, Macedonian), Georgian, Armenian, Hebrew, Arabic, Amharic and Syriac transliteration (CLDR, ~0.5 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_downloading" translatable="false">%1$s: %2$d%%</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Choose at least one dictionary</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Download failed — turn this off and on again to retry</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japanese (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Readings ready (%1$d entries)</string>
@@ -425,7 +424,7 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
-    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
+    <string name="morphe_settings_new_indicator_days_summary">Maximum number of days new settings and options are highlighted. Dots fade after viewing</string>
     <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
     <string name="morphe_settings_save">Save</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>

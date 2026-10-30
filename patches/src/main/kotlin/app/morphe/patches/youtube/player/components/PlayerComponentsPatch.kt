@@ -532,7 +532,7 @@ val playerComponentsPatch = bytecodePatch(
                 name == "onClick"
             }.hookInitVideoPanel(0)
 
-            startVideoInformerFingerprint.methodOrThrow().hookInitVideoPanel(1)
+            startVideoInformerFingerprint.method.hookInitVideoPanel(1)
 
             engagementPanelBuilderMethod.addInstructionsWithLabels(
                 0, """
@@ -807,7 +807,7 @@ val playerComponentsPatch = bytecodePatch(
 
         val continuationsField = with(WatchNextResponseParserFingerprint) {
             clearMatch()
-            instructionMatches[2].instruction.getReference<FieldReference>()!!
+            instructionMatches[2].fieldReference
         }
         val resultsClass = continuationsField.definingClass
         val helperMethodParameter = listOf(
@@ -825,10 +825,10 @@ val playerComponentsPatch = bytecodePatch(
                     name = "emptyProtobufList",
                 ),
             ),
-        ).instructionMatches.last().instruction.getReference<MethodReference>()!!
+        ).instructionMatches.last().methodReference
 
         val sectionIdentifierField = RelatedItemSectionFingerprint
-            .instructionMatches[1].instruction.getReference<FieldReference>()!!
+            .instructionMatches[1].fieldReference
         val watchNextResponseModelClass = WatchNextResponseModelClassResolverFingerprint
             .instructionMatches.last().instruction.getReference<TypeReference>()!!.type
 
@@ -855,9 +855,9 @@ val playerComponentsPatch = bytecodePatch(
             ),
         ).let {
             val contentsField =
-                it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                it.instructionMatches.first().fieldReference
             val itemSectionRendererField =
-                it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+                it.instructionMatches.last().fieldReference
             val itemSectionRendererDefaultInstance =
                 "${itemSectionRendererField.type}->a:${itemSectionRendererField.type}"
 

@@ -66,7 +66,6 @@ import app.morphe.patches.shared.spoof.browse.spoofClientBrowseEndpointPatch
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.appendAppVersion
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -88,7 +87,7 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
             return@execute
         }
 
-        val clientVersionFieldReference = clientTypeFingerprint.matchOrThrow().let {
+        val clientVersionFieldReference = clientTypeFingerprint.match().let {
             with(it.method) {
                 val dummyClientVersionIndex = it.stringMatches.first().index
                 val dummyClientVersionRegister =

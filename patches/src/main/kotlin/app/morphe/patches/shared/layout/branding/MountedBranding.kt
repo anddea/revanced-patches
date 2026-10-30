@@ -101,14 +101,12 @@ internal fun ResourcePatchContext.prepareMountedBranding(
             </layer-list>""".trimIndent().toByteArray()
         var replacedIcons = 0
 
+        // Enumerate the APK resources because on-demand decoding may not have written them yet.
         iconReferences.forEach { (resourceType, resourceName) ->
-            resourceDirectories(resourceType).forEach directory@{ typeDirectory ->
+            listDecodableFiles("res/$resourceType*/$resourceName.xml").forEach { path ->
                 // Only the adaptive icon is replaced. A raster icon of the same name is used by
                 // Android 7 and older, which the target apps no longer support.
-                val iconFile = typeDirectory.resolve("$resourceName.xml")
-                if (!iconFile.exists()) return@directory
-
-                iconFile.writeBytes(launcherXml)
+                this[path].writeBytes(launcherXml)
                 replacedIcons++
             }
         }
@@ -130,15 +128,10 @@ internal fun ResourcePatchContext.prepareMountedBranding(
 
         // The original icons are removed and not overwritten, because they are raster images for each
         // density and a density qualified resource is a better match than the vector that replaces them.
-        val originalIcons = resourceDirectories("drawable").flatMap { directory ->
-            directory.listFiles { file ->
-                file.isFile && file.nameWithoutExtension == originalNotificationIconName
-            }.orEmpty().asList()
-        }
+        // Stock resources may not be decoded yet; enumerate them through the patcher.
+        val originalIcons = listDecodableFiles("res/drawable*/$originalNotificationIconName.*")
         if (originalIcons.isEmpty()) return@mountedBranding
-        originalIcons.forEach { file ->
-            if (!file.delete()) throw PatchException("Could not remove notification icon: $file")
-        }
+        originalIcons.forEach { path -> delete(path) }
         notificationIcons.forEach { sourceFile ->
             sourceFile.copyTo(
                 target = sourceFile.parentFile.resolve("$originalNotificationIconName.${sourceFile.extension}"),

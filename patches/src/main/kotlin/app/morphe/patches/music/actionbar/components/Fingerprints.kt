@@ -107,7 +107,7 @@ internal val offlineVideoEndpointFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("L", "Ljava/util/Map;"),
-    strings = listOf("Object is not an offlineable video: %s"),
+    strings = listOf(string("Object is not an offlineable video: ", StringComparisonType.STARTS_WITH)),
     filters = listOf(
         methodCall(
             // Older Music clients resolve offlineability through an instance method.

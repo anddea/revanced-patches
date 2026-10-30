@@ -160,6 +160,7 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_ai_config_extra_body_label">Дополнительное тело запроса (необязательный JSON)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">Кавычки имен и значений, например {\"api-key\": \"abc\"}. Значение без кавычек, содержащее / : или число, отклоняется. Пустое значение удаляет заголовок</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">Дополнительные заголовки запроса (необязательный JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Получить модели</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Не удалось загрузить модели. Проверьте API-ключ или соединение</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">Выберите модель</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">Загрузка моделей…</string>
@@ -170,8 +171,10 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_ai_config_status_invalid">Настройки неполны или отклонены провайдером</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Базовый URL должен начинаться с http:// или https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Проверка подключения…</string>
+    <string name="morphe_music_lyrics_ai_config_summary">Настройка ключей API, моделей, endpoints и промптов</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Проверить соединение</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Настройки перевода &amp; романизации сохранены</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Плейсхолдеры: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Плейсхолдеры: {task}, {language}, {title}, {artist}, {count}, {lines}. Неизвестные остаются без изменений</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон промпта</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Промпт сохранен, но конечная точка ИИ пока не готова к использованию. Сначала настройте её в разделе настроек ИИ</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Промпт сброшен</string>
@@ -209,7 +212,6 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_local_romanization_dict_building">Чтение %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Китайские слова (pinyin-pro, ~17 МБ)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Греческий, славянский кириллический (включая русский, украинский, болгарский, сербский, белорусский, македонский), грузинский, армянский, еврейский, арабский, амхарский и сирийский транслитерация (CLDR, ~0,5 МБ)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Выберите хотя бы один словарь</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Загрузка не удалась - выключите и включите снова, чтобы повторить попытку</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Японский (SudachiDict, ~75 МБ)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Материалы для чтения готовы (%1$d записи)</string>
@@ -283,6 +285,7 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_rime_dict_reserved">%1$s транслитерируется встроенным инструментом и не может использовать список слов</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Не используется: этот язык уже имеет свое собственное произношение, поэтому снимите с него отметку, чтобы удалить</string>
     <string name="morphe_music_lyrics_rime_dict_title">Список слов Rime</string>
+    <string name="morphe_music_lyrics_romanization_provider_google">Google (по умолчанию)</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Офлайн-словарь</string>
     <string name="morphe_music_lyrics_romanization_provider_title">Романизация или транслитерация</string>
     <string name="morphe_music_lyrics_romanization_target_language">"Язык романизации или транслитерации:
@@ -354,6 +357,8 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_translated_by_google">Переведено Google</string>
     <string name="morphe_music_lyrics_translating">Перевод…</string>
     <string name="morphe_music_lyrics_translation_language_title">Язык перевода</string>
+    <string name="morphe_music_lyrics_translation_provider_google">Google (по умолчанию, бесплатный)</string>
+    <string name="morphe_music_lyrics_translation_provider_openai_compatible">Совместимый с OpenAI (свой)</string>
     <string name="morphe_music_lyrics_translation_provider_title">Перевод</string>
     <string name="morphe_music_lyrics_translation_target_language">"Язык перевода:
 %s"</string>

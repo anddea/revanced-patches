@@ -233,9 +233,11 @@ internal object TopBarRendererPrimaryFilterFingerprint : Fingerprint(
 )
 
 internal object SetEnumMapFingerprint : Fingerprint(
-    custom = { method, _ ->
-        method.containsLiteralInstruction(ytFillBell)
-    }
+    filters = listOf(
+        literal(ytFillBell),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
+        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", location = MatchAfterWithin(10))
+    )
 )
 
 internal object SetEnumMapSecondaryFingerprint : Fingerprint(

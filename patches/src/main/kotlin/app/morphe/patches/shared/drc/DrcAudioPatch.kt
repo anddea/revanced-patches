@@ -11,7 +11,6 @@ import app.morphe.patches.shared.formatStreamModelConstructorFingerprint
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.Utils.printWarn
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrNull
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -35,7 +34,7 @@ fun drcAudioPatch(
         }
 
         val (formatFieldReference, loudnessDbFieldReference) =
-            fingerprint.matchOrThrow(formatStreamModelConstructorFingerprint).let {
+            fingerprint.second.match(formatStreamModelConstructorFingerprint.classDef).let {
                 with(it.method) {
                     val loudnessDbIndex = it.instructionMatches.first().index + 1
                     val loudnessDbFieldReference =
@@ -49,7 +48,7 @@ fun drcAudioPatch(
                 }
             }
 
-        formatStreamModelConstructorFingerprint.matchOrThrow().let {
+        formatStreamModelConstructorFingerprint.match().let {
             it.method.apply {
                 val helperMethodName = "patch_setLoudnessDb"
 

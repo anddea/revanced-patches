@@ -19,7 +19,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.getFreeRegisterProvider
-import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -282,7 +281,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         val videoQualitySettingMethod = VideoQualitySettingEnumFingerprint.let {
             val videoQualitySettingType = it.classDef.type
-            val advancedMenuField = it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+            val advancedMenuField = it.instructionMatches.last().fieldReference
 
             getVideoQualitySettingFingerprint(videoQualitySettingType).method.apply {
                 addInstructionsWithLabels(
@@ -356,13 +355,13 @@ val videoPlaybackPatch = bytecodePatch(
         // and without one the quality is chosen automatically, such as 720p for the size of the player.
         // The default quality is used as the quality last selected, as if the user just selected it.
         val videoIdField = LastSelectedVideoQualityConstructorFingerprint.let {
-            val videoIdField = it.instructionMatches[1].instruction.getReference<FieldReference>()!!
+            val videoIdField = it.instructionMatches[1].fieldReference
 
             it.method.apply {
-                val selectedTimeField = it.instructionMatches[0].instruction.getReference<FieldReference>()!!
-                val playbackStartTimeField = it.instructionMatches[3].instruction.getReference<FieldReference>()!!
-                val resolutionField = it.instructionMatches[4].instruction.getReference<FieldReference>()!!
-                val directionField = it.instructionMatches[5].instruction.getReference<FieldReference>()!!
+                val selectedTimeField = it.instructionMatches[0].fieldReference
+                val playbackStartTimeField = it.instructionMatches[3].fieldReference
+                val resolutionField = it.instructionMatches[4].fieldReference
+                val directionField = it.instructionMatches[5].fieldReference
 
                 // All fields are set, so the registers are free before the return.
                 addInstructionsAtControlFlowLabel(

@@ -14,10 +14,12 @@ import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
 import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.player.seekbar.SeekbarFingerprint
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -25,6 +27,18 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+
+/** Matches both seekbar touch-target registration methods, without relying on obfuscated names. */
+internal object SeekbarTouchTargetRegistrationFingerprint : Fingerprint(
+    classFingerprint = SeekbarFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;"),
+    filters = listOf(
+        methodCall(definingClass = "Ljava/util/IdentityHashMap;", name = "containsKey"),
+        methodCall(definingClass = "Ljava/util/IdentityHashMap;", name = "put"),
+    ),
+)
 
 internal object ShortsBoldIconsPrimaryFeatureFlagFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),

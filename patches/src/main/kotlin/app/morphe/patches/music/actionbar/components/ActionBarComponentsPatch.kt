@@ -86,7 +86,6 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -163,7 +162,7 @@ val actionBarComponentsPatch = bytecodePatch(
             var lazyCallbackElementField: FieldReference? = null
 
             ComponentListFingerprint.method.apply {
-                val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+                val conversionContextMatch = conversionContextFingerprintToString2.match()
                 val conversionContextMethod = conversionContextMatch.method
                 val identifierReference =
                     conversionContextMethod.findFieldFromToString("identifierProperty=")

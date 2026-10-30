@@ -158,6 +158,7 @@ I testi provengono da servizi di terze parti che non sono affiliati, sponsorizza
     <string name="morphe_music_lyrics_ai_config_extra_body_label">Corpo della richiesta extra (JSON opzionale)</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_hint">Cita nomi e valori, es. {\"api-key\": \"abc\"}. Un valore non citato contenente / : o un numero viene rifiutato. Un valore vuoto rimuove un\'intestazione</string>
     <string name="morphe_music_lyrics_ai_config_extra_headers_label">Intestazioni richiesta extra (JSON opzionale)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Recupera modelli</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Impossibile recuperare i modelli. Controlla la chiave API o la connessione</string>
     <string name="morphe_music_lyrics_ai_config_fetch_models_success">Seleziona un modello</string>
     <string name="morphe_music_lyrics_ai_config_fetching_models">Recupero modelli…</string>
@@ -168,8 +169,10 @@ I testi provengono da servizi di terze parti che non sono affiliati, sponsorizza
     <string name="morphe_music_lyrics_ai_config_status_invalid">Impostazioni incomplete o rifiutate dal provider</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">L\'URL di base deve iniziare con http:// o https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Verifica della connessione…</string>
+    <string name="morphe_music_lyrics_ai_config_summary">Configurare chiavi API, modelli, punti finali e richieste</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Testa connessione</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Impostazioni di traduzione &amp; romanizzazione salvate</string>
-    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Segnaposti: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Segnaposto: {task}, {language}, {title}, {artist}, {count}, {lines}. Quelli sconosciuti vengono lasciati come digitati</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Modello di prompt</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt salvato, ma l\'endpoint AI non è ancora utilizzabile. Configurarlo prima nelle Impostazioni AI</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt ripristinato</string>
@@ -207,7 +210,6 @@ I testi provengono da servizi di terze parti che non sono affiliati, sponsorizza
     <string name="morphe_music_lyrics_local_romanization_dict_building">Lettura %1$s: %2$d%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Parole cinesi (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Traslitterazione greca, slava cirillica (incl. russo, ucraino, bulgaro, serbo, bielorusso, macedone), georgiana, armena, ebraica, araba, amarica e siriaca (CLDR, ~0.5 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Scegli almeno un dizionario</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Scaricamento non riuscito: disattiva e riattiva per riprovare</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Giapponese (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Letture pronte (%1$d voci)</string>
@@ -281,6 +283,7 @@ La prima colonna è la parola, la seconda la sua lettura; le colonne extra e le 
     <string name="morphe_music_lyrics_rime_dict_reserved">%1$s è letto dal romanizzatore integrato e non può accettare un elenco di parole</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Non utilizzato: questa lingua ha già la sua lettura, quindi deselezionala per rimuoverla</string>
     <string name="morphe_music_lyrics_rime_dict_title">Elenco parole Rime</string>
+    <string name="morphe_music_lyrics_romanization_provider_google">Google (Predefinito)</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Dizionario Offline</string>
     <string name="morphe_music_lyrics_romanization_provider_title">Romanizzazione o traslitterazione</string>
     <string name="morphe_music_lyrics_romanization_target_language">"Lingua di traslitterazione o romanizzazione target:
@@ -352,6 +355,8 @@ La prima colonna è la parola, la seconda la sua lettura; le colonne extra e le 
     <string name="morphe_music_lyrics_translated_by_google">Tradotto da Google</string>
     <string name="morphe_music_lyrics_translating">Traduzione in corso…</string>
     <string name="morphe_music_lyrics_translation_language_title">Lingua di traduzione</string>
+    <string name="morphe_music_lyrics_translation_provider_google">Google (Predefinito, Gratuito)</string>
+    <string name="morphe_music_lyrics_translation_provider_openai_compatible">Compatibile OpenAI (Personale)</string>
     <string name="morphe_music_lyrics_translation_provider_title">Traduzione</string>
     <string name="morphe_music_lyrics_translation_target_language">"Lingua di traduzione target:
 %s"</string>

@@ -17,6 +17,8 @@
 package app.morphe.extension.shared.spoof;
 
 import android.net.Uri;
+import java.nio.ByteBuffer;
+import app.morphe.extension.shared.patches.MediaHttpRequest;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,67 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
+    private static final String STREAM_URL_PATH = "/videoplayback";
+
+    /**
+     * Injection point.
+     * <p>
+     * Called off the main thread when native code starts a media request.
+     * The app makes the requests of SABR streams itself, and names itself and the device it runs on,
+     * even when the streams are from a TV client. These requests name the TV client instead.
+     *
+     * @param callbacks Native callbacks of the request, which are also given the response.
+     * @return The request to start.
+     */
+    public static MediaHttpRequest onMediaRequest(MediaHttpRequest request, Object callbacks) {
+        if (!SPOOF_VIDEO_STREAMS) {
+            return request;
+        }
+        try {
+            String url = request.patch_getUrl();
+            if (url == null || !url.contains(STREAM_URL_PATH)) {
+                return request;
+            }
+            Uri uri = Uri.parse(url);
+            if (!STREAM_URL_PATH.equals(uri.getPath()) || uri.getQueryParameter("sabr") == null) {
+                return request;
+            }
+
+            String urlClient = uri.getQueryParameter("c");
+            MediaHttpRequest requestToStart = request;
+            byte[] body = request.patch_getBody();
+            // The other TV clients that use SABR are the same client on another device.
+            if (body != null && ClientType.TV_SABR.clientName.equals(urlClient)) {
+                byte[] clientInfo = SabrRequestBody.buildClientInfo(ClientType.TV_SABR, getLocaleOverride());
+                requestToStart = request.patch_withBody(SabrRequestBody.replaceClientInfo(body, clientInfo));
+            }
+
+            if (SabrMediaLogger.isEnabled()) {
+                SabrMediaLogger.onRequest(urlClient, requestToStart.patch_getBody(), callbacks);
+            }
+            return requestToStart;
+        } catch (Exception ex) {
+            Logger.printException(() -> "onMediaRequest failure", ex);
+            return request;
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called with each chunk of a media response, before native code reads it.
+     */
+    public static void onMediaResponseChunk(Object callbacks, @Nullable ByteBuffer chunk) {
+        if (!SPOOF_VIDEO_STREAMS || chunk == null) {
+            return;
+        }
+        try {
+            SabrMediaLogger.onResponseChunk(callbacks, chunk);
+        } catch (Exception ex) {
+            Logger.printException(() -> "onMediaResponseChunk failure", ex);
+        }
+    }
+
+
     public static volatile Map<String, String> currentVideoRequestHeader;
     public static String pageIDHeaderValue = "";
 
@@ -221,6 +284,23 @@ public class SpoofVideoStreamsPatch {
         return original;
     }
 
+    /**
+     * Injection point.
+     * Called when the player is set up for a video, after its streams were given by {@link #getStreamingData}.
+     * Fix audio stuttering in YouTube Music.
+     */
+    public static boolean disableSABR(@Nullable String videoId) {
+        if (!SPOOF_VIDEO_STREAMS) {
+            return false;
+        }
+        final boolean useSABR = StreamOrDetailsDataRequest.playerClientUsesSABR(videoId);
+        Logger.printDebug(() -> "Player uses SABR: " + useSABR + " for: " + videoId);
+        return !useSABR;
+    }
+
+    /**
+     * @return If SABR is turned off for the streams last given to the player.
+     */
     public static boolean disableSABR() {
         return SPOOF_VIDEO_STREAMS && !StreamOrDetailsDataRequest.getLastSpoofedClientUseSABR();
     }
@@ -307,8 +387,11 @@ public class SpoofVideoStreamsPatch {
         if (SPOOF_VIDEO_STREAMS) {
             try {
                 StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
+                var buffers = request == null ? null
+                        : (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
+                // The player chooses SABR from the client of the streams it is given for this video.
+                StreamOrDetailsDataRequest.setPlayerClient(videoId, buffers == null ? null : buffers.client());
                 if (request != null) {
-                    var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
                     if (buffers != null) {
                         byte[] stream = buffers.streamingData();
                         Logger.printInfo(() -> "SpoofVideoStreams: Overriding video stream: " + videoId);
