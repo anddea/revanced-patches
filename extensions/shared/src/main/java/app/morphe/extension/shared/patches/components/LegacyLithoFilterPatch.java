@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
@@ -298,11 +308,19 @@ public final class LegacyLithoFilterPatch {
             );
             Logger.printDebug(() -> "Searching " + parameter);
 
-            if (identifierSearchTree.matches(parameter.identifier, parameter)) {
-                return true;
-            }
-
-            if (pathSearchTree.matches(parameter.path, parameter)) {
+            if (identifierSearchTree.matches(identifier, parameter)
+                    || pathSearchTree.matches(parameter.path, parameter)) {
+                // The root component of the element, such as 'identifier|CellType|',
+                // means that the whole element is hidden.
+                final int identifierLength = identifier == null ? 0 : identifier.length();
+                if (identifier != null && pathBuilder.length() > identifierLength + 1
+                        && pathBuilder.charAt(identifierLength) == '|'
+                        && pathBuilder.indexOf("|", identifierLength + 1) == pathBuilder.length() - 1
+                        && pathBuilder.indexOf(identifier) == 0) {
+                    if (object instanceof ContextInterface contextInterface) {
+                        LithoFilterPatch.removeListItem(contextInterface);
+                    }
+                }
                 return true;
             }
 

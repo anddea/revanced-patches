@@ -56,12 +56,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import app.morphe.extension.shared.settings.preference.SharedPrefCategory;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.StringRef;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -184,6 +187,70 @@ public abstract class Setting<T> {
     }
 
     /**
+     * Availability based on all availabilities being available.
+     */
+    public static Availability parentsAll(Availability... availabilities) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (Availability a : availabilities) {
+                    if (!a.isAvailable()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public boolean isVisible() {
+                for (Availability a : availabilities) {
+                    if (!a.isVisible()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                List<Setting<?>> list = new java.util.ArrayList<>();
+                for (Availability a : availabilities) {
+                    list.addAll(a.getParentSettings());
+                }
+                return list;
+            }
+        };
+    }
+
+    /**
+     * Availability based on any availability being available.
+     */
+    public static Availability parentsAny(Availability... availabilities) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (Availability a : availabilities) {
+                    if (a.isAvailable()) return true;
+                }
+                return false;
+            }
+
+            @Override
+            public boolean isVisible() {
+                for (Availability a : availabilities) {
+                    if (a.isVisible()) return true;
+                }
+                return false;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                List<Setting<?>> list = new java.util.ArrayList<>();
+                for (Availability a : availabilities) {
+                    list.addAll(a.getParentSettings());
+                }
+                return list;
+            }
+        };
+    }
+
+    /**
      * Availability based on any parent being disabled.
      */
     public static Availability parentsAnyInverted(BooleanSetting... parents) {
@@ -263,6 +330,26 @@ public abstract class Setting<T> {
      * Map of setting path to setting object.
      */
     private static final Map<String, Setting<?>> PATH_TO_SETTINGS = new HashMap<>();
+
+    private static final Set<String> UNSUPPORTED_SETTINGS = new HashSet<>();
+
+    /**
+     * Loads the omitted preference keys generated from the patched settings XML, then removes
+     * their saved values. Internal settings without a preference are deliberately preserved.
+     * Call after the app's settings and legacy migrations have been initialized.
+     */
+    public static void initializeUnsupportedSettings() {
+        int identifier = ResourceUtils.getArrayIdentifier("revanced_unsupported_settings");
+        if (identifier == 0) return;
+        Collections.addAll(UNSUPPORTED_SETTINGS,
+                Utils.getContext().getResources().getStringArray(identifier));
+        for (Setting<?> setting : SETTINGS) {
+            if (!setting.isSupported()) {
+                setting.resetToDefault();
+                setting.removeFromPreferences();
+            }
+        }
+    }
 
     /**
      * Preference all instances are saved to.
@@ -584,6 +671,14 @@ public abstract class Setting<T> {
     }
 
     /**
+     * Whether the current app version supports this setting. Unlike dependency availability,
+     * unsupported settings must stay at their default and cannot be imported or exported.
+     */
+    public boolean isSupported() {
+        return !UNSUPPORTED_SETTINGS.contains(key);
+    }
+
+    /**
      * @return if the setting should be included in the settings UI.
      */
     public boolean isVisible() {
@@ -669,7 +764,7 @@ public abstract class Setting<T> {
 
                 final boolean exportDefaultValues = false; // Enable to see what all settings look like in the UI.
                 //noinspection ConstantValue
-                if (setting.includeWithImportExport && (!setting.isSetToDefault() || exportDefaultValues)) {
+                if (setting.isSupported() && setting.includeWithImportExport && (!setting.isSetToDefault() || exportDefaultValues)) {
                     setting.writeToJSON(json, importExportKey);
                 }
             }
@@ -713,6 +808,12 @@ public abstract class Setting<T> {
             int numberOfSettingsImported = 0;
             //noinspection rawtypes
             for (Setting setting : SETTINGS) {
+                if (!setting.isSupported()) {
+                    rebootSettingChanged |= !setting.isSetToDefault() && setting.rebootApp;
+                    setting.resetToDefault();
+                    setting.removeFromPreferences();
+                    continue;
+                }
                 String key = setting.getImportExportKey();
                 String importedKey = json.has(key)
                         ? key

@@ -1,8 +1,8 @@
 package app.morphe.patches.music.general.splash
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.mainActivityLaunchAnimation
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.Opcode

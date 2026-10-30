@@ -11,6 +11,7 @@
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -62,6 +63,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
@@ -108,7 +110,6 @@ import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.fingerprint.originalMethodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -530,10 +531,19 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            VideoLengthFingerprint.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef).let {
+            // 21.39 changed the method shape; use the 21.39 fingerprint when the old one no longer matches.
+            val videoLengthMatch = runCatching {
+                VideoLengthFingerprint.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef)
+            }.getOrNull()
+            val isVideoLength21_39 = videoLengthMatch == null
+            (videoLengthMatch
+                ?: VideoLengthFingerprint21_39.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef)).let {
                 it.method.apply {
-                    val targetIndex = it.instructionMatches.last().index
-                    val registerIndex = targetIndex - 2
+                    val lastIndex = it.instructionMatches.last().index
+                    // Old: insert before the last invoke, wide result sits 2 before.
+                    // 21.39: insert after the trailing move-result, wide result sits 2 before.
+                    val targetIndex = if (isVideoLength21_39) lastIndex + 1 else lastIndex
+                    val registerIndex = lastIndex - 2
                     val register = getInstruction<OneRegisterInstruction>(registerIndex).registerA
                     addInstruction(
                         targetIndex,

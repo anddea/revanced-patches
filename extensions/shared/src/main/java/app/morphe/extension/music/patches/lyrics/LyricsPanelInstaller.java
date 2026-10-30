@@ -8,7 +8,11 @@
 
 package app.morphe.extension.music.patches.lyrics;
 
+import app.morphe.extension.music.patches.lyrics.ui.LyricsPanelView;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.SystemClock;
 import android.view.View;
@@ -21,12 +25,16 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 
-import app.morphe.extension.music.patches.lyrics.ui.LyricsPanelView;
+import app.morphe.extension.music.patches.lyrics.LyricsManager;
+import app.morphe.extension.music.patches.lyrics.LyricsFilterDefaults;
+import app.morphe.extension.music.patches.lyrics.LockScreenLyrics;
+import app.morphe.extension.music.patches.lyrics.MiniPlayerLyrics;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.settings.Setting;
 
 /**
  * Puts the third party lyrics panel into the lyrics engagement panel.
@@ -42,7 +50,6 @@ public final class LyricsPanelInstaller {
     /** Panel heading, which tells the lyrics panel from the other engagement panels. */
     private static final String PANEL_TITLE_ID = "modern_title";
 
-    /** Resource name of the app string used for the lyrics panel heading. */
     private static final String LYRICS_TITLE_RESOURCE = "lyrics_tab_title";
 
     /** Time given to the panel to attach its views after the component is built. */
@@ -53,37 +60,152 @@ public final class LyricsPanelInstaller {
 
     /** How long the panel is waited for before the attempt is given up. */
     private static final long INSTALL_TIMEOUT_MILLISECONDS = 2000;
-
+    private static final long[] ENABLE_BUTTON_DELAYS_MS = {0, 150, 500, 1000, 2000};
+    private static final long ENABLE_BUTTON_MIN_INTERVAL_MS = 2000;
     /** Collapses the many component callbacks of one panel opening into one attempt. */
     private static boolean installPending;
-
-    @Nullable
-    private static String lyricsTitle;
-
     private static WeakReference<LyricsPanelView> panelReference = new WeakReference<>(null);
-
     /** Panel the app currently has in the engagement panel container. */
     private static WeakReference<Object> currentPanelReference = new WeakReference<>(null);
-
     /** Panel the lyrics were last built into, kept to recognize it when it comes back. */
     private static WeakReference<Object> lyricsPanelReference = new WeakReference<>(null);
+    private static final SharedPreferences.OnSharedPreferenceChangeListener SETTINGS_LISTENER =
+            (prefs, key) -> {
+                if (key == null || !key.startsWith("morphe_music_lyrics")) {
+                    return;
+                }
+                Utils.runOnMainThreadNowOrLater(() -> onLyricsSettingChanged(key));
+            };
+    private static boolean settingsListenerRegistered;
+    private static long lastEnableButtonWalkUptimeMs;
+    private static boolean enableButtonWalkPending;
 
     private LyricsPanelInstaller() {
     }
 
-    private static void updateKeepScreenOn(boolean lyricsPanelOpen) {
-        Utils.runOnMainThreadNowOrLater(() -> {
-            Activity activity = Utils.getActivity();
-            if (activity == null) {
+    public static void registerSettingsListener() {
+        if (settingsListenerRegistered) {
+            return;
+        }
+        Setting.preferences.preferences.registerOnSharedPreferenceChangeListener(
+                SETTINGS_LISTENER);
+        settingsListenerRegistered = true;
+    }
+
+    private static void onLyricsSettingChanged(String key) {
+        try {
+            if (Settings.LYRICS_ENABLED.key.equals(key)) {
+                if (Settings.LYRICS_ENABLED.get()) {
+                    if (isLyricsPanelOpen()) {
+                        onLyricsPanelDetected();
+                    }
+                    LyricsManager.getInstance().reloadAfterSettingsChange();
+                } else {
+                    uninstallLyricsPanel();
+                }
+                MiniPlayerLyrics.onSettingsChanged();
                 return;
             }
+            if (Settings.LYRICS_SOURCE.key.equals(key)
+                    || Settings.LYRICS_SPLIT_BACKGROUND.key.equals(key)
+                    || LyricsFilterDefaults.LYRICS_CUSTOM_REGEX.key.equals(key)
+                    || LyricsFilterDefaults.LYRICS_TEXT_FILTER.key.equals(key)
+                    || LyricsFilterDefaults.LYRICS_CREDIT_LINE_REGEX.key.equals(key)) {
+                LyricsManager.getInstance().reloadAfterSettingsChange();
+                return;
+            }
+            if (Settings.LYRICS_KEEP_SCREEN_ON.key.equals(key)) {
+                updateKeepScreenOn(isLyricsPanelOpen());
+                return;
+            }
+            final boolean formatting = Settings.LYRICS_FORCE_CAPITALIZE.key.equals(key)
+                    || Settings.LYRICS_STRIP_TRAILING_PUNCTUATION.key.equals(key);
+            if (formatting) {
+                // Also shown in the miniplayer and the media session.
+                MiniPlayerLyrics.onSettingsChanged();
+                LockScreenLyrics.onSettingsChanged();
+            } else if (Settings.LYRICS_MINIPLAYER.key.equals(key)
+                    || Settings.LYRICS_MEDIASESSION.key.equals(key)
+                    || Settings.LYRICS_MINI_TRACK_FORMAT.key.equals(key)
+                    || Settings.LYRICS_MINI_ENCAPSULATION.key.equals(key)
+                    || Settings.LYRICS_MINI_CHAR_LIMIT.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_CHAR_LIMIT.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_MIN_MS.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_MAX_MS.key.equals(key)
+                    || Settings.LYRICS_MINI_FULL_WIDTH_MULTIPLIER.key.equals(key)
+                    || Settings.LYRICS_MINI_INSTRUMENTAL.key.equals(key)
+                    || Settings.LYRICS_MINI_NEXT_OFFSET_MS.key.equals(key)) {
+                MiniPlayerLyrics.onSettingsChanged();
+                LockScreenLyrics.onSettingsChanged();
+                return;
+            }
+            final LyricsPanelView panelView = panelReference.get();
+            if (panelView == null) {
+                return;
+            }
+            final boolean translateButtonOff =
+                    Settings.LYRICS_SHOW_TRANSLATE_BUTTON.key.equals(key)
+                            && !Settings.LYRICS_SHOW_TRANSLATE_BUTTON.get();
+            final boolean romanizeButtonOff =
+                    Settings.LYRICS_SHOW_ROMANIZE_BUTTON.key.equals(key)
+                            && !Settings.LYRICS_SHOW_ROMANIZE_BUTTON.get();
+            if (translateButtonOff || romanizeButtonOff) {
+                panelView.releaseOnlyModesForHiddenButtons(translateButtonOff, romanizeButtonOff);
+            }
+            if (Settings.LYRICS_SHOW_COPY_BUTTON.key.equals(key)
+                    || Settings.LYRICS_SHOW_TRANSLATE_BUTTON.key.equals(key)
+                    || Settings.LYRICS_SHOW_ROMANIZE_BUTTON.key.equals(key)
+                    || Settings.LYRICS_SHOW_REFRESH_BUTTON.key.equals(key)) {
+                panelView.applyToolbarButtonSettings();
+            } else if (Settings.LYRICS_TEXT_SIZE.key.equals(key)
+                    || Settings.LYRICS_LINE_SCALE.key.equals(key)) {
+                panelView.applyTextSize();
+                panelView.applyLineScale();
+            } else if (formatting || Settings.LYRICS_FORCE_CENTER.key.equals(key)
+                    || Settings.LYRICS_SWAP_TRANS_ROMA.key.equals(key)
+                    || Settings.LYRICS_TAP_TO_SEEK.key.equals(key)) {
+                // These are read while the line is laid out, so the lines need rebuilding.
+                panelView.applyLyricLayoutSettings();
+            } else if (Settings.LYRICS_WORD_SYNC.key.equals(key)) {
+                panelView.applyWordSyncSetting();
+            } else if (Settings.LYRICS_HIDE_INFO.key.equals(key)) {
+                panelView.applyHideInfo();
+            } else if (Settings.LYRICS_SHOW_SECTION.key.equals(key)) {
+                panelView.applyShowSection();
+            } else if (Settings.LYRICS_HIDE_PLAYED.key.equals(key)
+                    || Settings.LYRICS_HIDE_UNPLAYED.key.equals(key)) {
+                panelView.applyLineOverlaySettings();
+            }
+        } catch (Throwable ex) {
+            Logger.printException(() -> "Could not apply lyrics setting change", ex);
+        }
+    }
 
-            // The app sets and clears the keep screen on window flag itself, such as when
-            // the next track starts, so a window flag set here would not last. A view that
-            // keeps the screen on is added to the window flags on every layout update and
-            // does not change the flag the app owns.
-            activity.getWindow().getDecorView().setKeepScreenOn(
-                    Settings.LYRICS_KEEP_SCREEN_ON.get() && lyricsPanelOpen);
+    private static void uninstallLyricsPanel() {
+        installPending = false;
+        final LyricsPanelView panelView = panelReference.get();
+        if (panelView == null) {
+            return;
+        }
+        if (panelView.getParent() instanceof ViewGroup parent) {
+            parent.removeView(panelView);
+        }
+        panelReference.clear();
+    }
+
+    private static void updateKeepScreenOn(boolean lyricsPanelOpen) {
+        Utils.runOnMainThreadNowOrLater(() -> {
+            try {
+                LyricsPanelView panelView = panelReference.get();
+                if (panelView == null) {
+                    return;
+                }
+
+                panelView.setKeepScreenOn(
+                        Settings.LYRICS_KEEP_SCREEN_ON.get() && lyricsPanelOpen);
+            } catch (Exception ex) {
+                Logger.printException(() -> "updateKeepScreenOn failure", ex);
+            }
         });
     }
 
@@ -127,8 +249,17 @@ public final class LyricsPanelInstaller {
      * Called by the litho filter when the lyrics panel is being built.
      */
     public static void onLyricsPanelDetected() {
-        // Whichever panel holds the container while the lyrics component is built is the
-        // lyrics panel, which keeps this working without knowing what the app calls it.
+        try {
+            detectLyricsPanel();
+        } catch (Exception ex) {
+            Logger.printException(() -> "onLyricsPanelDetected failure", ex);
+            installPending = false;
+        }
+    }
+
+    private static void detectLyricsPanel() {
+        // Whichever panel holds the container during the lyrics build is the lyrics panel,
+        // which keeps this working without knowing what the app calls it.
         Object panel = currentPanelReference.get();
         if (panel != null) {
             lyricsPanelReference = new WeakReference<>(panel);
@@ -145,9 +276,8 @@ public final class LyricsPanelInstaller {
         }
 
         installPending = true;
-        // With lyrics already loaded the panel can be covered on the next frame, which
-        // is what keeps the built-in lyrics from being visible first. Otherwise, the app
-        // is given time to attach its views, since there is nothing to show yet anyway.
+        // With lyrics loaded the panel can cover the next frame, which keeps the built-in
+        // lyrics from showing first; otherwise the app is given time to attach its views.
         final long delay = LyricsManager.getInstance().hasLyrics()
                 ? 0
                 : INSTALL_DELAY_MILLISECONDS;
@@ -168,7 +298,7 @@ public final class LyricsPanelInstaller {
                     installPending = false;
                     return;
                 }
-                scheduleInstall(deadlineUptimeMs, INSTALL_RETRY_MILLISECONDS);
+                scheduleInstall(deadlineUptimeMs, retryDelay(deadlineUptimeMs));
             } catch (Exception ex) {
                 installPending = false;
                 Logger.printException(() -> "Could not install the lyrics panel", ex);
@@ -176,10 +306,24 @@ public final class LyricsPanelInstaller {
         }, delay);
     }
 
+    private static long retryDelay(long deadlineUptimeMs) {
+        final long left = deadlineUptimeMs - SystemClock.uptimeMillis();
+        if (left > 1700) {
+            return INSTALL_RETRY_MILLISECONDS;
+        }
+        if (left > 1000) {
+            return 50;
+        }
+        return 200;
+    }
+
     /**
      * @return Whether the panel is in place, so that no further attempt is needed.
      */
     private static boolean install() {
+        if (!Settings.LYRICS_ENABLED.get()) {
+            return true;
+        }
         Activity activity = Utils.getActivity();
         if (activity == null) {
             return false;
@@ -206,13 +350,15 @@ public final class LyricsPanelInstaller {
         }
 
         if (existing != null && existing.getParent() == panel) {
-            // Reopening the panel makes the app restore its own content, so the
-            // overlay state has to be reapplied rather than assumed still correct.
+            // Reopening makes the app restore its own content, so the overlay state is
+            // reapplied rather than assumed still correct.
+            existing.setKeepScreenOn(Settings.LYRICS_KEEP_SCREEN_ON.get());
             existing.syncOverlay();
             return true;
         }
 
         LyricsPanelView panelView = new LyricsPanelView(panel.getContext());
+        panelView.setKeepScreenOn(Settings.LYRICS_KEEP_SCREEN_ON.get());
         panel.addView(panelView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
@@ -233,15 +379,17 @@ public final class LyricsPanelInstaller {
      * @return Whether the engagement panel currently on screen is the lyrics panel.
      */
     public static boolean isLyricsPanelOpen() {
+        // Asked first because it is answered by identity, which does not move with the language;
+        // the heading is read only when there is no panel to go by.
+        if (isCurrentPanelLyrics()) {
+            return true;
+        }
         Activity activity = Utils.getActivity();
         if (activity == null) {
             return false;
         }
         TextView title = findForegroundTitle(activity.getWindow().getDecorView());
-        if (title != null) {
-            return isLyricsTitle(title);
-        }
-        return isCurrentPanelLyrics();
+        return isLyricsTitle(title);
     }
 
     public static boolean isOtherPanelForeground() {
@@ -264,23 +412,21 @@ public final class LyricsPanelInstaller {
     @Nullable
     private static ViewGroup findLyricsPanelContent(View root) {
         TextView title = findVisibleTitle(root);
-        if (title != null) {
-            // The heading and the content live in the same panel, so the container is
-            // looked up from the panel the heading belongs to rather than globally.
-            return isLyricsTitle(title) ? findPanelContent(title) : null;
+        if (isLyricsTitle(title)) {
+            // Heading and content share a panel, so the container comes from the heading's
+            // own panel rather than a global lookup.
+            return findPanelContent(title);
         }
 
-        // Without a heading there is nothing to look the panel up from, so the container
-        // on screen is taken as is, once the app agrees the lyrics panel is the one in it.
+        // A heading that did not match says nothing about which panel this is, so it must not end
+        // the search: the app's own bookkeeping still says which panel it put in the container,
+        // and that answer is by identity rather than by text, so it holds in any language.
         if (!isCurrentPanelLyrics()) {
             return null;
         }
         return findForegroundPanelContent(root);
     }
 
-    /**
-     * @return The content container of the engagement panel currently on screen, if any.
-     */
     @Nullable
     private static ViewGroup findForegroundPanelContent(View root) {
         final int panelContentId = ResourceUtils.getIdentifier(ResourceType.ID, PANEL_CONTENT_ID);
@@ -294,7 +440,7 @@ public final class LyricsPanelInstaller {
         if (title == null) {
             return false;
         }
-        String expectedTitle = lyricsTitle();
+        String expectedTitle = lyricsTitle(title.getContext());
         return expectedTitle != null
                 && expectedTitle.equalsIgnoreCase(String.valueOf(title.getText()));
     }
@@ -319,9 +465,6 @@ public final class LyricsPanelInstaller {
         return null;
     }
 
-    /**
-     * @return The heading of the engagement panel currently on screen, if any.
-     */
     @Nullable
     private static TextView findVisibleTitle(View root) {
         final int titleId = ResourceUtils.getIdentifier(ResourceType.ID, PANEL_TITLE_ID);
@@ -387,41 +530,82 @@ public final class LyricsPanelInstaller {
         return result;
     }
 
+    /**
+     * The heading the app gives the lyrics panel, in the language on screen. Read through the
+     * resources that drew it rather than {@link ResourceUtils}: the app can be set to a language
+     * of its own, and a string then comes back in whichever language its context was configured
+     * with, which is not always the one being drawn. Not cached, since a language change would
+     * leave a stale answer behind.
+     */
     @Nullable
-    private static String lyricsTitle() {
-        if (lyricsTitle == null) {
-            if (ResourceUtils.getStringIdentifier(LYRICS_TITLE_RESOURCE) == 0) {
-                Logger.printException(() -> "App is missing: " + LYRICS_TITLE_RESOURCE);
-                return null;
-            }
-            lyricsTitle = ResourceUtils.getString(LYRICS_TITLE_RESOURCE);
+    private static String lyricsTitle(@Nullable Context context) {
+        final int id = ResourceUtils.getStringIdentifier(LYRICS_TITLE_RESOURCE);
+        if (id == 0) {
+            Logger.printException(() -> "App is missing: " + LYRICS_TITLE_RESOURCE);
+            return null;
         }
-        return lyricsTitle;
+        if (context == null) {
+            return ResourceUtils.getString(LYRICS_TITLE_RESOURCE);
+        }
+        try {
+            return context.getResources().getString(id);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Could not read " + LYRICS_TITLE_RESOURCE, ex);
+            return null;
+        }
     }
 
     public static void enableLyricsButton() {
+        try {
+            walkForLyricsButton();
+        } catch (Exception ex) {
+            Logger.printException(() -> "enableLyricsButton failure", ex);
+            enableButtonWalkPending = false;
+        }
+    }
+
+    private static void walkForLyricsButton() {
+        if (enableButtonWalkPending) {
+            return;
+        }
+        final long now = SystemClock.uptimeMillis();
+        if (now - lastEnableButtonWalkUptimeMs < ENABLE_BUTTON_MIN_INTERVAL_MS) {
+            return;
+        }
         Activity activity = Utils.getActivity();
         if (activity == null) {
             return;
         }
-        String title = lyricsTitle();
+        String title = lyricsTitle(activity);
         if (title == null) {
             return;
         }
-        View root = activity.getWindow().getDecorView();
-        for (long delay : ENABLE_BUTTON_DELAYS_MS) {
-            Utils.runOnMainThreadDelayed(() -> enableLyricsButtonPass(root, title), delay);
-        }
+        final View root = activity.getWindow().getDecorView();
+        enableButtonWalkPending = true;
+        lastEnableButtonWalkUptimeMs = now;
+        scheduleEnableButtonPass(root, title, 0);
     }
 
-    private static final long[] ENABLE_BUTTON_DELAYS_MS = {0, 150, 500, 1000, 2000};
-
-    private static void enableLyricsButtonPass(@Nullable View root, String title) {
-        if (root == null) {
-            return;
-        }
-        String titleLower = title.toLowerCase(Locale.ROOT);
-        enableLyricsButtonPass(root, title, titleLower);
+    private static void scheduleEnableButtonPass(final View root, final String title, final int step) {
+        final long delay = step == 0
+                ? ENABLE_BUTTON_DELAYS_MS[0]
+                : ENABLE_BUTTON_DELAYS_MS[step] - ENABLE_BUTTON_DELAYS_MS[step - 1];
+        Utils.runOnMainThreadDelayed(() -> {
+            boolean scheduledNext = false;
+            try {
+                boolean matched = enableLyricsButtonPass(root, title, title.toLowerCase(Locale.ROOT));
+                if (!matched && step + 1 < ENABLE_BUTTON_DELAYS_MS.length) {
+                    scheduleEnableButtonPass(root, title, step + 1);
+                    scheduledNext = true;
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "enableLyricsButton pass failure", ex);
+            } finally {
+                if (!scheduledNext) {
+                    enableButtonWalkPending = false;
+                }
+            }
+        }, delay);
     }
 
     private static boolean enableLyricsButtonPass(View view, String title, String titleLower) {

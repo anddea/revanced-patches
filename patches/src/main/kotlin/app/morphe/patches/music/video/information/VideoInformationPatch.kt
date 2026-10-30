@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -46,6 +47,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -61,10 +63,10 @@ import app.morphe.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
 import app.morphe.patches.shared.videoLengthFingerprintLegacy
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.findMethodOrThrow
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.or
@@ -227,14 +229,29 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            playbackSpeedFingerprint.matchOrThrow(playbackSpeedParentFingerprint).let {
-                it.getWalkerMethod(it.instructionMatches.last().index).apply {
-                    addInstruction(
-                        implementation!!.instructions.lastIndex,
-                        "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlaybackSpeed(F)V"
+            // YouTube Music 9.40: const/high16 is hoisted out of the check-cast..invoke-virtual window,
+            // so fall back to ModernPlaybackSpeedFingerprint and hook the `Labrl;->I(F)V` walker method.
+            val playbackSpeedWalkerMethod =
+                playbackSpeedFingerprint.matchOrNull(playbackSpeedParentFingerprint)?.let {
+                    it.getWalkerMethod(it.instructionMatches.last().index)
+                } ?: run {
+                    val parentClassDef = playbackSpeedParentFingerprint.second.classDefOrNull
+                        ?: throw PatchException("Failed to resolve ${playbackSpeedParentFingerprint.first}")
+                    val speedMethod = ModernPlaybackSpeedFingerprint.matchOrNull(parentClassDef)?.method
+                        ?: throw PatchException("Failed to resolve ${playbackSpeedFingerprint.first}")
+                    speedMethod.getWalkerMethod(
+                        speedMethod.indexOfFirstInstructionOrThrow {
+                            val reference = getReference<MethodReference>()
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    reference?.returnType == "V" &&
+                                    reference.parameterTypes.map(CharSequence::toString) == listOf("F")
+                        }
                     )
                 }
-            }
+            playbackSpeedWalkerMethod.addInstruction(
+                playbackSpeedWalkerMethod.implementation!!.instructions.lastIndex,
+                "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlaybackSpeed(F)V"
+            )
             return@execute
         }
 

@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-13.
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -62,6 +64,11 @@ public final class PlayerRoutes {
             Route.Method.POST,
             "browse/edit_playlist" +
                     "?fields=status,playlistEditResults"
+    ).compile();
+
+    private static final Route.CompiledRoute GET_REEL_STREAMING_DATA_WITH_DETAILS = new Route(
+            Route.Method.POST,
+            "reel/reel_item_watch?alt=proto"
     ).compile();
 
     private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
@@ -185,7 +192,9 @@ public final class PlayerRoutes {
                                                                   boolean includeVideoDetails) throws IOException {
         Route.CompiledRoute route;
         if (!clientType.usePlayerEndpoint) {
-            route = GET_REEL_STREAMING_DATA;
+            route = includeVideoDetails
+                    ? GET_REEL_STREAMING_DATA_WITH_DETAILS
+                    : GET_REEL_STREAMING_DATA;
         } else {
             route = includeVideoDetails
                     ? GET_PLAYER_STREAMING_DATA_WITH_DETAILS
@@ -195,7 +204,8 @@ public final class PlayerRoutes {
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);
-        connection.setRequestProperty("X-YouTube-Client-Name", clientType.clientName);
+        // Not a typo. "Client-Name" uses the client type id (ported from Morphe).
+        connection.setRequestProperty("X-YouTube-Client-Name", String.valueOf(clientType.id));
         connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);
 
         connection.setUseCaches(false);

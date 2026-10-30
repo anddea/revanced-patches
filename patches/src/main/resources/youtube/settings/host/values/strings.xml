@@ -58,6 +58,14 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_auto_pause_on_screen_lock_always">Always pause when locked</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pause unless wireless audio is connected</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Auto pause when device is locked</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Adds more languages to the auto-translate menu</string>
+    <string name="morphe_auto_translate_additional_languages_title">Add additional auto-translate languages</string>
+    <string name="morphe_copy_comments_success">Comment copied to clipboard</string>
+    <string name="morphe_copy_comments_summary">Tap and hold a comment to copy it</string>
+    <string name="morphe_copy_comments_title">Copy comments</string>
+    <string name="morphe_copy_video_title_success">Video title copied to clipboard</string>
+    <string name="morphe_copy_video_title_summary">Tap and hold the title of the video to copy it</string>
+    <string name="morphe_copy_video_title_title">Copy video title</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
     <string name="morphe_custom_branding_icon_title">App icon</string>
@@ -68,17 +76,39 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
     <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
     <string name="morphe_dark_theme_title">Dark theme</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow provides crowdsourced titles and thumbnails for YouTube videos. These are often more relevant than those provided by YouTube
+
+If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
+
+Tap here to open DeArrow.ajay.app"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">The number of casual votes in a single category, such as funny or creative, needed to show the original title</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Minimum casual votes to show original title</string>
+    <string name="morphe_dearrow_casual_mode_summary">Shows the original title instead of the DeArrow title if DeArrow users voted they like the original title</string>
+    <string name="morphe_dearrow_casual_mode_title">Casual mode</string>
+    <string name="morphe_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow is temporarily not available</string>
+    <string name="morphe_dearrow_screen_title" translatable="false">DeArrow</string>
+    <string name="morphe_dearrow_titles_icon_summary">Shows the DeArrow icon on crowdsourced video titles</string>
+    <string name="morphe_dearrow_titles_icon_title">Show DeArrow icon</string>
+    <string name="morphe_dearrow_titles_summary">Replaces video titles with the crowdsourced titles submitted to DeArrow</string>
+    <string name="morphe_dearrow_titles_title">DeArrow titles</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Prevents feeds from refreshing automatically after they become outdated</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Disable auto feed refresh</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Shows the navigation buttons with labels, if YouTube sends them without labels</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Disable navigation buttons without labels</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Disable scrolling speed limit</string>
     <string name="morphe_disable_system_splash_summary">Makes the static system splash icon transparent</string>
     <string name="morphe_disable_system_splash_title">Disable system splash</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Shows Subscriptions in the navigation bar, if YouTube moves it to a tab at the top of Home</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Disable toolbar navigation tabs</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -87,6 +117,10 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_explore_menu_screen_summary">Choose which components appear in the explore menu</string>
     <string name="morphe_explore_menu_screen_title">Explore menu</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Tapping and holding anywhere on a feed video opens its menu</string>
+    <string name="morphe_feed_long_press_menu_title">Tap and hold to open video menu</string>
+    <string name="morphe_feed_watch_later_button_summary">A Watch later button is shown on the thumbnails of feed videos. Tapping and holding it opens Save to playlist</string>
+    <string name="morphe_feed_watch_later_button_title">Show Watch later button on thumbnails</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
@@ -122,6 +156,8 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Warnlist channels</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnlist: Moderate confidence</string>
     <string name="morphe_hide_auto_dubbed_label_title">Hide \'Auto-dubbed\' label</string>
+    <string name="morphe_hide_channel_buttons_summary">Hides buttons such as Subscribe, View Channel, Community, and YouTube Music from channel profiles in search results</string>
+    <string name="morphe_hide_channel_buttons_title">Hide channel buttons</string>
     <string name="morphe_hide_courses_menu_title">Hide Courses menu</string>
     <string name="morphe_hide_explore_button_title">Hide Explore button</string>
     <string name="morphe_hide_fashion_menu_title">Hide \'Fashion &amp; Beauty\' menu</string>
@@ -133,6 +169,8 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_invite_to_message_card_title">Hide \'Invite others to message\' card</string>
     <string name="morphe_hide_learning_menu_title">Hide Learning menu</string>
     <string name="morphe_hide_live_menu_title">Hide Live menu</string>
+    <string name="morphe_hide_live_streams_summary">Hides videos that are live now in the home feed and search results</string>
+    <string name="morphe_hide_live_streams_title">Hide live streams</string>
     <string name="morphe_hide_memberships_menu_title">Hide Memberships menu</string>
     <string name="morphe_hide_movies_menu_title">Hide Movies menu</string>
     <string name="morphe_hide_music_menu_title">Hide \'Music &amp; TV\' menu</string>
@@ -166,6 +204,9 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
     <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
     <string name="morphe_music_package_name_title">Music app package name</string>
+    <string name="morphe_navigation_bar_style_entry_2">Translucent</string>
+    <string name="morphe_navigation_bar_style_title">Navigation bar style</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">This style may not be supported by your device or YouTube version, and can cause layout issues or crashes</string>
     <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
     <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
@@ -181,12 +222,34 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
     <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
     <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
+    <string name="morphe_pip_button_flyout_name">Switch to Picture-in-Picture</string>
+    <string name="morphe_pip_button_flyout_title">Show Picture-in-Picture menu</string>
+    <string name="morphe_pip_button_overlay_title">Show Picture-in-Picture button</string>
+    <string name="morphe_playback_buffer_size_entry_low">Low</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maximum</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Medium</string>
+    <string name="morphe_playback_buffer_size_title">Playback buffer size</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
     <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi only</string>
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_post_image_download_failed">Could not download the image</string>
+    <string name="morphe_post_image_download_flyout">Download images</string>
+    <string name="morphe_post_image_download_flyout_single">Download image</string>
+    <string name="morphe_post_image_download_not_found">No image found in this post</string>
+    <string name="morphe_post_image_download_saved">%1$s images saved to %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Image saved to %s</string>
+    <string name="morphe_post_image_download_started">Downloading %s images…</string>
+    <string name="morphe_post_image_download_started_single">Downloading image…</string>
+    <string name="morphe_post_image_download_summary">A download button is shown next to the Share button of posts with images or GIFs, and a download item is added to their menu</string>
+    <string name="morphe_post_image_download_title">Download post images</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
+
+Turn on \'Spoof video streams\' to fix playback"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken provider no longer works</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Turn on</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -194,6 +257,8 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 To use this feature, turn off \'Spoof video streams\'"</string>
+    <string name="morphe_preferred_caption_language_summary">Selects provider subtitles first, then automatically translates to the preferred language</string>
+    <string name="morphe_preferred_caption_language_title">Preferred caption language</string>
     <string name="morphe_queue_manager_check_failed_auth">Not logged in</string>
     <string name="morphe_queue_manager_check_failed_video_id">No video ID</string>
     <string name="morphe_reload_video_summary_off">Reload video button is hidden</string>
@@ -209,6 +274,9 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Uses the older video player layout for custom overlay buttons</string>
     <string name="morphe_restore_old_player_buttons_title">Restore old player button style</string>
+    <string name="morphe_restore_original_titles_loading">Loading title…</string>
+    <string name="morphe_restore_original_titles_summary">Shows the original video titles, video descriptions and channel descriptions instead of the auto-translated ones</string>
+    <string name="morphe_restore_original_titles_title">Restore original titles</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -222,6 +290,12 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Allows saving Shorts to the \'Watch later\' playlist from the feed flyout menu</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Save button for Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video successfully saved in watch later playlist</string>
+    <string name="morphe_search_comments_applied">Change the sort order or open the comments again to search them</string>
+    <string name="morphe_search_comments_clear">Clear</string>
+    <string name="morphe_search_comments_cleared">Search cleared. Change the sort order or open the comments again to show all comments</string>
+    <string name="morphe_search_comments_hint">Words to search for</string>
+    <string name="morphe_search_comments_summary">Tap the search button in the comments to show only the loaded comments that contain all of the searched words. Put words in quotes to search for a phrase</string>
+    <string name="morphe_search_comments_title">Search comments</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Most replayed</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Shows a video thumbnail while dragging the seekbar</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Enable seekbar thumbnails</string>
@@ -236,6 +310,12 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
+    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
+    <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
+    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
+    <string name="morphe_skip_silence_title">Skip silence</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Color</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
     <string name="morphe_splash_screen_animation_style_title">Splash screen style</string>
@@ -256,6 +336,11 @@ Playback may stutter or drop frames"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Enabling this setting may use software AV1 decoding
 
 Video playback with AV1 may stutter or drop frames"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s did not work several times in a row, but %2$s did
+
+Make %2$s the default client?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Switch</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Default client does not work</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
@@ -334,6 +419,8 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
+    <string name="morphe_volume_boost_summary">Swiping up past maximum volume boosts it, which can distort loud audio</string>
+    <string name="morphe_volume_boost_title">Volume boost</string>
     <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
     <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
     <string name="morphe_vot_caption_language_title">Language</string>
@@ -394,19 +481,10 @@ Tap here to open OpenRouter.ai"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Old style flyout menu is used</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Custom dialog is used</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube
-
-If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
-
-Tap here to learn more about DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Invalid DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is unavailable</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is unavailable</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily unavailable (status code: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily unavailable</string>
     <string name="revanced_alt_thumbnail_home_title">Home tab</string>
     <string name="revanced_alt_thumbnail_library_title">You tab</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
@@ -417,9 +495,6 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_alt_thumbnail_search_title">Search results</string>
     <string name="revanced_alt_thumbnail_stills">Still video captures</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning, middle, or end of each video. These images are built into YouTube and no external API is used</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
@@ -432,6 +507,7 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Information is appended to the timestamp
 
 Tap to configure the video quality or playback speed
+Double tap to switch between elapsed and remaining time
 Tap and hold to toggle the appended information type"</string>
     <string name="revanced_append_time_stamp_information_title">Append timestamp information</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Append playback speed</string>
@@ -458,7 +534,6 @@ Tap and hold to toggle the appended information type"</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
     <string name="revanced_cancel">Cancel</string>
-    <string name="revanced_change_form_factor_entry_1">Default</string>
     <string name="revanced_change_form_factor_entry_2">Phone</string>
     <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
     <string name="revanced_change_form_factor_entry_4">Tablet</string>
@@ -882,6 +957,8 @@ Limitations:
     <string name="revanced_gemini_error_transcription_parse">Failed to parse transcription data</string>
     <string name="revanced_gemini_error_translation_failed">Gemini translation failed</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini translation parsing failed</string>
+    <string name="revanced_gemini_highlight_words_summary">Highlight each spoken word in video subtitles</string>
+    <string name="revanced_gemini_highlight_words_title">Highlight spoken words</string>
     <string name="revanced_gemini_loading_default">Loading...</string>
     <string name="revanced_gemini_loading_summarize">Summarizing the video...</string>
     <string name="revanced_gemini_loading_transcribe">Transcribing the video...</string>
@@ -1691,6 +1768,11 @@ Known issue: When this setting is enabled, YouTube Doodles are not clickable"</s
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_in_app_downloader_summary_off">Video download buttons use your external downloader</string>
+    <string name="revanced_in_app_downloader_summary_on">"Video download buttons download with the built-in downloader and save to Movies/RVX
+
+The quality picker is shown for every download"</string>
+    <string name="revanced_in_app_downloader_title">Built-in downloader</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Theme of the snack bar is not inverted</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Theme of the snack bar is inverted</string>
     <string name="revanced_invert_snack_bar_theme_title">Invert snack bar theme</string>
@@ -1815,9 +1897,65 @@ Miniplayer can be dragged off-screen to the left or right"</string>
     <string name="revanced_navigation_bar_order_drag_handle">Drag to reorder</string>
     <string name="revanced_navigation_bar_order_summary">Drag navigation items into the order in which they should appear</string>
     <string name="revanced_navigation_bar_order_title">Navigation bar order</string>
+    <string name="revanced_offline_action_delete">Delete</string>
+    <string name="revanced_offline_action_open_youtube">Open on YouTube</string>
+    <string name="revanced_offline_action_play_background">Play in background</string>
+    <string name="revanced_offline_action_share">Share</string>
+    <string name="revanced_offline_already_downloaded">This video is already downloaded</string>
+    <string name="revanced_offline_already_downloading">This video is already downloading</string>
+    <string name="revanced_offline_av1_unplayable_toast">This device may not be able to play this AV1 video. The picture may stay blank</string>
+    <string name="revanced_offline_close">Close</string>
+    <string name="revanced_offline_delete_message">Delete \"%s\" from this device?</string>
+    <string name="revanced_offline_delete_title">Delete download</string>
+    <string name="revanced_offline_download_complete">Download complete</string>
+    <string name="revanced_offline_download_complete_toast">Downloaded: %s</string>
+    <string name="revanced_offline_download_failed">Download failed: %s</string>
+    <string name="revanced_offline_download_merging">Merging video and audio…</string>
+    <string name="revanced_offline_download_preparing">Preparing download…</string>
+    <string name="revanced_offline_download_progress">Downloading %d%%</string>
+    <string name="revanced_offline_download_queued">Queued</string>
+    <string name="revanced_offline_download_queued_count">%d queued</string>
+    <string name="revanced_offline_download_saving">Saving to Movies/RVX…</string>
+    <string name="revanced_offline_download_started">Download started</string>
+    <string name="revanced_offline_download_starting">Starting…</string>
+    <string name="revanced_offline_download_unavailable">This video cannot be downloaded</string>
+    <string name="revanced_offline_error_forbidden">The video server refused the download</string>
+    <string name="revanced_offline_error_space">Not enough free space, %s needed</string>
+    <string name="revanced_offline_error_time_limit">Android\'s background download time limit was reached</string>
+    <string name="revanced_offline_library_empty">No downloaded videos yet</string>
+    <string name="revanced_offline_library_no_results">No downloads match your search</string>
+    <string name="revanced_offline_library_resume">Resume at %s</string>
+    <string name="revanced_offline_library_search">Search downloads</string>
+    <string name="revanced_offline_library_sort">Sort</string>
+    <string name="revanced_offline_library_sort_newest">Newest</string>
+    <string name="revanced_offline_library_sort_oldest">Oldest</string>
+    <string name="revanced_offline_library_sort_size">Size</string>
+    <string name="revanced_offline_library_sort_title">Title</string>
+    <string name="revanced_offline_library_title">Downloads</string>
+    <string name="revanced_offline_loading_formats">Loading available qualities…</string>
+    <string name="revanced_offline_next">Next</string>
+    <string name="revanced_offline_no_formats">No downloadable quality found for this video</string>
+    <string name="revanced_offline_nothing_playing">Nothing is playing</string>
+    <string name="revanced_offline_notification_channel_downloads">Video downloads</string>
+    <string name="revanced_offline_notification_channel_playback">Offline playback</string>
+    <string name="revanced_offline_pause">Pause</string>
+    <string name="revanced_offline_picker_av1_hint">Smaller file</string>
+    <string name="revanced_offline_picker_av1_unplayable">can\'t play on this device</string>
+    <string name="revanced_offline_picker_footer">Saved in Movies/RVX (MP4, or WebM for VP9)</string>
+    <string name="revanced_offline_picker_h264_hint">Plays everywhere</string>
+    <string name="revanced_offline_picker_subtitle">Download quality</string>
+    <string name="revanced_offline_picker_vp9_hint">Plays on this device</string>
+    <string name="revanced_offline_play">Play</string>
+    <string name="revanced_offline_playback_error">This video cannot be played</string>
+    <string name="revanced_offline_playing_background">Playing in background</string>
+    <string name="revanced_offline_previous">Previous</string>
+    <string name="revanced_offline_share_unsupported">Sharing is not supported on this Android version</string>
+    <string name="revanced_offline_video_missing">This download no longer exists</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in in-app browser</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in external browser</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
+    <string name="revanced_open_offline_library_summary">Videos downloaded with the built-in downloader</string>
+    <string name="revanced_open_offline_library_title">Open offline library</string>
     <string name="revanced_overlay_button">Overlay buttons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states
 Tap and hold to toggle pause after repeat states"</string>
@@ -1946,7 +2084,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_account_menu_title">Account menu</string>
     <string name="revanced_preference_screen_action_buttons_summary">Hide or show action buttons under videos</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternative thumbnails</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Disable Ambient mode or bypass Ambient mode restrictions</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ambient mode</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Hide or show carousel shelf in home, search results, and subscriptions</string>
@@ -2104,6 +2241,9 @@ This does not bypass the age restriction. It just accepts it automatically"</str
     <string name="revanced_replace_channel_handle_summary_off">Channel handle is used</string>
     <string name="revanced_replace_channel_handle_summary_on">Channel name is used</string>
     <string name="revanced_replace_channel_handle_title">Replace channel handle</string>
+    <string name="revanced_replace_downloads_page_summary_off">YouTube\'s Downloads page is shown</string>
+    <string name="revanced_replace_downloads_page_summary_on">YouTube\'s Downloads page opens the offline library</string>
+    <string name="revanced_replace_downloads_page_title">Replace Downloads page</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Tap to show the remaining time</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tap to open playback speed or video quality flyout menu</string>
     <string name="revanced_replace_time_stamp_action_title">Replace timestamp action</string>
@@ -2513,6 +2653,9 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_player_type_regular_player">Regular player</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
     <string name="revanced_shorts_player_type_title">Open Shorts with</string>
+    <string name="revanced_show_offline_library_button_summary_off">No Downloads button in the You tab</string>
+    <string name="revanced_show_offline_library_button_summary_on">A Downloads button next to Settings in the You tab opens the offline library</string>
+    <string name="revanced_show_offline_library_button_title">Downloads button in You tab</string>
     <string name="revanced_show_search_button_summary_off">Search button is not shown</string>
     <string name="revanced_show_search_button_title">Show Search</string>
     <string name="revanced_show_settings_button_summary_off">Settings button is not shown</string>
@@ -2862,7 +3005,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_webview_toast_empty">%s is empty</string>
     <string name="revanced_webview_toast_no_network">Please check your network connection</string>
     <string name="revanced_webview_toast_unavailable">WebView is not available</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
+    <string name="revanced_webview_visitor_data" translatable="false">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist</string>
     <string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist</string>
     <string name="revanced_whitelist_empty">There are no whitelisted channels</string>
@@ -2897,7 +3040,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_status_subs_found">Subtitles found, fetching...</string>
     <string name="revanced_yandex_status_transcription_delayed">The transcription is slightly delayed</string>
     <string name="revanced_yandex_status_youtube_specific">Handling YouTube audio request...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex can transcribe videos from any language, but the output is available only in English (en), Russian (ru) and Kazakh (kk). If you enter any other language code or use 'app' (which stands for the app's default language), Gemini will be asked to translate (API key is required)"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Target language for Yandex subtitles: Russian (ru), English (en), Kazakh (kk) or the app language ('app'). Other app languages are reached through Gemini translation (API key is required)"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>

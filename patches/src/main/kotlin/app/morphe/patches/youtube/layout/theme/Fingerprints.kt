@@ -10,6 +10,8 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.layout.theme
@@ -35,8 +37,9 @@ internal object ElementsTextColorFingerprint : Fingerprint(
     filters = listOf(
         methodCall(smali = "Landroid/text/style/ForegroundColorSpan;-><init>(I)V"),
     ),
+    // 21.39 dropped one parameter (15 -> 14) from this method.
     custom = { method, _ ->
-        method.parameterTypes.size >= 15 &&
+        method.parameterTypes.size >= 14 &&
                 method.parameterTypes.getOrNull(1) == "Landroid/content/Context;"
     },
 )

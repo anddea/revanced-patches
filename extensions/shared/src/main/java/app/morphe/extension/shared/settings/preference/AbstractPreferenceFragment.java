@@ -167,7 +167,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     showSettingUserDialogConfirmation(pref, setting);
                     return;
                 } else if (setting.rebootApp) {
-                    showRestartDialog(getActivity());
+                    setRestartNeeded();
                 }
             }
 
@@ -276,7 +276,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     updateUIAvailability();
 
                     if (setting.rebootApp) {
-                        showRestartDialog(context);
+                        setRestartNeeded();
                     }
                 },
                 // Cancel button action.
@@ -491,23 +491,57 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         } catch (Exception ignored) {}
     }
 
-    public static void showRestartDialog(@NonNull Context context) {
-        showRestartDialog(context, null);
+    private static boolean restartNeeded;
+
+    /**
+     * Marks that a changed setting requires an app restart.
+     * The restart dialog is shown when the settings are closed.
+     */
+    public static void setRestartNeeded() {
+        restartNeeded = true;
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message) {
-        showRestartDialog(context, message, 0);
+    /**
+     * Shows the restart dialog if a changed setting requires an app restart.
+     * Must be called when the user closes the settings.
+     *
+     * @return If the dialog is shown, and the settings must not close yet.
+     */
+    public static boolean showRestartDialogIfNeeded(Context context) {
+        if (!restartNeeded) {
+            return false;
+        }
+        restartNeeded = false;
+
+        Dialog dialog = showRestartDialog(context);
+        if (dialog == null) {
+            restartNeeded = true;
+            return true;
+        }
+        return true;
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message, long delay) {
-        showRestartDialog(context, message, delay, true);
+    /**
+     * Shows a dialog that restarts the app when it is closed in any way,
+     * including the back button.
+     */
+    public static Dialog showRestartDialog(@NonNull Context context) {
+        return showRestartDialog(context, null);
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
+    public static Dialog showRestartDialog(@NonNull Context context, String message) {
+        return showRestartDialog(context, message, 0);
+    }
+
+    public static Dialog showRestartDialog(@NonNull Context context, String message, long delay) {
+        return showRestartDialog(context, message, delay, true);
+    }
+
+    public static Dialog showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
         Utils.verifyOnMainThread();
         if (showingRestartDialog) {
             Logger.printDebug(() -> "Ignoring show restart dialog as restart dialog is already shown");
-            return;
+            return null;
         }
         if (restartDialogTitle == null) {
             restartDialogTitle = str("revanced_restart_title");
@@ -532,11 +566,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     null,
                     // OK button text.
                     restartDialogButtonText,
-                    // OK button action.
-                    () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
-                    // Cancel button action.
-                    cancelable ? () -> {
-                    } : null,
+                    // OK button action (dismiss restarts).
+                    () -> {},
+                    // No Cancel button.
+                    null,
                     // Neutral button text.
                     null,
                     // Neutral button action.
@@ -545,7 +578,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     true
             );
 
-            dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
+            dialogPair.first.setOnDismissListener(d -> {
+                showingRestartDialog = false;
+                Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay);
+            });
             if (!cancelable) {
                 dialogPair.first.setCancelable(false);
                 dialogPair.first.setCanceledOnTouchOutside(false);
@@ -553,19 +589,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
             // Show the dialog.
             dialogPair.first.show();
+            return dialogPair.first;
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(restartDialogTitle)
                     .setMessage(message == null ? restartDialogMessage : message)
-                    .setPositiveButton(android.R.string.ok, (dialog, id)
-                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay));
-            if (cancelable) {
-                builder.setNegativeButton(android.R.string.cancel, null);
-            } else {
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {});
+            if (!cancelable) {
                 builder.setCancelable(false);
             }
-            builder.setOnDismissListener(d -> showingRestartDialog = false)
-                    .show();
+            return builder.setOnDismissListener(d -> {
+                showingRestartDialog = false;
+                Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay);
+            }).show();
         }
     }
 

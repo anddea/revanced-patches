@@ -46,6 +46,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.text.Annotation;
 import android.text.Html;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
@@ -62,6 +63,7 @@ import androidx.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +77,7 @@ import java.util.regex.Pattern;
  * <li><b>Italic:</b> {@code *text*}</li>
  * <li><b>Monospace/Code:</b> {@code `code`} (Rendered as a pill-shaped snippet)</li>
  * <li><b>Lists:</b> {@code - Item} or {@code * Item} at the start of a line</li>
+ * <li><b>LaTeX:</b> inline {@code $...$}, {@code \(...\)} and display {@code $$...$$}, {@code \[...\]}</li>
  * </ul>
  */
 public class MarkdownUtils {
@@ -94,7 +97,22 @@ public class MarkdownUtils {
     public static Spanned fromMarkdown(String text) {
         if (TextUtils.isEmpty(text)) return Html.fromHtml("", Html.FROM_HTML_MODE_LEGACY);
 
-        String html = TextUtils.htmlEncode(text);
+        List<LatexMarkdown.Expression> expressions = LatexMarkdown.findExpressions(text);
+        // Use collision-free placeholders so Markdown and HTML never alter formula contents.
+        String marker = "\uE000LATEX";
+        while (text.contains(marker)) marker += "X";
+        StringBuilder protectedText = new StringBuilder();
+        int cursor = 0;
+        for (int i = 0; i < expressions.size(); i++) {
+            LatexMarkdown.Expression expression = expressions.get(i);
+            protectedText.append(text, cursor, expression.start());
+            if (expression.block()) protectedText.append('\n');
+            protectedText.append(marker).append(i).append('\uE001');
+            if (expression.block()) protectedText.append('\n');
+            cursor = expression.end();
+        }
+        protectedText.append(text, cursor, text.length());
+        String html = TextUtils.htmlEncode(protectedText.toString());
 
         // Headers: # Title -> <h1>Title</h1>
         StringBuffer headerBuffer = getStringBuffer(html);
@@ -123,7 +141,19 @@ public class MarkdownUtils {
         html = html.replace("\n", "<br/>");
 
         Spanned rawSpanned = Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT);
-        return enhanceMarkdownSpans(rawSpanned);
+        SpannableStringBuilder rendered = new SpannableStringBuilder(enhanceMarkdownSpans(rawSpanned));
+        for (int i = 0; i < expressions.size(); i++) {
+            String placeholder = marker + i + '\uE001';
+            int start = rendered.toString().indexOf(placeholder);
+            if (start < 0) continue;
+            LatexMarkdown.Expression expression = expressions.get(i);
+            // A ReplacementSpan must stay within one paragraph. Copy buttons retain the raw Markdown.
+            String source = text.substring(expression.start(), expression.end()).replace('\n', ' ').replace('\r', ' ');
+            rendered.replace(start, start + placeholder.length(), source);
+            rendered.setSpan(new Annotation(expression.block() ? "gemini-math-block" : "gemini-math", expression.latex()), start, start + source.length(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        return rendered;
     }
 
     @NotNull
@@ -181,7 +211,7 @@ public class MarkdownUtils {
     /**
      * Custom span to render inline code with a rounded background "pill".
      */
-    private static class InlineCodeSpan extends ReplacementSpan {
+    static class InlineCodeSpan extends ReplacementSpan {
         private static final int BACKGROUND_COLOR = Color.parseColor("#33888888"); // Translucent gray
         private static final int PADDING_HORIZONTAL = dipToPixels(6);
         private static final int CORNER_RADIUS = dipToPixels(4);
@@ -210,7 +240,7 @@ public class MarkdownUtils {
     /**
      * Custom span for bullets with specific start padding and text gap.
      */
-    private record CustomBulletSpan(int startPadding, int gapWidth, int bulletRadius,
+    record CustomBulletSpan(int startPadding, int gapWidth, int bulletRadius,
                                     int color) implements LeadingMarginSpan {
         @Override
         public int getLeadingMargin(boolean first) {

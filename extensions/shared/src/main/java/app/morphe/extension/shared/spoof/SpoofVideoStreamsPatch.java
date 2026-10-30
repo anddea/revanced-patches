@@ -10,6 +10,8 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-13.
  */
 
 package app.morphe.extension.shared.spoof;
@@ -108,6 +110,20 @@ public class SpoofVideoStreamsPatch {
             // Prefetch visitorId for default client.
             Utils.runOnBackgroundThread(() -> VisitorIdRequester.getVisitorId(client));
         }
+    }
+
+    // Force AVC support, strips VP9 formats on SABR (Morphe bb3e3ff0).
+    private static volatile boolean forceAVC;
+
+    /**
+     * Injection point (called by the app wrapper).
+     */
+    public static void setForceAVC(boolean force) {
+        forceAVC = force;
+    }
+
+    public static boolean getForceAVC() {
+        return forceAVC;
     }
 
     public static ClientType getPreferredClient() {

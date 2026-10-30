@@ -4,6 +4,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.utils.gms
@@ -36,13 +38,17 @@ internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
 internal object LoadingFrameLayoutControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("L"),
+    // YouTube 21.39 changed the single parameter from an object to a boolean (`qzf.a(Z)V`).
     filters = listOf(
         literal(icOfflineNoContentUpsideDown),
         literal(offlineNoContentBodyTextNotOfflineEligible),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
-    )
+    ),
+    custom = { method, _ ->
+        method.parameterTypes.size == 1 &&
+                method.parameterTypes.first().toString().let { it.startsWith("L") || it == "Z" }
+    }
 )
 
 internal object GmsDeviceComplianceCheckFingerprint : Fingerprint(

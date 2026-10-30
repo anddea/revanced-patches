@@ -18,6 +18,8 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
@@ -31,7 +33,7 @@ import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
-public final class MusixmatchProvider implements LyricsProvider {
+public final class MusixmatchProvider extends ScoredSongProvider {
 
     private static final String API_BASE = "https://apic.musixmatch.com/ws/1.1/";
     private static final String TOKEN_URL = API_BASE + "token.get";
@@ -41,14 +43,184 @@ public final class MusixmatchProvider implements LyricsProvider {
     private static final String USER_AGENT = "Dalvik/2.1.0 (Linux; U; Android 17)";
     private static final String COOKIE = "AWSELB=0; AWSELBCORS=0";
 
-    private static final long MIN_WORD_MS = 40;
-    private static final long BRIDGING_THRESHOLD_MS = 400;
+    private static final long MIN_WORD_MS = 100;
+    private static final long BRIDGING_THRESHOLD_MS = 2500;
     private static final long REQUEST_THROTTLE_MS = 500;
 
     private static final AtomicLong lastRequestTime = new AtomicLong(0);
     private static final Object TOKEN_LOCK = new Object();
+    private static final Pattern LRC_LINE_PATTERN =
+            Pattern.compile("\\[(\\d{2}):(\\d{2})\\.\\d{2}]\\s?(.*)");
     private static String cachedToken = null;
     private static String rejectedUserToken = null;
+
+    @Nullable
+    private static String extractCopyright(JSONObject macro) {
+        JSONObject lyricsMsg = obj(obj(macro, "track.lyrics.get"), "message");
+        JSONObject lyricsBody = obj(obj(lyricsMsg, "body"), "lyrics");
+        if (lyricsBody != null) {
+            final String c = LyricsRequests.optString(lyricsBody, "lyrics_copyright");
+            if (c != null && !c.trim().isEmpty()) {
+                return c.trim();
+            }
+        }
+        JSONObject subMsg = obj(obj(macro, "track.subtitles.get"), "message");
+        JSONObject subBody = obj(subMsg, "body");
+        final JSONArray subList = subBody != null ? subBody.optJSONArray("subtitle_list") : null;
+        if (subList != null && subList.length() > 0) {
+            JSONObject subItem = subList.optJSONObject(0);
+            JSONObject subtitle = subItem != null ? subItem.optJSONObject("subtitle") : null;
+            if (subtitle != null) {
+                final String c = LyricsRequests.optString(subtitle, "lyrics_copyright");
+                if (c != null && !c.trim().isEmpty()) {
+                    return c.trim();
+                }
+            }
+        }
+        JSONObject richMsg = obj(obj(macro, "track.richsync.get"), "message");
+        JSONObject richBody = obj(obj(richMsg, "body"), "richsync");
+        if (richBody != null) {
+            final String c = LyricsRequests.optString(richBody, "lyrics_copyright");
+            if (c != null && !c.trim().isEmpty()) {
+                return c.trim();
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    private static String extractBacklinkUrl(JSONObject macro) {
+        JSONObject lyricsMsg = obj(obj(macro, "track.lyrics.get"), "message");
+        JSONObject lyricsBody = obj(obj(lyricsMsg, "body"), "lyrics");
+        if (lyricsBody != null) {
+            final String url = LyricsRequests.optString(lyricsBody, "backlink_url");
+            if (url != null && !url.isEmpty()) {
+                return stripTrackingParams(url);
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    private static Lyrics appendCopyright(@Nullable Lyrics lyrics, @Nullable String copyright) {
+        if (lyrics == null || copyright == null || copyright.isEmpty()) {
+            return lyrics;
+        }
+        final List<String> songwriters = new ArrayList<>();
+        if (lyrics.songwriters() != null) {
+            songwriters.addAll(lyrics.songwriters());
+        }
+        songwriters.add(copyright);
+        return new Lyrics(lyrics.lines(), lyrics.providerName(), lyrics.synced(), null,
+                lyrics.translations(), null, songwriters, lyrics.rawFormat(),
+                lyrics.formatType(), lyrics.sourceUrl());
+    }
+
+    private static String stripTrackingParams(String url) {
+        final int queryStart = url.indexOf('?');
+        if (queryStart < 0) return url;
+        final String base = url.substring(0, queryStart);
+        final String query = url.substring(queryStart + 1);
+        final StringBuilder filtered = new StringBuilder();
+        for (String param : query.split("&")) {
+            if (!param.toLowerCase(Locale.ROOT).startsWith("utm")) {
+                //noinspection SizeReplaceableByIsEmpty
+                if (filtered.length() > 0) filtered.append('&');
+                filtered.append(param);
+            }
+        }
+        //noinspection SizeReplaceableByIsEmpty
+        return filtered.length() > 0 ? base + "?" + filtered : base;
+    }
+
+    private static String requestId() {
+        return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    private static void rejectToken(String hint) {
+        synchronized (TOKEN_LOCK) {
+            if ("renew".equalsIgnoreCase(hint)
+                    && cachedToken != null
+                    && cachedToken.equals(Settings.MUSIXMATCH_TOKEN.get())) {
+                rejectedUserToken = cachedToken;
+            }
+            cachedToken = null;
+        }
+    }
+
+    public static void invalidateToken() {
+        synchronized (TOKEN_LOCK) {
+            cachedToken = null;
+            rejectedUserToken = null;
+        }
+    }
+
+    private static boolean isUsableToken(String token) {
+        if (token == null || token.isEmpty() || "null".equals(token)) {
+            return false;
+        }
+        for (int i = 0; i < token.length(); i++) {
+            if (token.charAt(i) != '0') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static int headerStatus(JSONObject root) {
+        JSONObject header = obj(obj(root, "message"), "header");
+        return header == null ? 200 : header.optInt("status_code", 200);
+    }
+
+    @Nullable
+    private static String headerHint(JSONObject root) {
+        JSONObject header = obj(obj(root, "message"), "header");
+        return header != null ? LyricsRequests.optString(header, "hint") : null;
+    }
+
+    private static JSONObject obj(JSONObject o, String key) {
+        return o == null ? null : o.optJSONObject(key);
+    }
+
+    public static boolean validateToken(String token) {
+        if (!isUsableToken(token)) return false;
+        try {
+            final String url = SEARCH_URL
+                    + "?page_size=1&page=1&q_track=a&q_artist=a"
+                    + "&usertoken=" + LyricsRequests.encode(token)
+                    + "&format=json"
+                    + "&app_id=" + APP_ID
+                    + "&t=" + requestId();
+            final HttpURLConnection connection = LyricsRequests.openConnection(url);
+            connection.setRequestProperty("User-Agent", USER_AGENT);
+            connection.setRequestProperty("Cookie", COOKIE);
+            final int httpCode = connection.getResponseCode();
+            if (httpCode != 200) {
+                connection.disconnect();
+                return false;
+            }
+            JSONObject root = Requester.parseJSONObject(connection);
+            final int status = headerStatus(root);
+            final String hint = headerHint(root);
+            connection.disconnect();
+            return status != 401 || !"renew".equalsIgnoreCase(hint);
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Could not validate Musixmatch token", ex);
+            return true;
+        }
+    }
+
+    private static String joinWords(List<Word> words) {
+        final StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.size(); i++) {
+            final Word w = words.get(i);
+            sb.append(w.text());
+            if (w.endsWithSpace() && i < words.size() - 1) {
+                sb.append(' ');
+            }
+        }
+        return sb.toString();
+    }
 
     @Override
     public String name() {
@@ -56,19 +228,7 @@ public final class MusixmatchProvider implements LyricsProvider {
     }
 
     @Override
-    public boolean hasCandidates() {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
-        final List<Lyrics> candidates = fetchCandidates(track);
-        return candidates.isEmpty() ? null : candidates.get(0);
-    }
-
-    @Override
-    public List<Lyrics> fetchCandidates(TrackInfo track) throws Exception {
+    protected List<ScoredSong> fetchScoredSongs(TrackInfo track) throws Exception {
         final String token = ensureToken();
         if (token == null) {
             return Collections.emptyList();
@@ -85,7 +245,8 @@ public final class MusixmatchProvider implements LyricsProvider {
             return Collections.emptyList();
         }
 
-        final List<Lyrics.ScoredLyrics> scored = new ArrayList<>();
+        final List<ScoredSong> scored = new ArrayList<>();
+        ScoredSong firstAccepted = null;
         for (JSONObject trackObj : trackObjs) {
             final int trackId = trackObj.optInt("track_id", -1);
             if (trackId <= 0) continue;
@@ -97,17 +258,27 @@ public final class MusixmatchProvider implements LyricsProvider {
                 continue;
             }
             if (lyrics != null) {
+                String title = trackObj.optString("track_name", "");
+                String artist = trackObj.optString("artist_name", "");
+                long durationSec = trackObj.optInt("track_length", 0);
                 int score = LyricsRequests.scoreLyricsCandidate(
-                        trackObj.optString("track_name", ""),
-                        trackObj.optString("artist_name", ""),
-                        trackObj.optInt("track_length", 0),
-                        lyrics, track);
-                scored.add(new Lyrics.ScoredLyrics(score, lyrics));
-                break;
+                        title, artist, durationSec, lyrics, track);
+                ScoredSong candidate = new ScoredSong(score, lyrics, title, artist, durationSec);
+                if (firstAccepted == null) {
+                    firstAccepted = candidate;
+                }
+                if (score >= LyricsRequests.SOFT_MIN + LyricsRequests.syncRank(lyrics)) {
+                    scored.add(candidate);
+                    break;
+                }
             }
         }
+        if (scored.isEmpty() && firstAccepted != null) {
+            scored.add(firstAccepted);
+        }
 
-        return Lyrics.sortLyricsByScore(scored);
+        scored.sort((a, b) -> Integer.compare(b.score(), a.score()));
+        return scored;
     }
 
     @Nullable
@@ -167,8 +338,7 @@ public final class MusixmatchProvider implements LyricsProvider {
                 .append("&q_artist=").append(LyricsRequests.encode(track.artist()))
                 .append("&usertoken=").append(LyricsRequests.encode(token))
                 .append("&format=json")
-                .append("&app_id=" + APP_ID)
-                .append("&t=" + requestId());
+                .append("&app_id=" + APP_ID).append("&t=").append(requestId());
 
         if (durationSec > 0) {
             url.append("&q_duration=").append((int) durationSec);
@@ -215,9 +385,6 @@ public final class MusixmatchProvider implements LyricsProvider {
             connection.disconnect();
         }
     }
-
-    private static final Pattern LRC_LINE_PATTERN =
-            Pattern.compile("\\[(\\d{2}):(\\d{2})\\.\\d{2}]\\s?(.*)");
 
     @Nullable
     private Lyrics fetchLyricsByTrackId(int trackId, String token)
@@ -317,83 +484,6 @@ public final class MusixmatchProvider implements LyricsProvider {
     }
 
     @Nullable
-    private static String extractCopyright(JSONObject macro) {
-        JSONObject lyricsMsg = obj(obj(macro, "track.lyrics.get"), "message");
-        JSONObject lyricsBody = obj(obj(lyricsMsg, "body"), "lyrics");
-        if (lyricsBody != null) {
-            final String c = LyricsRequests.optString(lyricsBody, "lyrics_copyright");
-            if (c != null && !c.trim().isEmpty()) {
-                return c.trim();
-            }
-        }
-        JSONObject subMsg = obj(obj(macro, "track.subtitles.get"), "message");
-        JSONObject subBody = obj(subMsg, "body");
-        final JSONArray subList = subBody != null ? subBody.optJSONArray("subtitle_list") : null;
-        if (subList != null && subList.length() > 0) {
-            JSONObject subItem = subList.optJSONObject(0);
-            JSONObject subtitle = subItem != null ? subItem.optJSONObject("subtitle") : null;
-            if (subtitle != null) {
-                final String c = LyricsRequests.optString(subtitle, "lyrics_copyright");
-                if (c != null && !c.trim().isEmpty()) {
-                    return c.trim();
-                }
-            }
-        }
-        JSONObject richMsg = obj(obj(macro, "track.richsync.get"), "message");
-        JSONObject richBody = obj(obj(richMsg, "body"), "richsync");
-        if (richBody != null) {
-            final String c = LyricsRequests.optString(richBody, "lyrics_copyright");
-            if (c != null && !c.trim().isEmpty()) {
-                return c.trim();
-            }
-        }
-        return null;
-    }
-
-    @Nullable
-    private static String extractBacklinkUrl(JSONObject macro) {
-        JSONObject lyricsMsg = obj(obj(macro, "track.lyrics.get"), "message");
-        JSONObject lyricsBody = obj(obj(lyricsMsg, "body"), "lyrics");
-        if (lyricsBody != null) {
-            final String url = LyricsRequests.optString(lyricsBody, "backlink_url");
-            if (url != null && !url.isEmpty()) {
-                return stripTrackingParams(url);
-            }
-        }
-        return null;
-    }
-
-    @Nullable
-    private static Lyrics appendCopyright(@Nullable Lyrics lyrics, @Nullable String copyright) {
-        if (lyrics == null || copyright == null || copyright.isEmpty()) {
-            return lyrics;
-        }
-        final List<String> songwriters = new ArrayList<>();
-        if (lyrics.songwriters() != null) {
-            songwriters.addAll(lyrics.songwriters());
-        }
-        songwriters.add(copyright);
-        return new Lyrics(lyrics.lines(), lyrics.providerName(), lyrics.synced(), null,
-                lyrics.translations(), null, songwriters, lyrics.rawFormat(),
-                lyrics.formatType(), lyrics.sourceUrl());
-    }
-
-    private static String stripTrackingParams(String url) {
-        final int queryStart = url.indexOf('?');
-        if (queryStart < 0) return url;
-        final String base = url.substring(0, queryStart);
-        final String query = url.substring(queryStart + 1);
-        final StringBuilder filtered = new StringBuilder();
-        for (String param : query.split("&")) {
-            if (!param.toLowerCase().startsWith("utm")) {
-                if (filtered.length() > 0) filtered.append('&');
-                filtered.append(param);
-            }
-        }
-        return filtered.length() > 0 ? base + "?" + filtered : base;
-    }
-
-    @Nullable
     private Lyrics parseRichsync(String body, @Nullable String sourceUrl)
             throws JSONException {
         final JSONArray lines = new JSONArray(body);
@@ -416,13 +506,14 @@ public final class MusixmatchProvider implements LyricsProvider {
             final JSONArray lArr = line.optJSONArray("l");
             if (lArr != null && lArr.length() > 0) {
                 words = new ArrayList<>();
+                int xCursor = 0;
                 for (int j = 0; j < lArr.length(); j++) {
                     JSONObject w = lArr.optJSONObject(j);
                     if (w == null) {
                         continue;
                     }
-                    final String chunk = LyricsRequests.optString(w, "c");
-                    if (chunk == null || chunk.isEmpty()) {
+                    final String rawChunk = LyricsRequests.optString(w, "c");
+                    if (rawChunk == null || rawChunk.isEmpty()) {
                         continue;
                     }
                     final double offset = w.optDouble("o", 0);
@@ -435,10 +526,14 @@ public final class MusixmatchProvider implements LyricsProvider {
                         if (nextW != null) {
                             final double nextOffset = nextW.optDouble("o", offset);
                             final long nextWs = (long) ((lineTs + nextOffset) * 1000);
-                            if (nextWs - ws <= BRIDGING_THRESHOLD_MS) {
-                                we = nextWs;
+                            if (nextWs > ws) {
+                                if (nextWs - ws <= BRIDGING_THRESHOLD_MS) {
+                                    we = nextWs;
+                                } else {
+                                    we = ws + BRIDGING_THRESHOLD_MS;
+                                }
                             } else {
-                                we = ws;
+                                we = ws + MIN_WORD_MS;
                             }
                         } else {
                             we = lineEndMs;
@@ -447,11 +542,43 @@ public final class MusixmatchProvider implements LyricsProvider {
                         we = lineEndMs;
                     }
                     if (we <= ws) {
-                        we = ws + MIN_WORD_MS;
+                        we = ws + 150L;
+                    } else if (we - ws > BRIDGING_THRESHOLD_MS) {
+                        we = ws + BRIDGING_THRESHOLD_MS;
                     } else if (we - ws < MIN_WORD_MS) {
                         we = ws + MIN_WORD_MS;
                     }
-                    words.add(new Word(ws, we, chunk));
+                    if (nextIdx < lArr.length()) {
+                        JSONObject nextW = lArr.optJSONObject(nextIdx);
+                        if (nextW != null) {
+                            final double nextOffset = nextW.optDouble("o", offset);
+                            final long nextWs = (long) ((lineTs + nextOffset) * 1000);
+                            if (nextWs > ws && we > nextWs) {
+                                we = nextWs;
+                            }
+                        }
+                    }
+
+                    boolean endsWithSpace = rawChunk.endsWith(" ") || rawChunk.endsWith("\t");
+                    String chunk = endsWithSpace ? rawChunk.stripTrailing() : rawChunk;
+
+                    if (x != null && !x.isEmpty()) {
+                        while (xCursor < x.length() && Character.isWhitespace(x.charAt(xCursor))) {
+                            xCursor++;
+                        }
+                        if (xCursor < x.length()) {
+                            int matchLen = chunk.length();
+                            if (xCursor + matchLen <= x.length()
+                                    && x.regionMatches(true, xCursor, chunk, 0, matchLen)) {
+                                chunk = x.substring(xCursor, xCursor + matchLen);
+                                int afterMatch = xCursor + matchLen;
+                                endsWithSpace = (afterMatch < x.length() && Character.isWhitespace(x.charAt(afterMatch)));
+                                xCursor = afterMatch;
+                            }
+                        }
+                    }
+
+                    words.add(new Word(ws, we, chunk, null, endsWithSpace));
                 }
             }
 
@@ -492,8 +619,8 @@ public final class MusixmatchProvider implements LyricsProvider {
             if (line.isEmpty()) continue;
             final Matcher m = LRC_LINE_PATTERN.matcher(line);
             if (!m.matches()) continue;
-            final int min = Integer.parseInt(m.group(1));
-            final int sec = Integer.parseInt(m.group(2));
+            final int min = Integer.parseInt(Objects.requireNonNull(m.group(1)));
+            final int sec = Integer.parseInt(Objects.requireNonNull(m.group(2)));
             final String text = m.group(3);
             if (text == null || text.isEmpty()) continue;
             final long startMs = min * 60_000L + sec * 1_000L;
@@ -519,16 +646,17 @@ public final class MusixmatchProvider implements LyricsProvider {
             JSONObject time = line.optJSONObject("time");
             final double total = time != null ? time.optDouble("total", 0) : 0;
             final long startMs = (long) (total * 1000);
-            String text = line.optString("text", "\u266A");
+            String text = line.optString("text", "♪");
             if (text.isEmpty()) {
-                text = "\u266A";
+                text = "♪";
             }
             result.add(new LyricsLine(startMs, text));
         }
         if (result.isEmpty()) {
             return null;
         }
-        return new Lyrics(result, name(), true, null, null, null, null, null, "lrc", sourceUrl);
+        return new Lyrics(result, name(), true, null, null, null, null, body, "mxm.json",
+                sourceUrl);
     }
 
     @Nullable
@@ -537,7 +665,7 @@ public final class MusixmatchProvider implements LyricsProvider {
         if (result.isEmpty()) {
             return null;
         }
-        return new Lyrics(result, name(), false, null, null, null, null, null, null, sourceUrl);
+        return new Lyrics(result, name(), false, null, null, null, null, body, "txt", sourceUrl);
     }
 
     private HttpURLConnection openApi(String url) throws IOException {
@@ -545,95 +673,5 @@ public final class MusixmatchProvider implements LyricsProvider {
         connection.setRequestProperty("User-Agent", USER_AGENT);
         connection.setRequestProperty("Cookie", COOKIE);
         return connection;
-    }
-
-    private static String requestId() {
-        return UUID.randomUUID().toString().replace("-", "");
-    }
-
-    private static void rejectToken(String hint) {
-        synchronized (TOKEN_LOCK) {
-            if ("renew".equalsIgnoreCase(hint)
-                    && cachedToken != null
-                    && cachedToken.equals(Settings.MUSIXMATCH_TOKEN.get())) {
-                rejectedUserToken = cachedToken;
-            }
-            cachedToken = null;
-        }
-    }
-
-    public static void invalidateToken() {
-        synchronized (TOKEN_LOCK) {
-            cachedToken = null;
-            rejectedUserToken = null;
-        }
-    }
-
-    private static boolean isUsableToken(String token) {
-        if (token == null || token.isEmpty() || "null".equals(token)) {
-            return false;
-        }
-        for (int i = 0; i < token.length(); i++) {
-            if (token.charAt(i) != '0') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static int headerStatus(JSONObject root) {
-        JSONObject header = obj(obj(root, "message"), "header");
-        return header == null ? 200 : header.optInt("status_code", 200);
-    }
-
-    @Nullable
-    private static String headerHint(JSONObject root) {
-        JSONObject header = obj(obj(root, "message"), "header");
-        return header != null ? LyricsRequests.optString(header, "hint") : null;
-    }
-
-    private static JSONObject obj(JSONObject o, String key) {
-        return o == null ? null : o.optJSONObject(key);
-    }
-
-    public static boolean validateToken(String token) {
-        if (!isUsableToken(token)) return false;
-        try {
-            final String url = SEARCH_URL
-                    + "?page_size=1&page=1&q_track=a&q_artist=a"
-                    + "&usertoken=" + LyricsRequests.encode(token)
-                    + "&format=json"
-                    + "&app_id=" + APP_ID
-                    + "&t=" + requestId();
-            final HttpURLConnection connection = LyricsRequests.openConnection(url);
-            connection.setRequestProperty("User-Agent", USER_AGENT);
-            connection.setRequestProperty("Cookie", COOKIE);
-            final int httpCode = connection.getResponseCode();
-            if (httpCode != 200) {
-                connection.disconnect();
-                return false;
-            }
-            JSONObject root = Requester.parseJSONObject(connection);
-            final int status = headerStatus(root);
-            final String hint = headerHint(root);
-            connection.disconnect();
-            return status != 401 || !"renew".equalsIgnoreCase(hint);
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "Could not validate Musixmatch token", ex);
-            return true;
-        }
-    }
-
-    private static String joinWords(List<Word> words) {
-        final StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < words.size(); i++) {
-            final String t = words.get(i).text();
-            if (i > 0 && !t.isEmpty() && !t.startsWith(" ")
-                    && sb.length() > 0 && sb.charAt(sb.length() - 1) != ' ') {
-                sb.append(' ');
-            }
-            sb.append(t);
-        }
-        return sb.toString();
     }
 }

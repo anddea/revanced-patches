@@ -10,6 +10,8 @@
  * https://github.com/anddea/revanced-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.shared.misc.spoof
@@ -24,7 +26,9 @@ import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patcher.util.registersUsed
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.misc.request.buildRequestPatch
@@ -34,11 +38,9 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
-import app.morphe.util.registersUsed
 import app.morphe.util.setExtensionIsPatchIncluded
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -93,6 +95,7 @@ internal fun spoofVideoStreamsPatch(
     hookAccountIdentity: BytecodePatchBuilder.() -> Boolean = { false },
     restoreMissingCuepointMethod: BytecodePatchBuilder.() -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit,
+    applicationInitFingerprint: Fingerprint? = null,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = SPOOF_VIDEO_STREAMS.title,
@@ -112,6 +115,14 @@ internal fun spoofVideoStreamsPatch(
             """
                 invoke-static { }, $extensionClass->setClientOrderToUse()V   
             """
+        )
+
+        // Also set the client order on Application init (Morphe a60a3b6),
+        // so playback started without the main activity (widgets, etc.) uses the right clients.
+        // Insert after the shared extension hook that sets the extension context at index 0.
+        applicationInitFingerprint?.method?.addInstruction(
+            1,
+            "invoke-static { }, $extensionClass->setClientOrderToUse()V"
         )
 
         setExtensionIsPatchIncluded(EXTENSION_CLASS)
@@ -193,6 +204,22 @@ internal fun spoofVideoStreamsPatch(
                     nop
                 """
 
+                // Parses the player config bytes in v3 to a new player config in v5.
+                val parsePlayerConfig = """
+                    sget-object v4, $playerConfigClass->a:$playerConfigClass
+                    invoke-virtual { v4 }, $createBuilderMethod
+                    move-result-object v4
+                    $castInstruction
+                    invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
+                    move-result-object v5
+                    invoke-virtual { v4, v3, v5 }, $mergeFromMethod
+                    move-result-object v5
+                    check-cast v5, $castReference
+                    invoke-virtual { v5 }, $buildMethod
+                    move-result-object v5
+                    check-cast v5, $playerConfigClass
+                """
+
                 val helperMethod = ImmutableMethod(
                     it.classDef.type,
                     "patch_setStreamingData",
@@ -237,18 +264,7 @@ internal fun spoofVideoStreamsPatch(
                             invoke-static { v2 }, $EXTENSION_CLASS->getPlayerConfig(Ljava/lang/String;)[B
                             move-result-object v3
                             if-eqz v3, :disabled
-                            sget-object v4, $playerConfigClass->a:$playerConfigClass
-                            invoke-virtual { v4 }, $createBuilderMethod
-                            move-result-object v4
-                            $castInstruction
-                            invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
-                            move-result-object v5
-                            invoke-virtual { v4, v3, v5 }, $mergeFromMethod
-                            move-result-object v5
-                            check-cast v5, $castReference
-                            invoke-virtual { v5 }, $buildMethod
-                            move-result-object v5
-                            check-cast v5, $playerConfigClass
+                            $parsePlayerConfig
 
                             # Check if player config contains android media lib config.
                             invoke-static { v2 }, $EXTENSION_CLASS->hasAndroidMedia(Ljava/lang/String;)Z
@@ -260,11 +276,15 @@ internal fun spoofVideoStreamsPatch(
                             iget-object v7, v6, $mediaUstreamerRequestConfig
                             if-eqz v7, :disabled
 
-                            # Set media uStreamer request config.
+                            # Set media uStreamer request config in a copy of the app player config.
+                            # The app config may already be serialized, which caches its size,
+                            # and changing it then breaks serializing it again.
                             iget-object v5, p2, $setPlayerConfigField
+                            invoke-virtual { v5 }, $playerConfigClass->toByteArray()[B
+                            move-result-object v3
+                            $parsePlayerConfig
                             iget-object v6, v5, $mediaCommonConfigField
                             iput-object v7, v6, $mediaUstreamerRequestConfig
-                            iput-object v6, v5, $mediaCommonConfigField
 
                             :override_all_player_config
                             # Set player config.
@@ -289,19 +309,25 @@ internal fun spoofVideoStreamsPatch(
             val targetIndex =
                 indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
 
+            // YouTube 21.39: constructor has an extra String parameter, fields are now
+            // a (uri), d (http method), e (post data). Older: a, c, d.
+            val isNewShape = parameterTypes.size == 11
+            val httpMethodField = if (isNewShape) "d" else "c"
+            val postDataField = if (isNewShape) "e" else "d"
+
             addInstructions(
                 targetIndex,
                 """
                     # Field a: Stream uri.
-                    # Field c: Http method.
-                    # Field d: Post data.
+                    # Field c/d: Http method.
+                    # Field d/e: Post data.
                     move-object v0, p0
                     iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                    iget v2, v0, $definingClass->c:I
-                    iget-object v3, v0, $definingClass->d:[B
+                    iget v2, v0, $definingClass->$httpMethodField:I
+                    iget-object v3, v0, $definingClass->$postDataField:[B
                     invoke-static { v1, v2, v3 }, $EXTENSION_CLASS->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
                     move-result-object v1
-                    iput-object v1, v0, $definingClass->d:[B
+                    iput-object v1, v0, $definingClass->$postDataField:[B
                 """
             )
         }
@@ -385,7 +411,9 @@ internal fun spoofVideoStreamsPatch(
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
-            PlaybackStartDescriptorFeatureFlagFingerprint.let {
+            // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
+            // literal, so a failed match means the flag is gone and there is nothing to override.
+            runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()?.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS->usePlaybackStartFeatureFlag(Z)Z"

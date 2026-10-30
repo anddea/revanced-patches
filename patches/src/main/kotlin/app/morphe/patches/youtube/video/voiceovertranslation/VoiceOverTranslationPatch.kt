@@ -45,6 +45,7 @@ package app.morphe.patches.youtube.video.voiceovertranslation
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.misc.spoof.CreateStreamingDataFingerprint
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
@@ -53,7 +54,6 @@ import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
 import app.morphe.patches.youtube.misc.debugging.currentWatchNextResponseParentFingerprint
 import app.morphe.patches.youtube.utils.auth.authHookPatch
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.fingerprint.originalMethodOrThrow

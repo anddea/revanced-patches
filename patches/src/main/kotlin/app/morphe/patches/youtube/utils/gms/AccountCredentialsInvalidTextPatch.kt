@@ -3,11 +3,11 @@ package app.morphe.patches.youtube.utils.gms
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.resourceid.offlineNoContentBodyTextNotOfflineEligible
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

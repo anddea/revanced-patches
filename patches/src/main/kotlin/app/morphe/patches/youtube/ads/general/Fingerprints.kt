@@ -2,10 +2,10 @@ package app.morphe.patches.youtube.ads.general
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.resourceid.badgeLabel
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementAdContainer
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -67,4 +67,14 @@ internal object PlayerOverlayTimelyShelfFingerprint : Fingerprint(
         string("Null id"),
         string("Null onExitActions")
     )
+)
+
+// YouTube 21.39: the timely shelf handler was split up; "player_overlay_timely_shelf" is now
+// compared inside a switch-lambda (Object)V that also contains "menu_item_stable_volume".
+internal val playerOverlayTimelyShelfSwitchFingerprint = legacyFingerprint(
+    name = "playerOverlayTimelyShelfSwitchFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    strings = listOf("player_overlay_timely_shelf", "menu_item_stable_volume"),
 )

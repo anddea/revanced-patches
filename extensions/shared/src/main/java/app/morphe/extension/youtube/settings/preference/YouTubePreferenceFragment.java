@@ -26,6 +26,7 @@ import java.util.Date;
 
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.preference.LogBufferManager;
+import app.morphe.extension.shared.settings.preference.NewSettingsIndicator;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -102,6 +103,8 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             setVotProxyPreference();
 
             setPreferenceAvailability();
+
+            NewSettingsIndicator.markNewPreferences(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }

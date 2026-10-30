@@ -3,6 +3,8 @@ package app.morphe.patches.youtube.utils.componentlist
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.litho.componentContextSubParserFingerprint2

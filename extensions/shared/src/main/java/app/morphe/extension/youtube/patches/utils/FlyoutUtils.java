@@ -47,9 +47,13 @@ import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.SaveToWatchLaterPatch;
+import app.morphe.extension.youtube.patches.FeedVideoActionsPatch;
+import app.morphe.extension.youtube.patches.PictureinPictureButtonPatch;
+import app.morphe.extension.youtube.patches.PostImageDownloadPatch;
+import app.morphe.extension.youtube.videoplayer.PictureinPictureButton;
+import app.morphe.extension.youtube.patches.components.PlayerFlyoutMenuFilter;
 import app.morphe.extension.youtube.patches.general.DownloadActionsPatch;
 import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
@@ -158,6 +162,7 @@ public final class FlyoutUtils {
             if (dialog == null) {
                 return;
             }
+            FeedVideoActionsPatch.onBottomSheetFlyout(dialog);
             flyoutDialog = dialog;
             runFlyoutPanelVisibilityHandler(dialog);
 
@@ -219,6 +224,7 @@ public final class FlyoutUtils {
             if (popupWindow == null) {
                 return;
             }
+            FeedVideoActionsPatch.onPopupWindowFlyout(popupWindow);
             flyoutPopupWindow = popupWindow;
             runFlyoutPanelVisibilityHandler(popupWindow);
 
@@ -248,10 +254,22 @@ public final class FlyoutUtils {
         // onto whatever this call adds instead.
         customItemTextRefs.clear();
 
+        final String flyoutVideoId = DownloadActionsPatch.getFlyoutVideoId();
+
+        // Only added to the menus of posts with images.
+        if (PostImageDownloadPatch.ENABLED) {
+            nextButtonIndex = PostImageDownloadPatch.addFlyoutButton(
+                    flyoutPanel,
+                    nextButtonIndex,
+                    DownloadActionsPatch.getSenderView()
+            );
+        }
+
         boolean showKidsSaveToWatchLater = Settings.KIDS_SAVE_TO_WATCH_LATER_BUTTON.get()
-                && PlayerType.getCurrent().isMaximizedOrFullscreen()
+                && !flyoutVideoId.isEmpty()
                 && videoMarkedAsForKids;
         boolean showShortsSaveToWatchLater = Settings.SHORTS_SAVE_TO_WATCH_LATER_BUTTON.get()
+                && !flyoutVideoId.isEmpty()
                 && videoMarkedAsShorts;
 
         if (showKidsSaveToWatchLater || showShortsSaveToWatchLater) {
@@ -260,7 +278,7 @@ public final class FlyoutUtils {
                     saveToWatchLaterDrawable,
                     saveToWatchLaterButtonName,
                     v -> {
-                        SaveToWatchLaterPatch.saveVideo(DownloadActionsPatch.getFlyoutVideoId());
+                        SaveToWatchLaterPatch.saveVideo(flyoutVideoId);
 
                         dismissFlyout(); // Must dismiss after showing dialog.
                     },
@@ -285,21 +303,34 @@ public final class FlyoutUtils {
             }
         }
 
+        if (PictureinPictureButtonPatch.isPatchIncluded()) {
+            nextButtonIndex = PictureinPictureButton.addFlyoutButton(
+                    flyoutPanel,
+                    nextButtonIndex,
+                    PlayerFlyoutMenuFilter.getTopFlyoutMenuVisible(),
+                    videoMarkedAsShorts
+            );
+        }
+
         if (nextButtonIndex > 0) {
             addDivider(flyoutPanel, nextButtonIndex);
         }
+
+        // Reset 'topFlyoutMenuVisible' field, once the buttons have been injected into the player's
+        // overlay settings, to prevent them from also being added into nested menus.
+        PlayerFlyoutMenuFilter.resetTopFlyoutMenuVisible();
     }
 
     /**
      * @return The video the flyout belongs to. The player menu has no feed item to read the id
-     *         from, so the video that is playing is used for it instead.
+     *         from, so the video that is playing is used only for its top-level menu.
      */
     private static String getSubmittableVideoId() {
         String flyoutVideoId = DownloadActionsPatch.getFlyoutVideoId();
         if (!flyoutVideoId.isEmpty()) {
             return flyoutVideoId;
         }
-        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+        if (PlayerFlyoutMenuFilter.getTopFlyoutMenuVisible()) {
             return VideoInformation.getVideoId();
         }
         return "";
@@ -344,6 +375,7 @@ public final class FlyoutUtils {
             }
 
             copyListItemTypeface(itemList);
+            FeedVideoActionsPatch.onFlyoutListBound(itemList);
         } catch (Exception ex) {
             Logger.printException(() -> "onFlyoutListBound failure", ex);
         }
@@ -414,7 +446,7 @@ public final class FlyoutUtils {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static int addFlyoutButton(
+    public static int addFlyoutButton(
             Object flyoutPanel,
             Drawable icon,
             String text,
@@ -518,12 +550,7 @@ public final class FlyoutUtils {
 
         if (flyoutPanel instanceof PopupWindow checkedPopupWindow) {
             popupWindow = checkedPopupWindow;
-            if (checkedPopupWindow.getContentView() instanceof FrameLayout frameLayout) {
-                if (frameLayout.getChildAt(0) instanceof ViewGroup viewGroup
-                        && viewGroup.getChildAt(0) instanceof LinearLayout checkedMenuContainer) {
-                    menuContainer = checkedMenuContainer;
-                }
-            }
+            menuContainer = getPopupMenuContainer(checkedPopupWindow.getContentView());
             isPopupWindow = true;
         } else if (flyoutPanel instanceof Dialog checkedDialog) {
             Window window = checkedDialog.getWindow();
@@ -553,6 +580,27 @@ public final class FlyoutUtils {
         }
 
         return new FlyoutMenuInfo(menuContainer, adjustedIndex, isPopupWindow, popupWindow);
+    }
+
+    /**
+     * The menu container of a popup menu is the first LinearLayout found by following the first child
+     * of the content view. Depending on the app version, the device and A/B tests, the content view is:
+     * the container itself, a view that places the container next to its anchor (also wrapped
+     * in a frame on phones), or a frame that sizes the popup window to the container.
+     *
+     * @return The menu container, or null if the content view is not a popup menu.
+     */
+    @Nullable
+    private static LinearLayout getPopupMenuContainer(@Nullable View contentView) {
+        View view = contentView;
+        // The deepest container is in a frame, inside the view that places it.
+        for (int depth = 0; depth < 3 && view != null; depth++) {
+            if (view instanceof LinearLayout linearLayout) {
+                return linearLayout;
+            }
+            view = view instanceof ViewGroup viewGroup ? viewGroup.getChildAt(0) : null;
+        }
+        return null;
     }
 
     @SuppressLint("ResourceType")

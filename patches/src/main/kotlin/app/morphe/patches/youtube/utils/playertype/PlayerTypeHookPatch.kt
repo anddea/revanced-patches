@@ -8,6 +8,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -22,7 +23,6 @@ import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow

@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">הפקדים שלך שונו מכיוון ששירות נגישות מופעל</string>
     <string name="gms_core_dialog_continue_text">המשך</string>
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG אין הרשאה לפעול ברקע
 
-עקוב אחר המדריך \"Don't kill my app\" עבור הטלפון שלך, והפעיל את ההוראות על התקנת ה-MicroG שלך
+קרא את המדריך \"Don't kill my app\" למכשיר שלך ויישם את ההוראות בהתקנת ה-MicroG
 
-היא נדרשת כדי שהיישום יעבוד"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"מיטובי הסוללה של MicroG GmsCore חייבים להיות מושבתים כדי למנוע בעיות
+פעולה זו נדרשת כדי שהאפליקציה תעבוד"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"יש להשבית את אופטימיזציית הסוללה של MicroG כדי למנוע בעיות
 
-השבתת מיטובי הסוללה עבור MicroG לא תשפיע לרעה על השימוש בסוללה
+השבתת אופטימיזציית הסוללה עבור MicroG לא תשפיע לרעה על שימוש בסוללה
 
-תMouseEvent על הלחצן 'המשך' ואפשר שינויי מיטוב"</string>
+הקש על כפתור ההמשך ואפשר שינויים באופטימיזציה"</string>
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
     <string name="gms_core_dialog_title">דרושה פעולה</string>
     <string name="gms_core_offline_account_login_error">אם שינית לאחרונה את פרטי ההתחברות לחשבון שלך, הסר את התקנת GmsCore והתקן אותה מחדש</string>
     <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ</string>
+    <string name="gms_core_toast_not_installed_message">MicroG אינו מותקן. התקן אותו</string>
     <string name="morphe_ads_channel_whitelist_title">רשימת היתרים למודעות בערוץ</string>
     <string name="morphe_aislist_submit_already_blocklisted">הערוץ הזה כבר נמצא ברשימת החסימה של AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">הערוץ הזה כבר נמצא ברשימת האזהרות של AiSList</string>
@@ -58,16 +58,42 @@
     <string name="morphe_auto_pause_on_screen_lock_always">השהה תמיד כשהמכשיר נעול</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">השהה אלא אם כן אודיו אלחוטי מחובר</string>
     <string name="morphe_auto_pause_on_screen_lock_title">השהייה אוטומטית כשהמכשיר נעול</string>
+    <string name="morphe_auto_translate_additional_languages_summary">מוסיף עוד שפות לתפריט התרגום האוטומטי</string>
+    <string name="morphe_auto_translate_additional_languages_title">הוספת שפות נוספות לתרגום אוטומטי</string>
+    <string name="morphe_copy_comments_success">התגובה הועתקה ללוח</string>
+    <string name="morphe_copy_comments_summary">הקש והחזק תגובה כדי להעתיק אותה</string>
+    <string name="morphe_copy_comments_title">העתקת תגובות</string>
+    <string name="morphe_copy_video_title_success">כותרת הסרטון הועתקה ללוח</string>
+    <string name="morphe_copy_video_title_summary">הקש והחזק את כותרת הסרטון כדי להעתיק אותה</string>
+    <string name="morphe_copy_video_title_title">העתקת כותרת הסרטון</string>
     <string name="morphe_custom_branding_icon_title">אייקון האפליקציה</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow מחליף כותרות ומיניאטורות קליקבייט בכאלה שמגיעות מהקהל, שהן מדויקות יותר ופחות סנסציוניות. הכותרות נכתבות ומוצבעות על ידי הקהילה, והמיניאטורות הן פריימים שנלקחו מהסרטון
+
+הסרטונים מתבקשים באמצעות קידומת קצרה של מזהה הווידאו המגובב, כך שהשרת לא יכול לדעת בדיוק איזה סרטון אתה מסתכל. אם לסרטון אין מיניאטורה של DeArrow, מוצגת התמונה המקורית או תמונת סטילס"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">מספר הצבעות הקז\'ואל בקטגוריה אחת, כמו מצחיק או יצירתי, שנדרש כדי להציג את הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">מינימום הצבעות קז\'ואל להצגת הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_summary">מציג את הכותרת המקורית במקום כותרת DeArrow אם משתמשי DeArrow הצביעו שהם אוהבים את הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_title">מצב קז\'ואל</string>
+    <string name="morphe_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
+    <string name="morphe_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
+    <string name="morphe_dearrow_titles_icon_summary">מציג את סמל DeArrow על כותרות וידאו שמקורן בקהל</string>
+    <string name="morphe_dearrow_titles_icon_title">הצג סמל DeArrow</string>
+    <string name="morphe_dearrow_titles_title">כותרות DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">מונע מהעדכונים להתרענן אוטומטית לאחר שהם מתיישנים</string>
+    <string name="morphe_disable_auto_feed_refresh_title">השבת רענון אוטומטי של עדכונים</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">שומר את סרגל הניווט גלוי בזמן גלילה</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">השבת הסתרת אוטומטית של סרגל הניווט</string>
     <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
     <string name="morphe_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
     <string name="morphe_disable_drc_audio_title">השבת אודיו DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">מציג את לחצני הניווט עם תוויות, אם YouTube שולח אותם ללא תוויות</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">השבת לחצני ניווט ללא תוויות</string>
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">השבת מגבלת מהירות גלילה</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">מציג את \"מנויים\" בסרגל הניווט, אם YouTube מעביר זאת ללשונית בחלק העליון של דף הבית</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">בטל לשוניות ניווט בסרגל הכלים</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך ה-DVR לשידורים חיים' אולי לא תהיה זמינה
 
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
@@ -76,6 +102,10 @@
     <string name="morphe_explore_menu_screen_summary">בחר אילו רכיבים יופיעו בתפריט החקירה</string>
     <string name="morphe_explore_menu_screen_title">חקור תפריט</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">אם זה לא עובד, נסה לסגור בכוח את MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">חיפוש ועורך בכל מקום בודק המשיר פתחם את מהשיר שלו</string>
+    <string name="morphe_feed_long_press_menu_title">חיפוש ועורך להזמן מהשיר וישדור</string>
+    <string name="morphe_feed_watch_later_button_summary">בטו׳דת \"הצג בידוע חור\" תציע בתויערות של וידועי המשיר. חיפוש ועורך הו מזמן חסון לכריזה</string>
+    <string name="morphe_feed_watch_later_button_title">הצג את בטו׳דת \"הצג בידוע חור\" בתויערות</string>
     <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד \'Android Studio\' ו\'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
@@ -93,9 +123,9 @@
 מגבלות:
 • Shorts מסוננים עשויים להופיע כשטח ריק
 • חלק מסרטוני הבינה המלאכותית עדיין עשויים להופיע"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"הנתונים מסופקים על ידי AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList הוא רשימה בקוד פתוח של ערוצי YouTube שמפרסמים תוכן שנוצר באמצעות בינה מלאכותית, המתוחזקת על ידי מתנדבים. ערוצים מדווחים על ידי משתמשים ונבדקים לפני שהם מתווספים
 
-הקש כאן כדי לפתוח את AiSlopList.com ולראות הורדות עבור פלטפורמות אחרות"</string>
+הרשימה מורדת מ-GitHub וסרטונים מסוננים במכשיר שלך"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">רשימה חסומה: ביטחון גבוה</string>
     <string name="morphe_hide_aislist_hide_home_title">הסתר סרטונים בעמוד הבית</string>
     <string name="morphe_hide_aislist_hide_search_title">הסתר סרטונים בחיפוש</string>
@@ -110,6 +140,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ערוצים ברשימת אזהרה</string>
     <string name="morphe_hide_aislist_warnlist_category_title">רשימת אזהרה: ביטחון בינוני</string>
     <string name="morphe_hide_auto_dubbed_label_title">הסתר תווית \'דיבוב אוטומטי\'</string>
+    <string name="morphe_hide_channel_buttons_summary">מסתיר כפתורים כגון הירשם, מעבר לערוץ, קהילה ו-YouTube Music מפרופילי ערוצים בתוצאות החיפוש</string>
+    <string name="morphe_hide_channel_buttons_title">הסתר כפתורי ערוץ</string>
     <string name="morphe_hide_courses_menu_title">הסתר תפריט קורסים</string>
     <string name="morphe_hide_explore_button_title">הסתר כפתור חקור</string>
     <string name="morphe_hide_fashion_menu_title">הסתר תפריט \'אופנה ויופי\'</string>
@@ -121,6 +153,8 @@
     <string name="morphe_hide_invite_to_message_card_title">הסתר את הכרטיס \"הזמן אחרים להודעה\"</string>
     <string name="morphe_hide_learning_menu_title">הסתר תפריט למידה</string>
     <string name="morphe_hide_live_menu_title">הסתר תפריט לייב</string>
+    <string name="morphe_hide_live_streams_summary">מסתיר סרטונים שמועברים בשידור חי כעת בפיד הבית ובתוצאות החיפוש</string>
+    <string name="morphe_hide_live_streams_title">הסתר שידורים חיים</string>
     <string name="morphe_hide_memberships_menu_title">הסתר תפריט מנויים</string>
     <string name="morphe_hide_movies_menu_title">הסתר תפריט \'סרטים וטלוויזיה\'</string>
     <string name="morphe_hide_music_menu_title">הסתר תפריט מוזיקה</string>
@@ -152,10 +186,13 @@
     <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
     <string name="morphe_music_package_name_summary">שם החבילה של אפליקציית המוזיקה המותקנת שלך</string>
     <string name="morphe_music_package_name_title">שם החבילה של אפליקציית המוזיקה</string>
+    <string name="morphe_navigation_bar_style_entry_2">חצי שקוף</string>
+    <string name="morphe_navigation_bar_style_title">סגנון סרגל ניווט</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">סגנון זה עשוי שלא להיות נתמך על ידי המכשיר שלך או גרסת ה-YouTube, ועלול לגרום לבעיות פריסה או לקריסות</string>
     <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступен (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 אינו זמין זמנית (מצב %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">התחברות לאנדרואיד VR פגה, נסה להתחבר ל-VR שוב</string>
     <string name="morphe_oauth2_connection_failure_timeout">Очнення (способность  временно недоступен (время вышло)</string>
     <string name="morphe_oauth2_toast_invalid">טוקן התחברות ל-VR לא חוקי, נסה להתחבר ל-VR שוב</string>
@@ -165,12 +202,31 @@
     <string name="morphe_open_videos_fullscreen_title">פתח סרטונים במצב מסך מלא</string>
     <string name="morphe_override_youtube_music_buttons_summary">פותח את אפליקציית המוזיקה המועדפת עליך במקום אפליקציית YouTube Music הרגילה</string>
     <string name="morphe_override_youtube_music_buttons_title">גמַהת במְירַד הכולַה</string>
+    <string name="morphe_pip_button_flyout_name">עבור לתמונה בתוך תמונה</string>
+    <string name="morphe_pip_button_flyout_title">הצג תפריט תמונה בתוך תמונה</string>
+    <string name="morphe_pip_button_overlay_title">הצג כפתור תמונה בתוך תמונה</string>
+    <string name="morphe_playback_buffer_size_entry_low">נמוך</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">מקסימלי</string>
+    <string name="morphe_playback_buffer_size_entry_medium">בינוני</string>
+    <string name="morphe_playback_buffer_size_title">גודל חיץ ההשמעה</string>
     <string name="morphe_playback_in_feeds_entry_always_on">תמיד מופעל</string>
     <string name="morphe_playback_in_feeds_entry_off">כבוי</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">רק Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">השמעה בפידים</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">כוונן את אטימות הרקע מאחורי כפתורי בקרת הנגן ופס הזמן (0 בלתי נראה, 100 אטום)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">אטימות הרקע של כפתורי השליטה</string>
+    <string name="morphe_post_image_download_failed">לא ניתן להוריד את התמונה</string>
+    <string name="morphe_post_image_download_flyout">הורדת תמונות</string>
+    <string name="morphe_post_image_download_flyout_single">הורדת תמונה</string>
+    <string name="morphe_post_image_download_not_found">לא נמצאה תמונה בפוסט זה</string>
+    <string name="morphe_post_image_download_saved">%1$s תמונות נשמרו ב-%2$s</string>
+    <string name="morphe_post_image_download_saved_single">התמונה נשמרה ב-%s</string>
+    <string name="morphe_post_image_download_started">הורדת %s תמונות...</string>
+    <string name="morphe_post_image_download_started_single">מוריד תמונה…</string>
+    <string name="morphe_post_image_download_summary">כפתור הורדה מוצג לצד כפתור השיתוף של פוסטים עם תמונות או GIF, ופריט הורדה מתווסף לתפריט שלהם</string>
+    <string name="morphe_post_image_download_title">הורדת תמונות פוסט</string>
+    <string name="morphe_preferred_caption_language_summary">בוחר תחילה בכתוביות של הספק, ולאחר מכן מתרגם אותן אוטומטית לשפה המועדפת</string>
+    <string name="morphe_preferred_caption_language_title">שפת כתוביות מועדפת</string>
     <string name="morphe_queue_manager_check_failed_auth">לא מחובר</string>
     <string name="morphe_queue_manager_check_failed_video_id">מזהה וידאו לא נמצא</string>
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
@@ -186,6 +242,9 @@
     <string name="morphe_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">מחזיר את כפתורי הנגן של הסרטון לסגנון הוויזואלי הישן והדק יותר</string>
     <string name="morphe_restore_old_player_buttons_title">שחזור סגנון כפתורי נגן ישן</string>
+    <string name="morphe_restore_original_titles_loading">טוען כותרת…</string>
+    <string name="morphe_restore_original_titles_summary">מציג את כותרות הסרטונים המקוריות, את תיאורי הסרטונים ואת תיאורי הערוצים במקום אלה המתורגמים אוטומטית</string>
+    <string name="morphe_restore_original_titles_title">שחזור כותרות מקוריות</string>
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
@@ -199,6 +258,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">מאפשר לשמור סרטונים קצרים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">הצג כפתור שמירה ל\'צפה מאוחר יותר\' בתפריט הנפתח של הסרטונים הקצרים</string>
     <string name="morphe_save_to_watch_later_success_toast">הסרטון נשמר בהצלחה בפלייליסט \'צפייה מאוחרת\'</string>
+    <string name="morphe_search_comments_applied">שנו את סדר המיון או פתחו שוב את התגובות כדי לחפש בהן</string>
+    <string name="morphe_search_comments_clear">נקה</string>
+    <string name="morphe_search_comments_cleared">החיפוש נוקה. שנו את סדר המיון או פתחו שוב את התגובות כדי להציג את כל התגובות</string>
+    <string name="morphe_search_comments_hint">מילים לחיפוש</string>
+    <string name="morphe_search_comments_summary">הקישו על כפתור החיפוש בתגובות כדי להציג רק את התגובות שנטענו ומכילות את כל המילים שחפשתם. הקיפו מילים במרכאות כדי לחפש ביטוי</string>
+    <string name="morphe_search_comments_title">חיפוש תגובות</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
     <string name="morphe_seekbar_thumbnail_preview_title">אפשר תמונות ממוזערות בסרגל החיפוש</string>
@@ -209,6 +274,12 @@
     <string name="morphe_settings_name_custom_item_hint">הזן שם</string>
     <string name="morphe_settings_name_empty_warning">השם לא יכול להיות ריק</string>
     <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">מספר הימים שבהם נקודה תוצג לצד הגדרות ואפשרויות שנוספו בעדכון</string>
+    <string name="morphe_settings_new_indicator_days_title">הדגשת הגדרות חדשות</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">רק הפסקות שאורכן לפחות משך זה יתקצרו. ההגדרה תיכנס לתוקף כשהסרטון הבא מתחיל</string>
+    <string name="morphe_skip_silence_minimum_pause_title">אורך הפסקה מינימלי</string>
+    <string name="morphe_skip_silence_summary">מדלג אוטומטית על הפסקות שקט באודיו של וידאו</string>
+    <string name="morphe_skip_silence_title">דילוג על שקט</string>
     <string name="morphe_splash_screen_animation_style_entry_2">צבע</string>
     <string name="morphe_splash_screen_animation_style_entry_3">מונוכרום</string>
     <string name="morphe_splash_screen_animation_style_title">אנימציית אתחול</string>
@@ -229,6 +300,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"הפעלת הגדרה זו עשויה להשתמש בפענוח תוכנה של AV1
 
 הפעלת וידאו עם AV1 עלולה לגרום לגמגום או לדלוג על פריימים"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s לא עבד כמה פעמים ברציפות, אבל %2$s עבד
+
+להפוך את %2$s ללקוח ברירת המחדל?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">החלף</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">לקוח ברירת המחדל לא עובד</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">גירסת JavaScript של השחקן</string>
@@ -279,6 +355,8 @@
     <string name="morphe_video_quality_prioritize_dialog">אם ההגדרה הזו כבויה, ייתכן שסרטונים ישנים לא יציגו אפשרויות איכות וידאו</string>
     <string name="morphe_video_quality_prioritize_summary">מתעדף את איכות הווידאו הגבוהה ביותר הזמינה על פני יעילות הקידוד</string>
     <string name="morphe_video_quality_prioritize_title">תעדוף איכות וידאו</string>
+    <string name="morphe_volume_boost_summary">כאשר מחליקים למעלה מעבר לעוצמת הקול המקסימלית, זה מגביר אותה, מה שעלול לעוות שמע חזק</string>
+    <string name="morphe_volume_boost_title">הגברת עוצמת הקול</string>
     <string name="morphe_vot_caption_language_title">שפה</string>
     <string name="morphe_vot_cost_free">חינם</string>
     <string name="morphe_vot_cost_per_hour">%s לכל 100 שעות וידאו</string>
@@ -300,7 +378,7 @@
 הקש כאן כדי לפתוח את MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">השתמשת במכסת התרגום החינמית של MyMemory להיום (5,000 תווים). הוסף דוא\"ל MyMemory בהגדרות כדי להעלות את המגבלה היומית ל-50,000 תווים, או החלף לשירות תרגום אחר</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">השתמשת במכסת התרגום של MyMemory להיום (50,000 תווים). החלף לשירות תרגום אחר או נסה שוב מחר</string>
-    <string name="morphe_vot_mymemory_quota_next_available">זמין שוב ב-%s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">זמינות הבאה תתאפשר ב-%s</string>
     <string name="morphe_vot_mymemory_quota_title">הגיעה מגבלת היומית של MyMemory</string>
     <string name="morphe_vot_openrouter_api_key_summary">מפתח ה-API שלך ב-OpenRouter. צור מפתח ב-OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">מפתח API של OpenRouter</string>
@@ -330,19 +408,10 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית</string>
     <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות שנאספו בהמונים לסרטוני YouTube. תמונות ממוזערות אלה רלוונטיות לרוב מאלו שסיפק YouTube
-
-אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, יוצגו התמונות המקוריות או הצילומים המצולמים
-
-הקש כאן כדי ללמוד עוד על DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">כתובת ה-API של DeArrow אינה תקינה</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">כתובת ה-URL של הנקודת קצה מטמון תמונות ממוזערות של DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">נקודת קצה של DeArrow API</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">הודעה קופצת אינו מוצגת אם DeArrow אינו זמין</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">הודעה קופצת מוצגת אם DeArrow אינו זמין</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
     <string name="revanced_alt_thumbnail_home_title">לכרטיסיית דף הבית</string>
     <string name="revanced_alt_thumbnail_library_title">לכרטיסיית \'בשבילך\'</string>
     <string name="revanced_alt_thumbnail_options_entry_1">תמונות ממוזערות מקוריות</string>
@@ -353,9 +422,6 @@
     <string name="revanced_alt_thumbnail_search_title">לתוצאות חיפוש</string>
     <string name="revanced_alt_thumbnail_stills">צילום וידאו סטילס</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">לכידות דוממות נלקחות מהתחלת/אמצע/סוף של כל סרטון. תמונות אלו מובנות לתוך YouTube ולא נעשה שימוש ב-API חיצוני</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">שימוש בלכידות דוממות באיכות גבוהה</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">שימוש בלכידות דוממות באיכות בינונית. תמונות ממוזערות יטענו מהר יותר, אבל שידורים חיים וסרטונים שלא פורסמו או ישנים מאוד עשויים להציג תמונות ממוזערות ריקות</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">השתמש בלכידות דוממות מהירות</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">התחלה</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">אמצע</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">סיום</string>
@@ -391,7 +457,6 @@
     <string name="revanced_bypass_url_redirects_summary_on">הפניות מחדש של URL נעקפות</string>
     <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
     <string name="revanced_cancel">לבטל</string>
-    <string name="revanced_change_form_factor_entry_1">ברירת מחדל</string>
     <string name="revanced_change_form_factor_entry_2">טלפון</string>
     <string name="revanced_change_form_factor_entry_3">טאבלט</string>
     <string name="revanced_change_form_factor_entry_4">רכב</string>
@@ -400,20 +465,21 @@
     <string name="revanced_change_form_factor_title">פריסת מכשיר</string>
     <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
 
-פריסת טאבלט
-• פוסטים קהילתיים מוסתרים
-• הגדרת השמעה בפידים אינה זמינה
-• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
-• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
-• סרגל פעולות וידאו ישן שאינו מקופל מוצג
+מסמך טאבלט
+• פוסטים בקהילה מוסתרים
+• הגדרת ניגון בריבים אינה זמינה
+• כפתורי הרמיקס וצליל אינם זמינים בסרטונים קצרים
+• ייתכן ששכבת העל 'סרטונים נוספים' לא תהיה זמינה
+• יישור הפעולה הישן לא המקופל של הסרטון מוצג
+• פריטי תפריט קופץ עשויים לא לעבוד כראוי
 
-פריסה לרכב
-• הפיד מאורגן לפי נושאים וערוצים
-• הגדרת השמעה בפידים אינה זמינה
-• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
-• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
-• Shorts נפתחים בנגן הרגיל
-• סרגל פעולות וידאו ישן שאינו מקופל מוצג"</string>
+מסמך רכב
+• הריב מסודר לפי נושאים וערוצים
+• הגדרת ניגון בריבים אינה זמינה
+• כפתורים של הרמיקס וצליל אינם זמינים בסרטונים קצרים
+• ייתכן ששכבת העל 'סרטונים נוספים' לא תהיה זמינה
+• סרטונים קצרים נפתחים בנגן הרגיל
+• יישור הפעולה הישן לא המקופל של הסרטון מוצג"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
@@ -531,17 +597,17 @@
     <string name="revanced_disable_layout_updates_summary_off">השליטה תעדכן את השayout על ידי השרת</string>
     <string name="revanced_disable_layout_updates_summary_on">השליטה לא תעדכן את השayout על ידי השרת</string>
     <string name="revanced_disable_layout_updates_title">השבתה של עדכונים שלayout</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"התצורה של האפליקציה חוזרת לתצורה שהייתה בשימוש לראשונה
+    <string name="revanced_disable_layout_updates_user_dialog_message">"פריסת האפליקציה חוזרת לפריסה שהיא הייתה בעת ההתקנה הראשונה
 
-לתצורות מסוימות שרתיי עשויה שלא לחזור
+חלק מפריסות בצד השרת לא יוחזרו
 
-השינויים כוללים:
-• מרכיבים בתפריט הטיסה של שחקן (או הגדרות קשורות) עשויים שלא לעבוד
-• המספרים המתגלגלים אינם מתנוענים
-• טאב ספרייה מופיע
-•部分 של המוזיקה של תיאור הוידאו עשויה שלא לעבוד
-•מרכיבי תפריט הטיסה של שחקן לא ניתן להסתר
-• כפתור החלפת חשבון עשוי שלא להופיע על טאב הספרייה"</string>
+שינויים כוללים:
+• רכיבים בתפריט קפיצה של הנגן (או הגדרות רלוונטיות) לא יכולים לעבוד
+• מספרים מתגלגלים לא מונפשים
+• כרטיסיית ספרייה מוצגת
+• אזור המוזיקה של תיאור וידאו לא יכול לעבוד
+• פריטים בתפריט קפיצה של הנגן לא יכולים להיות מוסתרים
+• כפתור החלפת חשבון לא מופיע בכרטיסיית הספרייה"</string>
     <string name="revanced_disable_playlist_autoplay_title">השבת הפעלה אוטומטית של רשימת השמעה</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">נגן Shorts יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">נגן Shorts לא יתחדש בעת הפעלת היישום</string>
@@ -564,7 +630,7 @@
     <string name="revanced_exit_fullscreen_title">יציאה ממצב מסך מלא בסיום הסרטון</string>
     <string name="revanced_external_downloader_empty_warning">שם החבילה לא יכול להיות ריק</string>
     <string name="revanced_external_downloader_not_found_title">אפליקציה לא מותקנת</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s לא מותקן. נא להתקין אותו</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו</string>
     <string name="revanced_external_downloader_other_item">אחר</string>
     <string name="revanced_external_downloader_other_item_hint">הזן שם חבילה</string>
     <string name="revanced_external_downloader_package_not_found_warning">"לא נמצאה אפליקציה מותקנת עם שם החבילה: %s
@@ -694,6 +760,7 @@
     <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
     <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
     <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
+    <string name="revanced_hide_handle_title">הסתר שם משתמש</string>
     <string name="revanced_hide_hashtag_section_title">הסתר סעיף Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">מדור \'איך התוכן הזה נוצר\' מוצג</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">מדור \'איך התוכן הזה נוצר\' מוסתר</string>
@@ -715,7 +782,7 @@
     <string name="revanced_hide_info_cards_title">הסתר כרטיסי מידע</string>
     <string name="revanced_hide_key_concepts_section_summary_off">מדור מושגי מפתח מוצג</string>
     <string name="revanced_hide_key_concepts_section_summary_on">מדור מושגי מפתח מוסתר</string>
-    <string name="revanced_hide_key_concepts_section_title">הסתר את סעיף \'מושגי מפתח\'</string>
+    <string name="revanced_hide_key_concepts_section_title">הסתר את החלק \'מושגי מפתח\'</string>
     <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/חיפוש/תגובות מסוננים כדי להסתיר תוכן שתואם ביטויי מילות מפתח
 
 מגבלות:
@@ -904,7 +971,7 @@
     <string name="revanced_hide_youtube_doodles_summary_off">הנפשת YouTube Doodles על הלוגו מוצגת</string>
     <string name="revanced_hide_youtube_doodles_summary_on">הנפשת YouTube Doodles על הלוגו מוסתרת</string>
     <string name="revanced_hide_youtube_doodles_title">הסתר YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">הצגת סרטוני Doodle של YouTube עלולה למנוע את הצגת הכותרות המותאמות אישית</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">הצגת הנקישות של YouTube עלולה למנוע את התצוגה של כותרות גליון מותאמות</string>
     <string name="revanced_language_DEFAULT">שפת היישום</string>
     <string name="revanced_language_title">שפת RVX</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">השהה השמעה באמצעות גרירה אופקית</string>
@@ -1007,9 +1074,9 @@
 
 מגבלה: חוזר לסגנון הישן של שכבת 'עוד סרטונים'"</string>
     <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
-    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike משחזר את מספרי הדיסלייקים ש-YouTube הסתיר ב-2021. המספרים מגיעים מנתונים שנשמרו בארכיון לפני ההסרה והם מוערכים עבור סרטונים חדשים יותר מההצבעות של משתמשיה, לכן הם מקורבים ומתעדכנים כל כמה ימים
 
-הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
+מזהה הסרטון שאתה צופה בו נשלח ל-API של Return YouTube Dislike, והלייקים והדיסלייקים שלך נשלחים באופן אנונימי כדי לשפר את ההערכות"</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
     <string name="revanced_ryd_compact_layout_title">השתמש בכפתור לייק קומפקטי</string>
@@ -1020,7 +1087,7 @@
     <string name="revanced_ryd_estimated_like_summary_on">סרטונים עם סימני לייק מושבתים מציגים ספירת לייקים משוערת</string>
     <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">דיסלייקים אינם זמינים (מגבלה של לקוח API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">דיסלייקים אינם זמינים באופן זמני (תם פסק הזמן של ה-API)</string>
     <string name="revanced_ryd_failure_generic">דיסלייקים אינם זמינים (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם Return YouTube Dislike אינו זמין</string>
@@ -1182,7 +1249,7 @@
     <string name="revanced_sb_skipped_sponsor">דילג על נותן חסות</string>
     <string name="revanced_sb_skipped_unsubmitted">דילג על מקטעים שלא נשלחו</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">המערכת SponsorBlock אינה זמינה באופן זמני</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">המערכת SponsorBlock אינה זמינה באופן זמני (מצב %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">המערכת SponsorBlock אינה זמינה באופן זמני (מצב %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">המערכת SponsorBlock אינה זמינה באופן זמני (תם פסק זמן ה-API)</string>
     <string name="revanced_sb_square_layout">השתמש בפריסה מרובעת</string>
     <string name="revanced_sb_square_layout_sum_off">הלחצנים והפקדים מעוגלים</string>
@@ -1204,7 +1271,7 @@
     <string name="revanced_sb_stats_submissions_sum">הקש כאן כדי להציג את המקטעים שלך</string>
     <string name="revanced_sb_stats_username">שם המשתמש שלך: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">הקש כאן כדי לשנות את שם המשתמש שלך</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">לא ניתן לשנות את שם המשתמש: סטטוס: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">לא ניתן לשנות את שם המשתמש: סטטוס: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">שם משתמש שונה בהצלחה</string>
     <string name="revanced_sb_submit_failed_duplicate">"לא ניתן להגיש את המקטע
 כבר קיים"</string>
@@ -1212,7 +1279,7 @@
     <string name="revanced_sb_submit_failed_invalid">לא ניתן לשלוח את המקטע: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">לא ניתן לשלוח מקטע. מוגבל קצב (יותר מדי מאותו המשתמש או כתובת IP)</string>
     <string name="revanced_sb_submit_failed_timeout">המערכת SponsorBlock מושבתת באופן זמני</string>
-    <string name="revanced_sb_submit_failed_unknown_error">לא ניתן לשלוח את המקטע (מצב: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">לא ניתן לשלוח את המקטע (מצב: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">המקטע נשלח בהצלחה</string>
     <string name="revanced_sb_toast_on_connection_error">הצג התראות שגיאת חיבור</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
@@ -1223,7 +1290,7 @@
     <string name="revanced_sb_vote_downvote">הצבע נגד</string>
     <string name="revanced_sb_vote_failed_forbidden">לא ניתן להצביע עבור מקטע: %s</string>
     <string name="revanced_sb_vote_failed_timeout">לא ניתן להצביע עבור מקטע (תם פסק הזמן של ה-API)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">לא ניתן להצביע עבור מקטע (מצב: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">לא ניתן להצביע עבור מקטע (מצב: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">אין מקטעים להצביע עבורם</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s עד %2$s</string>
     <string name="revanced_sb_vote_upvote">הצבע בעד</string>
@@ -1234,7 +1301,7 @@
     <string name="revanced_settings_import">ייבוא</string>
     <string name="revanced_settings_import_copy">העתק</string>
     <string name="revanced_settings_import_reset">הגדרות RVX אופסו לברירת מחדל</string>
-    <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
+    <string name="revanced_settings_import_success">%s הגדרות יובאו</string>
     <string name="revanced_settings_navigate_up">ניווט למעלה</string>
     <string name="revanced_settings_reset">איפוס</string>
     <string name="revanced_settings_reset_color">אפס צבע</string>
@@ -1274,13 +1341,15 @@
     <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
     <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - שחזור התנהגות הכתוביות הישנה</string>
     <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"גרסת האפליקציה תזויף לגרסה ישנה יותר
+    <string name="revanced_spoof_app_version_user_dialog_message">"גרסת היישום תזויף לגרסה ישנה יותר
 
-זה ישנה את המראה והתכונות של האפליקציה, אך תופעות לוואי לא ידועות עלולות להתרחש
+זה ישנה את המראה והתכונות של היישום, אך תופעות לוואי לא ידועות עלולות להתרחש
 
-אם נכבה מאוחר יותר, מומלץ לנקות את נתוני האפליקציה כדי למנוע באגים בממשק המשתמש"</string>
+אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש"</string>
     <string name="revanced_spoof_device_dimensions_summary">הפעלת אפשרות זו עשויה לאפשר איכויות וידאו גבוהות יותר</string>
     <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">אטום</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">שקוף</string>
     <string name="revanced_swipe_brightness_summary_off">החלקת בהירות במסך מלא מושבתת</string>
     <string name="revanced_swipe_brightness_summary_on">"החלקת בהירות במסך מלא מופעלת
 

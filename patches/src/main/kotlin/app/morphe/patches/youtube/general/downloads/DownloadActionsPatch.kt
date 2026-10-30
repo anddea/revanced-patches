@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -59,12 +60,20 @@ import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
+import app.morphe.patches.shared.litho.addLithoFilter
+import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
+import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
@@ -72,17 +81,21 @@ import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.morphe.util.findFreeRegister
+import app.morphe.patches.youtube.utils.toolBarButtonFingerprint
+import app.morphe.patches.youtube.utils.toolbar.hookToolBar
+import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
+import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -100,6 +113,16 @@ private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
     $$"Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch$ProtocolBufferFieldInterface;"
 
 private const val EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/patches/utils/FlyoutUtils;"
+
+// Built-in downloader and offline player.
+private const val EXTENSION_OFFLINE_SERVICE_HOOKS =
+    "$GENERAL_PATH/offline/OfflineServiceHooks;"
+
+private const val EXTENSION_OFFLINE_SCREENS =
+    "$GENERAL_PATH/offline/OfflineScreens;"
+
+private const val EXTENSION_NAVIGATION_BUTTONS =
+    "$GENERAL_PATH/NavigationButtonsPatch;"
 
 private const val OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR =
     $$"Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass$OfflinePlaylistEndpoint;"
@@ -124,12 +147,22 @@ val downloadActionsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
+        lithoFilterPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
+        // Keep the bottom sheet 3-dots menu that the custom flyout items
+        // (Save to Watch later, download) are added to.
+        bottomSheetFlyoutMenuPatch,
+        // Downloads button in the You tab.
+        fixProtoLibraryPatch,
+        toolBarHookPatch,
     )
 
     execute {
-        fun addDownloadActionsSettings() {
+        // Track the top-level player menu even when Hide player flyout menu is excluded.
+        addLithoFilter("Lapp/morphe/extension/youtube/patches/components/PlayerFlyoutMenuFilter;")
+
+        fun addDownloadActionsSettings(youTabButtonHooked: Boolean) {
             try {
                 val settings = mutableListOf(
                     "PREFERENCE_SCREEN: GENERAL",
@@ -137,6 +170,8 @@ val downloadActionsPatch = bytecodePatch(
                     "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
                     "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE",
                 )
+                // the setting is not shown when it has no effect.
+                if (youTabButtonHooked) settings += "SETTINGS: SHOW_OFFLINE_LIBRARY_BUTTON"
                 addPreference(
                     settings.toTypedArray(),
                     HOOK_DOWNLOAD_ACTIONS
@@ -489,9 +524,315 @@ val downloadActionsPatch = bytecodePatch(
             // endregion
         }
 
+        // region built-in downloader and offline player
+
+        // Every hook is optional: a missing match only disables that part and is logged.
+        fun hookOptional(name: String, block: () -> Unit) {
+            runCatching(block).onFailure { printWarn("$name: ${it.message}") }
+        }
+
+        // The first local register, which the hooked method must have and must not read afterwards.
+        fun MutableMethod.firstLocalRegister(): String {
+            val locals = implementation!!.registerCount - parameters.size - 1
+            if (locals < 1) throw PatchException("$name has no local register")
+            return "v0"
+        }
+
+        // Returns early with the instruction at [index] as the label to YouTube's code.
+        // A null register means the first local register.
+        fun MutableMethod.skipIfTrue(index: Int, call: String, scratch: String?, skip: String) {
+            val register = scratch ?: firstLocalRegister()
+            addInstructionsWithLabels(
+                index,
+                """
+                    $call
+                    move-result $register
+                    if-eqz $register, :youtube_code
+                    $skip
+                """,
+                ExternalLabel("youtube_code", getInstruction(index)),
+            )
+        }
+
+        // BackgroundPlayerService is the only stock service with the mediaPlayback foreground
+        // type. Offline playback borrows it with its own intent actions.
+        hookOptional("BackgroundPlayerService.onCreate") {
+            backgroundPlayerServiceOnCreateFingerprint.method.apply {
+                // After the Hilt injection in the super call, before YouTube's own setup.
+                val index = indexOfFirstInstructionOrThrow(Opcode.INVOKE_SUPER) + 1
+                skipIfTrue(
+                    index,
+                    "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onPlaybackServiceCreate(Landroid/app/Service;)Z",
+                    null,
+                    "return-void",
+                )
+            }
+        }
+        hookOptional("BackgroundPlayerService.onStartCommand") {
+            backgroundPlayerServiceOnStartCommandFingerprint.method.skipIfTrue(
+                0,
+                // p2 (flags) is not used by the stock code, so it is free as a scratch register.
+                "invoke-static {p0, p1, p3}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onPlaybackServiceStartCommand(Landroid/app/Service;Landroid/content/Intent;I)Z",
+                "p2",
+                """
+                    const/4 p2, 0x2
+                    return p2
+                """,
+            )
+        }
+        hookOptional("BackgroundPlayerService.onBind") {
+            backgroundPlayerServiceOnBindFingerprint.method.addInstruction(
+                0,
+                "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onPlaybackServiceBind(Landroid/app/Service;)V",
+            )
+        }
+        hookOptional("BackgroundPlayerService.onTaskRemoved") {
+            backgroundPlayerServiceOnTaskRemovedFingerprint.method.skipIfTrue(
+                0,
+                "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onPlaybackServiceTaskRemoved(Landroid/app/Service;)Z",
+                null,
+                "return-void",
+            )
+        }
+        hookOptional("BackgroundPlayerService.onDestroy") {
+            backgroundPlayerServiceOnDestroyFingerprint.let {
+                it.method.skipIfTrue(
+                    0,
+                    "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onPlaybackServiceDestroy(Landroid/app/Service;)Z",
+                    null,
+                    """
+                        invoke-super {p0}, ${it.classDef.superclass}->onDestroy()V
+                        return-void
+                    """,
+                )
+            }
+        }
+
+        // OfflineKeepAliveService (dataSync foreground type) is only used by Premium downloads.
+        // The built-in downloader borrows it to keep the process alive while downloading.
+        hookOptional("OfflineKeepAliveService.onCreate") {
+            offlineKeepAliveServiceOnCreateFingerprint.let {
+                val serviceType = it.classDef.type
+                it.method.apply {
+                    // Before startForegroundIfApplicable(), after the field injection.
+                    val index = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_DIRECT &&
+                                reference?.definingClass == serviceType &&
+                                reference.name != "<init>" &&
+                                reference.parameterTypes.isEmpty()
+                    }
+                    skipIfTrue(
+                        index,
+                        "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onKeepAliveServiceCreate(Landroid/app/Service;)Z",
+                        null,
+                        "return-void",
+                    )
+                }
+            }
+        }
+        hookOptional("OfflineKeepAliveService.onStartCommand") {
+            offlineKeepAliveServiceOnStartCommandFingerprint.method.skipIfTrue(
+                0,
+                "invoke-static {p0, p1, p3}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onKeepAliveServiceStartCommand(Landroid/app/Service;Landroid/content/Intent;I)Z",
+                "p2",
+                """
+                    const/4 p2, 0x2
+                    return p2
+                """,
+            )
+        }
+        hookOptional("OfflineKeepAliveService.onDestroy") {
+            val method = offlineKeepAliveServiceOnDestroyFingerprint.methodOrNull
+            if (method != null) {
+                method.skipIfTrue(
+                    0,
+                    "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onKeepAliveServiceDestroy(Landroid/app/Service;)Z",
+                    null,
+                    """
+                        invoke-super {p0}, ${offlineKeepAliveServiceOnDestroyFingerprint.classDef.superclass}->onDestroy()V
+                        return-void
+                    """,
+                )
+            } else {
+                // Some versions (21.13) do not override onDestroy. Nothing of YouTube's to skip.
+                offlineKeepAliveServiceOnCreateFingerprint.classDef.apply {
+                    ImmutableMethod(
+                        type,
+                        "onDestroy",
+                        emptyList(),
+                        "V",
+                        AccessFlags.PUBLIC.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(1),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onKeepAliveServiceDestroy(Landroid/app/Service;)Z
+                                invoke-super {p0}, $superclass->onDestroy()V
+                                return-void
+                            """,
+                        )
+                    }.let(methods::add)
+                }
+            }
+        }
+        // Service.onTimeout exists since Android 15; older targets do not override it.
+        offlineKeepAliveServiceOnTimeoutFingerprint.methodOrNull?.let { method ->
+            hookOptional("OfflineKeepAliveService.onTimeout") {
+                method.skipIfTrue(
+                    0,
+                    "invoke-static {p0}, $EXTENSION_OFFLINE_SERVICE_HOOKS->onKeepAliveServiceTimeout(Landroid/app/Service;)Z",
+                    null,
+                    "return-void",
+                )
+            }
+        }
+
+        // Replace the Downloads page: cancel the navigation to "FEdownloads" in the browse
+        // command handler and open the offline library on top of the current page instead.
+        hookOptional("Browse endpoint command") {
+            browseEndpointCommandFingerprint.let {
+                it.method.apply {
+                    val constIndex = it.instructionMatches.first().index
+                    val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
+                    val equalsIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "equals"
+                    }
+                    val equalsInstruction = getInstruction<FiveRegisterInstruction>(equalsIndex)
+                    val browseIdRegister = if (equalsInstruction.registerC == constRegister) {
+                        equalsInstruction.registerD
+                    } else {
+                        equalsInstruction.registerC
+                    }
+                    // The const-string overwrites the register next, so it is free here.
+                    skipIfTrue(
+                        constIndex,
+                        "invoke-static/range {v$browseIdRegister .. v$browseIdRegister}, $EXTENSION_OFFLINE_SCREENS->openLibraryInsteadOfBrowse(Ljava/lang/String;)Z",
+                        "v$constRegister",
+                        "return-void",
+                    )
+                }
+            }
+        }
+
+        // the library row of the You tab opens the Downloads page
+        // with its own command, which never reaches the browse command handler above. The command
+        // resolver sees the commands of taps, links and rows, so both forms are replaced there; the
+        // browse hook above stays for handlers that are called without the resolver. The first
+        // parameter of the resolver is the command; v0 is free at the start and is assigned by
+        // YouTube's first instruction.
+        hookOptional("Command resolver") {
+            commandResolverFingerprint.method.skipIfTrue(
+                0,
+                "invoke-static {p1}, $EXTENSION_OFFLINE_SCREENS->openLibraryInsteadOfCommand(Ljava/lang/Object;)Z",
+                null,
+                "return-void",
+            )
+        }
+
+        // endregion
+
+        // region Downloads button in the You tab
+
+        // Downloads button of the offline library in the You tab.
+        // The You tab builds its toolbar from page renderers in a loop that creates a menu item for each
+        // button (21.39.525: Lpvt;->aI(Ljava/util/List;...)). A copy of YouTube's own Settings button with
+        // the download icon is added after it, and its click opens the offline library.
+        val toolbarMenuItemClass = toolBarButtonFingerprint.methodOrThrow().definingClass
+        val toolbarMenuItemFactory: (Instruction) -> MethodReference? = { instruction ->
+            instruction.takeIf { it.opcode == Opcode.INVOKE_VIRTUAL }
+                ?.getReference<MethodReference>()
+                ?.takeIf {
+                    it.returnType == toolbarMenuItemClass && it.parameterTypes.size == 4 &&
+                            it.parameterTypes[2] == "Ljava/util/List;"
+                }
+        }
+        val youTabButtonSites = mutableListOf<Pair<MutableMethod, Int>>()
+        classDefForEach { classDef ->
+            classDef.methods.forEach { method ->
+                if (method.parameterTypes.firstOrNull() != "Ljava/util/List;") return@forEach
+                val indices = method.implementation?.instructions?.withIndex()
+                    ?.filter { (_, instruction) -> toolbarMenuItemFactory(instruction) != null }
+                    ?.map { it.index }
+                if (indices.isNullOrEmpty()) return@forEach
+                val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
+                indices.forEach { youTabButtonSites += mutableMethod to it }
+            }
+        }
+
+        // The menu item is added to the list builder right after it is created,
+        // then the loop continues with the next button.
+        fun MutableMethod.isMenuItemLoopSite(index: Int): Boolean {
+            val moveResult = getInstruction(index + 1)
+            val addInstruction = getInstruction(index + 2)
+            return moveResult.opcode == Opcode.MOVE_RESULT_OBJECT &&
+                    addInstruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                    (addInstruction as FiveRegisterInstruction).registerCount == 2 &&
+                    addInstruction.registerD == (moveResult as OneRegisterInstruction).registerA &&
+                    getInstruction(index + 3).opcode in listOf(Opcode.GOTO, Opcode.GOTO_16, Opcode.GOTO_32)
+        }
+
+        val youTabButtonHooked = youTabButtonSites.isNotEmpty() &&
+                youTabButtonSites.all { (method, index) -> method.isMenuItemLoopSite(index) }
+        if (youTabButtonHooked) {
+            // Last site of a method first, so the earlier indices stay valid.
+            youTabButtonSites.sortedByDescending { it.second }.forEach { (method, index) ->
+                method.apply {
+                    val factory = getInstruction<FiveRegisterInstruction>(index)
+                    val factoryReference = toolbarMenuItemFactory(getInstruction(index))!!
+                    val rendererClass = factoryReference.parameterTypes[1].toString()
+                    val itemRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                    val addInstruction = getInstruction<FiveRegisterInstruction>(index + 2)
+                    val addReference = getInstruction<ReferenceInstruction>(index + 2).reference
+                    val builderRegister = addInstruction.registerC
+                    // The loop overwrites the menu item and the renderer or the list before reading them,
+                    // so these are free after the menu item is added.
+                    val bytesRegister = listOf(factory.registerE, factory.registerF).first {
+                        it !in listOf(
+                            factory.registerC, factory.registerD, factory.registerG,
+                            builderRegister, itemRegister
+                        )
+                    }
+
+                    addInstructionsWithLabels(
+                        index + 3,
+                        """
+                            invoke-static {}, $EXTENSION_NAVIGATION_BUTTONS->takeToolbarDownloadsButton()[B
+                            move-result-object v$bytesRegister
+                            if-eqz v$bytesRegister, :no_downloads_button
+                            sget-object v$itemRegister, $rendererClass->a:$rendererClass
+                            invoke-static {v$itemRegister, v$bytesRegister}, ${parseByteArrayMethodRef.get()!!}
+                            move-result-object v$itemRegister
+                            check-cast v$itemRegister, $rendererClass
+                            new-instance v$bytesRegister, Ljava/util/ArrayList;
+                            invoke-direct {v$bytesRegister}, Ljava/util/ArrayList;-><init>()V
+                            invoke-virtual {v${factory.registerC}, v${factory.registerD}, v$itemRegister, v$bytesRegister, v${factory.registerG}}, $factoryReference
+                            move-result-object v$itemRegister
+                            invoke-virtual {v$builderRegister, v$itemRegister}, $addReference
+                            :no_downloads_button
+                            nop
+                        """
+                    )
+                    addInstruction(
+                        index,
+                        "invoke-static {v${factory.registerE}}, $EXTENSION_NAVIGATION_BUTTONS->prepareToolbarDownloadsButton(Ljava/lang/Object;)V"
+                    )
+                }
+            }
+            hookToolBar("$EXTENSION_NAVIGATION_BUTTONS->setToolbarDownloadsOnClickListener")
+        } else {
+            printWarn("\"Downloads button in You tab\" is not supported in this version. Use YouTube 21.39.525.")
+        }
+
+        // endregion
+
         // region add settings
 
-        addDownloadActionsSettings()
+        addDownloadActionsSettings(youTabButtonHooked)
 
         // endregion
 

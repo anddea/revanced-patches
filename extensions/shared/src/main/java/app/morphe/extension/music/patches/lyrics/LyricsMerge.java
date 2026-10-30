@@ -28,12 +28,50 @@ import app.morphe.extension.shared.translation.TextTranslator;
  */
 public final class LyricsMerge {
 
+    /**
+     * Only TTML states background lines separately, so only there does the prefix mean anything.
+     */
+    public static final String BACKGROUND_TRACK_PREFIX = "bg:";
+
+    /**
+     * A sung line matches anywhere before the next one starts, which would let a background line
+     * take the following line's own.
+     */
+    private static final long BACKGROUND_MATCH_WINDOW_MS = 300L;
+
     private LyricsMerge() {
     }
 
-    /**
-     * @return {@code true} when at least one line carries non-empty auxiliary text.
-     */
+    @Nullable
+    public static List<LyricsLine> backgroundTrack(
+            @Nullable Map<String, List<LyricsLine>> tracks, String languageKey) {
+        return tracks == null ? null : tracks.get(BACKGROUND_TRACK_PREFIX + languageKey);
+    }
+
+    public static boolean hasBackgroundTrack(Lyrics lyrics,
+                                             @Nullable Map<String, List<LyricsLine>> tracks) {
+        if ("ttml".equals(lyrics.formatType())) {
+            return true;
+        }
+        if (tracks == null) {
+            return false;
+        }
+        for (String key : tracks.keySet()) {
+            if (key.startsWith(BACKGROUND_TRACK_PREFIX)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String textAt(@Nullable List<LyricsLine> track, int index) {
+        if (track == null || index < 0 || index >= track.size()) {
+            return "";
+        }
+        final String text = track.get(index).text();
+        return text == null ? "" : text.trim();
+    }
+
     public static boolean hasText(@Nullable List<LyricsLine> lines) {
         if (lines == null) {
             return false;
@@ -72,8 +110,8 @@ public final class LyricsMerge {
     }
 
     @Nullable
-    static List<String> mapLinesOnline(List<String> lines,
-                                       Function<List<String>, List<String>> batch) {
+    public static List<String> mapLinesOnline(List<String> lines,
+                                              Function<List<String>, List<String>> batch) {
         if (!Utils.isNetworkConnected()) {
             return null;
         }
@@ -110,8 +148,32 @@ public final class LyricsMerge {
         return result;
     }
 
+    /**
+     * The lyric with one more credit line on it, or unchanged when it already carries that exact
+     * line or either half is missing.
+     */
+    @Nullable
+    public static Lyrics addSongwriter(@Nullable Lyrics lyrics, @Nullable String entry) {
+        if (lyrics == null || entry == null) {
+            return lyrics;
+        }
+        List<String> songwriters = new ArrayList<>();
+        List<String> existing = lyrics.songwriters();
+        if (existing != null) {
+            songwriters.addAll(existing);
+        }
+        if (songwriters.contains(entry)) {
+            return lyrics;
+        }
+        songwriters.add(entry);
+        return new Lyrics(lyrics.lines(), lyrics.providerName(), lyrics.synced(),
+                lyrics.romanization(), lyrics.translations(), lyrics.romanizations(),
+                songwriters, lyrics.rawFormat(), lyrics.formatType(), lyrics.sourceUrl(),
+                lyrics.about());
+    }
+
     public static List<LyricsLine> mergeRomanization(List<LyricsLine> original,
-                                                    @Nullable List<LyricsLine> auxiliary) {
+                                                     @Nullable List<LyricsLine> auxiliary) {
         List<LyricsLine> result = new ArrayList<>(original.size());
         if (auxiliary == null || auxiliary.isEmpty()) {
             for (LyricsLine line : original) {
@@ -128,32 +190,77 @@ public final class LyricsMerge {
         for (int i = 0, size = original.size(); i < size; i++) {
             LyricsLine orig = original.get(i);
 
+            final long winStart = orig.startTimeMs();
+            final long winEnd;
             if (orig.isBG()) {
-                result.add(new LyricsLine(orig.startTimeMs(), ""));
-                continue;
+                winEnd = winStart + BACKGROUND_MATCH_WINDOW_MS;
+            } else {
+                long foundEnd = Long.MAX_VALUE;
+                for (int nextIdx = i + 1; nextIdx < size; nextIdx++) {
+                    LyricsLine nextOrig = original.get(nextIdx);
+                    if (!nextOrig.isBG() && nextOrig.startTimeMs() > winStart + 50L) {
+                        foundEnd = nextOrig.startTimeMs();
+                        break;
+                    }
+                }
+                winEnd = foundEnd;
             }
 
-            final long winStart = orig.startTimeMs();
-            final long winEnd = (i < original.size() - 1)
-                    ? original.get(i + 1).startTimeMs()
-                    : Long.MAX_VALUE;
-
-            String matched = "";
-            while (auxIdx < auxCount) {
-                long auxStart = sorted.get(auxIdx).startTimeMs();
-                if (auxStart < winStart - 500) {
-                    auxIdx++;
+            LyricsLine matchedLine = null;
+            int bestIdx = -1;
+            long bestDiff = Long.MAX_VALUE;
+            for (int k = auxIdx; k < auxCount; k++) {
+                LyricsLine cand = sorted.get(k);
+                long auxStart = cand.startTimeMs();
+                if (auxStart < winStart - 500L) {
+                    if (k == auxIdx) {
+                        auxIdx++;
+                    }
                     continue;
                 }
                 if (auxStart >= winEnd) {
                     break;
                 }
-                matched = sorted.get(auxIdx).text();
-                auxIdx++;
-                break;
+                long diff = Math.abs(auxStart - winStart);
+                if (diff < bestDiff && diff <= 2500L) {
+                    bestDiff = diff;
+                    bestIdx = k;
+                    matchedLine = cand;
+                }
+                if (auxStart >= winStart && diff <= 150L) {
+                    break;
+                }
             }
-            result.add(new LyricsLine(winStart, matched == null ? "" : matched));
+            if (bestIdx >= 0) {
+                auxIdx = bestIdx + 1;
+            }
+            String matched = matchedLine != null ? matchedLine.text() : "";
+            if (matchedLine != null && matchedLine.hasWords()) {
+                result.add(new LyricsLine(winStart, matchedLine.endTimeMs(), matched == null ? "" : matched,
+                        matchedLine.words(), orig.agentId(), orig.isDuet(), orig.isBG(), orig.songPart()));
+            } else {
+                result.add(new LyricsLine(winStart, matched == null ? "" : matched));
+            }
         }
         return result;
+    }
+
+    /**
+     * Lines sharing a start would leave an empty window, matching nothing and stranding an entry.
+     */
+    private static long windowEnd(List<LyricsLine> lines, int index, long winStart) {
+        final long next = (index + 1 < lines.size())
+                ? lines.get(index + 1).startTimeMs()
+                : Long.MAX_VALUE;
+        if (winStart == LyricsLine.NO_TIME || next > winStart) {
+            return next;
+        }
+        for (int i = index + 1; i < lines.size(); i++) {
+            final long start = lines.get(i).startTimeMs();
+            if (start > winStart) {
+                return start;
+            }
+        }
+        return Long.MAX_VALUE;
     }
 }

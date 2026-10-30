@@ -8,6 +8,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.all.misc.transformation.IMethodCall
 import app.morphe.patches.all.misc.transformation.filterMapInstruction35c
 import app.morphe.patches.all.misc.transformation.transformInstructionsPatch
@@ -17,7 +18,6 @@ import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_HAPTIC_FEEDBACK
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction

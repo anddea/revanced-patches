@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
@@ -31,6 +32,7 @@ import java.util.regex.Pattern;
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.Word;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.shared.utils.Logger;
@@ -43,116 +45,50 @@ public final class CaptionsFetcher {
 
     private static final int CONNECT_TIMEOUT_MS = 5_000;
     private static final int READ_TIMEOUT_MS = 8_000;
+    private static final int VALIDATE_CONNECT_TIMEOUT_MS = 10_000;
+    private static final int VALIDATE_READ_TIMEOUT_MS = 12_000;
     private static final String INNERTUBE_PLAYER_URL =
             "https://www.youtube.com/youtubei/v1/player?prettyPrint=false";
     private static final String TIMEDTEXT_URL =
             "https://www.youtube.com/api/timedtext";
 
-    private static final String CAPTION_USER_AGENT =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                    + "(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36";
+    /*
+     * Naming the ASR track apart is what lets the footer say which caption track is on
+     * screen. It has to remain a prefix-extension of CAPTIONS_PROVIDER, because that is how
+     * the rest of the lyrics code tells a video-timeline result from a title-matched one.
+     */
+    private static final String ASR_PROVIDER_NAME = Lyrics.CAPTIONS_PROVIDER + " (ASR)";
+
+    private static final String CAPTION_USER_AGENT = LyricsRequests.CHROME_DESKTOP_USER_AGENT;
 
     private static final String SW_COOKIE_URL = "https://www.youtube.com/sw.js";
     private static final List<String> COOKIE_KEYS = Arrays.asList(
             "YSC", "VISITOR_INFO1_LIVE", "VISITOR_PRIVACY_METADATA", "__Secure-ROLLOUT_TOKEN"
     );
-    private static volatile String cachedCookies = null;
-    private static volatile long cachedCookiesTime = 0;
+    private static final List<String> REQUIRED_USER_COOKIE_KEYS = Arrays.asList(
+            "SID", "HSID", "SSID", "SAPISID", "__Secure-3PAPISID", "__Secure-1PAPISID", "LOGIN_INFO"
+    );
     private static final long COOKIE_CACHE_DURATION_MS = 30L * 24 * 60 * 60 * 1000;
-
     private static final Pattern BRACKETS_PATTERN = Pattern.compile("\\[[^]]*]");
     private static final Pattern PARENTHESES_PATTERN = Pattern.compile("\\([^)]*\\)");
-
+    private static volatile String cachedCookies = null;
+    private static volatile long cachedCookiesTime = 0;
     private static volatile String lastFetchedVideoId = null;
 
     private CaptionsFetcher() {
     }
 
-    private record CaptionTrack(String url, String langCode, String vssId, boolean isAsr,
-                                boolean isTranslatable, boolean isTranslation, boolean hasTlang,
-                                String displayName) {
-
-        @Override
-        @NonNull
-        public String toString() {
-            return langCode + (isAsr ? " (ASR)" : " (manual)")
-                    + " vssId=" + vssId
-                    + (isTranslation ? " [trans]" : " [orig]")
-                    + (hasTlang ? " [tlang]" : "")
-                    + " t=" + isTranslatable
-                    + " '" + displayName + "'";
-        }
-    }
-
-    public static final class CaptionsOutcome {
-        static final CaptionsOutcome ALLOW_PROVIDERS = new CaptionsOutcome(null, null, false, null, null);
-
-        public final @Nullable Lyrics lyrics;
-        public final @Nullable Lyrics translationLyrics;
-        public final boolean suppressProviders;
-        public final @Nullable TrackInfo innertubeTrack;
-        public final @Nullable String errorReason;
-
-        private CaptionsOutcome(@Nullable Lyrics lyrics, @Nullable Lyrics translationLyrics,
-                                 boolean suppressProviders, @Nullable TrackInfo innertubeTrack,
-                                 @Nullable String errorReason) {
-            this.lyrics = lyrics;
-            this.translationLyrics = translationLyrics;
-            this.suppressProviders = suppressProviders;
-            this.innertubeTrack = innertubeTrack;
-            this.errorReason = errorReason;
-        }
-
-        static CaptionsOutcome captions(Lyrics lyrics, @Nullable TrackInfo innertubeTrack) {
-            return new CaptionsOutcome(lyrics, null, false, innertubeTrack, null);
-        }
-
-        static CaptionsOutcome captions(Lyrics lyrics, @Nullable Lyrics translationLyrics,
-                                         @Nullable TrackInfo innertubeTrack) {
-            return new CaptionsOutcome(lyrics, translationLyrics, false, innertubeTrack, null);
-        }
-
-        static CaptionsOutcome withError(@Nullable String reason, @Nullable TrackInfo innertubeTrack) {
-            return new CaptionsOutcome(null, null, false, innertubeTrack, reason);
-        }
-    }
-
-    public static final class CaptionsProvider implements LyricsProvider {
-        @Override
-        public String name() {
-            return "Captions";
-        }
-
-        @Override
-        @Nullable
-        public Lyrics fetch(app.morphe.extension.music.patches.lyrics.TrackInfo track) throws Exception {
-            CaptionsOutcome outcome = CaptionsFetcher.fetch();
-
-            if (outcome.errorReason != null) {
-                return null;
-            }
-
-            if (outcome.lyrics == null || outcome.lyrics.isEmpty()) {
-                return null;
-            }
-
-            Lyrics result = outcome.lyrics;
-            if (outcome.translationLyrics != null && !outcome.translationLyrics.isEmpty()) {
-                String langTag = Locale.getDefault().toLanguageTag();
-                Map<String, List<LyricsLine>> translations = new HashMap<>();
-                translations.put(langTag, outcome.translationLyrics.lines());
-                result = new Lyrics(result.lines(), result.providerName(), result.synced(),
-                        result.romanization(), translations,
-                        result.romanizations(), result.songwriters(),
-                        result.rawFormat(), result.formatType(),
-                        result.sourceUrl());
-            }
-
-            return result;
-        }
-    }
-
     public static CaptionsOutcome fetch() {
+        return fetch(false);
+    }
+
+    /*
+     * @param includeAsr also pull the ASR track of the same song. Only the candidate pass
+     *                   asks for it: the ordinary one already spent its request on the hand
+     *                   written track, and paying for a second one on every lookup would buy a
+     *                   candidate the user has to refresh his way to.
+     */
+    private static CaptionsOutcome fetch(boolean includeAsr) {
         String videoId = readVideoIdWithRetry();
         if (videoId == null || videoId.isEmpty()) {
             return CaptionsOutcome.ALLOW_PROVIDERS;
@@ -173,9 +109,10 @@ public final class CaptionsFetcher {
             }
 
             if (!captions.tracks().isEmpty()) {
-                CaptionTrack primaryTrack = selectPrimaryTrack(captions.tracks(),
+                List<CaptionTrack> primaryTracks = selectPrimaryTracks(captions.tracks(),
                         captions.sourceLangCode());
-                if (primaryTrack != null) {
+                if (!primaryTracks.isEmpty()) {
+                    CaptionTrack primaryTrack = primaryTracks.get(0);
                     Lyrics primaryLyrics = fetchTrackLyrics(primaryTrack, captions.poToken());
                     if (primaryLyrics != null && !primaryLyrics.isEmpty()) {
                         CaptionTrack translationTrack =
@@ -188,14 +125,24 @@ public final class CaptionsFetcher {
                                 translationLyrics = tl;
                             }
                         }
+                        Lyrics asrLyrics = null;
+                        if (includeAsr) {
+                            for (CaptionTrack track : primaryTracks) {
+                                if (track.isAsr()) {
+                                    asrLyrics = fetchTrackLyrics(track, captions.poToken(),
+                                            ASR_PROVIDER_NAME);
+                                    break;
+                                }
+                            }
+                        }
                         lastFetchedVideoId = videoId;
-                        return CaptionsOutcome.captions(primaryLyrics, translationLyrics,
+                        return CaptionsOutcome.captions(primaryLyrics, translationLyrics, asrLyrics,
                                 captions.innertubeTrack());
                     }
                 }
             }
 
-            Lyrics timed = fetchViaTimedtext(videoId, captions.poToken(), null);
+            Lyrics timed = fetchViaTimedtext(videoId, captions.poToken());
             if (timed != null && !timed.isEmpty()) {
                 lastFetchedVideoId = videoId;
                 return CaptionsOutcome.captions(timed, captions.innertubeTrack());
@@ -209,12 +156,18 @@ public final class CaptionsFetcher {
 
     @Nullable
     private static Lyrics fetchTrackLyrics(CaptionTrack track, @Nullable String poToken) {
+        return fetchTrackLyrics(track, poToken, Lyrics.CAPTIONS_PROVIDER);
+    }
+
+    @Nullable
+    private static Lyrics fetchTrackLyrics(CaptionTrack track, @Nullable String poToken,
+                                           String providerName) {
         try {
             String url = buildCaptionUrl(track.url(), poToken);
             String json = fetchCaptionUrl(url);
             List<LyricsLine> lines = parseJson3(json);
             if (!lines.isEmpty()) {
-                return new Lyrics(lines, Lyrics.CAPTIONS_PROVIDER, true, null, null, null, null, json, "json3", null);
+                return new Lyrics(lines, providerName, true, null, null, null, null, json, "json3", null);
             }
         } catch (Exception ex) {
             Logger.printDebug(() -> "Could not fetch captions", ex);
@@ -231,8 +184,8 @@ public final class CaptionsFetcher {
     }
 
     private static CaptionsOutcome tryTimedtext(String videoId, @Nullable String poToken,
-                                                 @Nullable TrackInfo innertubeTrack) {
-        Lyrics timed = fetchViaTimedtext(videoId, poToken, null);
+                                                @Nullable TrackInfo innertubeTrack) {
+        Lyrics timed = fetchViaTimedtext(videoId, poToken);
         if (timed != null && !timed.isEmpty()) {
             lastFetchedVideoId = videoId;
             return CaptionsOutcome.captions(timed, innertubeTrack);
@@ -241,7 +194,7 @@ public final class CaptionsFetcher {
     }
 
     private static CaptionsOutcome allowProviders(@Nullable TrackInfo innertubeTrack) {
-        return new CaptionsOutcome(null, null, false, innertubeTrack, null);
+        return new CaptionsOutcome(null, null, null, false, innertubeTrack, null);
     }
 
     @Nullable
@@ -287,12 +240,6 @@ public final class CaptionsFetcher {
         return null;
     }
 
-    private record CaptionListResult(boolean structurePresent, List<CaptionTrack> tracks,
-                                     @Nullable String poToken, @Nullable TrackInfo innertubeTrack,
-                                     @Nullable String sourceLangCode, @Nullable String videoLangCode,
-                                     @Nullable String errorReason) {
-    }
-
     @Nullable
     private static CaptionListResult findCaptionList(String videoId) {
         String json = fetchInnertubePlayer(videoId);
@@ -333,6 +280,26 @@ public final class CaptionsFetcher {
                 sourceLangCode, videoLangCode, null);
     }
 
+    /**
+     * Where the JSON array opening at {@code arrStart} closes, or -1 when it never does. Nesting
+     * is counted rather than trusted, since these arrays carry nested ones.
+     */
+    private static int endOfJsonArray(String json, int arrStart) {
+        int depth = 0;
+        for (int i = arrStart; i < json.length(); i++) {
+            char c = json.charAt(i);
+            if (c == '[') {
+                depth++;
+            } else if (c == ']') {
+                depth--;
+                if (depth == 0) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
     private static Set<String> extractTranslationLanguages(String json) {
         Set<String> langs = new HashSet<>();
         int idx = json.indexOf("\"translationLanguages\":[");
@@ -340,17 +307,7 @@ public final class CaptionsFetcher {
             return langs;
         }
         int arrStart = json.indexOf('[', idx);
-        if (arrStart < 0) return langs;
-        int depth = 0;
-        int arrEnd = -1;
-        for (int i = arrStart; i < json.length(); i++) {
-            char c = json.charAt(i);
-            if (c == '[') depth++;
-            else if (c == ']') {
-                depth--;
-                if (depth == 0) { arrEnd = i; break; }
-            }
-        }
+        int arrEnd = arrStart < 0 ? -1 : endOfJsonArray(json, arrStart);
         if (arrEnd < 0) return langs;
         try {
             JSONArray arr = new JSONArray(json.substring(arrStart, arrEnd + 1));
@@ -369,10 +326,10 @@ public final class CaptionsFetcher {
 
     @Nullable
     private static String determineSourceLanguage(List<CaptionTrack> tracks,
-                                                   @Nullable String videoLangCode,
-                                                   @Nullable String microLang,
-                                                   @Nullable String audioTracksLang,
-                                                   Set<String> translationLangs) {
+                                                  @Nullable String videoLangCode,
+                                                  @Nullable String microLang,
+                                                  @Nullable String audioTracksLang,
+                                                  Set<String> translationLangs) {
         for (CaptionTrack track : tracks) {
             if (track.isAsr()) {
                 return track.langCode();
@@ -472,17 +429,7 @@ public final class CaptionsFetcher {
             return null;
         }
         final int arrStart = json.indexOf('[', atIdx);
-        if (arrStart < 0) return null;
-        int depth = 0;
-        int arrEnd = -1;
-        for (int i = arrStart; i < json.length(); i++) {
-            char c = json.charAt(i);
-            if (c == '[') depth++;
-            else if (c == ']') {
-                depth--;
-                if (depth == 0) { arrEnd = i; break; }
-            }
-        }
+        final int arrEnd = arrStart < 0 ? -1 : endOfJsonArray(json, arrStart);
         if (arrEnd < 0) return null;
 
         int defaultIdx = -1;
@@ -620,17 +567,7 @@ public final class CaptionsFetcher {
         List<CaptionTrack> tracks = new ArrayList<>();
         try {
             final int arrStart = json.indexOf('[', tracksIdx);
-            if (arrStart < 0) return tracks;
-            int depth = 0;
-            int arrEnd = -1;
-            for (int i = arrStart; i < json.length(); i++) {
-                char c = json.charAt(i);
-                if (c == '[') depth++;
-                else if (c == ']') {
-                    depth--;
-                    if (depth == 0) { arrEnd = i; break; }
-                }
-            }
+            final int arrEnd = arrStart < 0 ? -1 : endOfJsonArray(json, arrStart);
             if (arrEnd < 0) return tracks;
 
             JSONArray arr = new JSONArray(json.substring(arrStart, arrEnd + 1));
@@ -675,9 +612,13 @@ public final class CaptionsFetcher {
         return tracks;
     }
 
-    @Nullable
-    private static CaptionTrack selectPrimaryTrack(List<CaptionTrack> tracks,
-                                                   @Nullable String sourceLangCode) {
+    /**
+     * The ASR track goes last and never takes the primary slot: its text is the one a hand
+     * written track of the same song is a correction of, so it is worth offering only where
+     * the hand written one is not.
+     */
+    private static List<CaptionTrack> selectPrimaryTracks(List<CaptionTrack> tracks,
+                                                          @Nullable String sourceLangCode) {
         CaptionTrack sourceManual = null;
         CaptionTrack fallbackManual = null;
         CaptionTrack fallbackAsr = null;
@@ -687,27 +628,30 @@ public final class CaptionsFetcher {
             }
             if (!track.isAsr()) {
                 if (track.langCode().equals(sourceLangCode)) {
-                    sourceManual = track;
+                    if (sourceManual == null) {
+                        sourceManual = track;
+                    }
                 } else if (fallbackManual == null) {
                     fallbackManual = track;
                 }
-            } else {
-                if (fallbackAsr == null) {
-                    fallbackAsr = track;
-                }
+            } else if (fallbackAsr == null) {
+                fallbackAsr = track;
             }
-            if (sourceManual != null) break;
         }
-        if (sourceManual != null) return sourceManual;
-        if (fallbackManual != null) return fallbackManual;
-        return fallbackAsr;
+        List<CaptionTrack> ordered = new ArrayList<>(3);
+        for (CaptionTrack track : new CaptionTrack[]{sourceManual, fallbackManual, fallbackAsr}) {
+            if (track != null && !ordered.contains(track)) {
+                ordered.add(track);
+            }
+        }
+        return ordered;
     }
 
     @Nullable
     private static CaptionTrack selectTranslationTrack(List<CaptionTrack> tracks,
                                                        String primaryLang,
                                                        @Nullable String sourceLangCode) {
-        String sysLang = Locale.getDefault().getLanguage();
+        String sysLang = LyricsRequests.primarySubtag(LyricsRequests.translationLanguage());
         if (sysLang.isEmpty()) {
             return null;
         }
@@ -735,7 +679,7 @@ public final class CaptionsFetcher {
     }
 
     private static String getCookies() {
-        String userCookies = Settings.LYRICS_CAPTION_COOKIES.get();
+        String userCookies = normalizeCookies(Settings.LYRICS_CAPTION_COOKIES.get());
         if (!userCookies.isEmpty()) {
             return userCookies;
         }
@@ -801,6 +745,41 @@ public final class CaptionsFetcher {
         return null;
     }
 
+    private static String normalizeCookies(String raw) {
+        if (raw == null || raw.isEmpty()) return "";
+        String value = raw.trim();
+        if (value.regionMatches(true, 0, "Cookie:", 0, "Cookie:".length())) {
+            value = value.substring("Cookie:".length()).trim();
+        }
+        final int valueLength = value.length();
+        if (valueLength >= 2) {
+            final char firstChar = value.charAt(0);
+            final char lastChar = value.charAt(valueLength - 1);
+            if (((firstChar == '"' && lastChar == '"') || (firstChar == '\'' && lastChar == '\''))) {
+                value = value.substring(1, valueLength - 1).trim();
+            }
+        }
+
+        StringBuilder sb = new StringBuilder(valueLength);
+        for (String part : value.split("[;\\r\\n]+")) {
+            String trimmed = part.trim();
+            if (trimmed.isEmpty() || trimmed.indexOf('=') <= 0) continue;
+            //noinspection SizeReplaceableByIsEmpty
+            if (sb.length() > 0) sb.append("; ");
+            sb.append(trimmed);
+        }
+        return sb.toString();
+    }
+
+    private static boolean hasRequiredCookieKeys(String cookies) {
+        if (cookies.isEmpty()) return false;
+        for (String key : REQUIRED_USER_COOKIE_KEYS) {
+            String value = extractCookieValue(cookies, key);
+            if (value == null || value.isEmpty()) return false;
+        }
+        return true;
+    }
+
     @Nullable
     private static String computeSapisidHash(String cookies) {
         String sapisid = extractCookieValue(cookies, "SAPISID");
@@ -826,12 +805,13 @@ public final class CaptionsFetcher {
     }
 
     @Nullable
-    private static String postInnertubePlayer(String bodyJson, @Nullable String cookies) throws Exception {
+    private static String postInnertubePlayer(String bodyJson, @Nullable String cookies,
+                                              int connectTimeoutMs, int readTimeoutMs) throws Exception {
         HttpURLConnection conn = Requester.openConnection(INNERTUBE_PLAYER_URL);
         try {
             conn.setRequestMethod("POST");
-            conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
-            conn.setReadTimeout(READ_TIMEOUT_MS);
+            conn.setConnectTimeout(connectTimeoutMs);
+            conn.setReadTimeout(readTimeoutMs);
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("User-Agent", CAPTION_USER_AGENT);
             conn.setRequestProperty("Origin", "https://www.youtube.com");
@@ -867,6 +847,11 @@ public final class CaptionsFetcher {
 
     public static boolean validateYouTubeCookies(String cookies) {
         if (cookies == null || cookies.trim().isEmpty()) return false;
+        final String normalized = normalizeCookies(cookies);
+        if (!hasRequiredCookieKeys(normalized)) {
+            Logger.printDebug(() -> "YouTube cookies are missing required keys");
+            return false;
+        }
         try {
             JSONObject body = new JSONObject();
             JSONObject client = new JSONObject();
@@ -879,7 +864,17 @@ public final class CaptionsFetcher {
             body.put("context", context);
             body.put("videoId", "dQw4w9WgXcQ");
 
-            String json = postInnertubePlayer(body.toString(), cookies);
+            String json = null;
+            for (int attempt = 1; attempt <= 2 && json == null; attempt++) {
+                final int currentAttempt = attempt;
+                try {
+                    json = postInnertubePlayer(body.toString(), normalized,
+                            VALIDATE_CONNECT_TIMEOUT_MS, VALIDATE_READ_TIMEOUT_MS);
+                } catch (IOException ex) {
+                    Logger.printDebug(() -> "YouTube cookie validation attempt "
+                            + currentAttempt + " failed", ex);
+                }
+            }
             if (json == null) {
                 return false;
             }
@@ -897,7 +892,7 @@ public final class CaptionsFetcher {
     private static String fetchInnertubePlayer(String videoId) {
         try {
             String bodyStr = buildPlayerRequestBody(videoId);
-            return postInnertubePlayer(bodyStr, getCookies());
+            return postInnertubePlayer(bodyStr, getCookies(), CONNECT_TIMEOUT_MS, READ_TIMEOUT_MS);
         } catch (Exception ex) {
             Logger.printDebug(() -> "Could not fetch InnerTube player", ex);
             return null;
@@ -926,15 +921,9 @@ public final class CaptionsFetcher {
         return body.toString();
     }
 
-    /**
-     * @param preferredLangs Languages to try before the defaults. Nothing asks for a
-     *                       preference yet, so the branch it drives is dormant.
-     */
     @Nullable
-    @SuppressWarnings("SameParameterValue")
-    private static Lyrics fetchViaTimedtext(String videoId, @Nullable String poToken,
-                                           @Nullable List<String> preferredLangs) {
-        List<String> langs = timedtextLanguages(preferredLangs);
+    private static Lyrics fetchViaTimedtext(String videoId, @Nullable String poToken) {
+        List<String> langs = timedtextLanguages();
 
         String pot = (poToken != null && !poToken.isEmpty()) ? "&pot=" + poToken : "";
         for (String lang : langs) {
@@ -953,15 +942,8 @@ public final class CaptionsFetcher {
         return null;
     }
 
-    private static List<String> timedtextLanguages(@Nullable List<String> preferredLangs) {
+    private static List<String> timedtextLanguages() {
         List<String> langs = new ArrayList<>();
-        if (preferredLangs != null) {
-            for (String lang : preferredLangs) {
-                if (!langs.contains(lang)) {
-                    langs.add(lang);
-                }
-            }
-        }
         Locale sys = Locale.getDefault();
         String sysLang = sys.getLanguage();
         if (!sysLang.isEmpty() && !langs.contains(sysLang)) {
@@ -1010,10 +992,53 @@ public final class CaptionsFetcher {
                 continue;
             }
 
-            lines.add(new LyricsLine(startTimeMs, trimmed));
+            List<Word> words = wordTimings(event, segments, startTimeMs);
+            lines.add(words.isEmpty()
+                    ? new LyricsLine(startTimeMs, trimmed)
+                    : new LyricsLine(startTimeMs, LyricsLine.NO_TIME, trimmed, words));
         }
 
         return lines;
+    }
+
+    private static List<Word> wordTimings(JSONObject event, JSONArray segments,
+                                          long startTimeMs) throws JSONException {
+        final int count = segments.length();
+        if (count < 2) {
+            return List.of();
+        }
+        List<Word> words = new ArrayList<>(count);
+        boolean offsetByWord = false;
+        for (int j = 0; j < count; j++) {
+            JSONObject seg = segments.getJSONObject(j);
+            String raw = seg.optString("utf8", "");
+            String word = raw.trim();
+            if (word.isEmpty()) {
+                continue;
+            }
+            long startMs = startTimeMs + seg.optLong("tOffsetMs", 0);
+            offsetByWord |= startMs > startTimeMs;
+            words.add(new Word(startMs, startMs, word, null,
+                    Character.isWhitespace(raw.charAt(raw.length() - 1))));
+        }
+        // Nothing places a word past the line itself, so these words would all land on one
+        // instant and the timing cleanup upstream would spread them into a timeline the
+        // payload never carried.
+        if (!offsetByWord || words.size() < 2) {
+            return List.of();
+        }
+        final int total = words.size();
+        long eventEndMs = startTimeMs + event.optLong("dDurationMs", 0);
+        for (int k = 0; k < total - 1; k++) {
+            Word word = words.get(k);
+            words.set(k, new Word(word.startMs(), words.get(k + 1).startMs(), word.text(),
+                    null, word.endsWithSpace()));
+        }
+        Word last = words.get(total - 1);
+        words.set(total - 1, new Word(last.startMs(),
+                eventEndMs > last.startMs() ? eventEndMs : last.startMs(), last.text(),
+                null, last.endsWithSpace()));
+        return words;
     }
 
     private static String fetchCaptionUrl(String urlStr) throws Exception {
@@ -1045,5 +1070,133 @@ public final class CaptionsFetcher {
                 conn.disconnect();
             }
         }
+    }
+
+    private record CaptionTrack(String url, String langCode, String vssId, boolean isAsr,
+                                boolean isTranslatable, boolean isTranslation, boolean hasTlang,
+                                String displayName) {
+
+        @Override
+        @NonNull
+        public String toString() {
+            return langCode + (isAsr ? " (ASR)" : " (manual)")
+                    + " vssId=" + vssId
+                    + (isTranslation ? " [trans]" : " [orig]")
+                    + (hasTlang ? " [tlang]" : "")
+                    + " t=" + isTranslatable
+                    + " '" + displayName + "'";
+        }
+    }
+
+    public static final class CaptionsOutcome {
+        static final CaptionsOutcome ALLOW_PROVIDERS = new CaptionsOutcome(null, null, null, false, null, null);
+
+        public final @Nullable Lyrics lyrics;
+        public final @Nullable Lyrics translationLyrics;
+        public final @Nullable Lyrics asrLyrics;
+        public final boolean suppressProviders;
+        public final @Nullable TrackInfo innertubeTrack;
+        public final @Nullable String errorReason;
+
+        private CaptionsOutcome(@Nullable Lyrics lyrics, @Nullable Lyrics translationLyrics,
+                                @Nullable Lyrics asrLyrics, boolean suppressProviders,
+                                @Nullable TrackInfo innertubeTrack,
+                                @Nullable String errorReason) {
+            this.lyrics = lyrics;
+            this.translationLyrics = translationLyrics;
+            this.asrLyrics = asrLyrics;
+            this.suppressProviders = suppressProviders;
+            this.innertubeTrack = innertubeTrack;
+            this.errorReason = errorReason;
+        }
+
+        static CaptionsOutcome captions(Lyrics lyrics, @Nullable TrackInfo innertubeTrack) {
+            return new CaptionsOutcome(lyrics, null, null, false, innertubeTrack, null);
+        }
+
+        static CaptionsOutcome captions(Lyrics lyrics, @Nullable Lyrics translationLyrics,
+                                        @Nullable Lyrics asrLyrics,
+                                        @Nullable TrackInfo innertubeTrack) {
+            return new CaptionsOutcome(lyrics, translationLyrics, asrLyrics, false, innertubeTrack, null);
+        }
+
+        static CaptionsOutcome withError(@Nullable String reason, @Nullable TrackInfo innertubeTrack) {
+            return new CaptionsOutcome(null, null, null, false, innertubeTrack, reason);
+        }
+    }
+
+    public static final class CaptionsProvider implements LyricsProvider {
+        /* The manager takes the reported score back apart, so both tracks have to report on the
+         * same match and sync scale or their ranking would compare two different quantities. */
+        private static Lyrics.ScoredLyrics scored(Lyrics lyrics, TrackInfo track) {
+            FetchResult result = FetchResult.of(lyrics);
+            int score = result.matchScore(track) + LyricsRequests.syncRank(lyrics);
+            return new Lyrics.ScoredLyrics(score, lyrics);
+        }
+
+        @Override
+        public String name() {
+            return "Captions";
+        }
+
+        @Override
+        @Nullable
+        public FetchResult fetch(TrackInfo track) throws Exception {
+            CaptionsOutcome outcome = CaptionsFetcher.fetch();
+
+            if (outcome.errorReason != null) {
+                return null;
+            }
+
+            if (outcome.lyrics == null || outcome.lyrics.isEmpty()) {
+                return null;
+            }
+
+            Lyrics result = outcome.lyrics;
+            if (outcome.translationLyrics != null && !outcome.translationLyrics.isEmpty()) {
+                Map<String, List<LyricsLine>> translations = new HashMap<>();
+                translations.put(LyricsRequests.translationLanguage(),
+                        outcome.translationLyrics.lines());
+                result = new Lyrics(result.lines(), result.providerName(), result.synced(),
+                        result.romanization(), translations,
+                        result.romanizations(), result.songwriters(),
+                        result.rawFormat(), result.formatType(),
+                        result.sourceUrl());
+            }
+
+            return FetchResult.of(result);
+        }
+
+        /*
+         * The ASR track is worth a candidate slot because it is the only caption track that
+         * carries a per-word timeline. It does not take over the screen on its own: the lookups
+         * that reach this provider have already put the hand written text there.
+         */
+        @Override
+        public boolean hasCandidates() {
+            return true;
+        }
+
+        @Override
+        public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) {
+            CaptionsOutcome outcome = CaptionsFetcher.fetch(true);
+            List<Lyrics.ScoredLyrics> candidates = new ArrayList<>(2);
+            if (outcome.errorReason == null) {
+                if (outcome.lyrics != null && !outcome.lyrics.isEmpty()) {
+                    candidates.add(scored(outcome.lyrics, track));
+                }
+                if (outcome.asrLyrics != null && !outcome.asrLyrics.isEmpty()) {
+                    candidates.add(scored(outcome.asrLyrics, track));
+                }
+            }
+            return candidates;
+        }
+    }
+
+    private record CaptionListResult(boolean structurePresent, List<CaptionTrack> tracks,
+                                     @Nullable String poToken, @Nullable TrackInfo innertubeTrack,
+                                     @Nullable String sourceLangCode,
+                                     @Nullable String videoLangCode,
+                                     @Nullable String errorReason) {
     }
 }

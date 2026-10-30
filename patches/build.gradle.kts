@@ -1,3 +1,12 @@
+// Resolve local composite build projects (smali, patcher) to jars for compilation,
+// same as the runtime classpath. Otherwise, both the classes directory and the jar
+// are passed to D8 by buildAndroid, and it fails with "Classpath type already present".
+configurations.compileClasspath {
+    attributes {
+        attribute(LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.JAR))
+    }
+}
+
 group = "app.morphe"
 
 patches {

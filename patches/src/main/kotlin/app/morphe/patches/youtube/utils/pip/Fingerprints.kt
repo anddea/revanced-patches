@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -65,6 +66,20 @@ internal val pipPlaybackModernFingerprint = legacyFingerprint(
     strings = listOf("Error entering picture and picture"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_NEZ
+    )
+)
+
+// YouTube 21.39: the PiP entry method now returns Z (was ListenableFuture) and the
+// 'is PiP allowed' check is an invoke-virtual instead of invoke-direct.
+internal val pipPlaybackModernV2Fingerprint = legacyFingerprint(
+    name = "pipPlaybackModernV2Fingerprint",
+    returnType = "Z",
+    parameters = listOf("Landroid/view/View;"),
+    strings = listOf("Error entering picture and picture"),
+    opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ
     )

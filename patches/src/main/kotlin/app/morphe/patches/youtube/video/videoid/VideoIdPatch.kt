@@ -3,6 +3,7 @@ package app.morphe.patches.youtube.video.videoid
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -12,7 +13,6 @@ import app.morphe.patches.youtube.video.playerresponse.Hook
 import app.morphe.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.morphe.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -39,7 +39,11 @@ val videoIdPatch = bytecodePatch(
 
     execute {
         if (is_21_04_or_greater) {
-            VideoIdFingerprint.let { result ->
+            // YouTube 21.39: Map.put moved into a helper
+            // matchOrNull() still throws when only the class fingerprint matches.
+            val videoIdMatch = runCatching { VideoIdFingerprint.match() }.getOrNull()
+                ?: VideoIdHelperPutFingerprint.match()
+            videoIdMatch.let { result ->
                 result.method.apply {
                     videoIdMethodRef = WeakReference(this)
                     val index = result.instructionMatches[1].index

@@ -10,6 +10,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -61,9 +62,11 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patcher.util.returnLate
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -73,6 +76,7 @@ import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
+import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -152,9 +156,9 @@ import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.methodOrNull
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.resolvable
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -164,7 +168,6 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.or
 import app.morphe.util.replaceLiteralInstructionCall
-import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -362,6 +365,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         versionCheckPatch,
+        // Custom actions are added to the bottom sheet menu.
+        bottomSheetFlyoutMenuPatch,
     )
 
     execute {
@@ -374,7 +379,9 @@ private val shortsCustomActionsPatch = bytecodePatch(
         hookToolBar("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setToolbarMenu")
 
         // toolbar in Shorts livestream
-        liveHeaderElementsContainerFingerprint.methodOrThrow().apply {
+        // YouTube 21.39 inlined this into LiveHeaderController.t(Z)V; fall back to that fingerprint.
+        (liveHeaderElementsContainerFingerprint.methodOrNull()
+            ?: liveHeaderElementsContainerFingerprint2139.methodOrThrow()).apply {
             val addViewIndex = indexOfAddLiveHeaderElementsContainerInstruction(this)
             val viewRegister = getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
 
@@ -430,21 +437,43 @@ private val shortsCustomActionsPatch = bytecodePatch(
 
                 // The modern renderer takes a separate path for menu items with this flag.
                 // Pass the flag along so the extension can retain a normal item as its template.
-                val elementTransformerFlagIndex = indexOfFirstInstructionReversedOrThrow(bottomSheetMenuInitializeIndex) {
-                    opcode == Opcode.AND_INT_LIT16 &&
-                            (this as WideLiteralInstruction).wideLiteral == 0x1000L
-                }
+                // YouTube 21.39: the `and-int/lit16 0x1000` flag test became `if-ne vX, const` + `or-int/2addr`;
+                // the boolean flag is the second register of the nearest preceding `or-int/2addr`.
+                val elementTransformerFlagIndexLegacy = runCatching {
+                    indexOfFirstInstructionReversedOrThrow(bottomSheetMenuInitializeIndex) {
+                        opcode == Opcode.AND_INT_LIT16 &&
+                                (this as WideLiteralInstruction).wideLiteral == 0x1000L
+                    }
+                }.getOrNull()
+                val elementTransformerFlagIndex = elementTransformerFlagIndexLegacy
+                    ?: indexOfFirstInstructionReversedOrThrow(addListIndex) {
+                        opcode == Opcode.OR_INT_2ADDR
+                    }
 
-                val bottomSheetMenuListIndex = it.instructionMatches.first().index
-                val bottomSheetMenuListField =
-                    (getInstruction<ReferenceInstruction>(bottomSheetMenuListIndex).reference as FieldReference)
+                // YouTube 21.39 added an earlier `iget-object, invoke-virtual, move-result, if-eqz` block
+                // (VIDEO_QUALITY_DETAIL_TEXT), so the first opcode match is no longer the menu list.
+                // Take the list field from the `iget-object` feeding the `add` receiver instead, and the
+                // hook point from its read right before the "menu is empty" check.
+                val addListReceiverRegister = getInstruction<FiveRegisterInstruction>(addListIndex).registerC
+                val bottomSheetMenuListField = getInstruction<ReferenceInstruction>(
+                    indexOfFirstInstructionReversedOrThrow(addListIndex) {
+                        opcode == Opcode.IGET_OBJECT &&
+                                (this as TwoRegisterInstruction).registerA == addListReceiverRegister
+                    }
+                ).reference as FieldReference
+                val bottomSheetMenuListIndex = indexOfFirstInstructionReversedOrThrow(
+                    indexOfFirstStringInstructionOrThrow("Bottom Sheet Menu is empty. No menu items were supported.")
+                ) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.toString() == bottomSheetMenuListField.toString()
+                }
 
                 val setFlyoutMenuObjectIndex = indexOfFirstInstructionReversedOrThrow(addListIndex) {
                     opcode == Opcode.IGET_OBJECT &&
                             getReference<FieldReference>()?.toString() == bottomSheetMenuListField.toString()
                 }
-                val elementTransformerFlagRegister =
-                    getInstruction<TwoRegisterInstruction>(elementTransformerFlagIndex).registerA
+                val elementTransformerFlagRegister = getInstruction<TwoRegisterInstruction>(elementTransformerFlagIndex)
+                    .let { if (elementTransformerFlagIndexLegacy != null) it.registerA else it.registerB }
 
                 val bottomSheetMenuClass = bottomSheetMenuListField.definingClass
                 val bottomSheetMenuList = bottomSheetMenuListField.type
@@ -1241,9 +1270,11 @@ val shortsComponentPatch = bytecodePatch(
             id: Long,
             descriptor: String,
             reversed: Boolean
-        ) =
+        ) {
+            // Check the version before resolving the fingerprint: shortsButtonFingerprint is not
+            // guaranteed to resolve on 21.39 and nothing is injected for 20.18+ anyway.
+            if (is_20_18_or_greater) return
             methodOrThrow().apply {
-                if (is_20_18_or_greater) return@apply
                 val constIndex = indexOfFirstLiteralInstructionOrThrow(id)
                 val insertIndex = if (reversed)
                     indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.CHECK_CAST)
@@ -1256,6 +1287,7 @@ val shortsComponentPatch = bytecodePatch(
                     "invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->$descriptor(Landroid/view/View;)V"
                 )
             }
+        }
 
         fun Pair<String, Fingerprint>.hideButtons(
             id: Long,
@@ -1302,8 +1334,8 @@ val shortsComponentPatch = bytecodePatch(
 
         // region patch for hide like button (non-litho)
 
-        shortsButtonFingerprint.methodOrThrow().apply {
-            if (is_20_18_or_greater) return@apply
+        // Resolve the fingerprint only when it is actually used (not on 20.18+, e.g. 21.39).
+        if (!is_20_18_or_greater) shortsButtonFingerprint.methodOrThrow().apply {
             val insertIndex = indexOfFirstLiteralInstructionOrThrow(reelRightLikeIcon)
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
             val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_CLASS) + 2

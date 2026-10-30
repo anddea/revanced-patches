@@ -48,9 +48,8 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getIdIdentifier;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
+import android.app.Dialog;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
@@ -60,7 +59,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -492,70 +491,46 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
 
         Preference targetPreference = prefItem.preference;
 
-        fragment.getView().post(() -> {
-            ListView listView = targetScreen == getMainPreferenceScreen()
-                    ? getPreferenceListView()
-                    : targetScreen.getDialog().findViewById(android.R.id.list);
+        Dialog dialog = targetScreen.getDialog();
+        ListView listView = targetScreen == getMainPreferenceScreen()
+                ? getPreferenceListView()
+                : dialog == null ? null : dialog.findViewById(android.R.id.list);
+        if (listView == null) return;
 
-            if (listView == null) return;
-
-            int targetPosition = findPreferencePosition(targetPreference, listView);
-            if (targetPosition == -1) return;
-
-            int firstVisible = listView.getFirstVisiblePosition();
-            int lastVisible = listView.getLastVisiblePosition();
-
-            if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
-                // The preference is already visible, but still scroll it to the bottom of the list for consistency.
-                View child = listView.getChildAt(targetPosition - firstVisible);
-                if (child != null) {
-                    // Calculate how much to scroll so the item is aligned at the bottom.
-                    int scrollAmount = child.getBottom() - listView.getHeight();
-                    if (scrollAmount > 0) {
-                        // Perform smooth scroll animation for better user experience.
-                        listView.smoothScrollBy(scrollAmount, 300);
-                    }
-                }
-                // Highlight the preference once it is positioned.
-                highlightPreferenceAtPosition(listView, targetPosition);
-            } else {
-                // The preference is outside the current visible range, scroll to it from the top.
-                listView.smoothScrollToPositionFromTop(targetPosition, 0);
-
-                Handler handler = new Handler(Looper.getMainLooper());
-                // Fallback runnable in case the OnScrollListener does not trigger.
-                Runnable fallback = () -> {
-                    listView.setOnScrollListener(null);
-                    highlightPreferenceAtPosition(listView, targetPosition);
-                };
-                // Post fallback with a small delay.
-                handler.postDelayed(fallback, 350);
-
-                listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-                    private boolean isScrolling = false;
-
-                    @Override
-                    public void onScrollStateChanged(AbsListView view, int scrollState) {
-                        if (scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING) {
-                            // Mark that scrolling has started.
-                            isScrolling = true;
-                        }
-                        if (scrollState == SCROLL_STATE_IDLE && isScrolling) {
-                            // Scrolling is finished, cleanup listener and cancel fallback.
-                            isScrolling = false;
-                            listView.setOnScrollListener(null);
-                            handler.removeCallbacks(fallback);
-                            // Highlight the target preference when scrolling is done.
-                            highlightPreferenceAtPosition(listView, targetPosition);
-                        }
-                    }
-
-                    @Override
-                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                    }
-                });
+        // A newly opened screen can still have an empty adapter or no visible children.
+        // Wait for its own layout, rather than posting to the underlying fragment.
+        listView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (listView.getHeight() == 0
+                        || findPreferencePosition(targetPreference, listView) == -1) return;
+                listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                // Selection changes made during layout can be overwritten by ListView itself.
+                listView.post(() -> scrollToPreference(targetPreference, listView));
             }
         });
+        listView.requestLayout();
+    }
+
+    /**
+     * Positions the preference after the destination has laid out, then waits for the
+     * selected row to be laid out before highlighting it. A fixed animation timeout
+     * cannot guarantee that a distant row is visible on slower devices.
+     */
+    private void scrollToPreference(Preference targetPreference, ListView listView) {
+        int targetPosition = findPreferencePosition(targetPreference, listView);
+        if (targetPosition == -1) return;
+
+        listView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (targetPosition < listView.getFirstVisiblePosition()
+                        || targetPosition > listView.getLastVisiblePosition()) return;
+                listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                highlightPreferenceAtPosition(listView, targetPosition);
+            }
+        });
+        listView.setSelectionFromTop(targetPosition, listView.getPaddingTop());
     }
 
     /**

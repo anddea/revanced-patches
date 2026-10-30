@@ -6,12 +6,12 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.numberOfParameterRegistersLogical
 import app.morphe.patches.youtube.player.seekbar.VideoStreamingDataToStringFingerprint
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.cloneMutableAndPreserveParameters
-import app.morphe.util.findFreeRegister
-import app.morphe.util.numberOfParameterRegistersLogical
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction

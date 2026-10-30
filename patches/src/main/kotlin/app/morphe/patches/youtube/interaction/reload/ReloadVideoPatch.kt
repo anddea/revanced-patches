@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.interaction.reload
@@ -11,6 +13,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_RELOAD_VIDEO
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityFingerprint
@@ -26,7 +29,6 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -97,8 +99,14 @@ val reloadVideoPatch = bytecodePatch(
                 "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V"
             )
 
-            val dismissPlayerInnerMethod = MiniAppOpenYtContentCommandEndpointFingerprint
-                .instructionMatches[2]
+            // YouTube 21.39 moved the dismiss player call; try the old shape first, then the new one.
+            val dismissPlayerInnerMethod = runCatching {
+                MiniAppOpenYtContentCommandEndpointFingerprint
+                    .instructionMatches[2]
+                    .getInstruction<ReferenceInstruction>()
+                    .getReference<MethodReference>()!!
+            }.getOrNull() ?: MiniAppOpenYtContentCommandEndpointFingerprint2139
+                .instructionMatches.last()
                 .getInstruction<ReferenceInstruction>()
                 .getReference<MethodReference>()!!
 

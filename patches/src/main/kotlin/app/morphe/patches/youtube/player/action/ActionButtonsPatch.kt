@@ -15,7 +15,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patcher.util.registersUsed
 import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -45,10 +47,8 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
-import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation

@@ -46,6 +46,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.extension.Constants.PATCHES_PATH
 import app.morphe.patches.shared.mapping.ResourceType.ID
@@ -53,10 +55,8 @@ import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodCall
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.injectLiteralInstructionViewCall

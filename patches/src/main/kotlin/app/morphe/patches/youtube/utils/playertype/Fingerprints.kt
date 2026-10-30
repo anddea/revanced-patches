@@ -1,10 +1,10 @@
 package app.morphe.patches.youtube.utils.playertype
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.resourceid.reelWatchPlayer
 import app.morphe.patches.youtube.utils.resourceid.toolbarContainerId
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or

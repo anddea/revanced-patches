@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -77,6 +78,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.patches.utils.FlyoutUtils;
 import app.morphe.extension.youtube.patches.utils.PlaylistPatch;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.FeedVideoActionsPatch;
 
 @SuppressWarnings("unused")
 public final class DownloadActionsPatch {
@@ -97,6 +99,11 @@ public final class DownloadActionsPatch {
 
     public static String getFlyoutVideoId() {
         return flyoutVideoId;
+    }
+
+    /** Native flyout entry names and indices, used to invoke the selected feed action. */
+    public static List<Pair<String, Integer>> getVisibleFlyoutButtons() {
+        return visibleFlyoutButtons;
     }
 
     private static final boolean OVERRIDE_PLAY_NEXT_IN_QUEUE =
@@ -173,6 +180,12 @@ public final class DownloadActionsPatch {
                 (View) map.get("com.google.android.libraries.youtube.rendering.elements.sender_view")
         );
         extractFlyoutVideoId(map.get("com.google.android.libraries.youtube.innertube.endpoint.tag"));
+        FeedVideoActionsPatch.onFlyoutSender(senderViewRef.get());
+    }
+
+    @Nullable
+    public static View getSenderView() {
+        return senderViewRef.get();
     }
 
     /**
@@ -401,7 +414,10 @@ public final class DownloadActionsPatch {
     public static boolean inAppVideoDownloadButtonOnClick(@Nullable Map<Object, Object> map, Object offlineVideoEndpointOuterClass,
                                                           @Nullable String videoId) {
         try {
-            if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(videoId)) {
+            // the built-in downloader replaces the native
+            // (Premium) downloader on its own, without the external-downloader override.
+            if ((OVERRIDE_VIDEO_DOWNLOAD_BUTTON || Settings.IN_APP_DOWNLOADER.get())
+                    && StringUtils.isNotEmpty(videoId)) {
                 if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER) {
                     PlaylistPatch.prepareDialogBuilder(videoId);
                 } else {

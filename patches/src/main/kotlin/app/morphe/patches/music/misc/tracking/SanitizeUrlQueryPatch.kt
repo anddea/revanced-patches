@@ -1,5 +1,6 @@
 package app.morphe.patches.music.misc.tracking
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.SANITIZE_SHARING_LINKS
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
@@ -11,7 +12,6 @@ import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.misc.privacy.hookQueryParameters
 import app.morphe.patches.shared.misc.privacy.sanitizeSharingLinksPatch
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode

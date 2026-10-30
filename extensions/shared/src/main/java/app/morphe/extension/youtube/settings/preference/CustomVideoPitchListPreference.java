@@ -68,4 +68,9 @@ public final class CustomVideoPitchListPreference extends CustomDialogListPrefer
     public CustomVideoPitchListPreference(Context context) {
         super(context);
     }
+
+    @Override
+    public boolean tracksNewEntries() {
+        return false; // Entries are the custom pitches of the user.
+    }
 }

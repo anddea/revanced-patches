@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 未獲得在後台執行的許可權。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 沒有後台執行權限。
 
-請依照適用於您手機版本的「Do Not Kill My App」指南，並將其中指示應用於 MicroG 的安裝目錄。
+請依照適合您手機的 \"Don't kill my app\" 指南，並將指示應用於您的 MicroG 安裝。
 
-這項設定對於應用程式正常運作為必要條件。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 MicroG 的電池最佳化設定，以避免後續的問題發生。
+這是應用程式正常運作所必需的"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 MicroG 的電池最佳化設定以避免問題。
 
-停用 MicroG 的電池最佳化並不會增加電池使用量，對使用情況亦無負面影響。
+停用 MicroG 的電池最佳化不會對電池使用產生負面影響。
 
-點擊繼續按鈕以允許調整相關最佳化設定。"</string>
+點擊繼續按鈕並允許調整最佳化設定"</string>
     <string name="gms_core_dialog_open_website_text">開啟網站</string>
     <string name="gms_core_dialog_title">需要採取行動</string>
     <string name="gms_core_settings_summary">打開GmsCore 設定，並啟用雲端訊息已接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
-    <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
+    <string name="gms_core_toast_not_installed_message">未安裝 MicroG。請安裝它</string>
     <string name="morphe_app_refresh_rate_default">預設</string>
     <string name="morphe_app_refresh_rate_fps">%s 幀/秒</string>
     <string name="morphe_app_refresh_rate_title">應用程式更新頻率</string>
@@ -60,36 +60,38 @@
 3. 複製「media-user-token」的值"</string>
     <string name="morphe_music_apple_music_token_title">Apple Music Media-user-token</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music：媒體使用者權杖已清除</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music：媒體使用者權杖無效。請檢查後再試一次。</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music：無效的媒體使用者權杖 — 請檢查並重試</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music：media-user-token 已儲存</string>
     <string name="morphe_music_apple_token_optional_hint">Apple Music Token是可選的。若沒有Token，將會用Lyrically作為備用方案。</string>
     <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自動進階、單曲循環（歌曲會淡入淡出自身）、以及本機音訊 — 手機揚聲器、有線耳機、藍牙或 USB。</string>
     <string name="morphe_music_crossfade_about_best_title">最適合</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade 功能由 VazerOG 提供</string>
     <string name="morphe_music_crossfade_about_credit_title">鳴謝</string>
-    <string name="morphe_music_crossfade_about_how_summary">"淡入淡出功能會將一首歌的結尾與下一首歌的開頭重疊，在您選擇的時長和曲線之上，逐漸降低一首歌的音量，同時逐漸提高另一首歌的音量。
+    <string name="morphe_music_crossfade_about_how_summary">"交叉淡化會將一首歌曲的結尾與下一首的開頭重疊，並使用您設定的持續時間和曲線
 
-它在自動進階（歌曲自行結束時）和手動跳過時運作 — 上方各有自己的切換開關。在自動進階時，淡入淡出效果會在歌曲結束前幾秒開始。
-
-需要 YouTube Music 9.x 或更新版本。"</string>
+它會在自動播放和手動跳過時運作，兩者各有獨立的開關。在自動播放時，混音會在歌曲結束前幾秒開始"</string>
     <string name="morphe_music_crossfade_about_how_title">運作方式</string>
     <string name="morphe_music_crossfade_about_known_summary">"將音樂影片設定為第一首歌曲，或從目前佇列外部啟動的音樂影片，可能會在僅播放音訊模式開始前短暫顯示影片
 
 暫停淡出效果以觀看音樂影片可能會導致部分影片畫面變黑（那些音訊來自影片本身的影片）。在選擇歌曲之前暫停淡出效果可以避免此情況"</string>
     <string name="morphe_music_crossfade_about_known_title">已知問題</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"播放音樂影片時，僅播放音訊（如果您想暫停影片，請長按隨機播放按鈕）
+    <string name="morphe_music_crossfade_about_quirks_summary">"開啟交叉淡化時，音樂影片只會以音訊形式播放。長按隨機播放可暫停交叉淡化並觀看影片
 
-低於淡出時長的歌曲可能會跳過淡出效果
+開始播放的音樂影片會維持影片模式，直到下一首歌
 
-鎖定畫面或通知可能會短暫顯示過時的狀態，尤其是在轉換過程中"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">運作不太順暢</string>
+比淡化時間短的歌曲不會進行交叉淡化
+
+鎖定畫面或通知在過渡期間可能會短暫顯示過時狀態
+
+暫停交叉淡化以觀看音樂影片時，部份影片可能會變成黑畫面。在選擇歌曲前暫停交叉淡化即可避免此情況"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">限制</string>
     <string name="morphe_music_crossfade_about_summary">淡入淡出功能如何運作 — 以及何時無法運作</string>
     <string name="morphe_music_crossfade_about_title">關於</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"串流或鏡像音訊（Chromecast、螢幕或音訊鏡像）—淡出效果會暫停，因為在那裡並不穩定，而且可能無法修正。
+    <string name="morphe_music_crossfade_about_unsupported_summary">"投放或鏡像音訊（Chromecast、螢幕鏡像或音訊鏡像）
 
-YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">完全無法運作</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">投射或鏡像音訊時，淡入淡出效果會暫停。投射／鏡像時的淡入淡出效果不穩定，且可能永遠無法得到修正。</string>
+SABR 播放（影片串流模擬已關閉）"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">不支援</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">投放時交叉淡化已關閉</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">微妙延遲</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">柔和過渡</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">等功率</string>
@@ -118,77 +120,69 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
 3. 複製「arl」的值"</string>
     <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Could not romanize the lyrics</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer：arl 無效。請檢查後再試一次。</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer：arl 無效 — 請檢查並重試</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer：arl 已儲存</string>
-    <string name="morphe_music_downloads_actions_for">%s 的操作</string>
-    <string name="morphe_music_downloads_all_deleted">已刪除下載的音樂</string>
     <string name="morphe_music_downloads_already_running">已在進行下載過程</string>
     <string name="morphe_music_downloads_already_saved">已經下載了</string>
-    <string name="morphe_music_downloads_close">關閉</string>
     <string name="morphe_music_downloads_complete">下載完成</string>
-    <string name="morphe_music_downloads_delete">刪除</string>
-    <string name="morphe_music_downloads_delete_all">刪除所有已下載的音樂</string>
-    <string name="morphe_music_downloads_delete_all_message">這個裝置中所有已下載的曲目將會被刪除</string>
-    <string name="morphe_music_downloads_delete_all_title">要刪除所有已下載的內容嗎？</string>
-    <string name="morphe_music_downloads_delete_track">刪除下載的內容</string>
-    <string name="morphe_music_downloads_delete_track_message">將會從這個裝置中刪除%s</string>
-    <string name="morphe_music_downloads_delete_track_title">確定要刪除下載的內容？</string>
-    <string name="morphe_music_downloads_empty">"沒有已下載的音樂
-下載的歌曲會顯示在這裡"</string>
     <string name="morphe_music_downloads_failed">下載失敗</string>
-    <string name="morphe_music_downloads_next">下一首</string>
-    <string name="morphe_music_downloads_nothing_found">沒有找到任何內容</string>
     <string name="morphe_music_downloads_notification_channel">音訊下載</string>
-    <string name="morphe_music_downloads_pause">暫停</string>
-    <string name="morphe_music_downloads_play">播放</string>
-    <string name="morphe_music_downloads_play_failed">無法播放下載的內容</string>
-    <string name="morphe_music_downloads_play_pause">播放或暫停</string>
-    <string name="morphe_music_downloads_playback_channel">離線播放</string>
-    <string name="morphe_music_downloads_previous">上一首</string>
     <string name="morphe_music_downloads_progress">正在下載%s%%</string>
-    <string name="morphe_music_downloads_screen_title">已下載的音樂</string>
-    <string name="morphe_music_downloads_search_hint">搜尋已下載的音樂</string>
     <string name="morphe_music_downloads_sort">排序</string>
-    <string name="morphe_music_downloads_sort_artist">按藝人排序</string>
-    <string name="morphe_music_downloads_sort_size">按大小排序</string>
-    <string name="morphe_music_downloads_sort_title">按標題排序</string>
     <string name="morphe_music_downloads_started">已開始下載</string>
     <string name="morphe_music_downloads_starting">正在開始下載…</string>
-    <string name="morphe_music_downloads_summary">%1$s 首歌曲 • %2$s MB</string>
-    <string name="morphe_music_downloads_track_delete_failed">無法刪除下載的內容</string>
-    <string name="morphe_music_downloads_track_deleted">已刪除下載的內容</string>
-    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
     <string name="morphe_music_downloads_unknown_track">無法識別要下載的曲目</string>
     <string name="morphe_music_in_app_downloads_summary">不開啟外部下載器應用程式，改在 YouTube Music 中下載音訊。</string>
     <string name="morphe_music_in_app_downloads_title">在應用程式內下載</string>
-    <string name="morphe_music_in_app_downloads_user_dialog_message">"歌曲會儲存到應用程式的專用儲存區域中，如果解除安裝 YouTube Music，歌曲也會被刪除。
+    <string name="morphe_music_lyrics_about_summary">"歌詞是根據標題和藝人進行配對，不尋常的中繼資料可能導致找不到內容或找到錯誤的版本。請使用重新整理按鈕來切換版本。標記 * 的服務提供者需要權杖。並非所有啟用的服務提供者都會按照您的設定順序請求回應，而是根據其速度回應。
 
-啟用此功能後，「下載」頁籤會列出這些歌曲，而非 Music Premium 離線庫。關閉此功能將會恢復該頁籤，而且Premium下載永遠不會受到影響。"</string>
-    <string name="morphe_music_lyrics_about_summary">"歌詞會以標題和藝人進行比對，非標準的中繼資料可能找不到任何結果或找到錯誤的版本。使用重新整理來切換版本。標示 * 的提供者需要權杖。所有已啟用的提供者不一定是按照您的順序被要求，而是根據其速度回應。"</string>
+歌詞來自第三方服務，這些服務與 RVX 無關，也未獲得 RVX 贊助或認可。各項服務皆按其原始狀態使用：歌詞內容、可用性及其授權權利仍歸屬於該服務及其授權方，使用這些服務可能受其服務條款約束。傳送至已啟用服務的資訊只有你查詢所需的數據——即標題、藝人名稱，以及該服務需要時所包含的影片 ID。可選的人工智慧端點和 QuickLRC 轉錄功能僅在你設定後才會執行，且僅接收歌詞文字或歌曲的影片 URL。"</string>
     <string name="morphe_music_lyrics_about_title">關於第三方歌詞</string>
-    <string name="morphe_music_lyrics_ai_config_api_token_hint">API 金鑰（留空以匿名存取）</string>
-    <string name="morphe_music_lyrics_ai_config_base_url_hint">API 端點 URL（例如 https://text.pollinations.ai/openai）</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">設定用於 AI 歌詞翻譯和羅馬拼音的 OpenAI 相容 API 端點。</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">AI 翻譯設定</string>
-    <string name="morphe_music_lyrics_ai_config_model_hint">模型名稱（例如 openai-fast、gpt-4o-mini）</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">已設定</string>
-    <string name="morphe_music_lyrics_ai_config_status_empty_model">模型名稱不能為空</string>
-    <string name="morphe_music_lyrics_ai_config_status_empty_url">Base URL 不能為空</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_label">API金鑰(選填)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">API 端點 URL（例如 https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions）</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_label">基礎網址</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_presets_title">選擇服務</string>
+    <string name="morphe_music_lyrics_ai_config_deepl_key_label">驗證金鑰(免費版或專業版)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_hint">引用名稱和值，例如 {\"temperature\": 0.3}。未引用且包含 / 或 : 的值將被拒絕。Model 和 messages 無法在此設置。</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_label">額外請求主體(選填JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_hint">引用名稱和值，例如 {\"api-key\": \"abc\"}。未引用且包含 / : 或數值的值將被拒絕。空值會移除標頭。</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_label">額外請求標頭（可選 JSON）</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_failed">無法獲取模型。請檢查API金鑰或連線狀態。</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_success">選擇模型</string>
+    <string name="morphe_music_lyrics_ai_config_fetching_models">正在獲取模型…</string>
+    <string name="morphe_music_lyrics_ai_config_model_label">模型</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_label">提示詞</string>
+    <string name="morphe_music_lyrics_ai_config_status_connected">%1$s：已連接！（%2$s）</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s：連接失敗。請檢查設置。</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid">設置不完整或被提供者拒絕</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Base URL 必須以 http:// 或 https:// 開頭</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">點擊以設定</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">正在驗證連線…</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">無法連線到 AI 端點。請檢查您的設定。</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">AI 翻譯設定已重設</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">AI 翻譯設定已儲存</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">已儲存翻譯及羅馬拼音設定</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">佔位符：{language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">提示詞範本</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">已儲存提示，但 AI 端點尚無法使用。請先在「AI 設定」中進行配置</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">已重設提示詞</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">已儲存提示詞</string>
+    <string name="morphe_music_lyrics_allow_transliteration_summary">允許來自歌詞來源的非拉丁文發音；關閉時，僅保留拉丁字母、帶音符號字母和聲調數字</string>
+    <string name="morphe_music_lyrics_allow_transliteration_title">啟用轉寫</string>
+    <string name="morphe_music_lyrics_clear_cache_done">已清除 %1$s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">刪除此設備上保留的 %1$s MB 歌詞緩存</string>
+    <string name="morphe_music_lyrics_clear_cache_title">清除儲存的歌詞</string>
+    <string name="morphe_music_lyrics_contribute_credit">長按複製按鈕以儲存此 LRC；如果您能微調時間軸並與社群提供者分享，我們將不勝感激</string>
     <string name="morphe_music_lyrics_copied">已複製到剪貼簿</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">如果歌詞被錯誤地過濾到底部，請調整或清除它。逗號分隔的標記：包含標記後跟冒號的行在底部顯示為製作團隊資訊。留空以停用</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">資訊列標記</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">在尋找歌詞之前，將正規表示式套用於標題、藝人和專輯。留空以停用。預設值會消除常見的混亂內容，例如「官方影片」、「重製版」和「- 主題」</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">套用於標題、演出者和專輯的正規表示式，在查詢歌詞之前以及判斷兩個標題是否相符時使用。留空可同時停用兩者。預設會移除常見的干擾內容，例如「Official Video」、「Remaster」、「【插曲】」和「- Topic」。</string>
     <string name="morphe_music_lyrics_custom_regex_title">元資料正規表示式</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">切換迷你播放器和媒體工作階段中藝人和標題的顯示順序。 ON「藝人 - 標題」和 OFF「標題 - 藝人」不影響歌詞搜索</string>
     <string name="morphe_music_lyrics_display_artist_first_title">藝人和標題的顯示順序</string>
+    <string name="morphe_music_lyrics_dual_only">雙模式</string>
     <string name="morphe_music_lyrics_enabled_summary">從第三方服務顯示歌詞，若找不到則改用內建歌詞</string>
     <string name="morphe_music_lyrics_enabled_title">使用第三方歌詞</string>
+    <string name="morphe_music_lyrics_force_capitalize_summary">將每行歌詞的首字母大寫</string>
+    <string name="morphe_music_lyrics_force_capitalize_title">首字母大寫</string>
+    <string name="morphe_music_lyrics_force_center_summary">開啟時，將每行置於中間並忽略源對齊方式（包括對唱部分）；關閉時，保持歌詞請求的對齊方式</string>
+    <string name="morphe_music_lyrics_force_center_title">始終居中顯示歌詞</string>
     <string name="morphe_music_lyrics_hide_info_summary">在歌詞畫面中隱藏來源標示</string>
     <string name="morphe_music_lyrics_hide_info_title">隱藏來源標示</string>
     <string name="morphe_music_lyrics_hide_played_summary">隱藏目前播放中那一行上方的歌詞行</string>
@@ -197,47 +191,161 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">隱藏未播放的歌詞</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">防止在歌詞面板開啟時螢幕關閉</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">檢視歌詞時保持螢幕開啟</string>
+    <string name="morphe_music_lyrics_line_scale_summary">將當前未演唱的每一行繪製得稍小一些，並在使其變暗的同時實現這一效果</string>
+    <string name="morphe_music_lyrics_line_scale_title">收縮非活動行</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">正在建立讀音 %1$s：%2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_chinese">漢語詞彙（pinyin-pro，約 17 MB）</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_cldr">希臘語、斯拉夫語西里爾字母（包括俄語、烏克蘭語、保加利亞語、塞爾維亞語、白俄羅斯語、馬其頓語）、格魯吉亞語、亞美尼亞語、希伯來語、阿拉伯語、阿姆哈拉語和敘利亞語轉寫（CLDR，約 0.5 MB）</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_empty">請至少選擇一個字典</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">下載失敗 - 關閉並重新開啟此選項以重試</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_japanese">日語（SudachiDict，約 75 MB）</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">讀音就緒 (%1$d 個條目)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_unidict">中文和粵文字符（UniDict，約 8 MB）</string>
+    <string name="morphe_music_lyrics_local_romanization_download_started">正在下載閱讀字典……</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">讀取時間同步歌詞（字級同步開啟）的每個詞；韓語無需下載；十四種腳本共用一個 CLDR 下載；當 Rime 詞表的詞表涵蓋該語言時，漢字由 Rime 詞表讀取</string>
+    <string name="morphe_music_lyrics_local_romanization_title">本機羅馬拼音與對齊</string>
+    <string name="morphe_music_lyrics_mediasession_summary">在鎖定螢幕、Android Auto 和藍牙上顯示當前行。需要 Android 11 或更新版本</string>
     <string name="morphe_music_lyrics_mediasession_title">在鎖定畫面上顯示 MediaSession 歌詞</string>
+    <string name="morphe_music_lyrics_mini_artist_max_label">最大螢幕顯示時間 (ms)</string>
+    <string name="morphe_music_lyrics_mini_artist_min_label">最小螢幕顯示時間 (ms)</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_explanation">僅適用於多行動畫。每幀至少保留最小時間。達到最大時間時，即使歌詞保持不變，也會推進藝人行。</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_invalid">最小值必須為 0 或更大。最大值必須大於 0 且至少等於最小值。</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_invalid">格式必須包含 {lrc}</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_summary">在迷你播放器和 MediaSession 中歌詞行的格式。{lrc} 為該行歌詞，{n} 為連續演唱的次數。冒號之間的文字僅在歌詞重複時顯示。使用 \\: 表示冒號</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_title">歌詞行格式</string>
+    <string name="morphe_music_lyrics_mini_instrumental_summary">在器樂間奏期間顯示在迷你播放器和 MediaSession 中。每一行即為一個動畫幀。{t} 是標題，{a} 是歌手，{lrc} 是最後一行歌詞</string>
+    <string name="morphe_music_lyrics_mini_instrumental_title">器樂間奏</string>
+    <string name="morphe_music_lyrics_mini_line_limits_artist">"歌手行數限制
+將已填充的軌道格式分割為循環幀。0 表示禁用分割。"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_invalid">請輸入 0 到 10000 之間的整數限制，以及大於 0 的字元權重</string>
+    <string name="morphe_music_lyrics_mini_line_limits_lyrics">"歌詞行限制
+將較長的歌詞拆分為平衡的兩半。0 表示停用拆分。"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_summary">歌詞與藝人行限制，以及全形字元權重</string>
+    <string name="morphe_music_lyrics_mini_line_limits_title">行長度限制</string>
+    <string name="morphe_music_lyrics_mini_line_limits_weight">"全形字元權重
+適用於兩種限制。若設為 1.75，四個全形字元將計為 7 個。"</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">調整迷你播放器與 MediaSession 中顯示下一行歌詞的時間。如果歌詞顯示較慢，例如在鎖定螢幕上，請使用負值</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_title">迷你播放器和 MediaSession 時間偏移</string>
+    <string name="morphe_music_lyrics_mini_track_format_summary">在迷你播放器和 MediaSession 中與歌詞一同顯示的曲目格式。{t} 為標題，{a} 為藝人，{v} 為版本，例如 Acoustic，若歌詞來源有提供時。兩個冒號之間的文字僅在其中所有變數均有值時顯示；若要顯示普通冒號，請輸入 \\:。每行將依次顯示，並在歌詞變更時切換</string>
+    <string name="morphe_music_lyrics_mini_track_format_title">歌曲標題/藝人格式</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">在小播放器中顯示當前行，並將歌曲移動至字幕位置</string>
     <string name="morphe_music_lyrics_miniplayer_title">顯示迷你播放器的歌詞</string>
     <string name="morphe_music_lyrics_offset_ms_summary">同步歌詞跟隨播放。如果它們漂移，請調整定時偏移。向前或向後移動同步歌詞。如果歌詞在歌曲前面，則使用正值</string>
-    <string name="morphe_music_lyrics_offset_ms_title">時間偏移</string>
+    <string name="morphe_music_lyrics_offset_ms_title">全域時間偏移</string>
+    <string name="morphe_music_lyrics_providers_keep_one">至少必須保留一個提供者</string>
     <string name="morphe_music_lyrics_refreshed">已重新整理</string>
     <string name="morphe_music_lyrics_refreshing">正在重新整理</string>
+    <string name="morphe_music_lyrics_rime_char_source_cantonese">粵文字符</string>
+    <string name="morphe_music_lyrics_rime_char_source_none">無字符發音</string>
+    <string name="morphe_music_lyrics_rime_char_source_pinyin">漢語普通話字符</string>
+    <string name="morphe_music_lyrics_rime_dict_add">新增</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">.dict.yaml 文件或包含該文件的 zip 包，行格式如 字 ham 和 典 din2。當你勾選該列表並點擊「儲存」時獲取列表，其許可證由你自行檢查</string>
+    <string name="morphe_music_lyrics_rime_dict_add_title">新增 Rime 詞表</string>
+    <string name="morphe_music_lyrics_rime_dict_added">已新增 %1$s - 勾選並點擊保存以下載</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_code">代碼必須是兩到三個字母，例如 hak</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_field">名稱和地址不能包含豎直條</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_url">地址必須以 https:// 開頭</string>
+    <string name="morphe_music_lyrics_rime_dict_building">正在生成發音詞表：%1$d%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s 已有詞表</string>
+    <string name="morphe_music_lyrics_rime_dict_empty">"Rime 詞典也需要 UniDict：在離線字典提供者中，勾選「中文及粵語字元（UniDict）」並讓它先完成下載。沒有它，讀取字元的列表將無法提供發音。
+
+勾選 Rime 詞典應該讀取的列表，然後點擊「儲存」以下載它們。當你取消勾選已添加的列表時，它會被移除。
+
+每個列表都是你自己的詞到發音的表格，是一個 .dict.yaml 文件，行格式如：
+字 ham
+典 din2
+第一列是詞，第二列是其發音；忽略額外的列和沒有製表符的行。"</string>
+    <string name="morphe_music_lyrics_rime_dict_failed">詞表下載失敗 - 再次點擊保存以重試</string>
+    <string name="morphe_music_lyrics_rime_dict_field_char_source">詞中未包含的字符</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code">語言代碼</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code_hint">兩到三個字母，例如 hak 或 wuu</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label">名稱</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label_hint">顯示在發音下方，例如 Hakka (Meixian)</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url">詞表地址</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url_hint">.dict.yaml 或其壓縮包的 https:// 地址</string>
+    <string name="morphe_music_lyrics_rime_dict_incomplete">填寫代碼、名稱和地址</string>
+    <string name="morphe_music_lyrics_rime_dict_no_table">以上語言尚未勾選任何 Rime 詞表。點擊此名稱以勾選一個詞表，或選擇擁有詞表的語言</string>
+    <string name="morphe_music_lyrics_rime_dict_ready">詞表就緒</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">詞表就緒（%1$d 項）</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s 由內建羅馬拼音處理，無法使用詞表</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved_row">未使用：此語言已有其 own 發音，因此取消勾選即可移除</string>
+    <string name="morphe_music_lyrics_rime_dict_title">Rime 詞表</string>
+    <string name="morphe_music_lyrics_romanization_provider_local">離線字典</string>
+    <string name="morphe_music_lyrics_romanization_provider_title">羅馬拼音或轉寫</string>
+    <string name="morphe_music_lyrics_romanization_target_language">"羅馬化或譯音目標語言：
+%s"</string>
     <string name="morphe_music_lyrics_romanize_failed">無法將歌詞翻譯成羅馬拼音</string>
     <string name="morphe_music_lyrics_romanize_hide">已翻譯成羅馬拼音</string>
+    <string name="morphe_music_lyrics_romanize_language_title">羅馬拼音或轉寫語言</string>
+    <string name="morphe_music_lyrics_romanize_only">僅羅馬拼音</string>
     <string name="morphe_music_lyrics_romanized_by_ai">由 %s 進行羅馬拼音翻譯</string>
     <string name="morphe_music_lyrics_romanized_by_google">由 Google 轉寫</string>
     <string name="morphe_music_lyrics_romanizing">正在翻譯成羅馬拼音…</string>
     <string name="morphe_music_lyrics_saved">已儲存</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">點擊可複製純文字歌詞；長按可將原始歌詞來源儲存到下載的歌曲</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">比對時略過 SponsorBlock 跳過的區段，讓歌詞對齊正式發行的音訊。關閉則完全忽略 SponsorBlock</string>
+    <string name="morphe_music_lyrics_sb_matching_title">使用 SponsorBlock 區段調整歌詞偏移</string>
+    <string name="morphe_music_lyrics_sb_no_video">此曲目沒有可提交的影片ID</string>
+    <string name="morphe_music_lyrics_search_artist_hint">藝人</string>
+    <string name="morphe_music_lyrics_search_dialog_title">搜尋歌詞</string>
+    <string name="morphe_music_lyrics_search_empty">請輸入歌曲標題及藝人</string>
+    <string name="morphe_music_lyrics_search_no_providers">並無已啟用的提供者可搜尋其它歌曲</string>
+    <string name="morphe_music_lyrics_search_title_hint">歌曲標題</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">點擊可複製純文字原始歌詞；長按可將原始歌詞來源檔案儲存至下載資料夾</string>
     <string name="morphe_music_lyrics_show_copy_button_title">顯示複製按鈕</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">已儲存</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">輕觸切換至下一個歌詞候選項目；長按依歌曲標題及藝人搜尋歌詞</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">顯示重新整理按鈕</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">使用提供者的羅馬拼音、Google Translate 或 OpenAI 相容 API 將歌詞翻譯成羅馬拼音。</string>
-    <string name="morphe_music_lyrics_show_romanize_button_title">顯示羅馬拼音按鈕</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">使用提供者的翻譯、Google Translate 或 OpenAI 相容 API 翻譯歌詞。</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">點擊切換羅馬拼音或轉寫；長按僅進行羅馬拼音或轉寫。按照啟用的羅馬拼音提供者的列出順序使用</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">顯示羅馬拼音或轉寫按鈕</string>
+    <string name="morphe_music_lyrics_show_section_summary">用小型標籤標示歌詞的每個新段落，例如主歌或副歌</string>
+    <string name="morphe_music_lyrics_show_section_title">顯示段落標籤</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">點擊切換翻譯；長按僅進行翻譯。按照啟用的翻譯提供者的列出順序使用</string>
     <string name="morphe_music_lyrics_show_translate_button_title">顯示翻譯按鈕</string>
-    <string name="morphe_music_lyrics_source_all_disabled">所有提供者均已停用 — 內建歌詞與嵌入歌詞</string>
+    <string name="morphe_music_lyrics_source_all_disabled">所有提供程序已停用 - 內建歌詞和嵌入式歌詞</string>
     <string name="morphe_music_lyrics_source_label">來源：%s</string>
     <string name="morphe_music_lyrics_source_reset_message">將提供者還原為預設優先順序</string>
     <string name="morphe_music_lyrics_source_reset_title">重設提供者順序？</string>
     <string name="morphe_music_lyrics_source_title">歌詞服務</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">開啟時將羅馬拼音放在歌詞下面，翻譯放在上面； 關閉時維持羅馬拼音放在上面，翻譯放在下面</string>
+    <string name="morphe_music_lyrics_split_background_summary">將背景人聲和諧聲從主唱線上分離。將用括號書寫的背景人聲（如「(Oh) I want you」）移出演唱線，進入獨立的一行並變暗</string>
+    <string name="morphe_music_lyrics_split_background_title">單獨顯示背景人聲</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">移除歌詞行末的句號、逗號、冒號和分號。問號、感嘆號、省略號、引號和括號將被保留</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_title">移除末尾標點符號</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">開啟時，羅馬拼音或轉寫位於歌詞下方，翻譯位於上方；關閉時，羅馬拼音或轉寫位於上方，翻譯位於下方。放置在每個音節上方的發音會隨之移動，從音節上方移至下方</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">交換翻譯和羅馬拼音</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">點擊一行會跳到歌曲的那個時間點</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">點擊行以尋找</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">點擊行可跳轉至歌曲中的該時刻，長按该行可複製指標下方的單字，若未位於單字上則複製整行。關閉功能將禁用這兩種手勢操作</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">輕觸並按住一行</string>
     <string name="morphe_music_lyrics_text_filter_summary">正規表示式僅套用於原始歌詞文字（不適用於翻譯或羅馬拼音）。留空以停用</string>
     <string name="morphe_music_lyrics_text_filter_title">歌詞篩選器正規表示式</string>
     <string name="morphe_music_lyrics_text_size_summary">歌詞文字的大小</string>
     <string name="morphe_music_lyrics_text_size_title">文字大小</string>
+    <string name="morphe_music_lyrics_transcribe_align">請求 QuickLRC 對齊</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">正在對齊</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">套用對齊</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">轉錄已取消</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC 無法處理此曲目</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">QuickLRC API 金鑰已清除</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC 會為無歌詞的曲目產生時間軸，或從曲目進行轉錄，這會消耗信用點數。設定金鑰後，無歌詞的曲目將提供轉錄功能，搜尋對話方塊也會增加對齊按鈕</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC 不接受該金鑰</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">QuickLRC API 金鑰已儲存</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">已儲存 QuickLRC 金鑰。在歌詞搜尋對話方塊中使用對齊按鈕，或在曲目無歌詞時使用面板提示</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC 為當前曲目转录或對齊歌詞時間軸</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">QuickLRC API 金鑰</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">僅可從 YouTube 播放的曲目才能進行轉錄</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">無歌詞可對齊 - 改為進行轉錄</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">此曲目的 QuickLRC 積分已用完</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">請求 QuickLRC 轉錄</string>
+    <string name="morphe_music_lyrics_transcribe_working">正在轉錄</string>
     <string name="morphe_music_lyrics_translate_failed">無法翻譯歌詞</string>
     <string name="morphe_music_lyrics_translate_hide">已翻譯</string>
+    <string name="morphe_music_lyrics_translate_only">僅顯示翻譯</string>
     <string name="morphe_music_lyrics_translated_by_ai">由 %s 進行翻譯</string>
     <string name="morphe_music_lyrics_translated_by_google">由 Google 翻譯</string>
     <string name="morphe_music_lyrics_translating">正在翻譯…</string>
     <string name="morphe_music_lyrics_translation_language_title">翻譯語言</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">使用自訂的 OpenAI 相容 API 進行翻譯和羅馬拼音，取代 Google 翻譯</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI 相容翻譯</string>
+    <string name="morphe_music_lyrics_translation_provider_title">翻譯</string>
+    <string name="morphe_music_lyrics_translation_target_language">"翻譯目標語言：
+%s"</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">僅在使用者提供的提供者未提供如副歌或主歌等段落標記，而由您的 OpenAI 相容模型檢測時使用。編輯此行也會打開其提示詞</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">使用 AI 檢測段落</string>
     <string name="morphe_music_lyrics_word_sync_summary">優先使用已同步歌詞而非未同步歌詞</string>
     <string name="morphe_music_lyrics_word_sync_title">強調已同步的歌詞</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">使用者Token</string>
@@ -247,6 +355,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch：已清除使用者Token</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：無效的使用者Token — 請檢查並重試</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch：已儲存使用者Token</string>
+    <string name="morphe_music_scrobbling_log_out">登出</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"貼上來自 Spotify 的 sp_dc cookie。
 
 步驟：
@@ -255,7 +364,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
 3. 複製「sp_dc」的值"</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify：sp_dc 已清除</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify：無效的 sp_dc — 請檢查後重試</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify：sp_dc 無效 — 請檢查並重試</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify：sp_dc 為選填。未提供時，將使用 Lyrically 作為替代。</string>
     <string name="morphe_music_token_dialog_get_token">取得權杖</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"貼上您的 YouTube Cookie 以從 YouTube 查詢字幕和時間文字。
@@ -273,19 +382,25 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時不可用（狀態 %d）</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時無法使用（狀態 %s）</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR 登入逾期，請再次登入 VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
     <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
     <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
+    <string name="morphe_playback_in_feeds_entry_off">關閉</string>
     <string name="morphe_replace_music_with_youtube_summary">將分享連結中的 music.youtube.com 取代為 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">自動</string>
     <string name="morphe_sanitize_sharing_links_summary">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_summary_off">未從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="morphe_sb_new_segment_choose_category">選擇片段的類別</string>
+    <string name="morphe_sb_new_segment_confirm_submit">提交</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">起始點必須在終點之前</string>
+    <string name="morphe_sb_new_segment_title">新 SponsorBlock 片段</string>
     <string name="morphe_settings_menu_copy_path">已複製：%s</string>
     <string name="morphe_settings_menu_filter_picker_empty">開啟標準應用程式設定畫面一次以填入清單</string>
     <string name="morphe_settings_menu_filter_screen_summary">依可見名稱隱藏標準應用程式設定畫面上項目</string>
@@ -293,6 +408,18 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_settings_name_custom_item_hint">輸入名稱</string>
     <string name="morphe_settings_name_empty_warning">名稱不可為空</string>
     <string name="morphe_settings_name_title">RVX 設定名稱</string>
+    <string name="morphe_settings_new_indicator_days_summary">更新後，設定和選項旁的圓點顯示天數</string>
+    <string name="morphe_settings_new_indicator_days_title">高亮顯示新設定</string>
+    <string name="morphe_settings_save">儲存</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">無聲停頓至少要足夠這個時間長度才會被縮短。會在下一段影片開始時生效。</string>
+    <string name="morphe_skip_silence_minimum_pause_title">最短無聲停頓長度</string>
+    <string name="morphe_skip_silence_summary">自動跳過影片音訊中的無聲停頓</string>
+    <string name="morphe_skip_silence_title">跳過無聲停頓</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 已多次無法執行，但 %2$s 可以執行。
+
+將 %2$s 設定為預設客戶端嗎？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切換</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">預設客戶端無法執行</string>
     <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
@@ -308,7 +435,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
 4. 輕觸「允許 YouTube VR」存取權
 5. 看到「裝置已連結」訊息後，請返回這個應用程式"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">說明</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部分使用者的播放問題
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部份使用者的播放問題
 
 如要登入，請按下下方的「繼續」按鈕"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
@@ -330,7 +457,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
 
 如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
     <string name="morphe_spoof_video_streams_title">偽裝影片串流</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題</string>
     <string name="revanced_add_miniplayer_next_button_summary">在迷你播放器中新增下一首按鈕。</string>
     <string name="revanced_add_miniplayer_next_button_title">新增迷你播放器的下一首按鈕</string>
     <string name="revanced_add_miniplayer_previous_button_summary">在迷你播放器中新增上一首按鈕。</string>
@@ -351,7 +478,6 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_change_share_sheet_summary">更改App內分享清單為系統分享清單</string>
     <string name="revanced_change_share_sheet_title">更改分享表單</string>
     <string name="revanced_change_start_page_entry_charts">圖表</string>
-    <string name="revanced_change_start_page_entry_default">預設</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">待播清單</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_history">歷史記錄</string>
@@ -467,7 +593,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝
  請到網站下載%2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 未安裝。請安裝它。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 尚未安裝。請安裝它</string>
     <string name="revanced_external_downloader_package_name_summary">已安裝的外部下載程式的套件名稱，例如 NewPipe 或 Seal</string>
     <string name="revanced_external_downloader_package_name_title">外部下載程式的套件名稱</string>
     <string name="revanced_fullscreen_ads_closed_toast">全螢幕廣告已關閉。</string>
@@ -684,9 +810,9 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube 資料 API 金鑰</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt;建立新專案&amp;p;.&lt;br&gt;2.點擊&lt;b&gt;創建&lt;/b&gt; 按鈕。&lt;br&gt;3.&lt;br&gt;轉到 &lt;a href=%2$s&gt;YouTube 資料 API v3&lt;/a&gt;.&lt;br&gt;4.點選&lt;b&gt;啟用&lt;/b&gt; 按鈕。&lt;br&gt;5.點選&lt;b&gt;建立憑證&lt;b&gt; 按鈕。 &lt;br&gt;6.選擇&lt;b&gt;公共資料&lt;/b&gt; 選項。&lt;br&gt;7.點選&lt;b&gt;下一步&lt;/b&gt; 按鈕。&lt;br&gt;8.複製 API 金鑰。&lt;br&gt;&lt;br&gt;※ API 金鑰不應與其他人共用，因此它不包含在匯入/匯出設定中。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">取得 YouTube 資料 API v3 開發人員金鑰</string>
-    <string name="revanced_ryd_attribution_summary">"資料由 Return YouTube Dislike API 提供
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike 會還原 YouTube 於 2021 年隱藏的不喜歡計數。計數來自移除前存檔的數據，而對於較新的影片，則根據用戶的投票進行估算，因此數字為近似值，且每隔幾天更新一次
 
-點擊這裡開啟 ReturnYouTubeDislike.com"</string>
+您觀看的影片 ID 會傳送至 Return YouTube Dislike API，而您的喜歡與不喜歡會以匿名方式傳送，以改善估算"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">縮小「讚」按鈕的寬度以節省空間</string>
     <string name="revanced_ryd_compact_layout_title">使用精簡的「讚」按鈕</string>
@@ -697,7 +823,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_ryd_estimated_like_summary">在創作者停用「讚」功能時，顯示預估的「讚」人數</string>
     <string name="revanced_ryd_estimated_like_title">顯示預估喜歡人數</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">無法顯示「不喜歡」數量（用戶端 API 限制）</string>
-    <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %d）</string>
+    <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %s）</string>
     <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
     <string name="revanced_ryd_failure_generic">無法顯示不喜歡人數 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">在 Return YouTube Dislike 伺服器無法使用時顯示通知</string>
@@ -706,9 +832,9 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">資料由 SponsorBlock API 提供. 點擊此處來了解更多。</string>
     <string name="revanced_sb_api_url">更改 API 網址</string>
-    <string name="revanced_sb_api_url_changed">API 網址已更改</string>
-    <string name="revanced_sb_api_url_invalid">API 網址無效</string>
-    <string name="revanced_sb_api_url_reset">API 網址重設</string>
+    <string name="revanced_sb_api_url_changed">已變更 API URL</string>
+    <string name="revanced_sb_api_url_invalid">無效的 API URL</string>
+    <string name="revanced_sb_api_url_reset">重設 API URL</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock 用於調用伺服器位置
 如果您知道自己在做什麼，否則請不要更改此設定</string>
     <string name="revanced_sb_color_changed">顏色已變更。</string>
@@ -718,25 +844,25 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_sb_diff_segments">更改片段操作</string>
     <string name="revanced_sb_enabled">啟用SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的惱人片段</string>
-    <string name="revanced_sb_segments_filler">離題片段 / 笑話</string>
+    <string name="revanced_sb_segments_filler">離題 / 笑話</string>
     <string name="revanced_sb_segments_filler_sum">與主題無關的離題搞笑片段 ，不影響理解影片內容。不包含背景說明部分。</string>
     <string name="revanced_sb_segments_hook">開場白 / 問候</string>
     <string name="revanced_sb_segments_hook_sum">即將推出的影片的旁白預告片, 問候語和告別語。不包含增加額外內容的部分。</string>
-    <string name="revanced_sb_segments_interaction">互動提醒 (訂閱)</string>
+    <string name="revanced_sb_segments_interaction">互動提醒（訂閱）</string>
     <string name="revanced_sb_segments_interaction_sum">影片中間簡短提醒觀眾來按讚、訂閱或追蹤
 如果片段較長，或是關於某個具體事物，則應分類為自我推廣</string>
-    <string name="revanced_sb_segments_intro">中場休息、介紹動畫</string>
+    <string name="revanced_sb_segments_intro">中場休息/開頭動畫</string>
     <string name="revanced_sb_segments_intro_sum">沒有實際內容的片段
 可以是靜止畫面，重複的動畫
 片段內未含有任何資訊</string>
-    <string name="revanced_sb_segments_nomusic">音樂：非音樂部分</string>
+    <string name="revanced_sb_segments_nomusic">音樂：非音樂片段</string>
     <string name="revanced_sb_segments_nomusic_sum">此功能僅供音樂影片使用。本功能僅應該用於音樂錄影帶中並未包含其他類別的段落。</string>
-    <string name="revanced_sb_segments_outro">結束卡、片尾</string>
+    <string name="revanced_sb_segments_outro">片尾資訊卡/鳴謝</string>
     <string name="revanced_sb_segments_outro_sum">鳴謝或當 YouTube 結尾資訊卡出現時
 不是含有資訊的總結</string>
-    <string name="revanced_sb_segments_preview">預告 / 回顧</string>
+    <string name="revanced_sb_segments_preview">預覽 / 回顧</string>
     <string name="revanced_sb_segments_preview_sum">顯示影片或其他系列影片中即將發生的情況或發生的情況的剪輯集合，其中所有資訊都會在其他地方重複</string>
-    <string name="revanced_sb_segments_selfpromo">無償、自我推銷</string>
+    <string name="revanced_sb_segments_selfpromo">非付費/自我推廣</string>
     <string name="revanced_sb_segments_selfpromo_sum">類似贊助商廣告，但是非付費或自我推廣
 這包括有關商品、捐贈或與他人的合作資訊</string>
     <string name="revanced_sb_segments_sponsor">贊助商廣告</string>
@@ -745,21 +871,21 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_sb_skip_automatically">自動跳過</string>
     <string name="revanced_sb_skip_automatically_once">自動跳過一次</string>
     <string name="revanced_sb_skip_ignore">停用</string>
-    <string name="revanced_sb_skipped_filler">已跳過離題片段。</string>
-    <string name="revanced_sb_skipped_hook">已跳過開場白。</string>
-    <string name="revanced_sb_skipped_interaction">已跳過煩人的提醒</string>
+    <string name="revanced_sb_skipped_filler">已跳過不相關內容</string>
+    <string name="revanced_sb_skipped_hook">已跳過掛鉤</string>
+    <string name="revanced_sb_skipped_interaction">已跳過提醒</string>
     <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
     <string name="revanced_sb_skipped_intro_end">已跳過中場休息</string>
     <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>
-    <string name="revanced_sb_skipped_nomusic">已跳過非音樂片段</string>
+    <string name="revanced_sb_skipped_nomusic">已跳過非音樂部份</string>
     <string name="revanced_sb_skipped_outro">已跳過結尾</string>
     <string name="revanced_sb_skipped_preview_beginning">已跳過預覽</string>
-    <string name="revanced_sb_skipped_preview_end">已跳過前情提要</string>
-    <string name="revanced_sb_skipped_selfpromo">已跳過自我宣傳</string>
-    <string name="revanced_sb_skipped_sponsor">已跳過贊助</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用 (狀態 %d)。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用 (API 超時)。</string>
+    <string name="revanced_sb_skipped_preview_end">已跳過回顧</string>
+    <string name="revanced_sb_skipped_selfpromo">已跳過自我推廣</string>
+    <string name="revanced_sb_skipped_sponsor">已跳過贊助商廣告</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用（狀態 %s）</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 逾時）</string>
     <string name="revanced_sb_toast_on_connection_error_sum">當 Sponsorblock 無法使用時顯示提示訊息</string>
     <string name="revanced_sb_toast_on_skip">自動跳過片段時顯示提示訊息</string>
     <string name="revanced_sb_toast_on_skip_sum">自動跳過某個片段時顯示提示訊息</string>
@@ -774,7 +900,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_settings_import_export_title">匯入 / 匯出設定</string>
     <string name="revanced_settings_import_failed">匯入失敗：%s</string>
     <string name="revanced_settings_import_reset">將 RVX 設定重設為預設值</string>
-    <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
+    <string name="revanced_settings_import_success">已匯入 %s 個設定</string>
     <string name="revanced_settings_navigate_up">向上瀏覽</string>
     <string name="revanced_settings_reset">重設</string>
     <string name="revanced_settings_reset_color">重設顏色</string>
@@ -838,5 +964,4 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_webview_toast_empty">%s 是空的。</string>
     <string name="revanced_webview_toast_no_network">請檢查您的網路連線。</string>
     <string name="revanced_webview_toast_unavailable">WebView 無法使用。</string>
-    <string name="revanced_webview_visitor_data">訪客資料</string>
 </resources>

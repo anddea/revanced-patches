@@ -1,11 +1,11 @@
 package app.morphe.patches.youtube.utils.playercontrols
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.resourceid.bottomUiContainerStub
 import app.morphe.patches.youtube.utils.resourceid.controlsLayoutStub
 import app.morphe.patches.youtube.utils.resourceid.fullScreenButton
 import app.morphe.patches.youtube.utils.resourceid.heatseekerViewstub
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -89,10 +89,26 @@ internal val motionEventFingerprint = legacyFingerprint(
     }
 )
 
-internal fun indexOfTranslationInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
+/**
+ * Up to YouTube 21.13 the "hide controls immediately" branch calls setTranslationY inline.
+ * YouTube 21.39 moved that block into a no-arg helper, so fall back to the last such call
+ */
+internal fun indexOfTranslationInstruction(method: Method): Int {
+    val translationIndex = method.indexOfFirstInstructionReversed {
         getReference<MethodReference>()?.name == "setTranslationY"
     }
+    if (translationIndex >= 0) return translationIndex
+
+    return method.indexOfFirstInstructionReversed {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference != null &&
+                reference.parameterTypes.isEmpty() &&
+                reference.returnType == "V" &&
+                !reference.definingClass.startsWith("Landroid/") &&
+                !reference.definingClass.startsWith("Ljava/")
+    }
+}
 
 internal const val PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG = 45643739L
 

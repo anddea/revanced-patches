@@ -11,6 +11,8 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.video.information
@@ -26,13 +28,14 @@ import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
 import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
 import app.morphe.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import app.morphe.patches.youtube.utils.resourceid.qualityAuto
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -126,6 +129,27 @@ internal object VideoLengthFingerprint : Fingerprint(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
+    )
+)
+
+// 21.39: an extra `iget-boolean/if-nez` guard was added before the first duration getter, and the
+// trailing `const/4` moved after a `()Z` call. Ends at the `move-result` of that call.
+internal object VideoLengthFingerprint21_39 : Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.MOVE_RESULT_WIDE,
+        Opcode.CMP_LONG,
+        Opcode.IF_LEZ,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_WIDE,
+        Opcode.GOTO,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_WIDE,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
     )
 )
 
@@ -227,7 +251,14 @@ internal val playerControllerSetTimeReferenceFingerprint = Fingerprint(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("Media progress reported outside media playback: ")
+    // 21.39: the message became "Media progress reported outside media playback: %s" (format string
+    // instead of concatenation), so the string is matched by prefix instead of exactly.
+    custom = { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<StringReference>()?.string
+                ?.startsWith("Media progress reported outside media playback: ") == true
+        } >= 0
+    }
 )
 
 internal val seekRelativeFingerprint = Fingerprint(

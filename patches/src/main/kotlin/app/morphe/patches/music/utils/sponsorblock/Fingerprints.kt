@@ -11,8 +11,8 @@ package app.morphe.patches.music.utils.sponsorblock
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
 import app.morphe.patcher.literal
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.inlineTimeBarAdBreakMarkerColor
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method

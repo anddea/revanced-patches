@@ -2,6 +2,8 @@ package app.morphe.util.fingerprint
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.Match
+import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.string
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,6 +15,8 @@ import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstruction
 import app.morphe.util.injectLiteralInstructionViewCall
+import app.morphe.util.Utils.printWarn
+import app.morphe.util.forEachInlinedFeatureFlagSite
 import com.android.tools.smali.dexlib2.AccessFlags.getAccessFlagsForMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -103,13 +107,21 @@ internal fun MutableMethod.methodCall(): String {
     return methodCall
 }
 
-context(_: BytecodePatchContext)
+/**
+ * For experimental YouTube 21.39 support:
+ * if the flag getter no longer exists (YouTube 21.39 inlines flag getters into their callers),
+ * the override is applied at every inlined call site of the flag instead.
+ * If the flag literal no longer exists anywhere in the app (A/B test removed), there is
+ * nothing to override and a warning is printed instead of failing.
+ */
+context(context: BytecodePatchContext)
+// returns whether the flag was hooked; optional missing-flag warning
 fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
     literal: Long,
-    descriptor: String
-) {
-    methodOrThrow().apply {
-        val literalIndex = indexOfFirstLiteralInstruction(literal)
+    descriptor: String,
+    warnIfMissing: Boolean = true
+): Boolean {
+    fun MutableMethod.inject(literalIndex: Int) {
         val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
         val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -131,6 +143,27 @@ fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
             smaliInstruction
         )
     }
+
+    val method = second.methodOrNull
+    if (method != null) {
+        method.inject(method.indexOfFirstLiteralInstruction(literal))
+        return true
+    }
+
+    if (context.forEachInlinedFeatureFlagSite(literal) { inject(it) } > 0) return true
+
+    var literalExists = false
+    context.classDefForEach { classDef ->
+        if (!literalExists && classDef.methods.any { it.containsLiteralInstruction(literal) }) {
+            literalExists = true
+        }
+    }
+    if (literalExists) throw first.exception
+
+    if (warnIfMissing) {
+        printWarn("${first}: feature flag $literal no longer exists in this app version. Skipping.")
+    }
+    return false
 }
 
 context(_: BytecodePatchContext)
@@ -158,7 +191,8 @@ internal fun legacyFingerprint(
         accessFlags = if (accessFlags != null) getAccessFlagsForMethod(accessFlags).toList() else null,
         returnType = returnType,
         parameters = parameters,
-        strings = strings,
+        // Patcher 2.0 compares plain strings exactly; the legacy DSL used substring matching.
+        strings = strings.orEmpty().map { string(it, StringComparisonType.CONTAINS) },
         filters = if (opcodes != null) OpcodesFilter.opcodesToFilters(*opcodes.toTypedArray()) else null,
         custom = { method, classDef ->
             if (literals != null) {

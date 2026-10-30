@@ -5,6 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.extension.Constants.SPANS_PATH
@@ -17,7 +18,6 @@ import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getFiveRegisters
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow

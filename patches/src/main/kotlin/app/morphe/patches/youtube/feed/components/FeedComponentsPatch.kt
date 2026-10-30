@@ -11,10 +11,14 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.feed.components
 
+import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH as SHARED_COMPONENTS_PATH
+import app.morphe.patches.shared.litho.context.EXTENSION_CONTEXT_INTERFACE
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -22,6 +26,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.mainactivity.onCreateMethod
@@ -47,14 +53,18 @@ import app.morphe.patches.youtube.utils.resourceid.horizontalCardList
 import app.morphe.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
+import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
+import app.morphe.patches.youtube.utils.proto.hookElement
+import app.morphe.patches.youtube.utils.navigation.addBrowseIdHook
+import app.morphe.patches.youtube.utils.navigation.addSearchResultsHook
+import app.morphe.patches.youtube.utils.navigation.browseIdHookPatch
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.findFreeRegister
+import app.morphe.util.findMutableClassOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionViewCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -65,6 +75,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private const val FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
@@ -86,13 +97,17 @@ val feedComponentsPatch = bytecodePatch(
     dependsOn(
         mainActivityResolvePatch,
         navigationBarHookPatch,
+        browseIdHookPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
+        elementProtoParserHookPatch,
         engagementPanelHookPatch,
         versionCheckPatch,
     )
     execute {
+        hookElement("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hidePageHeaderButtons([B)[B")
+
 
         // region patch for hide carousel shelf, subscriptions channel section, latest videos button
 
@@ -368,12 +383,20 @@ val feedComponentsPatch = bytecodePatch(
                         invoke-static { $byteArrayParameter }, $FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :show
+                        # The whole element is hidden, so its item is removed from the list (such as the feed).
+                        invoke-static { }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->removeParsedElementListItem()V
                         move-object v$returnEmptyComponentRegister, p1
                         goto :return_empty_component
                         :show
                         nop
                     """,
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+                )
+
+                // The conversion context parameter is reused before the filter is called.
+                addInstruction(
+                    0,
+                    "invoke-static/range { p2 .. p2 }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->setParsedElementContext($EXTENSION_CONTEXT_INTERFACE)V"
                 )
             }
         }
@@ -398,8 +421,10 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide channel tab
 
-        val channelTabBuilderMethod =
+        // 21.39: the 4-parameter tab builder no longer exists (now has 5+ params), so it is optional.
+        val channelTabBuilderMethod = runCatching {
             channelTabBuilderFingerprint.methodOrThrow()
+        }.getOrNull()
 
         channelTabRendererFingerprint.matchOrThrow().let {
             it.method.apply {
@@ -426,30 +451,91 @@ val feedComponentsPatch = bytecodePatch(
                 val iteratorRegister =
                     getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
 
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                if (channelTabBuilderMethod != null) {
+                    val targetIndex = indexOfFirstInstructionOrThrow {
+                        val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
-                    opcode == Opcode.INVOKE_INTERFACE &&
-                            reference?.returnType == channelTabBuilderMethod.returnType &&
-                            reference.parameterTypes == channelTabBuilderMethod.parameterTypes
+                        opcode == Opcode.INVOKE_INTERFACE &&
+                                reference?.returnType == channelTabBuilderMethod.returnType &&
+                                reference.parameterTypes == channelTabBuilderMethod.parameterTypes
+                    }
+
+                    val objectIndex =
+                        indexOfFirstInstructionReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
+                    val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
+                    val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
+
+                    addInstructionsWithLabels(
+                        objectIndex + 1, """
+                            invoke-static {v${objectInstruction.registerA}}, $FEED_CLASS_DESCRIPTOR->hideChannelTab(Ljava/lang/String;)Z
+                            move-result v${objectInstruction.registerA}
+                            if-eqz v${objectInstruction.registerA}, :ignore
+                            invoke-interface {v$iteratorRegister}, Ljava/util/Iterator;->remove()V
+                            goto :next_iterator
+                            :ignore
+                            iget-object v${objectInstruction.registerA}, v${objectInstruction.registerB}, $objectReference
+                            """, ExternalLabel("next_iterator", getInstruction(iteratorIndex))
+                    )
+                } else {
+                    // 21.39: the tab view builder call moved out of this method into a per-tab
+                    // handler method `handler(TabItem, int, X)V` that is invoked inside the iterator loop.
+                    // The builder signature also changed, so hook the loop call site instead.
+                    val handlerCallIndex = indexOfFirstInstructionOrThrow {
+                        val ref = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                ref?.definingClass == definingClass &&
+                                ref.returnType == "V" &&
+                                ref.parameterTypes.size == 3 &&
+                                ref.parameterTypes[1].toString() == "I"
+                    }
+                    val handlerRef = getInstruction<ReferenceInstruction>(handlerCallIndex).reference as MethodReference
+                    val handlerMethod = findMutableClassOrThrow(definingClass).methods.first { m ->
+                        m.name == handlerRef.name &&
+                                m.parameterTypes.map { p -> p.toString() } ==
+                                handlerRef.parameterTypes.map { p -> p.toString() }
+                    }
+
+                    val builderCallIndex = handlerMethod.indexOfFirstInstructionOrThrow {
+                        val ref = getReference<MethodReference>()
+                        (opcode == Opcode.INVOKE_INTERFACE || opcode == Opcode.INVOKE_INTERFACE_RANGE) &&
+                                ref?.returnType == "Landroid/view/View;" &&
+                                ref.parameterTypes.size >= 3 &&
+                                ref.parameterTypes[0].toString() == "Ljava/lang/CharSequence;" &&
+                                ref.parameterTypes[1].toString() == "Ljava/lang/CharSequence;" &&
+                                ref.parameterTypes[2].toString() == "Z"
+                    }
+                    val nameFieldIndex = handlerMethod.indexOfFirstInstructionReversedOrThrow(
+                        builderCallIndex,
+                        Opcode.IGET_OBJECT
+                    )
+                    val nameFieldRef = handlerMethod
+                        .getInstruction<ReferenceInstruction>(nameFieldIndex).reference as FieldReference
+
+                    val tabRegister = getInstruction<FiveRegisterInstruction>(handlerCallIndex).registerD
+                    val tabFieldIndex = indexOfFirstInstructionOrThrow {
+                        val ref = getReference<FieldReference>()
+                        opcode == Opcode.IGET_OBJECT &&
+                                ref?.type == nameFieldRef.definingClass &&
+                                (this as TwoRegisterInstruction).registerB == tabRegister
+                    }
+                    val tabFieldInstruction = getInstruction<TwoRegisterInstruction>(tabFieldIndex)
+                    val tabFieldReference = getInstruction<ReferenceInstruction>(tabFieldIndex).reference
+                    val scratchRegister = tabFieldInstruction.registerA
+
+                    addInstructionsWithLabels(
+                        handlerCallIndex, """
+                            iget-object v$scratchRegister, v$tabRegister, $tabFieldReference
+                            iget-object v$scratchRegister, v$scratchRegister, $nameFieldRef
+                            invoke-static {v$scratchRegister}, $FEED_CLASS_DESCRIPTOR->hideChannelTab(Ljava/lang/String;)Z
+                            move-result v$scratchRegister
+                            if-eqz v$scratchRegister, :ignore
+                            invoke-interface {v$iteratorRegister}, Ljava/util/Iterator;->remove()V
+                            goto :next_iterator
+                            :ignore
+                            nop
+                            """, ExternalLabel("next_iterator", getInstruction(iteratorIndex))
+                    )
                 }
-
-                val objectIndex =
-                    indexOfFirstInstructionReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
-                val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
-                val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
-
-                addInstructionsWithLabels(
-                    objectIndex + 1, """
-                        invoke-static {v${objectInstruction.registerA}}, $FEED_CLASS_DESCRIPTOR->hideChannelTab(Ljava/lang/String;)Z
-                        move-result v${objectInstruction.registerA}
-                        if-eqz v${objectInstruction.registerA}, :ignore
-                        invoke-interface {v$iteratorRegister}, Ljava/util/Iterator;->remove()V
-                        goto :next_iterator
-                        :ignore
-                        iget-object v${objectInstruction.registerA}, v${objectInstruction.registerB}, $objectReference
-                        """, ExternalLabel("next_iterator", getInstruction(iteratorIndex))
-                )
 
                 val addAllIndex = indexOfFirstInstructionOrThrow {
                     val ref = getReference<MethodReference>()
@@ -468,6 +554,11 @@ val feedComponentsPatch = bytecodePatch(
         // endregion
 
         addLithoFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+
+        // The community posts are not hidden on the community page of a channel.
+        addBrowseIdHook("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->setBrowseId(Ljava/lang/String;)V")
+        addSearchResultsHook("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->clearBrowseId()V")
+
         addLithoFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(AISLIST_FILTER_CLASS_DESCRIPTOR)

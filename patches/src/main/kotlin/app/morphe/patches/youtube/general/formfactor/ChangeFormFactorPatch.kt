@@ -15,6 +15,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.registersUsed
 import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.morphe.patches.shared.spoof.guide.addClientInfoHook
@@ -26,15 +29,12 @@ import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_FORM_FACTOR
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_22_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -125,7 +125,7 @@ val changeFormFactorPatch = bytecodePatch(
             "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
             "SETTINGS: CHANGE_FORM_FACTOR",
         )
-        if (is_20_31_or_greater) {
+        if (!is_20_22_or_greater) {
             preferences += "SETTINGS: TABLET_LAYOUT_IN_PLAYER"
         }
         addPreference(preferences.toTypedArray(), CHANGE_FORM_FACTOR)

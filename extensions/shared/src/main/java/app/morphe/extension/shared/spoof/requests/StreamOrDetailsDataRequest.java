@@ -2,11 +2,16 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
  * Portions of this file are modified by anddea:
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -16,6 +21,8 @@ import static app.morphe.extension.shared.spoof.js.JavaScriptEngineSupport.suppo
 import static app.morphe.extension.shared.spoof.js.JavaScriptManager.getDeobfuscatedStreamingData;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.submitOnBackgroundThread;
+
+import app.morphe.extension.shared.spoof.js.JavaScriptManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,6 +51,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.AudioConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.InlinePlaybackConfig;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayabilityStatus;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerConfig;
@@ -51,10 +59,13 @@ import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerGest
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.innertube.ReelItemWatchResponseOuterClass.ReelItemWatchResponse;
+import app.morphe.extension.shared.innertube.utils.AuthUtils;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.spoof.PreferredClientCheck;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -81,12 +92,18 @@ public class StreamOrDetailsDataRequest {
         Logger.printDebug(() -> "Available spoof clients: " + orderToUse);
     }
 
-    private static List<ClientType> buildClientOrder(List<ClientType> availableClients,
-                                                     ClientType preferredClient) {
+    // public, the Music downloader tries the clients one by one.
+    public static List<ClientType> buildClientOrder(List<ClientType> availableClients,
+                                                    ClientType preferredClient) {
         Objects.requireNonNull(preferredClient);
 
         List<ClientType> orderToUse = new ArrayList<>(availableClients.size());
         orderToUse.add(preferredClient);
+        // Wii U TV fallback (Morphe 5c6b8418).
+        // YouTube serves each TV device separately, so another one can still play when the first is cut off.
+        if (preferredClient == ClientType.TV_SABR) {
+            orderToUse.add(ClientType.TV_SABR_WII_U);
+        }
 
         for (ClientType client : availableClients) {
             if (client.requireJS && !supportsJavaScriptEngine()) {
@@ -203,7 +220,7 @@ public class StreamOrDetailsDataRequest {
     }
 
     /**
-     * Resolves a video that the app never opened, using the latest player headers.
+     * Uses headers captured during playback so a song can be downloaded without first playing it.
      * Deliberately not cached, so downloads cannot evict the streams of videos being watched.
      * <p>
      * The clients are given by the caller instead of taken from the playback order, which stays at
@@ -215,7 +232,11 @@ public class StreamOrDetailsDataRequest {
         ClientType[] clientOrder = buildClientOrder(downloadClients, preferredClient)
                 .toArray(new ClientType[0]);
         // The video details name the saved file, so the download asks for them as well.
-        return new StreamOrDetailsDataRequest(null, videoId, false, lastPlayerHeaders, clientOrder, true);
+        // The auth hook keeps the headers even if spoofing is off, but it is not used by all apps.
+        Map<String, String> headers = AuthUtils.getAuthorization().isEmpty()
+                ? lastPlayerHeaders
+                : AuthUtils.getRequestHeader();
+        return new StreamOrDetailsDataRequest(null, videoId, false, headers, clientOrder, true);
     }
 
     @Nullable
@@ -417,7 +438,9 @@ public class StreamOrDetailsDataRequest {
                 // TV SABR clients in livestreams will be temporarily fallbacked to TV DASH clients.
                 //
                 // TODO: Override other playerConfigs such as exoPlayerConfig.
-                if (!forDownload && clientType.requireSABR && clientType == ClientType.TV_SABR
+                // Include TV_SABR_WII_U (Morphe 5c6b8418).
+                if (!forDownload && clientType.requireSABR
+                        && (clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U)
                         && Utils.containsAny(streamingData.getServerAbrStreamingUrl(), "yt_live_broadcast", "yt_premiere_broadcast")) {
                     Logger.printDebug(() -> "Livestream detected, fallback to TV dash");
                     fallbackWithTVDash = true;
@@ -434,6 +457,34 @@ public class StreamOrDetailsDataRequest {
                         return null;
                     }
                     responseBuilder.setStreamingData(deobfuscatedStreamingData);
+                }
+
+                // Strip VP9 formats when Force AVC is on (Morphe bb3e3ff0).
+                // 'Force AVC' only keeps the player from using VP9, its formats are still in the stream.
+                // A default quality that only VP9 formats reach then has no format the player can use,
+                // and with SABR the video restarts at 0:01 without end, each time with a new playback nonce.
+                // HDR formats are a different codec string ('vp09.02...') and are kept.
+                // Without any AVC format nothing is removed, so the video still plays.
+                if (!forDownload && SpoofVideoStreamsPatch.getForceAVC()) {
+                    List<Format> adaptiveFormats = responseBuilder.getStreamingData().getAdaptiveFormatsList();
+                    List<Format> withoutVP9 = new ArrayList<>(adaptiveFormats.size());
+                    boolean hasAVC = false;
+                    for (Format format : adaptiveFormats) {
+                        String mimeType = format.getMimeType();
+                        if (mimeType.contains("codecs=\"vp9\"")) continue;
+
+                        if (mimeType.startsWith("video") && mimeType.contains("avc")) {
+                            hasAVC = true;
+                        }
+                        withoutVP9.add(format);
+                    }
+
+                    if (hasAVC && withoutVP9.size() < adaptiveFormats.size()) {
+                        Logger.printDebug(() -> "Removing VP9 formats, videoId: " + videoId);
+                        responseBuilder.setStreamingData(responseBuilder.getStreamingData().toBuilder()
+                                .clearAdaptiveFormats()
+                                .addAllAdaptiveFormats(withoutVP9));
+                    }
                 }
 
                 byte[] streamingDataBuffer = responseBuilder.build().toByteArray();
@@ -517,10 +568,17 @@ public class StreamOrDetailsDataRequest {
             int i = 0;
             for (ClientType clientTypeStream : clientOrderToUse) {
                 final boolean showErrorToast = ((++i == clientOrderToUse.length) || debugEnabled) && !isDownload;
+
+                if (clientTypeStream.requireJS) {
+                    JavaScriptManager.warmUpInBackground();
+                }
+
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
                 Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline, isDownload);
 
-                if (clientTypeStream == ClientType.TV_SABR && fallbackWithTVDash) {
+                // Include TV_SABR_WII_U (Morphe 5c6b8418).
+                if ((clientTypeStream == ClientType.TV_SABR || clientTypeStream == ClientType.TV_SABR_WII_U)
+                        && fallbackWithTVDash) {
                     fallbackWithTVDash = false;
                     clientTypeStream = ClientType.TV_DASH;
                     HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
@@ -530,6 +588,8 @@ public class StreamOrDetailsDataRequest {
                 if (playerResponseBuffer != null) {
                     if (!isDownload) {
                         lastSpoofedClientType = clientTypeStream;
+                        // The first attempt is with the default client.
+                        PreferredClientCheck.onStreamsFetched(videoId, i == 1, clientTypeStream);
                     }
                     return playerResponseBuffer;
                 }

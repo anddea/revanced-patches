@@ -11,96 +11,111 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import app.morphe.extension.music.patches.lyrics.requests.CharactersConverter;
-import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
 import app.morphe.extension.shared.utils.Logger;
 
 /**
  * Normalizes YouTube Music metadata into what a lyrics database expects.
  *
- * <p>All cleanup is driven by the user-configured {@link Settings#LYRICS_CUSTOM_REGEX}.
+ * <p>All cleanup is driven by the user-configured
+ * {@link LyricsFilterDefaults#LYRICS_CUSTOM_REGEX}.
  * When the regex is blank no filtering is applied.
  */
-final class MetadataCleaner {
+public final class MetadataCleaner {
 
     private static final int CONNECT_TIMEOUT_MS = 5_000;
     private static final int READ_TIMEOUT_MS = 5_000;
 
+    private static final int MAX_DOWNLOAD_CHARS = 256 * 1024;
+
+    private static final int MAX_CACHED_PATTERNS = 8;
+
     private static final ConcurrentMap<String, String> resolveCache = new ConcurrentHashMap<>();
     private static final ConcurrentMap<String, ResolveTask> pendingResolves = new ConcurrentHashMap<>();
-    private static final ExecutorService resolveExecutor = Executors.newCachedThreadPool();
+    private static final ExecutorService resolveExecutor = Executors.newFixedThreadPool(1);
+    private static final ConcurrentMap<String, Pattern> compiledPatterns = new ConcurrentHashMap<>();
+    private static final Pattern FEATURE_CREDIT_SUFFIX = Pattern.compile(
+            "\\s*(?:\\(\\s*(?:feat(?:uring)?\\.?|ft\\.?)\\s+[^)]*\\)"
+                    + "|\\[\\s*(?:feat(?:uring)?\\.?|ft\\.?)\\s+[^\\]]*\\])\\s*$",
+            Pattern.CASE_INSENSITIVE);
+
+    private static final String DASH_SEPARATOR = " - ";
+    private static final String[] ARTIST_SEPARATORS =
+            {" & ", ", ", " x ", " X ", " feat. ", " feat ", " ft. ", " ft ", " с ", " 和 ",
+                    "/", "×", " і ", " І ", " y ", " Y ", " und ", " Und ", " UND "};
+    private static final Pattern WHITESPACE = Pattern.compile("\\s+");
 
     private MetadataCleaner() {
     }
 
-    static String resolveSetting(@Nullable String value) {
-        if (value == null || value.trim().isEmpty()) {
-            return value == null ? "" : value;
+    public static String resolveSetting(@Nullable String value) {
+        SettingLookup lookup = classifySetting(value);
+        if (!lookup.remote()) {
+            return lookup.local();
         }
-
-        String trimmed = value.trim();
-        if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) {
-            return trimmed;
+        if (lookup.local() == null) {
+            pendingResolves.computeIfAbsent(lookup.trimmed(), ResolveTask::new).schedule();
+            return "";
         }
-
-        String cached = resolveCache.get(trimmed);
-        if (cached != null) {
-            return cached;
-        }
-
-        pendingResolves.computeIfAbsent(trimmed, ResolveTask::new).schedule();
-        return "";
+        return lookup.local();
     }
 
-    static String resolveSettingBlocking(@Nullable String value) {
-        if (value == null || value.trim().isEmpty()) {
-            return value == null ? "" : value;
+    public static void resolveSettingBlocking(@Nullable String value) {
+        SettingLookup lookup = classifySetting(value);
+        if (!lookup.remote()) {
+            return;
+        }
+        if (lookup.local() != null) {
+            return;
         }
 
-        String trimmed = value.trim();
-        if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) {
-            return trimmed;
-        }
-
-        String cached = resolveCache.get(trimmed);
-        if (cached != null) {
-            return cached;
-        }
-
-        ResolveTask task = pendingResolves.computeIfAbsent(trimmed, ResolveTask::new);
+        ResolveTask task = pendingResolves.computeIfAbsent(lookup.trimmed(), ResolveTask::new);
         task.schedule();
 
         task.await();
-        cached = resolveCache.get(trimmed);
+        String cached = resolveCache.get(lookup.trimmed());
         if (cached != null) {
-            return cached;
+            return;
         }
 
         try {
-            cached = download(trimmed);
-            resolveCache.put(trimmed, cached);
-            return cached;
+            cached = download(lookup.trimmed());
+            resolveCache.put(lookup.trimmed(), cached);
         } catch (Exception ex) {
-            Logger.printDebug(() -> "Failed to download setting: " + trimmed, ex);
-            return trimmed;
+            Logger.printDebug(() -> "Failed to download setting: " + lookup.trimmed(), ex);
         }
     }
 
-    static String cleanTitle(@Nullable String title) {
-        if (title == null) {
-            return "";
+    private static SettingLookup classifySetting(@Nullable String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return new SettingLookup("", false, value == null ? "" : value);
         }
-        return collapseWhitespace(applyRegex(title, resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
+
+        String trimmed = value.trim();
+        if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) {
+            return new SettingLookup(trimmed, false, trimmed);
+        }
+
+        return new SettingLookup(trimmed, true, resolveCache.get(trimmed));
+    }
+
+    static String cleanTitle(@Nullable String title) {
+        return cleanField(title == null ? null : stripFeatureCreditSuffix(title));
     }
 
     static String cleanArtist(@Nullable String artist) {
@@ -115,78 +130,158 @@ final class MetadataCleaner {
         if (separator > 0) {
             clean = clean.substring(0, separator);
         }
-        return collapseWhitespace(applyRegex(clean, resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
+        return cleanField(clean);
     }
 
-    static String cleanAlbum(@Nullable String album) {
-        if (album == null) {
+    public static String cleanAlbum(@Nullable String album) {
+        return cleanField(album);
+    }
+
+    /** Null safe regex cleanup shared by the title, artist and album fields. */
+    private static String cleanField(@Nullable String value) {
+        if (value == null) {
             return "";
         }
-        return collapseWhitespace(applyRegex(album, resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
+        return WHITESPACE.matcher(applyRegex(value, resolveSetting(LyricsFilterDefaults.LYRICS_CUSTOM_REGEX.get())))
+                .replaceAll(" ").trim();
     }
 
     static String applyRegex(String input, String regex) {
         if (regex == null || regex.trim().isEmpty()) {
             return input;
         }
+        final Pattern pattern = compiled(regex);
+        if (pattern == null) {
+            return input;
+        }
         try {
-            return CharactersConverter.normalizePreserveCase(input).replaceAll(regex, "");
+            return pattern.matcher(CharactersConverter.normalizePreserveCase(input)).replaceAll("");
         } catch (Exception ex) {
             Logger.printDebug(() -> "Failed to apply regex", ex);
             return input;
         }
     }
 
-    static String[] parseTitleAndArtist(@Nullable String rawTitle) {
-        if (rawTitle == null) {
-            return null;
+    /**
+     * Like {@link #applyRegex}, but returns the input untouched when the pattern matches nothing.
+     * Used on lyrics lines before display: normalizing an untouched line would fold its
+     * fullwidth punctuation ({@code ，！？～（）} …) to ASCII even when the filter never fired.
+     */
+    public static String applyRegexPreserveOriginal(String input, String regex) {
+        if (regex == null || regex.trim().isEmpty()) {
+            return input;
         }
-        int idx = rawTitle.indexOf(" - ");
-        if (idx <= 0 || idx >= rawTitle.length() - 3) {
-            return null;
+        final Pattern pattern = compiled(regex);
+        if (pattern == null) {
+            return input;
         }
-        String artist = cleanArtist(rawTitle.substring(0, idx).trim());
-        String title = cleanTitle(rawTitle.substring(idx + 3).trim());
-        if (artist.isEmpty() || title.isEmpty()) {
-            return null;
+        try {
+            final String normalized = CharactersConverter.normalizePreserveCase(input);
+            if (!pattern.matcher(normalized).find()) {
+                return input;
+            }
+            return pattern.matcher(normalized).replaceAll("");
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Failed to apply regex", ex);
+            return input;
         }
-        return new String[]{ artist, title };
-    }
-
-    static String[] parseCleanTitleAndArtist(@Nullable String rawTitle, @Nullable String rawArtist) {
-        String[] parsed = parseTitleAndArtist(rawTitle);
-        if (parsed != null) {
-            return parsed;
-        }
-        return new String[] { cleanArtist(rawArtist), cleanTitle(rawTitle) };
     }
 
     @Nullable
-    static TrackInfo swapTitleAndArtist(TrackInfo track, @Nullable String rawTitle) {
+    private static Pattern compiled(String regex) {
+        try {
+            Pattern pattern = compiledPatterns.get(regex);
+            if (pattern == null) {
+                pattern = Pattern.compile(regex);
+                if (compiledPatterns.size() >= MAX_CACHED_PATTERNS) {
+                    compiledPatterns.clear();
+                }
+                compiledPatterns.put(regex, pattern);
+            }
+            return pattern;
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Failed to apply regex", ex);
+            return null;
+        }
+    }
+
+    @Nullable
+    private static String[] splitDashRaw(@Nullable String rawTitle) {
         if (rawTitle == null) {
             return null;
         }
-        int idx = rawTitle.indexOf(" - ");
-        if (idx <= 0 || idx >= rawTitle.length() - 3) {
+        int idx = rawTitle.indexOf(DASH_SEPARATOR);
+        if (idx <= 0 || idx >= rawTitle.length() - DASH_SEPARATOR.length()) {
             return null;
         }
         String left = rawTitle.substring(0, idx).trim();
-        String right = rawTitle.substring(idx + 3).trim();
-        // Original split: left=artist, right=title → swapped: left=title, right=artist
-        String swappedArtist = cleanArtist(right);
-        String swappedTitle = cleanTitle(left);
-        if (swappedArtist.isEmpty() || swappedTitle.isEmpty()) {
+        String right = rawTitle.substring(idx + DASH_SEPARATOR.length()).trim();
+        if (left.isEmpty() || right.isEmpty()) {
             return null;
         }
-        TrackInfo swapped = new TrackInfo(swappedTitle, swappedArtist, track.album(),
-                track.durationSeconds());
-        return swapped.equals(track) ? null : swapped;
+        return new String[]{left, right};
+    }
+
+    public static String[] parseCleanTitleAndArtist(@Nullable String rawTitle, @Nullable String rawArtist) {
+        return new String[]{cleanArtist(rawArtist), cleanTitle(rawTitle)};
+    }
+
+    @Nullable
+    public static TrackInfo trustedDashSplit(@Nullable String rawTitle, @Nullable String rawArtist,
+                                             @Nullable String album, int durationSeconds) {
+        String[] sides = splitDashRaw(rawTitle);
+        if (sides == null || rawArtist == null || rawArtist.trim().isEmpty()) {
+            return null;
+        }
+        String left = sides[0];
+        String right = sides[1];
+        if (approxArtistEqual(left, rawArtist)) {
+            return buildSplit(cleanTitle(right), cleanArtist(left), album, durationSeconds);
+        }
+        if (approxArtistEqual(right, rawArtist)) {
+            return buildSplit(cleanTitle(left), cleanArtist(right), album, durationSeconds);
+        }
+        return null;
+    }
+
+    @Nullable
+    public static TrackInfo anyDashSplit(@Nullable String rawTitle, @Nullable String album,
+                                         int durationSeconds) {
+        String[] sides = splitDashRaw(rawTitle);
+        if (sides == null) {
+            return null;
+        }
+        return buildSplit(cleanTitle(sides[1]), cleanArtist(sides[0]), album, durationSeconds);
+    }
+
+    @Nullable
+    public static TrackInfo anyDashSplitReversed(@Nullable String rawTitle, @Nullable String album,
+                                                 int durationSeconds) {
+        String[] sides = splitDashRaw(rawTitle);
+        if (sides == null) {
+            return null;
+        }
+        return buildSplit(cleanTitle(sides[0]), cleanArtist(sides[1]), album, durationSeconds);
+    }
+
+    @Nullable
+    private static TrackInfo buildSplit(String title, String artist, String album,
+                                        int durationSeconds) {
+        if (title.isEmpty() || artist.isEmpty()) {
+            return null;
+        }
+        return new TrackInfo(title, artist, album == null ? "" : album, durationSeconds);
+    }
+
+    private static boolean approxArtistEqual(String side, String rawArtist) {
+        return LyricsRequests.containsEither(
+                LyricsRequests.normalizeForMatch(side),
+                LyricsRequests.normalizeForMatch(rawArtist));
     }
 
     private static int indexOfFirstSeparator(String artist) {
-        String[] separators = {" & ", ", ", " x ", " X ", " feat. ", " ft. ", " с ", " 和 "};
         int result = -1;
-        for (String separator : separators) {
+        for (String separator : ARTIST_SEPARATORS) {
             int index = artist.indexOf(separator);
             if (index > 0 && (result < 0 || index < result)) {
                 result = index;
@@ -195,12 +290,16 @@ final class MetadataCleaner {
         return result;
     }
 
-    static String[] splitArtists(String artist) {
-        return artist.split("\\s*(?:和|&|feat\\.?|ft\\.?|,|/)\\s*");
-    }
-
-    private static String collapseWhitespace(String value) {
-        return value.replaceAll("\\s+", " ").trim();
+    public static String[] splitArtists(String artist) {
+        String[] raw = artist.split("(?iu)\\s*(?:和|&|feat\\.?|ft\\.?|,|/|×)\\s*|\\s+(?:і|y|und)\\s+");
+        List<String> parts = new ArrayList<>();
+        for (String part : raw) {
+            String trimmed = part.trim();
+            if (!trimmed.isEmpty()) {
+                parts.add(trimmed);
+            }
+        }
+        return parts.toArray(new String[0]);
     }
 
     @NonNull
@@ -223,22 +322,36 @@ final class MetadataCleaner {
                 }
             }
 
-            StringBuilder sb = new StringBuilder(4096);
-            try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream(), charset))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    //noinspection SizeReplaceableByIsEmpty
-                    if (sb.length() > 0) {
-                        sb.append('\n');
-                    }
-                    sb.append(line);
-                }
-            }
-            return sb.toString().trim();
+            return readBody(conn, charset).toString().trim();
         } finally {
             conn.disconnect();
         }
+    }
+
+    private static StringBuilder readBody(HttpURLConnection conn, String charset) throws IOException {
+        StringBuilder sb = new StringBuilder(4096);
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream(), charset))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                //noinspection SizeReplaceableByIsEmpty
+                if (sb.length() > 0) {
+                    sb.append('\n');
+                }
+                sb.append(line);
+                if (sb.length() > MAX_DOWNLOAD_CHARS) {
+                    break;
+                }
+            }
+        }
+        return sb;
+    }
+
+    /**
+     * Splits a setting value into the value a caller returns as is and whether it is a remote
+     * URL that still has to be resolved; {@code local} holds the resolved answer in that case.
+     */
+    private record SettingLookup(String trimmed, boolean remote, @Nullable String local) {
     }
 
     private static final class ResolveTask {
@@ -267,11 +380,21 @@ final class MetadataCleaner {
 
         void await() {
             try {
-                latch.await(READ_TIMEOUT_MS + 1000, TimeUnit.MILLISECONDS);
+                boolean completed = latch.await(READ_TIMEOUT_MS + 1000, TimeUnit.MILLISECONDS);
+                if (!completed) {
+                    Logger.printDebug(() -> "Timeout waiting for resolve task: " + url);
+                }
             } catch (InterruptedException ex) {
                 Logger.printDebug(() -> "Interrupted waiting for resolve task", ex);
                 Thread.currentThread().interrupt();
             }
         }
+    }
+    static String stripFeatureCreditSuffix(String title) {
+        return FEATURE_CREDIT_SUFFIX.matcher(title).replaceFirst("");
+    }
+    static String firstArtist(String artist) {
+        int separator = indexOfFirstSeparator(artist);
+        return separator > 0 ? artist.substring(0, separator) : artist;
     }
 }

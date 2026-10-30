@@ -11,12 +11,13 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.translation.TextTranslator;
 
@@ -24,23 +25,7 @@ public final class LyricsTranslator {
 
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
 
-    public interface Callback {
-        void onTranslated(@Nullable List<String> translatedLines,
-                          boolean fromGoogle, boolean fromAI, @Nullable String aiModel);
-    }
-
     private LyricsTranslator() {
-    }
-
-    public static String deviceLanguage() {
-        return Locale.getDefault().getLanguage();
-    }
-
-    private static String translationLanguage() {
-        String language = Settings.LYRICS_TRANSLATION_LANGUAGE.get();
-        return "DEFAULT".equalsIgnoreCase(language)
-                ? deviceLanguage()
-                : language.toLowerCase(Locale.ROOT);
     }
 
     @Nullable
@@ -49,49 +34,64 @@ public final class LyricsTranslator {
         if (byLang == null || byLang.isEmpty()) {
             return null;
         }
-        String targetLang = primarySubtag(target);
+        String targetLang = LyricsRequests.primarySubtag(target);
+        final String targetScript = LyricsRequests.resolvedScript(target);
         for (Map.Entry<String, List<LyricsLine>> entry : byLang.entrySet()) {
-            if (!primarySubtag(entry.getKey()).equals(targetLang)) {
+            String key = entry.getKey();
+            if (key.startsWith(LyricsMerge.BACKGROUND_TRACK_PREFIX)) {
+                continue;
+            }
+            if (!LyricsRequests.primarySubtag(key).equals(targetLang)) {
+                continue;
+            }
+            if (!LyricsRequests.resolvedScript(key).equals(targetScript)) {
                 continue;
             }
             List<LyricsLine> lines = entry.getValue();
             if (lines == null || lines.size() != lineCount || !LyricsMerge.hasText(lines)) {
                 continue;
             }
-            List<String> out = new ArrayList<>(lines.size());
-            for (LyricsLine line : lines) {
-                String text = line.text();
-                out.add(text == null ? "" : text);
+            return embeddedTranslationLines(lyrics, lines,
+                    LyricsMerge.backgroundTrack(byLang, key));
+        }
+        return null;
+    }
+
+    /** For background lines without a translation of their own, fall back to the parent line. */
+    private static List<String> embeddedTranslationLines(Lyrics lyrics, List<LyricsLine> lines,
+                                                         @Nullable List<LyricsLine> backgroundLines) {
+        List<String> out = new ArrayList<>(lines.size());
+        for (LyricsLine line : lines) {
+            String text = line.text();
+            out.add(text == null ? "" : text);
+        }
+        List<LyricsLine> allLines = lyrics.lines();
+        final boolean fallback = LyricsMerge.hasBackgroundTrack(lyrics, lyrics.translations());
+        for (int i = 0; i < out.size() && i < allLines.size(); i++) {
+            if (!allLines.get(i).isBG()) {
+                continue;
             }
-            List<LyricsLine> allLines = lyrics.lines();
-            for (int i = 0; i < out.size() && i < allLines.size(); i++) {
-                if (allLines.get(i).isBG()) {
-                    for (int j = i - 1; j >= 0; j--) {
-                        if (!allLines.get(j).isBG() && j < out.size()) {
-                            String parentTrans = out.get(j);
-                            if (parentTrans != null && !parentTrans.isEmpty()) {
-                                out.set(i, parentTrans);
-                            }
-                            break;
-                        }
+            final String own = LyricsMerge.textAt(backgroundLines, i);
+            if (!own.isEmpty()) {
+                out.set(i, own);
+                continue;
+            }
+            if (!fallback) {
+                continue;
+            }
+            for (int j = i - 1; j >= 0; j--) {
+                if (!allLines.get(j).isBG() && j < out.size()) {
+                    String parentTrans = out.get(j);
+                    if (parentTrans != null && !parentTrans.isEmpty()) {
+                        out.set(i, parentTrans);
                     }
+                    break;
                 }
             }
             return out;
         }
         return null;
     }
-
-    private static String primarySubtag(String lang) {
-        if (lang == null) {
-            return "";
-        }
-        final int idx = lang.indexOf('-');
-        return (idx >= 0 ? lang.substring(0, idx) : lang).toLowerCase(Locale.ROOT);
-    }
-
-    private static final String SYSTEM_PROMPT =
-            "You are a translator. Output ONLY the translation. No reasoning, no explanations, no step-by-step thinking.";
 
     public static void translate(TrackInfo track, Lyrics lyrics, String source, Callback callback) {
         Utils.verifyOnMainThread();
@@ -101,122 +101,134 @@ public final class LyricsTranslator {
             lines.add(line.text());
         }
 
-        String language = translationLanguage();
+        String language = LyricsRequests.translationLanguage();
+        List<String> providers = AiProviders.enabledProviders(
+                Settings.LYRICS_TRANSLATION_PROVIDERS.get(),
+                AiProviders.TRANSLATION_ORDER);
+        if (providers.isEmpty()) {
+            callback.onTranslated(null, false, false, null);
+            return;
+        }
 
-        List<String> embedded = embeddedTranslation(lyrics, language, lines.size());
-        if (embedded != null) {
-            Utils.runOnMainThread(() -> callback.onTranslated(embedded, false, false, null));
+        final List<String> embedded = providers.contains(AiProviders.EMBEDDED)
+                ? embeddedTranslation(lyrics, language, lines.size())
+                : null;
+
+        // Embedded translation is already in memory, so keep the old synchronous result.
+        if (AiProviders.EMBEDDED.equals(providers.get(0)) && embedded != null) {
+            callback.onTranslated(embedded, false, false, null);
             return;
         }
 
         executor.execute(() -> {
-            if (Settings.LYRICS_USE_AI_TRANSLATION.get()) {
-                String baseUrl = Settings.LYRICS_AI_BASE_URL.get();
-                String apiToken = Settings.LYRICS_AI_API_TOKEN.get();
-                String model = Settings.LYRICS_AI_MODEL.get();
-
-                List<String> aiCached = LyricsCache.getTranslationAI(
-                        track, source, language, lines.size());
-                if (aiCached != null) {
-                    Utils.runOnMainThread(() -> callback.onTranslated(aiCached, false, true, model));
-                    return;
+            try {
+                for (String provider : providers) {
+                    try {
+                        ProviderTranslation result = AiProviders.EMBEDDED.equals(provider)
+                                ? (embedded == null ? null
+                                   : new ProviderTranslation(embedded, false, false, null))
+                                : translateWithProvider(
+                                provider, track, source, language, lines);
+                        if (result != null) {
+                            Utils.runOnMainThread(() -> callback.onTranslated(
+                                    result.lines(), result.fromGoogle(), result.fromAI(),
+                                    result.model()));
+                            return;
+                        }
+                    } catch (Exception ex) {
+                        Logger.printInfo(() -> "translation provider failed: " + provider, ex);
+                    }
                 }
-
-                List<String> aiResult = aiTranslate(lines, language, track.title(),
-                        track.artist(), baseUrl, apiToken, model);
-                if (aiResult != null) {
-                    LyricsCache.putTranslationAI(track, source, language, aiResult);
-                    Utils.runOnMainThread(() -> callback.onTranslated(aiResult, false, true, model));
-                    return;
-                }
+                Utils.runOnMainThread(() -> callback.onTranslated(null, false, false, null));
+            } catch (Exception ex) {
+                Logger.printInfo(() -> "translate failure", ex);
+                Utils.runOnMainThread(() -> callback.onTranslated(null, false, false, null));
             }
-
-            List<String> translated = LyricsCache.getTranslation(track, source, language, lines.size());
-            if (translated == null) {
-                translated = translateOnline(lines, language);
-                if (translated != null) {
-                    LyricsCache.putTranslation(track, source, language, translated);
-                }
-            }
-
-            List<String> result = translated;
-            Utils.runOnMainThread(() -> callback.onTranslated(result, result != null, false, null));
         });
     }
 
     @Nullable
-    private static List<String> aiTranslate(List<String> lines, String language,
-            String title, String artist, String baseUrl, String apiToken, String model) {
-        int totalChars = 0;
-        for (String line : lines) {
-            totalChars += line.length() + 1;
-        }
-        if (totalChars > OpenAIClient.getMaxChars()) {
-            return null;
-        }
-        String prompt = buildTranslatePrompt(lines, language, title, artist);
-        String response = OpenAIClient.request(baseUrl, apiToken, model,
-                prompt, SYSTEM_PROMPT);
-        if (response == null) {
-            return null;
-        }
-        String[] result = response.split("\n", -1);
-        int end = result.length;
-        while (end > 0 && result[end - 1].trim().isEmpty()) {
-            end--;
-        }
-        if (end == 0) {
-            return null;
-        }
-        boolean allSkip = true;
-        for (int i = 0; i < end; i++) {
-            result[i] = OpenAIClient.stripLineNumber(result[i]);
-            if (!result[i].trim().equalsIgnoreCase("SKIP")) {
-                allSkip = false;
+    private static ProviderTranslation translateWithProvider(
+            String provider, TrackInfo track, String source, String language,
+            List<String> lines) {
+        if (AiProviders.GOOGLE.equals(provider)) {
+            List<String> translated = LyricsCache.getTranslation(
+                    track, source, language, lines);
+            if (hasTranslation(translated, lines)) {
+                return new ProviderTranslation(sanitizeTranslation(translated), true, false, null);
             }
-        }
-        if (allSkip) {
-            return null;
-        }
-        if (end > lines.size() + 2 || end < lines.size() - 2) {
-            return null;
-        }
-        List<String> out = new ArrayList<>(lines.size());
-        for (int i = 0; i < lines.size(); i++) {
-            if (i < end) {
-                String trimmed = result[i].trim();
-                if (trimmed.equalsIgnoreCase("SKIP") || OpenAIClient.isNoteOrEmptyLine(lines.get(i))) {
-                    out.add("");
-                } else {
-                    out.add(trimmed);
-                }
-            } else {
-                out.add("");
+
+            translated = translateOnline(lines, language);
+            if (hasTranslation(translated, lines)) {
+                translated = sanitizeTranslation(translated);
+                LyricsCache.putTranslation(track, source, language, lines, translated);
+                return new ProviderTranslation(translated, true, false, null);
             }
+            return null;
         }
-        return out;
+
+        final boolean deepl = AiProviders.DEEPL.equals(provider);
+        if (!deepl && !AiProviders.isAi(provider)) {
+            return null;
+        }
+
+        List<String> aiCached = LyricsCache.getTranslationAI(
+                track, source, language, lines, provider);
+        if (hasTranslation(aiCached, lines)) {
+            // The cache key includes the model that produced it; DeepL has no model.
+            return new ProviderTranslation(sanitizeTranslation(aiCached), false, true,
+                    deepl ? "DeepL" : Settings.LYRICS_AI_MODEL.get());
+        }
+
+        AiProviders.Result ai = deepl
+                ? deepLTranslate(lines, language)
+                : AiProviders.mapLines(provider, OpenAIClient.renderPrompt(
+                Settings.LYRICS_AI_TRANSLATION_PROMPT.get(), "translation",
+                language, track.title(), track.artist(), lines), lines);
+        if (ai == null || ai.lines() == null || ai.lines().isEmpty()
+                || !hasTranslation(ai.lines(), lines)) {
+            return null;
+        }
+
+        List<String> translated = sanitizeTranslation(ai.lines());
+        LyricsCache.putTranslationAI(track, source, language, lines, translated, provider);
+        return new ProviderTranslation(translated, false, true, ai.model());
     }
 
-    private static String buildTranslatePrompt(List<String> lines, String targetLang,
-            String title, String artist) {
-        StringBuilder sb = new StringBuilder(200 + lines.size() * 50);
-        sb.append("You are a professional lyrics translator. Translate each line below to ")
-                .append(targetLang).append(", preserving the emotional tone and poetic style of the original.\n");
-        sb.append("Song: ").append(title).append(" by ").append(artist).append("\n\n");
-        sb.append("Output format: Number every translated line, like:\n");
-        sb.append("1. first translation\n");
-        sb.append("2. second translation\n\n");
-        sb.append("CRITICAL RULES:\n");
-        sb.append("- Output exactly ").append(lines.size()).append(" numbered lines (same as input count)\n");
-        sb.append("- Number format: \"N. translated text\" (number, period, space, text)\n");
-        sb.append("- Do NOT include the original lyrics in your output\n");
-        sb.append("- Do NOT use \"Line N:\" format\n");
-        sb.append("- If the lyrics are already in ").append(targetLang)
-                .append(", output one \"SKIP\" per line\n\n");
+    private static List<String> sanitizeTranslation(List<String> lines) {
+        List<String> clean = new ArrayList<>(lines.size());
         for (String line : lines) {
-            sb.append(line).append("\n");
+            clean.add(line == null ? "" : line);
         }
-        return sb.toString();
+        return clean;
+    }
+
+    /** A translation is usable if at least one line differs from the source. */
+    private static boolean hasTranslation(@Nullable List<String> translated,
+                                          List<String> source) {
+        if (translated == null || translated.size() != source.size()) {
+            return false;
+        }
+        for (int i = 0; i < translated.size(); i++) {
+            String text = translated.get(i);
+            if (text != null) {
+                text = text.trim();
+                if (!text.isEmpty() && !text.equals(source.get(i).trim())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Nullable
+    private static AiProviders.Result deepLTranslate(List<String> lines, String language) {
+        String apiKey = Settings.LYRICS_DEEPL_API_KEY.get();
+        if (apiKey.isEmpty()) {
+            return null;
+        }
+        List<String> translated = DeepLClient.translate(lines, language, apiKey);
+        return translated == null ? null : new AiProviders.Result(translated, "DeepL");
     }
 
     @Nullable
@@ -229,5 +241,14 @@ public final class LyricsTranslator {
                         throw new RuntimeException(ex);
                     }
                 });
+    }
+
+    public interface Callback {
+        void onTranslated(@Nullable List<String> translatedLines,
+                          boolean fromGoogle, boolean fromAI, @Nullable String aiModel);
+    }
+
+    private record ProviderTranslation(List<String> lines, boolean fromGoogle,
+                                       boolean fromAI, @Nullable String model) {
     }
 }

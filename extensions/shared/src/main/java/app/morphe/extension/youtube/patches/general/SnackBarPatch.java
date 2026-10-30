@@ -39,6 +39,14 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.extension.youtube.patches.general;
 
 import android.content.Context;
@@ -70,8 +78,23 @@ public final class SnackBarPatch {
     private static int blackColor = 0;
     private static int whiteColor = 0;
 
-    public static boolean hideSnackBar() {
-        return HIDE_SNACK_BAR;
+    /**
+     * Injection point.
+     */
+    public static boolean hideSnackbar(boolean skipDisplay) {
+        return skipDisplay || Settings.HIDE_SNACK_BAR.get();
+    }
+
+    /**
+     * Keeps the separate server-side option without skipping the container's callbacks.
+     * YouTube can overwrite the layout parameters set during snackbar construction.
+     */
+    public static void hideSnackBar(View view) {
+        if (view == null || !HIDE_SERVER_SIDE_SNACK_BAR) return;
+        int tagKey = ResourceUtils.getDrawableIdentifier("snackbar_rounded_corners_background");
+        if (tagKey != 0 && Boolean.TRUE.equals(view.getTag(tagKey))) {
+            Utils.hideViewByLayoutParams(view);
+        }
     }
 
     public static void hideLithoSnackBar(FrameLayout frameLayout) {

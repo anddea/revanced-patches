@@ -44,6 +44,7 @@ package app.morphe.patches.music.general.spoofappversion
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION_FOR_LYRICS
@@ -66,7 +67,6 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.appendAppVersion
 import app.morphe.util.copyResources
 import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

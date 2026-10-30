@@ -62,6 +62,7 @@ import app.morphe.extension.music.settings.ActivityHook;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.settings.BaseActivityHook;
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.preference.NewSettingsIndicator;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.Logger;
@@ -92,6 +93,8 @@ public class YouTubeMusicPreferenceFragment extends ToolbarPreferenceFragment {
             Utils.sortPreferenceGroups(preferenceScreen);
             setPreferenceScreenToolbar(preferenceScreen);
             installPreferenceIntentHandlers(preferenceScreen);
+
+            NewSettingsIndicator.markNewPreferences(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -247,7 +250,7 @@ public class YouTubeMusicPreferenceFragment extends ToolbarPreferenceFragment {
             settingImportInProgress = true;
             final boolean restartNeeded = Setting.importFromJSON(activity, replacementSettings);
             if (restartNeeded) {
-                showRestartDialog(activity);
+                setRestartNeeded();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "importSettings failure", ex);

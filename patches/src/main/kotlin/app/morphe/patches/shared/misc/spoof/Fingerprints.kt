@@ -6,6 +6,8 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.shared.misc.spoof
@@ -170,21 +172,26 @@ internal object PlayerConfigBuilderFingerprint : Fingerprint(
     )
 )
 
+// YouTube 21.39 inserted a String parameter after the position (Uri, J, String, I, [B, ...)
+// and renamed the fields. Both shapes are accepted.
+private val BUILD_MEDIA_DATA_SOURCE_PARAMETERS_LEGACY = listOf(
+    "Landroid/net/Uri;", "J", "I", "[B", "Ljava/util/Map;",
+    "J", "J", "Ljava/lang/String;", "I", "Ljava/lang/Object;",
+)
+
+private val BUILD_MEDIA_DATA_SOURCE_PARAMETERS_21_39 = listOf(
+    "Landroid/net/Uri;", "J", "Ljava/lang/String;", "I", "[B", "Ljava/util/Map;",
+    "J", "J", "Ljava/lang/String;", "I", "Ljava/lang/Object;",
+)
+
 internal object BuildMediaDataSourceFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     returnType = "V",
-    parameters = listOf(
-        "Landroid/net/Uri;",
-        "J",
-        "I",
-        "[B",
-        "Ljava/util/Map;",
-        "J",
-        "J",
-        "Ljava/lang/String;",
-        "I",
-        "Ljava/lang/Object;",
-    )
+    custom = { method, _ ->
+        val types = method.parameterTypes.map { it.toString() }
+        types == BUILD_MEDIA_DATA_SOURCE_PARAMETERS_LEGACY ||
+                types == BUILD_MEDIA_DATA_SOURCE_PARAMETERS_21_39
+    }
 )
 
 internal object HlsCurrentTimeFingerprint : Fingerprint(
@@ -210,7 +217,12 @@ internal object NerdsStatsVideoFormatBuilderFingerprint : Fingerprint(
     parameters = listOf("L"),
     filters = listOf(
         string("codecs=\"")
-    )
+    ),
+    // YouTube 21.39: a codec-parsing helper (String -> String) also contains "codecs=\""
+    // and matches the generic "L" parameter. The target takes a format object, not a String.
+    custom = { method, _ ->
+        method.parameterTypes.firstOrNull()?.toString() != "Ljava/lang/String;"
+    }
 )
 
 val accountIdentityFingerprint = Fingerprint(

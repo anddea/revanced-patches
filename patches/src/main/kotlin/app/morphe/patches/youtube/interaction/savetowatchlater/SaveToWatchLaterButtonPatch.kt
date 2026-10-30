@@ -36,6 +36,7 @@ private val saveToWatchLaterButtonResourcePatch = resourcePatch {
             arrayOf(
                 "PREFERENCE_SCREEN: PLAYER",
                 "PREFERENCE_SCREENS: PLAYER_BUTTONS",
+                "PREFERENCE_SCREENS: FLYOUT_MENU",
                 "SETTINGS: SAVE_TO_WATCH_LATER",
             ),
             SAVE_TO_WATCH_LATER,

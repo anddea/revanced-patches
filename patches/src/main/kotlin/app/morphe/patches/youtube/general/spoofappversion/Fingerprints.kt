@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.general.spoofappversion
@@ -14,13 +16,15 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal object ShortsBoldIconsPrimaryFeatureFlagFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -43,11 +47,33 @@ internal object ShortsBoldIconsSecondaryFeatureFlagFingerprint : Fingerprint(
 internal object AuthenticationChangeListenerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
-    strings = listOf("Authentication changed while request was being made"),
     custom = { method, _ ->
-        indexOfMessageLiteBuilderReference(method) >= 0
+        indexOfMessageLiteBuilderReference(method) >= 0 &&
+                (hasAuthenticationChangedString(method) ||
+                        isAuthenticationChangeListenerWithoutString(method))
     },
 )
+
+// string-less detection used by YouTube 21.39+.
+private fun isAuthenticationChangeListenerWithoutString(method: Method) =
+    method.parameterTypes.size == 1 &&
+            method.indexOfFirstInstruction {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type ==
+                        "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$InnerTubeContext;"
+            } >= 0 &&
+            method.indexOfFirstInstruction {
+                getReference<MethodReference>()?.let {
+                    it.definingClass == "Ljava/util/Set;" && it.name == "iterator"
+                } == true
+            } >= 0 &&
+            indexOfMessageLiteBuilderReference(method) >= 0
+
+private fun hasAuthenticationChangedString(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<StringReference>()?.string == "Authentication changed while request was being made"
+    } >= 0
+
 
 internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "L") =
     method.indexOfFirstInstruction {

@@ -4,6 +4,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.player.seekbar
@@ -19,6 +21,7 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarLiveSeekAbleRange
@@ -27,7 +30,6 @@ import app.morphe.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.morphe.patches.youtube.utils.resourceid.ytTextSecondary
 import app.morphe.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -256,6 +258,28 @@ internal object TimelineMarkerArrayFingerprint : Fingerprint(
 internal object FullscreenLargeSeekbarFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
         literal(45691569)
+    )
+)
+
+// 21.39: the flag (45691569) was removed. The rounded fullscreen seekbar is driven by a boolean
+// field on the seekbar state class, written by this method (state == FULLSCREEN && !flag).
+// Used to resolve that field reference. Matches ofv.L()V in YouTube 21.39.525 only.
+internal object FullscreenLargeSeekbarStateWriterFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.SGET_OBJECT,
+        Opcode.CONST_4,
+        Opcode.IF_NE,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.CONST_4,
+        Opcode.IGET_OBJECT,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.RETURN_VOID,
     )
 )
 

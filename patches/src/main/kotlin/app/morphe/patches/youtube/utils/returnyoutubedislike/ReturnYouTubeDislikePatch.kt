@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-13.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -46,6 +47,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.textcomponent.hookTextComponent
 import app.morphe.patches.shared.textcomponent.textComponentPatch
@@ -66,11 +70,9 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.player.action.restoreOldVideoActionBarPatch
-import app.morphe.util.findFreeRegister
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.Opcode
@@ -185,20 +187,25 @@ private val returnYouTubeDislikeRollingNumberPatch = bytecodePatch(
                 .methodOrThrow(rollingNumberTextViewFingerprint)
         ).forEach { method ->
             method.apply {
-                val setTextIndex = indexOfFirstInstructionOrThrow {
+                // YouTube 21.39 added a two-line branch with its own setText before the bitmap
+                // ImageSpan setText, so hooking only the first call left the regular path showing
+                // YouTube's bitmap of the raw text (separator placeholder visible).
+                // Hook every setText, in reverse order so earlier indices stay valid.
+                findInstructionIndicesReversedOrThrow {
                     getReference<MethodReference>()?.name == "setText"
-                }
-                val textViewRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-                val textSpanRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+                }.forEach { setTextIndex ->
+                    val textViewRegister =
+                        getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                    val textSpanRegister =
+                        getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
 
-                addInstructions(
-                    setTextIndex, """
-                        invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_RYD_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$textSpanRegister
-                        """
-                )
+                    addInstructions(
+                        setTextIndex, """
+                            invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_RYD_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-result-object v$textSpanRegister
+                            """
+                    )
+                }
             }
         }
     }
