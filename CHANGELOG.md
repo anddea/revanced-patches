@@ -1,3 +1,20 @@
+# [4.4.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.3...v4.4.0-dev.4) (2026-10-30)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player buttons:** Hiding fullscreen overlay button in the video player left an empty gap ([36732b2](https://github.com/anddea/revanced-patches/commit/36732b27a2eb7c63c311bb85dcd64c36f252b3b5))
+* **YouTube - Hook download actions:** Use YouTube-style icons and check marks in the offline library and player ([#1889](https://github.com/anddea/revanced-patches/issues/1889)) ([a29768f](https://github.com/anddea/revanced-patches/commit/a29768f1cc8b268e4d7977f5829befc77fddc056))
+* **YouTube Music - Third-party lyrics:** Normalize LRCLIB title and artist metadata ([#1888](https://github.com/anddea/revanced-patches/issues/1888)) ([6862b24](https://github.com/anddea/revanced-patches/commit/6862b24554ff3fc2196aa893c2d7c4c751741304))
+* **YouTube Music:** Last played music state lost after app termination ([8595c10](https://github.com/anddea/revanced-patches/commit/8595c105ad851157ec6325ad44fdbb47b1d26e7b))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add "Navigation bar style" setting ([221112a](https://github.com/anddea/revanced-patches/commit/221112a2cb5c4754ac5f3930118eb91bcabd009c))
+* **YouTube:** Add `Download post images` patch ([5d75658](https://github.com/anddea/revanced-patches/commit/5d756583cabd88d2c8a6a49c58130f6a801b77d7))
+* **YouTube:** Add `Search comments` patch ([30cc24f](https://github.com/anddea/revanced-patches/commit/30cc24f6d48b9d4320bb7cd3900062b759d3a1bf))
+
 # [4.4.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.2...v4.4.0-dev.3) (2026-10-22)
 
 

@@ -39,6 +39,7 @@
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 21.39.525 ~ 20.05.46 |
 | `Disable scrolling speed limit` | Adds an option to remove limits of how fast the home and subscription feed can be scrolled. | 21.39.525 ~ 20.05.46 |
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 21.39.525 ~ 20.05.46 |
+| `Download post images` | Adds a button and a menu item to download the images and GIFs of posts. | 21.39.525 ~ 20.05.46 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 21.39.525 ~ 20.05.46 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 21.39.525 ~ 20.05.46 |
 | `Feed video actions` | Adds a Watch later button to video thumbnails in feeds, and opens the video menu by tapping and holding anywhere on a video. | 21.39.525 ~ 20.05.46 |
@@ -80,6 +81,7 @@
 | `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 21.39.525 ~ 20.05.46 |
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 21.39.525 ~ 20.05.46 |
 | `Save to Watch later` | Adds options to save videos to Watch later from the video player or feed flyout menu. | 21.39.525 ~ 20.05.46 |
+| `Search comments` | Adds a button to the comments to show only the loaded comments that contain the searched words. | 21.39.525 ~ 20.05.46 |
 | `Seekbar components` | Adds options to hide or change components related to the seekbar. | 21.39.525 ~ 20.05.46 |
 | `Set transcript cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 21.39.525 ~ 20.05.46 |
 | `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 21.39.525 ~ 20.05.46 |
