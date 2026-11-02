@@ -474,6 +474,19 @@
     <!-- PREFERENCE_SCREEN: PLAYER
     <PreferenceScreen android:title="@string/revanced_preference_screen_player_title" android:key="revanced_preference_screen_player">PREFERENCE_SCREEN: PLAYER -->
 
+        <!-- SETTINGS: TRANSLATE_LIVE_CHAT
+        <PreferenceScreen android:key="morphe_live_chat_translate_screen" android:title="@string/morphe_live_chat_translate_screen_title" android:summary="@string/morphe_live_chat_translate_screen_summary">
+            <SwitchPreference android:key="morphe_live_chat_translate" android:title="@string/morphe_live_chat_translate_title" android:summary="@string/morphe_live_chat_translate_summary" />
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:key="morphe_live_chat_translate_language" android:title="@string/morphe_live_chat_translate_language_title" android:entries="@array/morphe_post_translate_language_entries" android:entryValues="@array/morphe_post_translate_language_entry_values" android:dependency="morphe_live_chat_translate" />
+            <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:key="morphe_live_chat_translate_exclude" android:title="@string/morphe_live_chat_translate_exclude_title" android:summary="@string/morphe_live_chat_translate_exclude_summary" android:inputType="text" android:dependency="morphe_live_chat_translate" />
+            <SwitchPreference android:key="morphe_live_chat_translate_copy_button" android:title="@string/morphe_live_chat_translate_copy_button_title" android:summary="@string/morphe_live_chat_translate_copy_button_summary" android:dependency="morphe_live_chat_translate" />
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:key="morphe_live_chat_translate_style" android:title="@string/morphe_live_chat_translate_style_title" android:entries="@array/morphe_live_chat_translate_style_entries" android:entryValues="@array/morphe_live_chat_translate_style_entry_values" android:dependency="morphe_live_chat_translate" />
+            <SwitchPreference android:key="morphe_live_chat_translate_bold" android:title="@string/morphe_live_chat_translate_bold_title" android:summary="@string/morphe_live_chat_translate_bold_summary" android:dependency="morphe_live_chat_translate" />
+            <SwitchPreference android:key="morphe_live_chat_translate_use_color" android:title="@string/morphe_live_chat_translate_use_color_title" android:summary="@string/morphe_live_chat_translate_use_color_summary" android:dependency="morphe_live_chat_translate" />
+            <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:key="morphe_live_chat_translate_color" android:title="@string/morphe_live_chat_translate_color_title" android:summary="@string/morphe_live_chat_translate_color_summary" android:inputType="textCapCharacters" android:dependency="morphe_live_chat_translate" />
+            <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_live_chat_translate_max_length" android:title="@string/morphe_live_chat_translate_max_length_title" android:summary="@string/morphe_live_chat_translate_max_length_summary" android:dependency="morphe_live_chat_translate" />
+        </PreferenceScreen>SETTINGS: TRANSLATE_LIVE_CHAT -->
+
         <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
         <PreferenceScreen android:title="@string/revanced_preference_screen_player_buttons_title" android:key="revanced_preference_screen_player_buttons" android:summary="@string/revanced_preference_screen_player_buttons_summary">PREFERENCE_SCREENS: PLAYER_BUTTONS -->
 

@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    TRANSLATE_LIVE_CHAT(
+        "Translate live chat",
+        "Adds an option to translate live chat and live chat replay messages."
+    ),
     UNLOCK_QUEUE(
         "Unlock queue",
         "Adds an option to unlock YouTube’s video queue."

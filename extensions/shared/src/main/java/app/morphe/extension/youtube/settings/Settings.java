@@ -41,6 +41,8 @@ import app.morphe.extension.shared.patches.AutoCaptionsPatch.AutoCaptionsStyle;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.HideAudioFlyoutMenuAvailability;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
+import app.morphe.extension.shared.utils.StringRef;
+import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationStyle;
 import app.morphe.extension.shared.settings.EnumSetting;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
 import app.morphe.extension.youtube.patches.PlaybackBufferPatch.PlaybackBufferSize;
@@ -98,6 +100,18 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    // Live chat translation
+    public static final int LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT = 500;
+    public static final BooleanSetting LIVE_CHAT_TRANSLATE = new BooleanSetting("morphe_live_chat_translate", FALSE);
+    public static final StringSetting LIVE_CHAT_TRANSLATE_LANGUAGE = new StringSetting("morphe_live_chat_translate_language", "default", parent(LIVE_CHAT_TRANSLATE));
+    public static final StringSetting LIVE_CHAT_TRANSLATE_EXCLUDE = new StringSetting("morphe_live_chat_translate_exclude", "", parent(LIVE_CHAT_TRANSLATE));
+    public static final BooleanSetting LIVE_CHAT_TRANSLATE_COPY_BUTTON = new BooleanSetting("morphe_live_chat_translate_copy_button", FALSE, parent(LIVE_CHAT_TRANSLATE));
+    public static final EnumSetting<TranslationStyle> LIVE_CHAT_TRANSLATE_STYLE = new EnumSetting<>("morphe_live_chat_translate_style", TranslationStyle.ORIGINAL_AND_TRANSLATED, parent(LIVE_CHAT_TRANSLATE));
+    public static final BooleanSetting LIVE_CHAT_TRANSLATE_BOLD = new BooleanSetting("morphe_live_chat_translate_bold", FALSE, parent(LIVE_CHAT_TRANSLATE));
+    public static final BooleanSetting LIVE_CHAT_TRANSLATE_USE_COLOR = new BooleanSetting("morphe_live_chat_translate_use_color", TRUE, parent(LIVE_CHAT_TRANSLATE));
+    public static final StringSetting LIVE_CHAT_TRANSLATE_COLOR = new StringSetting("morphe_live_chat_translate_color", "#38BDF8", parentsAll(LIVE_CHAT_TRANSLATE, LIVE_CHAT_TRANSLATE_USE_COLOR));
+    public static final IntegerSetting LIVE_CHAT_TRANSLATE_MAX_LENGTH = new IntegerSetting("morphe_live_chat_translate_max_length", LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT, parent(LIVE_CHAT_TRANSLATE));
+
     public static final EnumSetting<PlaybackBufferSize> PLAYBACK_BUFFER_SIZE = new EnumSetting<>(
             "morphe_playback_buffer_size", PlaybackBufferSize.DEFAULT, true);
     public static final BooleanSetting RESTORE_ORIGINAL_TITLES = new BooleanSetting("morphe_restore_original_titles", FALSE, true);
@@ -1228,6 +1242,9 @@ public class Settings extends SharedYouTubeSettings {
             };
 
     static {
+        SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(LIVE_CHAT_TRANSLATE_MAX_LENGTH,
+                20, LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT, 20, "", 1,
+                StringRef.sfc("morphe_live_chat_translate_max_length_no_limit")));
         // region Migration initialized
 
         if (DEPRECATED_DISABLE_TRANSLUCENT_NAVIGATION_BAR.get()) {
