@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    UNLOCK_QUEUE(
+        "Unlock queue",
+        "Adds an option to unlock YouTube’s video queue."
+    ),
     SKIP_SILENCE(
         "Skip silence",
         "Adds an option to automatically skip silent pauses in audio playback."
