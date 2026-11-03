@@ -1,3 +1,13 @@
+# [4.4.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.4...v4.4.0-dev.5) (2026-11-03)
+
+
+### Features
+
+* **YouTube - Copy text:** Add option to select text of descriptions and posts ([9ecb6b9](https://github.com/anddea/revanced-patches/commit/9ecb6b970b71d14b2f9e4737d7a7d8ce091fc602))
+* **YouTube - Navigation bar components:** Add `Watch later` option for `Navigation bar items` setting ([b1151a0](https://github.com/anddea/revanced-patches/commit/b1151a0616f669d294df5cc2bbfc3daf73653a09))
+* **YouTube:** Add `Translate live chat` patch ([fd06c13](https://github.com/anddea/revanced-patches/commit/fd06c13ee62d58d95d552b569e85dd7bce5da232))
+* **YouTube:** Add `Unlock queue` patch ([6fb6e5c](https://github.com/anddea/revanced-patches/commit/6fb6e5ceaea2f0287d48e6819151c2b7dc33d8cb))
+
 # [4.4.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.3...v4.4.0-dev.4) (2026-10-30)
 
 

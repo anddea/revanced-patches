@@ -18,11 +18,12 @@
 | `App refresh rate` | Adds an option to change the app refresh rate. | 21.39.525 ~ 20.05.46 |
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 21.39.525 ~ 20.05.46 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 21.39.525 ~ 20.05.46 |
+| `Captions` | Adds options to disable captions from being automatically enabled, select a preferred and a secondary caption language, add more auto-translate languages, and show captions in stable blocks. | 21.39.525 ~ 20.05.46 |
 | `Change form factor` | Adds an option to change the UI appearance to a phone, tablet, or automotive device. | 21.39.525 ~ 20.05.46 |
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 21.39.525 ~ 20.05.46 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 21.39.525 ~ 20.05.46 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 21.39.525 ~ 20.05.46 |
-| `Copy text` | Adds options to copy the video title and comments by tapping and holding them. | 21.39.525 ~ 20.05.46 |
+| `Copy text` | Adds options to copy the video title and comments, and to select text of video descriptions and posts, by tapping and holding them. | 21.39.525 ~ 20.05.46 |
 | `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 21.39.525 ~ 20.05.46 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 21.39.525 ~ 20.05.46 |
 | `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 21.39.525 ~ 20.05.46 |
@@ -96,7 +97,9 @@
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 21.39.525 ~ 20.05.46 |
 | `Theme` | Adds options to change the app's themes and splash screen style. | 21.39.525 ~ 20.05.46 |
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 21.39.525 ~ 20.05.46 |
+| `Translate live chat` | Adds an option to translate live chat and live chat replay messages. | 21.39.525 ~ 20.05.46 |
 | `Translations for YouTube` | Add translations or remove string resources. | 21.39.525 ~ 20.05.46 |
+| `Unlock queue` | Adds an option to unlock YouTube’s video queue. | 21.39.525 ~ 20.05.46 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 21.39.525 ~ 20.05.46 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 21.39.525 ~ 20.05.46 |
 | `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 21.39.525 ~ 20.05.46 |
@@ -149,7 +152,7 @@
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 9.40.51 ~ 8.12.54 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 9.40.51 ~ 8.12.54 |
 | `Theme` | Changes the app's dark theme to the values specified in patch options. | 9.40.51 ~ 8.12.54 |
-| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel. | 9.40.51 ~ 9.15.51 |
+| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 19+ providers in the lyrics panel. | 9.40.51 ~ 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 9.40.51 ~ 8.12.54 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 9.40.51 ~ 8.12.54 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 9.40.51 ~ 8.12.54 |

@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-dev.4",
+  "version": "4.4.0-dev.5",
   "patches": [
     {
       "name": "Ambient mode control",
@@ -116,6 +116,29 @@
       "dependencies": [
         "BytecodePatch",
         "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Captions",
+      "description": "Adds options to disable captions from being automatically enabled, select a preferred and a secondary caption language, add more auto-translate languages, and show captions in stable blocks.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -286,7 +309,7 @@
     },
     {
       "name": "Copy text",
-      "description": "Adds options to copy the video title and comments by tapping and holding them.",
+      "description": "Adds options to copy the video title and comments, and to select text of video descriptions and posts, by tapping and holding them.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
@@ -1405,6 +1428,7 @@
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
         "ResourcePatch"
@@ -1998,7 +2022,8 @@
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
@@ -2018,7 +2043,8 @@
       "dependencies": [
         "BytecodePatch",
         "ResourcePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2320,7 +2346,6 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
-        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -2853,6 +2878,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -2878,6 +2904,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -3065,7 +3092,7 @@
     },
     {
       "name": "Third-party lyrics",
-      "description": "Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel.",
+      "description": "Adds an option to show synced lyrics with experience enhancement from 19+ providers in the lyrics panel.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
@@ -3122,6 +3149,26 @@
           "8.30.54",
           "8.28.54",
           "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Translate live chat",
+      "description": "Adds an option to translate live chat and live chat replay messages.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
         ]
       },
       "options": []
@@ -3217,6 +3264,26 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Unlock queue",
+      "description": "Adds an option to unlock YouTube’s video queue.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Video playback",
