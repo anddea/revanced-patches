@@ -63,20 +63,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
 import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.shared.settings.BooleanSetting;
+import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
+import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 
 /**
- * Displays the known YouTube navigation items in a drag-and-drop order editor.
+ * Displays the known YouTube navigation items in a drag-and-drop order and visibility editor.
+ * Modified by Codex, 2026-11-03: stage visibility changes alongside the order.
  *
  * <p>The setting is saved only when the dialog's OK button is pressed. Optional items are shown
  * as well, so one saved order can be reused when YouTube changes the active layout.</p>
@@ -84,7 +91,19 @@ import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 @SuppressWarnings({"unused", "deprecation"})
 public class NavigationBarOrderPreference extends Preference {
 
-    private static final List<NavigationButton> DEFAULT_ORDER = List.copyOf(NavigationBar.getDefaultNavigationButtonOrder());
+    private static final boolean SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER = PackageUtils.isVersionOrGreater("20.05.00");
+    private static final List<NavigationButton> DEFAULT_ORDER = getEditorButtons();
+
+    /** Older targets support the native hide flags, but not extra renderers or reordering. */
+    private static List<NavigationButton> getEditorButtons() {
+        List<NavigationButton> buttons = new ArrayList<>(NavigationBar.getDefaultNavigationButtonOrder());
+        if (!SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER) {
+            buttons.remove(NavigationButton.SEARCH);
+            buttons.remove(NavigationButton.SETTINGS);
+            buttons.remove(NavigationButton.WATCH_LATER);
+        }
+        return List.copyOf(buttons);
+    }
 
     public NavigationBarOrderPreference(Context context, AttributeSet attrs,
                                         int defStyleAttr, int defStyleRes) {
@@ -117,9 +136,11 @@ public class NavigationBarOrderPreference extends Preference {
     public void updateSummary() {
         List<NavigationButton> order = getCurrentOrder();
         StringBuilder summary = new StringBuilder();
+        PendingVisibility visibility = new PendingVisibility();
         for (NavigationButton button : order) {
+            if (!visibility.isEnabled(button)) continue;
             if (summary.length() > 0) {
-                summary.append(" → ");
+                summary.append(SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER ? " → " : ", ");
             }
             summary.append(getLabel(button));
         }
@@ -134,12 +155,20 @@ public class NavigationBarOrderPreference extends Preference {
     private void showOrderDialog() {
         Context context = getContext();
         List<NavigationButton> pendingOrder = getCurrentOrder();
-        NavigationButtonAdapter adapter = new NavigationButtonAdapter(context, pendingOrder);
+        PendingVisibility pendingVisibility = new PendingVisibility();
+        NavigationButtonAdapter adapter = new NavigationButtonAdapter(context, pendingOrder, pendingVisibility);
 
         ListView listView = getListView(context, adapter);
 
         LinearLayout content = new LinearLayout(context);
         content.setOrientation(LinearLayout.VERTICAL);
+        TextView instructions = new TextView(context);
+        instructions.setText(str(SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER
+                ? "revanced_navigation_bar_order_instructions"
+                : "revanced_navigation_bar_visibility_instructions"));
+        instructions.setTextColor(BaseThemeUtils.getAppForegroundColor());
+        instructions.setPadding(Utils.dipToPixels(8), 0, Utils.dipToPixels(8), Utils.dipToPixels(12));
+        content.addView(instructions);
         content.addView(listView, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 Utils.dipToPixels(440)));
@@ -151,7 +180,12 @@ public class NavigationBarOrderPreference extends Preference {
                 null,
                 null,
                 () -> {
-                    Settings.NAVIGATION_BAR_ORDER.save(serializeOrder(pendingOrder));
+                    boolean changed = pendingVisibility.save();
+                    String order = SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER
+                            ? serializeOrder(pendingOrder) : Settings.NAVIGATION_BAR_ORDER.get();
+                    changed |= !order.equals(Settings.NAVIGATION_BAR_ORDER.get());
+                    Settings.NAVIGATION_BAR_ORDER.save(order);
+                    if (changed) AbstractPreferenceFragment.setRestartNeeded();
                     updateSummary();
                 },
                 null,
@@ -159,6 +193,7 @@ public class NavigationBarOrderPreference extends Preference {
                 () -> {
                     pendingOrder.clear();
                     pendingOrder.addAll(DEFAULT_ORDER);
+                    pendingVisibility.reset();
                     adapter.notifyDataSetChanged();
                 },
                 false
@@ -176,6 +211,7 @@ public class NavigationBarOrderPreference extends Preference {
     private static ListView getListView(Context context, NavigationButtonAdapter adapter) {
         ListView listView = new ListView(context);
         listView.setAdapter(adapter);
+        if (!SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER) return listView;
         listView.setOnDragListener((view, event) -> {
             switch (event.getAction()) {
                 case android.view.DragEvent.ACTION_DRAG_STARTED:
@@ -197,6 +233,7 @@ public class NavigationBarOrderPreference extends Preference {
     }
 
     private static List<NavigationButton> getCurrentOrder() {
+        if (!SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER) return new ArrayList<>(DEFAULT_ORDER);
         String serializedOrder = Settings.NAVIGATION_BAR_ORDER.get();
         List<NavigationButton> order = new ArrayList<>();
         Set<NavigationButton> seenButtons = new HashSet<>();
@@ -243,17 +280,99 @@ public class NavigationBarOrderPreference extends Preference {
     }
 
     private static String getLabel(NavigationButton button) {
-        return str("revanced_change_start_page_entry_" + button.name().toLowerCase(Locale.ROOT));
+        return button == NavigationButton.WATCH_LATER
+                ? str("morphe_watch_later_navigation_label")
+                : str("revanced_change_start_page_entry_" + button.name().toLowerCase(Locale.ROOT));
+    }
+
+    /** Settings controlled by this editor rather than individual switch preferences. */
+    static boolean isVisibilitySetting(Setting<?> setting) {
+        if (setting == Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON) return true;
+        for (NavigationButton button : DEFAULT_ORDER) {
+            if (setting == PendingVisibility.settingFor(button)) return true;
+        }
+        return false;
+    }
+
+    /**
+     * Stages visibility edits until OK. Existing setting keys remain compatible with imports.
+     * Create and Notifications are alternate layouts of the same native navigation slot.
+     */
+    static final class PendingVisibility {
+        private final Map<BooleanSetting, Boolean> values = new LinkedHashMap<>();
+
+        PendingVisibility() {
+            for (NavigationButton button : DEFAULT_ORDER) {
+                BooleanSetting setting = settingFor(button);
+                values.put(setting, setting.get());
+            }
+            BooleanSetting swap = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON;
+            values.put(swap, swap.get());
+        }
+
+        private static BooleanSetting settingFor(NavigationButton button) {
+            return switch (button) {
+                case HOME -> Settings.HIDE_NAVIGATION_HOME_BUTTON;
+                case SHORTS -> Settings.HIDE_NAVIGATION_SHORTS_BUTTON;
+                case CREATE -> Settings.HIDE_NAVIGATION_CREATE_BUTTON;
+                case SUBSCRIPTIONS -> Settings.HIDE_NAVIGATION_SUBSCRIPTIONS_BUTTON;
+                case NOTIFICATIONS -> Settings.HIDE_NAVIGATION_NOTIFICATIONS_BUTTON;
+                case LIBRARY -> Settings.HIDE_NAVIGATION_LIBRARY_BUTTON;
+                case EXPLORE -> Settings.HIDE_NAVIGATION_EXPLORE_BUTTON;
+                case SEARCH -> Settings.SHOW_SEARCH_BUTTON;
+                case SETTINGS -> Settings.SHOW_SETTINGS_BUTTON;
+                case WATCH_LATER -> Settings.SHOW_WATCH_LATER_BUTTON;
+            };
+        }
+
+        private static boolean isShowSetting(NavigationButton button) {
+            return button == NavigationButton.SEARCH || button == NavigationButton.SETTINGS
+                    || button == NavigationButton.WATCH_LATER;
+        }
+
+        boolean isEnabled(NavigationButton button) {
+            boolean swapped = values.get(Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON);
+            if ((button == NavigationButton.CREATE && swapped)
+                    || (button == NavigationButton.NOTIFICATIONS && !swapped)) return false;
+            boolean value = values.get(settingFor(button));
+            return isShowSetting(button) ? value : !value;
+        }
+
+        void toggle(NavigationButton button) {
+            boolean enabled = !isEnabled(button);
+            values.put(settingFor(button), isShowSetting(button) ? enabled : !enabled);
+            if (enabled && (button == NavigationButton.CREATE || button == NavigationButton.NOTIFICATIONS)) {
+                values.put(Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON,
+                        button == NavigationButton.NOTIFICATIONS);
+            }
+        }
+
+        void reset() {
+            values.replaceAll((setting, value) -> setting.defaultValue);
+        }
+
+        boolean save() {
+            boolean changed = false;
+            for (var entry : values.entrySet()) {
+                if (!entry.getValue().equals(entry.getKey().get())) {
+                    entry.getKey().save(entry.getValue());
+                    changed = true;
+                }
+            }
+            return changed;
+        }
     }
 
     private static final class NavigationButtonAdapter extends BaseAdapter {
         private final Context context;
         private final List<NavigationButton> buttons;
         private final int foregroundColor;
+        private final PendingVisibility visibility;
 
-        private NavigationButtonAdapter(Context context, List<NavigationButton> buttons) {
+        private NavigationButtonAdapter(Context context, List<NavigationButton> buttons, PendingVisibility visibility) {
             this.context = context;
             this.buttons = buttons;
+            this.visibility = visibility;
             this.foregroundColor = BaseThemeUtils.getAppForegroundColor();
         }
 
@@ -282,11 +401,21 @@ public class NavigationBarOrderPreference extends Preference {
             row.setPadding(Utils.dipToPixels(8), 0, Utils.dipToPixels(8), 0);
 
             TextView label = new TextView(context);
-            label.setText(getLabel(button));
+            boolean enabled = visibility.isEnabled(button);
+            label.setText((enabled ? "✓  " : "    ") + getLabel(button));
+            label.setAlpha(enabled ? 1.0f : 0.45f);
+            row.setContentDescription(str(enabled ? "revanced_navigation_bar_order_hide"
+                    : "revanced_navigation_bar_order_show", getLabel(button)));
+            row.setOnClickListener(view -> {
+                visibility.toggle(button);
+                notifyDataSetChanged();
+            });
             label.setTextColor(foregroundColor);
             label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
             row.addView(label, new LinearLayout.LayoutParams(
                     0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+
+            if (!SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER) return row;
 
             TextView handle = new TextView(context);
             handle.setText("═");

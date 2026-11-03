@@ -391,6 +391,10 @@ public final class NavigationBar {
          * Only shown when 'Show Settings' is turned on.
          */
         SETTINGS("SETTINGS", "SETTINGS_CAIRO"),
+        /**
+         * Only shown when 'Show Watch later' is turned on.
+         */
+        WATCH_LATER("WATCH_LATER", "WATCH_LATER_FILLED", "WATCH_LATER_CAIRO"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when
@@ -469,7 +473,8 @@ public final class NavigationBar {
                 NavigationButton.LIBRARY,
                 NavigationButton.EXPLORE,
                 NavigationButton.SEARCH,
-                NavigationButton.SETTINGS
+                NavigationButton.SETTINGS,
+                NavigationButton.WATCH_LATER
         );
     }
 }

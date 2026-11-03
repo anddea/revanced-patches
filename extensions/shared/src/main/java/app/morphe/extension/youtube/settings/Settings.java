@@ -431,6 +431,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting NAVIGATION_BAR_ANIMATIONS = new BooleanSetting("revanced_navigation_bar_animations", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting SHOW_SETTINGS_BUTTON = new BooleanSetting("revanced_show_settings_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting SHOW_SETTINGS_BUTTON_TYPE = new BooleanSetting("revanced_show_settings_button_type", FALSE, true, parent(SHOW_SETTINGS_BUTTON));
+    public static final BooleanSetting SHOW_WATCH_LATER_BUTTON = new BooleanSetting("morphe_show_watch_later_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
+    public static final BooleanSetting HIDE_NAVIGATION_EXPLORE_BUTTON = new BooleanSetting("revanced_hide_navigation_explore_button", FALSE, true);
     public static final BooleanSetting SHOW_SEARCH_BUTTON = new BooleanSetting("revanced_show_search_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     /**
      * Comma-separated navigation item names in the order selected by the user. An empty value

@@ -62,6 +62,13 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
                 return;
             }
 
+            // Visibility settings are edited inside the navigation order dialog, without switches.
+            if (NavigationBarOrderPreference.isVisibilitySetting(setting)) {
+                updateUIAvailability();
+                Preference orderPreference = findPreference(Settings.NAVIGATION_BAR_ORDER.key);
+                if (orderPreference instanceof NavigationBarOrderPreference order) order.updateSummary();
+            }
+
             Preference mPreference = findPreference(str);
             if (mPreference == null) {
                 return;

@@ -11,6 +11,7 @@ message Icon {
 
 enum YTIconType {
     UNKNOWN = 0;
+    WATCH_LATER = 3;
     SEARCH = 60;
     FAB_CAMERA = 141;
     VIDEO_CAMERA = 295;

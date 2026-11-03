@@ -59,6 +59,8 @@ import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.string
+import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType.COLOR
 import app.morphe.patches.shared.mapping.getResourceId
@@ -296,4 +298,19 @@ internal object AutoHideNavigationBarFingerprint : Fingerprint(
         methodCall("Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;"),
         methodCall("Landroid/view/ViewConfiguration;->getScaledTouchSlop()I", location = MatchAfterWithin(5))
     )
+)
+
+internal object WatchLaterIconEnumFingerprint : Fingerprint(
+    classFingerprint = ImageEnumConstructorFingerprint,
+    filters = listOf(
+        string("WATCH_LATER"),
+        opcode(Opcode.SPUT_OBJECT, location = MatchAfterWithin(5))
+    )
+)
+
+internal object WatchLaterPivotBarItemBuilderFingerprint : Fingerprint(
+    definingClass = "$GENERAL_PATH/NavigationButtonsPatch;",
+    name = "buildWatchLaterPivotBarItem",
+    returnType = "Ljava/lang/Object;",
+    parameters = listOf("[B")
 )
