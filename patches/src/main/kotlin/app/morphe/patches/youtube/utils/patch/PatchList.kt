@@ -68,7 +68,7 @@ internal enum class PatchList(
     ),
     COPY_TEXT(
         "Copy text",
-        "Adds options to copy the video title and comments by tapping and holding them."
+        "Adds options to copy the video title and comments, and to select text of video descriptions and posts, by tapping and holding them."
     ),
     CUSTOM_SHORTS_ACTION_BUTTONS(
         "Custom Shorts action buttons",
