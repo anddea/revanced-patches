@@ -274,6 +274,11 @@ internal enum class PatchList(
         "Sanitize sharing links",
         "Adds an option to sanitize sharing links by removing tracking query parameters."
     ),
+    WATCH_LATER_IMPROVEMENTS(
+        "Watch later improvements",
+        "Adds options to widen the drag handles of the Watch later videos " +
+                "and to hide the snackbar shown after removing a video."
+    ),
     SAVE_TO_WATCH_LATER(
         "Save to Watch later",
         "Adds options to save videos to Watch later from the video player or feed flyout menu."

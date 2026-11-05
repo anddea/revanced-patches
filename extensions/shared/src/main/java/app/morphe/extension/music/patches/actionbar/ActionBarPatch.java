@@ -142,7 +142,7 @@ public class ActionBarPatch {
                 return false;
             }
             String videoId = VideoInformation.getVideoId();
-            if (videoId == null || videoId.isEmpty()) return false;
+            if (videoId.isEmpty()) return false;
             return playerDownloadOnClick(videoId);
         } catch (Exception ex) {
             Logger.printException(() -> "inAppDownloadButtonOnClick failed", ex);
@@ -162,12 +162,10 @@ public class ActionBarPatch {
             if (!EXTERNAL_DOWNLOADER_ACTION_BUTTON) {
                 return false;
             }
-            Utils.verifyOnMainThread();
-
             long now = System.currentTimeMillis();
             if (now - lastMainPlayerDownloadTime < IGNORE_DOUBLE_CLICK_DURATION_MS) return true;
             lastMainPlayerDownloadTime = now;
-            VideoUtils.launchExternalDownloader(videoId);
+            Utils.runOnMainThreadNowOrLater(() -> VideoUtils.launchExternalDownloader(videoId));
             return true;
         } catch (Exception ex) {
             Logger.printException(() -> "offlineVideoEndpointOnClick failure", ex);

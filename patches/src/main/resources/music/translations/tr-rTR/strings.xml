@@ -133,6 +133,8 @@ Adımlar:
     <string name="morphe_music_downloads_already_saved">Zaten indirildi</string>
     <string name="morphe_music_downloads_complete">İndirme tamamlandı</string>
     <string name="morphe_music_downloads_failed">İndirme başarısız oldu</string>
+    <string name="morphe_music_downloads_mark_summary">Zaten indirilmiş olan şarkılar; çalma listelerinde, albümlerde ve arama sonuçlarında detaylarından önce bir işaretle gösterilir</string>
+    <string name="morphe_music_downloads_mark_title">İndirilen şarkıları işaretle</string>
     <string name="morphe_music_downloads_notification_channel">Ses indirmeleri</string>
     <string name="morphe_music_downloads_progress">İndiriliyor: %s%%</string>
     <string name="morphe_music_downloads_sort">Sırala</string>
@@ -161,7 +163,7 @@ Adımlar:
     <string name="morphe_music_lyrics_ai_config_model_label">Model</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">İstem</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Bağlandı! (%2$s)</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Bağlantı başarısız. Ayarları kontrol edin</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s: Bağlantı başarısız oldu. Ayarları kontrol edin</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">Ayarlar eksik veya sağlayıcı tarafından reddedildi</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Temel URL http:// veya https:// ile başlamalıdır</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Bağlantı doğrulanıyor…</string>
@@ -174,8 +176,8 @@ Adımlar:
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">İstem kaydedildi</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Şarkı sözü kaynağından Latin olmayan okumalara izin ver; kapalıyken yalnızca Latin harflerini, aksanlı harfleri ve ses tonu rakamlarını koru</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Transliterasyonu etkinleştir</string>
-    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB temizlendi</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Bu cihazda saklanan %1$s MB şarkı sözlerini sil</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%s MB temizlendi</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Bu cihazda saklanan %s MB şarkı sözlerini sil</string>
     <string name="morphe_music_lyrics_clear_cache_title">Saklanan şarkı sözlerini temizle</string>
     <string name="morphe_music_lyrics_contribute_credit">Bu LRC\'yi kaydetmek için kopyala düğmesine uzun basın; zamanlamaları ince ayarlayabilir ve topluluk sağlayıcılarıyla paylaşabilirseniz minnettar oluruz</string>
     <string name="morphe_music_lyrics_copied">Panoya kopyalandı</string>
@@ -186,6 +188,10 @@ Adımlar:
     <string name="morphe_music_lyrics_display_artist_first_summary">Mini oynatıcı ve MediaSession\'daki Sanatçı ve Başlık görüntüleme sırasını değiştirir. AÇIK: \"Sanatçı - Başlık\" ve KAPALI: \"Başlık - Sanatçı\" Şarkı sözü aramasını etkilemez</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Sanatçı ve Başlık görüntüleme sırası</string>
     <string name="morphe_music_lyrics_dual_only">Çift mod</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">Oynatma sırasında arka planı hareket ettir ve YouTube Music\'in mikrofon izni varsa müziğe göre daraltıp genişlet. Daha az pil tüketen sabit bir arka plan için kapatın</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">Dinamik arka planı hareketlendir</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">Şarkı sözlerinin arkasında albüm kapağından oluşturulmuş bulanık bir arka plan göster</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">Dinamik arka plan</string>
     <string name="morphe_music_lyrics_enabled_summary">Üçüncü taraf bir servisten şarkı sözleri gösterir, bulunamadığında yerleşik şarkı sözlerine geri döner</string>
     <string name="morphe_music_lyrics_enabled_title">Üçüncü taraf şarkı sözlerini kullan</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Her şarkı sözü satırının ilk harfini büyük yapar</string>
@@ -202,12 +208,12 @@ Adımlar:
     <string name="morphe_music_lyrics_keep_screen_on_title">Şarkı sözlerini görüntülerken ekranı açık tut</string>
     <string name="morphe_music_lyrics_line_scale_summary">Şu an söylenmeyen her satırı biraz daha küçük çizer, üstüne karartma efekti uygular</string>
     <string name="morphe_music_lyrics_line_scale_title">Etkin olmayan satırları küçült</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">Okuma %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Okuma %1$s: %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Çince kelimeler (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Yunan, Slav Kiril alfabesi (Rusça, Ukraynaca, Bulgarca, Sırpça, Beyaz Rusça, Makedonca dahil), Gürcü, Ermeni, İbranice, Arapça, Amharca ve Süryanice transkripsiyon (CLDR, ~0.5 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">İndirme başarısız oldu - yeniden denemek için bunu kapatıp tekrar açın</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japonca (SudachiDict, ~75 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">Okumalar hazır (%1$d kayıt)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Okumalar hazır (%s kayıt)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">Çince ve Kantonca karakterler (UniDict, ~8 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">Okuma sözlükleri indiriliyor…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Zamanlanmış şarkı sözünün her kelimesini okur (kelime senkronizasyonu açık); Korece için indirme gerekmez; on dört yazı sistemi tek bir CLDR indirmesini paylaşır; Han karakterleri Rime Kelime Listesi tarafından, kelime tablosu dili kapsadığında okunur</string>
@@ -249,12 +255,12 @@ Her iki sınır için de geçerlidir. 1,75 değerinde, dört tam genişlikteki k
     <string name="morphe_music_lyrics_rime_dict_add">Ekle</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">字 ham ve 典 din2 gibi satırları içeren bir .dict.yaml dosyası veya bunu içeren bir zip. Liste, onu işaretlediğinizde ve Kaydet\'e tıkladığınızda çekilir ve lisansın kontrolünü sağlamak size kalmıştır</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Rime Kelime Listesi ekle</string>
-    <string name="morphe_music_lyrics_rime_dict_added">%1$s eklendi - indirmek için işaretleyin ve Kaydet\'e dokunun</string>
+    <string name="morphe_music_lyrics_rime_dict_added">%s eklendi - indirmek için işaretleyin ve Kaydet\'e dokunun</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">Kod hak örneğindeki gibi iki veya üç harfli olmalıdır</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">İsim ve adres, dikey çizgi içeremez</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">Adres https:// ile başlamalıdır</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Kelime listesi okunuyor: %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s için zaten bir kelime tablosu var</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Kelime listesi okunuyor: %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%s zaten bir kelime tablosuna sahip</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"Rime Kelime Listesi için de UniDict gerekir: Çevrimdışı Sözlük sağlayıcısında \"Çince ve Kantonca karakterler (UniDict)\" kutucuğunu işaretleyin ve indirmenin bitmesini bekleyin. Bu olmadan, karakterleri okuyan bir liste hiçbir ses vermez
 
 Rime Kelime Listesi'nin okuması gereken listeleri işaretleyin, sonra onlar için indirmek üzere Kaydet'e dokunun. Eklendiğiniz bir liste, işaretini kaldırdığınızda kaldırılır
@@ -274,8 +280,8 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_lyrics_rime_dict_incomplete">Kod, ad ve adresi doldurun</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">Yukarıdaki dil için seçilmiş hiç Rime kelime listesi yok. Bir tane seçmek için bu isme dokunun veya listesi olan başka bir dil seçin</string>
     <string name="morphe_music_lyrics_rime_dict_ready">Kelime listeleri hazır</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">Kelime listeleri hazır (%1$d girdi)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s yerleşik romanizer tarafından okunur ve kelime listesi alamaz</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Kelime listeleri hazır (%s kayıt)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%s yerleşik romanizer tarafından okunur ve kelime listesi alamaz</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Kullanılmıyor: Bu dilin zaten kendi okuması var, kaldırılması için işaretini kaldırın</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime Kelime Listesi</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Çevrimdışı Sözlük</string>
@@ -289,6 +295,11 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_lyrics_romanized_by_ai">Romanize eden: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Okunuşu sağlayan: Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanize ediliyor...</string>
+    <string name="morphe_music_lyrics_ruby_generating">Rubi oluşturuluyor…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">Rubi</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">Rubi düzeni</string>
     <string name="morphe_music_lyrics_saved">Kaydedildi</string>
     <string name="morphe_music_lyrics_sb_matching_summary">SponsorBlock\'un atladığı bölümler olmadan eşleştir ve şarkı sözlerini yayınlanan sese kaydır. Kapalı, SponsorBlock\'u tamamen yok sayar</string>
     <string name="morphe_music_lyrics_sb_matching_title">Şarkı sözü zamanlama farkı için SponsorBlock bölümlerini kullan</string>
@@ -304,6 +315,8 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_lyrics_show_refresh_button_title">Yenile düğmesini göster</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Romanizasyonu veya transliterasyonu açıp kapatmak için dokunun; yalnızca romanizasyon veya transliterasyon yapmak için uzun basın. Etkin romanizasyon sağlayıcılarını sıralarına göre kullanır</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Romanize veya Transliterate et düğmesini göster</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">Şarkı sözlerinin üzerinde rubi okunuşlarını açıp kapatmak için dokunun, hiragana ve katakana arasında geçiş yapmak için basılı tutun. Etkin rubi sağlayıcılarını listelendikleri sırada kullanır</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">Rubi düğmesini göster</string>
     <string name="morphe_music_lyrics_show_section_summary">Şarkı sözlerinin her yeni bölümünü Verse veya Chorus gibi küçük bir etiketle işaretleyin</string>
     <string name="morphe_music_lyrics_show_section_title">Bölüm etiketlerini göster</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Çeviriyi açıp kapatmak için dokunun; yalnızca çeviri görmek için uzun basın. Etkin çeviri sağlayıcılarını sıralarına göre kullanır</string>
@@ -317,7 +330,7 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_lyrics_split_background_title">Arka plan vokallerini ayrı göster</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Şarkı sözü satırlarının sonundaki noktaları, virgülleri, iki noktaları ve noktalı virgülleri kaldırır. Soru işaretleri, ünlem işaretleri, üç noktalar, tırnaklar ve parantezler korunur</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Sondaki noktalama işaretlerini kaldır</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">AÇIK romanizasyonu veya transkripsiyonu şarkı sözlerinin altına, çeviriyi üzerine koyar; KAPALI romanizasyonu veya transkripsiyonu üste, çeviriyi alta bırakır. Her heceye yerleştirilen bir okuma, o hecenin üzerinden altına doğru hareket eder</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Şarkı sözlerinin altındaki çeviri ve romanizasyonun görüntüleme sırasını değiştirir</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Çeviri ve okunuşun yerini değiştir</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Şarkıdaki o ana atlamak için bir satıra dokunun, parmağınızın altındaki kelimeyi veya parmağınız bir satırda değilse bütün satırı kopyalamak için basılı tutun. Kapatmak her iki hareketi devre dışı bırakır</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Satıra dokun ve basılı tut</string>

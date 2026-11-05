@@ -27,13 +27,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     // Also set the client order on Application init (Morphe a60a3b6).
     applicationInitFingerprint = applicationInitHook.fingerprint,
-    fixMediaFetchHotConfig = {
-        is_19_34_or_greater
-    },
-    fixMediaFetchHotConfigAlternative = {
-        // In 20.14 the flag was merged with 19.50 start playback flag.
-        is_20_10_or_greater && !is_20_14_or_greater
-    },
     fixParsePlaybackResponseFeatureFlag = {
         is_19_50_or_greater
     },

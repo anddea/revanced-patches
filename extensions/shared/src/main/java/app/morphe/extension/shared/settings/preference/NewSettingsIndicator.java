@@ -52,7 +52,7 @@ public final class NewSettingsIndicator {
     private static final int DOT_COLOR = 0xFF1DA1F2;
 
     // Give users time to notice the highlight before it starts fading.
-    private static final long FADE_DELAY_MILLIS = 2000;
+    private static final long FADE_DELAY_MILLIS = 1000;
     private static final long FADE_DURATION_MILLIS = 600;
 
     private static final SharedPreferences preferences =

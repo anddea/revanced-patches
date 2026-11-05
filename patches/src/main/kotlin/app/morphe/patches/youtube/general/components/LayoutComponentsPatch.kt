@@ -13,6 +13,9 @@
 
 package app.morphe.patches.youtube.general.components
 
+import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
+import app.morphe.patches.youtube.utils.proto.hookElement
+
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -31,7 +34,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_21_26_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -70,6 +73,7 @@ val layoutComponentsPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        elementProtoParserHookPatch,
         lithoFilterPatch,
         lithoLayoutPatch,
         sharedResourceIdPatch,
@@ -78,6 +82,8 @@ val layoutComponentsPatch = bytecodePatch(
     )
 
     execute {
+        // Removes hidden post-button data before layout so the remaining buttons use its space.
+        hookElement("$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->setPostButtons([B)[B")
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: GENERAL",
@@ -257,8 +263,8 @@ val layoutComponentsPatch = bytecodePatch(
         // https://github.com/MorpheApp/morphe-patches/issues/3453
         // The flag is read by different layouts, and each must use the same value,
         // otherwise other panels such as the comments show the bottom padding twice.
-        // Flag was removed in 21.26+.
-        if (is_21_11_or_greater && !is_21_26_or_greater) {
+        // Flag was removed in 21.25+.
+        if (is_21_11_or_greater && !is_21_25_or_greater) {
             EngagementPanelEdgeToEdgeFeatureFlagFingerprint.matchAll().forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,

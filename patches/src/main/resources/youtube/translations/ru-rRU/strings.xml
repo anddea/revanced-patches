@@ -158,9 +158,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Каналы в черном списке</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Включить фильтр для загрузки каналов</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Загрузка каналов…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Главная: %s
-• Поиск: %s
-• Всего: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Главная: %1$s
+• Поиск: %2$s
+• Всего: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Каналы в списке предупреждений</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Список предупреждений: умеренная уверенность</string>
     <string name="morphe_hide_auto_dubbed_label_title">Скрыть надпись \"Автоматически озвучено\"</string>
@@ -189,6 +189,14 @@
 Чтобы отобразить меню аудио дорожек, измените «Поддельные видео потоки» на любой клиент, кроме «Android Studio» и «Android VR Downgraded»"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Скрыть меню «В пути»</string>
     <string name="morphe_hide_podcasts_menu_title">Скрыть меню «Подкасты»</string>
+    <string name="morphe_hide_post_comment_button_title">Скрыть кнопку \"Комментарии\"</string>
+    <string name="morphe_hide_post_comments_preview_summary">Скрывает предпросмотр комментариев под публикациями</string>
+    <string name="morphe_hide_post_comments_preview_title">Скрыть предпросмотр комментариев</string>
+    <string name="morphe_hide_post_dislike_button_summary">При принудительном расположении место под кнопку сохраняется</string>
+    <string name="morphe_hide_post_dislike_button_title">Скрыть кнопку \"Дизлайк\"</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Скрыть кнопки \"Лайк\" и \"Дизлайк\"</string>
+    <string name="morphe_hide_post_share_button_summary">Кнопка скачивания изображений поста отрисована рядом с кнопкой «Поделиться», поэтому она тоже скрывается</string>
+    <string name="morphe_hide_post_share_button_title">Скрыть кнопку \"Поделиться\"</string>
     <string name="morphe_hide_privacy_tos_footer_title">Скрыть юридическую информацию и сведения о конфиденциальности внизу страницы</string>
     <string name="morphe_hide_shopping_menu_title">Скрыть ссылки на товары</string>
     <string name="morphe_hide_sports_menu_title">Скрыть кнопку \"Shorts\"</string>
@@ -238,6 +246,16 @@
     <string name="morphe_livestream_dvr_title">Включить прямую трансляцию DVR</string>
     <string name="morphe_music_package_name_summary">Имя пакета вашего установленного музыкального приложения</string>
     <string name="morphe_music_package_name_title">Имя пакета музыкального приложения</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Настройте уровень прозрачности стеклянной панели навигации (0 — прозрачная, 100 — непрозрачная)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Непрозрачность стекла</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Интервал между кнопками</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Показанные кнопки: %1$s из %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Высота</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Настройка высоты, ширины и интервала между кнопками стеклянной панели навигации с предварительным просмотром. Кнопки, которые не помещаются по ширине экрана, скрываются</string>
+    <string name="morphe_navigation_bar_glass_size_title">Размер стеклянной панели навигации</string>
+    <string name="morphe_navigation_bar_glass_size_width">Максимальная ширина</string>
+    <string name="morphe_navigation_bar_glass_summary">Отображает панель навигации в виде плавающей скругленной полупрозрачной капсулы. Недоступно при использовании непрозраного стиля панели навигации</string>
+    <string name="morphe_navigation_bar_glass_title">Включить стеклянную панель навигации</string>
     <string name="morphe_navigation_bar_style_entry_2">Полупрозрачный</string>
     <string name="morphe_navigation_bar_style_title">Стиль панели навигации</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Этот стиль может не поддерживаться вашим устройством или версией YouTube, что может привести к проблемам с разметкой или сбоям</string>
@@ -269,6 +287,11 @@
     <string name="morphe_playback_in_feeds_title">Воспроизведение в ленте</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Регулирует непрозрачность фона за кнопками управления плеером и временной шкалой (0 — невидимый, 100 — непрозрачный)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозрачность фона кнопок управления</string>
+    <string name="morphe_post_buttons_layout_entry_1">Сервер</string>
+    <string name="morphe_post_buttons_layout_entry_2">Принудительно</string>
+    <string name="morphe_post_buttons_layout_title">Расположение кнопок поста</string>
+    <string name="morphe_post_buttons_screen_summary">Выберите расположение кнопок под постами сообщества и определите, какие кнопки скрыть</string>
+    <string name="morphe_post_buttons_screen_title">Кнопки публикации</string>
     <string name="morphe_post_image_download_failed">Не удалось загрузить изображение</string>
     <string name="morphe_post_image_download_flyout">Скачать изображения</string>
     <string name="morphe_post_image_download_flyout_single">Скачать изображение</string>
@@ -442,6 +465,8 @@
     <string name="morphe_theme_entry_white">Белая</string>
     <string name="morphe_theme_settings_summary">Настройте тему оформления, внешний вид и брендирование</string>
     <string name="morphe_theme_settings_title">Настройки темы</string>
+    <string name="morphe_unlock_queue_summary">Открывает доступ к очереди видео YouTube</string>
+    <string name="morphe_unlock_queue_title">Снять блокировку очереди</string>
     <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
     <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
@@ -494,6 +519,10 @@
     <string name="morphe_vot_voice_gender_female_multilingual">Мультиязычный женский</string>
     <string name="morphe_vot_voice_gender_male">Мужской</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Мультиязычный мужской</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Подтверждение не отображается после удаления видео из списка «Смотреть позже»</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Скрыть уведомление об удалении из «Смотреть позже»</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Маркеры перетаскивания видео в списке «Смотреть позже» становится легче захватить</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Расширить маркеры перетаскивания в «Смотреть позже»</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Расширенное меню качества видео скрыто</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео показано</string>
     <string name="revanced_advanced_video_quality_menu_title">Открыть меню расширенных настроек качества</string>
@@ -1903,8 +1932,12 @@ Shorts
     <string name="revanced_navigation_bar_animations_summary">Анимирует переходы между вкладками</string>
     <string name="revanced_navigation_bar_animations_title">Включить анимацию панели навигации</string>
     <string name="revanced_navigation_bar_order_drag_handle">Перетащите, чтобы изменить порядок</string>
+    <string name="revanced_navigation_bar_order_hide">Скрыть %s</string>
+    <string name="revanced_navigation_bar_order_instructions">Нажмите, чтобы показать/скрыть элемент; перетащите за маркер, чтобы изменить порядок. «Создать» и «Уведомления» делят один слот. «Обзор» — только в поддерживаемых макетах YouTube</string>
+    <string name="revanced_navigation_bar_order_show">Показать %s</string>
     <string name="revanced_navigation_bar_order_summary">Перетащите элементы навигации в том порядке, в котором они должны отображаться</string>
     <string name="revanced_navigation_bar_order_title">Порядок панели навигации</string>
+    <string name="revanced_navigation_bar_visibility_instructions">Нажмите, чтобы показать/скрыть элемент. «Создать» и «Уведомления» делят один слот. Изменения — после перезапуска</string>
     <string name="revanced_offline_action_delete">Удалить</string>
     <string name="revanced_offline_action_open_youtube">Открыть в YouTube</string>
     <string name="revanced_offline_action_play_background">Фоновое воспроизведение</string>
@@ -2830,7 +2863,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_seek_distance_title">Чувствительность жеста перемотки видео</string>
     <string name="revanced_swipe_seek_summary_off">Управление перемоткой видео жестом отключено</string>
     <string name="revanced_swipe_seek_summary_on">Управление перемоткой видео жестом включено.\nДля перемотки видео проведите горизонтально по верхней половине экрана</string>
-    <string name="revanced_swipe_seek_title">Управление перемоткой видео жестом</string>
+    <string name="revanced_swipe_seek_title">Перемотка свайпом</string>
     <string name="revanced_swipe_speed_distance_summary">Количество пикселей, которое нужно сдвинуть, чтобы изменить скорость воспроизведения. Низкие значения ускоряют изменение скорости, более высокие — замедляют (1 - 1000)</string>
     <string name="revanced_swipe_speed_distance_title">Чувствительность жеста скорости воспроизведения</string>
     <string name="revanced_swipe_speed_summary_off">Управление скоростью воспроизведения жестом отключено</string>

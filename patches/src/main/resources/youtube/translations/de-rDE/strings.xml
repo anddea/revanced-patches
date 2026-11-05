@@ -146,9 +146,9 @@ Die Liste wird von GitHub heruntergeladen und Videos werden auf deinem Gerät ge
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Kanäle in der Blocklist</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Filter aktivieren, um Kanäle zu laden</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanäle werden geladen…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Startseite: %s
-• Suche: %s
-• Insgesamt: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Startseite: %1$s
+• Suche: %2$s
+• Insgesamt: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanäle in der Warnliste</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnliste: Moderate Wahrscheinlichkeit</string>
     <string name="morphe_hide_auto_dubbed_label_title">Hinweis „Automatisch synchronisiert“ ausblenden</string>
@@ -177,6 +177,14 @@ Die Liste wird von GitHub heruntergeladen und Videos werden auf deinem Gerät ge
 Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\""</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Menü \'Unterwegs\' ausblenden</string>
     <string name="morphe_hide_podcasts_menu_title">Eintrag „Podcasts“ ausblenden</string>
+    <string name="morphe_hide_post_comment_button_title">Schaltfläche „Kommentare“ ausblenden</string>
+    <string name="morphe_hide_post_comments_preview_summary">Blendet die Vorschau der Kommentare unter den Beiträgen aus</string>
+    <string name="morphe_hide_post_comments_preview_title">Kommentarvorschau ausblenden</string>
+    <string name="morphe_hide_post_dislike_button_summary">Beim erzwungenen Layout bleibt der Platz der Schaltfläche frei</string>
+    <string name="morphe_hide_post_dislike_button_title">Schaltfläche „Dislike“ ausblenden</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Like- und Dislike-Schaltflächen ausblenden</string>
+    <string name="morphe_hide_post_share_button_summary">Die Download-Schaltfläche der Beitragsbilder wird neben der Teilen-Schaltfläche gezeichnet, daher wird sie ebenfalls ausgeblendet</string>
+    <string name="morphe_hide_post_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
     <string name="morphe_hide_shopping_menu_title">Eintrag „Shopping“ ausblenden</string>
     <string name="morphe_hide_sports_menu_title">Eintrag „Sport“ ausblenden</string>
@@ -224,6 +232,16 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_livestream_dvr_title">Livestream-DVR aktivieren</string>
     <string name="morphe_music_package_name_summary">Paketname Ihrer installierten Musik-App</string>
     <string name="morphe_music_package_name_title">Paketname der Musik-App</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Passt die Deckkraft der Glas-Navigationsleiste an (0 ist transparent, 100 ist undurchsichtig)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Deckkraft des Glases</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Knopfabstand</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Angezeigte Schaltflächen: %1$s von %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Höhe</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Passen Sie die Höhe, die Breite und den Knopfabstand der Glas-Navigationsleiste mithilfe einer Vorschau an. Knöpfe, die nicht in die Bildschirmbreite passen, werden ausgeblendet</string>
+    <string name="morphe_navigation_bar_glass_size_title">Größe der Glas-Navigationsleiste</string>
+    <string name="morphe_navigation_bar_glass_size_width">Maximale Breite</string>
+    <string name="morphe_navigation_bar_glass_summary">Zeigt die Navigationsleiste als schwebende, abgerundete, halbtransparente Kapsel an. Nicht verfügbar bei dem Stil „Undurchsichtige Navigationsleiste“</string>
+    <string name="morphe_navigation_bar_glass_title">Glas-Navigationsleiste aktivieren</string>
     <string name="morphe_navigation_bar_style_entry_2">Transluzent</string>
     <string name="morphe_navigation_bar_style_title">Stil der Navigationsleiste</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Dieser Stil wird möglicherweise von Ihrem Gerät oder Ihrer YouTube-Version nicht unterstützt und kann zu Layoutproblemen oder Abstürzen führen</string>
@@ -253,6 +271,11 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_playback_in_feeds_title">Wiedergabe in Feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Deckkraft des Hintergrunds hinter den Player-Steuertasten und der Zeitleiste anpassen (0 = unsichtbar, 100 = deckend)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Hintergrundtransparenz der Steuertasten</string>
+    <string name="morphe_post_buttons_layout_entry_1">Server</string>
+    <string name="morphe_post_buttons_layout_entry_2">Erzwungen</string>
+    <string name="morphe_post_buttons_layout_title">Layout der Beitrags-Schaltflächen</string>
+    <string name="morphe_post_buttons_screen_summary">Wählen Sie das Layout der Schaltflächen unter den Community-Beiträgen und welche Schaltflächen ausgeblendet werden sollen</string>
+    <string name="morphe_post_buttons_screen_title">Post-Knöpfe</string>
     <string name="morphe_post_image_download_failed">Das Bild konnte nicht heruntergeladen werden</string>
     <string name="morphe_post_image_download_flyout">Bilder herunterladen</string>
     <string name="morphe_post_image_download_flyout_single">Bild herunterladen</string>
@@ -297,7 +320,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_search_comments_clear">Löschen</string>
     <string name="morphe_search_comments_cleared">Suche gelöscht. Ändern Sie die Sortierreihenfolge oder öffnen Sie die Kommentare erneut, um alle Kommentare anzuzeigen</string>
     <string name="morphe_search_comments_hint">Zu suchende Wörter</string>
-    <string name="morphe_search_comments_summary">Tippen Sie in den Kommentaren auf die Suchschaltfläche, um nur die geladenen Kommentare anzuzeigen, die alle gesuchten Wörter enthalten. Setzen Sie Wörter in Anführungszeichen, um nach einer Phrase zu suchen</string>
+    <string name="morphe_search_comments_summary">Tippen Sie auf die Suchschaltfläche in den Kommentaren, um nur die geladenen Kommentare anzuzeigen, die alle gesuchten Wörter enthalten. Setzen Sie Wörter in Anführungszeichen, um nach einer Phrase zu suchen</string>
     <string name="morphe_search_comments_title">Kommentare durchsuchen</string>
     <string name="morphe_secondary_caption_language_summary">Zeigt eine zweite Sprache bei den Untertiteln an und fügt dem Untertitelmenü einen Umschalter für zweisprachige Untertitel hinzu</string>
     <string name="morphe_secondary_caption_language_title">Sekundäre Untertitel-Sprache</string>
@@ -458,6 +481,10 @@ Tippen Sie hier, um OpenRouter.ai zu öffnen"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Mehrsprachig weiblich</string>
     <string name="morphe_vot_voice_gender_male">Männlich</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Mehrsprachig männlich</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Die Bestätigung wird nicht angezeigt, nachdem ein Video aus \"Später ansehen\" entfernt wurde</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Snackbar beim Entfernen aus \"Später ansehen\" ausblenden</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Die Drag-Handles der „Später ansehen“-Videos lassen sich leichter greifen</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Drag-Handles von „Später ansehen“ verbreitern</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_title">Erweiterte Qualitätseinstellungen öffnen</string>
@@ -493,7 +520,7 @@ Tippen Sie hier, um OpenRouter.ai zu öffnen"</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Videoqualität hinzufügen</string>
     <string name="revanced_append_time_stamp_information_type_title">Informationstyp anhängen</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Video quality menu type</string>
-    <string name="revanced_auto_captions_style_entry_1">Erforderlich, damit automatische Untertitel korrekt funktionieren</string>
+    <string name="revanced_auto_captions_style_entry_1">Immer anzeigen</string>
     <string name="revanced_auto_captions_style_entry_2">Nie anzeigen</string>
     <string name="revanced_auto_captions_style_entry_3">Bei Stummschaltung anzeigen</string>
     <string name="revanced_auto_captions_style_entry_4">Zeige bei stummgeschaltet</string>
@@ -2548,7 +2575,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Helligkeit beim Beenden oder Einschalten des Vollbildes nicht speichern und wiederherstellen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Helligkeit speichern und wiederherstellen, wenn Vollbild verlassen oder betreten wird</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Helligkeit speichern und wiederherstellen</string>
-    <string name="revanced_swipe_seek_title">Wischgesten aktivieren</string>
+    <string name="revanced_swipe_seek_title">Zum Suchen wischen</string>
     <string name="revanced_swipe_speed_title">Geste für Geschwindigkeitssteuerung aktivieren</string>
     <string name="revanced_swipe_text_overlay_size_summary">Passt die Größe auf dem Bildschirm an (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Textgröße Gesten-Overlays</string>

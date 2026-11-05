@@ -72,8 +72,8 @@
     <string name="morphe_copy_select_text_copy_all">複製全部</string>
     <string name="morphe_copy_select_text_dialog_title">選取文字</string>
     <string name="morphe_copy_select_text_success">已將文字複製到剪貼簿</string>
-    <string name="morphe_copy_select_text_summary">長按影片說明或貼文，即可選取並複製其中任何部分</string>
-    <string name="morphe_copy_select_text_title">選取說明和貼文的文字</string>
+    <string name="morphe_copy_select_text_summary">長按影片描述或貼文，即可選取並複製其中任何部分</string>
+    <string name="morphe_copy_select_text_title">選取描述和貼文的文字</string>
     <string name="morphe_copy_video_title_success">影片標題已複製到剪貼簿</string>
     <string name="morphe_copy_video_title_summary">長按影片標題即可複製</string>
     <string name="morphe_copy_video_title_title">複製影片標題</string>
@@ -146,9 +146,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">封鎖頻道</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">啟用篩選器以載入頻道</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">正在載入頻道…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 首頁：%s
-• 搜尋：%s
-• 總計：%s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 首頁：%1$s
+• 搜尋：%2$s
+• 總計：%3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告頻道</string>
     <string name="morphe_hide_aislist_warnlist_category_title">警告清單：中等信度</string>
     <string name="morphe_hide_auto_dubbed_label_title">隱藏「自動配音」標籤</string>
@@ -177,6 +177,14 @@
 若要顯示「音訊軌道」選單，請將「欺騙影片串流」變更為「Android Studio」和「Android VR Downgraded」以外的任何用戶端"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">隱藏「外出」選單</string>
     <string name="morphe_hide_podcasts_menu_title">隱藏「播客」選單</string>
+    <string name="morphe_hide_post_comment_button_title">隱藏「留言」按鈕</string>
+    <string name="morphe_hide_post_comments_preview_summary">隱藏貼文下方的評論預覽</string>
+    <string name="morphe_hide_post_comments_preview_title">隱藏評論預覽</string>
+    <string name="morphe_hide_post_dislike_button_summary">在「強制執行」佈局中，按鈕的空間將被保留</string>
+    <string name="morphe_hide_post_dislike_button_title">隱藏「不喜歡」按鈕</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">隱藏喜歡和不喜歡按鈕</string>
+    <string name="morphe_hide_post_share_button_summary">貼文圖片的下載按鈕位於「分享」按鈕旁邊，因此也會隨之隱藏</string>
+    <string name="morphe_hide_post_share_button_title">隱藏「分享」按鈕</string>
     <string name="morphe_hide_privacy_tos_footer_title">隱藏法律和隱私權頁尾</string>
     <string name="morphe_hide_shopping_menu_title">隱藏「購物」選單</string>
     <string name="morphe_hide_sports_menu_title">隱藏「體育」選單</string>
@@ -224,6 +232,16 @@
     <string name="morphe_livestream_dvr_title">啟用直播 DVR</string>
     <string name="morphe_music_package_name_summary">您已安裝音樂應用程式的套件名稱</string>
     <string name="morphe_music_package_name_title">音樂應用程式套件名稱</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">調整玻璃效果導覽列的透明程度 (0 為完全透明，100 為完全不透明)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">玻璃效果的不透明度</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">按鈕間距</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">顯示按鈕：%1$s / %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">高度</string>
+    <string name="morphe_navigation_bar_glass_size_summary">可預覽並調整玻璃導覽列的高度、寬度及按鈕間距。超出螢幕寬度的按鈕將被隱藏</string>
+    <string name="morphe_navigation_bar_glass_size_title">玻璃導覽列尺寸</string>
+    <string name="morphe_navigation_bar_glass_size_width">最大寬度</string>
+    <string name="morphe_navigation_bar_glass_summary">顯示導覽列為浮動、圓角、半透明的膠囊型按鈕。而不透明導覽列樣式則無法使用。</string>
+    <string name="morphe_navigation_bar_glass_title">啟用玻璃效果導覽列</string>
     <string name="morphe_navigation_bar_style_entry_2">半透明</string>
     <string name="morphe_navigation_bar_style_title">導覽列樣式</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">您的裝置或 YouTube 版本可能不支援此樣式，這可能會導致版面配置問題或崩潰</string>
@@ -253,6 +271,11 @@
     <string name="morphe_playback_in_feeds_title">feeds 中的播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">調整播放器控制按鈕和時間列後方背景的不透明度（0 為隱形，100 為不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按鈕背景不透明度</string>
+    <string name="morphe_post_buttons_layout_entry_1">伺服器</string>
+    <string name="morphe_post_buttons_layout_entry_2">強制執行</string>
+    <string name="morphe_post_buttons_layout_title">貼文按鈕佈局</string>
+    <string name="morphe_post_buttons_screen_summary">選擇社群貼文下方按鈕的佈局以及要隱藏哪些按鈕</string>
+    <string name="morphe_post_buttons_screen_title">後置按鈕</string>
     <string name="morphe_post_image_download_failed">無法下載圖片</string>
     <string name="morphe_post_image_download_flyout">下載圖片</string>
     <string name="morphe_post_image_download_flyout_single">下載圖片</string>
@@ -296,7 +319,7 @@
     <string name="morphe_search_comments_clear">清除</string>
     <string name="morphe_search_comments_cleared">搜尋已清除。更改排序順序或重新開啟評論以顯示所有評論</string>
     <string name="morphe_search_comments_hint">要搜尋的字詞</string>
-    <string name="morphe_search_comments_summary">點擊評論中的搜尋按鈕，僅顯示包含所有搜尋字詞的已載入評論。將字詞放入引號中以搜尋特定短語</string>
+    <string name="morphe_search_comments_summary">點擊評論區的搜尋按鈕，即可僅顯示包含所有搜尋關鍵字的已載入評論。若要搜尋精確短語，請將字詞加上雙引號。</string>
     <string name="morphe_search_comments_title">搜尋評論</string>
     <string name="morphe_secondary_caption_language_summary">顯示第二種語言的字幕，並在字幕功能表中新增雙語字幕切換開關。</string>
     <string name="morphe_secondary_caption_language_title">次要字幕語言</string>
@@ -440,6 +463,10 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">多語言女性</string>
     <string name="morphe_vot_voice_gender_male">男性</string>
     <string name="morphe_vot_voice_gender_male_multilingual">多語言男性</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">從「稍後觀看」移除影片後將不再顯示確認提示</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">隱藏「稍後觀看」移除提示欄</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">「稍後觀看」影片的拖曳控制項將更容易抓取</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">加寬「稍後觀看」拖曳控制項</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">已顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_title">開啟進階畫質選單</string>
@@ -2647,7 +2674,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_seek_summary_on">"全螢幕進度搜尋滑動手勢已啟用。
 
 在螢幕上半部左右滑動以搜尋影片。"</string>
-    <string name="revanced_swipe_seek_title">啟用進度搜尋手勢</string>
+    <string name="revanced_swipe_seek_title">滑動查找</string>
     <string name="revanced_swipe_speed_distance_summary">調整影片速度所需滑動的像素數量。數值越低，速度變化越快；數值越高，速度變化越慢（1-1000）。</string>
     <string name="revanced_swipe_speed_distance_title">速度範圍</string>
     <string name="revanced_swipe_speed_summary_off">全螢幕速度滑動已停用。</string>

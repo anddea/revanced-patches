@@ -106,6 +106,11 @@
             <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
             <SwitchPreference android:title="@string/revanced_enable_narrow_navigation_buttons_title" android:key="revanced_enable_narrow_navigation_buttons" android:summaryOn="@string/revanced_enable_narrow_navigation_buttons_summary_on" android:summaryOff="@string/revanced_enable_narrow_navigation_buttons_summary_off" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
+            <!-- SETTINGS: NAVIGATION_BAR_GLASS
+            <SwitchPreference android:key="morphe_navigation_bar_glass" android:title="@string/morphe_navigation_bar_glass_title" android:summary="@string/morphe_navigation_bar_glass_summary" />
+            <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_navigation_bar_glass_opacity" android:title="@string/morphe_navigation_bar_glass_opacity_title" android:summary="@string/morphe_navigation_bar_glass_opacity_summary" />
+            <app.morphe.extension.youtube.settings.preference.GlassNavigationBarPreference android:key="morphe_navigation_bar_glass_height" android:title="@string/morphe_navigation_bar_glass_size_title" android:summary="@string/morphe_navigation_bar_glass_size_summary" />SETTINGS: NAVIGATION_BAR_GLASS -->
+
             <!-- SETTINGS: ANIMATED_NAVIGATION_BAR
             <SwitchPreference android:title="@string/revanced_navigation_bar_animations_title" android:key="revanced_navigation_bar_animations" android:summary="@string/revanced_navigation_bar_animations_summary" />SETTINGS: ANIMATED_NAVIGATION_BAR -->
 
@@ -130,10 +135,6 @@
 
             <!-- SETTINGS: NAVIGATION_BAR_STYLE
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_navigation_bar_style_title" android:key="morphe_navigation_bar_style" android:entries="@array/morphe_navigation_bar_style_entries" android:entryValues="@array/morphe_navigation_bar_style_entry_values" />SETTINGS: NAVIGATION_BAR_STYLE -->
-
-            <!-- SETTINGS: NAVIGATION_BAR_GLASS
-            <SwitchPreference android:key="morphe_navigation_bar_glass" android:title="@string/morphe_navigation_bar_glass_title" android:summary="@string/morphe_navigation_bar_glass_summary" />
-            <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_navigation_bar_glass_opacity" android:title="@string/morphe_navigation_bar_glass_opacity_title" android:summary="@string/morphe_navigation_bar_glass_opacity_summary" />SETTINGS: NAVIGATION_BAR_GLASS -->
 
             <!-- SETTINGS: STATUS_BAR_TRANSLUCENCY
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_status_bar_translucency_entries" android:title="@string/revanced_status_bar_translucency_title" android:key="revanced_status_bar_translucency" android:entryValues="@array/revanced_status_bar_translucency_entry_values" />SETTINGS: STATUS_BAR_TRANSLUCENCY -->
@@ -385,6 +386,17 @@
             <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_strings_title" android:key="revanced_hide_feed_flyout_menu_filter_strings" android:summary="@string/revanced_hide_feed_flyout_menu_filter_strings_summary" android:inputType="textMultiLine" />
         </PreferenceScreen>SETTINGS: HIDE_FEED_FLYOUT_MENU -->
 
+        <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
+        <PreferenceScreen android:key="morphe_post_buttons_screen" android:title="@string/morphe_post_buttons_screen_title" android:summary="@string/morphe_post_buttons_screen_summary">
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:key="morphe_post_buttons_layout" android:title="@string/morphe_post_buttons_layout_title" android:entries="@array/morphe_post_buttons_layout_entries" android:entryValues="@array/morphe_post_buttons_layout_entry_values" />
+            <SwitchPreference android:title="@string/morphe_post_image_download_title" android:key="morphe_post_image_download" android:summary="@string/morphe_post_image_download_summary" />
+            <SwitchPreference android:key="morphe_hide_post_like_dislike_buttons" android:title="@string/morphe_hide_post_like_dislike_buttons_title" />
+            <SwitchPreference android:key="morphe_hide_post_dislike_button" android:title="@string/morphe_hide_post_dislike_button_title" android:summary="@string/morphe_hide_post_dislike_button_summary" />
+            <SwitchPreference android:key="morphe_hide_post_comment_button" android:title="@string/morphe_hide_post_comment_button_title" />
+            <SwitchPreference android:key="morphe_hide_post_comments_preview" android:title="@string/morphe_hide_post_comments_preview_title" android:summary="@string/morphe_hide_post_comments_preview_summary" />
+            <SwitchPreference android:key="morphe_hide_post_share_button" android:title="@string/morphe_hide_post_share_button_title" android:summary="@string/morphe_hide_post_share_button_summary" />
+        </PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+
         <!-- SETTINGS: HIDE_FEED_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_video_filter_title" android:key="revanced_preference_screen_video_filter" android:summary="@string/revanced_preference_screen_video_filter_summary">
             <PreferenceCategory android:title="@string/revanced_preference_category_keyword_filter" android:layout="@layout/revanced_settings_preferences_category">
@@ -458,8 +470,9 @@
         <SwitchPreference android:title="@string/morphe_feed_long_press_menu_title" android:key="morphe_feed_long_press_menu" android:summary="@string/morphe_feed_long_press_menu_summary" />
         <SwitchPreference android:title="@string/morphe_feed_watch_later_button_title" android:key="morphe_feed_watch_later_button" android:summary="@string/morphe_feed_watch_later_button_summary" />SETTINGS: FEED_VIDEO_ACTIONS -->
 
-        <!-- SETTINGS: POST_IMAGE_DOWNLOAD
-        <SwitchPreference android:title="@string/morphe_post_image_download_title" android:key="morphe_post_image_download" android:summary="@string/morphe_post_image_download_summary" />SETTINGS: POST_IMAGE_DOWNLOAD -->
+        <!-- SETTINGS: WATCH_LATER_IMPROVEMENTS
+        <SwitchPreference android:key="morphe_watch_later_wide_drag_handles" android:title="@string/morphe_watch_later_wide_drag_handles_title" android:summary="@string/morphe_watch_later_wide_drag_handles_summary" />
+        <SwitchPreference android:key="morphe_watch_later_hide_removal_snackbar" android:title="@string/morphe_watch_later_hide_removal_snackbar_title" android:summary="@string/morphe_watch_later_hide_removal_snackbar_summary" />SETTINGS: WATCH_LATER_IMPROVEMENTS -->
 
     <!-- PREFERENCE_SCREEN: FEED
     </PreferenceScreen>PREFERENCE_SCREEN: FEED -->

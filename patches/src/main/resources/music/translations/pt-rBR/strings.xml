@@ -125,7 +125,7 @@ Etapas:
 1. Faça login em deezer.com
 2. Abra DevTools → Application → Cookies → deezer.com
 3. Copie o valor de \"arl\""</string>
-    <string name="morphe_music_deezer_arl_title">Deezer […] Copie o valor de \"arl\"</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Tente novamente</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl inválido — verifique e tente novamente</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl salvo</string>
@@ -133,6 +133,8 @@ Etapas:
     <string name="morphe_music_downloads_already_saved">Já baixado</string>
     <string name="morphe_music_downloads_complete">Download concluído</string>
     <string name="morphe_music_downloads_failed">Falha no download</string>
+    <string name="morphe_music_downloads_mark_summary">Músicas já baixadas exibem uma marca antes de seus detalhes em playlists, álbuns e resultados de pesquisa</string>
+    <string name="morphe_music_downloads_mark_title">Marcar músicas baixadas</string>
     <string name="morphe_music_downloads_notification_channel">Downloads de áudio</string>
     <string name="morphe_music_downloads_progress">Baixando %s%%</string>
     <string name="morphe_music_downloads_sort">Ordenar</string>
@@ -161,7 +163,7 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_ai_config_model_label">Modelo</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">Solicitação</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Conectado! (%2$s)</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Falha na conexão. Verifique as configurações</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s: Falha na conexão. Verifique as configurações</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">Configurações incompletas ou rejeitadas pelo provedor</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">A URL base deve começar com http:// ou https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Validando conexão…</string>
@@ -174,8 +176,8 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt salvo</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Permitir leituras não latinas da fonte das letras; quando desativado, mantenha apenas letras latinas, letras acentuadas e dígitos de tom</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Habilitar transliteração</string>
-    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB limpados</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Excluir %1$s MB de letras mantidos neste dispositivo</string>
+    <string name="morphe_music_lyrics_clear_cache_done">Limpos %s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Excluir os %s MB de letras mantidos neste dispositivo</string>
     <string name="morphe_music_lyrics_clear_cache_title">Limpar letras armazenadas</string>
     <string name="morphe_music_lyrics_contribute_credit">Pressione longamente o botão copiar para salvar este LRC; se você puder ajustar os tempos e compartilhá-los com os provedores da comunidade, agradeceríamos</string>
     <string name="morphe_music_lyrics_copied">Copiado para a área de transferência</string>
@@ -186,6 +188,10 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_display_artist_first_summary">Alternar a ordem de exibição de Artista e Título no Miniplayer e no MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca de letras</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Exibição de artista e título na MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca por letras</string>
     <string name="morphe_music_lyrics_dual_only">Modo duplo</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">Move o plano de fundo durante a reprodução e o faz pulsar com a música se o YouTube Music tiver a permissão do microfone. Desative para um plano de fundo estático que consome menos bateria</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">Animar plano de fundo dinâmico</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">Mostra um plano de fundo desfocado criado a partir da arte do álbum atrás das letras</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">Plano de fundo dinâmico</string>
     <string name="morphe_music_lyrics_enabled_summary">Exibe letras de um serviço de terceiros, recorrendo às letras embutidas quando nenhuma for encontrada</string>
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceiros</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Capitaliza a primeira letra de cada linha da letra</string>
@@ -195,19 +201,19 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_hide_info_summary">Ocultar a linha de crédito mostrada abaixo das letras</string>
     <string name="morphe_music_lyrics_hide_info_title">Ocultar linha de créditos</string>
     <string name="morphe_music_lyrics_hide_played_summary">Ocultar linhas da letra acima da linha atualmente em reprodução</string>
-    <string name="morphe_music_lyrics_hide_played_title">Ocultar […] linha</string>
-    <string name="morphe_music_lyrics_hide_unplayed_summary">Ocultar linhas de letra abaixo da tela atualmente em reprodução […]</string>
+    <string name="morphe_music_lyrics_hide_played_title">Ocultar letras reproduzidas</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">Ocultar linhas de letra abaixo da linha em reprodução</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">Ocultar letras não reproduzidas</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Evita que a tela desligue enquanto o painel de letras estiver aberto</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Manter a tela ligada ao visualizar letras</string>
     <string name="morphe_music_lyrics_line_scale_summary">Desenha cada linha que não está sendo cantada atualmente ligeiramente menor, sobrepondo-a ao escurecimento</string>
     <string name="morphe_music_lyrics_line_scale_title">Reduzir linhas inativas</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">Lendo %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Lendo %1$s: %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Palavras chinesas (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Transliteração grega, eslava cirílica (incl. russo, ucraniano, búlgaro, sérvio, bielorrusso, macedônio), georgiano, armênio, hebraico, árabe, amárico e siríaco (CLDR, ~0,5 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Falha ao baixar - desative e ative novamente para tentar novamente</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japonês (SudachiDict, ~75 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">Leituras prontas (%1$d entradas)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Leituras prontas (%s entradas)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">Caracteres chineses e cantoneses (UniDict, ~8 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">Baixando dicionários de leitura…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Lê cada palavra de uma letra cronometrada (sincronização de palavra ativada); coreano não precisa de download; catorze scripts compartilham um download CLDR; caracteres Han são lidos pela Lista de Palavras Rime quando sua tabela de palavras cobre o idioma</string>
@@ -249,12 +255,12 @@ Aplica-se a ambos os limites. Em 1,75, quatro caracteres de largura total contam
     <string name="morphe_music_lyrics_rime_dict_add">Adicionar</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">Um arquivo .dict.yaml, ou um zip contendo um, com linhas como 字 ham e 典 din2. A lista é buscada quando você a marca e toca em Salvar, e a licença é sua para verificar</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Adicionar uma Lista de Palavras Rime</string>
-    <string name="morphe_music_lyrics_rime_dict_added">%1$s adicionado - marque-o e toque em Salvar para baixar</string>
+    <string name="morphe_music_lyrics_rime_dict_added">Adicionado %s - marque-o e toque em Salvar para baixá-lo</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">O código deve ter duas ou três letras, como em hak</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">O nome e o endereço não podem conter uma barra vertical</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">O endereço deve começar com https://</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Construindo lista de leitura: %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s já tem uma tabela de palavras</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Lendo lista de palavras: %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%s já possui uma tabela de palavras</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"A lista de palavras do Rime também precisa do UniDict: no provedor de dicionário offline, marque \"Chinese and Cantonese characters (UniDict)\" e espere o download terminar. Sem ele, uma lista que lê caracteres não fornece leitura
 
 Marque as listas que a lista de palavras do Rime deve ler, toque em Salvar para baixá-las. Uma lista adicionada é removida quando você desmarca
@@ -274,21 +280,26 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_lyrics_rime_dict_incomplete">Preencha o código, nome e endereço</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">Nenhuma lista de palavras Rime está marcada para o idioma acima. Toque neste nome para marcar uma, ou escolha um idioma que tenha uma lista</string>
     <string name="morphe_music_lyrics_rime_dict_ready">Listas de palavras prontas</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">Listas de palavras prontas (%1$d entradas)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s é lido pelo romanizador embutido e não pode receber uma lista de palavras</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Listas de palavras prontas (%s entradas)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%s é lido pelo romanizador integrado e não pode receber uma lista de palavras</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Não usado: este idioma já tem sua própria leitura, então desmarque-o para removê-lo</string>
     <string name="morphe_music_lyrics_rime_dict_title">Lista de Palavras Rime</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Dicionário Offline</string>
     <string name="morphe_music_lyrics_romanization_provider_title">Romanização ou transliteração</string>
     <string name="morphe_music_lyrics_romanization_target_language">"Idioma de destino da romanização ou trans literação:
 %s"</string>
-    <string name="morphe_music_lyrics_romanize_failed">Não foi possível romanizar a […]</string>
+    <string name="morphe_music_lyrics_romanize_failed">Não foi possível romanizar a letra</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizado</string>
     <string name="morphe_music_lyrics_romanize_language_title">Idioma de romanização ou transliteração</string>
     <string name="morphe_music_lyrics_romanize_only">Somente romanizado</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizado por %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanizado pelo Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizando</string>
+    <string name="morphe_music_lyrics_ruby_generating">Gerando ruby…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">Ruby</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">Script Ruby</string>
     <string name="morphe_music_lyrics_saved">Salvo</string>
     <string name="morphe_music_lyrics_sb_matching_summary">Fazer a correspondência sem os segmentos que o SponsorBlock pula e deslocar a letra para o áudio oficial. Desativado ignora o SponsorBlock por completo</string>
     <string name="morphe_music_lyrics_sb_matching_title">Usar os segmentos do SponsorBlock para o deslocamento da letra</string>
@@ -304,6 +315,8 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostrar botão para atualizar</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Toque para alternar romanização ou transliteração; pressione longamente apenas para romanização ou transliteração. Usa os provedores de romanização habilitados na ordem listada</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostrar botão Romanizar ou Transliterar</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">Toque para alternar as leituras ruby acima das letras; pressione e segure para alternar entre hiragana e katakana. Utiliza os provedores ruby ativados na ordem listada</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">Exibir botão Ruby</string>
     <string name="morphe_music_lyrics_show_section_summary">Rotular cada nova seção da letra com uma pequena etiqueta, como Verso ou Refrão</string>
     <string name="morphe_music_lyrics_show_section_title">Mostrar etiquetas de seção</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Toque para alternar tradução; pressione longamente apenas para tradução. Usa os provedores de tradução habilitados na ordem listada</string>
@@ -317,7 +330,7 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_lyrics_split_background_title">Mostrar vocais de fundo separadamente</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Remove pontos finais, vírgulas, dois-pontos e pontos e vírgulas ao final das linhas da letra. Pontos de interrogação, pontos de exclamação, reticências, aspas e colchetes são mantidos</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Remover pontuação final</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">ON coloca romanização ou transliteração abaixo das letras e tradução acima; OFF mantém romanização ou transliteração acima e tradução abaixo. Uma leitura colocada sobre cada sílaba move junto com ela, de cima para baixo da sílaba</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Altera a ordem de exibição da tradução e da romanização abaixo das letras</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Trocar tradução e romanização</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Toque em uma linha para pular para esse momento na música, pressione e segure para copiar a palavra sob o seu dedo, ou a linha inteira quando a pressão não estiver sobre uma palavra. Desativa ambos os gestos</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Toque e segure uma linha</string>
@@ -359,12 +372,17 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_musixmatch_token_dialog_hint">Tente novamente</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Adicione um token apenas para usar sua própria conta. Ele deve vir do aplicativo Musixmatch para Android: tokens copiados de musixmatch.com pertencem ao cliente de desktop descontinuado e a API os recusa</string>
     <string name="morphe_music_musixmatch_token_optional_hint">O Musixmatch funciona sem token, então este campo pode ficar vazio</string>
-    <string name="morphe_music_musixmatch_token_title">Musixmatch […] Copie o valor do token do usuário</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch Token</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token do usuário limpo</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuário inválido — verifique e tente novamente</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token do usuário salvo</string>
     <string name="morphe_music_scrobbling_log_out">Sair</string>
-    <string name="morphe_music_spotify_token_dialog_instruction">"Spotify SpDc"</string>
+    <string name="morphe_music_spotify_token_dialog_instruction">"Cole o cookie sp_dc do Spotify
+
+Etapas:
+1. Faça login em open.spotify.com
+2. Abra DevTools → Application → Cookies → open.spotify.com
+3. Copie o valor de \"sp_dc\""</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc removido</string>
     <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc inválido — verifique e tente novamente</string>

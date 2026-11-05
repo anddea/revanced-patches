@@ -257,6 +257,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                         val override = when (flag) {
                             NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG -> "useTranslucentNavigationBar"
                             FEED_BEHIND_NAVIGATION_BAR_FLAG -> "useFeedBehindNavigationBar"
+                            TRANSLUCENT_NAVIGATION_BAR_STYLE_FLAG -> "useTranslucentNavigationBarStyle"
                             else -> "useTranslucentNavigationBarBackground"
                         }
                         insertLiteralOverride(index, "$EXTENSION_CLASS_DESCRIPTOR->$override(Z)Z")
@@ -299,6 +300,14 @@ val navigationBarComponentsPatch = bytecodePatch(
                             iput p1, p0, $roomField
                             invoke-virtual { p0 }, $updateHeightMethod
                             return-void
+                        """
+                    )
+
+                    addBridge(
+                        "patch_getSystemButtonsRoom", listOf(), "I", 2,
+                        """
+                            iget v0, p0, $roomField
+                            return v0
                         """
                     )
 

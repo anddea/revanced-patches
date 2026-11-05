@@ -118,7 +118,7 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
 1. deezer.com にサインインします
 2. DevTools → Application → Cookies → deezer.com を開きます
 3. 「arl」の値をコピーします"</string>
-    <string name="morphe_music_deezer_arl_title">Deezer […] \"arl\" の値をコピーしてください</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl が無効です。もう一度お試しください</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: 無効なarlです - 確認してもう一度お試しください</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl を保存しました</string>
@@ -126,6 +126,8 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_downloads_already_saved">すでにダウンロード済みです</string>
     <string name="morphe_music_downloads_complete">ダウンロード完了</string>
     <string name="morphe_music_downloads_failed">ダウンロードに失敗しました</string>
+    <string name="morphe_music_downloads_mark_summary">ダウンロード済みの曲は、プレイリスト、アルバム、検索結果の詳細の前にマークが表示されます</string>
+    <string name="morphe_music_downloads_mark_title">ダウンロード済みの曲にマークを付ける</string>
     <string name="morphe_music_downloads_notification_channel">音声ダウンロード</string>
     <string name="morphe_music_downloads_progress">ダウンロード中: %s%%</string>
     <string name="morphe_music_downloads_sort">並べ替え</string>
@@ -154,7 +156,7 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_ai_config_model_label">モデル</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">プロンプト</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s：接続済み！（%2$s）</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s：接続に失敗しました。設定を確認してください。</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s: 接続に失敗しました。設定を確認してください。</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">設定が不完全またはプロバイダーによって拒否されました</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">ベース URL は http:// または https:// で始まる必要があります</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">接続を確認中…</string>
@@ -167,8 +169,8 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">プロンプトを保存しました</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">歌詞ソースからの非ラテン文字の読みを許可します；無効にすると、ラテン文字、アクセント付き文字、声調数字のみを残します</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">翻記を有効にする</string>
-    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB を消去しました</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">このデバイスに保持されている歌詞の %1$s MB を削除します</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%s MB を消去しました</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">このデバイスに保存されている %s MB の歌詞を削除します</string>
     <string name="morphe_music_lyrics_clear_cache_title">保存された歌詞を消去</string>
     <string name="morphe_music_lyrics_contribute_credit">コピーボタンを長押ししてこのLRCを保存します。タイミングを微調整してコミュニティプロバイダと共有できる場合は感謝されます</string>
     <string name="morphe_music_lyrics_copied">クリップボードにコピーしました</string>
@@ -179,6 +181,10 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Miniplayer と MediaSession で、アーティスト名とタイトルの表示順を切り替えます。ON「アーティスト - タイトル」、OFF「タイトル - アーティスト」。歌詞検索には影響しません。</string>
     <string name="morphe_music_lyrics_display_artist_first_title">メディアセッションでアーティスト名とタイトルを表示[…] ON = \"アーティスト - タイトル\"、OFF = \"タイトル - アーティスト\" この設定は歌詞検索には影響しません</string>
     <string name="morphe_music_lyrics_dual_only">デュアルモード</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">再生中に背景を移動させ、YouTube Musicにマイク権限がある場合は音楽に合わせてパルスさせます。バッテリー消費を抑えたい場合は、オフにして静止画背景にします</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">ダイナミック背景をアニメーション化</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">歌詞の背後に、アルバムアートから作成されたぼかし背景を表示します</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">ダイナミック背景</string>
     <string name="morphe_music_lyrics_enabled_summary">外部の歌詞配信サービスから歌詞を取得して表示します。見つからない場合は、アプリの歌詞を表示します</string>
     <string name="morphe_music_lyrics_enabled_title">外部サービスの歌詞を使用</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">歌詞の各行の先頭の文字を大文字にします</string>
@@ -195,12 +201,12 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">歌詞表示中は画面を常にオン</string>
     <string name="morphe_music_lyrics_line_scale_summary">現在歌われていない各行を少し小さく描画し、さらに暗く表示します</string>
     <string name="morphe_music_lyrics_line_scale_title">非アクティブな行を縮小</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">%1$s を読み込み中: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">%1$s を読み込み中: %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">中国語単語（pinyin-pro、約17 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">ギリシャ語、スラヴ系キリル文字（ロシア語、ウクライナ語、ブルガリア語、セルビア語、ベラルーシ語、マケドニア語を含む）、ジョージア語、アルメニア語、ヘブライ語、アラビア語、アムハラ語、シリア語の翻記（CLDR、約0.5 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">ダウンロードに失敗しました。再試行するにはこの設定を一旦オフにしてから再度オンにしてください</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">日本語（SudachiDict、約75 MB）</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">読みデータ準備完了 (%1$d エントリ)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">読みデータの準備完了 (%s エントリ)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">中国語・広東語文字（UniDict、約8 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">読取辞書をダウンロードしています…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">タイマー歌詞（ワード同期オン）の各単語を読み取ります；韓国語にはダウンロード不要；14種類のスクリプトで1つのCLDRダウンロードを共有します；漢字は、Rime語彙リストの単語テーブルが対象言語をカバーしている場合に読み取られます</string>
@@ -231,7 +237,7 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_mini_track_format_title">曲 / アーティスト行のフォーマット</string>
     <string name="morphe_music_lyrics_miniplayer_summary">ミニプレイヤーで現在行を表示し、トラックをサブタイトルに移動</string>
     <string name="morphe_music_lyrics_miniplayer_title">ミニプレイヤーの歌詞を表示</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">再生中に現在の行をハイライトする</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">同期歌詞は楽曲の再生に追従します。ズレが生じる場合はタイミングオフセットを調整してください。歌詞の表示タイミングを前後に変更できます。歌詞が曲より先に進んでしまう場合は、正の値を入力してください</string>
     <string name="morphe_music_lyrics_offset_ms_title">全体のタイミングオフセット</string>
     <string name="morphe_music_lyrics_providers_keep_one">少なくとも1つのプロバイダーをONにしておく必要があります</string>
     <string name="morphe_music_lyrics_refreshed">更新済み</string>
@@ -242,12 +248,12 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_rime_dict_add">追加</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">字 ham や 典 din2 のような行を含む .dict.yaml ファイル、またはそれを含む zip ファイル。リストはチェックを入れて [保存] をタップすると取得され、ライセンスは確認用にご自由にどうぞ。</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Rime 語彙リストを追加</string>
-    <string name="morphe_music_lyrics_rime_dict_added">%1$s を追加しました - チェックして保存をタップしてダウンロードしてください</string>
+    <string name="morphe_music_lyrics_rime_dict_added">%s を追加しました。チェックを入れて「保存」をタップしてダウンロードしてください</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">コードはhakのように2〜3文字である必要があります</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">名称とアドレスには縦棒を含めることはできません</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">アドレスは https:// で始まる必要があります</string>
-    <string name="morphe_music_lyrics_rime_dict_building">読取中: %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s は既に単語テーブルを持っています</string>
+    <string name="morphe_music_lyrics_rime_dict_building">単語リストを読み込み中: %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%s には既に単語テーブルが存在します</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"Rime 単語リストには UniDict も必要です。オフライン辞書プロバイダーで「中国語および広東語文字 (UniDict)」にチェックを入れて、ダウンロードが完了するまでお待ちください。これがなければ、文字を読み取るリストは読み方を返しません。
 
 Rime 単語リストが読み取るリストにチェックを入れ、[保存] をタップしてダウンロードしてください。追加したリストはチェックを外すと削除されます。
@@ -267,21 +273,26 @@ Rime 単語リストが読み取るリストにチェックを入れ、[保存] 
     <string name="morphe_music_lyrics_rime_dict_incomplete">コード、名称、アドレスを入力してください</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">上記の言語では Rime 語彙リストがチェックされていません。これをタップしてリストをチェックするか、リストがある他の言語を選択してください</string>
     <string name="morphe_music_lyrics_rime_dict_ready">語彙リスト準備完了</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">語彙リスト準備完了（%1$d エントリ）</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s は組み込みのローマ字変換器によって処理され、語彙リストを取ることができません</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">単語リストの準備完了 (%s エントリ)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%s は組み込みのローマ字変換機能で読み込まれるため、単語リストを設定できません</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">未使用：この言語は既に独自の読みを持っているため、チェックを外して削除してください</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime 語彙リスト</string>
     <string name="morphe_music_lyrics_romanization_provider_local">オフライン辞書</string>
     <string name="morphe_music_lyrics_romanization_provider_title">ローマ字変換または翻記</string>
     <string name="morphe_music_lyrics_romanization_target_language">"ローマ字表記または翻音・転写先の言語：
 %s"</string>
-    <string name="morphe_music_lyrics_romanize_failed">[…] をローマ字化できませんでした</string>
+    <string name="morphe_music_lyrics_romanize_failed">歌詞をローマ字化できませんでした</string>
     <string name="morphe_music_lyrics_romanize_hide">歌詞が見つかりません</string>
     <string name="morphe_music_lyrics_romanize_language_title">ローマ字変換または翻記の言語</string>
     <string name="morphe_music_lyrics_romanize_only">ローマ字のみ</string>
     <string name="morphe_music_lyrics_romanized_by_ai">ローマ字: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">未保存</string>
     <string name="morphe_music_lyrics_romanizing">ロード中</string>
+    <string name="morphe_music_lyrics_ruby_generating">ルビを生成中…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">ルビ</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">ひらがな (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">カタカナ (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">ルビ形式</string>
     <string name="morphe_music_lyrics_saved">保存しました</string>
     <string name="morphe_music_lyrics_sb_matching_summary">SponsorBlockがスキップするセグメントを除いてマッチングし、歌詞をリリース版のオーディオに合わせます。オフにするとSponsorBlockを完全に無視します</string>
     <string name="morphe_music_lyrics_sb_matching_title">歌詞オフセットにSponsorBlockのセグメントを使用</string>
@@ -297,6 +308,8 @@ Rime 単語リストが読み取るリストにチェックを入れ、[保存] 
     <string name="morphe_music_lyrics_show_refresh_button_title">更新ボタンを表示</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">タップしてローマ字変換または翻記を切り替えます；長押しするとローマ字変換または翻記のみ表示モードになります。有効になっているローマ字変換プロバイダーを登録順に使用します</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">ローマ字変換または翻記ボタンを表示</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">タップして歌詞の上のルビ表示を切り替えます。長押しするとひらがなとカタカナを切り替えられます。有効なルビプロバイダーがリストされた順に使用されます</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">ルビ表示ボタンを表示</string>
     <string name="morphe_music_lyrics_show_section_summary">歌詞の新しいセクションごとに、バースやコーラスなどの小さなタグを付けます。</string>
     <string name="morphe_music_lyrics_show_section_title">セクションタグを表示</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">タップして翻訳を切り替えます；長押しすると翻訳のみ表示モードになります。有効になっている翻訳プロバイダーを登録順に使用します</string>
@@ -310,7 +323,7 @@ Rime 単語リストが読み取るリストにチェックを入れ、[保存] 
     <string name="morphe_music_lyrics_split_background_title">バックコーラスを分離して表示</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">歌詞の行末のピリオド、カンマ、セミコロン、コロンなどの句読点を削除して表示します。疑問符 (?)、感嘆符 (!)、3 点リーダー、引用符、括弧などの記号は、そのまま表示されます</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">行末の句読点を削除</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">ON にすると、ローマ字変換または翻記が歌詞の下、翻訳が上に配置されます；OFF にすると、ローマ字変換または翻記が上、翻訳が下になります。各音節の上に配置された読みはそれと一緒に移動し、音節の上から下に移動します</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">歌詞の下にある翻訳とローマ字の表示順序を入れ替えます</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">翻訳とローマ字表記を入れ替える</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">行をタップして曲のその瞬間にジャンプ、指下の単語または全行（単語上以外で長押し）をコピー。オフにすると両方のジェスチャーが無効になります</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">行をタップして長押し</string>
@@ -352,7 +365,7 @@ Rime 単語リストが読み取るリストにチェックを入れ、[保存] 
     <string name="morphe_music_musixmatch_token_dialog_hint">ユーザートークンが無効です。もう一度お試しください</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">トークンを追加するのは、自分のアカウントを使用する場合のみです。これは Musixmatch Android アプリから取得する必要があります: musixmatch.com からコピーしたトークンは廃止されたデスクトップクライアント用であり、API はそれらを拒否します</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch はトークンなしでも動作するため、このフィールドは空のままで構いません</string>
-    <string name="morphe_music_musixmatch_token_title">Musixmatch […] ユーザートークンの値をコピーしてください</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch Token</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: user token 削除済み</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: 無効なユーザートークンです - 確認してもう一度お試しください</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: user token 保存済み</string>
@@ -363,12 +376,19 @@ Rime 単語リストが読み取るリストにチェックを入れ、[保存] 
 1. open.spotify.com にサインインします
 2. DevTools → Application → Cookies → open.spotify.com を開きます
 3. 「sp_dc」の値をコピーします"</string>
-    <string name="morphe_music_spotify_token_title">Spotify […] \"sp_dc\" の値をコピーしてください</string>
-    <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc […] これがない場合、Lyrically がフォールバックとして使用されます</string>
+    <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
+    <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc 削除済み</string>
     <string name="morphe_music_spotify_token_toast_invalid">Spotify: 無効なsp_dcです - 確認してもう一度お試しください</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc を保存しました</string>
     <string name="morphe_music_token_dialog_get_token">トークンを取得</string>
-    <string name="morphe_music_youtube_cookies_dialog_instruction">"YouTube の値をコピーしてください"</string>
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"YouTube から字幕やタイムテキストを取得するために、YouTube の Cookie を貼り付けてください
+
+手順:
+1. ブラウザで youtube.com を開いてサインイン
+2. DevTools（F12）を開く → [Application] → [Cookies] → [youtube.com]
+3. Cookie 文字列全体（セミコロン区切りの key=value 形式）をコピー
+
+必要な Cookie: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: 無効なクッキーです - 確認してもう一度お試しください</string>

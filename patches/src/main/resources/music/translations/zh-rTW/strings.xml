@@ -126,6 +126,8 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_downloads_already_saved">已經下載了</string>
     <string name="morphe_music_downloads_complete">下載完成</string>
     <string name="morphe_music_downloads_failed">下載失敗</string>
+    <string name="morphe_music_downloads_mark_summary">已下載的歌曲在播放清單、專輯和搜尋結果的詳細資訊前會顯示標記</string>
+    <string name="morphe_music_downloads_mark_title">標記已下載歌曲</string>
     <string name="morphe_music_downloads_notification_channel">音訊下載</string>
     <string name="morphe_music_downloads_progress">正在下載%s%%</string>
     <string name="morphe_music_downloads_sort">排序</string>
@@ -154,7 +156,7 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_ai_config_model_label">模型</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">提示詞</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s：已連接！（%2$s）</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s：連接失敗。請檢查設置。</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s：連線失敗。請檢查設定。</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">設置不完整或被提供者拒絕</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Base URL 必須以 http:// 或 https:// 開頭</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">正在驗證連線…</string>
@@ -167,8 +169,8 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">已儲存提示詞</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">允許來自歌詞來源的非拉丁文發音；關閉時，僅保留拉丁字母、帶音符號字母和聲調數字</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">啟用轉寫</string>
-    <string name="morphe_music_lyrics_clear_cache_done">已清除 %1$s MB</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">刪除此設備上保留的 %1$s MB 歌詞緩存</string>
+    <string name="morphe_music_lyrics_clear_cache_done">已清除 %s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">刪除此裝置上保留的 %s MB 歌詞</string>
     <string name="morphe_music_lyrics_clear_cache_title">清除儲存的歌詞</string>
     <string name="morphe_music_lyrics_contribute_credit">長按複製按鈕以儲存此 LRC；如果您能微調時間軸並與社群提供者分享，我們將不勝感激</string>
     <string name="morphe_music_lyrics_copied">已複製到剪貼簿</string>
@@ -179,6 +181,10 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">切換迷你播放器和媒體工作階段中藝人和標題的顯示順序。 ON「藝人 - 標題」和 OFF「標題 - 藝人」不影響歌詞搜索</string>
     <string name="morphe_music_lyrics_display_artist_first_title">藝人和標題的顯示順序</string>
     <string name="morphe_music_lyrics_dual_only">雙模式</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">播放時移動背景，且若 YouTube Music 擁有麥克風權限，則隨音樂律動。關閉此選項可使用靜止背景以節省電量</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">動態背景動畫</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">在歌詞後方顯示由專輯封面產生的模糊背景</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">動態背景</string>
     <string name="morphe_music_lyrics_enabled_summary">從第三方服務顯示歌詞，若找不到則改用內建歌詞</string>
     <string name="morphe_music_lyrics_enabled_title">使用第三方歌詞</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">將每行歌詞的首字母大寫</string>
@@ -195,12 +201,12 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">檢視歌詞時保持螢幕開啟</string>
     <string name="morphe_music_lyrics_line_scale_summary">將當前未演唱的每一行繪製得稍小一些，並在使其變暗的同時實現這一效果</string>
     <string name="morphe_music_lyrics_line_scale_title">收縮非活動行</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">正在建立讀音 %1$s：%2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">正在讀取 %1$s：%2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">漢語詞彙（pinyin-pro，約 17 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">希臘語、斯拉夫語西里爾字母（包括俄語、烏克蘭語、保加利亞語、塞爾維亞語、白俄羅斯語、馬其頓語）、格魯吉亞語、亞美尼亞語、希伯來語、阿拉伯語、阿姆哈拉語和敘利亞語轉寫（CLDR，約 0.5 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">下載失敗 - 關閉並重新開啟此選項以重試</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">日語（SudachiDict，約 75 MB）</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">讀音就緒 (%1$d 個條目)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">讀音已準備就緒（%s 個項目）</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">中文和粵文字符（UniDict，約 8 MB）</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">正在下載閱讀字典……</string>
     <string name="morphe_music_lyrics_local_romanization_summary">讀取時間同步歌詞（字級同步開啟）的每個詞；韓語無需下載；十四種腳本共用一個 CLDR 下載；當 Rime 詞表的詞表涵蓋該語言時，漢字由 Rime 詞表讀取</string>
@@ -242,12 +248,12 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_rime_dict_add">新增</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">.dict.yaml 文件或包含該文件的 zip 包，行格式如 字 ham 和 典 din2。當你勾選該列表並點擊「儲存」時獲取列表，其許可證由你自行檢查</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">新增 Rime 詞表</string>
-    <string name="morphe_music_lyrics_rime_dict_added">已新增 %1$s - 勾選並點擊保存以下載</string>
+    <string name="morphe_music_lyrics_rime_dict_added">已新增 %s - 請勾選並點擊「儲存」以進行下載</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">代碼必須是兩到三個字母，例如 hak</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">名稱和地址不能包含豎直條</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">地址必須以 https:// 開頭</string>
-    <string name="morphe_music_lyrics_rime_dict_building">正在生成發音詞表：%1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s 已有詞表</string>
+    <string name="morphe_music_lyrics_rime_dict_building">正在讀取詞表：%s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%s 已有詞表</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"Rime 詞典也需要 UniDict：在離線字典提供者中，勾選「中文及粵語字元（UniDict）」並讓它先完成下載。沒有它，讀取字元的列表將無法提供發音。
 
 勾選 Rime 詞典應該讀取的列表，然後點擊「儲存」以下載它們。當你取消勾選已添加的列表時，它會被移除。
@@ -267,8 +273,8 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_rime_dict_incomplete">填寫代碼、名稱和地址</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">以上語言尚未勾選任何 Rime 詞表。點擊此名稱以勾選一個詞表，或選擇擁有詞表的語言</string>
     <string name="morphe_music_lyrics_rime_dict_ready">詞表就緒</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">詞表就緒（%1$d 項）</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s 由內建羅馬拼音處理，無法使用詞表</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">詞表已準備就緒（%s 個項目）</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%s 由內建羅馬化工具讀取，無法使用詞表</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">未使用：此語言已有其 own 發音，因此取消勾選即可移除</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime 詞表</string>
     <string name="morphe_music_lyrics_romanization_provider_local">離線字典</string>
@@ -282,6 +288,11 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_romanized_by_ai">由 %s 進行羅馬拼音翻譯</string>
     <string name="morphe_music_lyrics_romanized_by_google">由 Google 轉寫</string>
     <string name="morphe_music_lyrics_romanizing">正在翻譯成羅馬拼音…</string>
+    <string name="morphe_music_lyrics_ruby_generating">正在產生注音……</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">注音</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">平假名 (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">片假名 (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">注音指令碼</string>
     <string name="morphe_music_lyrics_saved">已儲存</string>
     <string name="morphe_music_lyrics_sb_matching_summary">比對時略過 SponsorBlock 跳過的區段，讓歌詞對齊正式發行的音訊。關閉則完全忽略 SponsorBlock</string>
     <string name="morphe_music_lyrics_sb_matching_title">使用 SponsorBlock 區段調整歌詞偏移</string>
@@ -297,6 +308,8 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">顯示重新整理按鈕</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">點擊切換羅馬拼音或轉寫；長按僅進行羅馬拼音或轉寫。按照啟用的羅馬拼音提供者的列出順序使用</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">顯示羅馬拼音或轉寫按鈕</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">點擊以切換歌詞上方的注音讀音；長按以在平假名和片假名之間切換。將按列出的順序使用已啟用的注音提供者</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">顯示注音按鈕</string>
     <string name="morphe_music_lyrics_show_section_summary">用小型標籤標示歌詞的每個新段落，例如主歌或副歌</string>
     <string name="morphe_music_lyrics_show_section_title">顯示段落標籤</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">點擊切換翻譯；長按僅進行翻譯。按照啟用的翻譯提供者的列出順序使用</string>
@@ -310,7 +323,7 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_lyrics_split_background_title">單獨顯示背景人聲</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">移除歌詞行末的句號、逗號、冒號和分號。問號、感嘆號、省略號、引號和括號將被保留</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">移除末尾標點符號</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">開啟時，羅馬拼音或轉寫位於歌詞下方，翻譯位於上方；關閉時，羅馬拼音或轉寫位於上方，翻譯位於下方。放置在每個音節上方的發音會隨之移動，從音節上方移至下方</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">切換歌詞下方翻譯與羅馬拼音的顯示順序</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">交換翻譯和羅馬拼音</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">點擊行可跳轉至歌曲中的該時刻，長按该行可複製指標下方的單字，若未位於單字上則複製整行。關閉功能將禁用這兩種手勢操作</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">輕觸並按住一行</string>
@@ -352,7 +365,7 @@ SABR 播放（影片串流模擬已關閉）"</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">使用者Token</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">僅在要使用您自己的帳戶時才新增權杖。此權杖必須來自 Musixmatch Android 應用程式：從 musixmatch.com 複製的權杖屬於已停用的桌面用戶端，API 會拒絕這些權杖。</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch 不需要權杖也能運作，因此此欄位可以留空。</string>
-    <string name="morphe_music_musixmatch_token_title">Musixmatch：[…] 複製「token」的值</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch Token</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch：已清除使用者Token</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：無效的使用者Token — 請檢查並重試</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch：已儲存使用者Token</string>

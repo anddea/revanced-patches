@@ -158,9 +158,9 @@ La lista se descarga de GitHub y los videos se filtran en tu dispositivo"</strin
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Canales de la lista de bloqueo</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Habilita un filtro para cargar canales</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Cargando canales…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Inicio: %s
-• Búsqueda: %s
-• Total: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Inicio: %1$s
+• Búsqueda: %2$s
+• Total: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Canales de la lista de advertencias</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Lista de advertencias: confianza moderada</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ocultar etiqueta \'Doblado automáticamente\'</string>
@@ -189,6 +189,14 @@ La lista se descarga de GitHub y los videos se filtran en tu dispositivo"</strin
 Para mostrar el menú 'Pista de audio', cambia 'Falsificar transmisiones de vídeo' a cualquier cliente excepto 'Android Studio' y 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Ocultar menú \'En marcha\'</string>
     <string name="morphe_hide_podcasts_menu_title">Ocultar menú Podcasts</string>
+    <string name="morphe_hide_post_comment_button_title">Ocultar botón de Comentarios</string>
+    <string name="morphe_hide_post_comments_preview_summary">Oculta la vista previa de los comentarios debajo de las publicaciones</string>
+    <string name="morphe_hide_post_comments_preview_title">Ocultar vista previa de comentarios</string>
+    <string name="morphe_hide_post_dislike_button_summary">Con el diseño Forzado, el espacio del botón queda a la izquierda</string>
+    <string name="morphe_hide_post_dislike_button_title">Ocultar botón de No me gusta</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Ocultar botones de Me gusta y No me gusta</string>
+    <string name="morphe_hide_post_share_button_summary">El botón de descarga de las imágenes de la publicación aparece junto al botón de compartir, por lo que también está oculto</string>
+    <string name="morphe_hide_post_share_button_title">Ocultar botón de Compartir</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ocultar pies de página legales y de privacidad</string>
     <string name="morphe_hide_shopping_menu_title">Ocultar menú \'Compras y Suscripciones\'</string>
     <string name="morphe_hide_sports_menu_title">Ocultar menú Deportes</string>
@@ -238,6 +246,16 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_livestream_dvr_title">Activar el DVR de la transmisión en directo</string>
     <string name="morphe_music_package_name_summary">Nombre del paquete de tu app de música instalada</string>
     <string name="morphe_music_package_name_title">Nombre del paquete de la app de música</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Ajusta el nivel de transparencia de la barra de navegación de cristal (0 es transparente, 100 es opaco)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Opacidad del cristal</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Espacio de botones</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Botones mostrados: %1$s de %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Altura</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Ajusta la altura, el ancho y el espacio de los botones de la barra de navegación de cristal, con una vista previa. Los botones que no caben en el ancho de la pantalla se ocultan</string>
+    <string name="morphe_navigation_bar_glass_size_title">Tamaño de barra de navegación de cristal</string>
+    <string name="morphe_navigation_bar_glass_size_width">Ancho máximo</string>
+    <string name="morphe_navigation_bar_glass_summary">Muestra la barra de navegación como una cápsula translúcida, redondeada y flotante. No disponible con el estilo de barra de navegación opaca</string>
+    <string name="morphe_navigation_bar_glass_title">Activar barra de navegación de cristal</string>
     <string name="morphe_navigation_bar_style_entry_2">Translúcido</string>
     <string name="morphe_navigation_bar_style_title">Estilo de la barra de navegación</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Es posible que tu dispositivo o la versión de YouTube no admitan este estilo, lo que puede causar problemas de diseño o cierres inesperados</string>
@@ -269,6 +287,11 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_playback_in_feeds_title">Reproducción en feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Ajusta la opacidad del fondo detrás de los botones de control del reproductor y la barra de tiempo (0 es invisible, 100 es opaco)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacidad del fondo de los botones de control</string>
+    <string name="morphe_post_buttons_layout_entry_1">Servidor</string>
+    <string name="morphe_post_buttons_layout_entry_2">Forzado</string>
+    <string name="morphe_post_buttons_layout_title">Diseño de botones de publicación</string>
+    <string name="morphe_post_buttons_screen_summary">Elige el diseño de los botones que aparecen debajo de las publicaciones de la comunidad y qué botones ocultar</string>
+    <string name="morphe_post_buttons_screen_title">Botones de publicación</string>
     <string name="morphe_post_image_download_failed">No se pudo descargar la imagen</string>
     <string name="morphe_post_image_download_flyout">Descargar imágenes</string>
     <string name="morphe_post_image_download_flyout_single">Descargar imagen</string>
@@ -324,7 +347,7 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_search_comments_clear">Limpiar</string>
     <string name="morphe_search_comments_cleared">Búsqueda borrada. Cambia el orden de clasificación o abre los comentarios de nuevo para mostrar todos los comentarios</string>
     <string name="morphe_search_comments_hint">Palabras a buscar</string>
-    <string name="morphe_search_comments_summary">Toca el botón de búsqueda en los comentarios para mostrar solo los comentarios cargados que contengan todas las palabras buscadas. Pon las palabras entre comillas para buscar una frase</string>
+    <string name="morphe_search_comments_summary">Pulsa el botón de búsqueda en los comentarios para mostrar solo los comentarios cargados que contengan todas las palabras buscadas. Pon las palabras entre comillas para buscar una frase</string>
     <string name="morphe_search_comments_title">Buscar comentarios</string>
     <string name="morphe_secondary_caption_language_summary">Muestra un segundo idioma con los subtítulos y añade una opción para activar/desactivar los subtítulos bilingües en el menú de subtítulos</string>
     <string name="morphe_secondary_caption_language_title">Idioma secundario de subtítulos</string>
@@ -442,6 +465,8 @@ Limitación: si la opción 'Restaurar antigua barra de acciones de vídeo' está
     <string name="morphe_theme_entry_white">Blanco</string>
     <string name="morphe_theme_settings_summary">Personaliza el tema, el aspecto y la imagen de la app</string>
     <string name="morphe_theme_settings_title">Ajustes de temas</string>
+    <string name="morphe_unlock_queue_summary">Desbloquea la cola de vídeos de YouTube</string>
+    <string name="morphe_unlock_queue_title">Desbloquear cola</string>
     <string name="morphe_video_quality_prioritize_dialog">Si este ajuste está desactivado, los vídeos más antiguos podrían no mostrar opciones de calidad de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza la calidad de vídeo más alta sobre la eficiencia del códec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar la calidad del vídeo</string>
@@ -494,6 +519,10 @@ Pulsa aquí para abrir OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Multilingüe femenino</string>
     <string name="morphe_vot_voice_gender_male">Masculino</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Multilingüe masculino</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">La confirmación no se muestra después de que un vídeo se elimina de Ver más tarde</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Ocultar mensaje emergente de eliminación de Ver más tarde</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Los controles de arrastre de los vídeos de Ver más tarde son más fáciles de agarrar</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Ampliar controles de arrastre de Ver más tarde</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_title">Abrir menú de calidad avanzada</string>
@@ -1914,8 +1943,12 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_navigation_bar_animations_summary">Anima las transiciones al cambiar entre pestañas</string>
     <string name="revanced_navigation_bar_animations_title">Activar animaciones de barra de navegación</string>
     <string name="revanced_navigation_bar_order_drag_handle">Arrastre para reordenar</string>
+    <string name="revanced_navigation_bar_order_hide">Ocultar %s</string>
+    <string name="revanced_navigation_bar_order_instructions">Toca un elemento para mostrarlo o ocultarlo y arrastra su usuario para reordenarlo. Crear y Notificaciones comparten una ranura. Explorar solo está disponible en los diseños compatibles de YouTube</string>
+    <string name="revanced_navigation_bar_order_show">Mostrar porcentajes</string>
     <string name="revanced_navigation_bar_order_summary">Arrastra los elementos de navegación al orden en que deben aparecer</string>
     <string name="revanced_navigation_bar_order_title">Orden de la barra de navegación</string>
+    <string name="revanced_navigation_bar_visibility_instructions">Toca un elemento para mostrarlo o ocultarlo. Crear y Notificaciones comparten una ranura. Se aplican cambios tras reiniciar</string>
     <string name="revanced_offline_action_delete">Borrar</string>
     <string name="revanced_offline_action_open_youtube">Abrir en YouTube</string>
     <string name="revanced_offline_action_play_background">Reproducir en segundo plano</string>
@@ -2860,7 +2893,7 @@ Ajusta el brillo deslizando verticalmente en el lado izquierdo de la pantalla"</
     <string name="revanced_swipe_seek_summary_on">"La búsqueda en pantalla completa por deslizamiento está habilitada
 
 Busca en el video deslizando horizontalmente en la mitad superior de la pantalla"</string>
-    <string name="revanced_swipe_seek_title">Habilitar gesto de búsqueda</string>
+    <string name="revanced_swipe_seek_title">Desliza para buscar</string>
     <string name="revanced_swipe_speed_distance_summary">La cantidad de píxeles a deslizar para cambiar la velocidad del video. Valores más bajos hacen que la velocidad cambie más rápido, valores más altos la hacen más lenta (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">Distancia de velocidad</string>
     <string name="revanced_swipe_speed_summary_off">El cambio de velocidad en pantalla completa por deslizamiento está deshabilitado</string>

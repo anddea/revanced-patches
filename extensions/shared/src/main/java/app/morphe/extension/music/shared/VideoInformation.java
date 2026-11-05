@@ -22,10 +22,10 @@ public final class VideoInformation {
     private static final String SAMPLES_PLAYER_PARAMETERS = "8AEB";
 
     @NonNull
-    private static String videoId = "";
+    private static volatile String videoId = "";
 
-    private static long videoLength = 0;
-    private static long videoTime = -1;
+    private static volatile long videoLength = 0;
+    private static volatile long videoTime = -1;
 
     @NonNull
     private static volatile String playerResponseVideoId = "";
@@ -53,7 +53,7 @@ public final class VideoInformation {
     }
 
     /**
-     * Id of the current video playing.  Includes Shorts and YouTube Stories.
+     * ID of the current video playing.  Includes Shorts and YouTube Stories.
      *
      * @return The id of the video. Empty string if not set yet.
      */

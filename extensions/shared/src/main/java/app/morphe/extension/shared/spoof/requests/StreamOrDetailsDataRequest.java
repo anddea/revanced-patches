@@ -26,6 +26,7 @@ import app.morphe.extension.shared.spoof.js.JavaScriptManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,6 +47,7 @@ import java.util.Objects;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
@@ -194,6 +196,22 @@ public class StreamOrDetailsDataRequest {
         return client != null && client.requireSABR;
     }
 
+    /**
+     * How long fetched streams are given to the player of a video that is loaded again without a request
+     * that is seen. Streams expire some hours after they are fetched.
+     */
+    private static final long MAX_MILLISECONDS_TO_REUSE_STREAMS = 60 * 60 * 1000;
+
+    /**
+     * How long a fetch that found no streams is used for a video that is loaded again without a request
+     * that is seen. The app can build the streams of the same response more than once.
+     */
+    private static final long MAX_MILLISECONDS_TO_REUSE_FAILED_FETCH = 30 * 1000;
+
+    private static final AtomicInteger playerResponseReloadCount = new AtomicInteger();
+    private final long fetchStartTime = System.currentTimeMillis();
+    private final int playerResponseReloadCountAtFetch = playerResponseReloadCount.get();
+
     private final String videoId;
     private final boolean isInline;
     @Nullable
@@ -276,7 +294,6 @@ public class StreamOrDetailsDataRequest {
     private boolean isFetchInProgress(boolean isInline, Map<String, String> playerHeaders,
                                       ClientType[] clientOrder) {
         return !future.isDone()
-                && this.isInline == isInline
                 && this.clientOrder == clientOrder
                 && Objects.equals(authorization, playerHeaders.get(AUTHORIZATION_HEADER));
     }
@@ -568,18 +585,8 @@ public class StreamOrDetailsDataRequest {
                         playerGestureConfigBuilder.setDownAndOutLandscapeAllowed(true);
                         playerConfigBuilder.setPlayerGestureConfig(playerGestureConfigBuilder);
 
-                        // In autoplay in feed, 'inline' query parameters and unique player parameters are used when sending requests.
-                        // To minimize code modifications, simply add 'inlinePlaybackConfig' using proto builder.
-                        if (isInline) {
-                            AudioConfig.Builder audioConfigBuilder = playerConfigBuilder.getAudioConfig().toBuilder();
-                            audioConfigBuilder.setMuteOnStart(true);
-                            playerConfigBuilder.setAudioConfig(audioConfigBuilder);
-
-                            InlinePlaybackConfig.Builder inlinePlaybackConfigBuilder = playerConfigBuilder.getInlinePlaybackConfig().toBuilder();
-                            inlinePlaybackConfigBuilder.setShowAudioControls(true);
-                            inlinePlaybackConfigBuilder.setShowScrubbingControls(true);
-                            playerConfigBuilder.setInlinePlaybackConfig(inlinePlaybackConfigBuilder);
-                        }
+                        // How the video is played inline is added when the config is given to the player,
+                        // so the same fetch can be used by an inline player and by the full player.
                     }
 
                     playerConfigBuffer = playerConfigBuilder.build().toByteArray();
@@ -709,5 +716,111 @@ public class StreamOrDetailsDataRequest {
     @Override
     public String toString() {
         return "StreamOrDetailsDataRequest{" + "videoId='" + videoId + "', isInline='" + isInline + '\'' + '}';
+    }
+
+    /**
+     * Keeps the headers of an InnerTube request of the app, for the fetches that are started without
+     * a request, and so downloads can resolve tracks that were never opened.
+     * Called for every InnerTube request, because a video can be loaded before any request for a video is seen.
+     */
+    public static void setAppHeaders(@Nullable Map<String, String> requestHeaders) {
+        if (requestHeaders != null && !requestHeaders.isEmpty()) {
+            lastPlayerHeaders = requestHeaders;
+        }
+    }
+
+    /**
+     * Starts fetching the streams of a video that the app loads with a request that is not seen,
+     * unless a fetch for the video can still be used.
+     */
+    public static void fetchRequestIfNeeded(String videoId) {
+        synchronized (streamCache) {
+            StreamOrDetailsDataRequest existing = streamCache.get(videoId);
+            if (existing == null || !existing.canReuse()) {
+                fetchWithLastHeaders(videoId);
+            }
+        }
+    }
+
+    /**
+     * @return The fetch of the streams to give to the player of the video. If no fetch can be used,
+     *         a fetch is started now.
+     */
+    public static StreamOrDetailsDataRequest getOrFetchRequest(String videoId) {
+        synchronized (streamCache) {
+            StreamOrDetailsDataRequest existing = streamCache.get(videoId);
+            if (existing != null && existing.canReuse()) {
+                return existing;
+            }
+            return fetchWithLastHeaders(videoId);
+        }
+    }
+
+    private static StreamOrDetailsDataRequest fetchWithLastHeaders(String videoId) {
+        Logger.printDebug(() -> "Fetching streams without a player request for: " + videoId);
+        StreamOrDetailsDataRequest request = new StreamOrDetailsDataRequest(null, videoId, false, lastPlayerHeaders,
+                clientStreamOrderToUse, false);
+        streamCache.put(videoId, request);
+        return request;
+    }
+
+    /**
+     * Called when a media response asks the player to load the player response of its video again.
+     * The fetches started before are not reused, since they can hold the streams the player is asked to replace.
+     * This does not know the video, but a reload is rare.
+     */
+    public static void onPlayerResponseReloadRequested() {
+        playerResponseReloadCount.incrementAndGet();
+    }
+
+    /**
+     * @return If the streams of this fetch can be given to a player that is set up with the headers
+     *         of the latest request that loads a video.
+     */
+    private boolean canReuse() {
+        // The account can be changed since this fetch.
+        if (!Objects.equals(authorization, lastPlayerHeaders.get(AUTHORIZATION_HEADER))) {
+            return false;
+        }
+        if (playerResponseReloadCountAtFetch != playerResponseReloadCount.get()) {
+            return false;
+        }
+        if (!future.isDone()) {
+            return true;
+        }
+        final long age = System.currentTimeMillis() - fetchStartTime;
+        return age < MAX_MILLISECONDS_TO_REUSE_FAILED_FETCH
+                || (age < MAX_MILLISECONDS_TO_REUSE_STREAMS && getStreamDetails() instanceof StreamData);
+    }
+
+    /**
+     * The player config of the client replaces the whole player config of the app, and it does not
+     * tell how the video is played inline. The app player config does, such as for a muted preview in the feed.
+     *
+     * @return The player config with how the app player config plays the video inline.
+     */
+    public static byte[] addInlinePlayback(byte[] playerConfig, byte[] appPlayerConfig) {
+        try {
+            PlayerConfig appConfig = PlayerConfig.parseFrom(appPlayerConfig);
+            final boolean muteOnStart = appConfig.getAudioConfig().getMuteOnStart();
+            final boolean hasInlinePlaybackConfig = appConfig.hasInlinePlaybackConfig();
+            if (!muteOnStart && !hasInlinePlaybackConfig) {
+                return playerConfig;
+            }
+            Logger.printDebug(() -> "Adding inline playback of the app player config, muteOnStart: "
+                    + muteOnStart + ", inlinePlaybackConfig: " + hasInlinePlaybackConfig);
+
+            PlayerConfig.Builder builder = PlayerConfig.parseFrom(playerConfig).toBuilder();
+            if (muteOnStart) {
+                builder.setAudioConfig(builder.getAudioConfig().toBuilder().setMuteOnStart(true));
+            }
+            if (hasInlinePlaybackConfig) {
+                builder.setInlinePlaybackConfig(appConfig.getInlinePlaybackConfig());
+            }
+            return builder.build().toByteArray();
+        } catch (InvalidProtocolBufferException ex) {
+            Logger.printException(() -> "addInlinePlayback failure", ex);
+            return playerConfig;
+        }
     }
 }

@@ -126,6 +126,8 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
     <string name="morphe_music_downloads_already_saved">Already downloaded</string>
     <string name="morphe_music_downloads_complete">Download complete</string>
     <string name="morphe_music_downloads_failed">Download failed</string>
+    <string name="morphe_music_downloads_mark_summary">Songs already downloaded show a mark before their details in playlists, albums and search results</string>
+    <string name="morphe_music_downloads_mark_title">Mark downloaded songs</string>
     <string name="morphe_music_downloads_notification_channel">Audio downloads</string>
     <string name="morphe_music_downloads_progress">Downloading %s%%</string>
     <string name="morphe_music_downloads_sort">Sort</string>
@@ -184,6 +186,10 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_display_artist_first_summary">Toggle the display order of Artist and Title in the Miniplayer and MediaSession. ON \"Artist - Title\" and OFF \"Title - Artist\" Does not affect lyrics search</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Artist and Title display order</string>
     <string name="morphe_music_lyrics_dual_only">Dual mode</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">Move the background while playing, and pulse it with the music if YouTube Music has the microphone permission. Turn off for a still background that uses less battery</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">Animate dynamic background</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">Show a blurred background made from the album art behind the lyrics</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">Dynamic background</string>
     <string name="morphe_music_lyrics_enabled_summary">Shows lyrics from a third-party service, falling back to the built-in lyrics when none are found</string>
     <string name="morphe_music_lyrics_enabled_title">Use third-party lyrics</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Capitalizes the first letter of each lyrics line</string>
@@ -281,6 +287,12 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanized by %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanized by Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizing…</string>
+    <string name="morphe_music_lyrics_ruby_generating">Generating ruby…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">Ruby</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_summary" translatable="false">%s</string>
+    <string name="morphe_music_lyrics_ruby_style_title">Ruby script</string>
     <string name="morphe_music_lyrics_saved">Saved</string>
     <string name="morphe_music_lyrics_sb_matching_summary">Match without the segments SponsorBlock skips and shift lyrics onto the released audio. Off ignores SponsorBlock entirely</string>
     <string name="morphe_music_lyrics_sb_matching_title">Use SponsorBlock segments for lyrics offset</string>
@@ -296,6 +308,8 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Show Refresh button</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Tap to toggle romanization or transliteration; long-press for romanization or transliteration only. Uses the enabled romanization providers in their listed order</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Show Romanize or Transliterate button</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">Tap to toggle ruby readings above lyrics; long-press to switch between hiragana and katakana. Uses the enabled ruby providers in their listed order</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">Show Ruby button</string>
     <string name="morphe_music_lyrics_show_section_summary">Label each new section of the lyrics with a small tag, such as Verse or Chorus</string>
     <string name="morphe_music_lyrics_show_section_title">Show section tags</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Tap to toggle translation; long-press for translation only. Uses the enabled translation providers in their listed order</string>
@@ -309,7 +323,7 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_lyrics_split_background_title">Show background vocals separately</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Removes full stops, commas, colons and semicolons at the end of lyrics lines. Question marks, exclamation marks, ellipses, quotes and brackets are kept</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Remove trailing punctuation</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">ON puts romanization or transliteration below lyrics and translation above; OFF keeps romanization or transliteration above and translation below. A reading placed over each syllable moves with it, from above its syllable to below it</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Swaps the display order of translation and romanization below the lyrics</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Swap translation and romanization</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Tap a line to jump to that moment in the song, long-press it to copy the word under your finger, or the whole line when the press is not on a word. Off takes both gestures away</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Tap and hold a line</string>

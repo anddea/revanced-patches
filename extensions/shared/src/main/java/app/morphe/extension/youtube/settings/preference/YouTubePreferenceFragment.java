@@ -136,6 +136,11 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             return;
         }
 
+        if (pref instanceof GlassNavigationBarPreference) {
+            // The dialog reads and saves its settings directly, so there is no UI value to sync.
+            return;
+        }
+
         super.syncSettingWithPreference(pref, setting, applySettingToPreference);
     }
 

@@ -158,9 +158,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">차단 목록 채널</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">필터를 활성화하여 채널을 불러옵니다</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">채널을 불러오는 중…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 홈: %s
-• 검색: %s
-• 합계: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 홈: %1$s
+• 검색: %2$s
+• 합계: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">경고 목록 채널</string>
     <string name="morphe_hide_aislist_warnlist_category_title">경고 목록: 보통 신뢰도</string>
     <string name="morphe_hide_auto_dubbed_label_title">자동 더빙 라벨 숨기기</string>
@@ -189,6 +189,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 '오디오 트랙' 메뉴를 표시하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'Android Studio'와 'Android VR Downgraded'를 제외한 다른 클라이언트로 변경하세요"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">\'이동 중 모드\' 메뉴 숨기기</string>
     <string name="morphe_hide_podcasts_menu_title">팟캐스트 메뉴 숨기기</string>
+    <string name="morphe_hide_post_comment_button_title">댓글 버튼 숨기기</string>
+    <string name="morphe_hide_post_comments_preview_summary">게시물 아래에 표시되는 댓글 미리보기를 숨깁니다</string>
+    <string name="morphe_hide_post_comments_preview_title">댓글 미리보기 숨기기</string>
+    <string name="morphe_hide_post_dislike_button_summary">강제 적용 레이아웃의 경우, 버튼 공간이 그대로 유지됩니다</string>
+    <string name="morphe_hide_post_dislike_button_title">싫어요 버튼 숨기기</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">\'좋아요\' 및 \'싫어요\' 버튼 숨기기</string>
+    <string name="morphe_hide_post_share_button_summary">게시물 이미지의 다운로드 버튼이 공유 버튼 옆에 표시되므로 함께 숨겨집니다</string>
+    <string name="morphe_hide_post_share_button_title">공유 버튼 숨기기</string>
     <string name="morphe_hide_privacy_tos_footer_title">\'법률 및 개인정보 보호\' 하단 설명 숨기기</string>
     <string name="morphe_hide_shopping_menu_title">쇼핑 메뉴 숨기기</string>
     <string name="morphe_hide_sports_menu_title">스포츠 메뉴 숨기기</string>
@@ -238,6 +246,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_livestream_dvr_title">실시간 스트림 DVR 활성화하기</string>
     <string name="morphe_music_package_name_summary">사용자가 사용하고 싶은 Music 앱 패키지명을 설정하세요</string>
     <string name="morphe_music_package_name_title">Music 앱 패키지명</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">글래스 하단바의 투명도를 설정할 수 있습니다 (0: 완전 투명, 100: 완전 불투명)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">글래스 불투명도</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">버튼 간격</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">표시된 버튼: %2$s개 중 %1$s개</string>
+    <string name="morphe_navigation_bar_glass_size_height">높이</string>
+    <string name="morphe_navigation_bar_glass_size_summary">미리보기를 통해 글래스 내비게이션 바의 높이, 너비 및 버튼 간격을 조정합니다. 화면 너비에 맞지 않는 버튼은 숨겨집니다</string>
+    <string name="morphe_navigation_bar_glass_size_title">글래스 내비게이션 바 크기</string>
+    <string name="morphe_navigation_bar_glass_size_width">최대 너비</string>
+    <string name="morphe_navigation_bar_glass_summary">하단바를 플로팅 형태의 둥근 반투명 캡슐 모양으로 표시합니다. 불투명 하단바 스타일에서는 사용할 수 없습니다</string>
+    <string name="morphe_navigation_bar_glass_title">글래스 하단바 활성화하기</string>
     <string name="morphe_navigation_bar_style_entry_2">반투명</string>
     <string name="morphe_navigation_bar_style_title">하단바 스타일</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">이 스타일은 사용자의 기기 또는 YouTube 버전에서 지원되지 않을 수 있으며, 레이아웃 문제나 충돌을 일으킬 수 있습니다</string>
@@ -269,6 +287,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_playback_in_feeds_title">피드에서 재생</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">플레이어 컨트롤 버튼과 시간 표시 버튼 뒤 배경의 투명도를 설정할 수 있습니다 (0: 투명, 100: 불투명)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">컨트롤 버튼 배경 투명도</string>
+    <string name="morphe_post_buttons_layout_entry_1">서버</string>
+    <string name="morphe_post_buttons_layout_entry_2">강제 적용</string>
+    <string name="morphe_post_buttons_layout_title">게시물 버튼 레이아웃</string>
+    <string name="morphe_post_buttons_screen_summary">커뮤니티 게시물 아래 버튼의 레이아웃과 숨길 버튼을 선택하세요</string>
+    <string name="morphe_post_buttons_screen_title">게시물 버튼</string>
     <string name="morphe_post_image_download_failed">이미지를 다운로드할 수 없습니다</string>
     <string name="morphe_post_image_download_flyout">이미지 다운로드</string>
     <string name="morphe_post_image_download_flyout_single">이미지 다운로드</string>
@@ -446,6 +469,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="morphe_theme_entry_white">하얀색</string>
     <string name="morphe_theme_settings_summary">앱 테마, 디자인 및 브랜딩을 꾸며볼 수 있습니다</string>
     <string name="morphe_theme_settings_title">테마 설정</string>
+    <string name="morphe_unlock_queue_summary">YouTube 동영상 현재 재생목록 잠금 해제</string>
+    <string name="morphe_unlock_queue_title">현재 재생목록 잠금 해제</string>
     <string name="morphe_video_quality_prioritize_dialog">이 설정을 비활성화하면, 일부 오래된 동영상에서 화질 옵션이 표시되지 않을 수 있습니다</string>
     <string name="morphe_video_quality_prioritize_summary">코덱 효율성보다 사용 가능한 최고 동영상 화질을 우선합니다</string>
     <string name="morphe_video_quality_prioritize_title">동영상 우선순위를 화질로 지정하기</string>
@@ -498,6 +523,10 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="morphe_vot_voice_gender_female_multilingual">다국어 여성</string>
     <string name="morphe_vot_voice_gender_male">남성</string>
     <string name="morphe_vot_voice_gender_male_multilingual">다국어 남성</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">나중에 볼 동영상에서 삭제된 후 확인 메시지가 표시되지 않습니다</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">나중에 볼 동영상 삭제 스낵바 숨기기</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">나중에 볼 동영상의 드래그 핸들을 더 쉽게 잡을 수 있습니다</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">나중에 볼 동영상 드래그 핸들 넓히기</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
     <string name="revanced_advanced_video_quality_menu_title">고급 화질 메뉴 열기</string>
@@ -1938,8 +1967,12 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_navigation_bar_animations_summary">하단바에서 탭 전환 시 애니메이션을 표시합니다</string>
     <string name="revanced_navigation_bar_animations_title">하단바 애니메이션 활성화하기</string>
     <string name="revanced_navigation_bar_order_drag_handle">드래그하여 순서 변경</string>
+    <string name="revanced_navigation_bar_order_hide">%s 숨기기</string>
+    <string name="revanced_navigation_bar_order_instructions">항목을 탭하여 표시하거나 숨길 수 있으며, 핸들을 드래그하여 순서를 변경할 수 있습니다. 만들기와 알림은 하나의 슬롯을 공유합니다. 탐색은 지원되는 YouTube 레이아웃에서만 사용할 수 있습니다</string>
+    <string name="revanced_navigation_bar_order_show">%s 보이기</string>
     <string name="revanced_navigation_bar_order_summary">하단바 항목을 표시할 순서대로 드래그하세요</string>
     <string name="revanced_navigation_bar_order_title">하단바 순서</string>
+    <string name="revanced_navigation_bar_visibility_instructions">항목을 탭하여 표시하거나 숨길 수 있습니다. 만들기와 알림은 하나의 슬롯을 공유하며, 변경 사항은 앱을 다시 시작한 후 적용됩니다</string>
     <string name="revanced_offline_action_delete">삭제</string>
     <string name="revanced_offline_action_open_youtube">YouTube에서 열기</string>
     <string name="revanced_offline_action_play_background">백그라운드 재생</string>
@@ -2886,7 +2919,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_seek_distance_title">탐색 거리</string>
     <string name="revanced_swipe_seek_summary_off">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색하지 않습니다</string>
     <string name="revanced_swipe_seek_summary_on">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색합니다</string>
-    <string name="revanced_swipe_seek_title">스와이프 제스처로 동영상 탐색 활성화하기</string>
+    <string name="revanced_swipe_seek_title">스와이프하여 탐색</string>
     <string name="revanced_swipe_speed_distance_summary">스와이프하여 동영상 속도를 변경할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 동영상 속도가 빠르게 변경되고, 값이 높을수록 동영상 속도가 느리게 변경됩니다 (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">속도 거리</string>
     <string name="revanced_swipe_speed_summary_off">전체 화면 하단 또는 상단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절하지 않습니다</string>

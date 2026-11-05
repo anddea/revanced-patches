@@ -193,6 +193,14 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
 To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Hide \'On-the-go\' menu</string>
     <string name="morphe_hide_podcasts_menu_title">Hide Podcasts menu</string>
+    <string name="morphe_hide_post_comment_button_title">Hide comment button</string>
+    <string name="morphe_hide_post_comments_preview_summary">Hides the preview of the comments below the posts</string>
+    <string name="morphe_hide_post_comments_preview_title">Hide comments preview</string>
+    <string name="morphe_hide_post_dislike_button_summary">With the Enforced layout, the space of the button is left</string>
+    <string name="morphe_hide_post_dislike_button_title">Hide dislike button</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Hide like and dislike buttons</string>
+    <string name="morphe_hide_post_share_button_summary">The download button of the post images is drawn next to the share button, so it\'s hidden too</string>
+    <string name="morphe_hide_post_share_button_title">Hide share button</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hide legal and privacy footers</string>
     <string name="morphe_hide_shopping_menu_title">Hide Shopping menu</string>
     <string name="morphe_hide_sports_menu_title">Hide Sports menu</string>
@@ -242,6 +250,17 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
     <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
     <string name="morphe_music_package_name_title">Music app package name</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Adjust the transparency level of the glass navigation bar (0 is transparent, 100 is opaque)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Glass opacity</string>
+    <string name="morphe_navigation_bar_glass_size_bottom_spacing">Bottom spacing</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Button spacing</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Buttons shown: %1$d of %2$d</string>
+    <string name="morphe_navigation_bar_glass_size_height">Height</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Adjust the height, the width, the button spacing and the minimum bottom spacing of the glass navigation bar, with a preview. Buttons that do not fit in the width of the screen are hidden</string>
+    <string name="morphe_navigation_bar_glass_size_title">Glass navigation bar size</string>
+    <string name="morphe_navigation_bar_glass_size_width">Maximum width</string>
+    <string name="morphe_navigation_bar_glass_summary">Shows the navigation bar as a floating, rounded, translucent capsule. Not available with the Opaque navigation bar style</string>
+    <string name="morphe_navigation_bar_glass_title">Enable glass navigation bar</string>
     <string name="morphe_navigation_bar_style_entry_2">Translucent</string>
     <string name="morphe_navigation_bar_style_title">Navigation bar style</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">This style may not be supported by your device or YouTube version, and can cause layout issues or crashes</string>
@@ -273,6 +292,11 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_post_buttons_layout_entry_1">Server</string>
+    <string name="morphe_post_buttons_layout_entry_2">Enforced</string>
+    <string name="morphe_post_buttons_layout_title">Post buttons layout</string>
+    <string name="morphe_post_buttons_screen_summary">Choose the layout of the buttons below the community posts and which buttons to hide</string>
+    <string name="morphe_post_buttons_screen_title">Post buttons</string>
     <string name="morphe_post_image_download_failed">Could not download the image</string>
     <string name="morphe_post_image_download_flyout">Download images</string>
     <string name="morphe_post_image_download_flyout_single">Download image</string>
@@ -515,6 +539,10 @@ Tap here to open OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Multilingual female</string>
     <string name="morphe_vot_voice_gender_male">Male</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Multilingual male</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">The confirmation is not shown after a video is removed from Watch later</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Hide Watch later removal snackbar</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">The drag handles of the Watch later videos are easier to grab</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Widen Watch later drag handles</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
     <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
@@ -865,8 +893,8 @@ Limitations:
     <string name="revanced_enable_gradient_loading_screen_summary_off">Gradient loading screen is disabled</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Gradient loading screen is enabled</string>
     <string name="revanced_enable_gradient_loading_screen_title">Enable gradient loading screen</string>
-    <string name="revanced_enable_narrow_navigation_buttons_summary_off">Spacing between navigation buttons is normal</string>
-    <string name="revanced_enable_narrow_navigation_buttons_summary_on">Spacing between navigation buttons is narrow</string>
+    <string name="revanced_enable_narrow_navigation_buttons_summary_off">Spacing between navigation buttons is normal. Not available with the glass navigation bar, which has its own button spacing</string>
+    <string name="revanced_enable_narrow_navigation_buttons_summary_on">Spacing between navigation buttons is narrow. Not available with the glass navigation bar, which has its own button spacing</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Enable narrow navigation buttons</string>
     <string name="revanced_enable_opus_codec_summary">Enables the OPUS codec if the player response includes it</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
@@ -3088,8 +3116,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="morphe_navigation_bar_glass_title">Enable glass navigation bar</string>
-    <string name="morphe_navigation_bar_glass_summary">Shows the navigation bar as a floating, rounded, translucent capsule. Not available with the Opaque navigation bar style</string>
-    <string name="morphe_navigation_bar_glass_opacity_title">Glass opacity</string>
-    <string name="morphe_navigation_bar_glass_opacity_summary">Adjust the transparency level of the glass navigation bar (0 is transparent, 100 is opaque)</string>
 </resources>

@@ -157,9 +157,9 @@ A lista é baixada do GitHub e os vídeos são filtrados no seu dispositivo"</st
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Canais na lista de bloqueio</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Ativar um filtro para carregar canais</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Carregando canais…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Página inicial: %s
-• Pesquisa: %s
-• Total: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Início: %1$s
+• Pesquisa: %2$s
+• Total: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Canais na lista de avisos</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Lista de alertas: confiança moderada</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ocultar rótulo \'Dublagem automática\'</string>
@@ -188,6 +188,14 @@ A lista é baixada do GitHub e os vídeos são filtrados no seu dispositivo"</st
 Para mostrar o menu 'Faixa de áudio', altere 'Simular streams de vídeo' para qualquer cliente exceto 'Android Studio' e 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Ocultar menu \"Em qualquer lugar\"</string>
     <string name="morphe_hide_podcasts_menu_title">Ocultar menu Podcasts</string>
+    <string name="morphe_hide_post_comment_button_title">Ocultar botão Comentários</string>
+    <string name="morphe_hide_post_comments_preview_summary">Oculta a pré-visualização dos comentários abaixo das postagens</string>
+    <string name="morphe_hide_post_comments_preview_title">Ocultar pré-visualização de comentários</string>
+    <string name="morphe_hide_post_dislike_button_summary">Com o layout Forçado, o espaço do botão é mantido</string>
+    <string name="morphe_hide_post_dislike_button_title">Ocultar botão Não gostei</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Ocultar botões Gostei e Não gostei</string>
+    <string name="morphe_hide_post_share_button_summary">O botão de download das imagens do post é desenhado ao lado do botão de compartilhar, portanto, ele também fica oculto</string>
+    <string name="morphe_hide_post_share_button_title">Ocultar botão Compartilhar</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ocultar rodapé \'Política de Privacidade\' e \'Termos de Serviço\'</string>
     <string name="morphe_hide_shopping_menu_title">Ocultar menu Shopping</string>
     <string name="morphe_hide_sports_menu_title">Ocultar menu Esportes</string>
@@ -237,6 +245,16 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_livestream_dvr_title">Ativar o DVR em lives</string>
     <string name="morphe_music_package_name_summary">Nome do pacote do seu aplicativo de música instalado</string>
     <string name="morphe_music_package_name_title">Nome do pacote do app de música</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Ajustar o nível de transparência da barra de navegação de vidro (0 é transparente, 100 é opaco)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Opacidade do vidro</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Espaçamento dos botões</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Botões exibidos: %1$s de %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Altura</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Ajuste a altura, a largura e o espaçamento dos botões da barra de navegação de vidro, com uma prévia. Botões que não cabem na largura da tela são ocultados</string>
+    <string name="morphe_navigation_bar_glass_size_title">Tamanho da barra de navegação de vidro</string>
+    <string name="morphe_navigation_bar_glass_size_width">Largura máxima</string>
+    <string name="morphe_navigation_bar_glass_summary">Exibe a barra de navegação como uma cápsula flutuante, arredondada e translúcida. Não disponível com o estilo de barra de navegação Opaca</string>
+    <string name="morphe_navigation_bar_glass_title">Ativar barra de navegação de vidro</string>
     <string name="morphe_navigation_bar_style_entry_2">Translúcido</string>
     <string name="morphe_navigation_bar_style_title">Estilo da barra de navegação</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Este estilo pode não ser suportado pelo seu dispositivo ou versão do YouTube, e pode causar problemas de layout ou travamentos</string>
@@ -268,6 +286,11 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_playback_in_feeds_title">Reprodução nos feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Ajuste a opacidade do fundo atrás dos botões de controle do player e da barra de tempo (0 é invisível, 100 é sólido)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacidade do fundo dos botões de controle</string>
+    <string name="morphe_post_buttons_layout_entry_1">Servidor</string>
+    <string name="morphe_post_buttons_layout_entry_2">Forçado</string>
+    <string name="morphe_post_buttons_layout_title">Layout dos botões da publicação</string>
+    <string name="morphe_post_buttons_screen_summary">Escolha o layout dos botões abaixo das postagens da comunidade e quais botões ocultar</string>
+    <string name="morphe_post_buttons_screen_title">Botões posteriores</string>
     <string name="morphe_post_image_download_failed">Não foi possível baixar a imagem</string>
     <string name="morphe_post_image_download_flyout">Baixar imagens</string>
     <string name="morphe_post_image_download_flyout_single">Baixar imagem</string>
@@ -318,7 +341,7 @@ Para usar este recurso, desative 'Falsificar fluxos de vídeo'"</string>
     <string name="morphe_search_comments_clear">Limpar</string>
     <string name="morphe_search_comments_cleared">Pesquisa limpa. Altere a ordem de classificação ou abra os comentários novamente para mostrar todos os comentários</string>
     <string name="morphe_search_comments_hint">Palavras para pesquisar</string>
-    <string name="morphe_search_comments_summary">Toque no botão de pesquisa nos comentários para mostrar apenas os comentários carregados que contenham todas as palavras pesquisadas. Coloque as palavras entre aspas para pesquisar uma frase</string>
+    <string name="morphe_search_comments_summary">Toque no botão de pesquisa nos comentários para mostrar apenas os comentários carregados que contenham todas as palavras pesquisadas. Coloque as palavras entre aspas para pesquisar por uma frase</string>
     <string name="morphe_search_comments_title">Pesquisar comentários</string>
     <string name="morphe_secondary_caption_language_summary">Exibe um segundo idioma com as legendas e adiciona a opção de legendas bilíngues ao menu de legendas</string>
     <string name="morphe_secondary_caption_language_title">Idioma secundário da legenda</string>
@@ -492,6 +515,10 @@ Toque aqui para abrir OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Feminino multilíngue</string>
     <string name="morphe_vot_voice_gender_male">Masculino</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Masculino multilíngue</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">A confirmação não é exibida após um vídeo ser removido do Assistir mais tarde</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Ocultar snackbar de remoção do Assistir mais tarde</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">As alças de arrastar dos vídeos do Assistir mais tarde ficam mais fáceis de agarrar</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Alargar alças de arrastar do Assistir mais tarde</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
     <string name="revanced_advanced_video_quality_menu_title">Abrir menu de qualidade avançada</string>
@@ -2785,7 +2812,7 @@ Ajuste o brilho deslizando verticalmente no lado esquerdo da tela"</string>
     <string name="revanced_swipe_seek_summary_on">"O gesto de busca por deslize em tela cheia está ativado
 
 Busque no vídeo deslizando horizontalmente na metade superior da tela"</string>
-    <string name="revanced_swipe_seek_title">Ativar gesto de busca</string>
+    <string name="revanced_swipe_seek_title">Deslizar para buscar</string>
     <string name="revanced_swipe_speed_distance_summary">A quantidade de pixels para deslizar para alterar a velocidade do vídeo. Valores mais baixos tornam a mudança de velocidade mais rápida, valores mais altos a tornam mais lenta (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">Distância da velocidade</string>
     <string name="revanced_swipe_speed_summary_off">O gesto de velocidade por deslize em tela cheia está desativado</string>

@@ -125,6 +125,8 @@ Lecture SABR (Falsifier les flux vidéo désactivés)"</string>
     <string name="morphe_music_downloads_already_saved">Déjà téléchargé</string>
     <string name="morphe_music_downloads_complete">Téléchargement terminé</string>
     <string name="morphe_music_downloads_failed">Échec du téléchargement</string>
+    <string name="morphe_music_downloads_mark_summary">Les chansons déjà téléchargées affichent une marque avant leurs détails dans les playlists, les albums et les résultats de recherche</string>
+    <string name="morphe_music_downloads_mark_title">Marquer les chansons téléchargées</string>
     <string name="morphe_music_downloads_notification_channel">Téléchargements audio</string>
     <string name="morphe_music_downloads_progress">Téléchargement à %s%%</string>
     <string name="morphe_music_downloads_sort">Trier</string>
@@ -153,7 +155,7 @@ Les paroles proviennent de services tiers qui ne sont ni affiliés, ni sponsoris
     <string name="morphe_music_lyrics_ai_config_model_label">Modèle</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">Prompt</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s : Connecté ! (%2$s)</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s : Échec de la connexion. Vérifiez les paramètres</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s : Échec de la connexion. Vérifiez les paramètres</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">Paramètres incomplets ou rejetés par le fournisseur</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">L\'URL de base doit commencer par http:// ou https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Validation de la connexion…</string>
@@ -166,8 +168,8 @@ Les paroles proviennent de services tiers qui ne sont ni affiliés, ni sponsoris
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt enregistré</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Autoriser les lectures non latines provenant de la source des paroles ; désactivée, ne conserve que les lettres latines, les lettres accentuées et les chiffres de ton</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Activer la translittération</string>
-    <string name="morphe_music_lyrics_clear_cache_done">%1$s Mo effacés</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Supprimer les %1$s Mo de paroles conservées sur cet appareil</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%s Mo effacés</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Supprimer les %s Mo de paroles conservées sur cet appareil</string>
     <string name="morphe_music_lyrics_clear_cache_title">Effacer les paroles enregistrées</string>
     <string name="morphe_music_lyrics_contribute_credit">Appuyez longuement sur le bouton de copie pour enregistrer ce fichier LRC ; si vous pouvez affiner les synchronismes et les partager avec la communauté, nous vous en serions reconnaissants</string>
     <string name="morphe_music_lyrics_copied">Copié dans le presse-papiers</string>
@@ -178,6 +180,10 @@ Les paroles proviennent de services tiers qui ne sont ni affiliés, ni sponsoris
     <string name="morphe_music_lyrics_display_artist_first_summary">Basculer l\'ordre d\'affichage de l\'Artiste et du Titre dans le mini-lecteur et MediaSession. ACTIVÉ : \"Artiste - Titre\" et DÉSACTIVÉ : \"Titre - Artiste\" N\'affecte pas la recherche de paroles</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Ordre d\'affichage de l\'Artiste et du Titre</string>
     <string name="morphe_music_lyrics_dual_only">Mode double</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">Déplacer l\'arrière-plan pendant la lecture, et le faire vibrer au rythme de la musique si YouTube Music dispose de l\'autorisation d\'accès au microphone. Désactivez cette option pour conserver un arrière-plan fixe qui consomme moins de batterie</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">Animer l\'arrière-plan dynamique</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">Afficher un arrière-plan flou créé à partir de la pochette de l\'album derrière les paroles</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">Arrière-plan dynamique</string>
     <string name="morphe_music_lyrics_enabled_summary">Affiche les paroles d\'un service tiers, en utilisant les paroles intégrées en cas d\'absence de celles-ci</string>
     <string name="morphe_music_lyrics_enabled_title">Utiliser les paroles de tiers</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Met la première lettre de chaque ligne de paroles en majuscule</string>
@@ -194,12 +200,12 @@ Les paroles proviennent de services tiers qui ne sont ni affiliés, ni sponsoris
     <string name="morphe_music_lyrics_keep_screen_on_title">Garder l\'écran allumé pendant l\'affichage des paroles</string>
     <string name="morphe_music_lyrics_line_scale_summary">Affiche chaque ligne qui n\'est pas en cours de chant dans une taille légèrement plus petite, en plus de l\'atténuer</string>
     <string name="morphe_music_lyrics_line_scale_title">Réduire les lignes inactives</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">Lecture %1$s : %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Lecture %1$s : %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Mots chinois (pinyin-pro, ~17 Mo)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Translittération du Grec, Cyrillique Slave (y compris le Russe, l\'Ukrainien, le Bulgare, le Serbe, le Biélorusse et le Macédonien), Géorgien, Arménien, Hébreu, Arabe, Amharique et Syriaque (CLDR, ~0,5 Mo)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Échec du téléchargement - désactivez cette option puis réactivez-la pour réessayer</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japonais (SudachiDict, ~75 Mo)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">Lectures prêtes (%1$d entrées)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Lectures prêtes (%s entrées)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">Caractères chinois et cantonais (UniDict, ~8 Mo)</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">Téléchargement des dictionnaires de lecture…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Lit chaque mot d\'une parole synchronisée (synchronisation des mots activée) ; le coréen ne nécessite aucun téléchargement ; quatorze écritures partagent un seul téléchargement CLDR ; les caractères Han sont lus par Rime Wordlist lorsque sa table de mots couvre la langue</string>
@@ -241,12 +247,12 @@ S'applique aux deux limites. À 1,75, quatre caractères pleine largeur comptent
     <string name="morphe_music_lyrics_rime_dict_add">Ajouter</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">Un fichier .dict.yaml, ou un fichier zip en contenant un, avec des lignes comme 字 ham et 典 din2. La liste est récupérée lorsque vous cochez sa case et appuyez sur \'Enregistrer\'. Il vous appartient de vérifier sa licence</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Ajouter une liste Rime Wordlist</string>
-    <string name="morphe_music_lyrics_rime_dict_added">%1$s ajouté. Cochez sa case et appuyez sur \'Enregistrer\' pour la télécharger</string>
+    <string name="morphe_music_lyrics_rime_dict_added">%s ajouté. Cochez sa case et appuyez sur \'Enregistrer\' pour la télécharger</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">Le code doit comporter deux ou trois lettres, comme \'hak\'</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">Le nom et l\'adresse ne peuvent pas contenir de barre verticale</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">L\'adresse doit commencer par https://</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Lecture de la liste de mots : %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s possède déjà une table de mots</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Lecture de la liste de mots : %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%s possède déjà une table de mots</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"Rime Wordlist nécessite également UniDict : dans le fournisseur 'Dictionnaire hors ligne', cochez \"Caractères chinois et cantonais (UniDict)' et laissez le téléchargement se terminer avant de continuer. Sans cela, une liste qui lit les caractères ne produira aucune lecture
 
 Cochez les listes que Rime Wordlist doit lire, puis appuyez sur 'Enregistrer' pour les télécharger. Une liste que vous avez ajoutée est supprimée lorsque vous décochez sa case
@@ -266,8 +272,8 @@ La première colonne correspond au mot, la deuxième à sa lecture ; les colonne
     <string name="morphe_music_lyrics_rime_dict_incomplete">Renseignez le code, le nom et l\'adresse</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">Aucune liste de mots Rime n\'est cochée pour la langue ci-dessus. Appuyez sur ce nom pour en cocher une, ou choisissez une langue qui possède une liste</string>
     <string name="morphe_music_lyrics_rime_dict_ready">Listes de mots prêtes</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">Listes de mots prêtes (%1$d entrées)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s est lu par le romanisateur intégré et ne peut pas accepter de liste de mots</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Listes de mots prêtes (%s entrées)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%s est lu par le romanisateur intégré et ne peut pas accepter de liste de mots</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Non utilisé : cette langue possède déjà sa propre lecture. Décochez cette case pour le supprimer</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime Wordlist</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Dictionnaire hors ligne</string>
@@ -281,6 +287,11 @@ La première colonne correspond au mot, la deuxième à sa lecture ; les colonne
     <string name="morphe_music_lyrics_romanized_by_ai">Romanisé par %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanisé par Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanisation…</string>
+    <string name="morphe_music_lyrics_ruby_generating">Génération du ruby…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">Ruby</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">Script Ruby</string>
     <string name="morphe_music_lyrics_saved">Enregistré</string>
     <string name="morphe_music_lyrics_sb_matching_summary">Faire correspondre sans les segments que SponsorBlock passe et décaler les paroles sur l\'audio publié. Désactivée ignore entièrement SponsorBlock</string>
     <string name="morphe_music_lyrics_sb_matching_title">Utiliser les segments SponsorBlock pour le décalage des paroles</string>
@@ -295,7 +306,9 @@ La première colonne correspond au mot, la deuxième à sa lecture ; les colonne
     <string name="morphe_music_lyrics_show_refresh_button_summary">Appuyez pour passer aux paroles candidates suivantes ; appuyez longuement pour rechercher les paroles par titre de chanson et artiste</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Afficher un bouton \'Actualiser\'</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Appuyez pour basculer la romanisation ou la translittération ; appuyez longuement pour la romanisation ou la translittération uniquement. Utilise les fournisseurs de romanisation activés dans l\'ordre indiqué</string>
-    <string name="morphe_music_lyrics_show_romanize_button_title">Afficher le bouton \'Romaniser\' ou \'Translitérer\'</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">Afficher un bouton \'Romaniser\' ou \'Translitérer\'</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">Appuyez pour basculer les lectures ruby au-dessus des paroles ; appuyez longuement pour basculer entre hiragana et katakana. Utilise les fournisseurs ruby activés dans l\'ordre indiqué</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">Afficher un bouton \'Ruby\'</string>
     <string name="morphe_music_lyrics_show_section_summary">Identifiez chaque nouvelle section des paroles à l\'aide d\'une petite étiquette, comme \'Couplet\' ou \'Refrain\'</string>
     <string name="morphe_music_lyrics_show_section_title">Afficher les étiquettes de section</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Appuyez pour basculer la traduction ; appuyez longuement pour la traduction uniquement. Utilise les fournisseurs de traduction activés dans l\'ordre indiqué</string>
@@ -309,7 +322,7 @@ La première colonne correspond au mot, la deuxième à sa lecture ; les colonne
     <string name="morphe_music_lyrics_split_background_title">Afficher les chœurs séparément</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Supprime les points, les virgules, les deux-points et les points-virgules à la fin des lignes de paroles. Les points d\'interrogation, les points d\'exclamation, les points de suspension, les guillemets et les parenthèses sont conservés</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Supprimer la ponctuation finale</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">ACTIVÉE : place la romanisation ou la translittération sous les paroles et la traduction au-dessus. DÉSACTIVÉE : conserve la romanisation ou la translittération au-dessus et la traduction en dessous. Une lecture placée au-dessus de chaque syllabe se déplace avec celle-ci, de sorte qu\'elle passe au-dessous de sa syllabe</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Inverse l\'ordre d\'affichage de la traduction et de la romanisation sous les paroles</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Inverser la traduction et la romanisation</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Appuyez sur une ligne pour accéder à ce moment de la chanson. Appuyez longuement pour copier le mot situé sous votre doigt, ou toute la ligne si vous appuyez en dehors d\'un mot. Désactivée ces deux gestes ne seront plus disponibles</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Appuyez longuement sur une ligne</string>

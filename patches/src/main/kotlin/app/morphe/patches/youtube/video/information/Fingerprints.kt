@@ -480,13 +480,17 @@ internal fun getModernChannelIdFingerprint(playerResponseType: String) = object 
     ),
 ) {}
 
+/**
+ * The channel name is read for the "Person" metadata of the app indexing.
+ * Some targets, such as 21.09, have the "setMetadata may only be called once" check in another place.
+ */
 internal fun getModernChannelNameFingerprint(playerResponseType: String) = object : Fingerprint(
     filters = listOf(
-        string("setMetadata may only be called once"),
+        string("Person"),
         patcherMethodCall(
             definingClass = playerResponseType,
             returnType = "Ljava/lang/String;",
-            location = MatchAfterWithin(30),
+            location = MatchAfterWithin(5),
         ),
     ),
 ) {}

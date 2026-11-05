@@ -118,7 +118,7 @@ public final class MetadataCleaner {
         return cleanField(title == null ? null : stripFeatureCreditSuffix(title));
     }
 
-    static String cleanArtist(@Nullable String artist) {
+    public static String cleanArtist(@Nullable String artist) {
         if (artist == null) {
             return "";
         }

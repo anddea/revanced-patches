@@ -158,9 +158,9 @@ Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Engellenen kanallar</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Kanalları yüklemek için bir filtre etkinleştirin</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanallar yükleniyor…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ana Sayfa: %s
-• Arama: %s
-• Toplam: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ana Sayfa: %1$s
+• Arama: %2$s
+• Toplam: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Uyarı listesindeki kanallar</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Uyarı Listesi: Orta güven</string>
     <string name="morphe_hide_auto_dubbed_label_title">\'Dublajlı\' etiketini gizle</string>
@@ -189,6 +189,14 @@ Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
 'Ses Parçası' menüsünü görüntülemek için, 'Video akışlarını taklit et'i 'Android Studio' ve 'Android VR Downgraded' dışındaki herhangi bir istemciye değiştirin"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">\'Hareket halinde\' menüsünü gizle</string>
     <string name="morphe_hide_podcasts_menu_title">Podcast\'ler menüsünü gizle</string>
+    <string name="morphe_hide_post_comment_button_title">Yorumlar düğmesini gizle</string>
+    <string name="morphe_hide_post_comments_preview_summary">Gönderilerin altındaki yorumların ön izlemesini gizler</string>
+    <string name="morphe_hide_post_comments_preview_title">Yorum ön izlemesini gizle</string>
+    <string name="morphe_hide_post_dislike_button_summary">Zorunlu düzen ile düğme alanı boş bırakılır</string>
+    <string name="morphe_hide_post_dislike_button_title">Beğenmeme düğmesini gizle</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Beğenme ve Beğenmeme düğmelerini gizle</string>
+    <string name="morphe_hide_post_share_button_summary">Gönderi görsellerinin indirme düğmesi paylaş düğmesinin yanına çizildiği için o da gizlenir</string>
+    <string name="morphe_hide_post_share_button_title">Paylaş düğmesini gizle</string>
     <string name="morphe_hide_privacy_tos_footer_title">Yasal ve gizlilik altbilgilerini gizle</string>
     <string name="morphe_hide_shopping_menu_title">Alışveriş menüsünü gizle</string>
     <string name="morphe_hide_sports_menu_title">Sporlar menüsünü gizle</string>
@@ -238,6 +246,16 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_livestream_dvr_title">Canlı yayın DVR\'ı etkinleştir</string>
     <string name="morphe_music_package_name_summary">Yüklü müzik uygulamanızın paket adı</string>
     <string name="morphe_music_package_name_title">Müzik uygulaması paket adı</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Cam gezinme çubuğunun şeffaflık düzeyini ayarlayın (0 şeffaf, 100 opak)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Cam opaklığı</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Düğme boşluğu</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Gösterilen düğmeler: %2$s üzerinden %1$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Yükseklik</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Cam gezinme çubuğunun yüksekliğini, genişliğini ve düğme boşluğunu bir önizleme ile ayarlayın. Ekran genişliğine sığmayan düğmeler gizlenir</string>
+    <string name="morphe_navigation_bar_glass_size_title">Cam gezinme çubuğu boyutu</string>
+    <string name="morphe_navigation_bar_glass_size_width">Maksimum genişlik</string>
+    <string name="morphe_navigation_bar_glass_summary">Gezinme çubuğunu yüzer, yuvarlak, yarı saydam bir kapsül olarak gösterir. Opak gezinme çubuğu stiliyle kullanılamaz</string>
+    <string name="morphe_navigation_bar_glass_title">Cam gezinme çubuğunu etkinleştir</string>
     <string name="morphe_navigation_bar_style_entry_2">Yarı saydam</string>
     <string name="morphe_navigation_bar_style_title">Gezinme çubuğu stili</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Bu stil, cihazınız veya YouTube sürümünüz tarafından desteklenmiyor olabilir; bu durum yerleşim sorunlarına veya çökmelere neden olabilir</string>
@@ -269,6 +287,11 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_playback_in_feeds_title">Akışlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynatıcı kontrol düğmelerinin ve zaman çubuğunun arkasındaki arka planın opaklığını ayarlayın (0 görünmez, 100 opaktır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Düğme arka plan opaklığı</string>
+    <string name="morphe_post_buttons_layout_entry_1">Sunucu</string>
+    <string name="morphe_post_buttons_layout_entry_2">Zorunlu</string>
+    <string name="morphe_post_buttons_layout_title">Gönderi düğmeleri düzeni</string>
+    <string name="morphe_post_buttons_screen_summary">Topluluk gönderilerinin altındaki düğmelerin düzenini ve hangi düğmelerin gizleneceğini seçin</string>
+    <string name="morphe_post_buttons_screen_title">Gönderi düğmeleri</string>
     <string name="morphe_post_image_download_failed">Görsel indirilemedi</string>
     <string name="morphe_post_image_download_flyout">Görselleri indir</string>
     <string name="morphe_post_image_download_flyout_single">Görseli indir</string>
@@ -314,13 +337,13 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_search_comments_clear">Temizle</string>
     <string name="morphe_search_comments_cleared">Arama temizlendi. Tüm yorumları görüntülemek için sıralamayı değiştirin veya yorumları tekrar açın</string>
     <string name="morphe_search_comments_hint">Aranacak kelimeler</string>
-    <string name="morphe_search_comments_summary">Yalnızca yüklü yorumlarda aranan tüm kelimeleri içeren yorumları görüntülemek için yorumlardaki arama düğmesine dokunun. Bir ifadeyi aramak için kelimeleri tırnak içine alın</string>
+    <string name="morphe_search_comments_summary">Aranan tüm kelimeleri içeren yalnızca yüklü yorumları görüntülemek için yorumlardaki arama düğmesine dokunun. Bir ifadeyi aramak için kelimeleri tırnak içine alın</string>
     <string name="morphe_search_comments_title">Yorumları ara</string>
     <string name="morphe_secondary_caption_language_summary">Altyazılarla birlikte ikinci bir dil gösterir ve altyazılar menüsüne İki dilli altyazılar seçeneği ekler</string>
     <string name="morphe_secondary_caption_language_title">İkincil altyazı dili</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
-    <string name="morphe_seekbar_thumbnail_preview_title">İlerleme çubuğu küçük resimlerini etkinleştir</string>
+    <string name="morphe_seekbar_thumbnail_preview_title">Sardırma çubuğu küçük resimlerini etkinleştir</string>
     <string name="morphe_settings_menu_copy_path">Kopyalandı: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
     <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
@@ -478,6 +501,10 @@ OpenRouter.ai'yi açmak için buraya dokunun"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Çok dilli kadın</string>
     <string name="morphe_vot_voice_gender_male">Erkek</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Çok dilli erkek</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Daha sonra izle\'den bir video kaldırıldığında onay bildirimi gösterilmez</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Daha sonra izle\'den kaldırma snackbarını gizle</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Daha sonra izle videolarının sürükleme tutamaçlarını tutması daha kolaydır</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Daha sonra izle sürükleme tutamaçlarını genişlet</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Gelişmiş kalite menüsünü aç</string>
@@ -2673,7 +2700,7 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
     <string name="revanced_swipe_seek_summary_on">"Tam ekran sardırma kaydırması etkin
 
 ​Ekranın üst yarısında yatay olarak kaydırarak videoyu sardırın"</string>
-    <string name="revanced_swipe_seek_title">Sardırma hareketini etkinleştir</string>
+    <string name="revanced_swipe_seek_title">Sardırmak için kaydırma</string>
     <string name="revanced_swipe_speed_distance_summary">Video hızını değiştirmek için kaydırılacak piksel miktarı. Düşük değerler hız değişimini hızlandırır, yüksek değerler yavaşlatır (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">Hız mesafesi</string>
     <string name="revanced_swipe_speed_summary_off">Tam ekran hız kaydırması devre dışı</string>

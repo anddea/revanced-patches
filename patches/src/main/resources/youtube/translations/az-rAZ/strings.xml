@@ -143,9 +143,9 @@ Məhdudiyyətlər:
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Bloklanma siyahısı kanalları</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Kanalları yükləmək üçün filtri aktivləşdir</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanallar yüklənilir…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ev: %s
-• Axtarış: %s
-• Ümumi: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ev: %1$s
+• Axtarış: %2$s
+• Ümumi: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Xəbərdarlıq siyahısı kanalları</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Xəbərdarlıq siyahısı: Orta dərəcədə etibarlılıq</string>
     <string name="morphe_hide_auto_dubbed_label_title">\'Avtomatik dublyaj\' etiketini gizlət</string>
@@ -174,6 +174,14 @@ Məhdudiyyətlər:
 'Audio Trek' menyusunu göstərmək üçün 'Video yayımların saxtalaşdırı' 'Android Studio' və 'Android VR Downgraded' istisna olmaqla istənilən qəbulediciyə dəyişdir"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">\"Yolda\" menyusunu gizlət</string>
     <string name="morphe_hide_podcasts_menu_title">Podkastlar menyusunu gizlət</string>
+    <string name="morphe_hide_post_comment_button_title">Şərhlər düyməsini gizlət</string>
+    <string name="morphe_hide_post_comments_preview_summary">Postların altındakı şərhlərin önizləməsini gizlədir</string>
+    <string name="morphe_hide_post_comments_preview_title">Şərhlərin önizləməsini gizlət</string>
+    <string name="morphe_hide_post_dislike_button_summary">Məcburi tərtibat ilə düymənin boşluğu qalır</string>
+    <string name="morphe_hide_post_dislike_button_title">Bəyənməmə düyməsini gizlət</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Bəyənmə və bəyənməmə düymələrini gizlət</string>
+    <string name="morphe_hide_post_share_button_summary">Post şəkillərinin yükləmə düyməsi paylaş düyməsi ilə yanaşı olduğu üçün o da gizlədilir</string>
+    <string name="morphe_hide_post_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hüquqi və məxfilik alt yazıların gizlət</string>
     <string name="morphe_hide_shopping_menu_title">Alış-veriş menyusunu gizlət</string>
     <string name="morphe_hide_sports_menu_title">İdman menyusunu gizlət</string>
@@ -221,6 +229,16 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_livestream_dvr_title">Canlı yayım DVR-ni aktivləşdir</string>
     <string name="morphe_music_package_name_summary">Quraşdırdığınız musiqi tətbiqinin paket adı</string>
     <string name="morphe_music_package_name_title">Musiqi tətbiqi paketinin adı</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Şüşə fəaliyyət cərgəsinin şəffaflıq dərəcəsini tənzimlə (0 şəffaf, 100 qeyri-şəffaf)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Şüşə tutqunluğu</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Düymə boşluğu</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Göstərilən düymələr: %2$s ədəddən %1$s \'si</string>
+    <string name="morphe_navigation_bar_glass_size_height">Hündürlük</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Şüşə fəaliyyət zolağının hündürlüyünü, enini və düymə boşluğunu önizləmə ilə tənzimlə. Ekranın eninə uyuşmayan düymələr gizlədilir</string>
+    <string name="morphe_navigation_bar_glass_size_title">Şüşə fəaliyyət zolağının ölçüsü</string>
+    <string name="morphe_navigation_bar_glass_size_width">Ən yüksək en</string>
+    <string name="morphe_navigation_bar_glass_summary">Fəaliyyət cərgəsini üzən, dairəvi və yarımşəffaf kapsul şəklində göstərir. Tutqun fəaliyyət cərgəsi üslubu ilə əlçatan deyil</string>
+    <string name="morphe_navigation_bar_glass_title">Şüşə fəaliyyət cərgəsini aktivləşdir</string>
     <string name="morphe_navigation_bar_style_entry_2">Yarımşəffaf</string>
     <string name="morphe_navigation_bar_style_title">Fəaliyyət cərgəsi üslubu</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Bu üslub cihazınız və ya YouTube versiyanız tərəfindən dəstəklənməyə bilər və tərtibat problemlərinə və ya çökmələrə səbəb ola bilər</string>
@@ -250,6 +268,11 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_playback_in_feeds_title">Axınlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynadıcının idarəetmə düymələrinin və vaxt cizgisinin arxasındakı fonun çevrəsinin şəffaflığını tənzimlə (0 görünməzdir, 100 şəffaf olmayandır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">İdarəetmə düymələrinin fon şəffaflığı</string>
+    <string name="morphe_post_buttons_layout_entry_1">Server</string>
+    <string name="morphe_post_buttons_layout_entry_2">Məcburi</string>
+    <string name="morphe_post_buttons_layout_title">Post düymələri tərtibatı</string>
+    <string name="morphe_post_buttons_screen_summary">İcma postları altındakı düymələrin tərtibatını və hansı düymələrin gizlədiləcəyini seç</string>
+    <string name="morphe_post_buttons_screen_title">Post düymələri</string>
     <string name="morphe_post_image_download_failed">Şəkli yükləmək olmadı</string>
     <string name="morphe_post_image_download_flyout">Şəkilləri yüklə</string>
     <string name="morphe_post_image_download_flyout_single">Şəkli yüklə</string>
@@ -293,7 +316,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_search_comments_clear">Təmizlə</string>
     <string name="morphe_search_comments_cleared">Axtarış təmizləndi. Bütün şərhləri göstərmək üçün çeşidləmə sırasını dəyişdir və ya şərhləri təkrar aç</string>
     <string name="morphe_search_comments_hint">Axtarılacaq sözlər</string>
-    <string name="morphe_search_comments_summary">Yalnız axtarılan sözlərin hamısını ehtiva edən yüklənilmiş şərhləri göstərmək üçün şərhlərdəki axtarış düyməsinə toxun. İfadəni axtarmaq üçün sözləri dırnaq arasında yaz</string>
+    <string name="morphe_search_comments_summary">Yalnız bütün axtarılan sözləri ehtiva edən yüklənilmiş şərhləri göstərmək üçün şərhlərdəki axtarış düyməsinə toxun. İfadəni axtarmaq üçün sözləri dırnaq arasında yaz</string>
     <string name="morphe_search_comments_title">Şərhləri axtar</string>
     <string name="morphe_secondary_caption_language_summary">Titrlərlə ikinci dili göstərir və altyazılar menyusuna İkidilli altyazılar keçidi əlavə edir</string>
     <string name="morphe_secondary_caption_language_title">İkinci dərəcəli titr dili</string>
@@ -437,6 +460,10 @@ OpenRouter.ai-ı açmaq üçün buraya toxunun"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Çoxdilli qadın</string>
     <string name="morphe_vot_voice_gender_male">Kişi</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Çoxdilli kişi</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Video \"Sonra izləyindən\" silindikdən sonra təsdiqləmə göstərilmir</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Sonra izləyindən silinmə bildiriş cizgisin gizlət</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Sonra izləyin videolarının sürükləmə tutacaqlarını tutmaq daha asandır</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Sonra izləyin sürükləmə tutacaqlarını genişləndir</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Təkmil keyfiyyət menyusunu aç</string>
@@ -1370,6 +1397,7 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxlama və bərpa etmə</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaqlığı saxla və bərpa et</string>
+    <string name="revanced_swipe_seek_title">Çevirmək üçün sürüşdür</string>
     <string name="revanced_swipe_speed_title">Sürət jestini aktivləşdir</string>
     <string name="revanced_swipe_text_overlay_size_summary">Ekrandakı mətnin ölçüsünü nizamla (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>

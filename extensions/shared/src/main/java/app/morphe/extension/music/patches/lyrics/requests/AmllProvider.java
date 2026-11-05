@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.MetadataCleaner;
 import app.morphe.extension.music.patches.lyrics.requests.TtmlParser;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
@@ -57,6 +58,11 @@ public final class AmllProvider implements LyricsProvider {
         return "AMLL";
     }
 
+    @Override
+    public boolean hasCandidates() {
+        return true;
+    }
+
     @Nullable
     @Override
     public FetchResult fetch(TrackInfo track) throws Exception {
@@ -64,7 +70,17 @@ public final class AmllProvider implements LyricsProvider {
             return null;
         }
 
-        final JSONObject best = searchBest(track.title(), track.artist(), track.album());
+        String title = track.title().trim();
+        String cleanArtist = MetadataCleaner.cleanArtist(track.artist());
+        String artist = cleanArtist.isEmpty() ? track.artist().trim() : cleanArtist;
+
+        JSONObject best = searchBest(title, artist, track.album());
+        if (best == null && track.album() != null && !track.album().isEmpty()) {
+            best = searchBest(title, artist, null);
+        }
+        if (best == null && !artist.equalsIgnoreCase(track.artist().trim())) {
+            best = searchBest(title, track.artist().trim(), null);
+        }
         if (best == null) {
             return null;
         }

@@ -68,6 +68,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import app.morphe.extension.music.patches.downloads.DownloadedMark;
+import app.morphe.extension.music.patches.components.DownloadedMarkFilter;
+import app.morphe.extension.shared.patches.components.ContextInterface;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -232,6 +236,8 @@ public class FlyoutPatch {
 
     /**
      * Intercepts matching Download commands from Music's flyout menu.
+     *
+     * Can be called on or off main thread.
      */
     public static boolean commandResolverOnClick(ProtocolBufferFieldInterface command,
                                                   Map<Object, Object> map) {
@@ -239,7 +245,6 @@ public class FlyoutPatch {
             if (command == null || map == null) {
                 return false;
             }
-            Utils.verifyOnMainThread();
 
             if (ActionBarPatch.inAppDownloadButtonOnClick(map)) {
                 return true;
@@ -251,6 +256,68 @@ public class FlyoutPatch {
             Logger.printException(() -> "commandResolverOnClick failure", ex);
         }
         return false;
+    }
+
+    /** Field of the renderer of a native song row that holds the command of a tap on the row. */
+    private static final int ROW_TAP_COMMAND = 5;
+    /** Extension of a command that holds the watch endpoint, with the video ID in its field 1. */
+    private static final int WATCH_ENDPOINT = 48_687_757;
+    private static final int WATCH_ENDPOINT_VIDEO_ID = 1;
+    /**
+     * Field of the renderer of a native song row of a playlist page that describes its entry in
+     * the playlist, with the video ID in its field 6.
+     */
+    private static final int ROW_PLAYLIST_ITEM = 12;
+    private static final int PLAYLIST_ITEM_VIDEO_ID = 6;
+
+    /**
+     * Injection point.
+     * Called on the main thread when a song is bound to a native row of a playlist, of Liked
+     * music or of the song results, once the details text of the row is set.
+     *
+     * @param details  The text of the row with the artist, the album and the length of the song.
+     * @param renderer The renderer of the row, which holds its song in the command of a tap.
+     */
+    public static void onTwoColumnItemBound(TextView details, Object renderer) {
+        try {
+            if (!DownloadedMark.isEnabled()
+                    || !(renderer instanceof ProtocolBufferFieldInterface message)) {
+                return;
+            }
+
+            ProtoMessage row = new ProtoMessage(message.toByteArray());
+            String videoId = row.messagePath(ROW_TAP_COMMAND, WATCH_ENDPOINT)
+                    .stringField(WATCH_ENDPOINT_VIDEO_ID);
+            if (videoId.isEmpty()) {
+                videoId = row.messageField(ROW_PLAYLIST_ITEM).stringField(PLAYLIST_ITEM_VIDEO_ID);
+            }
+            // The rows of albums, artists and playlists have no video ID, and open a page instead.
+            if (DownloadedMark.isDownloaded(videoId)) {
+                details.setText(DownloadedMark.addTo(details.getText()));
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onTwoColumnItemBound failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Usually is called off the main thread, when a litho text is created and its style runs
+     * are applied.
+     *
+     * @return The text, with the downloaded mark if it is the details text of a downloaded song.
+     */
+    public static CharSequence onDownloadedTextLoaded(Object context, CharSequence original) {
+        try {
+            if (original.length() != 0 && DownloadedMark.isEnabled()
+                    && context instanceof ContextInterface conversionContext
+                    && DownloadedMarkFilter.isDownloadedSongDetails(conversionContext.patch_getPathBuilder())) {
+                return DownloadedMark.addTo(original);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onDownloadedTextLoaded failure", ex);
+        }
+        return original;
     }
 
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {

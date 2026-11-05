@@ -146,9 +146,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">ערוצים חסומים</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">הפעל מסנן לטעינת ערוצים</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">טעינת ערוצים…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• עמוד הבית: %s
-• חיפוש: %s
-• סה\"כ: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• דף הבית: %1$s
+• חיפוש: %2$s
+• סה\"כ: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ערוצים ברשימת אזהרה</string>
     <string name="morphe_hide_aislist_warnlist_category_title">רשימת אזהרה: ביטחון בינוני</string>
     <string name="morphe_hide_auto_dubbed_label_title">הסתר תווית \'דיבוב אוטומטי\'</string>
@@ -177,6 +177,14 @@
 כדי להציג את תפריט 'מסלול שמע', שנה את 'זיוף הזרמי וידאו' לכל לקוח מלבד 'Android Studio' ו-'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">הסתר את התפריט \'בדרכים\'</string>
     <string name="morphe_hide_podcasts_menu_title">הסתר תפריט פודקאסטים</string>
+    <string name="morphe_hide_post_comment_button_title">הסתר לחצן תגובות</string>
+    <string name="morphe_hide_post_comments_preview_summary">מסתיר את התצוגה המקדימה של התגובות מתחת לפוסטים</string>
+    <string name="morphe_hide_post_comments_preview_title">הסתר תצוגה מקדימה של תגובות</string>
+    <string name="morphe_hide_post_dislike_button_summary">בפריסת כפייה, המקום של הכפתור נשאר ריק</string>
+    <string name="morphe_hide_post_dislike_button_title">הסתר לחצן דיסלייק</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">הסתר כפתורי אהבתי ודיסלייק</string>
+    <string name="morphe_hide_post_share_button_summary">לחצן ההורדה של תמונות הפוסט מופיע לצד לחצן השיתוף, ולכן גם הוא מוסתר</string>
+    <string name="morphe_hide_post_share_button_title">הסתר לחצן שיתוף</string>
     <string name="morphe_hide_privacy_tos_footer_title">הסתר כותרות גרורות משפטיות ופרטיות</string>
     <string name="morphe_hide_shopping_menu_title">הסתר תפריט קניות</string>
     <string name="morphe_hide_sports_menu_title">הסתר תפריט ספורט</string>
@@ -224,6 +232,16 @@
     <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
     <string name="morphe_music_package_name_summary">שם החבילה של אפליקציית המוזיקה המותקנת שלך</string>
     <string name="morphe_music_package_name_title">שם החבילה של אפליקציית המוזיקה</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">כוונן את רמת השקיפות של שורת הניווט מזכוכית (0 הוא שקוף, 100 הוא אטום)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">אטימות הזכוכית</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">מרווח כפתורים</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">כפתורים מוצגים: %1$s מתוך %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">גובה</string>
+    <string name="morphe_navigation_bar_glass_size_summary">התאמת הגובה, הרוחב ומרווח הכפתורים של סרגל הניווט מזכוכית, עם תצוגה מקדימה. כפתורים שאינם נכנסים ברוחב המסך מוסתרים</string>
+    <string name="morphe_navigation_bar_glass_size_title">גודל סרגל ניווט מזכוכית</string>
+    <string name="morphe_navigation_bar_glass_size_width">רוחב מקסימלי</string>
+    <string name="morphe_navigation_bar_glass_summary">מציגה את שורת הניווט כקפסולה צפה, מעוגלת וחצי שקופה. אינו זמין עם סגנון שורת ניווט אטום</string>
+    <string name="morphe_navigation_bar_glass_title">הפעל שורת ניווט מזכוכית</string>
     <string name="morphe_navigation_bar_style_entry_2">חצי שקוף</string>
     <string name="morphe_navigation_bar_style_title">סגנון סרגל ניווט</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">סגנון זה עשוי שלא להיות נתמך על ידי המכשיר שלך או גרסת ה-YouTube, ועלול לגרום לבעיות פריסה או לקריסות</string>
@@ -253,6 +271,11 @@
     <string name="morphe_playback_in_feeds_title">השמעה בפידים</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">כוונן את אטימות הרקע מאחורי כפתורי בקרת הנגן ופס הזמן (0 בלתי נראה, 100 אטום)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">אטימות הרקע של כפתורי השליטה</string>
+    <string name="morphe_post_buttons_layout_entry_1">שרת</string>
+    <string name="morphe_post_buttons_layout_entry_2">כפייה</string>
+    <string name="morphe_post_buttons_layout_title">פריסת כפתורי פוסט</string>
+    <string name="morphe_post_buttons_screen_summary">בחר את פריסת הכפתורים מתחת לפוסטים של הקהילה ואילו כפתורים להסתיר</string>
+    <string name="morphe_post_buttons_screen_title">כפתורי פוסט</string>
     <string name="morphe_post_image_download_failed">לא ניתן להוריד את התמונה</string>
     <string name="morphe_post_image_download_flyout">הורדת תמונות</string>
     <string name="morphe_post_image_download_flyout_single">הורדת תמונה</string>
@@ -296,7 +319,7 @@
     <string name="morphe_search_comments_clear">נקה</string>
     <string name="morphe_search_comments_cleared">החיפוש נוקה. שנו את סדר המיון או פתחו שוב את התגובות כדי להציג את כל התגובות</string>
     <string name="morphe_search_comments_hint">מילים לחיפוש</string>
-    <string name="morphe_search_comments_summary">הקישו על כפתור החיפוש בתגובות כדי להציג רק את התגובות שנטענו ומכילות את כל המילים שחפשתם. הקיפו מילים במרכאות כדי לחפש ביטוי</string>
+    <string name="morphe_search_comments_summary">הקש על כפתור החיפוש בתגובות כדי להציג רק את התגובות שנטענו ומכילות את כל מילות החיפוש. שים מילים במירכאות כדי לחפש ביטוי</string>
     <string name="morphe_search_comments_title">חיפוש תגובות</string>
     <string name="morphe_secondary_caption_language_summary">מציג שפה שנייה לצד הכתוביות, ומוסיף תהליך החלפה לכתוביות דו-לשוניות בתפריט הכתוביות</string>
     <string name="morphe_secondary_caption_language_title">שפת כתוביות משנית</string>
@@ -440,6 +463,10 @@
     <string name="morphe_vot_voice_gender_female_multilingual">אישה רב לשונית</string>
     <string name="morphe_vot_voice_gender_male">גבר</string>
     <string name="morphe_vot_voice_gender_male_multilingual">גבר רב לשוני</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">אישור אינו מוצג לאחר שסרטון הוסר מ\'צפייה מאוחר יותר\'</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">הסתרת הודעת ה-snackbar על הסרה מ\'צפייה מאוחר יותר\'</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">קל יותר לתפוס את ידיות הגרירה של סרטוני \'צפייה מאוחר יותר\'</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">הרחבת ידיות הגרירה של \'צפייה מאוחר יותר\'</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
     <string name="revanced_advanced_video_quality_menu_title">פתח תפריט איכות מתקדם</string>
@@ -1424,6 +1451,7 @@
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">אל תשמור ותשחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">שמור ושחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">שמור ושחזר בהירות</string>
+    <string name="revanced_swipe_seek_title">החלקה לחיפוש</string>
     <string name="revanced_swipe_speed_title">הפעל מחוות מהירות</string>
     <string name="revanced_swipe_text_overlay_size_summary">הסתר כפתור \'הורדה\'</string>
     <string name="revanced_swipe_text_overlay_size_title">גודל טקסט שכבת-על של החלקה</string>

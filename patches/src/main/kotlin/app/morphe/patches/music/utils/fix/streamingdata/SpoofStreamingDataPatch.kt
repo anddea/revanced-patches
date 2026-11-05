@@ -71,13 +71,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     // Also set the client order on Application init (Morphe a60a3b6).
     applicationInitFingerprint = applicationInitHook.fingerprint,
-    fixMediaFetchHotConfig = {
-        is_7_16_or_greater
-    },
-    fixMediaFetchHotConfigAlternative = {
-        // In 8.15 the flag was merged with 7.33 start playback flag.
-        is_8_12_or_greater && !is_8_15_or_greater
-    },
     fixParsePlaybackResponseFeatureFlag = {
         is_7_33_or_greater
     },
@@ -106,14 +99,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
         )
     },
     executeBlock = {
-        if (!is_6_27_or_greater) {
-            addPlayerResponseMethodHook(
-                Hook.VideoId(
-                    "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;->setPendingLegacyVideoId(Ljava/lang/String;)V"
-                )
-            )
-        }
-
         addSwitchPreference(
             CategoryType.MISC,
             "morphe_spoof_video_streams",

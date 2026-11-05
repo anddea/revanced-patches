@@ -334,6 +334,9 @@ public final class FlyoutUtils {
 
             // The items are inside the list, which is the last view of the menu container.
             LinearLayout menuContainer = menuInfo.menuContainer();
+            if (customItemTextRefs.stream().noneMatch(ref -> isInMenu(ref.get(), menuContainer))) {
+                return;
+            }
             View lastChild = menuContainer.getChildAt(menuContainer.getChildCount() - 1);
             if (!(lastChild instanceof ViewGroup itemList)) {
                 return;
@@ -342,15 +345,13 @@ public final class FlyoutUtils {
             // Some flyouts wrap the actual list, so normalize the containers leading
             // to it as well. Never descend into the native rows themselves.
             ViewGroup nativeList = findNativeList(itemList);
-            if (!customItemTextRefs.isEmpty()) {
-                View current = nativeList;
-                while (true) {
-                    removeNativeListTopSpacing(current);
-                    if (current == itemList || !(current.getParent() instanceof View parent)) {
-                        break;
-                    }
-                    current = parent;
+            View current = nativeList;
+            while (true) {
+                removeNativeListTopSpacing(current);
+                if (current == itemList || !(current.getParent() instanceof View parent)) {
+                    break;
                 }
+                current = parent;
             }
             itemList = nativeList;
 
@@ -358,10 +359,22 @@ public final class FlyoutUtils {
                 return;
             }
 
-            copyListItemTypeface(itemList);
+            copyListItemTypeface(itemList, menuContainer);
         } catch (Exception ex) {
             Logger.printException(() -> "onFlyoutListBound failure", ex);
         }
+    }
+
+    /**
+     * Nested flyouts can open while another menu's custom rows are still referenced.
+     * Only rows attached to this container may replace its native header spacing.
+     */
+    private static boolean isInMenu(@Nullable View view, ViewGroup menuContainer) {
+        while (view != null && view.getParent() instanceof View parent) {
+            if (parent == menuContainer) return true;
+            view = parent;
+        }
+        return false;
     }
 
     /**
@@ -395,7 +408,7 @@ public final class FlyoutUtils {
      * The app applies its own font weight to the menu items after they are bound,
      * so the custom item only matches them by taking the typeface of a bound item.
      */
-    private static void copyListItemTypeface(ViewGroup itemList) {
+    private static void copyListItemTypeface(ViewGroup itemList, ViewGroup menuContainer) {
         if (customItemTextRefs.isEmpty() || ITEM_TEXT_ID == 0) {
             return;
         }
@@ -406,7 +419,7 @@ public final class FlyoutUtils {
             for (WeakReference<TextView> customItemTextRef : customItemTextRefs) {
                 TextView customItemText = customItemTextRef.get();
                 // setTypeface always requests a layout, so only call it when the font really differs.
-                if (customItemText != null && customItemText.getTypeface() != itemTypeface) {
+                if (isInMenu(customItemText, menuContainer) && customItemText.getTypeface() != itemTypeface) {
                     customItemText.setTypeface(itemTypeface);
                 }
             }

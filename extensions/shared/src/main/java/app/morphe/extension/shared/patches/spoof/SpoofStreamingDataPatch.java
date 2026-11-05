@@ -44,14 +44,6 @@ public class SpoofStreamingDataPatch {
         return app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
     }
 
-    public static Uri blockGetWatchRequest(Uri playerRequestUri) {
-        return SpoofVideoStreamsPatch.blockGetWatchRequest(playerRequestUri);
-    }
-
-    public static String blockInitPlaybackRequest(String originalUrlString) {
-        return SpoofVideoStreamsPatch.blockInitPlaybackRequest(originalUrlString);
-    }
-
     /** Uses the client of the streams supplied for this video, even when other fetches finish later. */
     public static boolean disableSABR(@Nullable String videoId) {
         return SpoofVideoStreamsPatch.disableSABR(videoId);
@@ -65,21 +57,17 @@ public class SpoofStreamingDataPatch {
         return SpoofVideoStreamsPatch.fixHLSCurrentTime(original);
     }
 
-    public static boolean useMediaFetchHotConfigReplacement(boolean original) {
-        return SpoofVideoStreamsPatch.useMediaFetchHotConfigReplacement(original);
-    }
-
     public static boolean usePlaybackStartFeatureFlag(boolean original) {
         return SpoofVideoStreamsPatch.usePlaybackStartFeatureFlag(original);
     }
 
-    public static void fetchStreams(String url, Map<String, String> requestHeader) {
+    public static void fetchStreams(String url, Map<String, String> requestHeader, @Nullable byte[] body) {
         if (AppCheckPatch.IS_YOUTUBE) {
             app.morphe.extension.youtube.patches.spoof.SpoofVideoStreamsPatch.setClientOrderToUse();
         } else {
             app.morphe.extension.music.patches.spoof.SpoofVideoStreamsPatch.setClientOrderToUse();
         }
-        SpoofVideoStreamsPatch.fetchStreams(url, requestHeader);
+        SpoofVideoStreamsPatch.fetchStreams(url, requestHeader, body);
     }
 
     @Nullable

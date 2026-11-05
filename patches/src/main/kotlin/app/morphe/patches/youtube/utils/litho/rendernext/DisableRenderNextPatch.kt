@@ -15,6 +15,7 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_
 import app.morphe.patches.youtube.utils.playservice.is_20_29_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_47_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_35_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -70,6 +71,17 @@ val disableRenderNextPatch = bytecodePatch(
         if (is_20_29_or_greater) {
             // Do not convert Litho components to RenderNext.
             RenderNextTemplateCheckFingerprint.method.returnEarly(false)
+        }
+
+        if (is_21_35_or_greater) {
+            // Do not open the Home with the page fragment, which renders the whole page with RenderNext
+            // if the server sends it as an element. The Home is opened with the browse fragment instead.
+            PageFragmentRouteFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches[1].index,
+                    false
+                )
+            }
         }
 
         if (is_20_47_or_greater) {

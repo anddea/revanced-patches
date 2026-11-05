@@ -12,6 +12,14 @@ package app.morphe.patches.music.interaction.downloads
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patches.shared.litho.addLithoFilter
+import app.morphe.patches.shared.litho.lithoFilterPatch
+import app.morphe.patches.shared.textcomponent.hookSpannableStringResult
+import app.morphe.patches.shared.textcomponent.textComponentPatch
+import app.morphe.util.ResourceGroup
+import app.morphe.util.copyResources
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
@@ -49,6 +57,10 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
+private const val MARK_EXTENSION = "Lapp/morphe/extension/music/patches/flyout/FlyoutPatch;"
+private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
+    $$"Lapp/morphe/extension/music/patches/flyout/FlyoutPatch$ProtocolBufferFieldInterface;"
+
 private const val DOWNLOADS_PATH = "Lapp/morphe/extension/music/patches/downloads"
 private const val EXTENSION_CLASS = "$DOWNLOADS_PATH/LocalDownloadManager;"
 private const val NATIVE_DOWNLOADS = "$DOWNLOADS_PATH/NativeDownloads;"
@@ -62,8 +74,10 @@ private const val REGISTRY = "Lcom/google/protobuf/ExtensionRegistryLite;"
 private val downloadsResourcePatch = resourcePatch {
     dependsOn(settingsPatch, actionBarComponentsPatch)
     execute {
+        copyResources("downloads", ResourceGroup("drawable", "morphe_music_downloaded_mark.xml"))
         addPreferenceCategory(CategoryType.MISC.value)
         addSwitchPreference(CategoryType.MISC, "morphe_music_in_app_downloads", "false", "revanced_external_downloader_action")
+        addSwitchPreference(CategoryType.MISC, "morphe_music_downloads_mark", "true", "morphe_music_in_app_downloads")
     }
 }
 
@@ -103,6 +117,8 @@ val downloadsPatch = bytecodePatch(
     dependsOn(
         actionBarComponentsPatch,
         authHeadersPatch,
+        lithoFilterPatch,
+        textComponentPatch,
         downloadsResourcePatch,
         fixProtoLibraryPatch,
         flyoutMenuComponentsPatch,
@@ -228,6 +244,49 @@ val downloadsPatch = bytecodePatch(
         if (returnIndex < 0) throw PatchException("Native local-playlist repository constructor has no return")
         constructor.addInstruction(returnIndex,
             "invoke-static/range {p0 .. p0}, $PLAYLIST_STORE->onDatabase(Ljava/lang/Object;)V")
+
+        // Once the style runs are applied, so the downloaded mark does not shift them.
+        hookSpannableStringResult(MARK_EXTENSION, "onDownloadedTextLoaded")
+        addLithoFilter("Lapp/morphe/extension/music/patches/components/DownloadedMarkFilter;")
+
+        // The rows of the playlists, of Liked music and of the song results are native views,
+        // bound by two presenters. One binds the renderer of the row, the other a wrapper of it.
+        val wrapperType = TwoColumnItemWrapperBindFingerprint.originalClassDef.type
+        val rendererField = TwoColumnItemWrapperBindFingerprint.instructionMatches[1].fieldReference
+        // The renderer is read as a buffer, like the commands.
+        mutableClassDefBy(rendererField.type).interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
+
+        TwoColumnItemPresenterConstructorFingerprint.matchAll().forEach { presenter ->
+            val presenterType = presenter.originalClassDef.type
+            val detailsField = presenter.instructionMatches.last().fieldReference
+
+            twoColumnItemBindFingerprint(presenterType).let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index
+                    val detailsRegister = findFreeRegister(insertIndex)
+                    val rendererRegister = findFreeRegister(insertIndex, detailsRegister)
+                    val unwrapRenderer = if (presenterType == wrapperType) {
+                        """
+                            check-cast v$rendererRegister, ${rendererField.definingClass}
+                            iget-object v$rendererRegister, v$rendererRegister, $rendererField
+                        """
+                    } else {
+                        ""
+                    }
+
+                    addInstructionsAtControlFlowLabel(
+                        insertIndex,
+                        """
+                            move-object/from16 v$detailsRegister, p0
+                            iget-object v$detailsRegister, v$detailsRegister, $detailsField
+                            move-object/from16 v$rendererRegister, p2
+                            $unwrapRenderer
+                            invoke-static { v$detailsRegister, v$rendererRegister }, $MARK_EXTENSION->onTwoColumnItemBound(Landroid/widget/TextView;Ljava/lang/Object;)V
+                        """
+                    )
+                }
+            }
+        }
 
         updatePatchStatus(DOWNLOADS)
     }

@@ -150,9 +150,9 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Kênh trong ds chặn</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Bật bộ lọc để tải danh sách kênh</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Đang tải kênh…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Trang chủ: %s
-• Tìm kiếm: %s
-• Tổng: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Trang chủ: %1$s
+• Tìm kiếm: %2$s
+• Tổng cộng: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kênh trong ds cảnh báo</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Danh sách cảnh báo: Độ tin cậy trung bình</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ẩn nhãn \"Bản lồng tiếng\"</string>
@@ -181,6 +181,14 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
 Để hiển thị menu 'Bản âm thanh', hãy thay đổi 'Giả mạo luồng phát video' sang bất kỳ máy khách nào trừ 'Android Studio' và 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Ẩn menu \'Đang di chuyển\'</string>
     <string name="morphe_hide_podcasts_menu_title">Ẩn menu Podcast</string>
+    <string name="morphe_hide_post_comment_button_title">Ẩn nút Bình luận</string>
+    <string name="morphe_hide_post_comments_preview_summary">Ẩn phần xem trước các bình luận bên dưới các bài đăng</string>
+    <string name="morphe_hide_post_comments_preview_title">Ẩn xem trước bình luận</string>
+    <string name="morphe_hide_post_dislike_button_summary">Với bố cục Bắt buộc, khoảng trống của nút sẽ được giữ lại</string>
+    <string name="morphe_hide_post_dislike_button_title">Ẩn nút Không thích</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Ẩn nút Thích và Không thích</string>
+    <string name="morphe_hide_post_share_button_summary">Nút tải xuống hình ảnh của bài viết được vẽ cạnh nút chia sẻ, nên nó cũng bị ẩn theo</string>
+    <string name="morphe_hide_post_share_button_title">Ẩn nút Chia sẻ</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ẩn chính sách quyền riêng tư và điều khoản dịch vụ</string>
     <string name="morphe_hide_shopping_menu_title">Ẩn menu Mua sắm</string>
     <string name="morphe_hide_sports_menu_title">Ẩn menu Thể thao</string>
@@ -229,6 +237,16 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_livestream_dvr_title">Bật DVR phát trực tiếp</string>
     <string name="morphe_music_package_name_summary">Tên gói của ứng dụng nhạc đã cài đặt của bạn</string>
     <string name="morphe_music_package_name_title">Tên gói ứng dụng âm nhạc</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Điều chỉnh mức độ trong suốt của thanh điều hướng dạng kính (0 là trong suốt, 100 là mờ)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Độ mờ của kính</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Khoảng cách nút</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Số nút hiển thị: %1$s trên %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Chiều cao</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Điều chỉnh chiều cao, chiều rộng và khoảng cách nút của thanh điều hướng dạng kính, kèm theo bản xem trước. Các nút không vừa với chiều rộng của màn hình sẽ bị ẩn</string>
+    <string name="morphe_navigation_bar_glass_size_title">Kích thước thanh điều hướng dạng kính</string>
+    <string name="morphe_navigation_bar_glass_size_width">Chiều rộng tối đa</string>
+    <string name="morphe_navigation_bar_glass_summary">Hiển thị thanh điều hướng dưới dạng một viên nang mờ, bo góc và nổi. Không khả dụng với kiểu thanh điều hướng Đục</string>
+    <string name="morphe_navigation_bar_glass_title">Bật thanh điều hướng dạng kính</string>
     <string name="morphe_navigation_bar_style_entry_2">Bán trong suốt</string>
     <string name="morphe_navigation_bar_style_title">Kiểu thanh điều hướng</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Kiểu này có thể không được thiết bị hoặc phiên bản YouTube của bạn hỗ trợ, và có thể gây ra sự cố bố cục hoặc treo ứng dụng</string>
@@ -260,6 +278,11 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_playback_in_feeds_title">Phát trong trang video</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Điều chỉnh độ mờ của nền phía sau các nút điều khiển trình phát và thanh thời gian (0 là vô hình, 100 là đặc)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Độ mờ nền của các nút điều khiển</string>
+    <string name="morphe_post_buttons_layout_entry_1">Máy chủ</string>
+    <string name="morphe_post_buttons_layout_entry_2">Bắt buộc</string>
+    <string name="morphe_post_buttons_layout_title">Bố cục nút bài đăng</string>
+    <string name="morphe_post_buttons_screen_summary">Chọn bố cục của các nút bên dưới bài đăng cộng đồng và chọn nút nào cần ẩn</string>
+    <string name="morphe_post_buttons_screen_title">Các nút bài viết</string>
     <string name="morphe_post_image_download_failed">Không thể tải hình ảnh</string>
     <string name="morphe_post_image_download_flyout">Tải các hình ảnh</string>
     <string name="morphe_post_image_download_flyout_single">Tải hình ảnh</string>
@@ -464,6 +487,10 @@ Bấm vào đây để truy cập OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Giọng nữ đa ngôn ngữ</string>
     <string name="morphe_vot_voice_gender_male">Nam</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Giọng nam đa ngôn ngữ</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Thông báo xác nhận sẽ không hiển thị sau khi một video bị xóa khỏi Xem sau</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Ẩn thông báo xóa Xem sau</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Các tay cầm kéo của video Xem sau sẽ dễ nắm bắt hơn</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Mở rộng tay cầm kéo Xem sau</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_title">Mở menu Chất lượng nâng cao</string>
@@ -2805,7 +2832,7 @@ Trong số các ứng dụng khách JavaScript, lựa chọn khuyên dùng là T
     <string name="revanced_swipe_seek_summary_on">"Vuốt để tua trong chế độ toàn màn hình đã bật
 
 Tua video bằng cách vuốt ngang nửa trên màn hình"</string>
-    <string name="revanced_swipe_seek_title">Cử chỉ tua video</string>
+    <string name="revanced_swipe_seek_title">Vuốt để tìm kiếm</string>
     <string name="revanced_swipe_speed_distance_summary">Khoảng cách tối thiểu khi vuốt để điều chỉnh tốc độ phát video (tính bằng pixel). Giá trị càng thấp, điều chỉnh tốc độ phát càng nhanh và ngược lại (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">Ngưỡng vuốt</string>
     <string name="revanced_swipe_speed_summary_off">Vuốt để điều chỉnh tốc độ phát trong chế độ toàn màn hình đã tắt</string>

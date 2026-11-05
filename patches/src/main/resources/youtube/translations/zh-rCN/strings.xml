@@ -146,9 +146,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">屏蔽频道</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">启用过滤器以加载频道</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">正在加载频道…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 主页：%s
-• 搜索：%s
-• 总计：%s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 首页：%1$s
+• 搜索：%2$s
+• 总计：%3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告名单频道</string>
     <string name="morphe_hide_aislist_warnlist_category_title">警告列表：中等置信度</string>
     <string name="morphe_hide_auto_dubbed_label_title">隐藏“自动配音”标签</string>
@@ -177,6 +177,14 @@
 要显示“音频轨道”菜单，请将“伪装视频流”更改为除“Android Studio”和“Android VR 降级”以外的任何客户端"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">隐藏\'离线\'菜单</string>
     <string name="morphe_hide_podcasts_menu_title">隐藏播客菜单</string>
+    <string name="morphe_hide_post_comment_button_title">隐藏评论按钮</string>
+    <string name="morphe_hide_post_comments_preview_summary">隐藏帖子下方的评论预览</string>
+    <string name="morphe_hide_post_comments_preview_title">隐藏评论预览</string>
+    <string name="morphe_hide_post_dislike_button_summary">在强制布局下，按钮的空间将被留空</string>
+    <string name="morphe_hide_post_dislike_button_title">隐藏点踩按钮</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">隐藏「顶」和「踩」按钮</string>
+    <string name="morphe_hide_post_share_button_summary">帖图的下载按钮绘制在分享按钮旁边，因此它也会被隐藏</string>
+    <string name="morphe_hide_post_share_button_title">隐藏分享按钮</string>
     <string name="morphe_hide_privacy_tos_footer_title">隐藏法律和隐私页脚</string>
     <string name="morphe_hide_shopping_menu_title">隐藏购物菜单</string>
     <string name="morphe_hide_sports_menu_title">隐藏体育菜单</string>
@@ -224,6 +232,16 @@
     <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
     <string name="morphe_music_package_name_summary">您已安装的音乐应用的包名</string>
     <string name="morphe_music_package_name_title">音乐应用包名</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">调整玻璃导航栏的透明度级别（0 为透明，100 为不透明）</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">玻璃不透明度</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">按钮间距</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">显示按钮：%1$s / %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">高度</string>
+    <string name="morphe_navigation_bar_glass_size_summary">通过预览来调整玻璃导航栏的高度、宽度和按钮间距。超出屏幕宽度的按钮将被隐藏</string>
+    <string name="morphe_navigation_bar_glass_size_title">玻璃导航栏尺寸</string>
+    <string name="morphe_navigation_bar_glass_size_width">最大宽度</string>
+    <string name="morphe_navigation_bar_glass_summary">将导航栏显示为浮动的、圆角的半透明胶囊形状。在不透明导航栏样式下不可用</string>
+    <string name="morphe_navigation_bar_glass_title">启用玻璃导航栏</string>
     <string name="morphe_navigation_bar_style_entry_2">半透明</string>
     <string name="morphe_navigation_bar_style_title">导航栏样式</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">您的设备或 YouTube 版本可能不支持此样式，这可能会导致布局问题或崩溃</string>
@@ -253,6 +271,11 @@
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">调整播放器控制按钮和时间栏后面背景的不透明度（0为不可见，100为完全不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按钮背景不透明度</string>
+    <string name="morphe_post_buttons_layout_entry_1">服务器</string>
+    <string name="morphe_post_buttons_layout_entry_2">强制</string>
+    <string name="morphe_post_buttons_layout_title">帖子按钮布局</string>
+    <string name="morphe_post_buttons_screen_summary">选择社区帖子下方按钮的布局以及要隐藏哪些按钮</string>
+    <string name="morphe_post_buttons_screen_title">帖子按钮</string>
     <string name="morphe_post_image_download_failed">无法下载图片</string>
     <string name="morphe_post_image_download_flyout">下载图片</string>
     <string name="morphe_post_image_download_flyout_single">下载图片</string>
@@ -296,7 +319,7 @@
     <string name="morphe_search_comments_clear">清除</string>
     <string name="morphe_search_comments_cleared">搜索已清除。更改排序顺序或重新打开评论以显示所有评论</string>
     <string name="morphe_search_comments_hint">要搜索的词语</string>
-    <string name="morphe_search_comments_summary">点击评论中的搜索按钮，仅显示包含所有搜索词的已加载评论。将词组放在引号中可搜索特定短语</string>
+    <string name="morphe_search_comments_summary">点击评论区的搜索按钮，仅显示包含所有搜索词的已加载评论。将词组放入引号中以搜索短语</string>
     <string name="morphe_search_comments_title">搜索评论</string>
     <string name="morphe_secondary_caption_language_summary">在字幕中显示第二种语言，并在字幕菜单中添加“双语字幕”开关</string>
     <string name="morphe_secondary_caption_language_title">次要字幕语言</string>
@@ -440,6 +463,10 @@
     <string name="morphe_vot_voice_gender_female_multilingual">多语言女声</string>
     <string name="morphe_vot_voice_gender_male">男声</string>
     <string name="morphe_vot_voice_gender_male_multilingual">多语言男声</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">从“稍后观看”中移除视频后不再显示确认提示</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">隐藏“稍后观看”移除提示栏</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">“稍后观看”视频的拖动手柄更易于抓取</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">加宽“稍后观看”拖动手柄</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_title">打开高级画质菜单</string>
@@ -469,7 +496,7 @@
     <string name="revanced_app_version_title">应用版本</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">播放速度菜单类型</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加时间戳信息已关闭</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"添加时间戳信息已显示"</string>
+    <string name="revanced_append_time_stamp_information_summary_on">85ceca94fa6a13ef77cabf6e731131f850d156ce</string>
     <string name="revanced_append_time_stamp_information_title">添加时间戳信息</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">添加播放速度。播放视频时，长按时间戳可更改类型</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">添加视频分辨率。播放视频时，长按时间戳可更改类型</string>
@@ -2616,7 +2643,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_seek_summary_on">"启用全屏滑动寻找。
 
 通过在屏幕上半部分水平滑动来寻找视频。"</string>
-    <string name="revanced_swipe_seek_title">启用寻找手势</string>
+    <string name="revanced_swipe_seek_title">滑动以快进/快退</string>
     <string name="revanced_swipe_speed_distance_summary">滑动以更改视频速度的像素数量。值越低，速度变化越快，值越高，速度变化越慢 (1-1000)。</string>
     <string name="revanced_swipe_speed_distance_title">速度距离</string>
     <string name="revanced_swipe_speed_summary_off">禁用全屏滑动调整速度。</string>

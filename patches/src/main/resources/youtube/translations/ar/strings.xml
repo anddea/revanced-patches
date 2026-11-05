@@ -158,9 +158,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">قنوات القائمة المحظورة</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">تمكين فلتر لتحميل القنوات</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">جارٍ تحميل القنوات…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• الصفحة الرئيسية: %s
-• البحث: %s
-• الإجمالي: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• الصفحة الرئيسية: %1$s
+• البحث: %2$s
+• الإجمالي: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">قنوات قائمة التحذير</string>
     <string name="morphe_hide_aislist_warnlist_category_title">قائمة التحذير: ثقة متوسطة</string>
     <string name="morphe_hide_auto_dubbed_label_title">إخفاء علامة \'مُدبلج تلقائيًا\'</string>
@@ -189,6 +189,14 @@
 لعرض قائمة 'المقطع الصوتي'، غيّر 'Spoof Video Streams' إلى أي عميل باستثناء 'Android Studio' و 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">إخفاء قائمة \'وضع التنقّل\'</string>
     <string name="morphe_hide_podcasts_menu_title">إخفاء قائمة البودكاست</string>
+    <string name="morphe_hide_post_comment_button_title">إخفاء زر التعليق</string>
+    <string name="morphe_hide_post_comments_preview_summary">يُخفي تعليقات المعاينة أسفل المنشورات</string>
+    <string name="morphe_hide_post_comments_preview_title">إخفاء تعليقات المعاينة</string>
+    <string name="morphe_hide_post_dislike_button_summary">مع التخطيط المفروض، يُترك فراغ الزر</string>
+    <string name="morphe_hide_post_dislike_button_title">إخفاء زر لم يعجبني</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">إخفاء أزرار أعجبني ولم يعجبني</string>
+    <string name="morphe_hide_post_share_button_summary">زر تنزيل صور المنشور مرسوم بجانب زر مشاركة، لذلك فهو مخفي أيضًا</string>
+    <string name="morphe_hide_post_share_button_title">إخفاء زر مشاركة</string>
     <string name="morphe_hide_privacy_tos_footer_title">إخفاء نص سياسة الخصوصية • بنود الخدمة</string>
     <string name="morphe_hide_shopping_menu_title">إخفاء قائمة التسوّق</string>
     <string name="morphe_hide_sports_menu_title">إخفاء قائمة رياضة</string>
@@ -238,6 +246,16 @@
     <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
     <string name="morphe_music_package_name_summary">اسم حزمة تطبيق الموسيقى المثبت لديك</string>
     <string name="morphe_music_package_name_title">اسم حزمة تطبيق الموسيقى</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">ضبط مستوى الشفافية لشريط التنقل الزجاجي (0 شفاف، 100 معتم)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">شفافية الزجاج</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">تباعد الزر</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">الأزرار المعروضة: %1$s من %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">الارتفاع</string>
+    <string name="morphe_navigation_bar_glass_size_summary">ضبط ارتفاع, عرض وتباعد أزرار شريط التنقل الزجاجي، مع المعاينة. يتم إخفاء الأزرار التي لا تتناسب مع عرض الشاشة</string>
+    <string name="morphe_navigation_bar_glass_size_title">حجم شريط التنقل الزجاجي</string>
+    <string name="morphe_navigation_bar_glass_size_width">أقصى عرض</string>
+    <string name="morphe_navigation_bar_glass_summary">يظهر شريط التنقل ككبسولة عائمة ومستديرة وشفافة. غير متوفر مع نمط شريط التنقل المعتم</string>
+    <string name="morphe_navigation_bar_glass_title">تمكين شريط التنقل الزجاجي</string>
     <string name="morphe_navigation_bar_style_entry_2">شبه شفاف</string>
     <string name="morphe_navigation_bar_style_title">نمط شريط التنقل</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">قد لا يكون هذا النمط مدعومًا من قبل جهازك أو إصدار YouTube، ويمكن أن يتسبب في مشكلات في التخطيط أو توقف التطبيق عن العمل</string>
@@ -269,6 +287,11 @@
     <string name="morphe_playback_in_feeds_title">التشغيل في الخلاصات</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ضبط شفافية الخلفية خلف أزرار تحكم المشغل وشريط الوقت (0 غير مرئية، 100 معتمة)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">شفافية خلفية أزرار التحكم</string>
+    <string name="morphe_post_buttons_layout_entry_1">الخادم</string>
+    <string name="morphe_post_buttons_layout_entry_2">المفروض</string>
+    <string name="morphe_post_buttons_layout_title">تخطيط أزرار المنشور</string>
+    <string name="morphe_post_buttons_screen_summary">اختر تخطيط الأزرار أسفل منشورات المجتمع والأزرار التي ترغب في إخفائها</string>
+    <string name="morphe_post_buttons_screen_title">أزرار المنشور</string>
     <string name="morphe_post_image_download_failed">تعذر تنزيل الصورة</string>
     <string name="morphe_post_image_download_flyout">تنزيل الصور</string>
     <string name="morphe_post_image_download_flyout_single">تنزيل الصورة</string>
@@ -283,6 +306,7 @@
 
 قم بتفعيل 'محاكاة تدفقات الفيديو' لإصلاح التشغيل</string>
     <string name="morphe_potoken_provider_expired_dialog_title">مزود PoToken لم يعد يعمل</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">تشغيل</string>
     <string name="morphe_potoken_provider_summary">"يُصلح هذا التحديث مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي)
 
 إذا كنتَ مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد. "</string>
@@ -498,6 +522,10 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="morphe_vot_voice_gender_female_multilingual">أنثى متعددة اللغات</string>
     <string name="morphe_vot_voice_gender_male">ذكر</string>
     <string name="morphe_vot_voice_gender_male_multilingual">ذكر متعدد اللغات</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">لا يظهر التأكيد بعد إزالة الفيديو من المشاهدة لاحقًا</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">إخفاء شريط تنبيه إزالة المشاهدة لاحقًا</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">مقابض السحب لفيديوهات المشاهدة لاحقًا أسهل في الإمساك بها</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">توسيع مقابض سحب المشاهدة لاحقًا</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_title">فتح قائمة \'الجودة المتقدمة\'</string>
@@ -2713,7 +2741,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_swipe_seek_summary_on">"سحب التمرير في وضع ملء الشاشة مفعل
 
 تنقل عبر الفيديو بالسحب أفقياً في النصف العلوي من الشاشة"</string>
-    <string name="revanced_swipe_seek_title">تفعيل إيماءة التمرير</string>
+    <string name="revanced_swipe_seek_title">التمرير للتنقل</string>
     <string name="revanced_swipe_speed_distance_summary">عدد البكسلات اللازمة للسحب لتغيير سرعة الفيديو. القيم الأقل تجعل تغيير السرعة أسرع، والقيم الأعلى تجعله أبطأ (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">مسافة تغيير السرعة</string>
     <string name="revanced_swipe_speed_summary_off">سحب تغيير السرعة في وضع ملء الشاشة معطل</string>

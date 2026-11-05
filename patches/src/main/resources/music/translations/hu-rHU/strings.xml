@@ -118,7 +118,7 @@ Lépések:
 1. Jelentkezz be a deezer.com oldalon
 2. Nyisd meg a DevTools → Application → Cookies → deezer.com menüt
 3. Másold ki az \"arl\" értékét"</string>
-    <string name="morphe_music_deezer_arl_title">Deezer […] Másolja ki az \"arl\" értékét</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: érvénytelen arl, próbálja újra</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: érvénytelen arl – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl elmentve</string>
@@ -126,6 +126,8 @@ Lépések:
     <string name="morphe_music_downloads_already_saved">Már letöltve</string>
     <string name="morphe_music_downloads_complete">Letöltés befejezve</string>
     <string name="morphe_music_downloads_failed">Letöltés sikertelen</string>
+    <string name="morphe_music_downloads_mark_summary">A már letöltött dalok előtt egy jelzés jelenik meg a lejátszási listákban, albumokban és a keresési eredményekben</string>
+    <string name="morphe_music_downloads_mark_title">Letöltött dalok jelölése</string>
     <string name="morphe_music_downloads_notification_channel">Audió-letöltések</string>
     <string name="morphe_music_downloads_progress">Letöltés: %s%%</string>
     <string name="morphe_music_downloads_sort">Rendezés</string>
@@ -154,7 +156,7 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_ai_config_model_label">Modell</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">Prompt</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Csatlakoztatva! (%2$s)</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Kapcsolat sikertelen. Ellenőrizze a beállításokat</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%s: A csatlakozás sikertelen. Ellenőrizze a beállításokat</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">A beállítások hiányosak vagy a szolgáltató elutasította azokat</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">A Base URL-nek http:// vagy https:// előtaggal kell kezdődnie</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Kapcsolat ellenőrzése…</string>
@@ -167,8 +169,8 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt mentve</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Engedélyezi a nem Latin ábécés írásjelekkel való kiejtések megjelenítését; kikapcsoláskor csak a Latin betűket, az ékezetes betűket és a hangjegy számokat tartja meg</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Átirat engedélyezése</string>
-    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB törölve</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Törölje ezt az eszközön tárolt %1$s MB dalszöveget</string>
+    <string name="morphe_music_lyrics_clear_cache_done">Törölve: %s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Törlje a(z) ezen eszközön tárolt %s MB méretű dalszövegeket</string>
     <string name="morphe_music_lyrics_clear_cache_title">Tárolt dalszövegek törlése</string>
     <string name="morphe_music_lyrics_contribute_credit">Hosszan nyomva tartás a másolás gombon az LRC mentéséhez; ha finomhangolja az időzítéseket és megosztja azokat a közösségi szolgáltatókkal, hálásak leszünk érte</string>
     <string name="morphe_music_lyrics_copied">Másolva a vágólapra</string>
@@ -179,6 +181,10 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_display_artist_first_summary">Váltja az előadó és a cím sorrendjét a minilejátszóban és a MediaSessionben. BE: \"Előadó - Cím\", KI: \"Cím - Előadó\". Nem befolyásolja a dalszövegkeresést</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Előadó és cím megjelenítési sorrendje</string>
     <string name="morphe_music_lyrics_dual_only">Kettős mód</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_summary">Mozgasson a hátteret lejátszás közben, és pulzálissa a zeneに合わせて, ha a YouTube Music rendelkezik mikrofon engedéllyel. Kapcsolja ki a kevésbé akkumulátort fogyasztó, statikus háttér érdekében</string>
+    <string name="morphe_music_lyrics_dynamic_background_animated_title">Dinamikus háttér animálása</string>
+    <string name="morphe_music_lyrics_dynamic_background_summary">Mutasson egy az albumborítóból készített homályos hátteret a dalszöveg mögött</string>
+    <string name="morphe_music_lyrics_dynamic_background_title">Dinamikus háttér</string>
     <string name="morphe_music_lyrics_enabled_summary">Szövegeket jelenít meg egy külső szolgáltatótól, ha nincs találat, akkor a beépített szövegeket használja</string>
     <string name="morphe_music_lyrics_enabled_title">Harmadik féles szöveg használata</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Nagybetűvel kezdi minden dalszövegsor első betűjét</string>
@@ -189,18 +195,18 @@ A szövegek harmadik fél szolgáltatásaiból származnak, amelyekkel a RVX-nak
     <string name="morphe_music_lyrics_hide_info_title">Forrásmegjelölés elrejtése</string>
     <string name="morphe_music_lyrics_hide_played_summary">Minilejátszó dalszövegének megjelenítése</string>
     <string name="morphe_music_lyrics_hide_played_title">A lejátszott sor elrejtése</string>
-    <string name="morphe_music_lyrics_hide_unplayed_summary">Dalszövegsorok elrejtése a jelenleg lejátszott […] képernyőn</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">Dalszövegsorok elrejtése a jelenleg lejátszott sor alatt</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">A még el nem hangzott dalszövegek elrejtése</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Megakadályozza, hogy a kijelző kikapcsoljon, amíg a dalszövegpanel nyitva van</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Képernyő bekapcsolva tartása a dalszövegek megtekintése közben</string>
     <string name="morphe_music_lyrics_line_scale_summary">Minden nem éppen énekelt sort kicsinyebb méretben ábrázol, továbbá halványítja őket</string>
     <string name="morphe_music_lyrics_line_scale_title">Tükrözze a nem éneklő sorokat</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">Olvasás %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Olvasás %1$s: %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">Kínai szavak (pinyin-pro, ~17 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_cldr">Görög, szláv cirill (beleértve az orosz, ukrán, bolgár, szerb, belorusz, macedon), grúz, örmény, héber, arab, amhara és szír ábécésítés (CLDR, ~0.5 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Letöltés sikertelen - próbálja újra ezt a funkcióki/bekapcsolással</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japán (SudachiDict, ~75 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">Kész olvasások (%1$d bejegyzés)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Olvasások készen állnak (%s bejegyzés)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">Kínai és kantoni karakterek (UniDict, ~8 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">Olvasószótárak letöltése folyamatban…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Felolvassa a időzített dalszöveg minden szavát (szó szinkron be van kapcsolva); Koreához nem szükséges letöltés; tizennégy írások egyetlen CLDR letöltéssel osztják meg az ábécésítést; Han karaktereket a Rime szótár olvas fel, ha a szótárában szerepel a nyelv</string>
@@ -242,12 +248,12 @@ Mindkét limitre vonatkozik. 1,75 esetén négy teljes szélességű karakter 7-
     <string name="morphe_music_lyrics_rime_dict_add">Hozzáadás</string>
     <string name="morphe_music_lyrics_rime_dict_add_hint">Egy .dict.yaml fájl, vagy egy zip, amely tartalmaz ilyet, olyan sorokkal, mint a 字 ham és a 典 din2. A listát akkor veszi át, amikor kijelöli és megnyomja a Mentést, és a licenc ellenőrzése az Ön dolga</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Rime szótárlista hozzáadása</string>
-    <string name="morphe_music_lyrics_rime_dict_added">%1$s hozzáadva – pipálja ki és nyomja meg a Mentést a letöltéshez</string>
+    <string name="morphe_music_lyrics_rime_dict_added">Hozzáadva: %s - jelölje be, majd koppintson a Mentés gombra a letöltéshez</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">A kód két vagy három betűből kell álljon, például hak</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">A név és a cím nem tartalmazhat függőleges vonalat</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">A címnek https:// kezdetűnek kell lennie</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Szótár építése: %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s már rendelkezik szólistával</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Szavarlista beolvasása: %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">A(z) %s már rendelkezik szótáblázattal</string>
     <string name="morphe_music_lyrics_rime_dict_empty">"A Rime szólistahoz szükséges az UniDict is: a Nemzeti szótár biztosítónál pipálja be a \"Kínai és kantoni karakterek (UniDict)\" opciót, és várja meg a letöltés befejezését. Enélkül a karaktereket olvasó lista nem ad hangzást
 
 Jelölje ki azokat a listákat, amelyeket a Rime szólistának felolvasnia kell, majd koppintson a Mentés gombra a letöltéshez. Egy hozzáadott lista akkor kerül eltávolításra, amikor kiejti a pipát
@@ -267,8 +273,8 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_lyrics_rime_dict_incomplete">Töltse ki a kódot, a nevet és a címet</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">A fenti nyelvhez nincs kijelölve Rime szótárlista. Koppintson erre a névre egy lista kijelöléséhez, vagy válasszon olyan nyelvet, amelyhez rendelkezik listával</string>
     <string name="morphe_music_lyrics_rime_dict_ready">Szótárak készen állnak</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">Szótárak készen állnak (%1$d bejegyzéssel)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s-t a beépített átiratoló olvassa, így nem fogad el szótárt</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Szavarlisták készen állnak (%s bejegyzés)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">A(z) %s beépített romanizálónak olvasható, így nem fogadhat szavarlistát</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">Nem használatos: ennek a nyelvnek már megvan a saját kiejtése, ezért pipálja ki, hogy eltávolítsa</string>
     <string name="morphe_music_lyrics_rime_dict_title">Rime szótár</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Offline szótár</string>
@@ -282,6 +288,11 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizálta: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">A Google romanizálta</string>
     <string name="morphe_music_lyrics_romanizing">Romanizálás…</string>
+    <string name="morphe_music_lyrics_ruby_generating">Ruby generálása…</string>
+    <string name="morphe_music_lyrics_ruby_provider_title">Ruby</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
+    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
+    <string name="morphe_music_lyrics_ruby_style_title">Ruby betűk</string>
     <string name="morphe_music_lyrics_saved">Mentett</string>
     <string name="morphe_music_lyrics_sb_matching_summary">A SponsorBlock által kihagyott szegmensek nélkül illeszti össze a dalszöveget, és a megjelent hanganyagra igazítja. Kikapcsolva teljesen figyelmen kívül hagyja a SponsorBlockot</string>
     <string name="morphe_music_lyrics_sb_matching_title">SponsorBlock-szegmensek használata a dalszöveg-eltoláshoz</string>
@@ -297,6 +308,8 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_lyrics_show_refresh_button_title">Frissítés gomb megjelenítése</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Koppintson az ábécésítés vagy átirat váltásához; hosszú érintés az ábécésítés vagy átirat kizárólagos megjelenítéséhez. Az engedélyezett ábécésítőszolgáltatókat azok felsorolási sorrendjében használja</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Átirat vagy ábécésítési gomb megjelenítése</string>
+    <string name="morphe_music_lyrics_show_ruby_button_summary">Koppints a szöveg feletti ruby olvasások váltásához; tartson nyomva a hiragana és katakana közötti váltáshoz. A bekapcsolt ruby szolgáltatókat a felsorolt sorrendben használja</string>
+    <string name="morphe_music_lyrics_show_ruby_button_title">Ruby gomb megjelenítése</string>
     <string name="morphe_music_lyrics_show_section_summary">Jelölje meg a dalszöveg minden új szakaszát egy kis címkével, például Strófa vagy Refrén</string>
     <string name="morphe_music_lyrics_show_section_title">Szakaszcímkék megjelenítése</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Koppintson a fordítás váltásához; hosszú érintés a fordítás kizárólagos megjelenítéséhez. A engedélyezett fordítószolgáltatókat azok felsorolási sorrendjében használja</string>
@@ -310,7 +323,7 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_lyrics_split_background_title">Háttérénekelt külön jelenjen meg</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Eltávolítja a pontokat, vesszőket, kettőspontokat és pontosvesszőket a dalszövegsorok végéről. A kérdőjeleket, felkiáltójeleket, hárompontokat, idézőjeleket és zárójeleket megtartja</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Végező rajzjelek eltávolítása</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">BEKapcsoláskor az ábécésítés/áiratranszkripció a dalszöveg alá, a fordítás pedig fölé jelenik meg; KAPCSOLATLAN mód megtartja az ábécésítést/fordítást felül és a fordítást alul. Egy szótagra helyezett kiejtése követi azt, attól függően, hogy felette vagy alatta van</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Megcseréli a fordítás és a romanizáció megjelenítési sorrendjét a dalszöveg alatt</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">A fordítás és a romanizáció felcserélése</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Koppintson egy sorra a dal adott pontjának lejátszásához, vagy nyomja meg hosszan a szó másolásához, vagy az egész sor moreolásához, ha nem szóra nyom. A kikapcsolás eltávolítja mindkét érintést</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Érintse meg és tartsa nyomva egy sort</string>
@@ -366,7 +379,7 @@ Lépések:
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc törölve</string>
     <string name="morphe_music_spotify_token_toast_invalid">Spotify: érvénytelen sp_dc – kérjük, ellenőrizze, majd próbálja újra</string>
-    <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc […] Enélkül a Lyrically lesz tartalékként használva</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc elmentve</string>
     <string name="morphe_music_token_dialog_get_token">Token lekérése</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"A YouTube-cookie-kat illeszd be, ha feliratokat és időzített szövegeket szeretnél lekérdezni a YouTube-ról
 

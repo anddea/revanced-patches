@@ -232,7 +232,8 @@ public class NavigationBarOrderPreference extends Preference {
         return listView;
     }
 
-    private static List<NavigationButton> getCurrentOrder() {
+    /** Shared with the glass-size preview so both editors use the same order. */
+    static List<NavigationButton> getCurrentOrder() {
         if (!SUPPORTS_ADDITIONAL_ITEMS_AND_ORDER) return new ArrayList<>(DEFAULT_ORDER);
         String serializedOrder = Settings.NAVIGATION_BAR_ORDER.get();
         List<NavigationButton> order = new ArrayList<>();
@@ -279,7 +280,7 @@ public class NavigationBarOrderPreference extends Preference {
         return serialized.toString();
     }
 
-    private static String getLabel(NavigationButton button) {
+    static String getLabel(NavigationButton button) {
         return button == NavigationButton.WATCH_LATER
                 ? str("revanced_change_start_page_entry_watch_later")
                 : str("revanced_change_start_page_entry_" + button.name().toLowerCase(Locale.ROOT));

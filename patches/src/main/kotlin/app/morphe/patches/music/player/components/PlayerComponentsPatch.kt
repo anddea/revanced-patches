@@ -90,6 +90,7 @@ import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_39_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
 import app.morphe.patches.music.utils.resourceid.darkBackground
@@ -213,33 +214,40 @@ private val playerComponentsResourcePatch = resourcePatch(
     dependsOn(versionCheckPatch)
 
     execute {
-        val publicFile = get("res/values/public.xml")
+        // Since YT Music v6.42.51, the resources for the next button have been removed.
+        // On < 8.51, bytecode relies on hijacked TOP_START / TOP_END IDs.
+        // On 8.51+ (including 9.40), the extension resolves button IDs dynamically,
+        // so TOP_END and TOP_START must remain untouched so attrs.xml enum definitions compile.
+        if (!is_8_51_or_greater) {
+            val publicFile = get("res/values/public.xml")
 
-        // Since YT Music v6.42.51,the resources for the next button have been removed, we need to add them manually.
-        if (is_6_42_or_greater) {
+            if (is_6_42_or_greater) {
+                publicFile.writeText(
+                    publicFile.readText()
+                        .replace(
+                            "\"TOP_START\"",
+                            "\"$NEXT_BUTTON_VIEW_ID\""
+                        )
+                )
+            }
             publicFile.writeText(
                 publicFile.readText()
                     .replace(
-                        "\"TOP_START\"",
-                        "\"$NEXT_BUTTON_VIEW_ID\""
+                        "\"TOP_END\"",
+                        "\"$PREVIOUS_BUTTON_VIEW_ID\""
                     )
             )
+        }
+
+        if (is_6_42_or_greater) {
             insertNode(false)
         }
-        publicFile.writeText(
-            publicFile.readText()
-                .replace(
-                    "\"TOP_END\"",
-                    "\"$PREVIOUS_BUTTON_VIEW_ID\""
-                )
-        )
         insertNode(true)
     }
 }
 
 // 9.40: music_player_next/prev drawables no longer exist; pick an existing drawable.
 private fun ResourcePatchContext.insertNode(isPreviousButton: Boolean) {
-    var shouldAddPreviousButton = true
     val drawableName = if (isPreviousButton) {
         if (get("res/drawable/music_player_prev.xml").exists()) "music_player_prev"
         else "quantum_ic_skip_previous_white_36"
@@ -248,24 +256,35 @@ private fun ResourcePatchContext.insertNode(isPreviousButton: Boolean) {
         else "quantum_ic_skip_next_white_36"
     }
 
-    document("res/layout/watch_while_layout.xml").use { document ->
-        document.doRecursively loop@{ node ->
-            if (node !is Element) return@loop
+    val playerLayouts = mutableListOf("res/layout/watch_while_layout.xml")
+    if (is_9_39_or_greater) {
+        // Inflated instead of the layout above when a server flag defers the player.
+        playerLayouts += "res/layout/watch_while_layout_player.xml"
+    }
 
-            node.getAttributeNode("android:id")?.let { attribute ->
-                if (isPreviousButton) {
-                    if (attribute.textContent == "@id/mini_player_play_pause_replay_button" &&
-                        shouldAddPreviousButton
-                    ) {
-                        node.insertNode(IMAGE_VIEW_TAG_NAME, node) {
-                            setPreviousButtonNodeAttribute(drawableName)
+    playerLayouts.forEach { playerLayout ->
+        // Inject previous button before play/pause, next button as last child of mini_player.
+        var shouldAddPreviousButton = true
+
+        document(playerLayout).use { document ->
+            document.doRecursively loop@{ node ->
+                if (node !is Element) return@loop
+
+                node.getAttributeNode("android:id")?.let { attribute ->
+                    if (isPreviousButton) {
+                        if (attribute.textContent == "@id/mini_player_play_pause_replay_button" &&
+                            shouldAddPreviousButton
+                        ) {
+                            node.insertNode(IMAGE_VIEW_TAG_NAME, node) {
+                                setPreviousButtonNodeAttribute(drawableName)
+                            }
+                            shouldAddPreviousButton = false
                         }
-                        shouldAddPreviousButton = false
-                    }
-                } else {
-                    if (attribute.textContent == "@id/mini_player") {
-                        node.adoptChild(IMAGE_VIEW_TAG_NAME) {
-                            setNextButtonNodeAttribute(drawableName)
+                    } else {
+                        if (attribute.textContent == "@id/mini_player") {
+                            node.adoptChild(IMAGE_VIEW_TAG_NAME) {
+                                setNextButtonNodeAttribute(drawableName)
+                            }
                         }
                     }
                 }
@@ -276,7 +295,7 @@ private fun ResourcePatchContext.insertNode(isPreviousButton: Boolean) {
 
 private fun Element.setNextButtonNodeAttribute(drawableName: String) {
     mapOf(
-        "android:id" to "@id/$NEXT_BUTTON_VIEW_ID",
+        "android:id" to "@+id/$NEXT_BUTTON_VIEW_ID",
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",
@@ -292,7 +311,7 @@ private fun Element.setNextButtonNodeAttribute(drawableName: String) {
 
 private fun Element.setPreviousButtonNodeAttribute(drawableName: String) {
     mapOf(
-        "android:id" to "@id/$PREVIOUS_BUTTON_VIEW_ID",
+        "android:id" to "@+id/$PREVIOUS_BUTTON_VIEW_ID",
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",

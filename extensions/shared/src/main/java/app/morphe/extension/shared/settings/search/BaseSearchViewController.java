@@ -55,6 +55,8 @@
 
 package app.morphe.extension.shared.settings.search;
 
+import app.morphe.extension.shared.settings.preference.NewIndicatorSpan;
+
 import app.morphe.extension.shared.settings.BaseActivityHook;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getDrawableIdentifier;
@@ -523,7 +525,7 @@ public abstract class BaseSearchViewController {
                 // Append the group title to the path and save key for navigation.
                 if (!isSpecialPreferenceGroup(preference)
                         && !(preference instanceof NoTitlePreferenceCategory)) {
-                    CharSequence title = preference.getTitle();
+                    CharSequence title = NewIndicatorSpan.removeFrom(preference.getTitle());
                     if (!TextUtils.isEmpty(title)) {
                         newPath = TextUtils.isEmpty(parentPath)
                                 ? title.toString()

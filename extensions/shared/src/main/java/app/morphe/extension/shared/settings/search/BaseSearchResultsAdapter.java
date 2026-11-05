@@ -42,6 +42,8 @@
 
 package app.morphe.extension.shared.settings.search;
 
+import app.morphe.extension.shared.settings.preference.NewIndicatorSpan;
+
 import static app.morphe.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdIdentifier;
 
@@ -569,7 +571,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected Preference findPreferenceByTitle(PreferenceGroup group, String title) {
         for (int i = 0; i < group.getPreferenceCount(); i++) {
             Preference pref = group.getPreference(i);
-            CharSequence prefTitle = pref.getTitle();
+            CharSequence prefTitle = NewIndicatorSpan.removeFrom(pref.getTitle());
             if (prefTitle != null && (prefTitle.toString().trim().equalsIgnoreCase(title)
                     || normalizeString(prefTitle.toString()).equals(normalizeString(title)))) {
                 return pref;

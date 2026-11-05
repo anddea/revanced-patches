@@ -91,8 +91,6 @@ private val spoofVideoStreamsResourcePatch = resourcePatch {
 internal fun spoofVideoStreamsPatch(
     extensionClass: String,
     mainActivityOnCreateFingerprint: Fingerprint,
-    fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean = { false },
-    fixMediaFetchHotConfigAlternative: BytecodePatchBuilder.() -> Boolean,
     fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean,
     fixMediaSessionFeatureFlag: BytecodePatchBuilder.() -> Boolean,
     fixReelItemWatchResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean,
@@ -132,40 +130,19 @@ internal fun spoofVideoStreamsPatch(
 
         setExtensionIsPatchIncluded(EXTENSION_CLASS)
 
-        BuildInitPlaybackRequestFingerprint.let {
-            it.method.apply {
-                val moveUriStringIndex = it.instructionMatches.first().index
-                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+        // region Fetch streaming data.
+        // The requests of the app are not changed. The streams are fetched when the app requests a video,
+        // and also when the app builds the streams of a video it loaded with a request that was not seen.
 
-                addInstructions(
-                    moveUriStringIndex + 1,
-                    """
-                        invoke-static { v$targetRegister }, $EXTENSION_CLASS->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$targetRegister
-                    """
-                )
-            }
-        }
+        hookBuildRequest("$EXTENSION_CLASS->fetchStreams(Ljava/lang/String;Ljava/util/Map;[B)V", includeBody = true)
 
-        BuildInnerTubeProtoRequestUriFingerprint.let {
-            it.method.apply {
-                val match = it.instructionMatches.last()
-                val index = match.index
-                val register = match.instruction.registersUsed[0]
-
-                addInstructionsAtControlFlowLabel(
-                    index,
-                    $$"""
-                        invoke-static { v$$register }, $$EXTENSION_CLASS->blockGetWatchRequest(Landroid/net/Uri$Builder;)Landroid/net/Uri$Builder;
-                        move-result-object v$$register
-                    """
-                )
-            }
-        }
-
-        hookBuildRequest(
-            "$EXTENSION_CLASS->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
+        // When a media response asks for the player response again, the app loads the video again,
+        // which can be with requests that are not seen. The streams fetched before are not given again.
+        ReloadPlayerResponseFingerprint.method.addInstruction(
+            0,
+            "invoke-static { }, $EXTENSION_CLASS->onReloadPlayerResponse()V"
         )
+
 
         // Make the media requests of the streams of TV clients name the TV client.
         hookMediaRequest("$EXTENSION_CLASS->onMediaRequest", replacesRequest = true)
@@ -269,8 +246,14 @@ internal fun spoofVideoStreamsPatch(
                             if-eqz v6, :disabled
                             iput-object v6, p0, $setStreamingDataField
 
-                            # Get player config.
-                            invoke-static { v2 }, $EXTENSION_CLASS->getPlayerConfig(Ljava/lang/String;)[B
+                            # Get player config. The app player config tells how the video is played inline.
+                            iget-object v4, p2, $setPlayerConfigField
+                            const/4 v1, 0x0
+                            if-eqz v4, :get_player_config
+                            invoke-virtual { v4 }, $playerConfigClass->toByteArray()[B
+                            move-result-object v1
+                            :get_player_config
+                            invoke-static { v2, v1 }, $EXTENSION_CLASS->getPlayerConfig(Ljava/lang/String;[B)[B
                             move-result-object v3
                             if-eqz v3, :disabled
                             $parsePlayerConfig
@@ -288,9 +271,8 @@ internal fun spoofVideoStreamsPatch(
                             # Set media uStreamer request config in a copy of the app player config.
                             # The app config may already be serialized, which caches its size,
                             # and changing it then breaks serializing it again.
-                            iget-object v5, p2, $setPlayerConfigField
-                            invoke-virtual { v5 }, $playerConfigClass->toByteArray()[B
-                            move-result-object v3
+                            if-eqz v1, :disabled
+                            move-object v3, v1
                             $parsePlayerConfig
                             iget-object v6, v5, $mediaCommonConfigField
                             iput-object v7, v6, $mediaUstreamerRequestConfig
@@ -383,23 +365,26 @@ internal fun spoofVideoStreamsPatch(
                     Opcode.RETURN_OBJECT,
                 ),
                 custom = { method, _ ->
-                    // Player config and the streaming data of the video.
-                    method.parameterTypes.size == 2
-                            && method.parameterTypes[1].toString() == videoStreamingDataType
+                    // Older apps also pass the video ID and format before the streaming data.
+                    method.parameterTypes.any { it.toString() == videoStreamingDataType }
                 }
-            ).method.addInstructionsWithLabels(
-                0,
-                """
-                    iget-object v0, p2, $videoIdField
-                    invoke-static { v0 }, $EXTENSION_CLASS->disableSABR(Ljava/lang/String;)Z
-                    move-result v0
-                    if-eqz v0, :ignore
-                    sget-object v0, $sabrFieldReference
-                    return-object v0
-                    :ignore
-                    nop
-                """
-            )
+            ).method.apply {
+                // All parameters before the streaming data are references, so each uses one register.
+                val streamingDataRegister = parameterTypes.indexOf(videoStreamingDataType) + 1
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        iget-object v0, p$streamingDataRegister, $videoIdField
+                        invoke-static { v0 }, $EXTENSION_CLASS->disableSABR(Ljava/lang/String;)Z
+                        move-result v0
+                        if-eqz v0, :ignore
+                        sget-object v0, $sabrFieldReference
+                        return-object v0
+                        :ignore
+                        nop
+                    """
+                )
+            }
         }
 
         if (hookAccountIdentity()) {
@@ -407,24 +392,6 @@ internal fun spoofVideoStreamsPatch(
                 0,
                 "invoke-static { p3, p4 }, $EXTENSION_CLASS->setAccountIdentity(Ljava/lang/String;Z)V"
             )
-        }
-
-        if (fixMediaFetchHotConfig()) {
-            MediaFetchHotConfigFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS->useMediaFetchHotConfigReplacement(Z)Z"
-                )
-            }
-        }
-
-        if (fixMediaFetchHotConfigAlternative()) {
-            MediaFetchHotConfigAlternativeFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS->useMediaFetchHotConfigReplacement(Z)Z"
-                )
-            }
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {

@@ -158,9 +158,9 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Kanały z listy blokad</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Włącz filtr, aby wczytać kanały</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Wczytywanie kanałów…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Strona główna: %s
-• Wyszukiwanie: %s
-• Łącznie: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Strona główna: %1$s
+• Wyszukiwanie: %2$s
+• Łącznie: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanały z listy ostrzeżeń</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Lista ostrzeżeń: umiarkowana pewność</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ukryj etykietę automatycznego dubbingu</string>
@@ -189,6 +189,14 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
 ​Aby wyświetlić menu \"Ścieżka dźwiękowa\", zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\""</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Ukryj menu \"W drodze\"</string>
     <string name="morphe_hide_podcasts_menu_title">Ukryj menu Podcasty</string>
+    <string name="morphe_hide_post_comment_button_title">Ukryj przycisk komentarzy</string>
+    <string name="morphe_hide_post_comments_preview_summary">Ukrywa podgląd komentarzy pod postami</string>
+    <string name="morphe_hide_post_comments_preview_title">Ukryj podgląd komentarzy</string>
+    <string name="morphe_hide_post_dislike_button_summary">Przy układzie \"Wymuszony\" puste miejsce po przycisku zostaje zachowane</string>
+    <string name="morphe_hide_post_dislike_button_title">Ukryj przycisk łapki w dół</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Ukryj przyciski łapek w górę i w dół</string>
+    <string name="morphe_hide_post_share_button_summary">Przycisk pobierania obrazów z posta jest rysowany obok przycisku udostępniania, więc również zostanie ukryty</string>
+    <string name="morphe_hide_post_share_button_title">Ukryj przycisk udostępniania</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ukryj stopki z informacjami prawnymi i prywatnością</string>
     <string name="morphe_hide_shopping_menu_title">Ukryj menu Zakupy</string>
     <string name="morphe_hide_sports_menu_title">Ukryj menu Sport</string>
@@ -238,6 +246,16 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
     <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
     <string name="morphe_music_package_name_title">Nazwa pakietu aplikacji muzycznej</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Dostosuj poziom krycia szklanego paska nawigacji (0 to pełna przezroczystość, 100 to brak przezroczystości)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Krycie szkła</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Odstęp między przyciskami</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Widoczne przyciski: %1$s z %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Wysokość</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Dostosuj wysokość, szerokość oraz odstępy między przyciskami szklanego paska nawigacji z podglądem na żywo. Przyciski, które nie mieszczą się na szerokości ekranu, są ukrywane</string>
+    <string name="morphe_navigation_bar_glass_size_title">Rozmiar szklanego paska nawigacji</string>
+    <string name="morphe_navigation_bar_glass_size_width">Maks. szerokość</string>
+    <string name="morphe_navigation_bar_glass_summary">Wyświetla pasek nawigacji jako pływającą, zaokrągloną, półprzezroczystą kapsułkę. Niedostępne przy nieprzezroczystym stylu paska nawigacji</string>
+    <string name="morphe_navigation_bar_glass_title">Włącz szklany pasek nawigacji</string>
     <string name="morphe_navigation_bar_style_entry_2">Półprzezroczysty</string>
     <string name="morphe_navigation_bar_style_title">Styl paska nawigacji</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Ten styl może nie być obsługiwany przez Twoje urządzenie lub wersję YouTube i może powodować błędy układu lub awarie aplikacji</string>
@@ -269,6 +287,11 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_playback_in_feeds_title">Odtwarzanie w kanałach</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Dostosuj krycie tła za przyciskami sterowania odtwarzacza i paskiem czasu (0 to brak krycia, 100 to pełne krycie)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Krycie tła przycisków sterowania</string>
+    <string name="morphe_post_buttons_layout_entry_1">Serwerowy</string>
+    <string name="morphe_post_buttons_layout_entry_2">Wymuszony</string>
+    <string name="morphe_post_buttons_layout_title">Układ przycisków postów</string>
+    <string name="morphe_post_buttons_screen_summary">Wybierz układ przycisków pod postami społeczności oraz określ, które przyciski mają być ukryte</string>
+    <string name="morphe_post_buttons_screen_title">Przyciski postów</string>
     <string name="morphe_post_image_download_failed">Nie udało się pobrać obrazu</string>
     <string name="morphe_post_image_download_flyout">Pobierz obrazy</string>
     <string name="morphe_post_image_download_flyout_single">Pobierz obraz</string>
@@ -445,6 +468,8 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_theme_entry_white">Biały</string>
     <string name="morphe_theme_settings_summary">Dostosuj motyw, wygląd i markę aplikacji</string>
     <string name="morphe_theme_settings_title">Ustawienia motywu</string>
+    <string name="morphe_unlock_queue_summary">Odblokowuje kolejkę filmów YouTube</string>
+    <string name="morphe_unlock_queue_title">Odblokuj kolejkę</string>
     <string name="morphe_video_quality_prioritize_dialog">Jeśli to ustawienie będzie wyłączone, starsze filmy mogą nie wyświetlać opcji wyboru jakości filmu</string>
     <string name="morphe_video_quality_prioritize_summary">Nadaje priorytet najwyższej dostępnej jakości filmu kosztem wydajności kodeka</string>
     <string name="morphe_video_quality_prioritize_title">Priorytet jakości filmu</string>
@@ -497,6 +522,10 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_vot_voice_gender_female_multilingual">Żeński wielojęzyczny</string>
     <string name="morphe_vot_voice_gender_male">Męski</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Męski wielojęzyczny</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">Nie wyświetla potwierdzenia po usunięciu filmu z playlisty \"Do obejrzenia\"</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">Ukryj powiadomienie o usunięciu z \"Do obejrzenia\"</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">Uchwyty do przeciągania filmów na playliście \"Do obejrzenia\" są łatwiejsze do chwycenia</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">Poszerz uchwyty przeciągania w \"Do obejrzenia\"</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_title">Otwórz menu zaawansowanej jakości</string>
@@ -1923,8 +1952,12 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo"</string>
     <string name="revanced_navigation_bar_animations_summary">Animuje przejścia podczas przełączania między kartami</string>
     <string name="revanced_navigation_bar_animations_title">Włącz animacje paska nawigacji</string>
     <string name="revanced_navigation_bar_order_drag_handle">Przeciągnij, aby zmienić kolejność</string>
+    <string name="revanced_navigation_bar_order_hide">Ukryj %s</string>
+    <string name="revanced_navigation_bar_order_instructions">Dotknij elementu, aby go wyświetlić lub ukryć, i przeciągnij jego uchwyt, aby zmienić kolejność. Utwórz i Powiadomienia mają wspólne pole. Funkcja Eksploruj jest dostępna tylko w obsługiwanych układach YouTube</string>
+    <string name="revanced_navigation_bar_order_show">Pokaż %s</string>
     <string name="revanced_navigation_bar_order_summary">Przeciągnij elementy nawigacji w kolejności, w jakiej powinny się pojawiać</string>
     <string name="revanced_navigation_bar_order_title">Kolejność paska nawigacji</string>
+    <string name="revanced_navigation_bar_visibility_instructions">Dotknij elementu, aby go wyświetlić lub ukryć. Utwórz i Powiadomienia mają wspólne miejsce. Zmiany zostaną zastosowane po ponownym uruchomieniu</string>
     <string name="revanced_offline_action_delete">Usunąć</string>
     <string name="revanced_offline_action_open_youtube">Otwórz na YouTube</string>
     <string name="revanced_offline_action_play_background">Odtwórz w tle</string>
@@ -2873,7 +2906,7 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_seek_summary_on">"Włączony
 
 Przewiń wideo, przesuwając palcem w poziomie po górnej połowie ekranu"</string>
-    <string name="revanced_swipe_seek_title">Gest przewijania</string>
+    <string name="revanced_swipe_seek_title">Przesuń, aby przewijać</string>
     <string name="revanced_swipe_speed_distance_summary">Ilość pikseli do przesunięcia w celu zmiany prędkości odtwarzania filmów. Niższe wartości powodują szybszą zmianę prędkości, wyższe sprawiają, że zmiana jest wolniejsza (1–1000)</string>
     <string name="revanced_swipe_speed_distance_title">Odległość prędkości</string>
     <string name="revanced_swipe_speed_summary_off">Wyłączony</string>

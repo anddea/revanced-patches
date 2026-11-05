@@ -410,4 +410,21 @@ public final class AutoTranslateCaptionsPatch {
                 return primary;
         }
     }
+
+    /** Canonical aliases while retaining the region/script for exact track selection. */
+    static String normalizeLanguageCode(String languageCode) {
+        if (languageCode == null) return "";
+        String code = languageCode.trim().replace('_', '-').toLowerCase(Locale.ROOT);
+        int dash = code.indexOf('-');
+        String primary = dash < 0 ? code : code.substring(0, dash);
+        String canonical = switch (primary) {
+            case "iw" -> "he";
+            case "in" -> "id";
+            case "ji" -> "yi";
+            case "tl" -> "fil";
+            case "nb" -> "no";
+            default -> primary;
+        };
+        return canonical + code.substring(primary.length());
+    }
 }

@@ -20,6 +20,7 @@ import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils
+import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.addCustomPreference
 import app.morphe.patches.music.utils.settings.addNonInteractivePreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
@@ -61,14 +62,14 @@ val lyricsPatch = bytecodePatch(
         lithoFilterPatch,
         videoInformationPatch,
         versionCheckPatch,
-        // The copy and romanize buttons need their icons whether or not the patches
+        // The copy, romanize and furigana buttons need their icons whether or not the patches
         // that own these resources are applied.
         resourcePatch {
             execute {
                 copyResources(
                     "music/lyrics",
                     ResourceGroup("drawable", "morphe_yt_copy_bold.xml"),
-                    ResourceGroup("drawable", "morphe_yt_romanize.xml")
+                    ResourceGroup("drawable", "morphe_yt_romanize.xml", "morphe_yt_ruby.xml")
                 )
             }
         }
@@ -241,6 +242,38 @@ val lyricsPatch = bytecodePatch(
             "morphe_music_lyrics_enabled",
             setSummary = false,
             titleKey = null
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_show_ruby_button",
+            "true",
+            "morphe_music_lyrics_enabled",
+            false
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_ruby_provider",
+            "app.morphe.extension.music.settings.preference.LyricsOrderedListPreference",
+            "morphe_music_lyrics_enabled",
+            setSummary = false
+        )
+        addListPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_ruby_style",
+            "morphe_music_lyrics_enabled",
+            setSummary = false
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_dynamic_background",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_dynamic_background_animated",
+            "true",
+            "morphe_music_lyrics_dynamic_background"
         )
         addSwitchPreference(
             CategoryType.LYRICS,

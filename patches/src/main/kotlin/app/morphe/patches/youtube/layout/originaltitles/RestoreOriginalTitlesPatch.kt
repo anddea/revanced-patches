@@ -26,6 +26,7 @@ import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
 import app.morphe.patches.youtube.utils.proto.hookElement
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.patches.shared.misc.media.MediaSessionSetMetadataFingerprint
@@ -72,6 +73,8 @@ val restoreOriginalTitlesPatch = bytecodePatch(
         // The original description is fetched when the video is opened,
         // and replaced when the description panel is opened.
         hookVideoId("$EXTENSION_CLASS->newVideoLoaded(Ljava/lang/String;)V")
+        // Keep the current video ID updated when playback advances with no video visible.
+        hookBackgroundPlayVideoId("$EXTENSION_CLASS->newVideoLoaded(Ljava/lang/String;)V")
 
         // The title of the media notification.
         MediaSessionSetMetadataFingerprint.let {

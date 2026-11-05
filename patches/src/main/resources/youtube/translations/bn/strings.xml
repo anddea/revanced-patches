@@ -146,9 +146,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">ব্লকlist চ্যানেল</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">চ্যানেল লোড করার জন্য একটি ফিল্টার সক্রিয় করুন</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">চ্যানেল লোড হচ্ছে…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• হোম: %s
-• অনুসন্ধান: %s
-• মোট: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• হোম: %1$s
+• সার্চ: %2$s
+• মোট: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ওয়ার্নlist চ্যানেল</string>
     <string name="morphe_hide_aislist_warnlist_category_title">ওয়ার্ন লিস্ট: মাঝারি আত্মবিশ্বাস</string>
     <string name="morphe_hide_auto_dubbed_label_title">\'অটো-ডাবড\' লেবেল লুকান</string>
@@ -177,6 +177,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 'অডিও ট্র্যাক' মেনু দেখাতে, 'স্পুফ ভিডিও স্ট্রিম' যেকোনো ক্লায়েন্টে পরিবর্তন করুন 'Android Studio' এবং 'Android VR Downgraded' ছাড়া"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">\'চলার পথে\' মেনু লুকান</string>
     <string name="morphe_hide_podcasts_menu_title">পডকাস্ট মেনু লুকান</string>
+    <string name="morphe_hide_post_comment_button_title">কমেন্ট বোতামটি লুকান</string>
+    <string name="morphe_hide_post_comments_preview_summary">পোস্টের নিচের কমেন্টগুলোর পূর্বরূপ লুকায়</string>
+    <string name="morphe_hide_post_comments_preview_title">কমেন্ট পূর্বরূপ লুকান</string>
+    <string name="morphe_hide_post_dislike_button_summary">Enforced লেআউটের ক্ষেত্রে, বোতামের জায়গাটি খালি থাকে</string>
+    <string name="morphe_hide_post_dislike_button_title">ডিসলাইক বোতামটি লুকান</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Like এবং Dislike বোতামগুলো লুকান</string>
+    <string name="morphe_hide_post_share_button_summary">পোস্টের ইমেজের ডাউনলোড বোতামটি শেয়ার বোতামের পাশে থাকে, তাই এটিও লুকানো থাকে</string>
+    <string name="morphe_hide_post_share_button_title">শেয়ার বোতামটি লুকান</string>
     <string name="morphe_hide_privacy_tos_footer_title">à®à®¨à¯à®¤ à®à®à® à®à®¬à®¯à®à®¤ à®µà¯à®¤à®°</string>
     <string name="morphe_hide_shopping_menu_title">শপিং মেনু লুকান</string>
     <string name="morphe_hide_sports_menu_title">স্পোর্টস মেনু লুকান</string>
@@ -224,6 +232,16 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_livestream_dvr_title">লাইভস্ট্রিম ডিভিআর সক্রিয় করুন</string>
     <string name="morphe_music_package_name_summary">আপনার ইনস্টল করা মিউজিক অ্যাপের প্যাকেজ নাম</string>
     <string name="morphe_music_package_name_title">মিউজিক অ্যাপ প্যাকেজ নাম</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">গ্লাস নেভিগেশন বারের স্বচ্ছতার স্তর সামঞ্জস্য করুন (০ হলো স্বচ্ছ, ১০০ হলো অস্বচ্ছ)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">গ্লাস অস্বচ্ছতা</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">বাটন স্পেসিং</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">বোতাম দেখানো হয়েছে: %2$s এর মধ্যে %1$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">উচ্চতা</string>
+    <string name="morphe_navigation_bar_glass_size_summary">একটি প্রিভিউ-এর সাথে গ্লাস নেভিগেশন বারের উচ্চতা, প্রস্থ এবং বাটনের স্পেসিং অ্যাডজাস্ট করুন। স্ক্রিনের প্রস্থে ধরে না এমন বাটনগুলো লুকানো থাকে</string>
+    <string name="morphe_navigation_bar_glass_size_title">গ্লাস নেভিগেশন বারের আকার</string>
+    <string name="morphe_navigation_bar_glass_size_width">সর্বোচ্চ প্রস্থ</string>
+    <string name="morphe_navigation_bar_glass_summary">নেভিগেশন বারটিকে একটি ভাসমান, গোলাকার, স্বচ্ছ ক্যাপসুল হিসেবে দেখায়। অপেক নেভিগেশন বার স্টাইলের সাথে এটি উপলব্ধ নয়</string>
+    <string name="morphe_navigation_bar_glass_title">গ্লাস নেভিগেশন বার সক্রিয় করুন</string>
     <string name="morphe_navigation_bar_style_entry_2">অর্ধস্বচ্ছ</string>
     <string name="morphe_navigation_bar_style_title">নেভিগেশন বার স্টাইল</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">এই স্টাইলটি আপনার ডিভাইস বা YouTube ভার্সন দ্বারা সমর্থিত নাও হতে পারে এবং এর ফলে লেআউটে সমস্যা হতে পারে বা ক্র্যাশ করতে পারে</string>
@@ -253,6 +271,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_playback_in_feeds_title">ফিডে প্লেব্যাক</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">প্লেয়ার কন্ট্রোল বাটন এবং টাইম বারের পিছনের ব্যাকগ্রাউন্ডের অস্বচ্ছতা সামঞ্জস্য করুন (0 অদৃশ্য, 100 অস্বচ্ছ)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">কন্ট্রোল বাটনের পটভূমির অস্বচ্ছতা</string>
+    <string name="morphe_post_buttons_layout_entry_1">সার্ভার</string>
+    <string name="morphe_post_buttons_layout_entry_2">প্রয়োগ করা হয়েছে</string>
+    <string name="morphe_post_buttons_layout_title">পোস্ট বোতাম লেআউট</string>
+    <string name="morphe_post_buttons_screen_summary">কমিউনিটি পোস্টের নিচে বোতামগুলির লেআউট বেছে নিন এবং কোন বোতামগুলি লুকাতে হবে তা নির্ধারণ করুন</string>
+    <string name="morphe_post_buttons_screen_title">পোস্ট বাটন</string>
     <string name="morphe_post_image_download_failed">ছবিটি ডাউনলোড করা সম্ভব হয়নি</string>
     <string name="morphe_post_image_download_flyout">ছবিগুলো ডাউনলোড করুন</string>
     <string name="morphe_post_image_download_flyout_single">ছবি ডাউনলোড করুন</string>
@@ -296,7 +319,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_search_comments_clear">মুছে ফেলুন</string>
     <string name="morphe_search_comments_cleared">অনুসন্ধান মুছে ফেলা হয়েছে। সব মন্তব্য দেখাতে সর্টিং অর্ডার পরিবর্তন করুন অথবা মন্তব্যগুলি আবার খুলুন</string>
     <string name="morphe_search_comments_hint">অনুসন্ধান করার শব্দ</string>
-    <string name="morphe_search_comments_summary">শুধুমাত্র লোড হওয়া সেই মন্তব্যগুলো দেখানোর জন্য মন্তব্যের সার্চ বাটনে ট্যাপ করুন যেগুলোতে অনুসন্ধান করা সমস্ত শব্দ রয়েছে। কোনো নির্দিষ্ট শব্দগুচ্ছ অনুসন্ধান করতে শব্দগুলোকে উদ্ধৃতি চিহ্নের মধ্যে রাখুন</string>
+    <string name="morphe_search_comments_summary">শুধুমাত্র লোড হওয়া সেই কমেন্টগুলো দেখাতে কমেন্টের সার্চ বাটনে ট্যাপ করুন যেগুলোতে অনুসন্ধান করা সমস্ত শব্দ রয়েছে। কোনো নির্দিষ্ট শব্দগুচ্ছ বা ফ্রেজ খুঁজতে শব্দগুলোকে উদ্ধৃতি চিহ্নের মধ্যে রাখুন</string>
     <string name="morphe_search_comments_title">মন্তব্য অনুসন্ধান করুন</string>
     <string name="morphe_secondary_caption_language_summary">ক্যাপশনের সাথে দ্বিতীয় একটি ভাষা দেখায় এবং ক্যাপশন মেনুতে একটি দ্বিভাষিক ক্যাপশন টগল যোগ করে</string>
     <string name="morphe_secondary_caption_language_title">সেকেন্ডারি ক্যাপশন ভাষা</string>
@@ -440,6 +463,10 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="morphe_vot_voice_gender_female_multilingual">বহুভাষী মহিলা কণ্ঠ</string>
     <string name="morphe_vot_voice_gender_male">পুরুষ</string>
     <string name="morphe_vot_voice_gender_male_multilingual">বহুভাষী পুরুষ কণ্ঠ</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">\'পরে দেখুন\' থেকে কোনো ভিডিও সরিয়ে ফেলার পর আর নিশ্চিতকরণ মেসেজ দেখানো হবে না</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">\'পরে দেখুন\' থেকে সরানোর স্নাকবার হাইড করুন</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">\'পরে দেখুন\' ভিডিওগুলোর ড্র্যাগ হ্যান্ডেলগুলো ধরা এখন আরও সহজ</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">\'পরে দেখুন\' ড্র্যাগ হ্যান্ডেলগুলো প্রশস্ত করুন</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
     <string name="revanced_advanced_video_quality_menu_title">অ্যাডভান্সড কোয়ালিটি মেনু খুলুন</string>
@@ -1379,6 +1406,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে না</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করুন</string>
+    <string name="revanced_swipe_seek_title">সীক করার জন্য সোয়াইপ করুন</string>
     <string name="revanced_swipe_speed_title">স্পিড অঙ্গভঙ্গি সক্রিয় করুন</string>
     <string name="revanced_swipe_text_overlay_size_summary">ফুলস্ক্রিন মোডে সোয়াইপ করে পরবর্তী বা পূর্ববর্তী ভিডিওতে যান</string>
     <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>

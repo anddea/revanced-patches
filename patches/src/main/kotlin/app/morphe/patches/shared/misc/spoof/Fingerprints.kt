@@ -37,17 +37,6 @@ internal object CuepointListFingerprint : Fingerprint(
     )
 )
 
-internal object BuildInitPlaybackRequestFingerprint : Fingerprint(
-    returnType = $$"Lorg/chromium/net/UrlRequest$Builder;",
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-    ),
-    strings = listOf(
-        "Content-Type",
-        "Range",
-    )
-)
 
 internal object BuildInnerTubeProtoRequestUriFingerprint : Fingerprint(
     parameters = listOf(),
@@ -298,4 +287,19 @@ internal object ReelItemWatchResponseFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
         literal(45638126L)
     )
+)
+
+/**
+ * Called by native code when a media response asks the player to load the player response again.
+ * Older app versions also have a native implementation of the callbacks.
+ */
+internal object ReloadPlayerResponseFingerprint : Fingerprint(
+    superclass = "Lcom/google/android/libraries/youtube/media/interfaces/PlaybackControllerCallbacks;",
+    returnType = "V",
+    parameters = listOf(
+        $$"Lcom/google/android/apps/youtube/proto/streaming/ReloadPlayerResponseOuterClass$ReloadPlayerResponse;"
+    ),
+    custom = { _, classDef ->
+        !classDef.type.endsWith($$"$CppProxy;")
+    }
 )

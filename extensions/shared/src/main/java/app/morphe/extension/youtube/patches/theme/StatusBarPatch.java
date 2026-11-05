@@ -237,8 +237,10 @@ public final class StatusBarPatch {
 
                 // Only with the system navigation buttons at the bottom of the screen. The navigation bar
                 // covering them can change how the window is laid out, so only a window laid out with it
-                // tells that the device keeps the window above them.
-                if (edgeToEdge && insets.isVisible(WindowInsets.Type.navigationBars())
+                // tells that the device keeps the window above them. On Android 15 and later the navigation
+                // bar covers them also without the edge to edge top bar, such as with the status bar hidden.
+                if ((edgeToEdge || NavigationButtonsPatch.isNavigationBarCoveringSystemButtons())
+                        && insets.isVisible(WindowInsets.Type.navigationBars())
                         && insets.getInsetsIgnoringVisibility(WindowInsets.Type.navigationBars()).bottom > 0) {
                     final boolean aboveNavigationBar = windowBottom < displayHeight;
                     if ((!aboveNavigationBar || NavigationButtonsPatch.isNavigationBarCoveringSystemButtons())

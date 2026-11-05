@@ -146,9 +146,9 @@
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">ช่องที่ถูกบล็อก</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">เปิดใช้งานตัวกรองเพื่อโหลดช่อง</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">กำลังโหลดช่อง…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• หน้าหลัก: %s
-• การค้นหา: %s
-• รวม: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• หน้าแรก: %1$s
+• ค้นหา: %2$s
+• ทั้งหมด: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ช่องที่ถูกเตือน</string>
     <string name="morphe_hide_aislist_warnlist_category_title">รายการเตือน: ความมั่นใจปานกลาง</string>
     <string name="morphe_hide_auto_dubbed_label_title">ซ่อนป้ายกำกับ \'มีการพากย์เสียงอัตโนมัติ\'</string>
@@ -171,12 +171,20 @@
     <string name="morphe_hide_movies_menu_title">ซ่อนเมนู \'ภาพยนตร์และทีวี\'</string>
     <string name="morphe_hide_music_menu_title">ซ่อนเมนูเพลง</string>
     <string name="morphe_hide_news_menu_title">ซ่อนเมนูข่าว</string>
-    <string name="morphe_hide_playables_menu_title">ซ่อนเมนู Playables</string>
+    <string name="morphe_hide_playables_menu_title">ซ่อนเมนู \'เล่นเกม\'</string>
     <string name="morphe_hide_player_flyout_audio_track_not_available">"เมนู 'แทร็กเสียง' ถูกซ่อน
 
 เพื่อแสดงเมนู 'แทร็กเสียง' ให้เปลี่ยน 'ปลอมแปลงสตรีมวิดีโอ' เป็นไคลเอ็นต์ใดก็ได้ ยกเว้น 'Android Studio' และ 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">ซ่อนเมนู \'ระหว่างเดินทาง\'</string>
     <string name="morphe_hide_podcasts_menu_title">ซ่อนเมนูพอดแคสต์</string>
+    <string name="morphe_hide_post_comment_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
+    <string name="morphe_hide_post_comments_preview_summary">ซ่อนตัวอย่างความคิดเห็นที่อยู่ใต้โพสต์</string>
+    <string name="morphe_hide_post_comments_preview_title">ซ่อนตัวอย่างความคิดเห็น</string>
+    <string name="morphe_hide_post_dislike_button_summary">เมื่อใช้เลย์เอาต์แบบบังคับใช้ พื้นที่ของปุ่มจะถูกเว้นว่างไว้</string>
+    <string name="morphe_hide_post_dislike_button_title">ซ่อนปุ่มไม่ชอบ</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">ซ่อนปุ่มชอบและไม่ชอบ</string>
+    <string name="morphe_hide_post_share_button_summary">ปุ่มดาวน์โหลดรูปภาพของโพสต์จะถูกวาดไว้ถัดจากปุ่มแชร์ ดังนั้นปุ่มนี้จะถูกซ่อนไปด้วย</string>
+    <string name="morphe_hide_post_share_button_title">ซ่อนปุ่มแชร์</string>
     <string name="morphe_hide_privacy_tos_footer_title">ซ่อนส่วนท้ายด้านกฎหมายและความเป็นส่วนตัว</string>
     <string name="morphe_hide_shopping_menu_title">ซ่อนเมนูร้านค้า</string>
     <string name="morphe_hide_sports_menu_title">ซ่อนเมนูกีฬา</string>
@@ -225,6 +233,16 @@
     <string name="morphe_livestream_dvr_title">เปิดใช้งาน DVR ไลฟ์สตรีม</string>
     <string name="morphe_music_package_name_summary">ชื่อแพ็กเกจของแอปเพลงที่ติดตั้งไว้ของคุณ</string>
     <string name="morphe_music_package_name_title">ชื่อแพ็กเกจแอปเพลง</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">ปรับระดับความโปร่งใสของแถบนำทางแบบกระจก (0 คือโปร่งใส, 100 คือทึบแสง)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">ความทึบแสงของกระจก</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">ระยะห่างระหว่างปุ่ม</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">ปุ่มที่แสดง: %1$s จาก %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">ความสูง</string>
+    <string name="morphe_navigation_bar_glass_size_summary">ปรับความสูง ความกว้าง และระยะห่างระหว่างปุ่มของแถบนำทางแบบกระจก พร้อมการแสดงตัวอย่าง ปุ่มที่ไม่พอดีกับความกว้างของหน้าจอจะถูกซ่อนไว้</string>
+    <string name="morphe_navigation_bar_glass_size_title">ขนาดแถบนำทางแบบกระจก</string>
+    <string name="morphe_navigation_bar_glass_size_width">ความกว้างสูงสุด</string>
+    <string name="morphe_navigation_bar_glass_summary">แสดงแถบนำทางเป็นแคปซูลแบบโปร่งแสง ขอบมน และลอยอยู่ ไม่สามารถใช้งานร่วมกับสไตล์แถบนำทางแบบทึบแสงได้</string>
+    <string name="morphe_navigation_bar_glass_title">เปิดใช้งานแถบนำทางแบบกระจก</string>
     <string name="morphe_navigation_bar_style_entry_2">โปร่งแสง</string>
     <string name="morphe_navigation_bar_style_title">สไตล์ของแถบนำทาง</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">สไตล์นี้อาจไม่รองรับโดยอุปกรณ์หรือ YouTube เวอร์ชันของคุณ และอาจทำให้เกิดปัญหาด้านเลย์เอาต์หรือแอปค้างได้</string>
@@ -254,6 +272,11 @@
     <string name="morphe_playback_in_feeds_title">การเล่นในฟีด</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ปรับความทึบแสงของพื้นหลังด้านหลังปุ่มควบคุมเครื่องเล่นและแถบเวลา (0 คือโปร่งใส, 100 คือทึบแสง)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">ความทึบแสงของพื้นหลังปุ่มควบคุม</string>
+    <string name="morphe_post_buttons_layout_entry_1">เซิร์ฟเวอร์</string>
+    <string name="morphe_post_buttons_layout_entry_2">บังคับใช้</string>
+    <string name="morphe_post_buttons_layout_title">เลย์เอาต์ปุ่มโพสต์</string>
+    <string name="morphe_post_buttons_screen_summary">เลือกเลย์เอาต์ของปุ่มใต้โพสต์ชุมชนและเลือกปุ่มที่จะซ่อน</string>
+    <string name="morphe_post_buttons_screen_title">ปุ่มโพสต์</string>
     <string name="morphe_post_image_download_failed">ไม่สามารถดาวน์โหลดรูปภาพได้</string>
     <string name="morphe_post_image_download_flyout">ดาวน์โหลดรูปภาพ</string>
     <string name="morphe_post_image_download_flyout_single">ดาวน์โหลดรูปภาพ</string>
@@ -297,7 +320,7 @@
     <string name="morphe_search_comments_clear">ล้าง</string>
     <string name="morphe_search_comments_cleared">ล้างการค้นหาแล้ว เปลี่ยนลำดับการจัดเรียงหรือเปิดความคิดเห็นอีกครั้งเพื่อแสดงความคิดเห็นทั้งหมด</string>
     <string name="morphe_search_comments_hint">คำที่ต้องการค้นหา</string>
-    <string name="morphe_search_comments_summary">แตะปุ่มค้นหาในความคิดเห็นเพื่อแสดงเฉพาะความคิดเห็นที่โหลดแล้วซึ่งมีคำที่ค้นหาครบทุกคำ ใส่คำในเครื่องหมายคำพูดเพื่อค้นหาเป็นวลี</string>
+    <string name="morphe_search_comments_summary">แตะปุ่มค้นหาในความคิดเห็นเพื่อแสดงเฉพาะความคิดเห็นที่โหลดไว้ซึ่งมีคำที่ค้นหาครบทุกคำ ใส่คำในเครื่องหมายอัญประกาศเพื่อค้นหาวลี</string>
     <string name="morphe_search_comments_title">ค้นหาความคิดเห็น</string>
     <string name="morphe_secondary_caption_language_summary">แสดงภาษาที่สองพร้อมกับคำบรรยาย และเพิ่มปุ่มสลับคำบรรยายสองภาษาในเมนูคำบรรยาย</string>
     <string name="morphe_secondary_caption_language_title">ภาษาคำบรรยายรอง</string>
@@ -441,6 +464,10 @@
     <string name="morphe_vot_voice_gender_female_multilingual">หญิงหลายภาษา</string>
     <string name="morphe_vot_voice_gender_male">ชาย</string>
     <string name="morphe_vot_voice_gender_male_multilingual">ชายหลายภาษา</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_summary">จะไม่มีการแสดงการยืนยันหลังจากนำวิดีโอออกจากดูภายหลัง</string>
+    <string name="morphe_watch_later_hide_removal_snackbar_title">ซ่อนแถบแจ้งเตือนชั่วคราวการนำวิดีโอออกจากดูภายหลัง</string>
+    <string name="morphe_watch_later_wide_drag_handles_summary">ที่จับสำหรับลากวิดีโอใน \"ดูภายหลัง\" สามารถจับได้ง่ายขึ้น</string>
+    <string name="morphe_watch_later_wide_drag_handles_title">ขยายที่จับสำหรับลาก \'ดูภายหลัง\' ให้กว้างขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพขั้นสูง</string>
@@ -523,7 +550,7 @@
     <string name="revanced_change_start_page_entry_subscriptions">การติดตาม</string>
     <string name="revanced_change_start_page_entry_trending">กำลังมาแรง</string>
     <string name="revanced_change_start_page_entry_virtual_reality">VR</string>
-    <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
+    <string name="revanced_change_start_page_entry_watch_later">ดูภายหลัง</string>
     <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
     <string name="revanced_change_start_page_title">หน้าเริ่มต้น</string>
     <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรอง คั่นด้วยบรรทัดใหม่</string>
@@ -553,7 +580,7 @@
     <string name="revanced_debug_title">เปิดการบันทึกการแก้ไขข้อบกพร่อง</string>
     <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
     <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-    <string name="revanced_debug_toast_on_error_title">แสดง toast เมื่อเกิดข้อผิดพลาดของ RVX</string>
+    <string name="revanced_debug_toast_on_error_title">แสดงข้อความแจ้งเตือนชั่วคราวเมื่อเกิดข้อผิดพลาดของ RVX</string>
     <string name="revanced_disable_ambient_mode_summary_off">โหมดพักผ่อนเปิดใช้งาน</string>
     <string name="revanced_disable_ambient_mode_summary_on">โหมดพักผ่อนปิดใช้งาน</string>
     <string name="revanced_disable_ambient_mode_title">ปิดใช้งานโหมดแอมเบียนท์</string>
@@ -648,7 +675,7 @@
     <string name="revanced_hide_ask_section_title">ซ่อนส่วน \'ถาม\'</string>
     <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>
     <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
-    <string name="revanced_hide_attributes_section_title">ซ่อนส่วน Attributes</string>
+    <string name="revanced_hide_attributes_section_title">ซ่อนส่วนคุณสมบัติ</string>
     <string name="revanced_hide_autoplay_preview_summary_off">การแสดงตัวอย่างเล่นอัตโนมัติแสดงอยู่</string>
     <string name="revanced_hide_autoplay_preview_summary_on">การแสดงตัวอย่างเล่นอัตโนมัติถูกซ่อน</string>
     <string name="revanced_hide_autoplay_preview_title">ซ่อนตัวอย่างเล่นอัตโนมัติ</string>
@@ -831,7 +858,7 @@
     <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายกำกับ \'มีโปรโมชั่นแบบเสียเงิน\'</string>
     <string name="revanced_hide_playables_summary_off">Playables แสดงอยู่</string>
     <string name="revanced_hide_playables_summary_on">Playables ถูกซ่อนไว้</string>
-    <string name="revanced_hide_playables_title">ซ่อน Playables</string>
+    <string name="revanced_hide_playables_title">ซ่อน \'เล่นเกม\'</string>
     <string name="revanced_hide_player_control_buttons_background_summary_off">แสดงพื้นหลังส่วนควบคุมเครื่องเล่น</string>
     <string name="revanced_hide_player_control_buttons_background_summary_on">ซ่อนพื้นหลังส่วนควบคุมเครื่องเล่น</string>
     <string name="revanced_hide_player_control_buttons_background_title">ซ่อนพื้นหลังส่วนควบคุมเครื่องเล่น</string>
@@ -1169,7 +1196,7 @@ ID ของวิดีโอที่คุณรับชมจะถูก�
     <string name="revanced_sb_segments_hook_sum">ตัวอย่างที่บรรยายสำหรับวิดีโอที่จะมาถึง, คำทักทายและคำอำลา ไม่รวมส่วนที่เพิ่มเนื้อหาเพิ่มเติม</string>
     <string name="revanced_sb_segments_interaction">แจ้งเตือนการกด (ติดตาม)</string>
     <string name="revanced_sb_segments_interaction_sum">การเตือนสั้นๆ เพื่อให้ชอบ สมัครรับข้อมูล หรือติดตามพวกเขาในช่วงกลางของเนื้อหา หากยาวหรือเกี่ยวกับบางสิ่งบางอย่างโดยเฉพาะ ควรอยู่ภายใต้การโปรโมตตัวเองแทน</string>
-    <string name="revanced_sb_segments_intro">แอนิเมชั่นช่วงพัก/ช่วงต้น</string>
+    <string name="revanced_sb_segments_intro">แอนิเมชันช่วงพัก / ช่วงต้น</string>
     <string name="revanced_sb_segments_intro_sum">ช่วงเวลาที่ไม่มีเนื้อหาจริง อาจเป็นการหยุดชั่วคราว เฟรมนิ่ง หรือภาพเคลื่อนไหวซ้ำๆ ไม่รวมการเปลี่ยนแปลงที่มีข้อมูล</string>
     <string name="revanced_sb_segments_nomusic">เพลง: ไม่พบเพลง</string>
     <string name="revanced_sb_segments_nomusic_sum">สำหรับใช้ในมิวสิควิดีโอเท่านั้น ส่วนของมิวสิควิดีโอที่ไม่มีเพลง ซึ่งไม่ได้รับการครอบคลุมโดยหมวดหมู่อื่นๆ อยู่แล้ว</string>
@@ -1361,6 +1388,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">อย่าบันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">บันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">บันทึกและคืนค่าความสว่าง</string>
+    <string name="revanced_swipe_seek_title">ปัดเพื่อเลื่อนหา</string>
     <string name="revanced_swipe_speed_title">เปิดใช้งานท่าทางความเร็ว</string>
     <string name="revanced_swipe_text_overlay_size_summary">ปรับขนาดตัวอักษรบนหน้าจอ (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของภาพซ้อนทับการปัด</string>
