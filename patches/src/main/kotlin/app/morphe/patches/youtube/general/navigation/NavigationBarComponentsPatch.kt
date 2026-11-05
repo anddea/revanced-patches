@@ -18,12 +18,6 @@
 
 package app.morphe.patches.youtube.general.navigation
 
-import app.morphe.patcher.util.getFreeRegisterProvider
-import app.morphe.patcher.util.getReference
-import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-import app.morphe.patches.youtube.utils.playservice.is_21_35_or_greater
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -31,13 +25,15 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchContext
-import app.morphe.patches.shared.misc.bridge.addBridge
-import app.morphe.util.findFreeRegister
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.mapping.ResourceType.COLOR
 import app.morphe.patches.shared.mapping.getResourceId
+import app.morphe.patches.shared.misc.bridge.addBridge
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayWithRegistryMethodRef
@@ -60,6 +56,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_46_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_35_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
 import app.morphe.patches.youtube.utils.resourceid.newContentDot
@@ -69,26 +66,28 @@ import app.morphe.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.ResourceGroup
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
-import app.morphe.util.Utils.printWarn
+import app.morphe.util.findFreeRegister
 import app.morphe.util.forEachInlinedFeatureFlagSite
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 /**
  * Replaces an extension placeholder method, that takes the bytes of a navigation bar item proto,
@@ -187,6 +186,11 @@ private const val EXTENSION_SUBSCRIPTIONS_CLASS =
 private const val EXTENSION_PIVOT_BAR_ITEM_INTERFACE =
     $$"Lapp/morphe/extension/youtube/patches/ClassicSubscriptionsLayoutPatch$PivotBarItemInterface;"
 
+private const val GLASS_PIVOT_BAR_CLASS =
+    "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+private const val GLASS_PIVOT_BAR_ACCESS_INTERFACE =
+    $$"Lapp/morphe/extension/youtube/patches/general/NavigationButtonsPatch$PivotBarAccess;"
+
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
 private const val THEME_EXTENSION_CLASS_DESCRIPTOR =
@@ -216,6 +220,14 @@ val navigationBarComponentsPatch = bytecodePatch(
             "SETTINGS: HIDE_NAVIGATION_COMPONENTS",
             "SETTINGS: REORDER_NAVIGATION_BAR"
         )
+
+        // Show the snackbars right above the navigation bar and the miniplayer.
+        BottomUiContainerOnLayoutFingerprint.let {
+            it.method.addInstruction(
+                it.instructionMatches.first().index + 1,
+                "invoke-static { p0 }, $GENERAL_PATH/SnackBarPatch;->removeExtraBottomRoom(Landroid/widget/FrameLayout;)V"
+            )
+        }
 
         // region patch for translucent navigation and status bars
 
@@ -269,6 +281,110 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 }
             }
+
+            val navigationBarBottomPaddingMatches = NavigationBarBottomPaddingFingerprint.matchAll()
+
+            // The room for the system navigation buttons is stored in a field of the bar, which the
+            // method called right after adds to its height. The extension moves that room below
+            // the slim status bar while it is shown, so the bar is given a method that sets it.
+            navigationBarBottomPaddingMatches.first().instructionMatches.let { matches ->
+                val roomField = matches[0].fieldReference
+                val updateHeightMethod = matches[1].getMethodCalled()
+
+                mutableClassDefBy(GLASS_PIVOT_BAR_CLASS).apply {
+                    interfaces.add(GLASS_PIVOT_BAR_ACCESS_INTERFACE)
+                    addBridge(
+                        "patch_setSystemButtonsRoom", listOf("I"), "V", 2,
+                        """
+                            iput p1, p0, $roomField
+                            invoke-virtual { p0 }, $updateHeightMethod
+                            return-void
+                        """
+                    )
+
+                    // The glass style keeps some room below the buttons, so the capsule floats above
+                    // the bottom of the screen. The padding of the bar is reset from several places,
+                    // so the room is kept wherever the padding is set.
+                    // The room is added to the height when the bar is measured, also while the app
+                    // animates the height of the bar to hide it.
+                    addBridge(
+                        "onMeasure", listOf("I", "I"), "V", 3,
+                        """
+                            invoke-static { p0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->getNavigationBarHeightMeasureSpec(Landroid/view/View;I)I
+                            move-result p2
+                            invoke-super { p0, p1, p2 }, $superclass->onMeasure(II)V
+                            return-void
+                        """,
+                        AccessFlags.PROTECTED.value
+                    )
+
+                    // The app moves the bar out of the screen by the height it gives the bar, while the
+                    // player is dragged and when the bar is hidden on scroll, so the room added to the
+                    // height would stay on screen. The bar is moved down by that room as well.
+                    addBridge(
+                        "setTranslationY", listOf("F"), "V", 2,
+                        """
+                            invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->getNavigationBarTranslationY(Landroid/view/View;F)F
+                            move-result p1
+                            invoke-super { p0, p1 }, $superclass->setTranslationY(F)V
+                            return-void
+                        """,
+                        AccessFlags.PUBLIC.value
+                    )
+
+                    listOf("setPadding", "setPaddingRelative").forEach { name ->
+                        addBridge(
+                            name, listOf("I", "I", "I", "I"), "V", 5,
+                            """
+                                invoke-static { p0, p4 }, $EXTENSION_CLASS_DESCRIPTOR->getNavigationBarPadding(Landroid/view/View;I)I
+                                move-result p4
+                                invoke-super { p0, p1, p2, p3, p4 }, $superclass->$name(IIII)V
+                                return-void
+                            """,
+                            AccessFlags.PUBLIC.value
+                        )
+                    }
+                }
+            }
+
+            // The glass style draws the blurred background of the app inside the capsule. The tint
+            // the app draws over the blur makes the capsule dark, so its alpha is lowered.
+            NavigationBarBlurTintFingerprint.match(
+                NavigationBarBlurTintCallFingerprint.instructionMatches[2].getMethodCalled()
+            ).let {
+                it.method.apply {
+                    val index = it.instructionMatches.last().index
+                    val paintRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+
+                    addInstruction(
+                        index + 1,
+                        "invoke-static { v$paintRegister }, $EXTENSION_CLASS_DESCRIPTOR->setNavigationBarBlurTint(Landroid/graphics/Paint;)V"
+                    )
+                }
+            }
+
+            // With the keyboard open, the bottom inset also holds the keyboard, so the bar covering
+            // the system navigation buttons grows as tall as the keyboard and covers the page.
+            // The padding is first stored in a field of the bar, and the same register is then passed
+            // to setPadding. Some targets set it in two places.
+            navigationBarBottomPaddingMatches.forEach { match ->
+                match.method.apply {
+                    val fieldIndex = match.instructionMatches.first().index
+                    val fieldInstruction = getInstruction<TwoRegisterInstruction>(fieldIndex)
+                    val paddingRegister = fieldInstruction.registerA
+                    val navigationBarRegister = fieldInstruction.registerB
+
+                    addInstructionsAtControlFlowLabel(
+                        fieldIndex,
+                        """
+                            invoke-static { v$navigationBarRegister, v$paddingRegister }, $EXTENSION_CLASS_DESCRIPTOR->getNavigationBarBottomPadding(Landroid/view/View;I)I
+                            move-result v$paddingRegister
+                        """
+                    )
+                }
+            }
+
+            addBottomBarContainerHook("$EXTENSION_CLASS_DESCRIPTOR->watchSlimStatusBar(Landroid/view/View;)V")
 
             if (is_20_21_or_greater) {
                 // With the translucent navigation bar, the navigation bar makes room for the system
@@ -352,6 +468,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             addBottomBarContainerHook("$EXTENSION_CLASS_DESCRIPTOR->setNavigationBarOpaque(Landroid/view/View;)V")
+            addBottomBarContainerHook("$EXTENSION_CLASS_DESCRIPTOR->setNavigationBarGlass(Landroid/view/View;)V")
 
             // Keep the original translucent resources for player controls and apply the selected
             // status-bar translucency mode only to the status-bar color result.
@@ -398,6 +515,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: STATUS_BAR_TRANSLUCENCY"
             settingArray += "SETTINGS: NAVIGATION_BAR_STYLE"
+            settingArray += "SETTINGS: NAVIGATION_BAR_GLASS"
         }
 
         // endregion

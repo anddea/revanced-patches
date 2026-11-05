@@ -24,6 +24,7 @@ import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.View;
@@ -348,6 +349,192 @@ public final class NavigationButtonsPatch {
             OpaqueSystemBars.apply(bottomBarContainer);
         } catch (Exception ex) {
             Logger.printException(() -> "setNavigationBarOpaque failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * When the navigation bar covers the system navigation buttons, the bottom window inset is
+     * added to its height and bottom padding. With the keyboard open, that inset also holds
+     * the keyboard, so the bar grows as tall as the keyboard and covers the page
+     * (<a href="https://github.com/MorpheApp/morphe-patches/issues/3909">...</a>). The page above then ends
+     * the height of the system bars below the top of the keyboard, so only that much room is left.
+     * Only with the feature flags turned on by {@link #useTranslucentNavigationBar(boolean)}.
+     */
+    public static int getNavigationBarBottomPadding(View navigationBar, int original) {
+        int padding = original;
+        try {
+            if (navigationBarCoversSystemButtons && original != 0
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                WindowInsets insets = navigationBar.getRootWindowInsets();
+                if (insets != null && insets.isVisible(WindowInsets.Type.ime())) {
+                    padding = Math.min(original, insets.getInsets(WindowInsets.Type.systemBars()).bottom);
+                }
+            }
+
+            padding = setSlimStatusBarRoom(navigationBar, padding);
+            padding = GlassNavigationBar.getFloatingRoom(navigationBar, padding);
+            // The value is also stored as the room the bar adds to its height.
+            GlassNavigationBar.setAppRoom(padding);
+        } catch (Exception ex) {
+            Logger.printException(() -> "getNavigationBarBottomPadding failure", ex);
+        }
+        return padding;
+    }
+
+    /**
+     * The bar shown below the navigation bar when the connection is lost or comes back
+     * ("No connection", "Back online").
+     */
+    private static final int SLIM_STATUS_BAR = ResourceUtils.getIdentifier(
+            ResourceType.ID, "slim_status_bar");
+
+    static final int PIVOT_BAR = ResourceUtils.getIdentifier(
+            ResourceType.ID, "pivot_bar");
+
+    /**
+     * The navigation bar, with a method added during patching.
+     */
+    public interface PivotBarAccess {
+        /**
+         * Sets the room the navigation bar leaves below itself for the system navigation buttons,
+         * which is added to its height.
+         */
+        void patch_setSystemButtonsRoom(int room);
+    }
+
+    /**
+     * If the slim status bar is shown below the navigation bar.
+     */
+    private static volatile boolean slimStatusBarShown;
+
+    /**
+     * The room for the system navigation buttons the app last gave the navigation bar.
+     */
+    private static volatile int systemButtonsRoom;
+
+    /**
+     * When the navigation bar covers the system navigation buttons, the slim status bar is laid out
+     * below it, behind the buttons, which cover it. While the slim status bar is shown, the room for
+     * the buttons is left below the slim status bar instead of below the navigation bar.
+     * Only with the feature flags turned on by {@link #useTranslucentNavigationBar(boolean)}.
+     *
+     * @return The room the navigation bar leaves for the system navigation buttons.
+     */
+    private static int setSlimStatusBarRoom(View navigationBar, int room) {
+        if (!navigationBarCoversSystemButtons || !(navigationBar instanceof PivotBarAccess)) {
+            return room;
+        }
+
+        systemButtonsRoom = room;
+        View slimStatusBar = navigationBar.getParent() instanceof ViewGroup container
+                ? container.findViewById(SLIM_STATUS_BAR)
+                : null;
+        final boolean moveRoom = slimStatusBarShown && slimStatusBar != null && room > 0;
+        if (slimStatusBar != null) {
+            // The top padding is the padding of the slim status bar itself.
+            final int bottomPadding = slimStatusBar.getPaddingTop() + (moveRoom ? room : 0);
+            if (slimStatusBar.getPaddingBottom() != bottomPadding) {
+                slimStatusBar.setPadding(slimStatusBar.getPaddingLeft(), slimStatusBar.getPaddingTop(),
+                        slimStatusBar.getPaddingRight(), bottomPadding);
+            }
+        }
+        return moveRoom ? 0 : room;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The window insets are not sent again when the slim status bar is shown or hidden,
+     * so the room for the system navigation buttons is moved whenever that happens.
+     *
+     * @param bottomBarContainer The container of the navigation bar and the slim status bar.
+     */
+    public static void watchSlimStatusBar(View bottomBarContainer) {
+        if (SLIM_STATUS_BAR == 0 || PIVOT_BAR == 0) return;
+
+        try {
+            bottomBarContainer.addOnLayoutChangeListener((view, left, top, right, bottom,
+                                                          oldLeft, oldTop, oldRight, oldBottom) -> {
+                try {
+                    View slimStatusBar = view.findViewById(SLIM_STATUS_BAR);
+                    final boolean shown = slimStatusBar != null && slimStatusBar.getVisibility() == View.VISIBLE;
+                    if (shown == slimStatusBarShown) return;
+                    slimStatusBarShown = shown;
+
+                    if (navigationBarCoversSystemButtons
+                            && view.findViewById(PIVOT_BAR) instanceof PivotBarAccess access) {
+                        View navigationBar = (View) access;
+                        final int room = systemButtonsRoom;
+                        view.post(() -> {
+                            final int navigationBarRoom = GlassNavigationBar.getFloatingRoom(
+                                    navigationBar, setSlimStatusBarRoom(navigationBar, room));
+                            access.patch_setSystemButtonsRoom(navigationBarRoom);
+                            GlassNavigationBar.setAppRoom(navigationBarRoom);
+                            navigationBar.setPadding(navigationBar.getPaddingLeft(), navigationBar.getPaddingTop(),
+                                    navigationBar.getPaddingRight(), navigationBarRoom);
+                        });
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "watchSlimStatusBar layout failure", ex);
+                }
+            });
+        } catch (Exception ex) {
+            Logger.printException(() -> "watchSlimStatusBar failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called whenever the navigation bar is measured.
+     */
+    public static int getNavigationBarHeightMeasureSpec(View navigationBar, int heightMeasureSpec) {
+        return GlassNavigationBar.getHeightMeasureSpec(navigationBar, heightMeasureSpec);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called whenever the vertical translation of the navigation bar is set.
+     */
+    public static float getNavigationBarTranslationY(View navigationBar, float translationY) {
+        return GlassNavigationBar.getTranslationY(navigationBar, translationY);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called whenever the padding of the navigation bar is set.
+     *
+     * @param bottom The bottom padding, the room below the buttons.
+     */
+    public static int getNavigationBarPadding(View navigationBar, int bottom) {
+        return GlassNavigationBar.getFloatingRoom(navigationBar, bottom);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called when the app makes the tint paint drawn over the blurred background of the navigation bar.
+     */
+    public static void setNavigationBarBlurTint(Paint tint) {
+        GlassNavigationBar.lightenBlurTint(tint);
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param bottomBarContainer The container of the navigation bar.
+     */
+    public static void setNavigationBarGlass(View bottomBarContainer) {
+        if (!GlassNavigationBar.isEnabled()) return;
+
+        try {
+            GlassNavigationBar.apply(bottomBarContainer);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setNavigationBarGlass failure", ex);
         }
     }
 
@@ -1288,6 +1475,8 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static void navigationTabCreated(NavigationButton button, View tabView) {
+        GlassNavigationBar.navigationTabCreated(button, tabView);
+
         if (SHOW_SETTINGS_BUTTON && button == NavigationButton.SETTINGS) {
             Utils.runOnMainThread(() -> tabView.setOnClickListener(v -> {
                 if (SHOW_SETTINGS_BUTTON_TYPE) {
