@@ -7,12 +7,17 @@
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-08.
  */
 
 package app.morphe.patches.youtube.general.components
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.checkCast
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -22,32 +27,31 @@ import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.compactLink
 import app.morphe.patches.youtube.utils.resourceid.compactListItem
 import app.morphe.patches.youtube.utils.resourceid.editSettingsAction
-import app.morphe.patches.youtube.utils.resourceid.fab
 import app.morphe.patches.youtube.utils.resourceid.toolTipContentView
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.util.containsLiteralInstruction
+import app.morphe.patcher.string
+import app.morphe.patcher.StringComparisonType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val accountListFingerprint = legacyFingerprint(
-    name = "accountListFingerprint",
+internal object accountListFingerprint : Fingerprint(
+    classFingerprint = accountListParentFingerprint,
     returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
-    literals = listOf(ytCallToAction),
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL, AccessFlags.SYNTHETIC),
+    custom = { method, _ -> method.containsLiteralInstruction(ytCallToAction) },
 )
 
-internal val accountListParentFingerprint = legacyFingerprint(
-    name = "accountListParentFingerprint",
-    literals = listOf(compactListItem),
+internal object accountListParentFingerprint : Fingerprint(
+    custom = { method, _ -> method.containsLiteralInstruction(compactListItem) },
 )
 
-internal val accountMenuFingerprint = legacyFingerprint(
-    name = "accountMenuFingerprint",
+internal object accountMenuFingerprint : Fingerprint(
+    classFingerprint = accountMenuParentFingerprint,
     returnType = "V",
-    opcodes = listOf(
+    filters = opcodesToFilters(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC,
@@ -56,62 +60,45 @@ internal val accountMenuFingerprint = legacyFingerprint(
     )
 )
 
-internal val accountMenuParentFingerprint = legacyFingerprint(
-    name = "accountMenuParentFingerprint",
-    opcodes = listOf(
+internal object accountMenuParentFingerprint : Fingerprint(
+    filters = opcodesToFilters(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literals = listOf(compactLink),
+    custom = { method, _ -> method.containsLiteralInstruction(compactLink) },
 )
 
-internal val accountSwitcherAccessibilityLabelFingerprint = legacyFingerprint(
-    name = "accountSwitcherAccessibilityLabelFingerprint",
+internal object accountSwitcherAccessibilityLabelFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/Object;"),
-    literals = listOf(accountSwitcherAccessibility),
+    custom = { method, _ -> method.containsLiteralInstruction(accountSwitcherAccessibility) },
 )
 
-internal val appBlockingCheckResultToStringFingerprint = legacyFingerprint(
-    name = "appBlockingCheckResultToStringFingerprint",
+internal object appBlockingCheckResultToStringFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
-    strings = listOf("AppBlockingCheckResult{intent=")
+    strings = listOf(string("AppBlockingCheckResult{intent=", StringComparisonType.CONTAINS))
 )
 
-internal val floatingMicrophoneFingerprint = legacyFingerprint(
-    name = "floatingMicrophoneFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-    ),
-    literals = listOf(fab),
-)
 
-internal val pipNotificationFingerprint = legacyFingerprint(
-    name = "pipNotificationFingerprint",
+internal object pipNotificationFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(editSettingsAction),
+    custom = { method, _ -> method.containsLiteralInstruction(editSettingsAction) },
 )
 
-internal val tooltipContentFullscreenFingerprint = legacyFingerprint(
-    name = "tooltipContentFullscreenFingerprint",
+internal object tooltipContentFullscreenFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(45384061L),
+    custom = { method, _ -> method.containsLiteralInstruction(45384061L) },
 )
 
-internal val tooltipContentViewFingerprint = legacyFingerprint(
-    name = "tooltipContentViewFingerprint",
+internal object tooltipContentViewFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(toolTipContentView),
+    custom = { method, _ -> method.containsLiteralInstruction(toolTipContentView) },
 )
 
 internal object SyncButtonFingerprint : Fingerprint(
@@ -127,14 +114,66 @@ internal object SyncButtonFingerprint : Fingerprint(
     )
 )
 
-internal object CommentReplyPaddingFeatureFlagFingerprint : Fingerprint(
+/**
+ * Makes the engagement panels extend behind the navigation bar, which hides the bottom
+ * of the panels that do not add the bottom padding themselves, such as the live chat.
+ */
+internal object EngagementPanelEdgeToEdgeFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
-        literal(45752241)
+        literal(45744676)
     )
 )
 
-internal object IncognitoSearchPaddingFeatureFlagFingerprint : Fingerprint(
+/**
+ * 21.11+
+ *
+ * Resolves using the method found in [ShowFloatingMicrophoneButtonParentFingerprint]
+ */
+internal object ShowFloatingMicrophoneButtonFingerprint : Fingerprint(
+    classFingerprint = ShowFloatingMicrophoneButtonParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;", "Lcom/google/android/libraries/quantum/fab/FloatingActionButton;", "Landroid/view/ViewStub;"),
+    filters = opcodesToFilters(Opcode.IGET_BOOLEAN)
+)
+
+/**
+ * 21.25+
+ *
+ * Same as [ShowFloatingMicrophoneButtonFingerprint], but the button is inflated later from a ViewStub.
+ * Used instead of [ShowFloatingMicrophoneButtonFingerprint] with some server layout experiments.
+ */
+internal object ShowFloatingMicrophoneButtonStubFingerprint : Fingerprint(
+    classFingerprint = ShowFloatingMicrophoneButtonParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;", "Landroid/view/ViewStub;", "Landroid/view/ViewStub;"),
+    filters = opcodesToFilters(Opcode.IGET_BOOLEAN)
+)
+
+/**
+ * 21.11+
+ */
+internal object ShowFloatingMicrophoneButtonParentFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Z"),
+    strings = listOf("Current FAB View Wrapper does not support this operation. Text: "),
+    custom = { _, classDef ->
+        !classDef.interfaces.contains($$"Landroid/view/View$OnClickListener;")
+    }
+)
+
+/**
+ * ~ 21.10
+ */
+internal object ShowFloatingMicrophoneButtonLegacyFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(),
     filters = listOf(
-        literal(45724388)
+        resourceLiteral(ResourceType.ID, "fab"),
+        checkCast("/FloatingActionButton;", location = MatchAfterWithin(10)),
+        opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(15))
     )
 )

@@ -1164,7 +1164,7 @@ public class SliderPreference extends ResettableEditTextPreference {
                 }
                 AbstractPreferenceFragment.setSliderInteractionInProgress(false);
                 if (changed[0] && setting.rebootApp) {
-                    AbstractPreferenceFragment.showRestartDialog(getContext());
+                    AbstractPreferenceFragment.setRestartNeeded();
                 }
                 notifyChanged();
                 interactionStarted[0] = false;
@@ -1178,7 +1178,7 @@ public class SliderPreference extends ResettableEditTextPreference {
                 interactionFinished[0] = true;
                 AbstractPreferenceFragment.setSliderInteractionInProgress(false);
                 if (changed[0] && setting.rebootApp) {
-                    AbstractPreferenceFragment.showRestartDialog(getContext());
+                    AbstractPreferenceFragment.setRestartNeeded();
                 }
                 notifyChanged();
                 interactionStarted[0] = false;

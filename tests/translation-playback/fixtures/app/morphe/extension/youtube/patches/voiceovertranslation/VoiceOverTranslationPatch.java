@@ -1,6 +1,8 @@
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 public class VoiceOverTranslationPatch {
+    public static boolean isTranslationRequested() { return YandexPauseMethods.isTranslationRequested(); }
+    public static void toggleTranslation() { YandexPauseMethods.toggleTranslation(); }
     public static String channel, author, title;
     public static long length;
     public static boolean live;

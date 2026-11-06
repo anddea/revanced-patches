@@ -2,6 +2,8 @@ package app.morphe.extension.shared.settings.preference;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Deque;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -84,6 +86,15 @@ public final class LogBufferManager {
     }
 
     public static String exportToString() {
+        Collection<String> lines = exportToLines();
+        return lines == null ? null : String.join("\n", lines);
+    }
+
+    /**
+     * Returns a snapshot for file exports without joining the buffer into one large string.
+     * The snapshot keeps logs generated during the file write out of the export.
+     */
+    public static Collection<String> exportToLines() {
         try {
             if (!BaseSettings.DEBUG.get()) {
                 Utils.showToastShort(str("revanced_debug_logs_disabled"));
@@ -96,7 +107,7 @@ public final class LogBufferManager {
                 return null;
             }
 
-            return String.join("\n", logBuffer);
+            return new ArrayList<>(logBuffer);
         } catch (Exception ex) {
             // Handle security exception if clipboard access is denied.
             String errorMessage = String.format(str("revanced_debug_logs_failed_to_export"), ex.getMessage());

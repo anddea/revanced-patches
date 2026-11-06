@@ -44,6 +44,9 @@ public class GooglePauseMethodsTest {
         GooglePauseMethods.nativeStartupAudio = null;
         GooglePauseMethods.tts = new GooglePauseMethods.FakeTts();
         GooglePauseMethods.ttsEngine = new GooglePauseMethods.FakeEngine();
+        VoiceCatalog.available = true;
+        EdgeTtsVoiceRepository.callback = null;
+        TtsPrefetcher.rescans = 0;
         TtsPrefetcher.time = -1;
         TtsPrefetcher.updates = TtsPrefetcher.clears = 0;
         TtsPrefetcher.video = "";
@@ -876,5 +879,67 @@ public class GooglePauseMethodsTest {
         VideoInformation.time = -7;
         GooglePauseMethods.onVoiceChanged();
         assertEquals(0, TtsPrefetcher.time);
+    }
+
+    @Test
+    public void googleCancelRestoresPlaybackButKeepsExplicitPauseForBothEngines() throws Exception {
+        for (String voice : new String[] {"edge", "system"}) {
+            for (boolean manualPause : new boolean[] {false, true}) {
+                before();
+                GooglePauseMethods.voice = voice;
+                Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+                if (manualPause) VideoInformation.setPlayerPlaying(false);
+                GooglePauseMethods.toggleTranslation();
+                assertFalse(held());
+                assertEquals(!manualPause, VideoInformation.playing);
+                assertFalse(GooglePauseMethods.sessionEnabled);
+                assertTrue(Settings.GOOGLE_VOT_AUTO_TRANSLATE.get());
+                GooglePauseMethods.nativeStartupFinished("prepare", true);
+                Utils.drain();
+                assertEquals(!manualPause, VideoInformation.playing);
+                assertEquals(1, GooglePauseMethods.stopped);
+            }
+        }
+    }
+
+    @Test public void sessionAndProviderChangesRequireMainThreadBeforeAnyChanges() throws Exception {
+        for (Runnable action : new Runnable[] {GooglePauseMethods::toggleTranslation,
+                GooglePauseMethods::onVoiceChanged, GooglePauseMethods::reloadTranscript}) {
+            before();
+            Utils.mainThread = false;
+            assertThrows(IllegalStateException.class, action::run);
+            assertTrue(GooglePauseMethods.sessionEnabled);
+            assertEquals(0, GooglePauseMethods.stopped);
+            assertEquals(1, GooglePauseMethods.transcriptGeneration);
+        }
+    }
+
+    @Test
+    public void missingEdgeVoicesRescanWhenCatalogArrives() {
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+        Settings.GOOGLE_VOT_USE_NATIVE_TTS.value = false;
+        VoiceCatalog.available = false;
+        GooglePauseMethods.tts = null;
+        GooglePauseMethods.newVideoLoaded("b");
+        assertNotNull(GooglePauseMethods.tts);
+        assertNotNull(EdgeTtsVoiceRepository.callback);
+        VoiceCatalog.available = true;
+        EdgeTtsVoiceRepository.callback.run();
+        assertEquals(1, TtsPrefetcher.rescans);
+        Utils.background.forEach(Runnable::run);
+        assertEquals(0, GooglePauseMethods.ttsEngine.warmups);
+    }
+
+    @Test
+    public void retiredVideoCatalogCallbackDoesNotRescan() {
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+        Settings.GOOGLE_VOT_USE_NATIVE_TTS.value = false;
+        VoiceCatalog.available = false;
+        GooglePauseMethods.newVideoLoaded("b");
+        Runnable oldCallback = EdgeTtsVoiceRepository.callback;
+        GooglePauseMethods.newVideoLoaded("c");
+        VoiceCatalog.available = true;
+        oldCallback.run();
+        assertEquals(0, TtsPrefetcher.rescans);
     }
 }

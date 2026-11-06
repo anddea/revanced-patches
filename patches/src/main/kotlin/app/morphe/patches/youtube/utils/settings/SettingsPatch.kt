@@ -9,7 +9,11 @@
  * - inotia00 (https://github.com/inotia00)
  * - KobeW50 (https://github.com/KobeW50)
  *
+ * experimental YouTube 21.39 support
+ * (inlined Cairo fragment flag).
+ *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-23.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -49,6 +53,8 @@ import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.BOLD_ICONS_FEATURE_FLAG
@@ -68,6 +74,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.attributes.themeAttributesPatch
 import app.morphe.patches.youtube.utils.fix.contentprovider.fixContentProviderPatch
+import app.morphe.patches.youtube.utils.fix.padding.fixPagePaddingPatch
 import app.morphe.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePlayingPatch
 import app.morphe.patches.youtube.utils.fix.preference.fixPreferenceIconPatch
 import app.morphe.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
@@ -90,8 +97,6 @@ import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
@@ -104,6 +109,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -140,7 +146,27 @@ private val settingsBytecodePatch = bytecodePatch(
         // region fix cairo fragment
 
         if (is_19_28_or_greater) {
+            // YouTube 21.x+ inlines the Cairo flag check (const-wide + flag getter call)
+            // into its callers instead of calling a dedicated boolean getter.
+            fun MutableMethod.overrideInlinedCairoFragmentConfig(): Boolean {
+                val literalIndices = implementation!!.instructions.withIndex()
+                    .filter { (_, instruction) ->
+                        (instruction as? WideLiteralInstruction)?.wideLiteral == CAIRO_FRAGMENT_FEATURE_FLAG
+                    }
+                    .map { it.index }
+                // Insert from the bottom up so earlier indices stay valid.
+                literalIndices.asReversed().forEach { index ->
+                    insertLiteralOverride(
+                        index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->disableCairoSettingsFragment(Z)Z"
+                    )
+                }
+                return literalIndices.isNotEmpty()
+            }
+
             fun MutableMethod.disableCairoFragmentConfig() {
+                if (overrideInlinedCairoFragmentConfig()) return
+
                 val cairoFragmentConfigMethodCall = cairoFragmentConfigFingerprint
                     .methodCall()
                 val insertIndex = indexOfFirstInstructionOrThrow {
@@ -268,7 +294,8 @@ private val settingsBytecodePatch = bytecodePatch(
                 null,
                 MutableMethodImplementation(3),
             ).toMutable().apply {
-                addInstructions(
+                this.addInstructions(
+                    0,
                     """
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
                         move-result-object p1
@@ -289,9 +316,11 @@ private val settingsBytecodePatch = bytecodePatch(
                 null,
                 MutableMethodImplementation(3),
             ).toMutable().apply {
-                addInstructions(
+                // Pass the activity, so offline screens can handle back presses.
+                this.addInstructions(
+                    0,
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress()Z
+                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress(Landroid/app/Activity;)Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-super { p0 }, Landroid/app/Activity;->finish()V
@@ -362,6 +391,7 @@ val settingsPatch = resourcePatch(
         */
         // contentProviderNullMapEntryReproPatch,
         fixContentProviderPatch,
+        fixPagePaddingPatch,
     )
 
     val rvxSettingsLabel = stringOption(
@@ -384,6 +414,30 @@ val settingsPatch = resourcePatch(
             .valueOrThrow()
 
         ResourceUtils.setContext(this)
+
+        /**
+         * YouTube 21.39 no longer ships the flat (non-Cairo) res/xml/settings_fragment.xml.
+         * Rebuild it from settings_fragment_cairo.xml by hoisting every preference out of
+         * its category, which is the layout the old settings menu used.
+         *
+         * Added by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support.
+         */
+        if (!get(ResourceUtils.YOUTUBE_SETTINGS_PATH).exists()) {
+            FilesCompat.copy(
+                get(ResourceUtils.YOUTUBE_CAIRO_SETTINGS_PATH),
+                get(ResourceUtils.YOUTUBE_SETTINGS_PATH)
+            )
+            document(ResourceUtils.YOUTUBE_SETTINGS_PATH).use { document ->
+                val root = document.documentElement
+                val categories = document.getElementsByTagName("PreferenceCategory")
+                List(categories.length) { categories.item(it) as Element }.forEach { category ->
+                    while (category.firstChild != null) {
+                        root.insertBefore(category.firstChild, category)
+                    }
+                    root.removeChild(category)
+                }
+            }
+        }
 
         /**
          * remove strings duplicated with RVX resources
@@ -427,9 +481,23 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
+                "morphe_settings_screen_02_dearrow.xml",
+                "morphe_settings_screen_02_dearrow_bold.xml",
                 "revanced_settings_arrow_time.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
+                // Icons of the built-in offline library and player.
+                "revanced_offline_back.xml",
+                "revanced_offline_check.xml",
+                "revanced_offline_close.xml",
+                "revanced_offline_next.xml",
+                "revanced_offline_pause.xml",
+                "revanced_offline_play.xml",
+                "revanced_offline_previous.xml",
+                "revanced_offline_rotate.xml",
+                "revanced_offline_search.xml",
+                "revanced_offline_sort.xml",
+                "revanced_offline_speed.xml",
                 "revanced_settings_icon.xml",
                 "revanced_settings_rounded_corners_background.xml",
                 "revanced_settings_search_icon.xml",
@@ -557,6 +625,8 @@ val settingsPatch = resourcePatch(
     }
 
     finalize {
+        ResourceUtils.writeUnsupportedSettings()
+
         /**
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.

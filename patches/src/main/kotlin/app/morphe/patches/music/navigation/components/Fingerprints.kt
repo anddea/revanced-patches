@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -51,12 +52,12 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.colorGrey
 import app.morphe.patches.music.utils.resourceid.text1
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -169,5 +170,29 @@ internal object ThemeMapConstructorFingerprint : Fingerprint(
             }
             hasOutlineSamples && hasOutlineUpgrade
         } == true
+    }
+)
+
+// 9.40: the outline drawable literals moved from the theme class constructor into a private helper
+// (Lixj;->c(Optional)V) that <init> calls. Match that helper; the patch then hooks the class constructor.
+internal object ThemeMapHelperFingerprint : Fingerprint(
+    returnType = "V",
+    custom = { method, _ ->
+        method.name != "<init>" && method.name != "<clinit>" &&
+                method.implementation?.instructions?.let { instructions ->
+                    var hasOutlineSamples = false
+                    var hasOutlineUpgrade = false
+                    for (instruction in instructions) {
+                        if (instruction.opcode == Opcode.CONST) {
+                            val literal = (instruction as? WideLiteralInstruction)?.wideLiteral
+                            if (literal == ytOutlineSamples) {
+                                hasOutlineSamples = true
+                            } else if (literal == ytOutlineYouTubeMusic) {
+                                hasOutlineUpgrade = true
+                            }
+                        }
+                    }
+                    hasOutlineSamples && hasOutlineUpgrade
+                } == true
     }
 )

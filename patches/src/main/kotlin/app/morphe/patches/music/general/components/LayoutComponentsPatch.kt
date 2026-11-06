@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -48,6 +49,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
@@ -73,11 +76,10 @@ import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -168,9 +170,17 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide history button
 
+        // 9.40: offline-tab menu has a different shape (history setVisible is the 3rd call), use fallback fingerprint
+        val offlineTabMatch = runCatching { HistoryMenuItemOfflineTabFingerprint.match() }.getOrNull()
+        val offlineTabFingerprint = if (offlineTabMatch != null) {
+            HistoryMenuItemOfflineTabFingerprint to 2
+        } else {
+            HistoryMenuItemOfflineTabV940Fingerprint to 4
+        }
+
         arrayOf(
             HistoryMenuItemFingerprint to 1,
-            HistoryMenuItemOfflineTabFingerprint to 2
+            offlineTabFingerprint
         ).forEach { (fingerprint, matchIndex) ->
             fingerprint.method.apply {
                 val insertIndex = fingerprint.instructionMatches[matchIndex].index
@@ -283,7 +293,12 @@ val layoutComponentsPatch = bytecodePatch(
             )
         }
 
-        tasteBuilderSyntheticFingerprint.matchOrThrow(tasteBuilderConstructorFingerprint).let {
+        // 9.40: synthetic bind method has different access flags, fall back to the 9.40 fingerprint
+        val tasteBuilderSyntheticMatch = runCatching {
+            tasteBuilderSyntheticFingerprint.matchOrNull(tasteBuilderConstructorFingerprint)
+        }.getOrNull() ?: tasteBuilderSyntheticV940Fingerprint.matchOrThrow(tasteBuilderConstructorFingerprint)
+
+        tasteBuilderSyntheticMatch.let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.first().index
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

@@ -75,8 +75,8 @@ class VolumeAndBrightnessScrollerImpl(
             dipToPixels(volumeDistance),
         ) { _, _, direction ->
             volumeController?.run {
-                volume += direction * volumeSwipeSensitivity
-                overlayController.onVolumeChanged(volume, maxVolume)
+                adjustVolumeBySteps(direction * volumeSwipeSensitivity)
+                overlayController.onVolumeChanged(volume, maxVolume, boostStep)
             }
         }
 

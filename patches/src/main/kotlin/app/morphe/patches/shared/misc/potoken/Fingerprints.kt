@@ -19,7 +19,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object ServiceBindIntentUtilsFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     filters = listOf(
         string("serviceActionBundleKey"),
         methodCall(
@@ -36,7 +35,6 @@ internal object ServiceBindIntentUtilsFingerprint : Fingerprint(
 )
 
 internal object LegacyServiceBindIntentUtilsFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     filters = listOf(
         string("serviceActionBundleKey"),
         methodCall(

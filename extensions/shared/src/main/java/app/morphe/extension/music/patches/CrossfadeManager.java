@@ -1,9 +1,11 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1065
+ * https://github.com/MorpheApp/morphe-patches/pull/3635
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
+
 package app.morphe.extension.music.patches;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -1309,8 +1311,6 @@ public class CrossfadeManager {
     }
 
     // --- REPEAT_SINGLE crossfade-onto-self state ---
-    /** Lnwu loop enum: LOOP_OFF=0, LOOP_ALL=1, LOOP_ONE=2, LOOP_DISABLED=3. */
-    private static final int LOOP_ONE_ORDINAL = 2;
     /** Live repeat-single state, tracked via the MediaSession loop adapter hook. */
     private static volatile boolean repeatSingleActive = false;
     /**
@@ -1326,13 +1326,20 @@ public class CrossfadeManager {
      */
     public static void onLoopStateChanged(Object loopState) {
         try {
-            boolean single = (loopState instanceof Enum)
-                    && ((Enum<?>) loopState).ordinal() == LOOP_ONE_ORDINAL;
+            // On 9.40+, this callback handles multiple event types. Update the cached
+            // repeat state only for recognized loop states, identified by enum name.
+            if (!(loopState instanceof Enum<?> state)) return;
+
+            final boolean single;
+            switch (state.name()) {
+                case "LOOP_ONE" -> single = true;
+                case "LOOP_OFF", "LOOP_ALL", "LOOP_DISABLED" -> single = false;
+                default -> { return; }
+            }
             if (single != repeatSingleActive) {
                 repeatSingleActive = single;
-                final int ord = (loopState instanceof Enum) ? ((Enum<?>) loopState).ordinal() : -1;
                 logInfo(() -> "onLoopStateChanged: repeatSingleActive=" + single
-                        + " (loop ordinal=" + ord + ")");
+                        + " (loop state=" + state.name() + ")");
             }
         } catch (Exception e) {
             logWarn(() -> "onLoopStateChanged error: " + e.getMessage());

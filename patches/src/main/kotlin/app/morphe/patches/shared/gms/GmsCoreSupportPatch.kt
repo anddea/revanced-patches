@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.shared.gms
 
 import app.morphe.patcher.Fingerprint
@@ -17,6 +27,8 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.shared.extension.Constants.PATCHES_PATH
 import app.morphe.patches.shared.gms.Constants.ACTIONS
 import app.morphe.patches.shared.gms.Constants.ACTIONS_LEGACY
@@ -27,14 +39,9 @@ import app.morphe.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.Utils.trimIndentMultiline
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.methodOrNull
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
-import app.morphe.util.returnEarly
 import app.morphe.util.updatePatchStatus
 import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -273,7 +280,7 @@ fun gmsCoreSupportPatch(
 
         fun transformPrimeMethod(packageName: String) {
             if (patchAllManifestEnabled) {
-                primeMethodFingerprint.methodOrNull()?.apply {
+                primeMethodFingerprint.methodOrNull?.apply {
                     var register = 2
 
                     val index = instructions.indexOfFirst {
@@ -290,7 +297,7 @@ fun gmsCoreSupportPatch(
                     primesBackgroundInitializationFingerprint,
                     primesLifecycleEventFingerprint
                 ).forEach { fingerprint ->
-                    fingerprint.methodOrThrow().apply {
+                    fingerprint.method.apply {
                         val exceptionIndex = indexOfFirstInstructionReversedOrThrow {
                             opcode == Opcode.NEW_INSTANCE &&
                                     (this as? ReferenceInstruction)?.reference?.toString() == "Ljava/lang/IllegalStateException;"
@@ -305,7 +312,7 @@ fun gmsCoreSupportPatch(
                     }
                 }
 
-                primesApiFingerprint.mutableClassOrThrow().methods.filter { method ->
+                primesApiFingerprint.classDef.methods.filter { method ->
                     method.name != "<clinit>" &&
                             method.returnType == "V"
                 }.forEach { method ->
@@ -361,19 +368,29 @@ fun gmsCoreSupportPatch(
         if (patchAllManifestEnabled) {
             earlyReturnFingerprints += listOf(sslGuardFingerprint)
 
-            // Prevent spam logs.
-            eCatcherFingerprint.methodOrThrow().apply {
+            // ECatcher only suppresses spam logs and may be absent in some app versions.
+            eCatcherFingerprint.methodOrNull?.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
                 addInstruction(index, "return-void")
             }
         }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.methodOrThrow().returnEarly() }
+        earlyReturnFingerprints.forEach {
+            it.method.apply {
+                // Patcher 2.0 requires an override matching the method's return type.
+                when (returnType) {
+                    "V" -> returnEarly()
+                    "Z" -> returnEarly(false)
+                    "I" -> returnEarly(0)
+                    else -> returnEarly(null)
+                }
+            }
+        }
 
         // Passes signature check of DroidGaurdResult (the.apk).
         droidGuardSignatureFingerprint
-            .methodOrThrow().returnEarly(true)
+            .method.returnEarly(true)
 
         // Specific method that needs to be patched.
         transformPrimeMethod(packageName)
@@ -399,7 +416,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.mutableClassOrThrow().methods
+        gmsCoreSupportFingerprint.classDef.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
@@ -413,6 +430,19 @@ fun gmsCoreSupportPatch(
         }
 
         updatePatchStatus("$PATCHES_PATH/PatchStatus;", "GmsCoreSupport")
+
+        // GNP expects the original Google package even when the installed app is renamed.
+        GnpRegistrationTargetFingerprint.matchOrNull()?.let { match ->
+            val result = match.instructionMatches[1]
+            match.method.replaceInstruction(
+                result.index,
+                BuilderInstruction21c(
+                    Opcode.CONST_STRING,
+                    (result.instruction as OneRegisterInstruction).registerA,
+                    ImmutableStringReference(fromPackageName),
+                ),
+            )
+        }
 
         executeBlock()
     }

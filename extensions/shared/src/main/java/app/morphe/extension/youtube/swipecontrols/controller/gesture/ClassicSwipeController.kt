@@ -29,6 +29,8 @@ class ClassicSwipeController(
      */
     private var lastOnDownEvent: MotionEvent? = null
 
+    private var lastOnDownWasConsumed = false
+
     private val handler = Handler(Looper.getMainLooper())
     private var delayedSwipeRunnable: Runnable? = null
     private var isSwipeConfirmed = false
@@ -41,15 +43,17 @@ class ClassicSwipeController(
         }
 
     override fun shouldDropMotion(motionEvent: MotionEvent): Boolean {
-        // ignore gestures with more than one pointer
-        // when such a gesture is detected, dispatch the first event of the gesture to downstream
+        // Leave gestures with more than one pointer to the player.
+        // Replay the initial DOWN only if swipe controls consumed it.
         if (motionEvent.pointerCount > 1) {
             // This is a multitouch gesture (like pinch-to-zoom), so cancel any pending swipe action.
             cancelDelayedSwipe()
             isSwipeConfirmed = false
 
             lastOnDownEvent?.let {
-                controller.dispatchDownstreamTouchEvent(it)
+                if (lastOnDownWasConsumed) {
+                    controller.dispatchDownstreamTouchEvent(it)
+                }
                 it.recycle()
             }
             lastOnDownEvent = null
@@ -69,7 +73,8 @@ class ClassicSwipeController(
         lastOnDownEvent = MotionEvent.obtain(motionEvent)
 
         // must be inside an active swipe zone
-        return isInSwipeZone(motionEvent)
+        lastOnDownWasConsumed = isInSwipeZone(motionEvent)
+        return lastOnDownWasConsumed
     }
 
     override fun onUp(motionEvent: MotionEvent) {

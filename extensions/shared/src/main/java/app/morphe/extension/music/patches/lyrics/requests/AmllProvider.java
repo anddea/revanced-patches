@@ -13,9 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
+import java.util.concurrent.atomic.AtomicLong;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.MetadataCleaner;
+import app.morphe.extension.music.patches.lyrics.requests.TtmlParser;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
@@ -23,19 +26,61 @@ public final class AmllProvider implements LyricsProvider {
 
     private static final String BASE_URL = "https://api.amll.dev/v1/lyrics";
 
+    private static final long REQUEST_THROTTLE_MS = 500;
+
+    private static final AtomicLong lastRequestTime = new AtomicLong(0);
+
+    @Nullable
+    private static String sourceUrl(JSONObject getData, JSONObject best) {
+        String file = firstPath(getData);
+        if (file == null) {
+            file = firstPath(best);
+        }
+        if (file == null || file.isEmpty()) {
+            return null;
+        }
+        return "https://amlldb.bikonoo.com/view-lyric.html?file=" + file;
+    }
+
+    @Nullable
+    private static String firstPath(JSONObject object) {
+        for (String key : new String[]{"path", "file", "filename", "filePath"}) {
+            final String value = LyricsRequests.optString(object, key);
+            if (value != null) {
+                return value;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String name() {
         return "AMLL";
     }
 
+    @Override
+    public boolean hasCandidates() {
+        return true;
+    }
+
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         if (track.title().isEmpty() || track.artist().isEmpty()) {
             return null;
         }
 
-        final JSONObject best = searchBest(track.title(), track.artist(), track.album());
+        String title = track.title().trim();
+        String cleanArtist = MetadataCleaner.cleanArtist(track.artist());
+        String artist = cleanArtist.isEmpty() ? track.artist().trim() : cleanArtist;
+
+        JSONObject best = searchBest(title, artist, track.album());
+        if (best == null && track.album() != null && !track.album().isEmpty()) {
+            best = searchBest(title, artist, null);
+        }
+        if (best == null && !artist.equalsIgnoreCase(track.artist().trim())) {
+            best = searchBest(title, track.artist().trim(), null);
+        }
         if (best == null) {
             return null;
         }
@@ -46,6 +91,7 @@ public final class AmllProvider implements LyricsProvider {
 
         HttpURLConnection getConnection = null;
         try {
+            LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
             getConnection = LyricsRequests.openConnection(
                     BASE_URL + "/get?id=" + lyricId + "&format=ttml");
             if (getConnection.getResponseCode() != Requester.HTTP_STATUS_CODE_SUCCESS) {
@@ -61,35 +107,16 @@ public final class AmllProvider implements LyricsProvider {
             if (ttml == null) {
                 return null;
             }
-            return TtmlParser.ttmlToLyrics(ttml, name(), sourceUrl(getData, best));
+            Lyrics lyrics = TtmlParser.ttmlToLyrics(ttml, name(), sourceUrl(getData, best));
+            return FetchResult.searched(lyrics,
+                    LyricsRequests.stringList(best, "musicNames"),
+                    LyricsRequests.stringList(best, "artistNames"),
+                    0L, track);
         } finally {
             if (getConnection != null) {
                 getConnection.disconnect();
             }
         }
-    }
-
-    @Nullable
-    private static String sourceUrl(JSONObject getData, JSONObject best) {
-        String file = firstPath(getData, "path", "file", "filename", "filePath");
-        if (file == null) {
-            file = firstPath(best, "path", "file", "filename", "filePath");
-        }
-        if (file == null || file.isEmpty()) {
-            return null;
-        }
-        return "https://amlldb.bikonoo.com/view-lyric.html?file=" + file;
-    }
-
-    @Nullable
-    private static String firstPath(JSONObject object, String... keys) {
-        for (String key : keys) {
-            final String value = LyricsRequests.optString(object, key);
-            if (value != null) {
-                return value;
-            }
-        }
-        return null;
     }
 
     @Nullable
@@ -107,6 +134,7 @@ public final class AmllProvider implements LyricsProvider {
                 searchUrl += "&albumName=" + LyricsRequests.encode(album);
             }
 
+            LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
             searchConnection = LyricsRequests.openConnection(searchUrl);
             if (searchConnection.getResponseCode() != Requester.HTTP_STATUS_CODE_SUCCESS) {
                 return null;

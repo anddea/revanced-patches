@@ -51,6 +51,7 @@ import app.morphe.patches.youtube.utils.patch.PatchList.GEMINI
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.updatePatchStatus
+import app.morphe.util.inputStreamFromBundledResourceOrThrow
 
 private val geminiBytecodePatch = bytecodePatch(
     description = "geminiBytecodePatch"
@@ -86,6 +87,16 @@ val geminiPatch = resourcePatch(
     )
 
     execute {
+        inputStreamFromBundledResourceOrThrow("youtube/gemini", "assets.list").bufferedReader().use { manifest ->
+            manifest.forEachLine { path ->
+                val target = get(path)
+                target.parentFile.mkdirs()
+                inputStreamFromBundledResourceOrThrow("youtube/gemini", path).use { source ->
+                    target.outputStream().use { source.copyTo(it) }
+                }
+            }
+        }
+
         addPreference(
             arrayOf("PREFERENCE_SCREEN: GEMINI"),
             GEMINI

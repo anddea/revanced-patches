@@ -241,8 +241,7 @@ fun ResourcePatchContext.removeOverlayBackground(
     targetId: Array<String>,
 ) {
     files.forEach { file ->
-        val resourceDirectory = get("res")
-        val targetXmlPath = resourceDirectory.resolve("layout").resolve(file)
+        val targetXmlPath = get("res/layout/$file")
 
         if (targetXmlPath.exists()) {
             targetId.forEach { identifier ->

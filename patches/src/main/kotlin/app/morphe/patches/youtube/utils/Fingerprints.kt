@@ -4,6 +4,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.player.components.playerComponentsPatch
 import app.morphe.patches.youtube.utils.resourceid.fadeDurationFast
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
@@ -23,7 +24,6 @@ import app.morphe.patches.youtube.utils.resourceid.youTubeControlsButtonGroupLay
 import app.morphe.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.containsStringInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

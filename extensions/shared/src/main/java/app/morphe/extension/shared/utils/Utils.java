@@ -1,5 +1,7 @@
 package app.morphe.extension.shared.utils;
 
+import app.morphe.extension.shared.settings.preference.NewIndicatorSpan;
+
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getCancelOrNeutralButtonBackgroundColor;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getOkButtonBackgroundColor;
@@ -614,7 +616,17 @@ public class Utils {
      *        when the size exceeds {@code maxSize}.
      */
     public static <T, V> Map<T, V> createSizeRestrictedMap(int maxSize) {
-        return new LinkedHashMap<>(2 * maxSize) {
+        return createSizeRestrictedMap(maxSize, false);
+    }
+
+    /**
+     * @param maxSize     The maximum number of elements to keep in the map.
+     * @param accessOrder The ordering mode - <tt>true</tt> for access-order, <tt>false</tt> for insertion-order.
+     * @return A {@link LinkedHashMap} that automatically evicts the eldest entry
+     *        when the size exceeds {@code maxSize}.
+     */
+    public static <T, V> Map<T, V> createSizeRestrictedMap(int maxSize, boolean accessOrder) {
+        return new LinkedHashMap<>(2 * maxSize, 0.75f, accessOrder) {
             @Override
             protected boolean removeEldestEntry(Entry eldest) {
                 return size() > maxSize;
@@ -1171,7 +1183,7 @@ public class Utils {
             final String sortValue;
             switch (preferenceSort) {
                 case BY_TITLE:
-                    sortValue = removePunctuationToLowercase(preference.getTitle());
+                    sortValue = removePunctuationToLowercase(NewIndicatorSpan.removeFrom(preference.getTitle()));
                     break;
                 case BY_KEY:
                     sortValue = preference.getKey();

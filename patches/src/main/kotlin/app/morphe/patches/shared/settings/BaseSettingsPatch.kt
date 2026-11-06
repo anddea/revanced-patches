@@ -1,9 +1,9 @@
 package app.morphe.patches.shared.settings
 
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.morphe.util.findMethodsOrThrow
-import app.morphe.util.returnEarly
 
 private const val THEME_FOREGROUND_COLOR = "yt_white1"
 private const val THEME_BACKGROUND_COLOR = "yt_black3"

@@ -340,7 +340,6 @@ internal fun ResourcePatchContext.applyCustomBranding(
             // Android-owned surfaces read manifest icons and cannot follow runtime alias changes.
             val iconReference = "@mipmap/${iconResourceName(config, defaultBrandingIcon)}"
             application.setAttribute("android:icon", iconReference)
-            application.setAttribute("android:roundIcon", iconReference)
             listOf("activity", "activity-alias").forEach { tag ->
                 val components = application.getElementsByTagName(tag)
                 for (index in 0 until components.length) {
@@ -351,6 +350,12 @@ internal fun ResourcePatchContext.applyCustomBranding(
                 }
             }
         }
+
+        // The launch aliases only declare 'android:icon', so a launcher that prefers the
+        // round icon of the app keeps showing the unpatched icon. Adaptive icons replaced
+        // round icons in Android 8 and the target apps require Android 8 or later, so the
+        // declaration is removed instead of adding an obsolete icon to every alias.
+        application.removeAttribute("android:roundIcon")
 
         val source = document.childNodes.findElementByAttributeValueOrThrow(
             "android:name",

@@ -19,6 +19,8 @@ import app.morphe.extension.youtube.patches.utils.requests.SaveToWatchLaterReque
 @SuppressWarnings("unused")
 public final class SaveToWatchLaterPatch {
 
+    public static final String WATCH_LATER_PLAYLIST_ID = "WL";
+
     /**
      * If the player is not active, the layout may break.
      * Use it only when it is guaranteed to be used in situations where the player is active.

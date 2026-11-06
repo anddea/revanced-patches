@@ -42,6 +42,8 @@
 
 package app.morphe.extension.shared.settings.search;
 
+import app.morphe.extension.shared.settings.preference.NewIndicatorSpan;
+
 import android.graphics.Color;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -259,7 +261,7 @@ public abstract class BaseSearchResultItem {
          */
         private String buildSearchableText(Preference pref) {
             StringBuilder searchBuilder = new StringBuilder();
-            appendText(searchBuilder, originalTitle);
+            appendText(searchBuilder, NewIndicatorSpan.removeFrom(originalTitle));
             appendText(searchBuilder, originalSummary);
 
             // Add type-specific searchable content.
@@ -291,7 +293,7 @@ public abstract class BaseSearchResultItem {
         /** Builds semantic-search input from visible labels without saved or internal values. */
         private String buildSemanticSearchText() {
             StringBuilder searchBuilder = new StringBuilder();
-            appendText(searchBuilder, originalTitle);
+            appendText(searchBuilder, NewIndicatorSpan.removeFrom(originalTitle));
             appendText(searchBuilder, originalSummary);
             appendText(searchBuilder, originalSummaryOn);
             appendText(searchBuilder, originalSummaryOff);

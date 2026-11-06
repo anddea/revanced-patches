@@ -17,9 +17,13 @@ internal class JsonPatchesFileGenerator : PatchesFileGenerator {
             JsonPatch(
                 it.name!!,
                 it.description,
-                it.use,
+                it.default,
                 it.dependencies.map { dependency -> dependency.javaClass.simpleName },
-                it.compatiblePackages?.associate { (packageName, versions) -> packageName to versions },
+                // Keep the published JSON schema while reading Patcher 2.0 compatibility metadata.
+                it.compatibility?.associate { compatibility ->
+                    requireNotNull(compatibility.packageName) to compatibility.targets
+                        .mapNotNull { target -> target.version }.toSet().takeIf { it.isNotEmpty() }
+                },
                 it.options.values.map { option ->
                     JsonPatch.Option(
                         option.key,

@@ -3,6 +3,8 @@ package app.morphe.patches.youtube.utils.componentlist
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.litho.componentContextSubParserFingerprint2
@@ -12,7 +14,6 @@ import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.*
 import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -41,7 +42,7 @@ val lazilyConvertedElementHookPatch = bytecodePatch(
         }
 
         if (is_21_04_or_greater) {
-            val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+            val conversionContextMatch = conversionContextFingerprintToString2.match()
             val conversionContextClass = conversionContextMatch.originalClassDef
             val identifierReference = conversionContextMatch.method
                 .findFieldFromToString("identifierProperty=")
@@ -73,7 +74,7 @@ val lazilyConvertedElementHookPatch = bytecodePatch(
         val componentContextClass = componentContextSubParserFingerprint2.matchOrThrow().classDef
 
         ComponentListFingerprint.match(componentContextClass).method.apply {
-            val conversionContextMethod = conversionContextFingerprintToString2.methodOrThrow()
+            val conversionContextMethod = conversionContextFingerprintToString2.method
             val identifierReference = with(conversionContextMethod) {
                 val identifierStringIndex =
                     indexOfFirstStringInstructionOrThrow(", identifierProperty=")

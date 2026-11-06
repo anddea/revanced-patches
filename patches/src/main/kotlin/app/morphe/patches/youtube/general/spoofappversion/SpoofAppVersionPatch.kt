@@ -1,7 +1,11 @@
 package app.morphe.patches.youtube.general.spoofappversion
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.returnEarly
+import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
@@ -12,13 +16,13 @@ import app.morphe.patches.youtube.utils.playservice.is_19_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_39_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.insertLiteralOverride
-import app.morphe.util.returnEarly
 
 private const val SPOOF_EXTENSION_CLASS_DESCRIPTOR = "$SPOOF_PATH/SpoofAppVersionPatch;"
 
@@ -45,6 +49,26 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultBoolean"
             }.returnEarly(true)
+        }
+
+        /**
+         * Older spoofed layouts can omit player controls. YouTube 21.39 registers their null
+         * views as seekbar touch targets and crashes in the target constructor when controls open.
+         * Ignore absent views before constructing a target; existing views register normally.
+         */
+        if (is_21_39_or_greater) {
+            SeekbarTouchTargetRegistrationFingerprint.matchAll().forEach { match ->
+                match.method.apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            if-nez p1, :register_view
+                            return-void
+                        """,
+                        ExternalLabel("register_view", getInstruction(0)),
+                    )
+                }
+            }
         }
 
         /**

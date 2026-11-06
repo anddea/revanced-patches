@@ -35,6 +35,16 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
@@ -472,6 +482,7 @@ public final class LithoFilterPatch {
             LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, contextSource, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
+            // Keep filtering local to the component; changing backing lists can invalidate grid rows.
             return identifierSearchTree.matches(identifier, parameter)
                     || pathSearchTree.matches(path, parameter);
         } catch (Exception ex) {

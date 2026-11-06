@@ -51,6 +51,8 @@
 
 package app.morphe.patches.music.flyoutmenu.components
 
+import app.morphe.patches.music.interaction.downloads.OfflineUpsellRequestFingerprint
+import app.morphe.patches.music.interaction.downloads.offlineUpsellCommandFingerprint
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -58,6 +60,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.actionbar.components.actionBarComponentsPatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
@@ -89,7 +92,6 @@ import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.resolvable
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -169,6 +171,21 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         // region patch for override download button in flyout menu
 
         if (is_7_25_or_greater) {
+            // Accounts offered Premium get an upsell command from the Download option instead.
+            offlineUpsellCommandFingerprint(
+                OfflineUpsellRequestFingerprint.classDef.type
+            ).method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static/range { p1 .. p1 }, Lapp/morphe/extension/music/patches/flyout/FlyoutPatch;->offlineUpsellOnClick(Ljava/lang/Object;)Z
+                    move-result v0
+                    if-eqz v0, :show_upsell
+                    return-void
+                    :show_upsell
+                    nop
+                """
+            )
+
             FlyoutCommandResolverFingerprint.let {
                 val originalMethod = it.method
                 // The newest clients have no local registers in this method. Add one so the Boolean

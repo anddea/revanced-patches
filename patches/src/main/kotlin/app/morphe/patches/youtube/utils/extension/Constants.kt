@@ -7,7 +7,7 @@ internal object Constants {
     const val PATCHES_PATH = "$EXTENSION_PATH/patches"
 
     const val ADS_PATH = "$PATCHES_PATH/ads"
-    const val ALTERNATIVE_THUMBNAILS_PATH = "$PATCHES_PATH/alternativethumbnails"
+    const val DEARROW_PATH = "$PATCHES_PATH/dearrow"
     const val COMPONENTS_PATH = "$PATCHES_PATH/components"
     const val FEED_PATH = "$PATCHES_PATH/feed"
     const val GENERAL_PATH = "$PATCHES_PATH/general"
@@ -22,8 +22,8 @@ internal object Constants {
     const val VIDEO_PATH = "$PATCHES_PATH/video"
 
     const val ADS_CLASS_DESCRIPTOR = "$ADS_PATH/AdsPatch;"
-    const val ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR =
-        "$ALTERNATIVE_THUMBNAILS_PATH/AlternativeThumbnailsPatch;"
+    const val DEARROW_CLASS_DESCRIPTOR =
+        "$DEARROW_PATH/DeArrowPatch;"
     const val FEED_CLASS_DESCRIPTOR = "$FEED_PATH/FeedPatch;"
     const val GENERAL_CLASS_DESCRIPTOR = "$GENERAL_PATH/GeneralPatch;"
     const val PLAYER_CLASS_DESCRIPTOR = "$PLAYER_PATH/PlayerPatch;"

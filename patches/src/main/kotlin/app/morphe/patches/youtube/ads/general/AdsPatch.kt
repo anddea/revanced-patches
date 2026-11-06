@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.ads.general
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -6,12 +16,16 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.ANDROID_AUTOMOTIVE_STRING
 import app.morphe.patches.shared.ads.adsPatch
 import app.morphe.patches.shared.autoMotiveFingerprint
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
+import app.morphe.patches.youtube.general.spoofappversion.Endpoint
+import app.morphe.patches.youtube.general.spoofappversion.addOSNameHook
+import app.morphe.patches.youtube.general.spoofappversion.clientContextHookPatch
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.engagement.addEngagementPanelIdHook
@@ -35,6 +49,8 @@ import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.injectHideViewCall
 import app.morphe.util.updatePatchStatus
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -56,6 +72,7 @@ val adsPatch = adsPatch(
             lithoLayoutPatch,
             sharedResourceIdPatch,
             spoofClientGuideEndpointPatch,
+            clientContextHookPatch,
             versionCheckPatch,
             engagementPanelHookPatch,
         )
@@ -133,16 +150,40 @@ val adsPatch = adsPatch(
 
         // This can be hidden with a regular Litho filter, but an empty space remains.
         if (is_20_21_or_greater) {
-            PlayerOverlayTimelyShelfFingerprint.method.addInstructionsWithLabels(
-                0, """
-                invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
-                move-result v0
-                if-eqz v0, :show
-                return-void
-                :show
-                nop
-                """
-            )
+            // YouTube 21.39 moved the timely shelf check into a switch-lambda; hook inside the case instead.
+            val timelyShelfMethod = runCatching { PlayerOverlayTimelyShelfFingerprint.method }.getOrNull()
+            if (timelyShelfMethod != null) {
+                timelyShelfMethod.addInstructionsWithLabels(
+                    0, """
+                    invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                    """
+                )
+            } else {
+                playerOverlayTimelyShelfSwitchFingerprint.methodOrThrow().apply {
+                    val stringIndex = indexOfFirstStringInstructionOrThrow("player_overlay_timely_shelf")
+                    val optionalGetIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.toString()
+                                    ?.endsWith("Optional;->get()Ljava/lang/Object;") == true
+                    }
+                    // invoke Optional.get, move-result-object, check-cast
+                    addInstructionsWithLabels(
+                        optionalGetIndex + 3, """
+                        invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        return-void
+                        :show
+                        nop
+                        """
+                    )
+                }
+            }
         }
 
         // endregion
@@ -167,8 +208,13 @@ val adsPatch = adsPatch(
 
         // region patch for hide shorts ad
 
+        addOSNameHook(
+            Endpoint.REEL,
+            "$ADS_FILTER_CLASS_DESCRIPTOR->hideShortsAds(Ljava/lang/String;)Ljava/lang/String;"
+        )
+
         // Hide Shorts ads by changing 'OSName' to 'Android Automotive'
-        autoMotiveFingerprint.methodOrThrow().apply {
+        autoMotiveFingerprint.method.apply {
             val insertIndex = indexOfFirstStringInstructionOrThrow(ANDROID_AUTOMOTIVE_STRING) - 1
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 

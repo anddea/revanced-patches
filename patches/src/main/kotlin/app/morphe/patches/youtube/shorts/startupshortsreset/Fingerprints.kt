@@ -24,7 +24,7 @@ internal object UserWasInShortsEvaluateFingerprint : Fingerprint(
         methodCall(
             opcode = Opcode.INVOKE_DIRECT_RANGE,
             name = "<init>",
-            parameters = listOf("L", "L", "L", "L", "L", "I"),
+            // 21.39: second constructor became (L L L L L L L) instead of (L L L L L I); parameters no longer constrained.
             location = InstructionLocation.MatchAfterWithin(50)
         )
     )

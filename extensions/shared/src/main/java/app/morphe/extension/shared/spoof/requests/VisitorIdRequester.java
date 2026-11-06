@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-13.
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -15,6 +17,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -184,7 +187,8 @@ public final class VisitorIdRequester {
             final int connectionTimeoutMillis = 5000;
             String url = String.format(YT_API_URL_FORMAT,
                     // TVHTML5 does not support the '/visitor_id' endpoint.
-                    clientType == ClientType.TV_SABR ? "guide" : "visitor_id"
+                    // Include TV_SABR_WII_U (Morphe 5c6b8418).
+                    clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U ? "guide" : "visitor_id"
             );
             HttpURLConnection connection = Requester.openConnection(url);
             connection.setRequestMethod("POST");
@@ -232,6 +236,13 @@ public final class VisitorIdRequester {
             }
 
             connection.disconnect();
+        } catch (SocketTimeoutException ex) {
+            Logger.LogMessage message = () -> "Debug: Fetch visitor data timeout";
+            if (BaseSettings.DEBUG.get()) {
+                Logger.printException(message, ex);
+            } else {
+                Logger.printInfo(message, ex);
+            }
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to fetch visitor data", ex);
         } catch (JSONException ex) {

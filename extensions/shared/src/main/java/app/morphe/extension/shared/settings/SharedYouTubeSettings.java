@@ -2,12 +2,17 @@ package app.morphe.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static app.morphe.extension.shared.utils.StringRef.sf;
 import static app.morphe.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.settings.Setting.parentInverted;
 
+import app.morphe.extension.shared.settings.preference.SeekBarPreference;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBarConfig;
 import app.morphe.extension.shared.patches.PatchStatus;
+import app.morphe.extension.shared.patches.SkipSilencePatch.MinimumPause;
 import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderAvailability;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofVideoStreamsAvailability;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
@@ -22,6 +27,8 @@ import app.morphe.extension.shared.patches.CustomBrandingPatch;
  * or reference this class.
  */
 public class SharedYouTubeSettings extends BaseSettings {
+    public static final IntegerSetting SETTINGS_NEW_INDICATOR_DAYS = new IntegerSetting("morphe_settings_new_indicator_days", 3);
+
     /** Name shown for the RVX settings entry: a preset value or a name entered by the user. */
     public static final StringSetting SETTINGS_NAME = new StringSetting(
             "morphe_settings_name", "DEFAULT", true);
@@ -46,6 +53,9 @@ public class SharedYouTubeSettings extends BaseSettings {
             "morphe_custom_branding_apply_to_rvx_settings",
             !"original".equals(CustomBrandingPatch.getDefaultIconStyle()), true);
 
+    public static final BooleanSetting SKIP_SILENCE = new BooleanSetting("morphe_skip_silence", FALSE, true);
+    public static final EnumSetting<MinimumPause> SKIP_SILENCE_MINIMUM_PAUSE = new EnumSetting<>("morphe_skip_silence_minimum_pause", MinimumPause.MS_700, true, parent(SKIP_SILENCE));
+
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
 
     public static final BooleanSetting LIVESTREAM_DVR = new BooleanSetting("morphe_livestream_dvr", FALSE, true);
@@ -53,7 +63,7 @@ public class SharedYouTubeSettings extends BaseSettings {
 
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting(
             "morphe_spoof_video_streams",
-            PatchStatus.GmsCoreSupport() && !PatchStatus.PoTokenProvider(),
+            PatchStatus.GmsCoreSupport(),
             true,
             "morphe_spoof_video_streams_user_dialog_message",
             new SpoofVideoStreamsAvailability());
@@ -64,13 +74,18 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final LongSetting SPOOF_VIDEO_STREAMS_PLAYER_JS_SAVED_MILLISECONDS = new LongSetting("morphe_spoof_video_streams_player_js_saved_milliseconds", -1L, false, false);
     public static final StringSetting OAUTH2_REFRESH_TOKEN = new StringSetting("morphe_oauth2_refresh_token", "", false, false);
     public static final StringSetting SPOOF_VIDEO_STREAMS_CLIENT_IDS = new StringSetting("morphe_spoof_video_streams_clent_id", "", false, false);
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_CLIENT_FAILING_DIALOG = new BooleanSetting("morphe_spoof_video_streams_client_failing_dialog", FALSE, false, false);
+    public static final LongSetting SPOOF_VIDEO_STREAMS_CLIENT_FAILING_DIALOG_LAST_SHOWN = new LongSetting("morphe_spoof_video_streams_client_failing_dialog_last_shown", 0L, false, false);
 
     public static final BooleanSetting POTOKEN_PROVIDER = new BooleanSetting(
             "morphe_potoken_provider",
-            PatchStatus.GmsCoreSupport() && PatchStatus.PoTokenProvider(),
+            PatchStatus.GmsCoreSupport() && PatchStatus.PoTokenProvider()
+                    && !SpoofVideoStreamsPatch.isPatchIncluded(),
             true,
             "morphe_external_potoken_provider_user_dialog_message",
             new PoTokenProviderAvailability());
+    public static final BooleanSetting POTOKEN_PROVIDER_EXPIRED_DIALOG = new BooleanSetting("morphe_potoken_provider_expired_dialog", FALSE, false, false);
+    public static final LongSetting POTOKEN_PROVIDER_EXPIRED_DIALOG_LAST_SHOWN = new LongSetting("morphe_potoken_provider_expired_dialog_last_shown", 0L, false, false);
 
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);
@@ -84,10 +99,14 @@ public class SharedYouTubeSettings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_SANITIZE_URL_QUERY = new BooleanSetting("morphe_sanitize_url_query", TRUE);
 
     static {
-        // Prioritize the PoToken provider on upgrades, including installs that already saved
+        // Both apps provide this shared label for the disabled indicator duration.
+        SeekBarPreference.register(new SeekBarConfig(SETTINGS_NEW_INDICATOR_DAYS,
+                0, 30, 1, "", 1, sf("morphe_playback_in_feeds_entry_off"), null));
+
+        // Prioritize stream spoofing on upgrades, including installs that already saved
         // both settings as enabled. Otherwise, each setting disables the other's switch.
         if (SPOOF_VIDEO_STREAMS.get() && POTOKEN_PROVIDER.get()) {
-            SPOOF_VIDEO_STREAMS.save(FALSE);
+            POTOKEN_PROVIDER.save(FALSE);
         }
 
         // TODO: Eventually remove these migrations

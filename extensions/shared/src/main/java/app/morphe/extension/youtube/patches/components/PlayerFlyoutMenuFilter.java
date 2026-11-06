@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
@@ -13,8 +23,20 @@ import app.morphe.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public final class PlayerFlyoutMenuFilter extends Filter {
+    private static boolean topFlyoutMenuVisible;
+    public static boolean getTopFlyoutMenuVisible() {
+        return topFlyoutMenuVisible;
+    }
+    public static void resetTopFlyoutMenuVisible() {
+        topFlyoutMenuVisible = false;
+    }
+
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
 
+    private final ByteArrayFilterGroup videoPlayerSettingsQualityButton = new ByteArrayFilterGroup(
+            null,
+            "quality_sheet_header.e"
+    );
     private final ByteArrayFilterGroup shortsPlayerSettingsCaptionsButton = new ByteArrayFilterGroup(
             null,
             "closed_captions"
@@ -161,6 +183,18 @@ public final class PlayerFlyoutMenuFilter extends Filter {
             // Overflow menu is always the start of the path.
             if (contentIndex != 0) {
                 return false;
+            }
+
+            // Verify that the open flyout menu is the first one and not the 'others'
+            // one, by checking the filtering of its first button (quality menu).
+            // The path already starts with the overflow menu item, while the buffer
+            // does not always contain it (20.21 keeps it in a separate buffer).
+            boolean videoPlayerFlyout = PlayerType.getCurrent().isMaximizedOrFullscreen()
+                    && videoPlayerSettingsQualityButton.check(buffer).isFiltered();
+            boolean shortsPlayerFlyout = ShortsPlayerState.getCurrent().isOpen()
+                    && shortsPlayerSettingsCaptionsButton.check(buffer).isFiltered();
+            if (videoPlayerFlyout || shortsPlayerFlyout) {
+                topFlyoutMenuVisible = true;
             }
 
             // Shorts also use this player flyout panel

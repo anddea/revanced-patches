@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
@@ -122,6 +132,11 @@ public final class LegacyLithoFilterPatch {
      * from {@link #bufferThreadLocal}, which existing legacy filters rely on.
      */
     private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<DirectByteBufferCache> directByteBufferCacheThreadLocal = new ThreadLocal<>();
+
+    /** Retains one copy while subcomponents share the same direct FlatBuffer. */
+    private record DirectByteBufferCache(ByteBuffer source, byte[] copy) { }
+
 
     static {
         for (Filter filter : filters) {
@@ -239,6 +254,40 @@ public final class LegacyLithoFilterPatch {
         directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
     }
 
+    /** @return The current component buffer for filters that also run before the v20.21 bridge. */
+    public static byte[] getDirectProtoBuffer() {
+        byte[] buffer = directBufferThreadLocal.get();
+        return buffer == null ? EMPTY_BYTE_ARRAY : buffer;
+    }
+
+    /**
+     * Injection point for Elements components backed by a FlatBuffer instead of UPB.
+     *
+     * <p>Direct buffers cannot expose an array. Copy them once per backing buffer and reuse the
+     * copy while its subcomponents are converted.</p>
+     */
+    public static void setDirectProtoBuffer(@Nullable ByteBuffer buffer) {
+        if (buffer == null) {
+            setDirectProtoBuffer(EMPTY_BYTE_ARRAY);
+            return;
+        }
+        if (buffer.hasArray()) {
+            setDirectProtoBuffer(buffer.array());
+            return;
+        }
+
+        DirectByteBufferCache cache = directByteBufferCacheThreadLocal.get();
+        if (cache == null || cache.source() != buffer) {
+            ByteBuffer duplicate = buffer.duplicate();
+            duplicate.clear();
+            byte[] copy = new byte[duplicate.remaining()];
+            duplicate.get(copy);
+            cache = new DirectByteBufferCache(buffer, copy);
+            directByteBufferCacheThreadLocal.set(cache);
+        }
+        setDirectProtoBuffer(cache.copy());
+    }
+
     /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
@@ -298,11 +347,8 @@ public final class LegacyLithoFilterPatch {
             );
             Logger.printDebug(() -> "Searching " + parameter);
 
-            if (identifierSearchTree.matches(parameter.identifier, parameter)) {
-                return true;
-            }
-
-            if (pathSearchTree.matches(parameter.path, parameter)) {
+            if (identifierSearchTree.matches(identifier, parameter)
+                    || pathSearchTree.matches(parameter.path, parameter)) {
                 return true;
             }
 

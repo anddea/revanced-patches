@@ -46,9 +46,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.parametersEqual
 import com.android.tools.smali.dexlib2.Opcode

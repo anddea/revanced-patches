@@ -11,6 +11,7 @@
  * - rufusin (https://github.com/rufusin)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -52,31 +53,55 @@
 package app.morphe.patches.shared
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.literal
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
+import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
+import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
-internal val authenticationChangeListenerFingerprint = legacyFingerprint(
-    name = "authenticationChangeListenerFingerprint",
+internal val authenticationChangeListenerFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    strings = listOf("Authentication changed while request was being made"),
-    customFingerprint = { method, _ ->
-        indexOfMessageLiteBuilderReference(method) >= 0
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    custom = { method, _ ->
+        indexOfMessageLiteBuilderReference(method) >= 0 &&
+                (hasAuthenticationChangedString(method) ||
+                        isAuthenticationChangeListenerWithoutString(method))
     }
 )
+
+// string-less detection used by YouTube 21.39+.
+private fun isAuthenticationChangeListenerWithoutString(method: Method) =
+    method.parameterTypes.size == 1 &&
+            method.indexOfFirstInstruction {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type ==
+                        "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$InnerTubeContext;"
+            } >= 0 &&
+            method.indexOfFirstInstruction {
+                getReference<MethodReference>()?.let {
+                    it.definingClass == "Ljava/util/Set;" && it.name == "iterator"
+                } == true
+            } >= 0 &&
+            indexOfMessageLiteBuilderReference(method) >= 0
+
+private fun hasAuthenticationChangedString(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<StringReference>()?.string == "Authentication changed while request was being made"
+    } >= 0
+
 
 internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "L") =
     method.indexOfFirstInstruction {
@@ -86,29 +111,26 @@ internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "
                 reference.returnType.startsWith(type)
     }
 
-internal val autoMotiveFingerprint = legacyFingerprint(
-    name = "autoMotiveFingerprint",
-    opcodes = listOf(
+internal val autoMotiveFingerprint = Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.GOTO,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ
     ),
-    strings = listOf(ANDROID_AUTOMOTIVE_STRING),
-    customFingerprint = { _, classDef ->
+    strings = listOf(string(ANDROID_AUTOMOTIVE_STRING, StringComparisonType.CONTAINS)),
+    custom = { _, classDef ->
         !classDef.type.startsWith("Lapp/")
     }
 )
 
-internal val buildRequestParentFingerprint = legacyFingerprint(
-    name = "buildRequestParentFingerprint",
+internal val buildRequestParentFingerprint = Fingerprint(
     returnType = "Ljava/util/Map;",
-    strings = listOf("If-Modified-Since"),
+    strings = listOf(string("If-Modified-Since", StringComparisonType.CONTAINS)),
 )
 
-internal val buildRequestFingerprint = legacyFingerprint(
-    name = "buildRequestFingerprint",
-    customFingerprint = { method, _ ->
+internal val buildRequestFingerprint = Fingerprint(
+    custom = { method, _ ->
         method.implementation != null &&
                 indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
                 // Earlier targets
@@ -132,7 +154,7 @@ internal object CurrentAudioVideoFormatToStringFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
-    strings = listOf("currentVideoFormat=")
+    strings = listOf(string("currentVideoFormat=", StringComparisonType.CONTAINS))
 )
 
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
@@ -147,14 +169,13 @@ internal fun indexOfEntrySetInstruction(method: Method) =
                 getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
     }
 
-internal val clientTypeFingerprint = legacyFingerprint(
-    name = "clientTypeFingerprint",
-    opcodes = listOf(
+internal val clientTypeFingerprint = Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET,
         Opcode.IPUT, // Sets ClientInfo.clientId.
     ),
-    strings = listOf("10.29"),
-    customFingerprint = { method, _ ->
+    strings = listOf(string("10.29", StringComparisonType.CONTAINS)),
+    custom = { method, _ ->
         indexOfClientInfoInstruction(method) >= 0
     }
 )
@@ -165,27 +186,25 @@ fun indexOfClientInfoInstruction(method: Method) =
                 getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
     }
 
-internal val conversionContextFingerprintToString2 = legacyFingerprint(
-    name = "conversionContextFingerprintToString2",
+internal val conversionContextFingerprintToString2 = Fingerprint(
     parameters = emptyList(),
     strings = listOf(
         // YTM 6.20: "ConversionContext{container="
         // Others:   "ConversionContext{containerInternal="
-        "ConversionContext{container",
-        ", identifierProperty="
+        string("ConversionContext{container", StringComparisonType.CONTAINS),
+        string(", identifierProperty=", StringComparisonType.CONTAINS)
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "toString"
     }
 )
 
-internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
-    name = "createPlayerRequestBodyWithModelFingerprint",
+internal val createPlayerRequestBodyWithModelFingerprint = Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    opcodes = listOf(Opcode.OR_INT_LIT16),
-    customFingerprint = { method, _ ->
+    filters = OpcodesFilter.opcodesToFilters(Opcode.OR_INT_LIT16),
+    custom = { method, _ ->
         indexOfBrandInstruction(method) >= 0 &&
                 indexOfManufacturerInstruction(method) >= 0 &&
                 indexOfModelInstruction(method) >= 0 &&
@@ -215,31 +234,33 @@ private fun Method.indexOfFieldReference(string: String) = indexOfFirstInstructi
     reference.toString() == string
 }
 
-internal val createPlayerRequestBodyFingerprint = legacyFingerprint(
-    name = "createPlayerRequestBodyFingerprint",
+internal val createPlayerRequestBodyFingerprint = Fingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.CHECK_CAST,
         Opcode.IGET,
         Opcode.AND_INT_LIT16,
     ),
-    strings = listOf("ms"),
+    strings = listOf(string("ms", StringComparisonType.CONTAINS)),
 )
 
 /**
  * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
  * On YouTube Music, class names are obfuscated.
+ *
+ * Literal checks remain predicates so instructionMatches still starts with the opcode sequence.
  */
-internal val formatStreamModelConstructorFingerprint = legacyFingerprint(
-    name = "formatStreamModelConstructorFingerprint",
+internal val formatStreamModelConstructorFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET_WIDE,
         Opcode.IPUT_WIDE,
     ),
-    literals = listOf(45374643L),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(45374643L)
+    }
 )
 
 internal const val IS_DEFAULT_AUDIO_TRACK_STRING =
@@ -253,29 +274,26 @@ internal const val AUDIO_TRACK_ID_STRING =
  * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
  * On YouTube Music, class names are obfuscated.
  */
-internal val formatStreamModelToStringFingerprint = legacyFingerprint(
-    name = "formatStreamModelToStringFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val formatStreamModelToStringFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Ljava/lang/String;",
     strings = listOf(
-        IS_DEFAULT_AUDIO_TRACK_STRING,
-        AUDIO_TRACK_DISPLAY_NAME_STRING,
-        AUDIO_TRACK_ID_STRING
+        string(IS_DEFAULT_AUDIO_TRACK_STRING, StringComparisonType.CONTAINS),
+        string(AUDIO_TRACK_DISPLAY_NAME_STRING, StringComparisonType.CONTAINS),
+        string(AUDIO_TRACK_ID_STRING, StringComparisonType.CONTAINS)
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "toString"
     }
 )
 
-internal val mdxPlayerDirectorSetVideoStageFingerprint = legacyFingerprint(
-    name = "mdxPlayerDirectorSetVideoStageFingerprint",
-    strings = listOf("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
+internal val mdxPlayerDirectorSetVideoStageFingerprint = Fingerprint(
+    strings = listOf(string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ", StringComparisonType.CONTAINS))
 )
 
-internal val spannableStringBuilderFingerprint = legacyFingerprint(
-    name = "spannableStringBuilderFingerprint",
+internal val spannableStringBuilderFingerprint = Fingerprint(
     returnType = "Ljava/lang/CharSequence;",
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
@@ -294,16 +312,15 @@ fun indexOfSpannableStringInstruction(method: Method) = method.indexOfFirstInstr
             getReference<MethodReference>()?.toString() == SPANNABLE_STRING_REFERENCE
 }
 
-internal val startVideoInformerFingerprint = legacyFingerprint(
-    name = "startVideoInformerFingerprint",
+internal val startVideoInformerFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID
     ),
-    strings = listOf("pc"),
-    customFingerprint = { method, _ ->
+    strings = listOf(string("pc", StringComparisonType.CONTAINS)),
+    custom = { method, _ ->
         method.implementation
             ?.instructions
             ?.withIndex()
@@ -315,63 +332,57 @@ internal val startVideoInformerFingerprint = legacyFingerprint(
     }
 )
 
-internal val videoLengthFingerprintLegacy = legacyFingerprint(
-    name = "videoLengthFingerprintLegacy",
+internal val videoLengthFingerprintLegacy = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("Gaplessly transitioning away from an Ad before it ends.")
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    strings = listOf(string("Gaplessly transitioning away from an Ad before it ends.", StringComparisonType.CONTAINS))
 )
 
-internal val videoLengthFingerprint = legacyFingerprint(
-    name = "videoLengthFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val videoLengthFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("J", "J"),
     returnType = "V",
-    literals = listOf(45633940L, 1000L),
     // strings = listOf("Gaplessly transitioning away from an Ad before it ends.")
-    customFingerprint = { method, _ ->
-        method.name == "a"
+    custom = { method, _ ->
+        method.containsLiteralInstruction(45633940L) &&
+                method.containsLiteralInstruction(1000L) &&
+                method.name == "a"
     }
 )
 
-internal val dislikeFingerprint = legacyFingerprint(
-    name = "dislikeFingerprint",
+internal val dislikeFingerprint = Fingerprint(
     returnType = "V",
-    strings = listOf("like/dislike")
+    strings = listOf(string("like/dislike", StringComparisonType.CONTAINS))
 )
 
-internal val likeFingerprint = legacyFingerprint(
-    name = "likeFingerprint",
+internal val likeFingerprint = Fingerprint(
     returnType = "V",
-    strings = listOf("like/like")
+    strings = listOf(string("like/like", StringComparisonType.CONTAINS))
 )
 
-internal val removeLikeFingerprint = legacyFingerprint(
-    name = "removeLikeFingerprint",
+internal val removeLikeFingerprint = Fingerprint(
     returnType = "V",
-    strings = listOf("like/removelike")
+    strings = listOf(string("like/removelike", StringComparisonType.CONTAINS))
 )
 
-internal val playbackStartParametersConstructorFingerprint = legacyFingerprint(
-    name = "playbackStartParametersConstructorFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+internal val playbackStartParametersConstructorFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     returnType = "V",
-    opcodes = listOf(Opcode.IPUT_OBJECT)
+    filters = OpcodesFilter.opcodesToFilters(Opcode.IPUT_OBJECT)
 )
 
 internal const val FIXED_RESOLUTION_STRING = ", initialPlaybackVideoQualityFixedResolution="
 internal const val WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING =
     ", watchNextResponseProcessingDelay="
 
-internal val playbackStartParametersToStringFingerprint = legacyFingerprint(
-    name = "playbackStartParametersToStringFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val playbackStartParametersToStringFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Ljava/lang/String;",
     strings = listOf(
-        FIXED_RESOLUTION_STRING,
-        WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
+        string(FIXED_RESOLUTION_STRING, StringComparisonType.CONTAINS),
+        string(WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING, StringComparisonType.CONTAINS)
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "toString"
     }
 )

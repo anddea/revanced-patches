@@ -725,11 +725,11 @@ final class GeminiBottomSheetUi {
 
             TextView messageView = createMessageView(false);
             messageView.setMaxWidth(Integer.MAX_VALUE);
-            setMessageText(messageView, text);
-            section.addView(messageView, new LinearLayout.LayoutParams(
+            section.addView(new GeminiMathView(messageView), new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             ));
+            setMessageText(messageView, text);
 
             ImageButton copyButton = createIconButton(
                     context,
@@ -778,12 +778,12 @@ final class GeminiBottomSheetUi {
             row.setLayoutParams(rowParams);
 
             TextView messageView = createMessageView(false, shimmerWhilePending);
+            row.addView(new GeminiMathView(messageView));
             if (TextUtils.isEmpty(rawText)) {
                 messageView.setText("");
             } else {
                 setMessageText(messageView, assistantMessageFormatter.format(rawText));
             }
-            row.addView(messageView);
 
             ImageButton copyButton = createIconButton(
                     context,
@@ -1380,6 +1380,9 @@ final class GeminiBottomSheetUi {
 
     private static void setMessageText(@NonNull TextView textView, @NonNull CharSequence text) {
         textView.setText(text);
+        if (textView.getParent() instanceof GeminiMathView mathView) {
+            mathView.render(text);
+        }
         if (text instanceof Spanned) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             textView.setLinksClickable(true);

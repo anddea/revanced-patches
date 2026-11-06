@@ -6,16 +6,16 @@ import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.shared.extension.Constants.EXTENSION_PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.util.ResourceGroup
 import app.morphe.util.className
 import app.morphe.util.copyResources
-import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.hookClassHierarchy
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.util.MethodUtil
 

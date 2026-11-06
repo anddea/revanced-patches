@@ -1,0 +1,67 @@
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.function.Supplier;
+import java.util.regex.*;
+
+class CompatibilityBoundaries {
+    static final int CONNECTION_TIMEOUT_MILLISECONDS = 5000;
+    static final long FAILED_FETCH_RETRY_MILLISECONDS = 30_000;
+    static final Map<String, Long> retryTimes = new HashMap<>();
+    final Container linesContainer = new Container();
+    static class System {
+        static long currentTimeMillis() { return 123_456_000L; }
+    }
+    static class Build {
+        static class VERSION { static int SDK_INT; }
+        static class VERSION_CODES { static final int Q = 29; }
+    }
+    static class Container {
+        final List<Boolean> calls = new ArrayList<>();
+        void suppressLayout(boolean value) {
+            if (Build.VERSION.SDK_INT < 29) throw new NoSuchMethodError("suppressLayout");
+            calls.add(value);
+        }
+    }
+    static class Connection extends HttpURLConnection {
+        int code = 200;
+        Connection() throws Exception { super(new URL("https://example.invalid")); }
+        @Override public int getResponseCode() throws IOException { return code; }
+        @Override public void connect() {}
+        @Override public void disconnect() {}
+        @Override public boolean usingProxy() { return false; }
+    }
+    static class Requester {
+        static final int HTTP_STATUS_CODE_SUCCESS = 200;
+        static Connection connection;
+        static String url, title;
+        static Exception error;
+        static HttpURLConnection openConnection(String value) throws Exception {
+            url = value;
+            if (error != null) throw error;
+            return connection;
+        }
+        static Json parseJSONObject(HttpURLConnection value) {
+            if (value != connection) throw new AssertionError("Wrong connection");
+            return new Json();
+        }
+        static class Json {
+            String optString(String key) {
+                if (!key.equals("title")) throw new AssertionError("Wrong JSON key");
+                return title;
+            }
+        }
+    }
+    static class Logger {
+        static void printDebug(Supplier<String> message) {}
+        static void printInfo(Supplier<String> message, Exception exception) {}
+        static void printException(Supplier<String> message, Exception exception) {}
+    }
+}
+
+public class CompatibilityMethods extends CompatibilityBoundaries {
+    // PRODUCTION_METHODS
+}

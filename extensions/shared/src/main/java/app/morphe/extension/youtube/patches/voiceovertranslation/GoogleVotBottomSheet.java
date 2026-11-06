@@ -61,7 +61,6 @@ import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
-import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PipDismissHelper;
 
@@ -84,7 +83,6 @@ public final class GoogleVotBottomSheet {
     private static final int fadeInDuration = ResourceUtils.getInteger("fade_duration_fast");
 
     public static void show(Context context) {
-        GoogleVoiceOverTranslationPatch.preloadTestVoices();
         GoogleVoiceOverTranslationPatch.ensureTts();
 
         SheetBottomDialog.DraggableLinearLayout root = SheetBottomDialog
@@ -112,9 +110,9 @@ public final class GoogleVotBottomSheet {
         final SheetBottomDialog.SlideDialog[] mainRef = {null};
 
         LinearLayout engineRow = makeValueRow(context, fg, str("morphe_vot_tts_voice_type"));
-        Runnable refreshEngine = () -> refreshEngineRow(engineRow);
         engineRow.setOnClickListener(v -> showEnginePicker(context, mainRef[0]));
-        refreshEngine.run();
+        EdgeTtsVoiceRepository.load(context, () -> refreshEngineRow(engineRow));
+        refreshEngineRow(engineRow);
 
         LinearLayout translationRow = makeValueRow(context, fg, str("morphe_vot_translation_service_title"));
         Runnable refreshTranslation = () -> ((TextView) translationRow.getTag())
@@ -209,19 +207,17 @@ public final class GoogleVotBottomSheet {
         String voiceId = Settings.GOOGLE_VOT_TTS_VOICE_TYPE.get();
         VoiceCatalog.Voice voice = VoiceCatalog.getVoice(voiceId);
 
-        if (Settings.GOOGLE_VOT_USE_NATIVE_TTS.get() || (voice == null && VoiceCatalog.resolve(lang, null) == null)) {
+        if (Settings.GOOGLE_VOT_USE_NATIVE_TTS.get()) {
             valueView.setText(str("morphe_vot_tts_system"));
         } else if (voice != null && (voice.languageTag.equalsIgnoreCase(VoiceCatalog.getIso639(lang)) || voice.isMultilingual)) {
             valueView.setText(voice.dialogDisplayName);
         } else {
             String defaultVoiceId = VoiceCatalog.resolve(lang, null);
             VoiceCatalog.Voice defaultVoice = VoiceCatalog.getVoice(defaultVoiceId);
-            valueView.setText(defaultVoice != null ? defaultVoice.dialogDisplayName : str("morphe_vot_tts_system"));
+            valueView.setText(defaultVoice != null ? defaultVoice.dialogDisplayName
+                    : str("morphe_vot_tts_system"));
         }
 
-        final boolean edgeAvailable = VoiceCatalog.resolve(lang, null) != null;
-        row.setAlpha(edgeAvailable ? 1f : 0.4f);
-        row.setClickable(edgeAvailable);
     }
 
     private static void showTranslationServicePicker(Context context, SheetBottomDialog.SlideDialog mainDialog) {
@@ -321,8 +317,43 @@ public final class GoogleVotBottomSheet {
     }
 
     private static void showEnginePicker(Context context, SheetBottomDialog.SlideDialog mainDialog) {
-        String lang = GoogleVoiceOverTranslationPatch.resolveTargetLang();
+        String lang = VoiceCatalog.getIso639(GoogleVoiceOverTranslationPatch.resolveTargetLang());
+        final int fg = getAppForegroundColor();
+        SheetBottomDialog.DraggableLinearLayout pickerRoot =
+                SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
+        pickerRoot.setPadding(Dim.dp16, 0, Dim.dp16, Dim.dp16);
+        pickerRoot.addView(makeTitle(context, str("morphe_vot_tts_voice_type"), fg));
+        SheetBottomDialog.SlideDialog pickerDialog =
+                SheetBottomDialog.createSlideDialog(context, pickerRoot, fadeInDuration);
+        ScrollView scroll = new ScrollView(context);
+        LinearLayout listLayout = new LinearLayout(context);
+        listLayout.setOrientation(LinearLayout.VERTICAL);
+        scroll.addView(listLayout);
 
+        int speakerRes = USE_BOLD_ICONS ? DRAWABLE_SPEAKER_BOLD : DRAWABLE_SPEAKER;
+        final int rippleColor = Color.argb(60, Color.red(fg), Color.green(fg), Color.blue(fg));
+        populateVoiceRows(context, listLayout, pickerDialog, lang, fg, rippleColor, speakerRes);
+        pickerRoot.addView(scroll);
+        mainDialog.dismiss();
+        pickerDialog.setOnCancelListener(d -> GoogleVotBottomSheet.show(context));
+        PipDismissHelper.dismissOnPip(pickerDialog);
+        pickerDialog.show();
+
+        EdgeTtsVoiceRepository.load(context, () -> {
+            if (!pickerDialog.isShowing()
+                    || !lang.equals(VoiceCatalog.getIso639(GoogleVoiceOverTranslationPatch.resolveTargetLang()))) {
+                return;
+            }
+            int scrollY = scroll.getScrollY();
+            populateVoiceRows(context, listLayout, pickerDialog, lang, fg, rippleColor, speakerRes);
+            scroll.post(() -> scroll.scrollTo(0, scrollY));
+        });
+    }
+
+    private static void populateVoiceRows(Context context, LinearLayout listLayout,
+                                          SheetBottomDialog.SlideDialog pickerDialog,
+                                          String lang, int fg, int rippleColor, int speakerRes) {
+        listLayout.removeAllViews();
         List<VoiceCatalog.Voice> allVoices = VoiceCatalog.getVoicesForLang(lang);
         List<VoiceCatalog.Voice> nativeVoices = new ArrayList<>();
         List<VoiceCatalog.Voice> multilingualVoices = new ArrayList<>();
@@ -344,26 +375,11 @@ public final class GoogleVotBottomSheet {
         String selectedValue = Settings.GOOGLE_VOT_USE_NATIVE_TTS.get()
                 ? TTS_ENGINE_SYSTEM
                 : VoiceCatalog.resolve(lang, voiceId);
-
-        final int fg = getAppForegroundColor();
-
-        SheetBottomDialog.DraggableLinearLayout pickerRoot =
-                SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
-        pickerRoot.setPadding(Dim.dp16, 0, Dim.dp16, Dim.dp16);
-        pickerRoot.addView(makeTitle(context, str("morphe_vot_tts_voice_type"), fg));
-
-        SheetBottomDialog.SlideDialog pickerDialog =
-                SheetBottomDialog.createSlideDialog(context, pickerRoot, fadeInDuration);
-
-        ScrollView scroll = new ScrollView(context);
-        LinearLayout listLayout = new LinearLayout(context);
-        listLayout.setOrientation(LinearLayout.VERTICAL);
-        scroll.addView(listLayout);
+        // With no cached/online voices, System TTS remains a usable option.
+        if (selectedValue == null) selectedValue = TTS_ENGINE_SYSTEM;
 
         LayoutInflater inflater = LayoutInflater.from(context);
         int checkmarkRes = USE_BOLD_ICONS ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
-        int speakerRes = USE_BOLD_ICONS ? DRAWABLE_SPEAKER_BOLD : DRAWABLE_SPEAKER;
-        final int rippleColor = Color.argb(60, Color.red(fg), Color.green(fg), Color.blue(fg));
 
         int maleCount = 0;
         int femaleCount = 0;
@@ -408,11 +424,7 @@ public final class GoogleVotBottomSheet {
             }
         }
 
-        pickerRoot.addView(scroll);
-        mainDialog.dismiss();
-        pickerDialog.setOnCancelListener(d -> GoogleVotBottomSheet.show(context));
-        PipDismissHelper.dismissOnPip(pickerDialog);
-        pickerDialog.show();
+
     }
 
     private static void addVoiceRow(Context context, LayoutInflater inflater, LinearLayout listLayout,
@@ -567,7 +579,6 @@ public final class GoogleVotBottomSheet {
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Settings.GOOGLE_VOT_CAPTION_LANGUAGE.save(langValues[position]);
             GoogleVoiceOverTranslationPatch.reloadTranscript();
-            GoogleVoiceOverTranslationPatch.preloadTestVoices();
             GoogleVotBottomSheet.show(context);
             pickerDialog.dismiss();
         });

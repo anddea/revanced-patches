@@ -8,13 +8,13 @@ import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType.ID
 import app.morphe.patches.shared.mapping.ResourceType.STYLE
 import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow

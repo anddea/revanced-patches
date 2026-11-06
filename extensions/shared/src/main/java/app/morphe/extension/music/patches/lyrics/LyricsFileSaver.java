@@ -23,8 +23,8 @@ import org.json.JSONObject;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Locale;
 
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 
@@ -39,6 +39,15 @@ public final class LyricsFileSaver {
 
     @Nullable
     public static String save(Context context, TrackInfo track, Lyrics lyrics) {
+        try {
+            return saveUnchecked(context, track, lyrics);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    @Nullable
+    private static String saveUnchecked(Context context, TrackInfo track, Lyrics lyrics) {
         String content = lyrics.rawFormat();
         String formatType = lyrics.formatType();
 
@@ -69,8 +78,7 @@ public final class LyricsFileSaver {
             formatType = "txt";
         }
 
-        String fileName = sanitizeFileName(track.artist() + " - " + track.title())
-                + "." + formatType;
+        String fileName = fileName(track, lyrics, formatType);
 
         // MediaStore.Downloads arrived in Android 10 and there is no legacy path here,
         // so saving is unavailable on older releases rather than failing at the field.
@@ -88,11 +96,17 @@ public final class LyricsFileSaver {
 
         values.put(MediaStore.Downloads.IS_PENDING, 1);
 
-        Uri insertUri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
+        Uri insertUri;
+        try {
+            insertUri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
+        } catch (Throwable ignored) {
+            return null;
+        }
         if (insertUri == null) {
             return null;
         }
 
+        boolean written = false;
         try (OutputStream out = resolver.openOutputStream(insertUri)) {
             if (out == null) {
                 resolver.delete(insertUri, null, null);
@@ -100,15 +114,24 @@ public final class LyricsFileSaver {
             }
             out.write(content.getBytes(StandardCharsets.UTF_8));
             out.flush();
+            written = true;
             return Environment.DIRECTORY_DOWNLOADS + "/" + directoryName + "/" + fileName;
         } catch (Exception ex) {
             Logger.printDebug(() -> "Could not save lyrics file", ex);
-            resolver.delete(insertUri, null, null);
+            try {
+                resolver.delete(insertUri, null, null);
+            } catch (Throwable ignored) {
+            }
             return null;
         } finally {
-            values.clear();
-            values.put(MediaStore.Downloads.IS_PENDING, 0);
-            resolver.update(insertUri, values, null, null);
+            if (written) {
+                try {
+                    values.clear();
+                    values.put(MediaStore.Downloads.IS_PENDING, 0);
+                    resolver.update(insertUri, values, null, null);
+                } catch (Throwable ignored) {
+                }
+            }
         }
     }
 
@@ -136,15 +159,11 @@ public final class LyricsFileSaver {
     private static String rebuildLrc(List<LyricsLine> lines) {
         StringBuilder sb = new StringBuilder(50 * lines.size());
         for (LyricsLine line : lines) {
-            final long totalMs = line.startTimeMs();
-            final long min = totalMs / 60000;
-            final long sec = (totalMs % 60000) / 1000;
-            final long ms = totalMs % 1000;
             sb.append('[')
-              .append(String.format(Locale.US, "%02d:%02d.%02d", min, sec, ms / 10))
-              .append(']')
-              .append(line.text())
-              .append('\n');
+                    .append(LrcParser.formatCentiseconds(line.startTimeMs()))
+                    .append(']')
+                    .append(line.text())
+                    .append('\n');
         }
         return sb.toString();
     }
@@ -154,9 +173,9 @@ public final class LyricsFileSaver {
         sb.append("[type:LyricifyLines]\n");
         for (LyricsLine line : lines) {
             sb.append('[').append(line.startTimeMs())
-              .append(',').append(line.endTimeMs())
-              .append(']').append(line.text())
-              .append('\n');
+                    .append(',').append(line.endTimeMs())
+                    .append(']').append(line.text())
+                    .append('\n');
         }
         return sb.toString();
     }
@@ -173,8 +192,8 @@ public final class LyricsFileSaver {
                     Word word = words.get(j);
                     long durMs = word.endMs() - word.startMs();
                     sb.append(word.text())
-                      .append('(').append(word.startMs())
-                      .append(',').append(durMs).append(')');
+                            .append('(').append(word.startMs())
+                            .append(',').append(durMs).append(')');
                 }
             } else {
                 sb.append(line.text());
@@ -199,11 +218,7 @@ public final class LyricsFileSaver {
             JSONObject obj = new JSONObject();
             try {
                 final long ms = line.startTimeMs();
-                final long min = ms / 60000;
-                final long sec = (ms % 60000) / 1000;
-                final long cs = (ms % 1000) / 10;
-                obj.put("lrcTimestamp", String.format(Locale.US,
-                        "[%02d:%02d.%02d]", min, sec, cs));
+                obj.put("lrcTimestamp", "[" + LrcParser.formatCentiseconds(ms) + "]");
                 obj.put("line", line.text());
                 obj.put("milliseconds", ms);
                 obj.put("duration", line.endTimeMs() - line.startTimeMs());
@@ -216,8 +231,16 @@ public final class LyricsFileSaver {
     }
 
     private static String sanitizeFileName(String name) {
-        // Remove characters illegal in file names on most filesystems.
         return name.replaceAll("[\\\\/:*?\"<>|]", "_").replaceAll("\\s+", " ").trim();
+    }
+
+    private static String fileName(TrackInfo track, Lyrics lyrics, String formatType) {
+        String name = sanitizeFileName(track.artist() + " - " + track.title());
+        String provider = sanitizeFileName(lyrics.providerName());
+        if (!provider.isEmpty()) {
+            name += " [" + provider + "]";
+        }
+        return name + "." + formatType;
     }
 
     private static String getMimeType(String formatType) {
