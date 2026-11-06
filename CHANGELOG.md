@@ -1,3 +1,10 @@
+# [4.4.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.5...v4.4.0-dev.6) (2026-11-06)
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Enable glass navigation bar` setting ([6189145](https://github.com/anddea/revanced-patches/commit/618914539aecc6276fbe79d370315fee5a88bf18))
+
 # [4.4.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.4...v4.4.0-dev.5) (2026-11-03)
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-dev.5",
+  "version": "4.4.0-dev.6",
   "patches": [
     {
       "name": "Ambient mode control",
@@ -128,7 +128,7 @@
     },
     {
       "name": "Captions",
-      "description": "Adds options to disable captions from being automatically enabled, select a preferred and a secondary caption language, add more auto-translate languages, and show captions in stable blocks.",
+      "description": "Adds options to disable captions from being automatically enabled, select a preferred and a secondary caption language, add more auto-translate languages, and show captions in stable blocks. Stable blocks and bilingual captions work with YouTube 21.15 and newer, on Android 10 and newer.",
       "use": true,
       "dependencies": [
         "ResourcePatch",
@@ -892,6 +892,8 @@
       "dependencies": [
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -1534,6 +1536,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
@@ -3466,6 +3469,27 @@
           "8.30.54",
           "8.28.54",
           "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Watch later improvements",
+      "description": "Adds options to widen the drag handles of the Watch later videos and to hide the snackbar shown after removing a video.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
         ]
       },
       "options": []
