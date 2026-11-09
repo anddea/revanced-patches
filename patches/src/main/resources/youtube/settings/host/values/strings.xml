@@ -1025,6 +1025,10 @@ Limitations:
     <string name="revanced_gemini_error_transcription_parse">Failed to parse transcription data</string>
     <string name="revanced_gemini_error_translation_failed">Gemini translation failed</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini translation parsing failed</string>
+    <string name="revanced_gemini_models_title">Model cascade</string>
+    <string name="revanced_gemini_models_summary">Enter one model ID per line, in fallback order. All API keys are tried for each model before moving to the next. Leave empty to use the default cascade, or use Reset to restore it.</string>
+    <string name="revanced_gemini_google_search_title">Ground with Google Search</string>
+    <string name="revanced_gemini_google_search_summary">Let Gemini search the web for summaries and chat answers, with source links. Gemini 3 Search Grounding requires paid Gemini API access with available quota. Google AI subscription plans do not include paid API access, API billing is separate. Additional API charges may apply.</string>
     <string name="revanced_gemini_highlight_words_summary">Highlight each spoken word in video subtitles</string>
     <string name="revanced_gemini_highlight_words_title">Highlight spoken words</string>
     <string name="revanced_gemini_loading_default">Loading...</string>

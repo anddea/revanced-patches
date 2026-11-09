@@ -35,7 +35,8 @@ import java.util.Locale;
 import app.morphe.extension.shared.utils.Logger;
 
 /**
- * Keeps ordinary messages native and lazily renders math messages using bundled MathJax SVG.
+ * Keeps ordinary messages native and lazily renders math and grounded Search suggestions.
+ * Math uses bundled MathJax SVG; Search HTML comes from API grounding metadata.
  * JavaScript and font paths are assets, so the patcher never merges the renderer into DEX.
  * The native text remains visible until typesetting succeeds, including on unsupported WebViews.
  */
@@ -77,7 +78,7 @@ final class GeminiMathView extends FrameLayout {
 
     private static boolean hasMath(Spanned text) {
         for (Annotation annotation : text.getSpans(0, text.length(), Annotation.class)) {
-            if (isMath(annotation)) return true;
+            if (isMath(annotation) || annotation.getKey().equals(GeminiGrounding.ANNOTATION)) return true;
         }
         return false;
     }
@@ -139,6 +140,10 @@ final class GeminiMathView extends FrameLayout {
                             if (index >= 0 && index < links.size()) links.get(index).onClick(textView);
                         } catch (NumberFormatException ignored) {
                         }
+                        return true;
+                    }
+                    if (uri.getScheme() != null && (uri.getScheme().equals("https") || uri.getScheme().equals("http"))) {
+                        new URLSpan(uri.toString()).onClick(textView);
                     }
                     return true;
                 }
@@ -196,6 +201,9 @@ final class GeminiMathView extends FrameLayout {
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
             String html = Html.toHtml(htmlText, Html.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
+            for (Annotation annotation : pendingText.getSpans(0, pendingText.length(), Annotation.class)) {
+                if (annotation.getKey().equals(GeminiGrounding.ANNOTATION)) html += annotation.getValue();
+            }
             for (int i = 0; i < tokens.size(); i++) {
                 html = html.replace(tokens.get(i), "<span data-math=\"" + i + "\"></span>");
             }

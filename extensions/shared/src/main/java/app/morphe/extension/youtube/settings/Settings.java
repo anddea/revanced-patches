@@ -773,11 +773,40 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting GEMINI_SETTINGS_SEARCH = new BooleanSetting("revanced_settings_search_gemini", TRUE);
     public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI, GEMINI_SETTINGS_SEARCH));
+    /**
+     * Gemini 3.7 redirects to 3.8, so omit it to avoid retrying the same backend as a fallback.
+     *
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">gemini-3.8-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash">gemini-3.7-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash">gemini-3.6-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash">gemini-3.5-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite">gemini-3.5-flash-lite</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite">gemini-3.1-flash-lite</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview">gemini-3-flash-preview</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview">gemini-3.1-pro-preview</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash">gemini-2.5-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite">gemini-2.5-flash-lite</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro">gemini-2.5-pro</a>
+     */
+    public static final StringSetting GEMINI_MODELS = new StringSetting("revanced_gemini_models", String.join("\n",
+            "gemini-3.8-flash",
+            "gemini-3.6-flash",
+            "gemini-3.5-flash",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3-flash-preview",
+            "gemini-3.1-pro-preview",
+            "gemini-2.5-flash",
+            "gemini-2.5-flash-lite",
+            "gemini-2.5-pro"
+    ), parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI, GEMINI_SETTINGS_SEARCH));
     public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 16,
             true, new SliderConfig(8, 48, 1, "sp"), parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
     public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
     public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true,
+            parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
+    public static final BooleanSetting GEMINI_GOOGLE_SEARCH = new BooleanSetting("revanced_gemini_google_search", FALSE,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
     public static final BooleanSetting GEMINI_HIGHLIGHT_WORDS = new BooleanSetting("revanced_gemini_highlight_words", TRUE,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));

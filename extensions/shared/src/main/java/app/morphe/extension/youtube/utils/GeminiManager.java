@@ -1737,7 +1737,7 @@ public final class GeminiManager {
                 normalizedSummary,
                 cachedConversation,
                 text -> formatGeminiText(text, videoUrl),
-                text -> setClipboard(context, normalizeGeminiText(text), str("revanced_gemini_copy_success")),
+                text -> setClipboard(context, normalizeGeminiText(GeminiGrounding.strip(text)), str("revanced_gemini_copy_success")),
                 history -> summaryConversationCache.put(videoId, new ArrayList<>(history)),
                 () -> ensureMainThread(() -> {
                     cancelActiveSummaryChatTaskInternal();
@@ -1754,10 +1754,19 @@ public final class GeminiManager {
 
     @NonNull
     private CharSequence formatGeminiText(@NonNull String text, @NonNull String videoUrl) {
-        String normalizedText = normalizeGeminiText(text);
+        JSONObject grounding = GeminiGrounding.metadata(text);
+        String normalizedText = normalizeGeminiText(GeminiGrounding.cite(GeminiGrounding.strip(text), grounding));
         String displayText = wrapTimestampReferencesForPillStyle(normalizedText);
         Spanned formattedText = MarkdownUtils.fromMarkdown(displayText);
-        return createClickableTimestampText(formattedText, videoUrl);
+        SpannableStringBuilder result = createClickableTimestampText(formattedText, videoUrl);
+        String searchHtml = GeminiGrounding.html(grounding);
+        if (!searchHtml.isEmpty()) {
+            int start = result.length();
+            result.append("\n ");
+            result.setSpan(new android.text.Annotation(GeminiGrounding.ANNOTATION, searchHtml),
+                    start, result.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        return result;
     }
 
     @NonNull
