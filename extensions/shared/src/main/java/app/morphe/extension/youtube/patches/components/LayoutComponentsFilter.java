@@ -20,6 +20,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.patches.utils.ProtoNode;
 import android.net.Uri;
 import android.view.View;
+import android.view.ViewGroup;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Utils;
@@ -82,6 +83,26 @@ public final class LayoutComponentsFilter extends Filter {
                     && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
         }
         return contentType != FilterContentType.PATH || (contentIndex == 0 && path.contains(HANDLE_PATH));
+    }
+
+    /**
+     * Injection point.
+     *
+     * @return If every element in a box of the fullscreen engagement panel was filtered,
+     *         so the empty box with its rounded border is collapsed, such as with "Hide channel bar".
+     */
+    public static boolean isEngagementPanelBoxEmpty(ViewGroup box) {
+        final int count = box.getChildCount();
+        if (count == 0) {
+            return false;
+        }
+        for (int i = 0; i < count; i++) {
+            View child = box.getChildAt(i);
+            if (child.getVisibility() != View.GONE && child.getMeasuredHeight() > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

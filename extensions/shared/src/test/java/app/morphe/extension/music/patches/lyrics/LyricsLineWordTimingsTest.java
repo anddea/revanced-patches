@@ -17,10 +17,10 @@ import java.util.List;
 
 public class LyricsLineWordTimingsTest {
 
-    @Test public void singleWordWithRealDurationHasWordTimings() {
+    @Test public void singleFullLineSpanIsNotWordTimed() {
         final LyricsLine line = new LyricsLine(1000, 2000, "Yeah",
                 List.of(new Word(1000, 2000, "Yeah")));
-        assertTrue(line.hasWordTimings());
+        assertFalse(line.hasWordTimings());
     }
 
     @Test public void singleWordWithoutDurationDoesNot() {
@@ -58,13 +58,12 @@ public class LyricsLineWordTimingsTest {
     }
 
     /**
-     * Documents the known edge case: a script without spaces counts as one word, so a single
-     * full-line placeholder span is treated as word timing.
+     * A single full-line placeholder is line timing even when the script has no spaces.
      */
-    @Test public void cjkLineWithOnePlaceholderSpanIsTreatedAsWordTimed() {
+    @Test public void cjkLineWithOnePlaceholderSpanIsNotWordTimed() {
         final LyricsLine line = new LyricsLine(0, 1000, "你好世界",
                 List.of(new Word(0, 1000, "你好世界")));
-        assertTrue(line.hasWordTimings());
+        assertFalse(line.hasWordTimings());
     }
 
     @Test public void wordPreservesRubyAndRomajiTogether() {

@@ -60,8 +60,6 @@ public final class LyricsOrderedListPreference extends Preference {
             "morphe_music_lyrics_translation_provider";
     private static final String KEY_ROMANIZATION_PROVIDER =
             "morphe_music_lyrics_romanization_provider";
-    private static final String KEY_RUBY_PROVIDER =
-            "morphe_music_lyrics_ruby_provider";
 
     /** The fixed last row of the service list; it is not a lookup source and holds no order. */
     private static final String QUICKLRC = "QuickLRC";
@@ -119,7 +117,7 @@ public final class LyricsOrderedListPreference extends Preference {
     }
 
     private enum Kind {
-        SOURCE, TRANSLATION, ROMANIZATION, RUBY
+        SOURCE, TRANSLATION, ROMANIZATION
     }
 
     private static final class Item {
@@ -154,9 +152,6 @@ public final class LyricsOrderedListPreference extends Preference {
         if (KEY_ROMANIZATION_PROVIDER.equals(key)) {
             return Kind.ROMANIZATION;
         }
-        if (KEY_RUBY_PROVIDER.equals(key)) {
-            return Kind.RUBY;
-        }
         return Kind.SOURCE;
     }
 
@@ -165,7 +160,6 @@ public final class LyricsOrderedListPreference extends Preference {
             case SOURCE -> SOURCE_PROVIDER_ORDER;
             case TRANSLATION -> AiProviders.TRANSLATION_ORDER;
             case ROMANIZATION -> AiProviders.ROMANIZATION_ORDER;
-            case RUBY -> AiProviders.RUBY_ORDER;
         };
     }
 
@@ -174,7 +168,6 @@ public final class LyricsOrderedListPreference extends Preference {
             case SOURCE -> Settings.LYRICS_SOURCE;
             case TRANSLATION -> Settings.LYRICS_TRANSLATION_PROVIDERS;
             case ROMANIZATION -> Settings.LYRICS_ROMANIZATION_PROVIDERS;
-            case RUBY -> Settings.LYRICS_RUBY_PROVIDERS;
         };
     }
 
@@ -193,12 +186,6 @@ public final class LyricsOrderedListPreference extends Preference {
                 case AiProviders.GOOGLE -> AiProviders.GOOGLE_LABEL;
                 case AiProviders.OPENAI_COMPATIBLE -> AiProviders.OPENAI_COMPATIBLE_LABEL;
                 default -> str("morphe_music_lyrics_romanization_provider_" + id);
-            };
-            case RUBY -> switch (id) {
-                case AiProviders.EMBEDDED -> AiProviders.EMBEDDED_LABEL;
-                case AiProviders.LOCAL -> str("morphe_music_lyrics_romanization_provider_local");
-                case AiProviders.OPENAI_COMPATIBLE -> AiProviders.OPENAI_COMPATIBLE_LABEL;
-                default -> id;
             };
         };
         // The star tells the reader that the name opens a dialog, the same as the source list.
@@ -249,7 +236,10 @@ public final class LyricsOrderedListPreference extends Preference {
                 || activity.isFinishing() || activity.isDestroyed()) {
             return;
         }
-        LyricsProviderConfigDialog.show(activity, id, promptSettingFor(kind()), this::updateSummary);
+        final StringSetting rubyPrompt = kind() == Kind.ROMANIZATION
+                ? Settings.LYRICS_AI_RUBY_PROMPT : null;
+        LyricsProviderConfigDialog.show(activity, id, promptSettingFor(kind()), rubyPrompt,
+                this::updateSummary);
     }
 
     /** The prompt an AI service is sent; DeepL translates without one. */
@@ -258,7 +248,6 @@ public final class LyricsOrderedListPreference extends Preference {
         return switch (kind) {
             case TRANSLATION -> Settings.LYRICS_AI_TRANSLATION_PROMPT;
             case ROMANIZATION -> Settings.LYRICS_AI_ROMANIZATION_PROMPT;
-            case RUBY -> Settings.LYRICS_AI_RUBY_PROMPT;
             case SOURCE -> null;
         };
     }
@@ -653,7 +642,11 @@ public final class LyricsOrderedListPreference extends Preference {
 
         LinearLayout root = new LinearLayout(context);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(Dim.dp20, 0, Dim.dp20, 0);
+        root.setClipToPadding(false);
+        // Use the same themed insets as the native preferences around this custom row.
+        // A fixed 20dp disagrees with YouTube Music's start/end preference padding.
+        View nativeRow = super.getView(null, parent);
+        root.setPaddingRelative(nativeRow.getPaddingStart(), 0, nativeRow.getPaddingEnd(), 0);
         root.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         root.setOnClickListener(v -> {
@@ -688,7 +681,9 @@ public final class LyricsOrderedListPreference extends Preference {
 
         rowsContainer = new LinearLayout(context);
         rowsContainer.setOrientation(LinearLayout.VERTICAL);
-        root.addView(rowsContainer);
+        LinearLayout.LayoutParams rowsParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        root.addView(rowsContainer, rowsParams);
 
         rebuildRows();
 

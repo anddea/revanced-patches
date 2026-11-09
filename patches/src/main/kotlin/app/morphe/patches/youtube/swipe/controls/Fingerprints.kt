@@ -1,5 +1,14 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.swipe.controls
 
+import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.string
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.OpcodesFilter
@@ -8,25 +17,21 @@ import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val hdrBrightnessFingerprint = legacyFingerprint(
-    name = "hdrBrightnessFingerprint",
+internal object hdrBrightnessFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("mediaViewambientBrightnessSensor")
+    strings = listOf(string("mediaViewambientBrightnessSensor", StringComparisonType.CONTAINS))
 )
 
-internal val swipeControlsHostActivityFingerprint = legacyFingerprint(
-    name = "swipeControlsHostActivityFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+internal object swipeControlsHostActivityFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     parameters = emptyList(),
-    customFingerprint = { _, classDef ->
+    custom = { _, classDef ->
         classDef.type == "$EXTENSION_PATH/swipecontrols/SwipeControlsHostActivity;"
     }
 )
@@ -36,10 +41,9 @@ internal const val SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG = 45631116L
 /**
  * This fingerprint is compatible with YouTube v19.19.39+
  */
-internal val swipeToSwitchVideoFingerprint = legacyFingerprint(
-    name = "swipeToSwitchVideoFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG),
+internal object swipeToSwitchVideoFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    custom = { method, _ -> method.containsLiteralInstruction(SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG) },
 )
 
 internal const val WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG = 45372793L
@@ -47,15 +51,13 @@ internal const val WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG = 45372793L
 /**
  * This fingerprint is compatible with YouTube v18.29.38 ~ v19.34.42
  */
-internal val watchPanelGesturesFingerprint = legacyFingerprint(
-    name = "watchPanelGesturesFingerprint",
+internal object watchPanelGesturesFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG),
+    custom = { method, _ -> method.containsLiteralInstruction(WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG) },
 )
 
-internal val watchPanelGesturesAlternativeFingerprint = legacyFingerprint(
-    name = "watchPanelGesturesAlternativeFingerprint",
-    literals = listOf(autoNavScrollCancelPadding),
+internal object watchPanelGesturesAlternativeFingerprint : Fingerprint(
+    custom = { method, _ -> method.containsLiteralInstruction(autoNavScrollCancelPadding) },
 )
 
 internal const val WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG = 45619395L
@@ -64,12 +66,11 @@ internal const val WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG = 45619395L
  * Watch panel gestures in channel bar
  * This fingerprint is compatible with YouTube v19.15.36 ~
  */
-internal val watchPanelGesturesChannelBarFingerprint = legacyFingerprint(
-    name = "watchPanelGesturesChannelBarFingerprint",
+internal object watchPanelGesturesChannelBarFingerprint : Fingerprint(
     returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/MotionEvent;"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "onInterceptTouchEvent" &&
                 method.containsLiteralInstruction(WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG)
     }
@@ -106,12 +107,11 @@ internal object PlayerDragGestureInitFingerprint : Fingerprint(
     )
 )
 
-internal val playerGestureConfigSyntheticFingerprint = legacyFingerprint(
-    name = "playerGestureConfigSyntheticFingerprint",
+internal object playerGestureConfigSyntheticFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Ljava/lang/Object;"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -131,7 +131,7 @@ internal val playerGestureConfigSyntheticFingerprint = legacyFingerprint(
         Opcode.IPUT_BOOLEAN,
         Opcode.RETURN_VOID,
     ),
-    customFingerprint = { method, classDef ->
+    custom = { method, classDef ->
         // This method is always called "a" because this kind of class always has a single method.
         method.name == "a" &&
                 classDef.methods.count() == 2 &&
@@ -167,4 +167,13 @@ internal object VideoZoomScaleBeginFingerprint : Fingerprint(
                 classDef.fields.any { it.type == "Landroid/view/ScaleGestureDetector;" } &&
                 classDef.fields.any { it.type == "Landroid/view/GestureDetector;" }
     }
+)
+
+/**
+ * Touch events of the player, in the class of [VideoZoomScaleBeginFingerprint].
+ */
+internal object VideoZoomTouchFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf("Landroid/view/View;", "Landroid/view/MotionEvent;")
 )

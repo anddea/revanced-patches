@@ -406,9 +406,9 @@ public final class NavigationButtonsPatch {
 
     /**
      * The bar shown below the navigation bar when the connection is lost or comes back
-     * ("No connection", "Back online").
+     * ("No connection", "Back online"), and in incognito mode.
      */
-    private static final int SLIM_STATUS_BAR = ResourceUtils.getIdentifier(
+    static final int SLIM_STATUS_BAR = ResourceUtils.getIdentifier(
             ResourceType.ID, "slim_status_bar");
 
     static final int PIVOT_BAR = ResourceUtils.getIdentifier(
@@ -487,12 +487,18 @@ public final class NavigationButtonsPatch {
                 try {
                     View slimStatusBar = view.findViewById(SLIM_STATUS_BAR);
                     final boolean shown = slimStatusBar != null && slimStatusBar.getVisibility() == View.VISIBLE;
+
+                    // The capsule of the glass navigation bar follows the slim status bar, see GlassDrawable.draw(),
+                    // which moves without changing the navigation bar.
+                    View navigationBar = view.findViewById(PIVOT_BAR);
+                    if (GlassNavigationBar.isEnabled() && navigationBar != null) {
+                        navigationBar.invalidate();
+                    }
+
                     if (shown == slimStatusBarShown) return;
                     slimStatusBarShown = shown;
 
-                    if (navigationBarCoversSystemButtons
-                            && view.findViewById(PIVOT_BAR) instanceof PivotBarAccess access) {
-                        View navigationBar = (View) access;
+                    if (navigationBarCoversSystemButtons && navigationBar instanceof PivotBarAccess access) {
                         final int room = systemButtonsRoom;
                         view.post(() -> {
                             final int navigationBarRoom = GlassNavigationBar.getFloatingRoom(
@@ -748,11 +754,15 @@ public final class NavigationButtonsPatch {
      * the player moves, such as when it is slowly dragged down to the miniplayer
      * (<a href="https://github.com/MorpheApp/morphe-patches/pull/3684#issuecomment-6322984709">...</a>).
      * With {@link NavigationBarStyle#TRANSPARENT} and {@link NavigationBarStyle#OPAQUE} the copy
-     * is not drawn, so the bar keeps its translucent color, without the blur.
+     * is not drawn either, so the bar keeps its translucent color, without the blur.
      *
      * @param hardwareAccelerated If the canvas is hardware accelerated, which the blur is drawn for.
      */
     public static boolean useNavigationBarBlur(boolean hardwareAccelerated) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            return false;
+        }
+
         return hardwareAccelerated && !(translucentNavigationBarBackgroundForced
                 && (NAVIGATION_BAR_STYLE == NavigationBarStyle.TRANSPARENT
                 || NAVIGATION_BAR_STYLE == NavigationBarStyle.OPAQUE));

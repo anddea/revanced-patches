@@ -13,6 +13,10 @@
 
 package app.morphe.patches.youtube.video.playback
 
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.getResourceId
+import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
+import app.morphe.util.indexOfFirstLiteralInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -197,6 +201,42 @@ val videoPlaybackPatch = bytecodePatch(
                     "invoke-static {v$speedSelectionValueRegister}, " +
                             "$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->userSelectedPlaybackSpeed(F)V"
                 )
+            }
+        }
+
+        // The faster speed of a held Short is not replaced with the Shorts speed.
+        // A held Short plays at the tap and hold speed, the same as the regular player, instead of 2.0x.
+        if (is_21_11_or_greater) {
+            SpeedmasterStartFingerprint.let {
+                it.method.apply {
+                    // The text above the player shows the speed.
+                    val textIndex = indexOfFirstLiteralInstruction(
+                        getResourceId(ResourceType.STRING, "reel_speedmaster_indicator_text")
+                    )
+                    if (textIndex >= 0) {
+                        val textResultIndex = indexOfFirstInstructionOrThrow(textIndex, Opcode.MOVE_RESULT_OBJECT)
+                        val textRegister = getInstruction<OneRegisterInstruction>(textResultIndex).registerA
+
+                        addInstructions(
+                            textResultIndex + 1,
+                            """
+                                invoke-static { v$textRegister }, Lapp/morphe/extension/youtube/patches/player/PlayerPatch;->getShortsTapAndHoldText(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v$textRegister
+                            """
+                        )
+                    }
+
+                    val speedIndex = it.instructionMatches[1].index
+                    val speedRegister = getInstruction<OneRegisterInstruction>(speedIndex).registerA
+
+                    addInstructions(
+                        speedIndex + 1,
+                        """
+                            invoke-static { v$speedRegister }, Lapp/morphe/extension/youtube/patches/player/PlayerPatch;->speedOverlayValue(F)F
+                            move-result v$speedRegister
+                        """
+                    )
+                }
             }
         }
 

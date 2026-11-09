@@ -90,7 +90,7 @@ public final class OpenAIClient {
      * kanji word in brackets right after it, which {@code LyricsRubyGenerator} then reads.
      */
     public static final String RUBY_PROMPT = """
-            You are a Japanese reading engine. Add the hiragana reading of every word written with kanji to each lyric line below.
+            You are a professional reading engine. Add the {language} reading of every word written with kanji to each lyric line below.
             Song: {title} by {artist}
 
             Write the reading in square brackets right after the word, including its okurigana, like:

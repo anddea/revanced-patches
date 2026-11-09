@@ -26,26 +26,31 @@ import java.util.Map;
  *                      translation. {@code null} when the source ships none.
  * @param romanization  Legacy single-language romanization, kept for backward compatibility.
  * @param romanizations Multi-language romanizations keyed by BCP-47 language tag.
- * @param songwriters   Songwriter/credits names extracted from TTML metadata.
+ * @param songwriters   Songwriter names extracted from TTML metadata or provider API.
+ * @param credits       Credit lines extracted from the lyrics body, such as the lyricist and the
+ *                      composer, and non-standard metadata fields without a TTML equivalent.
  * @param rawFormat     Decrypted raw lyrics text in the provider's original format (e.g. LRC, QRC, TTML).
  * @param formatType    File extension for the raw format (e.g. {@code "lrc"}, {@code "qrc"}, {@code "ttml"}).
  * @param sourceUrl     Optional URL to the song page on the provider's platform, opened when the
  *                      source label is clicked.
  * @param about         Song description, shown under the credits on the info line.
+ * @param agentNames    Agent ID to display name map, parsed from TTML head {@code <ttm:agent>}.
  */
 public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
                      @Nullable List<LyricsLine> romanization,
                      @Nullable Map<String, List<LyricsLine>> translations,
                      @Nullable Map<String, List<LyricsLine>> romanizations,
                      @Nullable List<String> songwriters,
+                     @Nullable List<String> credits,
                      @Nullable String rawFormat,
                      @Nullable String formatType,
                      @Nullable String sourceUrl,
-                     @Nullable String about) {
+                     @Nullable String about,
+                     @Nullable Map<String, String> agentNames) {
 
     /** Marker for a track that was looked up successfully but has no lyrics anywhere. */
     public static final Lyrics NOT_FOUND = new Lyrics(Collections.emptyList(), "", false,
-            null, null, null, null, null, null, null);
+            null, null, null, null, null, null, null, null, null);
     public static final String CAPTIONS_PROVIDER = "Captions";
 
     /** Every provider but Genius ships no description, so most call sites keep the shorter form. */
@@ -58,7 +63,22 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
                   @Nullable String formatType,
                   @Nullable String sourceUrl) {
         this(lines, providerName, synced, romanization, translations, romanizations,
-                songwriters, rawFormat, formatType, sourceUrl, null);
+                songwriters, null, rawFormat, formatType, sourceUrl, null, null);
+    }
+
+    /** Convenience for callers that supply about/agentNames but no credits. */
+    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
+                  @Nullable List<LyricsLine> romanization,
+                  @Nullable Map<String, List<LyricsLine>> translations,
+                  @Nullable Map<String, List<LyricsLine>> romanizations,
+                  @Nullable List<String> songwriters,
+                  @Nullable String rawFormat,
+                  @Nullable String formatType,
+                  @Nullable String sourceUrl,
+                  @Nullable String about,
+                  @Nullable Map<String, String> agentNames) {
+        this(lines, providerName, synced, romanization, translations, romanizations,
+                songwriters, null, rawFormat, formatType, sourceUrl, about, agentNames);
     }
 
     public Lyrics {
@@ -66,12 +86,7 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
         romanization = (romanization == null) ? null : Collections.unmodifiableList(romanization);
         translations = (translations == null) ? null : unmodifiableTranslations(translations);
         romanizations = (romanizations == null) ? null : unmodifiableTranslations(romanizations);
-    }
-
-    public Lyrics withLines(List<LyricsLine> newLines) {
-        return new Lyrics(newLines, providerName(), synced(), romanization(),
-                translations(), romanizations(), songwriters(), rawFormat(), formatType(),
-                sourceUrl(), about());
+        credits = (credits == null) ? null : Collections.unmodifiableList(credits);
     }
 
     public static List<ScoredLyrics> sortScoredByScore(List<ScoredLyrics> scored) {
@@ -112,11 +127,15 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
                 Word w = words.get(j);
                 // A negative time is not a small time, it is the absence of one.
                 final boolean untimed = w.startMs() < 0 || w.endMs() < 0;
+                // Only a missing start or one well before the line is replaced; any other
+                // repair keeps the word where it starts and only fixes its end.
+                final boolean badStart = w.startMs() < 0
+                        || (w.startMs() > 0 && lineStart > 0 && w.startMs() < lineStart - 500);
                 final boolean anomalous = untimed
+                        || badStart
                         || (w.startMs() == 0 && lineStart > 0)
                         || (w.endMs() == 0 && w.startMs() > 0)
-                        || (w.startMs() > 0 && w.startMs() == w.endMs())
-                        || (w.startMs() > 0 && w.startMs() < lineStart - 500);
+                        || (w.startMs() > 0 && w.startMs() == w.endMs());
 
                 if (!anomalous) {
                     prevEnd = Math.max(w.endMs(), w.startMs());
@@ -126,7 +145,7 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
 
                 // Repairing off a line that is not timed either would build the timings out of
                 // numbers that were never times, so the words go and the line is sung in one go.
-                if (untimed && lineStart <= 0) {
+                if (untimed && lineStart < 0) {
                     unsalvageable = true;
                     break;
                 }
@@ -145,10 +164,12 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
                             ? lineEnd : prevEnd + 800;
                 }
 
-                long newStart = Math.max(prevEnd, lineStart > 0 ? lineStart : 0);
+                final long newStart = badStart
+                        ? Math.max(prevEnd, lineStart > 0 ? lineStart : 0)
+                        : Math.max(prevEnd, w.startMs());
                 long newEnd = nextStart;
                 if (newEnd <= newStart) {
-                    newEnd = newStart + 50;
+                    newEnd = newStart + (w.endMs() > w.startMs() ? (w.endMs() - w.startMs()) : 50);
                 }
                 if (newEnd - newStart < 50) {
                     newEnd = newStart + 50;
@@ -183,7 +204,13 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
             List<Word> words = line.words();
             final int lastIdx = words.size() - 1;
             Word lastWord = words.get(lastIdx);
+            // A line end at or before the last word's start is not an end for that word.
+            final boolean lineEndUsable = line.endTimeMs() != LyricsLine.NO_TIME
+                    && line.endTimeMs() > lastWord.startMs();
             long effectiveEnd = lastWord.endMs();
+            if (effectiveEnd == LyricsLine.NO_TIME || effectiveEnd <= lastWord.startMs()) {
+                effectiveEnd = lineEndUsable ? line.endTimeMs() : lastWord.startMs() + 800L;
+            }
             long nextStart = LyricsLine.NO_TIME;
             for (int j = i + 1; j < size; j++) {
                 final LyricsLine candidate = out.get(j);
@@ -197,10 +224,17 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
                 effectiveEnd = Math.min(effectiveEnd, nextStart);
             }
             // Also respect the line's own endTimeMs if set.
-            if (line.endTimeMs() != LyricsLine.NO_TIME) {
+            if (lineEndUsable) {
                 effectiveEnd = Math.min(effectiveEnd, line.endTimeMs());
             }
-            effectiveEnd = Math.max(effectiveEnd, lastWord.startMs() + 200);
+            // The floor keeps the last word on screen, but it must not reach into the next
+            // line: ranges crossing a line boundary chain the karaoke highlight over several
+            // lines at once.
+            long floor = lastWord.startMs() + 200;
+            if (nextStart != LyricsLine.NO_TIME && nextStart > lastWord.startMs()) {
+                floor = Math.min(floor, nextStart);
+            }
+            effectiveEnd = Math.max(effectiveEnd, floor);
             if (effectiveEnd != lastWord.endMs()) {
                 List<Word> newWords = new ArrayList<>(words);
                 newWords.set(lastIdx, new Word(lastWord.startMs(), effectiveEnd,
@@ -211,6 +245,12 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
             }
         }
         return Collections.unmodifiableList(out);
+    }
+
+    public Lyrics withLines(List<LyricsLine> newLines) {
+        return new Lyrics(newLines, providerName(), synced(), romanization(),
+                translations(), romanizations(), songwriters(), credits(), rawFormat(),
+                formatType(), sourceUrl(), about(), agentNames());
     }
 
     public boolean isEmpty() {

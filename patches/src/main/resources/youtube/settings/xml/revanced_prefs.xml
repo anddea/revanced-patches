@@ -474,9 +474,12 @@
         <SwitchPreference android:title="@string/morphe_feed_long_press_menu_title" android:key="morphe_feed_long_press_menu" android:summary="@string/morphe_feed_long_press_menu_summary" />
         <SwitchPreference android:title="@string/morphe_feed_watch_later_button_title" android:key="morphe_feed_watch_later_button" android:summary="@string/morphe_feed_watch_later_button_summary" />SETTINGS: FEED_VIDEO_ACTIONS -->
 
-        <!-- SETTINGS: WATCH_LATER_IMPROVEMENTS
-        <SwitchPreference android:key="morphe_watch_later_wide_drag_handles" android:title="@string/morphe_watch_later_wide_drag_handles_title" android:summary="@string/morphe_watch_later_wide_drag_handles_summary" />
-        <SwitchPreference android:key="morphe_watch_later_hide_removal_snackbar" android:title="@string/morphe_watch_later_hide_removal_snackbar_title" android:summary="@string/morphe_watch_later_hide_removal_snackbar_summary" />SETTINGS: WATCH_LATER_IMPROVEMENTS -->
+        <!-- SETTINGS: PLAYLIST_IMPROVEMENTS
+        <SwitchPreference android:key="morphe_playlist_wide_drag_handles" android:title="@string/morphe_playlist_wide_drag_handles_title" android:summary="@string/morphe_playlist_wide_drag_handles_summary" />
+        <SwitchPreference android:key="morphe_playlist_hide_removal_snackbar" android:title="@string/morphe_playlist_hide_removal_snackbar_title" android:summary="@string/morphe_playlist_hide_removal_snackbar_summary" />SETTINGS: PLAYLIST_IMPROVEMENTS -->
+
+        <!-- SETTINGS: PLAYLIST_LONG_PRESS_DRAG
+        <SwitchPreference android:key="morphe_playlist_long_press_drag" android:title="@string/morphe_playlist_long_press_drag_title" android:summary="@string/morphe_playlist_long_press_drag_summary" />SETTINGS: PLAYLIST_LONG_PRESS_DRAG -->
 
     <!-- PREFERENCE_SCREEN: FEED
     </PreferenceScreen>PREFERENCE_SCREEN: FEED -->
@@ -580,6 +583,8 @@
         <PreferenceScreen android:title="@string/revanced_preference_screen_ambient_mode_title" android:key="revanced_preference_screen_ambient_mode" android:summary="@string/revanced_preference_screen_ambient_mode_summary">
             <SwitchPreference android:title="@string/morphe_enhanced_ambient_mode_title" android:key="morphe_enhanced_ambient_mode" android:summary="@string/morphe_enhanced_ambient_mode_summary" />
             <SwitchPreference android:title="@string/morphe_enhanced_ambient_mode_readable_text_title" android:key="morphe_enhanced_ambient_mode_readable_text" android:summary="@string/morphe_enhanced_ambient_mode_readable_text_summary" />
+            <SwitchPreference android:title="@string/morphe_enhanced_ambient_mode_dim_while_scrolling_title" android:key="morphe_enhanced_ambient_mode_dim_while_scrolling" android:summary="@string/morphe_enhanced_ambient_mode_dim_while_scrolling_summary" />
+            <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_enhanced_ambient_mode_dim_duration" android:title="@string/morphe_enhanced_ambient_mode_dim_duration_title" android:summary="@string/morphe_enhanced_ambient_mode_dim_duration_summary" />
             <SwitchPreference android:title="@string/revanced_bypass_ambient_mode_restrictions_title" android:key="revanced_bypass_ambient_mode_restrictions" android:summaryOn="@string/revanced_bypass_ambient_mode_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_ambient_mode_restrictions_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_ambient_mode_title" android:key="revanced_disable_ambient_mode" android:summaryOn="@string/revanced_disable_ambient_mode_summary_on" android:summaryOff="@string/revanced_disable_ambient_mode_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_ambient_mode_in_fullscreen_title" android:key="revanced_disable_ambient_mode_in_fullscreen" android:summaryOn="@string/revanced_disable_ambient_mode_in_fullscreen_summary_on" android:summaryOff="@string/revanced_disable_ambient_mode_in_fullscreen_summary_off" />

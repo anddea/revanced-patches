@@ -31,6 +31,7 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_22_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_30_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -116,6 +117,17 @@ val changeFormFactorPatch = bytecodePatch(
                         """
                 )
             }
+        }
+
+        // Responsive container size classes were introduced in 21.30.
+        if (is_21_30_or_greater) {
+            getResponsiveContainerPropertiesFingerprint().method.addInstructions(
+                0,
+                """
+                    invoke-static/range { p1 .. p1 }, $EXTENSION_CLASS_DESCRIPTOR->getResponsiveContainerWidth(I)I
+                    move-result p1
+                """
+            )
         }
 
         // region add settings

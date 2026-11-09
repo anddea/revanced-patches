@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.GZIPInputStream;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 /**
  * The CLDR {@code -Latin} transliteration rules, fetched as one archive. Only literal rules are
@@ -47,7 +48,6 @@ public final class CldrTransformsStore {
     private static final String URL =
             "https://registry.npmjs.org/cldr-transforms/-/cldr-transforms-" + VERSION + ".tgz";
     private static final String ARCHIVE = "cldr-transforms-" + VERSION + ".tgz";
-    private static final String NOTICE_NAME = "cldr_transforms.NOTICE.txt";
 
     /**
      * The CLDR transform per table, named without its extension. The Slavic BGN tables stand
@@ -117,30 +117,17 @@ public final class CldrTransformsStore {
     }
 
     /**
-     * Removes the tables and the licence notice. Called when the user turns the
-     * transliteration rules off.
+     * Removes the tables. Called when the user turns the transliteration rules off.
      */
     public static void delete() {
         CldrTransforms.clear();
         File directory = RomanizationDict.directory();
         if (directory == null) return;
         for (String[] transliteration : TRANSLITERATIONS) {
-            //noinspection ResultOfMethodCallIgnored
             new File(directory, tableName(transliteration[1])).delete();
         }
-        //noinspection ResultOfMethodCallIgnored
-        new File(directory, NOTICE_NAME).delete();
-        //noinspection ResultOfMethodCallIgnored
         new File(directory, ARCHIVE).delete();
-        //noinspection ResultOfMethodCallIgnored
         new File(directory, ARCHIVE + ".part").delete();
-    }
-
-    /** The licence notice, read back from the cache where the build put it. */
-    @Nullable
-    public static String notice() {
-        File directory = RomanizationDict.directory();
-        return directory == null ? null : RomanizationDict.readNotice(directory, NOTICE_NAME);
     }
 
     /** Starts a fetch if the tables are not loaded. Safe to call whenever the setting is on. */
@@ -154,7 +141,7 @@ public final class CldrTransformsStore {
 
         WORKER.execute(() -> {
             try {
-                build(CHANNEL);
+                build();
             } catch (Exception ex) {
                 Logger.printDebug(() -> "CLDR transforms build failed", ex);
                 CHANNEL.onFailed();
@@ -174,20 +161,18 @@ public final class CldrTransformsStore {
         return total;
     }
 
-    private static void build(RomanizationDict.Listener listener) throws IOException {
+    private static void build() throws IOException {
         File directory = RomanizationDict.directory();
         if (directory == null) throw new IOException("no cache directory");
 
         File archive = new File(directory, ARCHIVE);
         if (!archive.isFile()) {
-            RomanizationDict.download(URL, archive, ARCHIVE, listener);
+            RomanizationDict.download(URL, archive, ARCHIVE, CldrTransformsStore.CHANNEL);
         }
-        extract(archive, listener);
-        //noinspection ResultOfMethodCallIgnored
+        extract(archive, CldrTransformsStore.CHANNEL);
         archive.delete();
 
-        RomanizationDict.writeNotice(directory, NOTICE_NAME, noticeText());
-        listener.onReady(entries());
+        CldrTransformsStore.CHANNEL.onReady(entries());
     }
 
     /**
@@ -216,7 +201,7 @@ public final class CldrTransformsStore {
                 if (content == null) {
                     throw new IOException("no " + entry + " in the CLDR archive");
                 }
-                writeTable(directory, transliteration[1], content, listener);
+                writeTable(directory, transliteration[1], content);
                 listener.onBuilding(50 + done++ * 50 / TRANSLITERATIONS.length);
             }
         }
@@ -224,8 +209,7 @@ public final class CldrTransformsStore {
     }
 
     /** Writes one script's literal rules, with the overrides folded in. */
-    private static void writeTable(File directory, String script, byte[] content,
-                                   RomanizationDict.Listener listener) throws IOException {
+    private static void writeTable(File directory, String script, byte[] content) throws IOException {
         Map<String, String> rules = parseRules(content, script);
 
         File built = new File(directory, tableName(script) + ".building");
@@ -394,7 +378,7 @@ public final class CldrTransformsStore {
 
     /** A variable value with its {@code \\uXXXX} escapes decoded, or the value whole. */
     private static String unescape(String value) {
-        if (value.indexOf("\\u") < 0) return value;
+        if (!value.contains("\\u")) return value;
         StringBuilder out = new StringBuilder(value.length());
         for (int i = 0; i < value.length(); i++) {
             char c = value.charAt(i);
@@ -437,20 +421,6 @@ public final class CldrTransformsStore {
 
     private static String tableName(String script) {
         return script + TABLE_SUFFIX;
-    }
-
-    private static String noticeText() {
-        return "CLDR transliteration rules\n"
-                + URL + "\n\n"
-                + "From https://www.unicode.org/cldr/\n\n"
-                + "Licence: Unicode Licence V3 (data files and software)\n"
-                + "https://www.unicode.org/license.txt\n\n"
-                + "The CLDR data files are provided \"as is\", without warranty of any kind,\n"
-                + "express or implied, including but not limited to the warranties of\n"
-                + "merchantability, fitness for a particular purpose and noninfringement.\n\n"
-                + "The rules here are the literal letter-to-letter rules of the listed CLDR\n"
-                + "transform files, with the combining marks of the standard dropped and a few\n"
-                + "readings a lyric wants replacing the standard's where they differ.\n";
     }
 
     /**

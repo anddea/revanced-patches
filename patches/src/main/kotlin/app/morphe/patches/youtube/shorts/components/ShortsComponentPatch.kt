@@ -53,6 +53,15 @@
 package app.morphe.patches.youtube.shorts.components
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.opcode
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
+import app.morphe.patches.youtube.utils.playservice.is_20_51_or_greater
+import app.morphe.util.matchAllMethodIndicesForEach
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -1227,6 +1236,7 @@ val shortsComponentPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        fixProtoLibraryPatch,
 
         shortsCustomActionsResourcesPatch,
 
@@ -1573,6 +1583,82 @@ val shortsComponentPatch = bytecodePatch(
         // endregion Disable experimental Shorts flags.
 
         addLithoFilter(BUTTON_FILTER_CLASS_DESCRIPTOR)
+
+        // region Show the navigation bar below the Shorts that show the comment bar instead of it.
+
+        // The Shorts opened from a channel show the comment bar below them instead of the
+        // navigation bar. When "Hide preview comment" hides the comment bar, nothing is shown
+        // in place of the navigation bar. The navigation bar is kept for these Shorts.
+        if (is_20_07_or_greater) {
+            ShortsNavigationBarModeFingerprint.match().let {
+                val navigationBarField = it.instructionMatches.first().fieldReference
+                val navigationBarModeField = it.instructionMatches[3].fieldReference
+
+                // Every read of the mode, such as by the Shorts pager and by the page of the Short.
+                Fingerprint(
+                    filters = listOf(
+                        fieldAccess(opcode = Opcode.IGET_OBJECT, reference = navigationBarField),
+                        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+                        opcode(Opcode.SGET_OBJECT, location = MatchAfterImmediately()),
+                        fieldAccess(
+                            opcode = Opcode.IGET,
+                            reference = navigationBarModeField,
+                            location = MatchAfterImmediately()
+                        )
+                    )
+                ).matchAll().forEach { match ->
+                    match.method.apply {
+                        val modeIndex = match.instructionMatches.last().index
+                        val modeRegister = getInstruction<TwoRegisterInstruction>(modeIndex).registerA
+
+                        addInstructions(
+                            modeIndex + 1,
+                            """
+                                invoke-static { v$modeRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->getNavigationBarMode(I)I
+                                move-result v$modeRegister
+                            """
+                        )
+
+                        val configIndex = match.instructionMatches.first().index
+                        val configRegister = getInstruction<TwoRegisterInstruction>(configIndex).registerB
+
+                        addInstructionsAtControlFlowLabel(
+                            configIndex,
+                            "invoke-static { v$configRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->setReelWatchConfig(Lcom/google/protobuf/MessageLite;)V"
+                        )
+                    }
+                }
+            }
+        }
+
+        // endregion
+
+        // region Hide the empty bar below a Short.
+
+        // The container of the bar below a Short keeps its height when the filter hides the bar,
+        // such as the comment bar, so the Short is shown above an empty black bar.
+        if (is_20_51_or_greater) {
+            Fingerprint(filters = listOf(resourceLiteral(
+                ResourceType.ID, "reel_bottom_action_bar_container"
+            ))).matchAllMethodIndicesForEach { literalInstructionIndex ->
+                val viewIndex = indexOfFirstInstruction(literalInstructionIndex) {
+                    getReference<MethodReference>()?.name == "findViewById"
+                } + 1
+                if (viewIndex <= 0 || getInstruction(viewIndex).opcode != Opcode.MOVE_RESULT_OBJECT) {
+                    return@matchAllMethodIndicesForEach
+                }
+                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+                addInstruction(
+                    viewIndex + 1,
+                    "invoke-static { v$viewRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->hideEmptyBottomActionBar(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        // endregion
+
+
         addLithoFilter(SHELF_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(RETURN_YOUTUBE_CHANNEL_NAME_FILTER_CLASS_DESCRIPTOR)
 

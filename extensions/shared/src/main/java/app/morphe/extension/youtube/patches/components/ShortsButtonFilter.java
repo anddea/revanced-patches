@@ -1,8 +1,30 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
 
 import org.apache.commons.lang3.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.protobuf.MessageLite;
+import java.util.List;
+import app.morphe.extension.youtube.patches.utils.ProtoNode;
+import com.facebook.litho.ComponentHost;
+import com.facebook.litho.TextContent;
+import java.util.ArrayDeque;
+import app.morphe.extension.shared.utils.Logger;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
@@ -13,6 +35,117 @@ import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
 public final class ShortsButtonFilter extends Filter {
+    /**
+     * If the Short whose page is created shows the bar below it, such as the comment bar.
+     */
+    private static volatile boolean shortShowsBottomActionBar;
+
+    /**
+     * Injection point.
+     * Called with the configuration of a Shorts page right before its navigation bar mode is read.
+     */
+    public static void setReelWatchConfig(@Nullable MessageLite config) {
+        boolean showsBottomActionBar = false;
+        if (Settings.HIDE_SHORTS_PREVIEW_COMMENT.get() && config != null) {
+            try {
+                List<ProtoNode> fields = ProtoNode.parse(config.toByteArray());
+                if (fields != null) {
+                    // Field 8 holds the bar below the Short, its field 1 turns the bar on.
+                    ProtoNode enabled = ProtoNode.field(ProtoNode.message(fields, 8), 1);
+                    showsBottomActionBar = enabled != null && Long.valueOf(1).equals(enabled.getVarint());
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "setReelWatchConfig failure", ex);
+            }
+        }
+        shortShowsBottomActionBar = showsBottomActionBar;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The Shorts opened from a channel show the comment bar below them instead of the navigation bar.
+     * When the comment bar is hidden, the navigation bar is kept.
+     *
+     * @param original The navigation bar mode: 1 shows it, 2 hides it,
+     *                 3 hides it if the Short fits the screen without it.
+     */
+    public static int getNavigationBarMode(int original) {
+        if (shortShowsBottomActionBar && (original == 2 || original == 3)) {
+            return 1;
+        }
+        return original;
+    }
+
+
+    /**
+     * Injection point.
+     * <p>
+     * The container of the bar below a Short keeps its height when the bar is hidden,
+     * such as the comment bar hidden by "Hide preview comment", so the Short is shown above an empty bar.
+     * The container is hidden while it shows nothing.
+     */
+    public static void hideEmptyBottomActionBar(View container) {
+        try {
+            if (!Settings.HIDE_SHORTS_PREVIEW_COMMENT.get() || container == null) {
+                return;
+            }
+            ViewTreeObserver.OnPreDrawListener listener = () -> {
+                try {
+                    if (container.getVisibility() != View.VISIBLE) {
+                        return true;
+                    }
+                    // A text or a view other than an empty Litho host, such as the bar of another feature.
+                    // A Litho host without children or texts is what is left of a hidden bar.
+                    ArrayDeque<View> views = new ArrayDeque<>();
+                    views.add(container);
+                    while (!views.isEmpty()) {
+                        View view = views.poll();
+                        if (view.getVisibility() != View.VISIBLE) {
+                            continue;
+                        }
+                        if (view instanceof ComponentHost host) {
+                            TextContent textContent = host.getTextContent();
+                            if (textContent != null && !textContent.getTextItems().isEmpty()) {
+                                return true;
+                            }
+                        } else if (!(view instanceof ViewGroup)) {
+                            return true;
+                        }
+                        if (view instanceof ViewGroup group) {
+                            for (int i = 0, count = group.getChildCount(); i < count; i++) {
+                                views.add(group.getChildAt(i));
+                            }
+                        }
+                    }
+                    container.setVisibility(View.GONE);
+                    // Not drawn with the empty bar.
+                    return false;
+                } catch (Exception ex) {
+                    Logger.printException(() -> "Bottom action bar check failure", ex);
+                }
+                return true;
+            };
+            container.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(@NonNull View view) {
+                    view.getViewTreeObserver().addOnPreDrawListener(listener);
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(@NonNull View view) {
+                    view.getViewTreeObserver().removeOnPreDrawListener(listener);
+                }
+            });
+            if (container.isAttachedToWindow()) {
+                container.getViewTreeObserver().addOnPreDrawListener(listener);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideEmptyBottomActionBar failure", ex);
+        }
+    }
+
+
     private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.";
     private static final String REEL_LIVE_HEADER_PATH = "immersive_live_header.";
     /**

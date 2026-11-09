@@ -14,7 +14,7 @@ public class SpoofVideoStreamsPatch {
 
     /** Default YouTube fallback order shared by playback spoofing and VOT audio downloads. */
     public static final List<ClientType> AVAILABLE_CLIENTS = List.of(
-            ClientType.TV_SIMPLY,
+            ClientType.TV_SABR,
             // The visionOS client is removed from the automatic fallback (Morphe 1438ba62).
             ClientType.ANDROID_CREATOR
             // If not signed in to Android VR, there may be playback issues.
@@ -27,7 +27,7 @@ public class SpoofVideoStreamsPatch {
         public boolean isAvailable() {
             ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
             return Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.isAvailable()
-                    && (client == ClientType.ANDROID_VR_DASH || client == ClientType.ANDROID_VR_SABR || client == ClientType.VISIONOS_1_02);
+                    && (client == ClientType.ANDROID_VR_DASH || client == ClientType.ANDROID_VR_SABR || client == ClientType.VISIONOS_1_02 || client == ClientType.VISIONOS_1_06);
         }
 
         @Override

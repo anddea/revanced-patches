@@ -9,6 +9,8 @@
 package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -123,5 +125,36 @@ internal object HandleDismissWatchEventFingerprint : Fingerprint(
     custom = { method, _ ->
         method.name == "handleDismissWatchEvent" && method.parameterTypes.size == 1
     },
+)
+
+internal object AudioEffectSessionFingerprint : Fingerprint(
+    name = "<init>",
+    strings = listOf(
+        "android.media.action.OPEN_AUDIO_EFFECT_CONTROL_SESSION",
+        "android.media.action.CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    )
+)
+
+internal object CloseAudioEffectSessionFingerprint : Fingerprint(
+    classFingerprint = AudioEffectSessionFingerprint,
+    returnType = "V",
+    parameters = listOf("I"),
+    filters = listOf(
+        string("android.media.extra.AUDIO_SESSION"),
+        methodCall(smali = "Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V")
+    )
+)
+
+/**
+ * Sets the player volume, which includes the app's volume normalization, and stores it in a field.
+ */
+internal object PlayerVolumeFingerprint : Fingerprint(
+    classFingerprint = PlayNextInQueueFingerprint,
+    returnType = "V",
+    parameters = listOf("F"),
+    filters = listOf(
+        methodCall(definingClass = "Landroidx/media3/exoplayer/ExoPlayer;", returnType = "V", parameters = listOf("F")),
+        fieldAccess(opcode = Opcode.IPUT, type = "F", location = MatchAfterImmediately())
+    )
 )
 

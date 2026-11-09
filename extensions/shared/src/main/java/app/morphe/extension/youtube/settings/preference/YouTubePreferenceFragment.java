@@ -148,6 +148,14 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             return;
         }
 
+        if (pref instanceof CustomSeekbarThumbPreference customSeekbarThumbPreference
+                && setting == Settings.CUSTOM_SEEKBAR_THUMB_FILE) {
+            if (applySettingToPreference) {
+                customSeekbarThumbPreference.updateSummary();
+            }
+            return;
+        }
+
         if (pref instanceof GlassNavigationBarPreference) {
             // The dialog reads and saves its settings directly, so there is no UI value to sync.
             return;

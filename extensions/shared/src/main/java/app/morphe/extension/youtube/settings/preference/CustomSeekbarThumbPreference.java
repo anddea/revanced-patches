@@ -76,7 +76,7 @@ public class CustomSeekbarThumbPreference extends Preference {
         });
     }
 
-    private void updateSummary() {
+    void updateSummary() {
         String fileName = Settings.CUSTOM_SEEKBAR_THUMB_FILE.get();
         setSummary(fileName.isEmpty()
                 ? str("morphe_custom_seekbar_thumb_file_summary")

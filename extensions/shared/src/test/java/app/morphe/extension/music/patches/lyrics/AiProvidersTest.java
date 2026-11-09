@@ -14,13 +14,13 @@ public class AiProvidersTest {
         assertEquals(List.of(AiProviders.EMBEDDED, AiProviders.GOOGLE),
                 AiProviders.enabledProviders(AiProviders.DEFAULT_TRANSLATION_ORDER,
                         AiProviders.TRANSLATION_ORDER));
-        assertEquals(List.of(AiProviders.EMBEDDED, AiProviders.GOOGLE),
+        assertEquals(List.of(AiProviders.EMBEDDED, AiProviders.GOOGLE, AiProviders.ICU),
                 AiProviders.enabledProviders(AiProviders.DEFAULT_ROMANIZATION_ORDER,
                         AiProviders.ROMANIZATION_ORDER));
     }
 
     @Test public void explicitPrioritiesAndDisabledEntriesSurviveRoundTrip() {
-        String order = "-embedded,local,google,-rime,-openai_compatible";
+        String order = "-embedded,local,google,-rime,-openai_compatible,-icu";
         var parsed = AiProviders.parseOrder(order, AiProviders.ROMANIZATION_ORDER);
         assertEquals(order, AiProviders.serializeOrder(parsed));
         assertEquals(List.of(AiProviders.LOCAL, AiProviders.GOOGLE),
@@ -43,7 +43,7 @@ public class AiProvidersTest {
     @Test public void changingOneProviderKeepsOtherChoicesAndPriorities() {
         String updated = AiProviders.withProviderEnabled(AiProviders.DEFAULT_ROMANIZATION_ORDER,
                 AiProviders.ROMANIZATION_ORDER, AiProviders.LOCAL, true);
-        assertEquals("embedded,google,local,-rime,-openai_compatible", updated);
+        assertEquals("embedded,google,local,-rime,icu,-openai_compatible", updated);
         assertTrue(AiProviders.enabledProviders(updated, AiProviders.ROMANIZATION_ORDER)
                 .contains(AiProviders.LOCAL));
     }

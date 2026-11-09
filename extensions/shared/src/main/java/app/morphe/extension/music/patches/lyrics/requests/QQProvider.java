@@ -509,6 +509,7 @@ public final class QQProvider implements LyricsProvider {
         }
 
         return new Lyrics(lines, name(), true, romanization, translations, null,
-                qrcMetadata.isEmpty() ? null : qrcMetadata, original, "qrc", sourceUrl);
+                null, qrcMetadata.isEmpty() ? null : qrcMetadata, original, "qrc", sourceUrl,
+                null, null);
     }
 }

@@ -65,34 +65,16 @@ import app.morphe.extension.youtube.utils.ThemeUtils;
 
 @SuppressWarnings("unused")
 public final class SnackBarPatch {
-    /** Position of the snackbar container in its window. Used only on the main thread. */
-    private static final int[] containerLocation = new int[2];
-
     /**
-     * Injection point.
+     * Injection point, called after the snackbar container lays out its children.
      * <p>
-     * Called after the container of the snackbars has laid them out. YouTube gives it the bottom
-     * window inset as bottom padding also when it ends above the navigation bar or the miniplayer,
-     * which already keep it above the system navigation buttons, so the snackbars are shown that much
-     * above them (<a href="https://github.com/MorpheApp/morphe-patches/issues/4308">...</a>).
-     * Only the part of the padding the container really needs, where it overlaps the inset, is kept.
-     * <p>
-     * The glass navigation bar is taller than the height YouTube gives it, which the container
-     * ends above, so the snackbars are moved up by the difference.
+     * Preserve YouTube's bottom padding: it can include the space above the app navigation bar,
+     * not just the system window inset. Removing it can move snackbars behind the navigation bar.
+     * Only compensate for the extra height added by the glass navigation bar.
      */
     public static void removeExtraBottomRoom(FrameLayout container) {
         try {
-            int offset = 0;
-
-            final int paddingBottom = container.getPaddingBottom();
-            if (paddingBottom > 0) {
-                container.getLocationInWindow(containerLocation);
-                final int roomBelow = container.getRootView().getHeight()
-                        - containerLocation[1] - container.getHeight();
-                offset = Math.max(0, Math.min(paddingBottom, roomBelow));
-            }
-
-            offset -= GlassNavigationBar.getAddedRoomOnScreen();
+            final int offset = -GlassNavigationBar.getAddedRoomOnScreen();
             if (offset == 0) {
                 return;
             }

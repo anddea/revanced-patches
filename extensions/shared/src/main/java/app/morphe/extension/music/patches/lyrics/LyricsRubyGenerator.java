@@ -1,11 +1,17 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches/pull/4464
+ * https://github.com/MorpheApp/morphe-patches/pull/4439
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
 package app.morphe.extension.music.patches.lyrics;
+
+import app.morphe.extension.music.patches.lyrics.romanizers.JapaneseDictStore;
+import app.morphe.extension.music.patches.lyrics.romanizers.KanaRomanizer;
+import app.morphe.extension.music.patches.lyrics.romanizers.RimeDictStore;
+import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
+import app.morphe.extension.music.patches.lyrics.romanizers.WordReadingTable;
 
 import androidx.annotation.Nullable;
 
@@ -16,36 +22,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
+import app.morphe.extension.music.patches.lyrics.OpenAIClient;
+import app.morphe.extension.music.patches.lyrics.AiProviders;
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.patches.lyrics.Word;
-import app.morphe.extension.music.patches.lyrics.romanizers.JapaneseDictStore;
-import app.morphe.extension.music.patches.lyrics.romanizers.KanaRomanizer;
-import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
-import app.morphe.extension.music.patches.lyrics.romanizers.WordReadingTable;
+import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
 import app.morphe.extension.music.patches.lyrics.LyricsCache;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 /**
- * Adds furigana, the reading of each kanji word, to Japanese lyrics as the ruby of its word.
+ * Adds ruby, the reading of each character or word, to lyrics as the ruby of its word. Handles
+ * Japanese furigana (kanji readings).
  *
  * <p>Ruby the source ships and the offline dictionary readings are added right away. An AI
  * provider answers in the background and only fills the words still without a reading.
  */
 public final class LyricsRubyGenerator {
 
-    public enum RubyStyle {
-        HIRAGANA,
-        KATAKANA
-    }
-
-    public interface Callback {
-        void onGenerated(Lyrics lyrics);
-    }
+    private static final String LANGUAGE_DEFAULT = "DEFAULT";
+    private static final String LANGUAGE_NONE = "NONE";
 
     private static final ExecutorService WORKER = Executors.newSingleThreadExecutor(runnable -> {
         Thread thread = new Thread(runnable, "lyrics-ruby-generator");
@@ -57,8 +59,19 @@ public final class LyricsRubyGenerator {
     }
 
     private static List<String> enabledProviders() {
-        return AiProviders.enabledProviders(
-                Settings.LYRICS_RUBY_PROVIDERS.get(), AiProviders.RUBY_ORDER);
+        final String rubyLanguage = Settings.LYRICS_RUBY_LANGUAGE.get();
+        if (LANGUAGE_NONE.equalsIgnoreCase(rubyLanguage)) {
+            return Collections.emptyList();
+        }
+        final List<String> enabled = AiProviders.enabledProviders(
+                Settings.LYRICS_ROMANIZATION_PROVIDERS.get(), AiProviders.ROMANIZATION_ORDER);
+        // Automatic only reads the ruby the source ships.
+        if (LANGUAGE_DEFAULT.equalsIgnoreCase(rubyLanguage)) {
+            return enabled.contains(AiProviders.EMBEDDED)
+                    ? List.of(AiProviders.EMBEDDED)
+                    : Collections.emptyList();
+        }
+        return enabled;
     }
 
     /**
@@ -69,16 +82,33 @@ public final class LyricsRubyGenerator {
         if (!hasKanjiOrRuby(lyrics.lines())) {
             return lyrics;
         }
-        final List<String> providers = enabledProviders();
-        final RubyStyle style = Settings.LYRICS_RUBY_STYLE.get();
-        Lyrics current = formatEmbeddedRuby(lyrics, providers.contains(AiProviders.EMBEDDED), style);
-        if (providers.contains(AiProviders.LOCAL)) {
-            WordReadingTable table = JapaneseDictStore.table();
-            if (table != null) {
-                current = enrichFromDictionary(current, table, style);
-            }
+        final String rubyLanguage = Settings.LYRICS_RUBY_LANGUAGE.get();
+        final RubyStyle style = rubyStyleFromLanguage(rubyLanguage);
+        // Automatic keeps the source's own ruby; a manual language clears it so the dictionaries
+        // and AI provide every reading. If they have no reading for a word, that word stays bare
+        // rather than falling back to the source's kana.
+        final boolean automatic = LANGUAGE_DEFAULT.equalsIgnoreCase(rubyLanguage);
+        final Lyrics current = formatEmbeddedRuby(lyrics,
+                automatic && enabledProviders().contains(AiProviders.EMBEDDED), style);
+        if (automatic || LANGUAGE_NONE.equalsIgnoreCase(rubyLanguage)) {
+            return current;
         }
-        return current;
+
+        // A manual language is read by its own dictionary, whichever romanization providers are on.
+        if (isJapaneseRubyLanguage(rubyLanguage)) {
+            final WordReadingTable table = JapaneseDictStore.table();
+            return table != null ? enrichFromDictionary(current, table, style) : current;
+        }
+        // What is left is a language the user added a Rime word table for.
+        final WordReadingTable words = RimeDictStore.word(rubyLanguage);
+        if (words == null || !RimeDictStore.isReady(rubyLanguage)) {
+            return current;
+        }
+        return enrichByCharacter(current, words, text -> {
+            final String reading = lookupExactReading(text, words);
+            return reading != null ? reading
+                    : characterReading(text, c -> RimeDictStore.reading(c, rubyLanguage));
+        }, style);
     }
 
     /** Whether {@link #requestAi} has anything to do. */
@@ -91,12 +121,19 @@ public final class LyricsRubyGenerator {
         return false;
     }
 
+    /** Ruby language asks for dictionary readings, not automatic or none. */
+    public static boolean hasManualRubyLanguage() {
+        final String lang = Settings.LYRICS_RUBY_LANGUAGE.get();
+        if (lang == null || lang.isEmpty()) return false;
+        return !LANGUAGE_DEFAULT.equalsIgnoreCase(lang) && !LANGUAGE_NONE.equalsIgnoreCase(lang);
+    }
+
     /**
      * Asks the enabled AI provider for the readings the lyrics still lack. The callback runs on
      * the main thread, with the lyrics unchanged if the provider gave no usable answer.
      */
     public static void requestAi(TrackInfo track, Lyrics lyrics, Callback callback) {
-        final RubyStyle style = Settings.LYRICS_RUBY_STYLE.get();
+        final RubyStyle style = rubyStyleFromLanguage(Settings.LYRICS_RUBY_LANGUAGE.get());
         WORKER.execute(() -> {
             Lyrics result = lyrics;
             try {
@@ -112,7 +149,8 @@ public final class LyricsRubyGenerator {
                             track, lyrics.providerName(), lines, provider);
                     if (aiLines == null) {
                         String prompt = OpenAIClient.renderPrompt(
-                                Settings.LYRICS_AI_RUBY_PROMPT.get(), "furigana", "Japanese",
+                                Settings.LYRICS_AI_RUBY_PROMPT.get(), "furigana",
+                                LyricsRequests.rubyLanguage(),
                                 track.title(), track.artist(), lines);
                         AiProviders.Result ai = AiProviders.mapLines(provider, prompt, lines);
                         if (ai == null || ai.lines() == null || ai.lines().size() != lines.size()) {
@@ -185,6 +223,25 @@ public final class LyricsRubyGenerator {
         return changed ? lyrics.withLines(lines) : lyrics;
     }
 
+    /** A copy of the lyrics with every word's ruby taken off, for hiding the reading. */
+    public static Lyrics stripRuby(Lyrics lyrics) {
+        List<LyricsLine> lines = new ArrayList<>(lyrics.lines().size());
+        boolean changed = false;
+        for (LyricsLine line : lyrics.lines()) {
+            if (!hasRuby(line)) {
+                lines.add(line);
+                continue;
+            }
+            List<Word> words = new ArrayList<>(line.words().size());
+            for (Word word : line.words()) {
+                words.add(hasRuby(word) ? withRuby(word, null) : word);
+            }
+            lines.add(withWords(line, words));
+            changed = true;
+        }
+        return changed ? lyrics.withLines(lines) : lyrics;
+    }
+
     private static Lyrics enrichFromDictionary(Lyrics lyrics, WordReadingTable table,
                                                RubyStyle style) {
         List<LyricsLine> lines = new ArrayList<>(lyrics.lines().size());
@@ -208,7 +265,7 @@ public final class LyricsRubyGenerator {
         while (i < words.size()) {
             Word word = words.get(i);
             String text = word.text().trim();
-            if (hasRuby(word) || !ScriptDetector.contains(text, Character.UnicodeScript.HAN)) {
+            if (!ScriptDetector.contains(text, Character.UnicodeScript.HAN)) {
                 read.add(word);
                 i++;
                 continue;
@@ -218,7 +275,7 @@ public final class LyricsRubyGenerator {
             if (text.length() == 1 && i + 1 < words.size()) {
                 Word next = words.get(i + 1);
                 String nextText = next.text().trim();
-                if (!hasRuby(next) && nextText.length() == 1 && ScriptDetector.isHan(nextText.charAt(0))) {
+                if (nextText.length() == 1 && ScriptDetector.isHan(nextText.charAt(0))) {
                     String pair = text + nextText;
                     String pairReading = table.reading(pair);
                     String[] split = pairReading == null || pairReading.isEmpty()
@@ -244,6 +301,106 @@ public final class LyricsRubyGenerator {
             i++;
         }
         return changed ? withWords(line, read) : line;
+    }
+
+    /**
+     * Gives each Chinese character its own word and its own reading, for the languages read a
+     * character at a time.
+     *
+     * @param table  Where the line's words are cut, or null to cut it by character alone.
+     * @param reader The reading of one character, or null when there is none.
+     */
+    private static Lyrics enrichByCharacter(Lyrics lyrics, @Nullable WordReadingTable table,
+                                            UnaryOperator<String> reader, RubyStyle style) {
+        List<LyricsLine> lines = new ArrayList<>(lyrics.lines().size());
+        boolean changed = false;
+        for (LyricsLine line : lyrics.lines()) {
+            LyricsLine read = enrichLineByCharacter(line, table, reader, style);
+            changed |= read != line;
+            lines.add(read);
+        }
+        return changed ? lyrics.withLines(lines) : lyrics;
+    }
+
+    private static LyricsLine enrichLineByCharacter(LyricsLine line, @Nullable WordReadingTable table,
+                                                    UnaryOperator<String> reader, RubyStyle style) {
+        if (!ScriptDetector.contains(line.text(), Character.UnicodeScript.HAN)) {
+            return line;
+        }
+        List<Word> words = splitHanToSingleChars(segmentedWords(line, table));
+        List<Word> read = new ArrayList<>(words.size());
+        boolean changed = false;
+        for (Word word : words) {
+            String text = word.text().trim();
+            String reading = ScriptDetector.contains(text, Character.UnicodeScript.HAN)
+                    ? reader.apply(text) : null;
+            if (reading != null) {
+                read.add(withRuby(word, formatRuby(reading, style)));
+                changed = true;
+            } else {
+                read.add(word);
+            }
+        }
+        return changed ? withWords(line, read) : line;
+    }
+
+    /** Splits every Han character into its own word, for the character-based reading. */
+    private static List<Word> splitHanToSingleChars(List<Word> words) {
+        List<Word> result = new ArrayList<>();
+        for (Word word : words) {
+            String text = word.text();
+            int hanCount = 0;
+            for (int i = 0; i < text.length(); i++) {
+                if (ScriptDetector.isHan(text.charAt(i))) hanCount++;
+            }
+            if (hanCount <= 1) {
+                result.add(word);
+                continue;
+            }
+            // Each Han character becomes its own word; non-Han runs stay together.
+            long startMs = word.startMs();
+            long duration = Math.max(0L, word.endMs() - startMs);
+            int totalLen = text.length();
+            long cursorMs = startMs;
+            int seenChars = 0;
+            int i = 0;
+            while (i < totalLen) {
+                int j;
+                if (ScriptDetector.isHan(text.charAt(i))) {
+                    j = i + 1;
+                } else {
+                    j = i;
+                    while (j < totalLen && !ScriptDetector.isHan(text.charAt(j))) j++;
+                }
+                seenChars += j - i;
+                long wordEnd = startMs + duration * seenChars / totalLen;
+                boolean endsWithSpace = (j == totalLen) && word.endsWithSpace();
+                result.add(new Word(cursorMs, wordEnd, text.substring(i, j),
+                        null, endsWithSpace, null));
+                cursorMs = wordEnd;
+                i = j;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * The reading of a word a character at a time, for the words the word table does not have.
+     * Characters the character tables do not cover are skipped, so a word that is only partly
+     * covered still shows the reading of the characters that are covered.
+     */
+    @Nullable
+    private static String characterReading(String text, Function<Character, String> reader) {
+        StringBuilder out = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            String reading = ScriptDetector.isHan(c) ? reader.apply(c) : null;
+            if (reading != null) {
+                if (out.length() > 0) out.append(' ');
+                out.append(reading);
+            }
+        }
+        return out.length() > 0 ? out.toString() : null;
     }
 
     /**
@@ -401,7 +558,8 @@ public final class LyricsRubyGenerator {
             }
             end++;
         }
-        return end;
+        // No dictionary word here: take just this character, not the whole rest of the line.
+        return end < n ? end : start + 1;
     }
 
     /** Kanji followed by nothing but hiragana. */
@@ -563,5 +721,28 @@ public final class LyricsRubyGenerator {
         return style == RubyStyle.KATAKANA
                 ? KanaRomanizer.toKatakana(ruby)
                 : KanaRomanizer.toHiragana(ruby);
+    }
+
+    static RubyStyle rubyStyleFromLanguage(String language) {
+        if ("ja-Kana".equalsIgnoreCase(language)) {
+            return RubyStyle.KATAKANA;
+        }
+        return RubyStyle.HIRAGANA;
+    }
+
+    /** Whether the ruby language is one the shipped Japanese dictionary reads. */
+    public static boolean isJapaneseRubyLanguage(String language) {
+        return "ja".equalsIgnoreCase(language)
+                || "ja-Hira".equalsIgnoreCase(language)
+                || "ja-Kana".equalsIgnoreCase(language);
+    }
+
+    public enum RubyStyle {
+        HIRAGANA,
+        KATAKANA
+    }
+
+    public interface Callback {
+        void onGenerated(Lyrics lyrics);
     }
 }

@@ -1,5 +1,16 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.swipe.controls
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -34,8 +45,6 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.hookClassHierarchy
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -72,7 +81,7 @@ val swipeControlsPatch = bytecodePatch(
         // region patch for swipe controls patch
 
         hookClassHierarchy(
-            swipeControlsHostActivityFingerprint.mutableClassOrThrow(),
+            swipeControlsHostActivityFingerprint.classDef,
             mainActivityMutableClass
         )
 
@@ -87,7 +96,7 @@ val swipeControlsPatch = bytecodePatch(
         // Since it does not support all versions,
         // add settings only if the patch is successful.
         if (!is_19_09_or_greater) {
-            hdrBrightnessFingerprint.methodOrThrow().apply {
+            hdrBrightnessFingerprint.method.apply {
                 addInstructionsWithLabels(
                     0, """
                         invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
@@ -119,7 +128,7 @@ val swipeControlsPatch = bytecodePatch(
             }
 
             if (!is_20_40_or_greater) {
-                swipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
+                ("swipeToSwitchVideoFingerprint" to swipeToSwitchVideoFingerprint).injectLiteralInstructionBooleanCall(
                     SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
                     descriptor
                 )
@@ -132,12 +141,12 @@ val swipeControlsPatch = bytecodePatch(
 
         if (!is_20_40_or_greater) {
             if (!is_19_36_or_greater) {
-                watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
+                ("watchPanelGesturesFingerprint" to watchPanelGesturesFingerprint).injectLiteralInstructionBooleanCall(
                     WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG,
                     "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
                 )
             } else {
-                watchPanelGesturesAlternativeFingerprint.methodOrThrow().apply {
+                watchPanelGesturesAlternativeFingerprint.method.apply {
                     val literalIndex = indexOfFirstLiteralInstruction(autoNavScrollCancelPadding)
                     val middleIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                         val reference = getReference<MethodReference>()
@@ -185,7 +194,7 @@ val swipeControlsPatch = bytecodePatch(
             }
 
             if (is_19_15_or_greater) {
-                watchPanelGesturesChannelBarFingerprint.injectLiteralInstructionBooleanCall(
+                ("watchPanelGesturesChannelBarFingerprint" to watchPanelGesturesChannelBarFingerprint).injectLiteralInstructionBooleanCall(
                     WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG,
                     "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
                 )
@@ -238,7 +247,7 @@ val swipeControlsPatch = bytecodePatch(
         // region patch for disable swipe to enter fullscreen mode (in the player) and disable swipe to exit fullscreen mode
 
         if (!is_21_04_or_greater) {
-            playerGestureConfigSyntheticFingerprint.methodOrThrow().apply {
+            playerGestureConfigSyntheticFingerprint.method.apply {
                 val disableSwipeToExitFullscreenModeIndex =
                     indexOfPlayerConfigModelBooleanInstruction(this)
                 val disableSwipeToEnterFullscreenModeInThePlayerIndex =
@@ -274,7 +283,7 @@ val swipeControlsPatch = bytecodePatch(
         VideoZoomScaleBeginFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableZoomGesture()Z
+                invoke-static { p1 }, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableZoomGestureBegin(Landroid/view/ScaleGestureDetector;)Z
                 move-result v0
                 if-eqz v0, :allow_zoom
                 const/4 v0, 0x0
@@ -282,6 +291,13 @@ val swipeControlsPatch = bytecodePatch(
                 :allow_zoom
                 nop
             """
+        )
+
+        // The zoom begins only after the touch can no longer be a tap with two fingers.
+        VideoZoomTouchFingerprint.match(VideoZoomScaleBeginFingerprint.classDef).method.addInstruction(
+            0,
+            "invoke-static { p1, p2 }, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->" +
+                "onZoomTouchEvent(Landroid/view/View;Landroid/view/MotionEvent;)V"
         )
 
         // endregion

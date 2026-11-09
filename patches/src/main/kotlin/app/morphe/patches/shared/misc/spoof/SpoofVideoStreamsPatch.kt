@@ -61,6 +61,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 internal const val EXTENSION_CLASS =
     "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;"
 
+/**
+ * Status of the server error a stream response fails with, when it is a SABR error.
+ */
+private const val HTTP_STATUS_SERVICE_UNAVAILABLE = 503
+
 context(patchContext: BytecodePatchContext)
 internal fun addMediaSessionOverride(extension: String) {
     MediaSessionFeatureFlagFingerprint.matchAll().forEach {
@@ -386,6 +391,149 @@ internal fun spoofVideoStreamsPatch(
                 )
             }
         }
+
+        // region Request plain streams of other clients as GET requests with a short range.
+        // Streams of other clients are plain urls, which the server rejects or sends slowly if they are
+        // requested like the streams of the app, with a POST body. Saving a video also requests a large
+        // range, which the server sends at about playback speed.
+
+        CronetUrlRequestBuildFingerprint.takeIf { it.matchOrNull() != null }?.let {
+            val fields = it.classDef.fields
+            val urlField = fields.first { field ->
+                field.type == "Ljava/lang/String;" && AccessFlags.FINAL.isSet(field.accessFlags)
+            }
+            val uploadField = fields.first { field -> field.type == "Lorg/chromium/net/UploadDataProvider;" }
+            val httpMethodField = CronetUrlRequestSetHttpMethodFingerprint.instructionMatches.first().fieldReference
+
+            // Insert before the hook at the start of the method, which moves the index of the call.
+            val createRequest = it.instructionMatches.last()
+            val urlRegister = createRequest.instruction.registersUsed[1]
+            it.method.addInstructions(
+                createRequest.index,
+                """
+                    invoke-static/range { v$urlRegister .. v$urlRegister }, $EXTENSION_CLASS->limitPlainStreamRange(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$urlRegister
+                """
+            )
+
+            it.method.addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p0
+                    iget-object v1, v0, $urlField
+                    invoke-static { v1 }, $EXTENSION_CLASS->isPlainStreamRequest(Ljava/lang/String;)Z
+                    move-result v1
+                    if-eqz v1, :keep_request
+                    const-string v1, "GET"
+                    iput-object v1, v0, $httpMethodField
+                    const/4 v1, 0x0
+                    iput-object v1, v0, $uploadField
+                    :keep_request
+                    nop
+                """
+            )
+
+            // Only the ranges of saved videos are shortened. A saved video is transferred through a priority
+            // data source, which continues from the last byte it got after the transfer is paused. Playback
+            // takes the pause as an error of the stream.
+            priorityDataSourceOpenFingerprint().let {
+                it.method.addInstruction(
+                    it.instructionMatches.last().index,
+                    "invoke-static { }, $EXTENSION_CLASS->onPriorityDataSourceOpen()V"
+                )
+            }
+
+            // A response with a shortened range ends before the requested range does. The app takes that
+            // as the end of the stream, and a saved video would end there. Instead, the transfer is paused
+            // like for a task of a higher priority, and the saved video continues from the last byte it got.
+            // The response ends when its remaining byte count is zero, or when it is finished.
+            //
+            // The server can also answer a range with only a SABR error and no media. The app finds no media
+            // and requests the same range again right away, over and over, until the server sends it, which
+            // freezes playback for seconds or minutes. Instead, the response fails like a response with a
+            // server error status, and the app requests the range from a fallback host.
+            CronetDataSourceReadFingerprint.takeIf {
+                it.matchOrNull() != null && InvalidResponseCodeExceptionFingerprint.matchOrNull() != null
+            }?.let {
+                val remainingBytesField = it.instructionMatches.last().fieldReference
+                val pauseExceptionType = PriorityTooLowExceptionFingerprint.method.definingClass
+                val serverErrorExceptionConstructor = InvalidResponseCodeExceptionFingerprint.method
+                val dataSpecType = it.instructionMatches[1].methodReference!!.parameterTypes[1]
+                val dataSpecField = it.classDef.fields.first { field -> field.type == dataSpecType }
+
+                val helperMethod = ImmutableMethod(
+                    it.classDef.type,
+                    "patch_checkStreamResponse",
+                    listOf(ImmutableMethodParameter(it.classDef.type, null, null)),
+                    "V",
+                    AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(6),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static { }, $EXTENSION_CLASS->isStreamSabrErrorResponse()Z
+                            move-result v0
+                            if-eqz v0, :check_range
+                            new-instance v0, ${serverErrorExceptionConstructor.definingClass}
+                            const/16 v1, $HTTP_STATUS_SERVICE_UNAVAILABLE
+                            const/4 v2, 0x0
+                            invoke-static { }, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+                            move-result-object v3
+                            iget-object v4, p0, $dataSpecField
+                            invoke-direct { v0, v1, v2, v3, v4 }, $serverErrorExceptionConstructor
+                            throw v0
+                            :check_range
+                            iget-wide v0, p0, $remainingBytesField
+                            invoke-static { v0, v1 }, $EXTENSION_CLASS->isLimitedStreamRangeFinished(J)Z
+                            move-result v0
+                            if-eqz v0, :keep_reading
+                            new-instance v0, $pauseExceptionType
+                            const/4 v1, 0x0
+                            invoke-direct { v0, v1, v1 }, $pauseExceptionType-><init>(II)V
+                            throw v0
+                            :keep_reading
+                            return-void
+                        """
+                    )
+                }
+                it.classDef.methods.add(helperMethod)
+
+                // The response is read into a byte array or a buffer, with the index of the match that reads
+                // the next part of the response. The buffer read is found with the byte array read, so it is
+                // matched first, before the byte array read is changed.
+                listOf(CronetDataSourceReadBufferFingerprint to 0, it to 1).forEach { (read, readMatchIndex) ->
+                    // Insert after the remaining byte count is cleared, before the hooks of the read
+                    // and the hook at the start of the method.
+                    read.method.addInstruction(
+                        read.instructionMatches.last().index + 1,
+                        "invoke-static/range { p0 .. p0 }, $helperMethod"
+                    )
+
+                    val readMatch = read.instructionMatches[readMatchIndex]
+                    val bufferRegister = readMatch.instruction.registersUsed[1]
+                    read.method.addInstructions(
+                        readMatch.index + 1,
+                        "invoke-static/range { v$bufferRegister .. v$bufferRegister }, " +
+                                "$EXTENSION_CLASS->onStreamResponseRead(Ljava/nio/ByteBuffer;)V"
+                    )
+                    read.method.addInstructions(
+                        readMatch.index,
+                        "invoke-static/range { v$bufferRegister .. v$bufferRegister }, " +
+                                "$EXTENSION_CLASS->onStreamResponseReadStart(Ljava/nio/ByteBuffer;)V"
+                    )
+
+                    read.method.addInstruction(
+                        0,
+                        "invoke-static/range { p0 .. p0 }, $helperMethod"
+                    )
+                }
+            }
+        }
+
+        // endregion
 
         if (hookAccountIdentity()) {
             accountIdentityFingerprint.method.addInstruction(

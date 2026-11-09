@@ -14,6 +14,7 @@ import java.util.Map;
 
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
+import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
 
 /**
  * Skips the translation and romanization requests when the lyrics are already written in the
@@ -32,6 +33,7 @@ public final class LyricsLanguageDetector {
             "ko", Category.HANGUL,
             "el", Category.GREEK,
             "he", Category.HEBREW,
+            "iw", Category.HEBREW,
             "hy", Category.ARMENIAN,
             "ka", Category.GEORGIAN,
             "th", Category.THAI

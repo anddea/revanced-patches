@@ -28,6 +28,8 @@ public final class AiProviders {
     public static final String LOCAL = "local";
     /** The Rime word tables, the user's own lists included. Named "Rime Wordlist" in the settings. */
     public static final String RIME = "rime";
+    /** The system ICU transliterator, a fallback that needs no download. Named "ICU Transliterator". */
+    public static final String ICU = "icu";
     public static final String OPENAI_COMPATIBLE = "openai_compatible";
     public static final String DEEPL = "deepl";
 
@@ -40,16 +42,12 @@ public final class AiProviders {
     public static final List<String> TRANSLATION_ORDER =
             List.of(EMBEDDED, GOOGLE, OPENAI_COMPATIBLE, DEEPL);
     public static final List<String> ROMANIZATION_ORDER =
-            List.of(EMBEDDED, GOOGLE, LOCAL, RIME, OPENAI_COMPATIBLE);
-    public static final List<String> RUBY_ORDER =
-            List.of(EMBEDDED, LOCAL, OPENAI_COMPATIBLE);
+            List.of(EMBEDDED, GOOGLE, LOCAL, RIME, ICU, OPENAI_COMPATIBLE);
 
     public static final String DEFAULT_TRANSLATION_ORDER =
             "embedded,google,-openai_compatible,-deepl";
     public static final String DEFAULT_ROMANIZATION_ORDER =
-            "embedded,google,-local,-rime,-openai_compatible";
-    public static final String DEFAULT_RUBY_ORDER =
-            "embedded,-local,-openai_compatible";
+            "embedded,google,-local,-rime,icu,-openai_compatible";
     /** Endpoints offered by name, in the order they are listed. */
     public static final List<EndpointPreset> ENDPOINT_PRESETS = List.of(
             EndpointPreset.of("OpenAI", "https://api.openai.com/v1"),
@@ -171,7 +169,7 @@ public final class AiProviders {
 
     /** Null when the provider cannot answer, so the caller can try the next one. */
     @Nullable
-    static Result mapLines(String provider, String prompt, List<String> lines) {
+    public static Result mapLines(String provider, String prompt, List<String> lines) {
         if (!OPENAI_COMPATIBLE.equals(provider)) {
             return null;
         }
@@ -195,6 +193,6 @@ public final class AiProviders {
         }
     }
 
-    record Result(List<String> lines, String model) {
+    public record Result(List<String> lines, String model) {
     }
 }

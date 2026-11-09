@@ -177,3 +177,13 @@ internal object ShowFloatingMicrophoneButtonLegacyFingerprint : Fingerprint(
         opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(15))
     )
 )
+
+/**
+ * Rounded box of an element in the fullscreen engagement panel, such as the channel bar.
+ */
+internal object MetadataHighlightsColumnMeasureFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/app/player/overlay/fullscreenengagement/layout/MetadataHighlightsColumnLinearLayout;",
+    name = "onMeasure",
+    returnType = "V",
+    parameters = listOf("I", "I")
+)

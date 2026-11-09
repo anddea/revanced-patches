@@ -38,6 +38,7 @@ import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
 import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 /**
  * Two level lyrics store: an in memory map for the current session, and on disk so that replaying
@@ -57,7 +58,9 @@ public final class LyricsCache {
     private static final String HEADER_SYNCED = "#synced=";
     private static final String HEADER_SOURCE_URL = "#sourceUrl=";
     private static final String HEADER_FORMAT_TYPE = "#formatType=";
-    private static final String HEADER_SONGWRITERS = "#songwriters=";
+    /** Named for what it held before writers were split from credits, so old entries still read. */
+    private static final String HEADER_CREDITS = "#songwriters=";
+    private static final String HEADER_WRITERS = "#writers=";
     private static final String HEADER_ABOUT = "#about=";
     private static final String HEADER_QUERY_TITLE = "#queryTitle=";
     private static final String HEADER_QUERY_ARTIST = "#queryArtist=";
@@ -295,8 +298,8 @@ public final class LyricsCache {
 
     /**
      * Writes the preference file and the translations and romanization that go with it. The
-     * sidecars are dropped first, so a write that only gets as far as the file leaves the
-     * content without them instead of with the ones of an older, differently filtered lyric.
+     * sidecars are dropped first. If writing stops after the file, the content is left without
+     * them instead of with the ones of an older, differently filtered lyric.
      */
     private static void writePreference(@Nullable String videoId, TrackInfo track,
                                         @Nullable File file, List<String> fileLines,
@@ -334,7 +337,10 @@ public final class LyricsCache {
             fileLines.add(HEADER_FORMAT_TYPE + lyrics.formatType());
         }
         if (lyrics.songwriters() != null && !lyrics.songwriters().isEmpty()) {
-            fileLines.add(HEADER_SONGWRITERS + String.join("␟", lyrics.songwriters()));
+            fileLines.add(HEADER_WRITERS + String.join("␟", lyrics.songwriters()));
+        }
+        if (lyrics.credits() != null && !lyrics.credits().isEmpty()) {
+            fileLines.add(HEADER_CREDITS + String.join("␟", lyrics.credits()));
         }
         // Paragraphs split on a character no line can hold: an unescaped newline would end
         // the headers and the description would read back as lyrics.
@@ -630,7 +636,7 @@ public final class LyricsCache {
         return derivedCacheFile(track, source,
                 ".ai." + providerPrefix
                         + aiConfigKey(Settings.LYRICS_AI_RUBY_PROMPT.get())
-                        + ".ruby.txt", sourceLines);
+                        + ".ruby." + LyricsRequests.rubyLanguage() + ".txt", sourceLines);
     }
 
     private static String aiConfigKey(String prompt) {
@@ -780,7 +786,9 @@ public final class LyricsCache {
      * returning lyrics cached under a different source.
      */
     private static String key(TrackInfo track, String source) {
-        return track.cacheKey() + "|" + source;
+        // Retry YouTube Music lookups that failed when the request included account headers.
+        String revision = "YTMusic".equals(source) ? "|2" : "";
+        return track.cacheKey() + "|" + source + revision;
     }
 
     private static String trackKey(TrackInfo track) {
@@ -811,7 +819,7 @@ public final class LyricsCache {
             String content = String.join("\n",
                     lines.subList(header.contentStart(), lines.size()));
             Lyrics lyrics = parseContentLines(content, header.synced(), header.provider(),
-                    header.songwriters(), header.sourceUrl(), header.formatType(), readRaw(file),
+                    header.songwriters(), header.credits(), header.sourceUrl(), header.formatType(), readRaw(file),
                     key, header.about());
             if (lyrics != null && isCorruptedPetitLyrics(header.provider(), lyrics)) {
                 discard(file);
@@ -837,7 +845,7 @@ public final class LyricsCache {
                     if (wt != null && !wt.isEmpty()) {
                         totalTokens++;
                         if (wt.length() == 1 && Character.isLetter(wt.charAt(0))
-                                && !ScriptDetector.containsCjk(wt)) {
+                                && !ScriptDetector.containsUnspaced(wt)) {
                             singleLetterTokens++;
                         }
                     }
@@ -854,7 +862,7 @@ public final class LyricsCache {
         String content = String.join("\n",
                 lines.subList(header.contentStart(), lines.size()));
         return parseContentLines(content, header.synced(), header.provider(),
-                header.songwriters(), header.sourceUrl(), header.formatType(), readRaw(file),
+                header.songwriters(), header.credits(), header.sourceUrl(), header.formatType(), readRaw(file),
                 sidecarKey, header.about());
     }
 
@@ -864,6 +872,7 @@ public final class LyricsCache {
         String sourceUrl = null;
         String formatType = null;
         List<String> songwriters = null;
+        List<String> credits = null;
         String about = null;
         String videoId = null;
         int contentStart = from;
@@ -886,19 +895,10 @@ public final class LyricsCache {
                 sourceUrl = emptyToNull(line.substring(HEADER_SOURCE_URL.length()));
             } else if (line.startsWith(HEADER_FORMAT_TYPE)) {
                 formatType = emptyToNull(line.substring(HEADER_FORMAT_TYPE.length()));
-            } else if (line.startsWith(HEADER_SONGWRITERS)) {
-                String value = line.substring(HEADER_SONGWRITERS.length());
-                if (!value.isEmpty()) {
-                    songwriters = new ArrayList<>();
-                    for (String s : value.split("␟")) {
-                        if (!s.isEmpty()) {
-                            songwriters.add(s);
-                        }
-                    }
-                    if (songwriters.isEmpty()) {
-                        songwriters = null;
-                    }
-                }
+            } else if (line.startsWith(HEADER_WRITERS)) {
+                songwriters = parseListHeader(line.substring(HEADER_WRITERS.length()));
+            } else if (line.startsWith(HEADER_CREDITS)) {
+                credits = parseListHeader(line.substring(HEADER_CREDITS.length()));
             } else if (line.startsWith(HEADER_ABOUT)) {
                 String value = line.substring(HEADER_ABOUT.length());
                 if (!value.isEmpty()) {
@@ -910,13 +910,25 @@ public final class LyricsCache {
             }
             contentStart = i + 1;
         }
-        return new Header(notFound, provider, synced, sourceUrl, formatType, songwriters, about,
-                videoId, contentStart);
+        return new Header(notFound, provider, synced, sourceUrl, formatType, songwriters, credits,
+                about, videoId, contentStart);
+    }
+
+    @Nullable
+    private static List<String> parseListHeader(String value) {
+        List<String> entries = new ArrayList<>();
+        for (String entry : value.split("␟")) {
+            if (!entry.isEmpty()) {
+                entries.add(entry);
+            }
+        }
+        return entries.isEmpty() ? null : entries;
     }
 
     @Nullable
     private static Lyrics parseContentLines(String content, boolean synced, String provider,
                                             @Nullable List<String> songwriters,
+                                            @Nullable List<String> credits,
                                             @Nullable String sourceUrl,
                                             @Nullable String formatType,
                                             @Nullable String rawFormat, String key,
@@ -926,7 +938,7 @@ public final class LyricsCache {
         if (TTML_FORMAT_TYPE.equals(formatType) && rawFormat != null && !rawFormat.isEmpty()) {
             final Lyrics reread = TtmlParser.ttmlToLyrics(rawFormat, provider, sourceUrl);
             if (reread != null && !reread.isEmpty()) {
-                return withAbout(reread, about);
+                return withStoredInfo(reread, credits, about);
             }
         }
 
@@ -939,18 +951,23 @@ public final class LyricsCache {
         return new Lyrics(parsed, provider, synced,
                 alignedSidecar(readEmbeddedRomanization(key), parsed.size()),
                 alignedSidecarMap(readEmbeddedTranslations(key), parsed.size()),
-                null, songwriters, rawFormat, formatType, sourceUrl, about);
+                null, songwriters, credits, rawFormat, formatType, sourceUrl, about, null);
     }
 
-    /** The description was never in the file, so it is carried over rather than dropped. */
-    private static Lyrics withAbout(Lyrics lyrics, @Nullable String about) {
-        if (about == null || about.equals(lyrics.about())) {
+    /**
+     * The description was never in the file, and neither are the credits a provider added to the
+     * ones in the file, so they are carried over rather than dropped.
+     */
+    private static Lyrics withStoredInfo(Lyrics lyrics, @Nullable List<String> credits,
+                                         @Nullable String about) {
+        if (about == null && credits == null) {
             return lyrics;
         }
         return new Lyrics(lyrics.lines(), lyrics.providerName(), lyrics.synced(),
                 lyrics.romanization(), lyrics.translations(), lyrics.romanizations(),
-                lyrics.songwriters(), lyrics.rawFormat(), lyrics.formatType(),
-                lyrics.sourceUrl(), about);
+                lyrics.songwriters(), credits != null ? credits : lyrics.credits(),
+                lyrics.rawFormat(), lyrics.formatType(), lyrics.sourceUrl(),
+                about != null ? about : lyrics.about(), lyrics.agentNames());
     }
 
     /**
@@ -1159,7 +1176,7 @@ public final class LyricsCache {
      * Empties the stored lyrics.
      *
      * <p>The dictionaries sit beside them and cost tens of megabytes and a download apiece to have
-     * back, so they are left alone. A track asked for afterwards fetches as it did the first time.
+     * back, so they are left alone. A track asked for afterward fetches as it did the first time.
      *
      * @return how many bytes were freed.
      */
@@ -1169,7 +1186,6 @@ public final class LyricsCache {
         final File[] files = directory == null ? null : directory.listFiles();
         if (files != null) {
             for (File file : files) {
-                //noinspection ResultOfMethodCallIgnored
                 file.delete();
             }
         }
@@ -1198,7 +1214,7 @@ public final class LyricsCache {
     /** The header lines of a cached lyrics file and the index its content starts at. */
     private record Header(boolean notFound, String provider, boolean synced,
                           @Nullable String sourceUrl, @Nullable String formatType,
-                          @Nullable List<String> songwriters, @Nullable String about,
-                          @Nullable String videoId, int contentStart) {
+                          @Nullable List<String> songwriters, @Nullable List<String> credits,
+                          @Nullable String about, @Nullable String videoId, int contentStart) {
     }
 }

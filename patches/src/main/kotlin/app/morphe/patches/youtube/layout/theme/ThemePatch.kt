@@ -66,6 +66,7 @@ import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.shared.mainactivity.onConfigurationChangedMethod
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.shared.mapping.resourceMappingPatch
@@ -363,6 +364,20 @@ private val runtimeThemeBytecodePatch = bytecodePatch(
     execute {
         // Keep the runtime theme hook owned by Theme so it is applied whenever this patch is selected.
         injectOnCreateMethodCall(THEME_EXTENSION_CLASS_DESCRIPTOR, "setTheme")
+
+        // Android replaces the synthetic MCC/MNC when rotating the Activity. Restore the palette
+        // after the superclass handles the configuration, before YouTube inflates new menu views.
+        onConfigurationChangedMethod.apply {
+            val superCallIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_SUPER &&
+                        getReference<MethodReference>()?.name == "onConfigurationChanged"
+            }
+            addInstruction(
+                superCallIndex + 1,
+                "invoke-static/range { p0 .. p0 }, $THEME_EXTENSION_CLASS_DESCRIPTOR" +
+                        "->onConfigurationChanged(Landroid/content/Context;)V"
+            )
+        }
 
         // Prepare the overlay before the first Activity. The shared extension hook initializes its
         // Context at the beginning of Application.onCreate, so insert immediately after that

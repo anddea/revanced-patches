@@ -53,7 +53,6 @@ import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
-import app.morphe.patcher.util.getFreeRegisterProvider
 import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -65,7 +64,6 @@ import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
 import app.morphe.patches.shared.misc.settings.YOUTUBE_SETTINGS_ENTRY_KEY
 import app.morphe.patches.shared.misc.settings.customSettingsNameInstructions
 import app.morphe.patches.shared.settings.baseSettingsPatch
-import app.morphe.patches.youtube.layout.hide.settingsmenu.PreferenceScreenSyntheticFingerprint
 import app.morphe.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
 import app.morphe.patches.youtube.utils.cairoFragmentConfigFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -76,6 +74,8 @@ import app.morphe.patches.youtube.utils.fix.attributes.themeAttributesPatch
 import app.morphe.patches.youtube.utils.fix.contentprovider.fixContentProviderPatch
 import app.morphe.patches.youtube.utils.fix.padding.fixPagePaddingPatch
 import app.morphe.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePlayingPatch
+import app.morphe.patches.youtube.utils.fix.preference.addPreferenceScreenHook
+import app.morphe.patches.youtube.utils.fix.preference.preferenceScreenHookPatch
 import app.morphe.patches.youtube.utils.fix.preference.fixPreferenceIconPatch
 import app.morphe.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
@@ -87,10 +87,10 @@ import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.settingsFragment
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settingsFragmentSyntheticFingerprint
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.FilesCompat
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
-import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.findElementByAttributeValueOrThrow
@@ -106,9 +106,7 @@ import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -133,6 +131,7 @@ private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
 ) {
     dependsOn(
+        preferenceScreenHookPatch,
         sharedExtensionPatch,
         sharedResourceIdPatch,
         mainActivityResolvePatch,
@@ -332,37 +331,14 @@ private val settingsBytecodePatch = bytecodePatch(
             }.let(methods::add)
         }
 
-        PreferenceScreenSyntheticFingerprint.let {
-            it.method.apply {
-                // Reuse the method's own getPreferenceScreen call.
-                val getPreferenceScreenIndex = it.instructionMatches[1].index
-                val fragmentRegister =
-                    getInstruction<FiveRegisterInstruction>(getPreferenceScreenIndex).registerC
-                val getPreferenceScreenReference =
-                    getInstruction<ReferenceInstruction>(getPreferenceScreenIndex).reference
-
-                // fragmentRegister must survive, because the settings menu filter patch
-                // adds its own call on it after these instructions.
-                val insertIndex = it.instructionMatches.last().index
-                val registerProvider = getFreeRegisterProvider(insertIndex, 3, fragmentRegister)
-                val screenRegister = registerProvider.getFreeRegister()
-                val preferenceRegister = registerProvider.getFreeRegister()
-                val nameRegister = registerProvider.getFreeRegister()
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    customSettingsNameInstructions(
-                        preferenceKey = YOUTUBE_SETTINGS_ENTRY_KEY,
-                        getPreferenceScreen = """
-                            invoke-virtual { v$fragmentRegister }, $getPreferenceScreenReference
-                            move-result-object v$screenRegister
-                        """,
-                        screenRegister = screenRegister,
-                        preferenceRegister = preferenceRegister,
-                        nameRegister = nameRegister
-                    )
-                )
-            }
+        addPreferenceScreenHook(2) { screenRegister, (preferenceRegister, nameRegister) ->
+            customSettingsNameInstructions(
+                preferenceKey = YOUTUBE_SETTINGS_ENTRY_KEY,
+                getPreferenceScreen = "",
+                screenRegister = screenRegister,
+                preferenceRegister = preferenceRegister,
+                nameRegister = nameRegister
+            )
         }
     }
 }

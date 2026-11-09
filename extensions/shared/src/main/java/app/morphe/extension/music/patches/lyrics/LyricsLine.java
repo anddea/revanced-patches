@@ -58,18 +58,6 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
                         }
                     }
                     text = sb.toString();
-                } else {
-                    List<Word> updated = new ArrayList<>(words.size());
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < words.size(); i++) {
-                        Word w = words.get(i);
-                        if (i > 0) sb.append(' ');
-                        sb.append(w.text());
-                        boolean sp = (i < words.size() - 1);
-                        updated.add(new Word(w.startMs(), w.endMs(), w.text(), w.romaji(), sp, w.ruby()));
-                    }
-                    words = updated;
-                    text = sb.toString();
                 }
             } else if (!hasEndedWithSpace) {
                 List<Word> updated = new ArrayList<>(words.size());
@@ -83,7 +71,8 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
                         sp = (end < text.length() && Character.isWhitespace(text.charAt(end)));
                         cursor = end;
                     } else {
-                        sp = (i < words.size() - 1);
+                        // CJK words are written without spaces, so only other words can assume one.
+                        sp = i < words.size() - 1 && !ScriptDetector.containsCjk(w.text());
                     }
                     updated.add(new Word(w.startMs(), w.endMs(), w.text(), w.romaji(), sp, w.ruby()));
                 }
@@ -118,10 +107,6 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
         return "v1000".equalsIgnoreCase(id) || "v2000".equalsIgnoreCase(id);
     }
 
-    private static boolean isWholeLineWord(String wordText, String lineText) {
-        return compactText(wordText).equalsIgnoreCase(compactText(lineText));
-    }
-
     private static String compactText(String value) {
         final StringBuilder builder = new StringBuilder(value.length());
         for (int i = 0; i < value.length(); i++) {
@@ -133,25 +118,17 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
         return builder.toString();
     }
 
-    private static boolean hasMultipleWords(String value) {
-        boolean inWord = false;
-        int wordCount = 0;
-        for (int i = 0; i < value.length(); i++) {
-            if (Character.isWhitespace(value.charAt(i))) {
-                inWord = false;
-            } else if (!inWord) {
-                inWord = true;
-                wordCount++;
-                if (wordCount > 1) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public boolean hasWords() {
         return !words.isEmpty();
+    }
+
+    /** {@return the later of the line's end and its last word's end, or NO_TIME without either} */
+    public long sungEndMs() {
+        final long wordEnd = words.isEmpty() ? NO_TIME : words.get(words.size() - 1).endMs();
+        if (wordEnd == NO_TIME) {
+            return endTimeMs;
+        }
+        return endTimeMs == NO_TIME ? wordEnd : Math.max(wordEnd, endTimeMs);
     }
 
     /** Whether Apple's group/other vocal agent is centered instead of placed on a duet side. */
@@ -176,11 +153,22 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
             if (single.endMs() <= single.startMs()) {
                 return false;
             }
-            // A span repeating the whole line is line timing; one over some words is still word timing.
-            return !hasMultipleWords(text)
-                    || !compactText(single.text()).equalsIgnoreCase(compactText(text));
+            if (compactText(single.text()).equalsIgnoreCase(compactText(text))) {
+                // Same text: word sync only when the word carries its own span, not the line's.
+                return single.startMs() != startTimeMs || single.endMs() != endTimeMs;
+            }
+            // Different text: the word covers only part of the line, so it is word sync.
+            return true;
         }
-        return true;
+        for (Word word : words) {
+            if (word.endMs() <= word.startMs()) {
+                continue;
+            }
+            if (word.startMs() != startTimeMs || word.endMs() != endTimeMs) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @NonNull

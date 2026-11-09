@@ -406,7 +406,7 @@ Make %2$s the default client?"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
     <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR requires a separate sign-in. Tap here to continue</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">To use this feature, change \'Default client\' to Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Currently signed into Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR sign in</string>
@@ -539,10 +539,6 @@ Tap here to open OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Multilingual female</string>
     <string name="morphe_vot_voice_gender_male">Male</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Multilingual male</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">The confirmation is not shown after a video is removed from Watch later</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">Hide Watch later removal snackbar</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">The drag handles of the Watch later videos are easier to grab</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">Widen Watch later drag handles</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
     <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
@@ -1338,12 +1334,11 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
     <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Home / Subscriptions / Search results are filtered to hide content that matches keyword phrases
+    <string name="revanced_hide_keyword_content_about_summary">"Home / Subscriptions / Search / Comments are filtered to hide content that matches keyword phrases
 
-Limitations: 
-• Shorts cannot be hidden by channel name
-• Some UI components may not be hidden
-• Searching for a keyword may show no results"</string>
+Limitations:
+• Some Shorts cannot be hidden by channel name
+• Some UI components may not be hidden"</string>
     <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword / phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Match whole words</string>
@@ -1353,11 +1348,9 @@ Limitations:
     <string name="revanced_hide_keyword_content_home_summary_off">Videos in Home feed are not filtered</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Videos in Home feed are filtered</string>
     <string name="revanced_hide_keyword_content_home_title">Hide Home videos by keywords</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Keywords and phrases to hide, separated by new lines
+    <string name="revanced_hide_keyword_content_phrases_summary">"Enter keywords and phrases to hide, separated by new lines
 
-Keywords can be channel names or any text shown in video titles
-
-Words with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)"</string>
+Keywords can be any text shown in video titles. @UserName keyword hides all content from specific creators"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Search results are not filtered</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Search results are filtered</string>
@@ -1369,9 +1362,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' operator (\'&amp;\') is enabled.&lt;br&gt;&lt;br&gt;When &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; is used as a keyword, keywords containing both &lt;strong&gt;Blue&lt;/strong&gt; and &lt;strong&gt;Red&lt;/strong&gt; will be filtered</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">Use \'AND\' operator (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Cannot use keyword: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s</string>
+
+
     <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown</string>
     <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden</string>
@@ -3137,10 +3129,18 @@ Authorization is required to request translation with live voices for videos tha
     <string name="morphe_custom_seekbar_thumb_scale_type_title">Thumb size</string>
     <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Fit seekbar</string>
     <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Original size</string>
-    <string name="morphe_navigation_bar_swipe_title">Swipe between navigation tabs</string>
-    <string name="morphe_navigation_bar_swipe_summary">Swipe left or right on the navigation bar to switch between visible tabs</string>
     <string name="morphe_enhanced_ambient_mode_title">Enhanced Ambient mode</string>
     <string name="morphe_enhanced_ambient_mode_summary">Lights the whole watch page and black bars with the video, in place of Ambient mode</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Keep text readable</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dims the light on bright videos so the text on the page stays readable</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Dim while scrolling</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dims the light while the page is scrolled or touched</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dim duration</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">How long the light stays dim after scrolling stops. With 0 only scrolling dims the light, and it comes back as soon as scrolling stops</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Widen playlist drag handles</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Playlist drag handles are easier to grab</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Hide playlist removal snackbar</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">The confirmation is not shown after a video is removed from a playlist</string>
+    <string name="morphe_playlist_long_press_drag_title">Long press to reorder playlist videos</string>
+    <string name="morphe_playlist_long_press_drag_summary">Touch and hold a video of your playlist to drag it to a new position</string>
 </resources>

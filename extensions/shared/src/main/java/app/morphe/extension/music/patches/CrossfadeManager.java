@@ -13,6 +13,7 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
@@ -125,6 +126,10 @@ public class CrossfadeManager {
          * 9.x only — 8.x bridge is not injected.
          */
         Object patch_getCoordinatorListener();
+        /**
+         * The volume the app last set on its player, which includes its volume normalization.
+         */
+        float patch_getVolume();
         /**
          * Calls the coordinator's own playNextInQueue method (auih.y()V) directly.
          * The auto-advance monitor and onBeforePlayNext re-invoke must use this
@@ -383,6 +388,21 @@ public class CrossfadeManager {
     private static volatile boolean isCrossfadePaused = false;
     private static volatile boolean inVideoMode = false;
     private static volatile long manualToggleSuppressionUntil = 0;
+    private static final List<Intent> heldAudioEffectSessionCloses = new ArrayList<>();
+
+    /**
+     * Injection point. The app closes the audio effect session of the old player as soon as
+     * the new player reports its own, which detaches equalizers from a track that still fades out.
+     */
+    public static void closeAudioEffectSession(Context context, Intent intent) {
+        if (crossfadeInProgress) {
+            // Copied, the app reuses the intent.
+            heldAudioEffectSessionCloses.add(new Intent(intent));
+        } else {
+            context.sendBroadcast(intent);
+        }
+    }
+
     private static volatile boolean crossfadeInProgress = false;
     private static volatile boolean audioModeWasForced = false;
     private static volatile boolean activityRunning = false;
@@ -537,6 +557,10 @@ public class CrossfadeManager {
     private static volatile ExoPlayerAccess pendingOutPlayer = null;
     private static volatile PlayerCoordinatorAccess activeCoordinator = null;
     private static volatile float currentFadeInVolume = 0.0f;
+    /**
+     * Kept for the outgoing player, the coordinator's volume changes to the one of the next track.
+     */
+    private static volatile float outgoingAppVolume = 1.0f;
 
     /**
      * The coordinator's UI listener (bxi) identified on the first successful
@@ -582,6 +606,7 @@ public class CrossfadeManager {
     private static class FadingPlayer {
         final ExoPlayerAccess player;
         final float startVolume;
+        final float appVolume = outgoingAppVolume;
         final long startTimeMs;
         final long fadeDurationMs;
         final FadeCurve curve;
@@ -608,9 +633,9 @@ public class CrossfadeManager {
             long elapsed = System.currentTimeMillis() - startTimeMs;
             float t = Math.min(1.0f, (float) elapsed / fadeDurationMs);
             if (curve != null) {
-                return curve.out(t);
+                return appVolume * curve.out(t);
             }
-            return startVolume * (1.0f - t);
+            return appVolume * startVolume * (1.0f - t);
         }
 
         boolean isComplete() {
@@ -805,6 +830,7 @@ public class CrossfadeManager {
             if (newExo == null) return false;
 
             newExo.patch_setVolume(0.0f);
+            outgoingAppVolume = coordinator.patch_getVolume();
 
             if (is9x) {
                 pendingOutPlayer = currentExo;
@@ -886,7 +912,7 @@ public class CrossfadeManager {
                                         + " msSincePause=" + msSincePause + "ms → wasPlaying=" + outgoingWasPlayingFinal);
                     if (outgoingWasPlaying) {
                         currentExo.patch_setPlayWhenReady(true);
-                        currentExo.patch_setVolume(1.0f);
+                        currentExo.patch_setVolume(outgoingAppVolume);
                         logDebug(() -> "9.x: re-enabled outgoing player @" + System.identityHashCode(currentExo));
                     } else {
                         currentExo.patch_setVolume(0.0f);
@@ -1227,6 +1253,7 @@ public class CrossfadeManager {
             if (newExo == null) return false;
 
             newExo.patch_setVolume(0.0f);
+            outgoingAppVolume = coordinator.patch_getVolume();
 
             pendingOutPlayer = currentExo;
             pendingInPlayer = newExo;
@@ -1884,6 +1911,7 @@ public class CrossfadeManager {
                 return false;
             }
             newExo.patch_setVolume(0.0f);
+            outgoingAppVolume = coordinator.patch_getVolume();
 
             pendingOutPlayer = currentExo;
             pendingInPlayer = newExo;
@@ -1930,7 +1958,7 @@ public class CrossfadeManager {
             // pre-start its fade now (auto-advance style) so it reaches silence
             // gracefully regardless of the new player's load latency.
             currentExo.patch_setPlayWhenReady(true);
-            currentExo.patch_setVolume(1.0f);
+            currentExo.patch_setVolume(outgoingAppVolume);
             FadeCurve outCurve = Settings.CROSSFADE_CURVE.get();
             long outFadeDuration = getCrossfadeDurationMs();
             fadingOutPlayers.add(new FadingPlayer(currentExo, outFadeDuration, outCurve));
@@ -1950,6 +1978,14 @@ public class CrossfadeManager {
             cleanupAllPlayers();
             return true; // we already mutated state; don't also fire MEDIA_NEXT
         }
+    }
+
+    /**
+     * Crossfade volumes are applied on top of the app's own volume, to keep its volume normalization.
+     */
+    private static float appVolume() {
+        PlayerCoordinatorAccess coordinator = activeCoordinator;
+        return coordinator == null ? 1.0f : coordinator.patch_getVolume();
     }
 
     private static void abortCrossfadeNow() {
@@ -1983,7 +2019,7 @@ public class CrossfadeManager {
             logDebug(() -> "abortCrossfadeNow: snapping to player @"
                     + System.identityHashCode(bestPlayer));
             try {
-                bestPlayer.patch_setVolume(1.0f);
+                bestPlayer.patch_setVolume(coord.patch_getVolume());
                 bestPlayer.patch_setPlayWhenReady(true);
                 coord.patch_setExoPlayer(bestPlayer);
                 VideoSurfaceAccess surface =
@@ -2015,6 +2051,10 @@ public class CrossfadeManager {
         outgoingFadePreStarted = false;
         deferredSwapPending = false;
         currentFadeInVolume = 0.0f;
+        for (Intent intent : heldAudioEffectSessionCloses) {
+            Utils.getContext().sendBroadcast(intent);
+        }
+        heldAudioEffectSessionCloses.clear();
 
         if (audioModeWasForced) {
             audioModeWasForced = false;
@@ -2069,7 +2109,7 @@ public class CrossfadeManager {
                 currentFadeInVolume = inVol;
 
                 try {
-                    inPlayer.patch_setVolume(inVol);
+                    inPlayer.patch_setVolume(inVol * appVolume());
                     if (elapsed % 500 < TICK_MS) {
                         int inState = inPlayer.patch_getPlaybackState();
                         logDebug(() -> String.format(Locale.US,
@@ -2086,10 +2126,14 @@ public class CrossfadeManager {
                     logDebug(() -> "Fade-in complete for @" + System.identityHashCode(inPlayer));
                     inVideoMode = false;
                     currentFadeInVolume = 1.0f;
-                    try { inPlayer.patch_setVolume(1.0f); } catch (Exception ignored) {}
+                    try { inPlayer.patch_setVolume(appVolume()); } catch (Exception ignored) {}
 
                     if (pendingInPlayer == null) {
                         crossfadeInProgress = false;
+                        for (Intent intent : heldAudioEffectSessionCloses) {
+                            Utils.getContext().sendBroadcast(intent);
+                        }
+                        heldAudioEffectSessionCloses.clear();
                         autoAdvanceCrossfadeActive = false;
                         queueAdvancedByMonitor = false;
                         monitorCrossfadeActive = false;
@@ -2558,14 +2602,14 @@ public class CrossfadeManager {
         ExoPlayerAccess pin = pendingInPlayer;
         if (pin != null) {
             try {
-                pin.patch_setVolume(1.0f);
+                pin.patch_setVolume(appVolume());
                 if (stopKeptPlayer) {
                     pin.patch_setPlayWhenReady(false);
                     logInfo(() -> "cleanupAllPlayers: paused kept coordinator player @"
                             + System.identityHashCode(pin) + " (dismiss — stop dismissed track)");
                 } else {
                     logInfo(() -> "cleanupAllPlayers: restored kept coordinator player @"
-                            + System.identityHashCode(pin) + " volume → 1.0 (#1671 silent-playback guard)");
+                            + System.identityHashCode(pin) + " volume (#1671 silent-playback guard)");
                 }
             } catch (Exception ignored) {}
         }
@@ -2579,7 +2623,7 @@ public class CrossfadeManager {
         ExoPlayerAccess cip = crossfadeInPlayer;
         if (cip != null && cip != pin) {
             try {
-                cip.patch_setVolume(1.0f);
+                cip.patch_setVolume(appVolume());
                 if (stopKeptPlayer) cip.patch_setPlayWhenReady(false);
             } catch (Exception ignored) {}
         }
@@ -2595,6 +2639,10 @@ public class CrossfadeManager {
         outgoingFadePreStarted = false;
         deferredSwapPending = false;
         currentFadeInVolume = 0.0f;
+        for (Intent intent : heldAudioEffectSessionCloses) {
+            Utils.getContext().sendBroadcast(intent);
+        }
+        heldAudioEffectSessionCloses.clear();
         coordinatorListenerBxi = null;
     }
 
@@ -2711,6 +2759,10 @@ public class CrossfadeManager {
         outgoingFadePreStarted = false;
         deferredSwapPending = false;
         currentFadeInVolume = 0.0f;
+        for (Intent intent : heldAudioEffectSessionCloses) {
+            Utils.getContext().sendBroadcast(intent);
+        }
+        heldAudioEffectSessionCloses.clear();
         coordinatorListenerBxi = null;
     }
 

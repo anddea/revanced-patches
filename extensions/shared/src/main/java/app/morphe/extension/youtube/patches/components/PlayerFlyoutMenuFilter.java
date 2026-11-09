@@ -35,7 +35,8 @@ public final class PlayerFlyoutMenuFilter extends Filter {
 
     private final ByteArrayFilterGroup videoPlayerSettingsQualityButton = new ByteArrayFilterGroup(
             null,
-            "quality_sheet_header.e"
+            "quality_sheet_header",
+            "quick_quality_sheet_content"
     );
     private final ByteArrayFilterGroup shortsPlayerSettingsCaptionsButton = new ByteArrayFilterGroup(
             null,
@@ -54,13 +55,17 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 null,
                 "yt_outline_arrow_repeat_1_",
                 "yt_outline_experimental_repeat1_",
-                "yt_outline_experimental_play_circle_black_"
+                "yt_outline_experimental_play_circle_black_",
+                // 21.x: Base64-encoded Protobuf entity key fragment for "_video_loop_entity"
+                "X3ZpZGVvX2xvb3BfZW50aXR5"
         );
 
         qualityMenuButton = new ByteArrayFilterGroup(
                 null,
                 "yt_outline_adjust_",
-                "yt_outline_experimental_adjust_"
+                "yt_outline_experimental_adjust_",
+                "quick_quality_sheet_content",
+                "quality_sheet_header"
         );
 
         byteArrayException = new ByteArrayFilterGroup(
@@ -96,33 +101,46 @@ public final class PlayerFlyoutMenuFilter extends Filter {
         flyoutFilterGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_AMBIENT,
-                        "yt_outline_experimental_ambient_mode_",
-                        "yt_outline_screen_light_"
+                        new String[]{
+                                "yt_outline_screen_light_",
+                                "yt_outline_experimental_ambient_mode_"
+                        },
+                        // 21.x: Ambient mode toggle command (field 456628506),
+                        // when the icon has no name in the buffer.
+                        new byte[]{(byte) 0xD2, (byte) 0x91, (byte) 0xF3, (byte) 0xCD, 0x0D}
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_AUDIO_TRACK,
+                        "yt_outline_person_",
                         "yt_outline_experimental_person_",
-                        "yt_outline_person_"
+                        "audio_track_sheet_content"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS,
                         "closed_caption_",
-                        "yt_outline_experimental_closed_captions_"
+                        "yt_outline_experimental_closed_captions_",
+                        "captions_sheet_content"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_HELP,
+                        "yt_outline_question_circle_",
                         "yt_outline_experimental_help_circle_",
-                        "yt_outline_question_circle_"
+                        "yt_android_watch"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_LOCK_SCREEN,
+                        "yt_outline_lock_",
                         "yt_outline_experimental_lock_",
-                        "yt_outline_lock_"
+                        // 21.x: Base64-encoded Protobuf entity key fragment for "lock_mode_state_entity_key"
+                        "bG9ja19tb2RlX3N0YXRlX2VudGl0eV9rZXkg"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_ON_THE_GO,
                         "yt_outline_headset_",
-                        "yt_outline_experimental_headset_"
+                        "yt_outline_experimental_headset_",
+                        // 21.x: Premium upsell parameters of the item, when the icon has no name
+                        // in the buffer. Each Premium feature has its own parameters.
+                        "igkCCA8%3D"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_MORE,
@@ -136,12 +154,18 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_PLAYBACK_SPEED,
                         "yt_outline_play_arrow_half_circle_",
-                        "yt_outline_experimental_play_circle_half_dashed_"
+                        "yt_outline_experimental_play_circle_half_dashed_",
+                        "playback_rate_selector_menu_sheet"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_ADDITIONAL_SETTINGS,
-                        "yt_outline_experimental_gear_",
-                        "yt_outline_gear_"
+                        new String[]{
+                                "yt_outline_gear_",
+                                "yt_outline_experimental_gear_"
+                        },
+                        // 21.x: Command that opens the submenu (field 469660771),
+                        // when the icon has no name in the buffer.
+                        new byte[]{(byte) 0x9A, (byte) 0xC6, (byte) 0xCE, (byte) 0xFF, 0x0D}
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_REPORT,
@@ -150,14 +174,20 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_STABLE_VOLUME,
-                        "yt_fill_experimental_stable_volume_",
-                        "yt_outline_experimental_stable_volume_",
-                        "volume_stable_"
+                        new String[]{
+                                "volume_stable_",
+                                "yt_fill_experimental_stable_volume_",
+                                "yt_outline_experimental_stable_volume_"
+                        },
+                        // 21.x: Stable volume toggle command (field 449823757),
+                        // when the icon has no name in the buffer.
+                        new byte[]{(byte) 0xEA, (byte) 0xC0, (byte) 0xF8, (byte) 0xB3, 0x0D}
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER,
+                        "yt_outline_moon_z_",
                         "yt_outline_experimental_sleep_timer_",
-                        "yt_outline_moon_z_"
+                        "sleep_timer_sheet_content"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_STATS_FOR_NERDS,
@@ -165,13 +195,16 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_WATCH_IN_VR,
-                        "yt_outline_experimental_vr_",
-                        "yt_outline_vr_"
+                        "yt_outline_vr_",
+                        "yt_outline_experimental_vr_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_YT_MUSIC,
+                        "yt_outline_youtube_music_",
                         "yt_outline_experimental_youtube_music_",
-                        "yt_outline_youtube_music_"
+                        // 21.x: Link that opens the playing video in YouTube Music,
+                        // when the icon has no name in the buffer.
+                        "vnd.youtube.music://music.youtube.com/watch?v="
                 )
         );
     }

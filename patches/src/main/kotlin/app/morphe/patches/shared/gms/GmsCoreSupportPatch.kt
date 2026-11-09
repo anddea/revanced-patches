@@ -88,8 +88,8 @@ internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC =
 fun gmsCoreSupportPatch(
     fromPackageName: String,
     mainActivityOnCreateFingerprint: Fingerprint,
-    extensionPatch: Patch<*>,
-    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>, packageNameYouTubeOption: Option<String>, packageNameYouTubeMusicOption: Option<String>) -> Patch<*>,
+    extensionPatch: Patch,
+    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>, packageNameYouTubeOption: Option<String>, packageNameYouTubeMusicOption: Option<String>) -> Patch,
     executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(

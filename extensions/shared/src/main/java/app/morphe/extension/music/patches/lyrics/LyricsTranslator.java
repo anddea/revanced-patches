@@ -7,6 +7,8 @@
 
 package app.morphe.extension.music.patches.lyrics;
 
+import app.morphe.extension.music.patches.lyrics.romanizers.LyricsLanguageDetector;
+
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -15,8 +17,12 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import app.morphe.extension.music.patches.lyrics.Lyrics;
+import app.morphe.extension.music.patches.lyrics.LyricsLine;
+import app.morphe.extension.music.patches.lyrics.LyricsMerge;
+import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
-import app.morphe.extension.music.patches.lyrics.romanizers.LyricsLanguageDetector;
+import app.morphe.extension.music.patches.lyrics.LyricsCache;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -90,9 +96,8 @@ public final class LyricsTranslator {
                     break;
                 }
             }
-            return out;
         }
-        return null;
+        return out;
     }
 
     public static void translate(TrackInfo track, Lyrics lyrics, String source, Callback callback) {

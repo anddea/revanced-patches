@@ -20,6 +20,7 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
@@ -38,6 +39,7 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.addPreferenceCatego
 import app.morphe.patches.music.utils.settings.ResourceUtils.editPreferenceCategory
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.mainactivity.getMainActivityMethod
+import app.morphe.util.registersUsed
 import app.morphe.util.ResourceGroup
 import app.morphe.util.adoptChild
 import app.morphe.util.copyResources
@@ -409,6 +411,16 @@ val crossfadePatch = bytecodePatch(
         }.onFailure {
             log.warning("Loop-state adapter not found — REPEAT_SINGLE " +
                     "crossfade disabled (#repeat): ${it.message}")
+        }
+
+        CloseAudioEffectSessionFingerprint.let {
+            val sendBroadcastMatch = it.instructionMatches.last()
+            val (contextRegister, intentRegister) = sendBroadcastMatch.instruction.registersUsed
+            it.method.replaceInstruction(
+                sendBroadcastMatch.index,
+                "invoke-static { v$contextRegister, v$intentRegister }, $EXTENSION_CLASS->" +
+                        "closeAudioEffectSession(Landroid/content/Context;Landroid/content/Intent;)V"
+            )
         }
 
         getMainActivityMethod("onStop")
@@ -1136,6 +1148,26 @@ val crossfadePatch = bytecodePatch(
         coordinatorClass.addFieldGetter("patch_getSharedCallback", sharedCallbackFieldRef)
 
         coordinatorClass.addFieldGetter("patch_getVideoSurface", videoSurfaceField)
+        val playerVolumeField = PlayerVolumeFingerprint.instructionMatches.last()
+            .getInstruction<ReferenceInstruction>().getReference<FieldReference>()!!
+        coordinatorClass.methods.add(
+            ImmutableMethod(
+                coordinatorType,
+                "patch_getVolume",
+                emptyList(),
+                "F",
+                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                null,
+                null,
+                MutableMethodImplementation(2)
+            ).toMutable().apply {
+                addInstructions(
+                    0,
+                    "iget v0, p0, $playerVolumeField\nreturn v0"
+                )
+            }
+        )
+
 
         // patch_playNextInQueueDirect: calls the coordinator's own playNextInQueue (auih.y()V)
         // directly via invoke-virtual. This is required because the auto-advance monitor and

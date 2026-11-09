@@ -50,6 +50,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.endscreensuggestedvideo.endScreenSuggestedVideoPatch
+import app.morphe.patches.youtube.utils.fix.fullscreen.fixFullscreenMoreVideosPatch
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -67,6 +68,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_19_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.darkBackground
@@ -95,6 +97,7 @@ import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.insertLiteralOverride
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -404,6 +407,7 @@ val playerComponentsPatch = bytecodePatch(
         endScreenSuggestedVideoPatch,
         engagementPanelHookPatch,
         fixProtoLibraryPatch,
+        fixFullscreenMoreVideosPatch,
         dismissPlayerHookPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
@@ -570,6 +574,31 @@ val playerComponentsPatch = bytecodePatch(
                         move-result $parameter
                         """
                 )
+        }
+
+        if (is_21_11_or_greater) {
+            // Some accounts get the chapter skip turned off by the server config.
+            DoubleTapChapterSkipConfigFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val register = it.instructionMatches.first().getInstruction<TwoRegisterInstruction>().registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register }, $PLAYER_CLASS_DESCRIPTOR->enableDoubleTapChaptersConfig(Z)Z
+                            move-result v$register
+                        """
+                    )
+                }
+            }
+
+            DoubleTapChapterSkipFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$PLAYER_CLASS_DESCRIPTOR->disableDoubleTapChaptersFeatureFlag(Z)Z"
+                )
+            }
         }
 
         // endregion

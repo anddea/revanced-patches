@@ -10,7 +10,7 @@ typealias VersionName = String
 
 internal class JsonPatchesFileGenerator : PatchesFileGenerator {
     @Suppress("DEPRECATION")
-    override fun generate(version: String, patches: Set<Patch<*>>) {
+    override fun generate(version: String, patches: Set<Patch>) {
         val listJson = File("../patches-list.json")
 
         val patchesMap = patches.sortedBy { it.name }.map {

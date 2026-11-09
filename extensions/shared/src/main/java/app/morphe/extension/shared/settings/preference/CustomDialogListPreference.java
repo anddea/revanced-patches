@@ -43,6 +43,8 @@
 
 package app.morphe.extension.shared.settings.preference;
 
+import java.util.function.IntConsumer;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
@@ -269,7 +271,20 @@ public class CustomDialogListPreference extends ListPreference {
      */
     public static Dialog createListDialog(Context context, String title,
                                           CharSequence[] entries, CharSequence[] entryValues,
-                                          @Nullable String selectedValue, java.util.function.IntConsumer onSelected) {
+                                          @Nullable String selectedValue, IntConsumer onSelected) {
+        return createListDialog(context, title, entries, entryValues, selectedValue, onSelected,
+                null, null);
+    }
+
+    /**
+     * @param neutralText  The text of an extra button, or null for none.
+     * @param neutralClick What the extra button does.
+     */
+    public static Dialog createListDialog(Context context, String title,
+                                          CharSequence[] entries, CharSequence[] entryValues,
+                                          @Nullable String selectedValue, IntConsumer onSelected,
+                                          @Nullable CharSequence neutralText,
+                                          @Nullable Runnable neutralClick) {
         // Create ListView.
         ListView listView = new ListView(context);
         listView.setId(android.R.id.list);
@@ -306,8 +321,8 @@ public class CustomDialogListPreference extends ListPreference {
                 null,
                 null,
                 () -> {}, // Cancel button action.
-                null,
-                null,
+                neutralText == null ? null : neutralText.toString(),
+                neutralClick,
                 true
         );
 

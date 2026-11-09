@@ -18,9 +18,11 @@ import app.morphe.patches.youtube.utils.proto.hookElement
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -45,6 +47,7 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.injectHideViewCall
@@ -161,6 +164,33 @@ val layoutComponentsPatch = bytecodePatch(
                     targetIndex,
                     "invoke-static {v${targetInstruction.registerC}, v${targetInstruction.registerD}}, " +
                             "$GENERAL_CLASS_DESCRIPTOR->hideAccountMenu(Landroid/view/View;Ljava/lang/CharSequence;)V"
+                )
+            }
+        }
+
+        // endregion
+
+        // region collapse filtered boxes of the fullscreen engagement panel
+
+        // The box keeps its rounded border and padding when the element in it is filtered.
+        MetadataHighlightsColumnMeasureFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow {
+                opcode == Opcode.INVOKE_SUPER && getReference<MethodReference>()?.name == "onMeasure"
+            }.forEach { index ->
+                val boxRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+                val freeRegister = findFreeRegister(index + 1, boxRegister)
+
+                addInstructionsWithLabels(
+                    index + 1,
+                    """
+                        invoke-static { v$boxRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->isEngagementPanelBoxEmpty(Landroid/view/ViewGroup;)Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :not_empty
+                        const/4 v$freeRegister, 0x0
+                        invoke-virtual { v$boxRegister, v$freeRegister, v$freeRegister }, $definingClass->setMeasuredDimension(II)V
+                        :not_empty
+                        nop
+                    """
                 )
             }
         }

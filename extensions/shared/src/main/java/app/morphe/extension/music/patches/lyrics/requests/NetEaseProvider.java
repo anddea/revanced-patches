@@ -797,7 +797,8 @@ public final class NetEaseProvider implements LyricsProvider {
         long songId = song.getLong("id");
         String sourceUrl = "https://music.163.com/song?id=" + songId;
         return new Lyrics(lines, name(), true, romanization, translations, null,
-                creditLines.isEmpty() ? null : creditLines, rawFormat, formatType, sourceUrl);
+                null, creditLines.isEmpty() ? null : creditLines, rawFormat, formatType, sourceUrl,
+                null, null);
     }
 
     private record Item(long start, String text) {

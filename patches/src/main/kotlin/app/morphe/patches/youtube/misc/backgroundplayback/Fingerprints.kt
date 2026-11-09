@@ -17,6 +17,8 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
@@ -189,4 +191,104 @@ internal object ShortsBackgroundPlaybackFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
         literal(SHORTS_BACKGROUND_PLAYBACK_FEATURE_FLAG),
     )
+)
+
+/**
+ * Sets the artwork of the state of the playback media session, such as the thumbnail of the playback notification,
+ * and returns the change of the state, or 0 if there is no artwork and there was none before.
+ */
+internal object MediaSessionArtworkStateFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "I",
+    parameters = listOf("Landroid/graphics/Bitmap;", "Landroid/graphics/Bitmap;"),
+    filters = listOf(
+        opcode(Opcode.IF_NEZ),
+        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, type = "Landroid/graphics/Bitmap;", location = MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, type = "Landroid/graphics/Bitmap;", location = MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+        // No change.
+        opcode(Opcode.CONST_4, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Landroid/graphics/Bitmap;"),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Landroid/graphics/Bitmap;", location = MatchAfterImmediately()),
+        // Change of the artwork.
+        opcode(Opcode.CONST_16, location = MatchAfterImmediately())
+    ),
+    // The state class implements the interface of the state. Some versions have a class
+    // with the same method for a second state, which implements nothing.
+    custom = { _, classDef ->
+        classDef.interfaces.isNotEmpty()
+    }
+)
+
+/**
+ * Returns if the background playback setting of YouTube (Settings > Background & downloads) allows
+ * background playback now: always, or only with headphones and headphones are connected.
+ */
+internal object BackgroundPlaybackSettingAllowedFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    returnType = "Z",
+    parameters = listOf("L", "L", "L"),
+    filters = listOf(
+        methodCall(definingClass = "Landroid/media/AudioManager;", name = "isWiredHeadsetOn"),
+        methodCall(definingClass = "Landroid/media/AudioManager;", name = "isBluetoothA2dpOn"),
+        methodCall(definingClass = "Landroid/media/AudioManager;", name = "isBluetoothScoOn")
+    )
+)
+
+/**
+ * Calls of the flag accessor of [AutomaticForegroundPlaybackResumeFeatureFlagFingerprint] in a class.
+ * 21.29 and older only.
+ */
+context(patchContext: app.morphe.patcher.patch.BytecodePatchContext)
+internal fun automaticForegroundPlaybackResumeFlagAccessorCallFingerprint(classType: String) = Fingerprint(
+    definingClass = classType,
+    filters = listOf(
+        methodCall(reference = AutomaticForegroundPlaybackResumeFeatureFlagFingerprint.originalMethod)
+    )
+)
+
+/**
+ * Reads the background playback setting of the account and calls [BackgroundPlaybackSettingAllowedFingerprint].
+ */
+context(patchContext: app.morphe.patcher.patch.BytecodePatchContext)
+internal fun backgroundPlaybackSettingFingerprint() = Fingerprint(
+    classFingerprint = BackgroundPlaybackSettingAllowedFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        // Setting store of the account.
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            returnType = "Lcom/google/protobuf/MessageLite;",
+            parameters = listOf()
+        ),
+        methodCall(reference = BackgroundPlaybackSettingAllowedFingerprint.originalMethod)
+    )
+)
+
+/**
+ * Constructor of the class of [backgroundPlaybackSettingFingerprint]. The class is merged with other classes,
+ * and this is the constructor that takes the setting store and the audio manager the setting method reads.
+ * The number of other parameters differs between app versions.
+ */
+internal fun backgroundPlaybackSettingConstructorFingerprint(
+    settingClassType: String,
+    settingStoreType: String,
+    audioManagerType: String
+) = Fingerprint(
+    definingClass = settingClassType,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = listOf(
+        // Super constructor.
+        methodCall(opcode = Opcode.INVOKE_DIRECT, name = "<init>")
+    ),
+    custom = { method, _ ->
+        val parameters = method.parameterTypes
+        parameters.size >= 2 &&
+                parameters[0].toString() == settingStoreType &&
+                parameters[1].toString() == audioManagerType
+    }
 )

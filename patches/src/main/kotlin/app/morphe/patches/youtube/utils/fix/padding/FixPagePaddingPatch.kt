@@ -40,8 +40,13 @@ internal val fixPagePaddingPatch = bytecodePatch(
 
     execute {
         if (is_21_07_or_greater) {
-            IncognitoSearchPaddingFeatureFlagFingerprint.matchAllMethodIndicesForEach(requireMatches = false) { index ->
-                insertLiteralOverride(index, false)
+            listOf(
+                IncognitoSearchPaddingFeatureFlagFingerprint,
+                KeyboardHidesNavigationBarFeatureFlagFingerprint
+            ).forEach { fingerprint ->
+                fingerprint.matchAllMethodIndicesForEach(requireMatches = false) { index ->
+                    insertLiteralOverride(index, false)
+                }
             }
         }
 
@@ -75,23 +80,6 @@ internal val fixPagePaddingPatch = bytecodePatch(
         }
 
         if (is_20_26_or_greater) {
-            FeedListPaddingFingerprint.let {
-                it.method.apply {
-                    val index = it.instructionMatches.last().index
-                    val paddingInstruction = getInstruction<FiveRegisterInstruction>(index)
-                    val listRegister = paddingInstruction.registerC
-                    val bottomPaddingRegister = paddingInstruction.registerG
-
-                    addInstructions(
-                        index,
-                        """
-                            invoke-static { v$listRegister, v$bottomPaddingRegister }, $EXTENSION_CLASS->getAdjustedFeedListBottomPadding(Landroid/view/View;I)I
-                            move-result v$bottomPaddingRegister
-                        """
-                    )
-                }
-            }
-
             BrowseListBottomPaddingFingerprint.let {
                 it.method.apply {
                     val index = it.instructionMatches.last().index

@@ -119,6 +119,8 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup chipsShelf;
     private final StringFilterGroup compactChannel;
+    private final StringFilterGroup compactChannelMusicBanner;
+    private final ByteArrayFilterGroup youtubeMusicChannelLink;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
     private final ByteArrayFilterGroup productCardBuffer;
@@ -294,6 +296,18 @@ public final class FeedComponentsFilter extends Filter {
                 "compact_channel.e"
         );
 
+        // With some device layouts, such as Automotive, the YouTube Music button of a channel
+        // in the search results is a banner below the channel instead of a button of the channel.
+        compactChannelMusicBanner = new StringFilterGroup(
+                Settings.HIDE_CHANNEL_BUTTONS,
+                "button_banner.e"
+        );
+
+        youtubeMusicChannelLink = new ByteArrayFilterGroup(
+                null,
+                "vnd.youtube.music://music.youtube.com/channel/"
+        );
+
         final StringFilterGroup membersShelf = new StringFilterGroup(
                 Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
@@ -408,6 +422,8 @@ public final class FeedComponentsFilter extends Filter {
                 null,
                 "horizontal_video_shelf.",
                 "horizontal_shelf.",
+                // Newer shelves with a header and a row of items.
+                "horizontal_shelf_slots.e",
                 "horizontal_shelf_inline.",
                 "horizontal_tile_shelf."
         );
@@ -444,6 +460,7 @@ public final class FeedComponentsFilter extends Filter {
                 channelProfileSubscribeButton,
                 chipBar,
                 compactChannel,
+                compactChannelMusicBanner,
                 expandableCard,
                 forYouShelf,
                 imageShelf,
@@ -542,9 +559,15 @@ public final class FeedComponentsFilter extends Filter {
             return hideSearch;
         }
 
+        final String currentBrowseId = browseId;
+        // The fragment endpoint is updated before its shelves are filtered. The selected
+        // navigation button and RootView browse id can still belong to the previous tab,
+        // especially with the additional Watch later tab. Preserve Library shelves on first open.
+        if (StringUtils.equalsAny(currentBrowseId, BROWSE_ID_LIBRARY, BROWSE_ID_LIBRARY_PLAYLIST)) {
+            return false;
+        }
         // The pages of the Explore menu show their videos in horizontal shelves, so hiding the shelves
         // left them empty (https://github.com/MorpheApp/morphe-patches/issues/1362).
-        final String currentBrowseId = browseId;
         if (EXPLORE_PAGE_BROWSE_IDS.contains(currentBrowseId)
                 || currentBrowseId.endsWith(EXPLORE_PAGE_BROWSE_ID_SUFFIX)) {
             return false;
@@ -634,6 +657,10 @@ public final class FeedComponentsFilter extends Filter {
 
         if (matchedGroup == compactChannel) {
             return StringUtils.contains(path, "button.e");
+        }
+
+        if (matchedGroup == compactChannelMusicBanner) {
+            return youtubeMusicChannelLink.check(buffer).isFiltered();
         }
 
         if (matchedGroup == communityPosts) {

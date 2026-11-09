@@ -23,6 +23,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
     executeBlock = {
         allowCastingToAudioOnlyDevices()
+        searchDeviceFilesWithMediaProvider()
     },
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)

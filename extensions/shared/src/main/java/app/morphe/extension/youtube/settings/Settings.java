@@ -184,7 +184,7 @@ public class Settings extends SharedYouTubeSettings {
         };
     }
 
-    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.TV_SABR, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
             "morphe_force_avc_codec",
             FALSE,
@@ -605,6 +605,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting ENHANCED_AMBIENT_MODE = new BooleanSetting("morphe_enhanced_ambient_mode", FALSE, true,
             () -> Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
     public static final BooleanSetting ENHANCED_AMBIENT_MODE_READABLE_TEXT = new BooleanSetting("morphe_enhanced_ambient_mode_readable_text", FALSE, parent(ENHANCED_AMBIENT_MODE));
+    public static final BooleanSetting ENHANCED_AMBIENT_MODE_DIM_WHILE_SCROLLING = new BooleanSetting("morphe_enhanced_ambient_mode_dim_while_scrolling", TRUE, parent(ENHANCED_AMBIENT_MODE));
+    public static final IntegerSetting ENHANCED_AMBIENT_MODE_DIM_DURATION = new IntegerSetting("morphe_enhanced_ambient_mode_dim_duration", 3, parentsAll(ENHANCED_AMBIENT_MODE, ENHANCED_AMBIENT_MODE_DIM_WHILE_SCROLLING));
     public static final BooleanSetting DISABLE_AMBIENT_MODE = new BooleanSetting("revanced_disable_ambient_mode", FALSE, true, parentInverted(ENHANCED_AMBIENT_MODE));
     public static final BooleanSetting BYPASS_AMBIENT_MODE_RESTRICTIONS = new BooleanSetting("revanced_bypass_ambient_mode_restrictions", FALSE, parentInverted(DISABLE_AMBIENT_MODE));
     public static final BooleanSetting DISABLE_AMBIENT_MODE_IN_FULLSCREEN = new BooleanSetting("revanced_disable_ambient_mode_in_fullscreen", FALSE, true, parentsAll(parentInverted(ENHANCED_AMBIENT_MODE), parentInverted(DISABLE_AMBIENT_MODE)));
@@ -944,9 +946,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting UNLOCK_QUEUE = new BooleanSetting("morphe_unlock_queue", TRUE);
     public static final BooleanSetting RELOAD_VIDEO = new BooleanSetting("morphe_reload_video", FALSE);
 
-    // Watch later
-    public static final BooleanSetting WATCH_LATER_WIDE_DRAG_HANDLES = new BooleanSetting("morphe_watch_later_wide_drag_handles", TRUE);
-    public static final BooleanSetting WATCH_LATER_HIDE_REMOVAL_SNACKBAR = new BooleanSetting("morphe_watch_later_hide_removal_snackbar", FALSE);
+    // Playlists
+    public static final BooleanSetting PLAYLIST_WIDE_DRAG_HANDLES = new BooleanSetting("morphe_playlist_wide_drag_handles", TRUE);
+    public static final BooleanSetting PLAYLIST_HIDE_REMOVAL_SNACKBAR = new BooleanSetting("morphe_playlist_hide_removal_snackbar", FALSE);
+    public static final BooleanSetting PLAYLIST_LONG_PRESS_DRAG = new BooleanSetting("morphe_playlist_long_press_drag", FALSE);
+    private static final BooleanSetting DEPRECATED_WATCH_LATER_WIDE_DRAG_HANDLES = new BooleanSetting("morphe_watch_later_wide_drag_handles", TRUE);
+    private static final BooleanSetting DEPRECATED_WATCH_LATER_HIDE_REMOVAL_SNACKBAR = new BooleanSetting("morphe_watch_later_hide_removal_snackbar", FALSE);
 
     public static final BooleanSetting SAVE_TO_WATCH_LATER_BUTTON = new BooleanSetting("morphe_save_to_watch_later_button", FALSE);
     public static final BooleanSetting SWAP_SAVE_AND_QUEUE_ACTIONS = new BooleanSetting("morphe_swap_save_and_queue_actions", TRUE, true, parent(SAVE_TO_WATCH_LATER_BUTTON));
@@ -1316,6 +1321,9 @@ public class Settings extends SharedYouTubeSettings {
             };
 
     static {
+        migrateOldSettingToNew(DEPRECATED_WATCH_LATER_WIDE_DRAG_HANDLES, PLAYLIST_WIDE_DRAG_HANDLES);
+        migrateOldSettingToNew(DEPRECATED_WATCH_LATER_HIDE_REMOVAL_SNACKBAR, PLAYLIST_HIDE_REMOVAL_SNACKBAR);
+
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(NAVIGATION_BAR_GLASS_HEIGHT,
                 60, 160, 5, "%"));
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(NAVIGATION_BAR_GLASS_WIDTH,
@@ -1326,6 +1334,8 @@ public class Settings extends SharedYouTubeSettings {
                 0, 96, 2, "dp"));
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(NAVIGATION_BAR_GLASS_OPACITY,
                 0, 100, 1, "%"));
+        SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(ENHANCED_AMBIENT_MODE_DIM_DURATION,
+                0, 10, 1, "s"));
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(CAPTION_SCALE, 30, 150, 5, "%"));
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(LIVE_CHAT_TRANSLATE_MAX_LENGTH,
                 20, LIVE_CHAT_TRANSLATE_MAX_LENGTH_NO_LIMIT, 20, "", 1,

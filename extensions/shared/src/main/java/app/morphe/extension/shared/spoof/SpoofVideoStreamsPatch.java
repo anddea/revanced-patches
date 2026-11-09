@@ -16,6 +16,8 @@
 
 package app.morphe.extension.shared.spoof;
 
+import static app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE_MUSIC;
+
 import android.net.Uri;
 import java.nio.ByteBuffer;
 import app.morphe.extension.shared.patches.MediaHttpRequest;
@@ -34,13 +36,59 @@ import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
-import app.morphe.extension.shared.spoof.requests.VisitorIdRequester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
     private static final String STREAM_URL_PATH = "/videoplayback";
+
+    private static final String STREAM_URL_HOST_SUFFIX = ".googlevideo.com";
+
+    /**
+     * Client name of the app itself, whose stream requests are left as they are.
+     */
+    private static final String APP_CLIENT_NAME = IS_YOUTUBE_MUSIC ? "ANDROID_MUSIC" : "ANDROID";
+
+    /**
+     * Largest byte range of a plain stream request. The server sends larger ranges at about playback speed.
+     */
+    private static final long MAX_STREAM_RANGE_LENGTH = 10 * 1024 * 1024;
+
+    /**
+     * If the next network request built on the thread is opened through a priority data source.
+     */
+    private static final ThreadLocal<Boolean> priorityDataSourceOpenOnThread = ThreadLocal.withInitial(() -> false);
+
+    /**
+     * If the last request built on the thread is of a shortened stream range.
+     */
+    private static final ThreadLocal<Boolean> streamRangeLimitedOnThread = ThreadLocal.withInitial(() -> false);
+
+    /**
+     * UMP part type of a SABR error. The server can send it instead of the media of a plain stream range.
+     */
+    private static final byte UMP_PART_SABR_ERROR = 44;
+
+    /**
+     * Response of the last plain stream request built on the thread. A request is built and read on the same thread.
+     */
+    private static final class StreamResponse {
+        /**
+         * If the response is a UMP response of a plain stream, and its first part is not read yet.
+         */
+        boolean checkFirstPart;
+        /**
+         * Position of the buffer when the current read of the response started.
+         */
+        int readStart;
+        /**
+         * If the response starts with a SABR error.
+         */
+        boolean sabrError;
+    }
+
+    private static final ThreadLocal<StreamResponse> streamResponseOnThread = ThreadLocal.withInitial(StreamResponse::new);
 
     /**
      * Injection point.
@@ -176,8 +224,7 @@ public class SpoofVideoStreamsPatch {
         if (SPOOF_VIDEO_STREAMS) {
             StreamOrDetailsDataRequest.setClientOrderToUse(availableClients, client);
 
-            // Prefetch visitorId for default client.
-            Utils.runOnBackgroundThread(() -> VisitorIdRequester.getVisitorId(client));
+            Utils.runOnBackgroundThread(StreamOrDetailsDataRequest::prepareClients);
         }
     }
 
@@ -382,9 +429,9 @@ public class SpoofVideoStreamsPatch {
                         if (config != null) {
                             Logger.printDebug(() -> "Overriding player config: " + videoId);
                             // This config replaces the whole config of the app, which tells how the
-                            // video is played inline, such as a muted preview in the feed.
-                            return buffers.hasAndroidMedia() && appPlayerConfig != null
-                                    ? StreamOrDetailsDataRequest.addInlinePlayback(config, appPlayerConfig)
+                            // video is played inline, such as a muted preview in the feed, and how it is buffered.
+                            return appPlayerConfig != null
+                                    ? StreamOrDetailsDataRequest.addAppPlayerConfig(config, appPlayerConfig, buffers.hasAndroidMedia())
                                     : config;
                         }
                     }
@@ -478,4 +525,195 @@ public class SpoofVideoStreamsPatch {
             StreamOrDetailsDataRequest.onPlayerResponseReloadRequested();
         }
     }
+    /**
+     * Injection point.
+     * <p>
+     * Called for every network request the app makes, before the request is built.
+     * The app requests streams with a POST body made for its own client. The plain stream urls of the
+     * other clients do not accept that body, and the server answers with an error or sends the stream slowly.
+     *
+     * @param url Url of the request.
+     * @return If the request is for a plain stream url of another client, and must be sent as a GET request without a body.
+     */
+    public static boolean isPlainStreamRequest(@Nullable String url) {
+        try {
+            // This fork has no upstream in-app download mode; leave requests alone when spoofing is off.
+            if (!SPOOF_VIDEO_STREAMS
+                    || url == null || !url.contains(STREAM_URL_PATH)) {
+                return false;
+            }
+
+            Uri uri = Uri.parse(url);
+            String host = uri.getHost();
+            if (host == null || !host.endsWith(STREAM_URL_HOST_SUFFIX) || !STREAM_URL_PATH.equals(uri.getPath())
+                    // Streams of server side adaptive bitrate (SABR) clients are not plain urls.
+                    || uri.getQueryParameter("sabr") != null) {
+                return false;
+            }
+
+            String clientName = uri.getQueryParameter("c");
+            if (clientName == null || APP_CLIENT_NAME.equals(clientName)) {
+                return false;
+            }
+            for (ClientType client : ClientType.values()) {
+                if (!client.requireSABR && client.clientName.equals(clientName)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception ex) {
+            Logger.printException(() -> "isPlainStreamRequest failure", ex);
+            return false;
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called when a priority data source opens the data source it wraps, which builds its request on the same thread.
+     * Only saved videos are transferred through a priority data source.
+     */
+    public static void onPriorityDataSourceOpen() {
+        priorityDataSourceOpenOnThread.set(true);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called for every network request the app makes, when the request is built.
+     * Saving a video requests the rest of a stream with a single range, but the server sends a large range
+     * at about playback speed. The range is shortened, and {@link #isLimitedStreamRangeFinished(long)}
+     * makes the app request the following range after this one ends.
+     * Only ranges opened by {@link #onPriorityDataSourceOpen()} are shortened. Playback takes the pause
+     * of a transfer as an error of the stream.
+     * Ranges without an end are left as they are, because the app reads those until the stream ends.
+     * The first part of the response is checked by {@link #onStreamResponseRead(ByteBuffer)}.
+     *
+     * @param url Url of the request.
+     * @return The url to request.
+     */
+    @Nullable
+    public static String limitPlainStreamRange(@Nullable String url) {
+        try {
+            // A request is built and read on the same thread.
+            final boolean priorityDataSource = Boolean.TRUE.equals(priorityDataSourceOpenOnThread.get());
+            priorityDataSourceOpenOnThread.set(false);
+            streamRangeLimitedOnThread.set(false);
+            StreamResponse response = Objects.requireNonNull(streamResponseOnThread.get());
+            response.checkFirstPart = false;
+            response.sabrError = false;
+            if (url == null || !isPlainStreamRequest(url)) {
+                return url;
+            }
+
+            Uri uri = Uri.parse(url);
+            response.checkFirstPart = "1".equals(uri.getQueryParameter("ump"));
+            if (!priorityDataSource) {
+                return url;
+            }
+
+            String range = uri.getQueryParameter("range");
+            if (range == null) {
+                return url;
+            }
+            final int separatorIndex = range.indexOf('-');
+            if (separatorIndex <= 0 || separatorIndex == range.length() - 1) {
+                return url;
+            }
+
+            final long start = Long.parseLong(range.substring(0, separatorIndex));
+            final long end = Long.parseLong(range.substring(separatorIndex + 1));
+            final long limitedEnd = start + MAX_STREAM_RANGE_LENGTH - 1;
+            if (end <= limitedEnd) {
+                return url;
+            }
+
+            String rangeParameter = "range=" + range;
+            final int rangeIndex = url.indexOf(rangeParameter);
+            final int rangeEndIndex = rangeIndex + rangeParameter.length();
+            if (rangeIndex <= 0 || (url.charAt(rangeIndex - 1) != '&' && url.charAt(rangeIndex - 1) != '?')
+                    || (rangeEndIndex < url.length() && url.charAt(rangeEndIndex) != '&')) {
+                return url;
+            }
+
+            String limitedRange = start + "-" + limitedEnd;
+            Logger.printDebug(() -> "Limiting stream range: " + range + " to: " + limitedRange);
+            streamRangeLimitedOnThread.set(true);
+            return url.substring(0, rangeIndex) + "range=" + limitedRange + url.substring(rangeEndIndex);
+        } catch (Exception ex) {
+            Logger.printException(() -> "limitPlainStreamRange failure", ex);
+            return url;
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Called when the response of a network request is read.
+     * A response of a shortened range ends before the requested range does, and the app takes that
+     * as the end of the stream. If this is true, the app pauses the transfer instead, and continues it
+     * from the last byte it got.
+     *
+     * @param remainingBytes Bytes of the response that are not read yet.
+     * @return If the response of a shortened range has ended, and the rest of the range must be requested.
+     */
+    public static boolean isLimitedStreamRangeFinished(long remainingBytes) {
+        if (remainingBytes != 0 || !Boolean.TRUE.equals(streamRangeLimitedOnThread.get())) {
+            return false;
+        }
+
+        streamRangeLimitedOnThread.set(false);
+        Logger.printDebug(() -> "Requesting the rest of the shortened stream range");
+        return true;
+    }
+
+    /**
+     * Injection point.
+     * Called before the response of a network request is read into the buffer.
+     */
+    public static void onStreamResponseReadStart(ByteBuffer buffer) {
+        StreamResponse response = Objects.requireNonNull(streamResponseOnThread.get());
+        if (response.checkFirstPart) {
+            response.readStart = buffer.position();
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called after the response of a network request is read into the buffer.
+     * The server can answer a plain stream range with only a SABR error and no media, for seconds
+     * or minutes. The app ignores the error, finds no media, and requests the same range again right
+     * away, over and over, which freezes playback.
+     */
+    public static void onStreamResponseRead(ByteBuffer buffer) {
+        StreamResponse response = Objects.requireNonNull(streamResponseOnThread.get());
+        if (!response.checkFirstPart || buffer.position() <= response.readStart) {
+            return;
+        }
+
+        response.checkFirstPart = false;
+        // A part type below 128 is a single byte.
+        if (buffer.get(response.readStart) == UMP_PART_SABR_ERROR) {
+            response.sabrError = true;
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called when the response of a network request is read.
+     *
+     * @return If the response is a SABR error, and must fail like a response with a server error status.
+     *         The app then requests the range again from a fallback host.
+     */
+    public static boolean isStreamSabrErrorResponse() {
+        StreamResponse response = Objects.requireNonNull(streamResponseOnThread.get());
+        if (!response.sabrError) {
+            return false;
+        }
+
+        response.sabrError = false;
+        Logger.printDebug(() -> "Stream response is a SABR error, failing it so the range is requested from a fallback host");
+        return true;
+    }
+
 }

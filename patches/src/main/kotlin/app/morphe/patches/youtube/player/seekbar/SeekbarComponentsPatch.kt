@@ -162,6 +162,32 @@ val seekbarComponentsPatch = bytecodePatch(
                     )
                 }
             }
+
+            // A tap opens the scrub when the finger touches the time bar, and the scrub is closed
+            // when the finger is lifted. The time bar ignores the touch events while it is disabled,
+            // such as while the video length is unknown, so a tap left the scrub open. Then the
+            // player kept acting as if the time bar was still scrubbed, for example the "More videos"
+            // button in fullscreen did nothing until the device was rotated.
+            // The scrub is completed the same way the time bar does when the player controls are hidden.
+            TimeBarCompleteHiddenScrubFingerprint.match().let {
+                val isScrubbingMethod = it.instructionMatches.first().methodReference
+                val completeScrubMethod = it.instructionMatches[3].methodReference
+
+                it.method.addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static { p0, p1 }, $PLAYER_CLASS_DESCRIPTOR->shouldCompleteScrub(Landroid/view/View;Landroid/view/MotionEvent;)Z
+                        move-result v0
+                        if-eqz v0, :ignore
+                        invoke-virtual { p0 }, $isScrubbingMethod
+                        move-result v0
+                        if-eqz v0, :ignore
+                        invoke-virtual { p0 }, $completeScrubMethod
+                        :ignore
+                        nop
+                    """
+                )
+            }
         } else {
             SeekbarTappingFingerprint.method.apply {
                 val pointIndex = indexOfPointInstruction(this)
@@ -806,6 +832,22 @@ val seekbarComponentsPatch = bytecodePatch(
                     "setFineScrubbingPreviewBitmap(Landroid/graphics/Bitmap;)V"
         )
 
+        // The app cuts storyboard frames with the frame size of the storyboard spec,
+        // which can be smaller than the frames of the storyboard image.
+        StoryboardFrameRegionFingerprint.let {
+            it.method.apply {
+                val rectIndex = it.instructionMatches[1].index
+                val rectRegister = it.instructionMatches[1].getInstruction<OneRegisterInstruction>().registerA
+                val decoderRegister = it.instructionMatches[2].getInstruction<FiveRegisterInstruction>().registerC
+
+                addInstruction(
+                    rectIndex + 1,
+                    "invoke-static { v$rectRegister, v$decoderRegister }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                            "fixStoryboardFrameRect(Landroid/graphics/Rect;Landroid/graphics/BitmapRegionDecoder;)V"
+                )
+            }
+        }
+
         seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
@@ -828,6 +870,30 @@ val seekbarComponentsPatch = bytecodePatch(
                 nop
             """
         )
+
+        // The full screen seek preview fits in the player, also when the video is zoomed to fill the screen.
+        // Scale it to the video when it is shown.
+        SeekbarBigBoardsScrubFingerprint.let {
+            val previewField = it.classDef.fields.single { field ->
+                field.type == "Landroid/widget/ImageView;"
+            }
+            val seekMethod = it.instructionMatches.first().getInstruction<ReferenceInstruction>().reference
+
+            it.method.apply {
+                val index = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>() == seekMethod
+                }
+                val register = findFreeRegister(index)
+
+                addInstructions(
+                    index,
+                    """
+                        iget-object v$register, p0, $previewField
+                        invoke-static { v$register }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->setBigBoardScale(Landroid/widget/ImageView;)V
+                    """
+                )
+            }
+        }
 
         if (is_21_21_or_greater) {
             ShortsDisableSeekbarThumbnailsFeatureFlagFingerprint.matchAll().forEach {

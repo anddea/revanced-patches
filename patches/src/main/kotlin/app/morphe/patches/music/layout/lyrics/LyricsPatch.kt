@@ -8,8 +8,12 @@
 
 package app.morphe.patches.music.layout.lyrics
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.getReference
@@ -20,8 +24,8 @@ import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils
-import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.addCustomPreference
+import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.addNonInteractivePreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.addTextPreference
@@ -35,18 +39,27 @@ import app.morphe.patches.shared.misc.media.hookMediaSessionArgument
 import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
+import app.morphe.util.adoptChild
 import app.morphe.util.copyResources
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.findMutableClassOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.util.logging.Logger
+import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS = "Lapp/morphe/extension/music/patches/lyrics/LyricsPatch;"
-private const val PANEL_INSTALLER_CLASS = "Lapp/morphe/extension/music/patches/lyrics/LyricsPanelInstaller;"
+internal const val PANEL_INSTALLER_CLASS = "Lapp/morphe/extension/music/patches/lyrics/LyricsPanelInstaller;"
 private const val LOCKSCREEN_CLASS = "Lapp/morphe/extension/music/patches/lyrics/LockScreenLyrics;"
 private const val MINIPLAYER_LYRICS_CLASS = "Lapp/morphe/extension/music/patches/lyrics/MiniPlayerLyrics;"
+
+private const val DEVICE_LYRICS_TAB_CLASS = "Lapp/morphe/extension/music/patches/lyrics/DeviceLyricsTab;"
 
 private const val LYRICS_PANEL_FILTER =
     "Lapp/morphe/extension/music/patches/components/LyricsPanelFilter;"
@@ -62,14 +75,15 @@ val lyricsPatch = bytecodePatch(
         lithoFilterPatch,
         videoInformationPatch,
         versionCheckPatch,
-        // The copy, romanize and furigana buttons need their icons whether or not the patches
+        // The copy, romanize, and jump-to-current buttons need their icons whether or not the patches
         // that own these resources are applied.
         resourcePatch {
             execute {
                 copyResources(
                     "music/lyrics",
                     ResourceGroup("drawable", "morphe_yt_copy_bold.xml"),
-                    ResourceGroup("drawable", "morphe_yt_romanize.xml", "morphe_yt_ruby.xml")
+                    ResourceGroup("drawable", "morphe_yt_romanize.xml"),
+                    ResourceGroup("drawable", "morphe_yt_crosshair.xml")
                 )
             }
         }
@@ -88,7 +102,7 @@ val lyricsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_enabled",
-            "false"
+            "true"
         )
         addCustomPreference(
             CategoryType.LYRICS,
@@ -130,6 +144,30 @@ val lyricsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_word_sync",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_spring_scroll",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_gap_dots",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_focus_spotlight",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_show_current_button",
             "true",
             "morphe_music_lyrics_enabled"
         )
@@ -245,26 +283,6 @@ val lyricsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.LYRICS,
-            "morphe_music_lyrics_show_ruby_button",
-            "true",
-            "morphe_music_lyrics_enabled",
-            false
-        )
-        addCustomPreference(
-            CategoryType.LYRICS,
-            "morphe_music_lyrics_ruby_provider",
-            "app.morphe.extension.music.settings.preference.LyricsOrderedListPreference",
-            "morphe_music_lyrics_enabled",
-            setSummary = false
-        )
-        addListPreference(
-            CategoryType.LYRICS,
-            "morphe_music_lyrics_ruby_style",
-            "morphe_music_lyrics_enabled",
-            setSummary = false
-        )
-        addSwitchPreference(
-            CategoryType.LYRICS,
             "morphe_music_lyrics_dynamic_background",
             "true",
             "morphe_music_lyrics_enabled"
@@ -332,11 +350,12 @@ val lyricsPatch = bytecodePatch(
             "app.morphe.extension.music.settings.preference.LyricsEncapsulationPreference",
             "morphe_music_lyrics_enabled"
         )
-        addCustomPreference(
-            CategoryType.LYRICS,
-            "morphe_music_lyrics_mini_line_limits",
+        ResourceUtils.addCustomPreference(
+            CategoryType.LYRICS.value,
+            "morphe_music_lyrics_mini_char_limit",
             "app.morphe.extension.music.settings.preference.LyricsLineLimitsPreference",
-            "morphe_music_lyrics_enabled"
+            titleKey = "morphe_music_lyrics_mini_line_limits_title",
+            summaryKey = "morphe_music_lyrics_mini_line_limits_summary"
         )
         addTextPreference(
             CategoryType.LYRICS,
@@ -362,6 +381,12 @@ val lyricsPatch = bytecodePatch(
             "false",
             "morphe_music_lyrics_enabled"
         )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_han_form",
+            "false",
+            "morphe_music_lyrics_enabled"
+        )
         addCustomPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_about",
@@ -370,9 +395,120 @@ val lyricsPatch = bytecodePatch(
             setSummary = false
         )
 
+        organizeLyricsPreferences()
+
         // The panel content is built by Elements, so there is no view to hook. The timed
         // lyrics component is the earliest signal that the opened panel is the lyrics one.
         addLithoFilter(LYRICS_PANEL_FILTER)
+
+        // The app builds the watch next response of device files itself, with only a Songs tab,
+        // so there is no lyrics tab to show the panel in. A lyrics tab is added to that response,
+        // and the page of the tab is replaced with one that only holds the panel. The extension
+        // methods filled in here have only their parameter registers.
+        fun deviceLyricsTabMethod(name: String) =
+            Fingerprint(definingClass = DEVICE_LYRICS_TAB_CLASS, name = name).method
+
+        val tabRendererType = SideloadedWatchNextResponseFingerprint.instructionMatches[1]
+            .instruction.getReference<TypeReference>()!!.type
+
+        SideloadedWatchNextResponseFingerprint.let {
+            val tabType = it.instructionMatches.last().fieldReference.definingClass
+            val messageType = findMutableClassOrThrow(tabType).superclass!!
+
+            it.method.apply {
+                val tabDefaultInstance = getInstruction(
+                    indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.SGET_OBJECT && getReference<FieldReference>()?.let { field ->
+                            field.definingClass == tabType && field.type == tabType
+                        } == true
+                    }
+                ).getReference<FieldReference>()!!
+
+                // Only the Songs tab is added, in either of the paths that build the response.
+                val addTabIndices = findInstructionIndicesReversedOrThrow(
+                    methodCall(parameters = listOf(tabType), returnType = "V")
+                )
+                val addTabMethod = getInstruction(addTabIndices.first()).getReference<MethodReference>()!!
+                addTabIndices.forEach { index ->
+                    val builderRegister = getInstruction(index).registersUsed.first()
+                    addInstruction(
+                        index + 1,
+                        "invoke-static/range { v$builderRegister .. v$builderRegister }, " +
+                            "$DEVICE_LYRICS_TAB_CLASS->addTab(Ljava/lang/Object;)V"
+                    )
+                }
+
+                deviceLyricsTabMethod("defaultTab").addInstructions(
+                    0,
+                    """
+                        sget-object v0, $tabDefaultInstance
+                        return-object v0
+                    """
+                )
+                deviceLyricsTabMethod("parseTab").addInstructions(
+                    0,
+                    """
+                        check-cast p0, $messageType
+                        invoke-static { p0, p1 }, $messageType->parseFrom($messageType[B)$messageType
+                        move-result-object p0
+                        return-object p0
+                    """
+                )
+                deviceLyricsTabMethod("appendTab").addInstructions(
+                    0,
+                    """
+                        check-cast p0, ${addTabMethod.definingClass}
+                        check-cast p1, $tabType
+                        invoke-virtual { p0, p1 }, $addTabMethod
+                        return-void
+                    """
+                )
+            }
+        }
+
+        TabControllerAddTabFingerprint.let {
+            val tabbedViewField = it.instructionMatches[1].fieldReference
+            val tabModelType = it.method.parameterTypes.first().toString()
+            val tabRendererField = tabModelConstructorFingerprint(tabModelType, tabRendererType)
+                .instructionMatches.first().fieldReference
+
+            it.method.addInstructions(
+                0,
+                """
+                    iget-object v0, p0, $tabbedViewField
+                    invoke-static { v0, p0, p1, p3 }, $DEVICE_LYRICS_TAB_CLASS->onAddTab(Landroid/view/ViewGroup;Ljava/lang/Object;Ljava/lang/Object;Landroid/view/View;)Landroid/view/View;
+                    move-result-object p3
+                """
+            )
+
+            // Like the app, only check the tab renderer for null before casting it.
+            deviceLyricsTabMethod("serializeTabRenderer").addInstructionsWithLabels(
+                0,
+                """
+                    check-cast p0, $tabModelType
+                    iget-object p0, p0, $tabRendererField
+                    if-nez p0, :renderer
+                    const/4 p0, 0x0
+                    return-object p0
+                    :renderer
+                    check-cast p0, $tabRendererType
+                    invoke-virtual { p0 }, $tabRendererType->toByteArray()[B
+                    move-result-object p0
+                    return-object p0
+                """
+            )
+
+            val removeTabMethod = TabControllerRemoveTabFingerprint.originalMethod
+            deviceLyricsTabMethod("removeTab").addInstructions(
+                0,
+                """
+                    check-cast p0, ${removeTabMethod.definingClass}
+                    check-cast p1, $tabModelType
+                    invoke-virtual { p0, p1 }, $removeTabMethod
+                    return-void
+                """
+            )
+        }
 
         // Some accounts get lyrics as a player tab instead of an engagement panel. A tab page can
         // be built long before it is selected, so the litho filter alone can't install the panel.
@@ -386,8 +522,8 @@ val lyricsPatch = bytecodePatch(
         // the app itself put in the container is what tells them apart. Panels with a
         // heading do not need this, so a miss here leaves the rest of the patch working.
         val log = Logger.getLogger(this::class.java.name)
-        runCatching {
-            EngagementPanelControllerFingerprint.classDef.apply {
+        val engagementPanelType = runCatching {
+            EngagementPanelControllerFingerprint.classDef.run {
                 val controllerType = type
 
                 // Only instance fields the controller reassigns can hold the panel it shows,
@@ -423,11 +559,47 @@ val lyricsPatch = bytecodePatch(
                             "$PANEL_INSTALLER_CLASS->onEngagementPanelChanged(Ljava/lang/Object;)V"
                     )
                 }
+
+                panelType
             }
         }.onFailure {
             log.warning(
                 "Engagement panel controller not found, a lyrics panel shown without a " +
                     "heading will not be used: ${it.message}"
+            )
+        }.getOrNull()
+
+        // The panel identifier says which panel this is in any language, and with or without
+        // a heading. The app reads it with a static helper taking the panel renderer, and the
+        // panel hands out its renderer through the only method of the panel type that takes
+        // nothing and returns that type.
+        if (engagementPanelType != null) {
+            val identifierHelper = PanelIdentifierFingerprint.instructionMatches.first().methodReference
+            val rendererType = identifierHelper.parameterTypes.single().toString()
+            val panelClass = findMutableClassOrThrow(engagementPanelType)
+            val rendererGetter = panelClass.methods.single { method ->
+                method.parameterTypes.isEmpty() && method.returnType == rendererType
+            }
+            val invokeGetter = if (AccessFlags.INTERFACE.isSet(panelClass.accessFlags)) {
+                "invoke-interface"
+            } else {
+                "invoke-virtual"
+            }
+
+            GetPanelIdentifierFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    check-cast p0, $engagementPanelType
+                    $invokeGetter { p0 }, $rendererGetter
+                    move-result-object p0
+                    if-eqz p0, :no_renderer
+                    invoke-static { p0 }, $identifierHelper
+                    move-result-object p0
+                    return-object p0
+                    :no_renderer
+                    const/4 p0, 0x0
+                    return-object p0
+                """
             )
         }
 
@@ -457,5 +629,76 @@ val lyricsPatch = bytecodePatch(
         MediaSessionSetPlaybackStateFingerprint.hookMediaSessionArgument(
             "$EXTENSION_CLASS->onSetPlaybackState(Landroid/media/session/PlaybackState;)V"
         )
+    }
+}
+
+/** Keeps the upstream section order while using this repository's generated settings XML. */
+private fun organizeLyricsPreferences() {
+    ResourceUtils.editPreferenceCategory(CategoryType.LYRICS.value) {
+        val preferences = List(childNodes.length) { childNodes.item(it) }
+            .filterIsInstance<Element>()
+            .associateBy { it.getAttribute("android:key").removePrefix("morphe_music_lyrics_") }
+            .toMutableMap()
+        preferences["source"]?.removeAttribute("android:title")
+        listOf("source", "translation_provider", "romanization_provider").forEach { key ->
+            preferences[key]?.setAttribute("android:selectable", "false")
+        }
+        adoptChild("Preference") {
+            setAttribute("android:key", "morphe_music_lyrics_source_advice")
+            setAttribute("android:summary", "@string/morphe_music_lyrics_source_advice_summary")
+            setAttribute("android:dependency", "morphe_music_lyrics_enabled")
+            setAttribute("android:selectable", "false")
+            preferences["source_advice"] = this
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_music_lyrics_section_service")
+            setAttribute("android:title", "@string/morphe_music_lyrics_section_service_title")
+            listOf(
+                "source", "source_advice", "translation_provider", "translation_language",
+                "romanization_provider", "romanize_language", "allow_transliteration", "clear_cache"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_music_lyrics_section_display")
+            setAttribute("android:title", "@string/morphe_music_lyrics_section_display_title")
+            listOf(
+                "text_size", "word_sync", "spring_scroll", "gap_dots",
+                "focus_spotlight", "line_scale", "split_background", "show_section",
+                "use_ai_section", "hide_played", "hide_unplayed", "hide_info",
+                "force_capitalize", "strip_trailing_punctuation", "han_form", "swap_trans_roma",
+                "force_center"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_music_lyrics_section_panel")
+            setAttribute("android:title", "@string/morphe_music_lyrics_section_panel_title")
+            listOf(
+                "tap_to_seek", "keep_screen_on", "dynamic_background", "dynamic_background_animated",
+                "show_copy_button", "show_refresh_button", "show_translate_button", "show_romanize_button",
+                "show_current_button"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_music_lyrics_section_sync")
+            setAttribute("android:title", "@string/morphe_music_lyrics_section_sync_title")
+            listOf(
+                "offset_ms", "sb_matching", "miniplayer", "mediasession",
+                "mini_track_format", "mini_encapsulation", "mini_char_limit", "mini_instrumental",
+                "mini_next_offset_ms"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_settings_music_lyrics_metadata")
+            setAttribute("android:title", "@string/morphe_settings_music_lyrics_metadata_title")
+            listOf(
+                "custom_regex", "text_filter", "credit_line_regex"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
+        adoptChild("PreferenceCategory") {
+            setAttribute("android:key", "morphe_music_lyrics_section_about")
+            listOf(
+                "about"
+            ).forEach { key -> preferences[key]?.let { appendChild(it) } }
+        }
     }
 }

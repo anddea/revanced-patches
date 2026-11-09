@@ -1,3 +1,14 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/2282
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.player;
 
 import app.morphe.extension.youtube.ambientlight.AmbientLightController;
@@ -17,6 +28,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewConfiguration;
@@ -809,6 +821,29 @@ public class PlayerPatch {
         return !Settings.DISABLE_CHAPTER_SKIP_DOUBLE_TAP.get() && original;
     }
 
+    /**
+     * Injection point.
+     * Server config value that turns on the two-finger double tap chapter skip.
+     * Some accounts get it turned off, so the gesture seeks by the double tap length
+     * like a one-finger double tap, even when the chapter skip is not disabled.
+     *
+     * @return If the chapter skip is turned on.
+     */
+    public static boolean enableDoubleTapChaptersConfig(boolean original) {
+        return original || !Settings.DISABLE_CHAPTER_SKIP_DOUBLE_TAP.get();
+    }
+
+    /**
+     * Injection point.
+     * A/B flag that turns off the two-finger double tap chapter skip,
+     * so the gesture seeks by the double tap length like a one-finger double tap.
+     *
+     * @return If the chapter skip is turned off.
+     */
+    public static boolean disableDoubleTapChaptersFeatureFlag(boolean original) {
+        return Settings.DISABLE_CHAPTER_SKIP_DOUBLE_TAP.get();
+    }
+
     public static boolean disableSpeedOverlay() {
         return disableSpeedOverlay(true);
     }
@@ -835,6 +870,18 @@ public class PlayerPatch {
             Logger.printException(() -> "onCharSequenceLoaded failed", ex);
         }
         return charSequence;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param original The text shown above the Shorts player while a Short is held, such as "2x".
+     */
+    public static String getShortsTapAndHoldText(String original) {
+        if (SPEED_OVERLAY_VALUE == Settings.SPEED_OVERLAY_VALUE.defaultValue) {
+            return original;
+        }
+        return VideoUtils.formatSpeedStringX(SPEED_OVERLAY_VALUE, 0);
     }
 
     public static double speedOverlayValue() {
@@ -1305,6 +1352,21 @@ public class PlayerPatch {
                         VideoUtils.showCustomModernPlaybackSpeedDialog(context);
             }
         }
+    }
+
+    /**
+     * Injection point.
+     *
+     * @return If the touch event ends a gesture that the time bar ignores because it is disabled,
+     *         so the scrub opened by the tap must be completed.
+     */
+    public static boolean shouldCompleteScrub(View timeBar, MotionEvent event) {
+        if (!Settings.ENABLE_SEEKBAR_TAPPING.get() || timeBar.isEnabled()) {
+            return false;
+        }
+
+        final int action = event.getActionMasked();
+        return action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL;
     }
 
     public static boolean enableSeekbarTapping() {

@@ -142,6 +142,13 @@ public final class ScriptDetector {
                 Character.UnicodeScript.KATAKANA, Character.UnicodeScript.HANGUL);
     }
 
+    public static boolean containsUnspaced(@Nullable CharSequence text) {
+        return containsCjk(text)
+                || contains(text, Character.UnicodeScript.THAI, Character.UnicodeScript.LAO,
+                Character.UnicodeScript.MYANMAR, Character.UnicodeScript.KHMER,
+                Character.UnicodeScript.TIBETAN);
+    }
+
     public static boolean containsRtl(@Nullable CharSequence text) {
         return contains(text, Character.UnicodeScript.ARABIC, Character.UnicodeScript.HEBREW);
     }
@@ -193,8 +200,28 @@ public final class ScriptDetector {
                 && (isHan((char) cp) || isKana((char) cp) || isHangul((char) cp));
     }
 
+    /**
+     * Han or kana only, since Hangul is written with spaces between its words and so a space
+     * between two Hangul syllables must never be read as display noise.
+     */
+    public static boolean isHanOrKana(int cp) {
+        return cp <= Character.MAX_VALUE && (isHan((char) cp) || isKana((char) cp));
+    }
+
+    /**
+     * A code point of a script written without spaces between words, so a word can end right
+     * before or after it. Thai, Lao, Myanmar, Khmer and Tibetan letters are not syllables of their
+     * own, unlike {@link #isCjkCodePoint}.
+     */
+    public static boolean isUnspacedCodePoint(int cp) {
+        if (isCjkCodePoint(cp)) return true;
+        if (cp > Character.MAX_VALUE) return false;
+        final char c = (char) cp;
+        return isThai(c) || isLao(c) || isMyanmar(c) || isKhmer(c) || isTibetan(c);
+    }
+
     /** Hangul syllables, jamo and compatibility jamo, which is every way Korean is spelled. */
-    static boolean isAnyHangul(char c) {
+    public static boolean isAnyHangul(char c) {
         return isHangul(c) || (c >= 0x1100 && c <= 0x11FF) || (c >= 0x3130 && c <= 0x318F);
     }
 
@@ -202,7 +229,7 @@ public final class ScriptDetector {
         return (c >= 0x3041 && c <= 0x3096) || c == 0x309D || c == 0x309E;
     }
 
-    static boolean isGreek(char c) {
+    public static boolean isGreek(char c) {
         return (c >= 0x0370 && c <= 0x03FF) || (c >= 0x1F00 && c <= 0x1FFF);
     }
 
@@ -210,15 +237,15 @@ public final class ScriptDetector {
         return (c >= 0x0400 && c <= 0x04FF) || (c >= 0x0500 && c <= 0x052F);
     }
 
-    static boolean isGeorgian(char c) {
+    public static boolean isGeorgian(char c) {
         return (c >= 0x10A0 && c <= 0x10FF) || (c >= 0x1C90 && c <= 0x1CBF);
     }
 
-    static boolean isArmenian(char c) {
+    public static boolean isArmenian(char c) {
         return c >= 0x0530 && c <= 0x058F;
     }
 
-    static boolean isHebrew(char c) {
+    public static boolean isHebrew(char c) {
         return c >= 0x0590 && c <= 0x05FF;
     }
 
@@ -241,7 +268,7 @@ public final class ScriptDetector {
         return c >= 0x0700 && c <= 0x074F;
     }
 
-    static boolean isLatin(char c) {
+    public static boolean isLatin(char c) {
         return (c >= 0x0041 && c <= 0x005A)
                 || (c >= 0x0061 && c <= 0x007A)
                 || (c >= 0x00C0 && c <= 0x024F)
@@ -251,8 +278,24 @@ public final class ScriptDetector {
                 || (c >= 0xFF41 && c <= 0xFF5A);
     }
 
-    static boolean isThai(char c) {
+    public static boolean isThai(char c) {
         return c >= 0x0E00 && c <= 0x0E7F;
+    }
+
+    public static boolean isLao(char c) {
+        return c >= 0x0E80 && c <= 0x0EFF;
+    }
+
+    public static boolean isMyanmar(char c) {
+        return c >= 0x1000 && c <= 0x109F;
+    }
+
+    public static boolean isKhmer(char c) {
+        return c >= 0x1780 && c <= 0x17FF;
+    }
+
+    public static boolean isTibetan(char c) {
+        return c >= 0x0F00 && c <= 0x0FFF;
     }
 
     public enum Script {

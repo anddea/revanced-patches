@@ -24,6 +24,7 @@ import org.apache.commons.lang3.BooleanUtils;
 import java.util.List;
 import java.util.Objects;
 
+import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.PackageUtils;
@@ -78,6 +79,8 @@ public class ChangeFormFactorPatch {
             return BooleanUtils.isTrue(setMinimumDp);
         }
     }
+
+    private static final int COMPACT_CONTAINER_MAX_WIDTH_DP = 599;
 
     private static final FormFactor FORM_FACTOR = Settings.CHANGE_FORM_FACTOR.get();
     @Nullable
@@ -198,6 +201,20 @@ public class ChangeFormFactorPatch {
         return FORM_FACTOR.setMinimumDp()
                 ? Math.min(smallestScreenWidthDp, widthDp)
                 : Math.max(smallestScreenWidthDp, widthDp);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Responsive containers are classified by their width, and a tablet is wider than the
+     * compact class of a phone (under 600dp), so the home feed of the phone layout turns into a list.
+     */
+    public static int getResponsiveContainerWidth(int widthPx) {
+        if (FORM_FACTOR != FormFactor.SMALL) {
+            return widthPx;
+        }
+
+        return Math.min(widthPx, Dim.dp(COMPACT_CONTAINER_MAX_WIDTH_DP));
     }
 
     public static boolean phoneLayoutEnabled() {

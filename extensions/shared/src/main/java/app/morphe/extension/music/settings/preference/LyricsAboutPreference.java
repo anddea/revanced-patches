@@ -14,16 +14,11 @@ import android.preference.Preference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import app.morphe.extension.music.patches.lyrics.romanizers.CldrTransformsStore;
-import app.morphe.extension.music.patches.lyrics.romanizers.JapaneseDictStore;
-import app.morphe.extension.music.patches.lyrics.romanizers.PinyinDictStore;
-import app.morphe.extension.music.patches.lyrics.romanizers.RimeDictStore;
-import app.morphe.extension.music.patches.lyrics.romanizers.UniDictStore;
 
 /**
  * The notes on what the lyrics patch does and where it looks, with whatever the reading
- * dictionaries ask to be shown below them. Their licences travel into the cache with the data
- * and are read back from there, so nothing appears until one has been fetched.
+ * dictionaries ask to be shown below them. This fork keeps Morphe's dictionary notices in
+ * the lyrics About row because it has no shared licenses dialog.
  */
 public class LyricsAboutPreference extends Preference {
 
@@ -61,9 +56,13 @@ public class LyricsAboutPreference extends Preference {
     private static CharSequence notices() {
         StringBuilder joined = new StringBuilder();
         for (String notice : new String[] {
-                UniDictStore.notice(), JapaneseDictStore.notice(),
-                PinyinDictStore.notice(), RimeDictStore.allNotices(),
-                CldrTransformsStore.notice()
+                LyricsDictionaryLicenses.CLDR_NOTICE.content(),
+                LyricsDictionaryLicenses.PINYIN_PRO_DATA.content(),
+                LyricsDictionaryLicenses.RIME_CANTONESE.content(),
+                LyricsDictionaryLicenses.SUDACHI_NOTICE.content(),
+                LyricsDictionaryLicenses.UNIHAN_NOTICE.content(),
+                LyricsDictionaryLicenses.UNICODE_3.content(),
+                LyricsDictionaryLicenses.APACHE_2.content()
         }) {
             if (notice == null) continue;
             if (joined.length() > 0) joined.append("\n\n");

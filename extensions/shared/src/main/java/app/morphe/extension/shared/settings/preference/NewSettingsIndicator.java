@@ -363,8 +363,12 @@ public final class NewSettingsIndicator {
             }
 
             // Categories are not marked, since the new preference is shown right below them.
+            // A preference screen opens as a dialog that uses the screen title as its window title.
+            // Android 12 and 12L crash when logging a canceled input event of a window
+            // if the title is not a String, so the title of a screen cannot have a span.
             final boolean canMark = pref instanceof PreferenceScreen
-                    ? canMarkScreenTitle()
+                    ? Build.VERSION.SDK_INT != Build.VERSION_CODES.S
+                            && Build.VERSION.SDK_INT != Build.VERSION_CODES.S_V2
                     : !(pref instanceof PreferenceGroup);
             boolean unseenTitle = pref instanceof PreferenceGroup;
             Set<String> titleIds = pending.get(pref);
@@ -388,15 +392,5 @@ public final class NewSettingsIndicator {
             pending.put(group, ids);
         }
         return groupHasNew;
-    }
-
-    /**
-     * A preference screen opens as a dialog that uses the screen title as its window title.
-     * Android 12 and 12L crash when logging a canceled input event of a window
-     * if the title is not a String, so the title of a screen cannot have a span.
-     */
-    private static boolean canMarkScreenTitle() {
-        return Build.VERSION.SDK_INT != Build.VERSION_CODES.S
-                && Build.VERSION.SDK_INT != Build.VERSION_CODES.S_V2;
     }
 }

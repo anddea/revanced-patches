@@ -83,7 +83,6 @@ import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 
 /**
  * Displays the known YouTube navigation items in a drag-and-drop order and visibility editor.
- * Modified by Codex, 2026-11-03: stage visibility changes alongside the order.
  *
  * <p>The setting is saved only when the dialog's OK button is pressed. Optional items are shown
  * as well, so one saved order can be reused when YouTube changes the active layout.</p>
