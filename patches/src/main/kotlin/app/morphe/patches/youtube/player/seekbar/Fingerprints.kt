@@ -12,6 +12,7 @@ package app.morphe.patches.youtube.player.seekbar
 
 import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterLast
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
@@ -455,5 +456,15 @@ internal object SeekbarBigBoardsUpdateLegacyFingerprint : Fingerprint (
 internal object ShortsDisableSeekbarThumbnailsFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
         literal(45787901)
+    )
+)
+
+internal object CustomSeekbarThumbOnDrawFingerprint : Fingerprint(
+    classFingerprint = SeekbarFingerprint,
+    name = "onDraw",
+    filters = listOf(
+        methodCall(smali = "Ljava/lang/Math;->round(F)I"),
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        methodCall(name = "drawCircle", location = MatchAfterLast())
     )
 )

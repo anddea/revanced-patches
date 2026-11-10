@@ -840,6 +840,28 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // Replace the circle after the other seekbar hooks so they draw below the custom thumb.
+        CustomSeekbarThumbOnDrawFingerprint.clearMatch()
+        CustomSeekbarThumbOnDrawFingerprint.let {
+            it.method.apply {
+                val drawCircleIndex = it.instructionMatches.last().index
+                val drawCircle = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
+                replaceInstruction(
+                    drawCircleIndex,
+                    "invoke-static { v${drawCircle.registerC}, v${drawCircle.registerD}, " +
+                            "v${drawCircle.registerE}, v${drawCircle.registerF}, v${drawCircle.registerG} }, " +
+                            "Lapp/morphe/extension/youtube/patches/CustomSeekbarThumbPatch;->" +
+                            "drawCircle(Landroid/graphics/Canvas;FFFLandroid/graphics/Paint;)V"
+                )
+                addInstruction(
+                    0,
+                    "invoke-static/range { p0 .. p0 }, " +
+                            "Lapp/morphe/extension/youtube/patches/CustomSeekbarThumbPatch;->" +
+                            "setSeekbarView(Landroid/view/View;)V"
+                )
+            }
+        }
+
         // region add settings
 
         addPreference(settingArray, SEEKBAR_COMPONENTS)

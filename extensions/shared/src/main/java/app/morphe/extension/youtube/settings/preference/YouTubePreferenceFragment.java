@@ -1,4 +1,14 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
+/*
  * Original author(s):
  * - anddea (https://github.com/anddea)
  * - COOLak (https://github.com/COOLak)
@@ -15,6 +25,7 @@ import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMEN
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -407,6 +418,13 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             if (preference != null) {
                 preference.setEnabled(enabled);
             }
+        }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CustomSeekbarThumbPreference.PICK_THUMB_REQUEST_CODE) {
+            CustomSeekbarThumbPreference.handleActivityResult(getContext(), resultCode, data);
         }
     }
 }

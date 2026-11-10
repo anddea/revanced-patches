@@ -83,6 +83,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -100,6 +102,8 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
+    public static WeakReference<AbstractPreferenceFragment> instance = new WeakReference<>(null);
+
 
     public static boolean settingExportInProgress;
 
@@ -611,6 +615,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = new WeakReference<>(this);
         try {
             PreferenceManager preferenceManager = getPreferenceManager();
             preferenceManager.setSharedPreferencesName(Setting.preferences.name);
@@ -727,6 +732,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
     @Override
     public void onDestroy() {
+        if (instance.get() == this) {
+            instance = new WeakReference<>(null);
+        }
         getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(listener);
         super.onDestroy();
     }

@@ -48,6 +48,7 @@ import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.DeepLAvailabi
 import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationProvider;
 import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationStyle;
 import app.morphe.extension.shared.settings.EnumSetting;
+import app.morphe.extension.youtube.patches.CustomSeekbarThumbPatch.ThumbScaleType;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
 import app.morphe.extension.youtube.patches.general.GlassNavigationBar;
 import app.morphe.extension.youtube.patches.PlaybackBufferPatch.PlaybackBufferSize;
@@ -830,6 +831,10 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting ENABLE_SEEKBAR_TAPPING = new BooleanSetting("revanced_enable_seekbar_tapping", TRUE);
     public static final BooleanSetting HIDE_SEEKBAR_CHAPTER_LABEL = new BooleanSetting("revanced_hide_seekbar_chapter_label", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
+    public static final BooleanSetting CUSTOM_SEEKBAR_THUMB = new BooleanSetting("morphe_custom_seekbar_thumb", FALSE);
+    public static final StringSetting CUSTOM_SEEKBAR_THUMB_FILE = new StringSetting("morphe_custom_seekbar_thumb_file", "", parent(CUSTOM_SEEKBAR_THUMB));
+    public static final EnumSetting<ThumbScaleType> CUSTOM_SEEKBAR_THUMB_SCALE_TYPE = new EnumSetting<>("morphe_custom_seekbar_thumb_scale_type", ThumbScaleType.FIT_SEEKBAR, parent(CUSTOM_SEEKBAR_THUMB));
+
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE, true);
     public static final BooleanSetting FULLSCREEN_LARGE_SEEKBAR = new BooleanSetting("morphe_fullscreen_large_seekbar", FALSE);
     public static final BooleanSetting HIDE_TIME_STAMP = new BooleanSetting("revanced_hide_time_stamp", FALSE, true);
