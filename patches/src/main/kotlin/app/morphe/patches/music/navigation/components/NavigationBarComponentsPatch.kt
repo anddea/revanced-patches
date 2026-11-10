@@ -54,6 +54,7 @@ import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUT
 import app.morphe.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_39_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
@@ -69,11 +70,11 @@ import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.util.insertLiteralOverride
+import app.morphe.patches.music.utils.settings.ResourceUtils.addCustomPreference
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.findMutableClassOrThrow
 import app.morphe.util.findMutableMethodOf
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -87,13 +88,36 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
+private const val EXTENSION_GLASS_CLASS = "Lapp/morphe/extension/music/patches/MusicGlassNavigationBar;"
+
 private const val FLAG = "android:layout_weight"
 private const val RESOURCE_FILE_PATH = "res/layout/image_with_text_tab.xml"
 
 private val navigationBarComponentsResourcePatch = resourcePatch(
     description = "navigationBarComponentsResourcePatch"
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
+        // The floating miniplayer, used with the glass navigation bar, gets the same room on its sides
+        // as the pages and the capsule. The attribute is only read by the floating miniplayer.
+        if (is_9_39_or_greater) {
+            listOf(
+                "res/layout/watch_while_layout.xml",
+                // Inflated instead of the layout above when a server flag defers the player.
+                "res/layout/watch_while_layout_deferred.xml"
+            ).forEach { path ->
+                document(path).use { layout ->
+                    val root = layout.documentElement
+                    for (index in 0 until root.attributes.length) {
+                        val attribute = root.attributes.item(index)
+                        if (attribute.nodeName.endsWith(":floatingMiniPlayerHorizontalMargin")) {
+                            attribute.nodeValue = "@dimen/item_large_spacing"
+                        }
+                    }
+                }
+            }
+        }
         document(RESOURCE_FILE_PATH).use { document ->
             with(document.getElementsByTagName("ImageView").item(0)) {
                 if (attributes.getNamedItem(FLAG) != null)
@@ -123,6 +147,11 @@ val navigationBarComponentsPatch = bytecodePatch(
     )
 
     execute {
+        // Older targets lack the upstream content-height hook; keep their navigation unchanged.
+        fun glassTabCreatedHook(pivotTabRegister: Int) = if (is_9_15_or_greater) {
+            "invoke-static {v$pivotTabRegister}, $EXTENSION_GLASS_CLASS->navigationTabCreated(Landroid/view/View;)V"
+        } else ""
+
         /**
          * Hook theme class constructor to dynamically override mappings
          */
@@ -142,7 +171,7 @@ val navigationBarComponentsPatch = bytecodePatch(
         /**
          * Enable custom navigation bar color
          */
-        tabLayoutFingerprint.methodOrThrow().apply {
+        tabLayoutFingerprint.method.apply {
             val constIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
             val insertIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 opcode == Opcode.INVOKE_VIRTUAL
@@ -162,7 +191,7 @@ val navigationBarComponentsPatch = bytecodePatch(
          * Hide navigation labels
          */
         if (!is_8_51_or_greater) {
-            legacyTabLayoutTextFingerprint.methodOrThrow().apply {
+            legacyTabLayoutTextFingerprint.method.apply {
                 val constIndex =
                     indexOfFirstLiteralInstructionOrThrow(text1)
                 val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
@@ -269,9 +298,12 @@ val navigationBarComponentsPatch = bytecodePatch(
                         -1
                     }
 
-                    addInstruction(
+                    addInstructions(
                         pivotTabIndex,
-                        "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                        """
+                            invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V
+                            ${glassTabCreatedHook(pivotTabRegister)}
+                        """
                     )
 
                     if (replacementEnabled) {
@@ -317,7 +349,7 @@ val navigationBarComponentsPatch = bytecodePatch(
          * Hide navigation bar & buttons
          */
         if (!is_8_51_or_greater) {
-            legacyTabLayoutTextFingerprint.matchOrThrow().let {
+            legacyTabLayoutTextFingerprint.let {
                 it.method.apply {
                     val mapIndex = indexOfMapInstruction(this)
                     val browseIdRegister =
@@ -344,9 +376,12 @@ val navigationBarComponentsPatch = bytecodePatch(
                     val spannedRegister =
                         getInstruction<FiveRegisterInstruction>(spannedIndex).registerD
 
-                    addInstruction(
+                    addInstructions(
                         pivotTabIndex,
-                        "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                        """
+                            invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V
+                            ${glassTabCreatedHook(pivotTabRegister)}
+                        """
                     )
 
                     addInstructions(
@@ -445,6 +480,46 @@ val navigationBarComponentsPatch = bytecodePatch(
             CategoryType.NAVIGATION,
             "revanced_replace_navigation_button_about"
         )
+
+        if (is_9_15_or_greater) {
+            // The glass navigation bar uses the floating miniplayer of the app.
+            if (is_9_39_or_greater) {
+                FloatingMiniplayerFeatureFlagFingerprint.matchAll().forEach {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$EXTENSION_GLASS_CLASS->useFloatingMiniplayer(Z)Z"
+                    )
+                }
+            }
+
+            // The glass navigation bar leaves the room around the capsule clear, so the page is laid out
+            // behind the bar, down to the bottom of the screen.
+            WatchWhileLayoutOnMeasureFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches.last().index
+                    val call = getInstruction<FiveRegisterInstruction>(index)
+                    val contentRegister = call.registerC
+                    val heightRegister = call.registerE
+
+                    addInstructions(
+                        index,
+                        """
+                            invoke-static { v$contentRegister, v$heightRegister }, $EXTENSION_GLASS_CLASS->getContentHeight(Landroid/view/View;I)I
+                            move-result v$heightRegister
+                        """
+                    )
+                }
+            }
+
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass", "false")
+            addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_opacity",
+                "app.morphe.extension.shared.settings.preference.SeekBarPreference", setSummary = false)
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_light", "false")
+            addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_height",
+                "app.morphe.extension.music.settings.preference.MusicGlassNavigationBarPreference",
+                titleKey = "morphe_music_navigation_bar_glass_size_title",
+                summaryKey = "morphe_music_navigation_bar_glass_size_summary")
+        }
 
         updatePatchStatus(NAVIGATION_BAR_COMPONENTS)
 
