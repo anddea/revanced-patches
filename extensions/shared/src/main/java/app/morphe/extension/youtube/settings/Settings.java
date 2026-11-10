@@ -410,6 +410,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting TABLET_LAYOUT_IN_PLAYER = new BooleanSetting("morphe_tablet_layout_in_player", FALSE, true, new TabletLayoutInPlayerAvailability());
     public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", FALSE, true, "revanced_disable_layout_updates_user_dialog_message");
     /** Device layout observation, not a user preference or an exported setting. */
+    public static final BooleanSetting HIDE_STATUS_BAR = new BooleanSetting("morphe_hide_status_bar", FALSE, true);
+    public static final BooleanSetting FIX_STATUS_BAR_LAYOUT = new BooleanSetting("morphe_fix_status_bar_layout", TRUE, true);
+    public static final BooleanSetting WINDOW_BELOW_STATUS_BAR = new BooleanSetting("morphe_window_below_status_bar", FALSE, false, false);
     public static final BooleanSetting WINDOW_ABOVE_NAVIGATION_BAR = new BooleanSetting("morphe_window_above_navigation_bar", FALSE, false, false);
     public static final EnumSetting<StatusBarTranslucency> STATUS_BAR_TRANSLUCENCY = new EnumSetting<>("revanced_status_bar_translucency", StatusBarTranslucency.DEFAULT, true);
     public static final BooleanSetting FIX_HYPE_BUTTON_ICON = new BooleanSetting("revanced_fix_hype_button_icon", TRUE, true, "revanced_fix_hype_button_icon_user_dialog_message");

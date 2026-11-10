@@ -31,6 +31,7 @@ import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch;
+import app.morphe.extension.youtube.patches.theme.StatusBarPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
@@ -193,6 +194,7 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
+        StatusBarPatch.hideStatusBar(preferenceScreenDialog);
         if (YouTubeActivityHook.searchViewController != null
                 && YouTubeActivityHook.searchViewController.isSearchActive()) {
             toolbar.post(() -> YouTubeActivityHook.searchViewController.closeSearch());

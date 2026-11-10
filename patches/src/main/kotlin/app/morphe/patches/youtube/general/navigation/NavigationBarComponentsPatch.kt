@@ -232,8 +232,8 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            // The layout flags must follow the window's edge-to-edge state, while the background
-            // style remains independent. Observe the account flag without changing it in this fork.
+            // Ported from Morphe's Hide status bar patch (PR #3337). Keep all reads of the
+            // edge-to-edge flag consistent when hiding the bar or fixing its layout.
             injectOnCreateMethodCall("$PATCHES_PATH/theme/StatusBarPatch;", "initialize")
             EdgeToEdgeTopBarFeatureFlagFingerprint.matchAll().forEach { match ->
                 match.method.apply {
@@ -243,6 +243,34 @@ val navigationBarComponentsPatch = bytecodePatch(
                     }.asReversed().forEach { index ->
                         insertLiteralOverride(index, "$PATCHES_PATH/theme/StatusBarPatch;->useEdgeToEdgeTopBar(Z)Z")
                     }
+                }
+            }
+
+            // The status bar color that follows the scrolling top bar needs the edge to edge top bar.
+            StatusBarScrollColorFeatureFlagFingerprint.matchAllOrNull()?.forEach { match ->
+                match.method.apply {
+                    implementation!!.instructions.mapIndexedNotNull { index, instruction ->
+                        index.takeIf { (instruction as? WideLiteralInstruction)?.wideLiteral == 45830993L }
+                    }.asReversed().forEach { index ->
+                        insertLiteralOverride(index, "$PATCHES_PATH/theme/StatusBarPatch;->useStatusBarScrollColor(Z)Z")
+                    }
+                }
+            }
+
+            // Without the edge to edge top bar, the top bars are laid out with the stable insets,
+            // which keep the height of the hidden status bar.
+            SystemWindowInsetsChangedFingerprint.let {
+                it.method.apply {
+                    val insetsRegister = it.instructionMatches.first()
+                        .getInstruction<FiveRegisterInstruction>().registerC
+                    val viewIndex = it.instructionMatches.last().index
+                    val viewRegister = getInstruction<TwoRegisterInstruction>(viewIndex).registerA
+
+                    addInstruction(
+                        viewIndex + 1,
+                        "invoke-static { v$insetsRegister, v$viewRegister }, " +
+                                "$PATCHES_PATH/theme/StatusBarPatch;->setSystemWindowInsetTop(Landroid/graphics/Rect;Landroid/view/View;)V"
+                    )
                 }
             }
 
@@ -522,6 +550,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
+            settingArray += "SETTINGS: HIDE_STATUS_BAR"
             settingArray += "SETTINGS: STATUS_BAR_TRANSLUCENCY"
             settingArray += "SETTINGS: NAVIGATION_BAR_STYLE"
             settingArray += "SETTINGS: NAVIGATION_BAR_GLASS"
