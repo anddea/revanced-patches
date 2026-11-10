@@ -602,9 +602,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final IntegerSetting REMIX_BUTTON_INDEX = new IntegerSetting("revanced_remix_button_index", 3, true, parent(HIDE_ACTION_BUTTON_INDEX));
 
     // PreferenceScreen: Player - Ambient mode
-    public static final BooleanSetting DISABLE_AMBIENT_MODE = new BooleanSetting("revanced_disable_ambient_mode", FALSE, true);
+    public static final BooleanSetting ENHANCED_AMBIENT_MODE = new BooleanSetting("morphe_enhanced_ambient_mode", FALSE, true,
+            () -> Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
+    public static final BooleanSetting ENHANCED_AMBIENT_MODE_READABLE_TEXT = new BooleanSetting("morphe_enhanced_ambient_mode_readable_text", FALSE, parent(ENHANCED_AMBIENT_MODE));
+    public static final BooleanSetting DISABLE_AMBIENT_MODE = new BooleanSetting("revanced_disable_ambient_mode", FALSE, true, parentInverted(ENHANCED_AMBIENT_MODE));
     public static final BooleanSetting BYPASS_AMBIENT_MODE_RESTRICTIONS = new BooleanSetting("revanced_bypass_ambient_mode_restrictions", FALSE, parentInverted(DISABLE_AMBIENT_MODE));
-    public static final BooleanSetting DISABLE_AMBIENT_MODE_IN_FULLSCREEN = new BooleanSetting("revanced_disable_ambient_mode_in_fullscreen", FALSE, true, parentInverted(DISABLE_AMBIENT_MODE));
+    public static final BooleanSetting DISABLE_AMBIENT_MODE_IN_FULLSCREEN = new BooleanSetting("revanced_disable_ambient_mode_in_fullscreen", FALSE, true, parentsAll(parentInverted(ENHANCED_AMBIENT_MODE), parentInverted(DISABLE_AMBIENT_MODE)));
 
     // PreferenceScreen: Player - Channel bar
     public static final BooleanSetting HIDE_JOIN_BUTTON = new BooleanSetting("revanced_hide_join_button", TRUE);

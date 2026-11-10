@@ -578,6 +578,8 @@
 
         <!-- SETTINGS: AMBIENT_MODE_CONTROLS
         <PreferenceScreen android:title="@string/revanced_preference_screen_ambient_mode_title" android:key="revanced_preference_screen_ambient_mode" android:summary="@string/revanced_preference_screen_ambient_mode_summary">
+            <SwitchPreference android:title="@string/morphe_enhanced_ambient_mode_title" android:key="morphe_enhanced_ambient_mode" android:summary="@string/morphe_enhanced_ambient_mode_summary" />
+            <SwitchPreference android:title="@string/morphe_enhanced_ambient_mode_readable_text_title" android:key="morphe_enhanced_ambient_mode_readable_text" android:summary="@string/morphe_enhanced_ambient_mode_readable_text_summary" />
             <SwitchPreference android:title="@string/revanced_bypass_ambient_mode_restrictions_title" android:key="revanced_bypass_ambient_mode_restrictions" android:summaryOn="@string/revanced_bypass_ambient_mode_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_ambient_mode_restrictions_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_ambient_mode_title" android:key="revanced_disable_ambient_mode" android:summaryOn="@string/revanced_disable_ambient_mode_summary_on" android:summaryOff="@string/revanced_disable_ambient_mode_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_ambient_mode_in_fullscreen_title" android:key="revanced_disable_ambient_mode_in_fullscreen" android:summaryOn="@string/revanced_disable_ambient_mode_in_fullscreen_summary_on" android:summaryOff="@string/revanced_disable_ambient_mode_in_fullscreen_summary_off" />

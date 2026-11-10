@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.patches.player;
 
+import app.morphe.extension.youtube.ambientlight.AmbientLightController;
+
 import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.hideViewByRemovingFromParentUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
@@ -122,7 +124,7 @@ public class PlayerPatch {
      * Disable Ambient mode.
      */
     public static boolean disableAmbientMode(boolean original) {
-        return !Settings.DISABLE_AMBIENT_MODE.get() && original;
+        return !Settings.DISABLE_AMBIENT_MODE.get() && !AmbientLightController.replacesAmbientMode() && original;
     }
 
     public static boolean disableAmbientModeInFullscreen() {
@@ -130,7 +132,7 @@ public class PlayerPatch {
     }
 
     public static int getFullScreenBackgroundColor(int originalColor) {
-        if (Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN.get()) {
+        if (Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN.get() || AmbientLightController.replacesAmbientMode()) {
             return DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT;
         }
 

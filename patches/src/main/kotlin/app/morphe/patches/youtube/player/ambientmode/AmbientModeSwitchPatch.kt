@@ -12,6 +12,17 @@
 
 package app.morphe.patches.youtube.player.ambientmode
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patches.shared.drawable.drawableColorHookPatch
+import app.morphe.patches.shared.drawable.addDrawableColorHook
+import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
+import app.morphe.patches.youtube.utils.resourceid.insetOverlayViewLayout
+import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.patches.youtube.video.information.videoTimeHook
+import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
@@ -53,6 +64,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+private const val EXTENSION_ENHANCED_AMBIENT_MODE_CLASS =
+    "Lapp/morphe/extension/youtube/ambientlight/AmbientLightController;"
+
 /**
  * `disableAmbientMode(true)` returns true if ambient mode is not disabled in the Morphe settings.
  */
@@ -86,9 +100,40 @@ val ambientModeSwitchPatch = bytecodePatch(
         settingsPatch,
         versionCheckPatch,
         fixProtoLibraryPatch,
+        playerTypeHookPatch,
+        videoInformationPatch,
+        drawableColorHookPatch,
     )
 
     execute {
+        //
+        // Enhanced Ambient mode.
+        //
+        addDrawableColorHook("$EXTENSION_ENHANCED_AMBIENT_MODE_CLASS->getLithoColor(Landroid/graphics/drawable/Drawable;I)I", passDrawable = true)
+        videoTimeHook(EXTENSION_ENHANCED_AMBIENT_MODE_CLASS, "setVideoTime")
+        AmbientModeToggleFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<FiveRegisterInstruction>(index).registerE
+
+                addInstruction(
+                    index,
+                    "invoke-static { v$register }, $EXTENSION_ENHANCED_AMBIENT_MODE_CLASS->" +
+                            "setAmbientModeToggle(Ljava/lang/Boolean;)V"
+                )
+            }
+        }
+        youtubeControlsOverlayFingerprint.methodOrThrow().apply {
+            val targetIndex = indexOfFirstLiteralInstructionOrThrow(insetOverlayViewLayout)
+            val checkCastIndex = indexOfFirstInstructionOrThrow(targetIndex, Opcode.CHECK_CAST)
+            val register = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+            addInstruction(
+                checkCastIndex + 1,
+                "invoke-static { v$register }, $EXTENSION_ENHANCED_AMBIENT_MODE_CLASS->initialize(Landroid/view/ViewGroup;)V"
+            )
+        }
+
+
         // region patch for bypass ambient mode restrictions
 
         if (is_21_43_or_greater) {
