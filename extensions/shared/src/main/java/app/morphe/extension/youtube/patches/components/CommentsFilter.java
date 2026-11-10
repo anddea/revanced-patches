@@ -274,6 +274,8 @@ public final class CommentsFilter extends Filter {
 
     /**
      * Injection point.
+     * Matches carousel titles exactly or by substring, like the account and feed flyout filters.
+     * Substring matching remains the default so existing filter lists keep their behavior.
      */
     public static byte[] onCommentsLoaded(byte[] bytes) {
         if (!Settings.HIDE_COMMENTS_CAROUSEL.get()) {
@@ -286,6 +288,7 @@ public final class CommentsFilter extends Filter {
         }
 
         String[] commentsCarouselFilterStrings = rawFilterText.split("\\n");
+        boolean matchContains = Settings.HIDE_COMMENTS_CAROUSEL_FILTER_TYPE.get();
 
         try {
             var newElement = NewElement.parseFrom(bytes).toBuilder();
@@ -307,7 +310,7 @@ public final class CommentsFilter extends Filter {
                 Logger.printDebug(() -> "comments title: " + title);
 
                 for (String filter : commentsCarouselFilterStrings) {
-                    if (!filter.isEmpty() && title.contains(filter)) {
+                    if (!filter.isEmpty() && (matchContains ? title.contains(filter) : title.equals(filter))) {
                         data.removeCarouselItemDatas(i);
                         data.removeCarouselTitleDatas(i);
                         modified = true;
