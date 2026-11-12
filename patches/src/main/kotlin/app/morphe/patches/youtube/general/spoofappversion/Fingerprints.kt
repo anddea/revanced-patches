@@ -131,3 +131,26 @@ internal object ReelWatchSequenceEndpointConstructorFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("reel/reel_watch_sequence"),
 )
+
+internal object GetWatchEndpointConstructorPrimaryFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    strings = listOf("get_watch"),
+    custom = { _, classDef ->
+        classDef.fields.find { it.type == "Ljava/util/function/Consumer;" } != null
+    }
+)
+
+internal object GetWatchEndpointConstructorSecondaryFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    strings = listOf("get_watch"),
+    custom = { _, classDef ->
+        classDef.fields.find { it.type == "Ljava/util/function/Consumer;" } == null
+    }
+)
+
+internal object NextEndpointParentFingerprint : Fingerprint(
+    returnType = "Ljava/lang/String;",
+    strings = listOf("watchNextType"),
+)

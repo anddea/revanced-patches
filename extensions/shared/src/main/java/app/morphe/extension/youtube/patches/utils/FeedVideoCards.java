@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.WeakHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -644,4 +645,26 @@ public final class FeedVideoCards {
             Logger.printException(() -> "onComponentHostLayout failure", ex);
         }
     }
+
+    private static final ThreadLocal<Object[]> lastElementText = ThreadLocal.withInitial(() -> new Object[2]);
+
+    /**
+     * The element hooks search every element on the main thread, while the page loads. Every byte is
+     * one character in ISO-8859-1, so the bytes include some bytes when the string of the bytes includes
+     * their string, which is searched in native code. That is much faster than a loop that is not compiled
+     * yet, as when the app starts. The bytes of an element are a buffer of the app that is not changed,
+     * and the hooks are called one after another for it, so the string is made once for all of them.
+     *
+     * @return The bytes as a string with one character for each byte.
+     */
+    public static String getElementText(byte[] bytes) {
+        // Never null, as the thread local has an initial value.
+        Object[] last = Objects.requireNonNull(lastElementText.get());
+        if (last[0] != bytes) {
+            last[1] = new String(bytes, StandardCharsets.ISO_8859_1);
+            last[0] = bytes;
+        }
+        return (String) last[1];
+    }
+
 }

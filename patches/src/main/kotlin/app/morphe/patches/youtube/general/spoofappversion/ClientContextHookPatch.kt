@@ -40,6 +40,11 @@ internal enum class Endpoint(
     vararg val parentFingerprints: Fingerprint,
     var smaliInstructions: String = "",
 ) {
+    GET_WATCH(
+        GetWatchEndpointConstructorPrimaryFingerprint,
+        GetWatchEndpointConstructorSecondaryFingerprint,
+    ),
+    NEXT(NextEndpointParentFingerprint),
     REEL(
         ReelCreateItemsEndpointConstructorFingerprint,
         ReelItemWatchEndpointConstructorFingerprint,
@@ -54,7 +59,7 @@ internal enum class Endpoint(
  * The version hook also selects the modern Shorts overlay on YouTube 21.05 and newer.
  */
 internal val clientContextHookPatch = bytecodePatch(
-    description = "Hooks the context body of the Shorts endpoint.",
+    description = "Hooks the context body of InnerTube endpoints.",
 ) {
     dependsOn(sharedExtensionPatch, versionCheckPatch)
 

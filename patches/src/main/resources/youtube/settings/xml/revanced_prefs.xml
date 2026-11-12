@@ -274,8 +274,6 @@
         <!-- SETTINGS: CHANGE_FORM_FACTOR
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
 
-        <!-- SETTINGS: TABLET_LAYOUT_IN_PLAYER
-        <SwitchPreference android:title="@string/morphe_tablet_layout_in_player_title" android:key="morphe_tablet_layout_in_player" android:summary="@string/morphe_tablet_layout_in_player_summary" />SETTINGS: TABLET_LAYOUT_IN_PLAYER -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
@@ -549,8 +547,8 @@
 
         <!-- SETTINGS: HIDE_ACTION_BUTTONS
         <PreferenceScreen android:title="@string/revanced_preference_category_action_buttons" android:key="revanced_preference_screen_action_buttons" android:summary="@string/revanced_preference_screen_action_buttons_summary">SETTINGS: HIDE_ACTION_BUTTONS -->
-            <!-- SETTINGS: RESTORE_OLD_VIDEO_ACTION_BAR
-            <SwitchPreference android:title="@string/revanced_restore_old_video_action_bar_title" android:key="revanced_restore_old_video_action_bar" android:summary="@string/revanced_restore_old_video_action_bar_summary" />SETTINGS: RESTORE_OLD_VIDEO_ACTION_BAR -->
+            <!-- SETTINGS: VIDEO_ACTION_BAR_LAYOUT
+            <ListPreference android:title="@string/morphe_video_action_bar_layout_title" android:key="morphe_video_action_bar_layout" android:entries="@array/morphe_video_action_bar_layout_entries" android:entryValues="@array/morphe_video_action_bar_layout_entry_values" />SETTINGS: VIDEO_ACTION_BAR_LAYOUT -->
 
             <!-- SETTINGS: HIDE_ACTION_BUTTONS
             <SwitchPreference android:title="@string/revanced_hide_action_bar_title" android:key="revanced_hide_action_bar" android:summaryOn="@string/revanced_hide_action_bar_summary_on" android:summaryOff="@string/revanced_hide_action_bar_summary_off" />

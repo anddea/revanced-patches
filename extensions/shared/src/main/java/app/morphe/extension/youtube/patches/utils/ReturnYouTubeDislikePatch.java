@@ -451,7 +451,7 @@ public class ReturnYouTubeDislikePatch {
      */
     private static boolean regularActionButtonCountOverlaysAreUnsupported() {
         return Settings.DISABLE_LAYOUT_UPDATES.get()
-                || Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()
+                || app.morphe.extension.youtube.patches.RestoreOldVideoActionBarPatch.usesClassicLayout()
                 // Segmented/old layouts already receive the count through onLithoTextLoaded().
                 || ActionButtonsFilter.hasCurrentVideoActionButton(ActionButton.LIKE_DISLIKE);
     }

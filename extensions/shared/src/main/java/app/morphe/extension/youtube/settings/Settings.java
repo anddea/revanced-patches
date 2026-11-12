@@ -48,6 +48,7 @@ import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.DeepLAvailabi
 import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationProvider;
 import app.morphe.extension.youtube.patches.LiveChatTranslatePatch.TranslationStyle;
 import app.morphe.extension.shared.settings.EnumSetting;
+import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.youtube.patches.CustomSeekbarThumbPatch.ThumbScaleType;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
 import app.morphe.extension.youtube.patches.general.GlassNavigationBar;
@@ -73,9 +74,9 @@ import app.morphe.extension.youtube.patches.dearrow.DeArrowPatch.DeArrowThumbnai
 import app.morphe.extension.youtube.patches.dearrow.DeArrowPatch.StillImagesAvailability;
 import app.morphe.extension.youtube.patches.dearrow.DeArrowPatch.ThumbnailOption;
 import app.morphe.extension.youtube.patches.dearrow.DeArrowPatch.ThumbnailStillTime;
+import app.morphe.extension.youtube.patches.RestoreOldVideoActionBarPatch.VideoActionBarLayout;
 import app.morphe.extension.youtube.patches.components.FeedComponentsFilter;
 import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch.FormFactor;
-import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch.TabletLayoutInPlayerAvailability;
 import app.morphe.extension.youtube.patches.general.ChangeStartPagePatch;
 import app.morphe.extension.youtube.patches.general.ChangeStartPagePatch.StartPage;
 import app.morphe.extension.youtube.patches.player.ExitFullscreenPatch.FullscreenMode;
@@ -408,7 +409,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final StringSetting TRANSCRIPT_COOKIES = new StringSetting("revanced_transcript_cookies", "", true, parent(SET_TRANSCRIPT_COOKIES));
 
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
-    public static final BooleanSetting TABLET_LAYOUT_IN_PLAYER = new BooleanSetting("morphe_tablet_layout_in_player", FALSE, true, new TabletLayoutInPlayerAvailability());
+    private static final BooleanSetting DEPRECATED_TABLET_LAYOUT_IN_PLAYER = new BooleanSetting("morphe_tablet_layout_in_player", FALSE);
     public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", FALSE, true, "revanced_disable_layout_updates_user_dialog_message");
     /** Device layout observation, not a user preference or an exported setting. */
     public static final BooleanSetting HIDE_STATUS_BAR = new BooleanSetting("morphe_hide_status_bar", FALSE, true);
@@ -594,7 +595,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE, true, parentInverted(HIDE_ACTION_BAR));
     public static final BooleanSetting HIDE_STOP_ADS_BUTTON = new BooleanSetting("revanced_hide_stop_ads_button", FALSE, true, parentInverted(HIDE_ACTION_BAR));
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", FALSE, true, parentInverted(HIDE_ACTION_BAR));
-    public static final BooleanSetting RESTORE_OLD_VIDEO_ACTION_BAR = new BooleanSetting("revanced_restore_old_video_action_bar", FALSE, true);
+    private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_ACTION_BAR = new BooleanSetting("revanced_restore_old_video_action_bar", FALSE);
+    public static final EnumSetting<VideoActionBarLayout> VIDEO_ACTION_BAR_LAYOUT = new EnumSetting<>("morphe_video_action_bar_layout", PackageUtils.isVersionOrGreater("21.36.00") ? VideoActionBarLayout.DEFAULT : VideoActionBarLayout.CLASSIC, true, "morphe_video_action_bar_layout_user_dialog_message");
     public static final StringSetting INNERTUBE_COLD_CONFIG_DATA = new StringSetting("revanced_innertube_cold_config_data", "", false, false);
     public static final StringSetting INNERTUBE_COLD_HASH_DATA = new StringSetting("revanced_innertube_cold_hash_data", "", false, false);
 
@@ -1321,6 +1323,16 @@ public class Settings extends SharedYouTubeSettings {
             };
 
     static {
+        // Replace the player-only tablet spoof with the equivalent two-row layout once.
+        if (DEPRECATED_TABLET_LAYOUT_IN_PLAYER.get()) {
+            VIDEO_ACTION_BAR_LAYOUT.save(VideoActionBarLayout.CLASSIC_TWO_ROWS);
+            DEPRECATED_TABLET_LAYOUT_IN_PLAYER.resetToDefault();
+            DEPRECATED_RESTORE_OLD_VIDEO_ACTION_BAR.resetToDefault();
+        } else if (!DEPRECATED_RESTORE_OLD_VIDEO_ACTION_BAR.isSetToDefault()) {
+            VIDEO_ACTION_BAR_LAYOUT.save(DEPRECATED_RESTORE_OLD_VIDEO_ACTION_BAR.get()
+                    ? VideoActionBarLayout.CLASSIC : VideoActionBarLayout.DEFAULT);
+            DEPRECATED_RESTORE_OLD_VIDEO_ACTION_BAR.resetToDefault();
+        }
         migrateOldSettingToNew(DEPRECATED_WATCH_LATER_WIDE_DRAG_HANDLES, PLAYLIST_WIDE_DRAG_HANDLES);
         migrateOldSettingToNew(DEPRECATED_WATCH_LATER_HIDE_REMOVAL_SNACKBAR, PLAYLIST_HIDE_REMOVAL_SNACKBAR);
 
