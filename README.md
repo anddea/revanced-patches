@@ -14,7 +14,7 @@
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Ambient mode control` | Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen. | 21.39.525 ~ 20.05.46 |
+| `Ambient mode control` | Adds Enhanced Ambient mode and options to force Ambient mode on, bypass its power saving restrictions, and disable it entirely or in fullscreen. | 21.39.525 ~ 20.05.46 |
 | `App refresh rate` | Adds an option to change the app refresh rate. | 21.39.525 ~ 20.05.46 |
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 21.39.525 ~ 20.05.46 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 21.39.525 ~ 20.05.46 |
@@ -71,6 +71,7 @@
 | `Playback buffer` | Adds an option to change the video playback buffer size. | 21.39.525 ~ 20.05.46 |
 | `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 21.39.525 ~ 20.05.46 |
 | `Player components` | Adds options to hide or change components related to the video player. | 21.39.525 ~ 20.05.46 |
+| `Playlist improvements` | Adds options to widen playlist drag handles, reorder videos by long press, and hide removal confirmations. | 21.39.525 ~ 20.05.46 |
 | `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 21.39.525 ~ 20.05.46 |
 | `Preferred caption language` | Adds an option to automatically select captions in your preferred language. | 21.39.525 ~ 20.05.46 |
 | `Reload video` | Adds an option to display a button in the video player to reload the current video. | 21.39.525 ~ 20.05.46 |
@@ -103,7 +104,6 @@
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 21.39.525 ~ 20.05.46 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 21.39.525 ~ 20.05.46 |
 | `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 21.39.525 ~ 20.05.46 |
-| `Watch later improvements` | Adds options to widen the drag handles of the Watch later videos and to hide the snackbar shown after removing a video. | 21.39.525 ~ 20.05.46 |
 | `Wide search bar` | Adds a wide search bar to the top of the home and subscription feed. | 21.39.525 ~ 20.05.46 |
 </details>
 

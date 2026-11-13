@@ -1,13 +1,16 @@
 {
-  "version": "4.4.0-dev.6",
+  "version": "4.4.0-dev.7",
   "patches": [
     {
       "name": "Ambient mode control",
-      "description": "Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+      "description": "Adds Enhanced Ambient mode and options to force Ambient mode on, bypass its power saving restrictions, and disable it entirely or in fullscreen.",
       "use": true,
       "dependencies": [
         "ResourcePatch",
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -894,6 +897,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -1689,6 +1693,7 @@
       "description": "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos.",
       "use": true,
       "dependencies": [
+        "Patch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
@@ -2001,6 +2006,28 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Playlist improvements",
+      "description": "Adds options to widen playlist drag handles, reorder videos by long press, and hide removal confirmations.",
+      "use": true,
+      "dependencies": [
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
@@ -2541,6 +2568,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -2558,6 +2586,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -3469,27 +3498,6 @@
           "8.30.54",
           "8.28.54",
           "8.12.54"
-        ]
-      },
-      "options": []
-    },
-    {
-      "name": "Watch later improvements",
-      "description": "Adds options to widen the drag handles of the Watch later videos and to hide the snackbar shown after removing a video.",
-      "use": true,
-      "dependencies": [
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch",
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch"
-      ],
-      "compatiblePackages": {
-        "com.google.android.youtube": [
-          "21.39.525",
-          "21.13.164",
-          "20.05.46"
         ]
       },
       "options": []
