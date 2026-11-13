@@ -31,6 +31,7 @@ import java.util.WeakHashMap;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.InAppDownloadsPatch;
 import app.morphe.extension.youtube.settings.Settings;
 
 /**
@@ -185,7 +186,7 @@ public final class OfflineScreens {
      * @return True to cancel YouTube's command.
      */
     public static boolean openLibraryInsteadOfCommand(@Nullable Object command) {
-        if (!(command instanceof MessageLite message)
+        if (InAppDownloadsPatch.isEnabled() || !(command instanceof MessageLite message)
                 || !Settings.IN_APP_DOWNLOADER.get()
                 || !Settings.REPLACE_DOWNLOADS_PAGE.get()) {
             return false;
@@ -199,7 +200,7 @@ public final class OfflineScreens {
     }
 
     private static boolean openLibraryInsteadOfDownloadsPage() {
-        if (!Settings.IN_APP_DOWNLOADER.get() || !Settings.REPLACE_DOWNLOADS_PAGE.get()) return false;
+        if (InAppDownloadsPatch.isEnabled() || !Settings.IN_APP_DOWNLOADER.get() || !Settings.REPLACE_DOWNLOADS_PAGE.get()) return false;
         Logger.printInfo(() -> "Replacing the Downloads page with the offline library");
         Utils.runOnMainThread(() -> openLibrary(Utils.getActivity()));
         return true;

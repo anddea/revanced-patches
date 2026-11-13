@@ -34,22 +34,13 @@ val accountCredentialsInvalidTextPatch = bytecodePatch(
         // The user can also fix this by deleting the MicroG account but
         // MicroG accounts look almost identical to Google device accounts
         // and it's more foolproof to instead uninstall/reinstall.
-        arrayOf(
-            SpecificNetworkErrorViewControllerFingerprint,
-            LoadingFrameLayoutControllerFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.method.apply {
-                val resourceIndex = indexOfFirstLiteralInstructionOrThrow(
-                    offlineNoContentBodyTextNotOfflineEligible
-                )
-                val getStringIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                    val reference = getReference<MethodReference>()
-                    reference?.name == "getString"
-                }
-                val register = getInstruction<OneRegisterInstruction>(getStringIndex + 1).registerA
+        SpecificNetworkErrorViewControllerFingerprint.matchAll(2 .. 2).forEach { match ->
+            match.method.apply {
+                val index = match.instructionMatches.last().index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    getStringIndex + 2,
+                    index + 1,
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getOfflineNetworkErrorString(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register  

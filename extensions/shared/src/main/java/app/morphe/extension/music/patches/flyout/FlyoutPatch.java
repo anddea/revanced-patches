@@ -68,6 +68,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import app.morphe.extension.music.patches.DownloadsPatch;
 import app.morphe.extension.music.patches.downloads.DownloadedMark;
 import app.morphe.extension.music.patches.components.DownloadedMarkFilter;
 import app.morphe.extension.shared.patches.components.ContextInterface;
@@ -150,7 +151,7 @@ public class FlyoutPatch {
     }
 
     private static boolean isFlyoutMenuOverridden() {
-        return Settings.IN_APP_DOWNLOADS.get() || Settings.EXTERNAL_DOWNLOADER_FLYOUT_MENU.get();
+        return !DownloadsPatch.isEnabled() && (Settings.IN_APP_DOWNLOADS.get() || Settings.EXTERNAL_DOWNLOADER_FLYOUT_MENU.get());
     }
 
     /**
@@ -242,7 +243,7 @@ public class FlyoutPatch {
     public static boolean commandResolverOnClick(ProtocolBufferFieldInterface command,
                                                   Map<Object, Object> map) {
         try {
-            if (command == null || map == null) {
+            if (DownloadsPatch.isEnabled() || command == null || map == null) {
                 return false;
             }
 

@@ -10,6 +10,7 @@ package app.morphe.extension.music.patches.downloads;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ReplacementSpan;
 
 import androidx.annotation.Nullable;
 
@@ -47,11 +48,12 @@ public final class DownloadedMark {
      * @return If a track with this video ID is downloaded. The downloads folder is listed the
      *         first time, which takes a few milliseconds.
      *
-     * <p>This fork instead uses its existing native MediaStore index lookup, which also removes
-     * entries for deleted or unreadable files. No private-folder catalogue is used here.</p>
+     * <p>Check both native offline streams and the existing MediaStore index. Native downloads
+     * are kept in the app's cache and never appear in MediaStore.</p>
      */
     public static boolean isDownloaded(String videoId) {
-        return NativeAudioStore.find(videoId) != null;
+        return !videoId.isEmpty() && (NativeAudioStore.find(videoId) != null
+                || NativeDownloadStatus.isDownloaded(videoId));
     }
 
     /**
@@ -62,6 +64,13 @@ public final class DownloadedMark {
      * @return The text with the mark before it.
      */
     public static CharSequence addTo(CharSequence text) {
+        // Native rows can already start with an inline badge. Keep it instead of stacking
+        // another icon; also make repeated text hooks idempotent for our own placeholder.
+        if (text.toString().startsWith(PLACEHOLDER + SEPARATOR)
+                || text instanceof Spanned spanned
+                && spanned.getSpans(0, Math.min(1, text.length()), ReplacementSpan.class).length > 0) {
+            return text;
+        }
         SpannableStringBuilder marked = new SpannableStringBuilder(text);
         marked.insert(0, PLACEHOLDER + SEPARATOR);
         if (ICON != null) {

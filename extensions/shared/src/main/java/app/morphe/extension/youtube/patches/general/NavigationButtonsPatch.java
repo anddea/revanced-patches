@@ -997,6 +997,16 @@ public final class NavigationButtonsPatch {
         return null;
     }
 
+    /** Preserve the immutable-map contract of the newer icon table. */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static java.util.Map withWatchLaterSelectedIcon(java.util.Map icons, Enum watchLaterIcon) {
+        if (!SHOW_WATCH_LATER_BUTTON) return icons;
+        java.util.Map copy = new java.util.HashMap(icons);
+        copy.put(watchLaterIcon, ResourceUtils.getIdentifier(
+                ResourceType.DRAWABLE, "morphe_watch_later_selected"));
+        return copy;
+    }
+
     /**
      * Injection point.
      * The app has no selected icon for the Watch later icon, so the outline icon is shown

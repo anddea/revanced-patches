@@ -92,14 +92,8 @@ internal object FuturesSubmitFingerprint : Fingerprint(
     returnType = "Lcom/google/common/util/concurrent/ListenableFuture;",
     parameters = listOf("Ljava/util/concurrent/Callable;", "Ljava/util/concurrent/Executor;"),
     filters = listOf(
-        // The shared extension has the Guava library too, where submit() creates
-        // the task with a factory method instead of a constructor.
-        opcode(Opcode.NEW_INSTANCE),
-        methodCall(
-            name = "<init>",
-            parameters = listOf("Ljava/util/concurrent/Callable;"),
-            location = MatchAfterImmediately()
-        ),
+        // Old Guava builds use a task factory, newer ones a constructor.
+        // The enclosing Futures class and exact signature disambiguate both from extension Guava.
         methodCall(definingClass = "Ljava/util/concurrent/Executor;", name = "execute")
     )
 )

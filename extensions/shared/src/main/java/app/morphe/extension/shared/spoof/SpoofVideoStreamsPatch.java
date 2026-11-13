@@ -20,11 +20,18 @@ import static app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE_MUSIC
 
 import android.net.Uri;
 import java.nio.ByteBuffer;
+
+import app.morphe.extension.music.patches.DownloadsPatch;
 import app.morphe.extension.shared.patches.MediaHttpRequest;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import java.util.ArrayDeque;
+import java.lang.ref.WeakReference;
+import com.google.protobuf.MessageLite;
+import app.morphe.extension.shared.innertube.SavedVideo.SavedPlayerResponse;
+import app.morphe.extension.shared.innertube.SavedVideo.OfflineStateAction;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -38,6 +45,7 @@ import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.InAppDownloadsPatch;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -66,7 +74,7 @@ public class SpoofVideoStreamsPatch {
     private static final ThreadLocal<Boolean> streamRangeLimitedOnThread = ThreadLocal.withInitial(() -> false);
 
     /**
-     * UMP part type of a SABR error. The server can send it instead of the media of a plain stream range.
+     * UMP part type of SABR error. The server can send it instead of the media of a plain stream range.
      */
     private static final byte UMP_PART_SABR_ERROR = 44;
 
@@ -254,6 +262,74 @@ public class SpoofVideoStreamsPatch {
         return !SPOOF_VIDEO_STREAMS || preferredClient.requireSABR;
     }
 
+    private static final ThreadLocal<Boolean> keepStreamsOnThread = ThreadLocal.withInitial(() -> false);
+
+    /**
+     * @param keepStreams If the streams of the player responses created on the current thread are not overridden.
+     */
+    public static void setKeepStreamsOnThread(boolean keepStreams) {
+        keepStreamsOnThread.set(keepStreams);
+    }
+
+    private record OfflineCheck(WeakReference<Object> playerProto, boolean offline) {}
+
+    /**
+     * Number of recently checked player responses to remember.
+     * Inline feed playback can check several responses before checking the first one again.
+     */
+    private static final int OFFLINE_CHECKS_TO_REMEMBER = 16;
+
+    /**
+     * Recently checked player responses and their results, newest first. The app can create the
+     * player response model again from a response that was already checked. Checking serializes
+     * the player response, which caches its size, and patch_setStreamingData then sets the player
+     * config of that same response. Serializing it again fails because the cached size no longer
+     * matches. Every response patch_setStreamingData changes was checked first, so it is in here.
+     */
+    private static final ArrayDeque<OfflineCheck> offlineChecks = new ArrayDeque<>(OFFLINE_CHECKS_TO_REMEMBER);
+
+    /**
+     * @return If the player response is of a video that is saved and can be played,
+     *         such as a video the app is saving. Its streams are the streams the app saves.
+     */
+    private static boolean isOfflinePlayerResponse(@NonNull String videoId, @Nullable Object playerProto) {
+        try {
+            if (!(playerProto instanceof MessageLite message)) {
+                return false;
+            }
+
+            synchronized (offlineChecks) {
+                for (OfflineCheck check : offlineChecks) {
+                    if (check.playerProto().get() == playerProto) {
+                        return check.offline();
+                    }
+                }
+            }
+
+            SavedPlayerResponse response = SavedPlayerResponse.parseFrom(message.toByteArray());
+            final boolean offline = response.hasOfflineState()
+                    && response.getOfflineState().getAction() == OfflineStateAction.OFFLINE_STATE_ACTION_OK;
+            if (response.hasOfflineState() && !offline) {
+                Logger.printDebug(() -> "Offline state action is not OK: "
+                        + response.getOfflineState().getActionValue() + " for: " + videoId);
+            }
+            synchronized (offlineChecks) {
+                offlineChecks.removeIf(check -> check.playerProto().get() == null);
+                if (offlineChecks.size() >= OFFLINE_CHECKS_TO_REMEMBER) {
+                    offlineChecks.removeLast();
+                }
+                offlineChecks.addFirst(new OfflineCheck(new WeakReference<>(playerProto), offline));
+            }
+            return offline;
+        } catch (Exception ex) {
+            Logger.printException(() -> "isOfflinePlayerResponse failure", ex);
+        }
+        return false;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isSpoofingEnabled() {
         return SPOOF_VIDEO_STREAMS;
     }
@@ -387,23 +463,34 @@ public class SpoofVideoStreamsPatch {
 
     @Nullable
     public static byte[] getStreamingData(String videoId) {
+        return getStreamingData(videoId, null);
+    }
+
+    @Nullable
+    public static byte[] getStreamingData(String videoId, @Nullable Object playerProto) {
         if (SPOOF_VIDEO_STREAMS) {
+            if (Boolean.TRUE.equals(keepStreamsOnThread.get())) {
+                Logger.printDebug(() -> "Keeping the streams of the player response: " + videoId);
+                return null;
+            }
+
+            if (isOfflinePlayerResponse(videoId, playerProto)) {
+                Logger.printDebug(() -> "Not overriding streaming data (saved offline video): " + videoId);
+                StreamOrDetailsDataRequest.setPlayerClient(videoId, null);
+                return null;
+            }
+
             try {
                 StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getOrFetchRequest(videoId);
-                var buffers = request == null ? null
-                        : (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
+                var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
                 // The player chooses SABR from the client of the streams it is given for this video.
                 StreamOrDetailsDataRequest.setPlayerClient(videoId, buffers == null ? null : buffers.client());
-                if (request != null) {
-                    if (buffers != null) {
-                        byte[] stream = buffers.streamingData();
-                        Logger.printInfo(() -> "SpoofVideoStreams: Overriding video stream: " + videoId);
-                        return stream;
-                    } else {
-                        Logger.printWarn(() -> "SpoofVideoStreams: Stream buffers null or fetch failed for: " + videoId);
-                    }
+                if (buffers != null) {
+                    byte[] stream = buffers.streamingData();
+                    Logger.printInfo(() -> "SpoofVideoStreams: Overriding video stream: " + videoId);
+                    return stream;
                 } else {
-                    Logger.printWarn(() -> "SpoofVideoStreams: StreamRequest not found in cache for: " + videoId);
+                    Logger.printWarn(() -> "SpoofVideoStreams: Stream buffers null or fetch failed for: " + videoId);
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
@@ -529,7 +616,7 @@ public class SpoofVideoStreamsPatch {
      * Injection point.
      * <p>
      * Called for every network request the app makes, before the request is built.
-     * The app requests streams with a POST body made for its own client. The plain stream urls of the
+     * The app requests streams with a POST body made for its own client. The plain stream URLs of the
      * other clients do not accept that body, and the server answers with an error or sends the stream slowly.
      *
      * @param url Url of the request.
@@ -537,8 +624,11 @@ public class SpoofVideoStreamsPatch {
      */
     public static boolean isPlainStreamRequest(@Nullable String url) {
         try {
-            // This fork has no upstream in-app download mode; leave requests alone when spoofing is off.
-            if (!SPOOF_VIDEO_STREAMS
+            // Saved videos use plain streams of other clients, even if spoofing is off.
+            boolean inAppDownloads = IS_YOUTUBE_MUSIC
+                    ? DownloadsPatch.isEnabled()
+                    : InAppDownloadsPatch.isEnabled();
+            if ((!SPOOF_VIDEO_STREAMS && !inAppDownloads)
                     || url == null || !url.contains(STREAM_URL_PATH)) {
                 return false;
             }
@@ -546,7 +636,7 @@ public class SpoofVideoStreamsPatch {
             Uri uri = Uri.parse(url);
             String host = uri.getHost();
             if (host == null || !host.endsWith(STREAM_URL_HOST_SUFFIX) || !STREAM_URL_PATH.equals(uri.getPath())
-                    // Streams of server side adaptive bitrate (SABR) clients are not plain urls.
+                    // Streams of server side adaptive bitrate (SABR) clients are not plain URLs.
                     || uri.getQueryParameter("sabr") != null) {
                 return false;
             }

@@ -73,6 +73,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.patches.InAppDownloadsPatch;
 import app.morphe.extension.youtube.patches.utils.FlyoutUtils;
 import app.morphe.extension.youtube.patches.utils.PlaylistPatch;
 import app.morphe.extension.youtube.settings.Settings;
@@ -456,7 +457,7 @@ public final class DownloadActionsPatch {
         try {
             // the built-in downloader replaces the native
             // (Premium) downloader on its own, without the external-downloader override.
-            if ((OVERRIDE_VIDEO_DOWNLOAD_BUTTON || Settings.IN_APP_DOWNLOADER.get())
+            if (!InAppDownloadsPatch.isEnabled() && (OVERRIDE_VIDEO_DOWNLOAD_BUTTON || Settings.IN_APP_DOWNLOADER.get())
                     && StringUtils.isNotEmpty(videoId)) {
                 if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER) {
                     PlaylistPatch.prepareDialogBuilder(videoId);
@@ -481,7 +482,7 @@ public final class DownloadActionsPatch {
      */
     public static String inAppPlaylistDownloadButtonOnClick(String playlistId) {
         try {
-            if (OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
+            if (!InAppDownloadsPatch.isEnabled() && OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
                 launchPlaylistExternalDownloader(playlistId);
                 return "";
             }
@@ -500,7 +501,7 @@ public final class DownloadActionsPatch {
      */
     public static boolean inAppPlaylistDownloadMenuOnClick(String playlistId) {
         try {
-            if (OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
+            if (!InAppDownloadsPatch.isEnabled() && OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
                 launchPlaylistExternalDownloader(playlistId);
                 return true;
             }

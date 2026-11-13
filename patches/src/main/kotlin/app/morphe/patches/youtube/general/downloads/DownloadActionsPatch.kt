@@ -71,6 +71,7 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
+import app.morphe.patches.youtube.general.downloads.native.nativeDownloadsPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
@@ -146,13 +147,14 @@ val downloadActionsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
+        nativeDownloadsPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
         // Keep the bottom sheet 3-dots menu that the custom flyout items
         // (Save to Watch later, download) are added to.
         bottomSheetFlyoutMenuPatch,
-        // Downloads button in the You tab.
+        // Downloads button in the "You" tab.
         fixProtoLibraryPatch,
         toolBarHookPatch,
     )

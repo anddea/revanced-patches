@@ -7,6 +7,7 @@
 
 package app.morphe.extension.music.patches.actionbar;
 
+import app.morphe.extension.music.patches.DownloadsPatch;
 import app.morphe.extension.music.patches.flyout.FlyoutPatch;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
@@ -103,7 +104,7 @@ public class ActionBarPatch {
     }
 
     public static void inAppDownloadButtonOnClick(View view) {
-        if (EXTERNAL_DOWNLOADER_ACTION_BUTTON &&
+        if (!DownloadsPatch.isEnabled() && (EXTERNAL_DOWNLOADER_ACTION_BUTTON || Settings.IN_APP_DOWNLOADS.get()) &&
                 buttonType.equals(ActionButton.DOWNLOAD.name)) {
             view.setOnClickListener(imageView -> VideoUtils.launchExternalDownloader());
         }
@@ -137,7 +138,7 @@ public class ActionBarPatch {
         try {
             if (FlyoutPatch.isViewInsideDialog(map == null ? null : map.get(ELEMENTS_SENDER_VIEW))
                     || !isPlayerDownloadButton(map)) return false;
-            if (!EXTERNAL_DOWNLOADER_ACTION_BUTTON) {
+            if (!(EXTERNAL_DOWNLOADER_ACTION_BUTTON || Settings.IN_APP_DOWNLOADS.get())) {
                 FlyoutPatch.onStockPlayerDownload();
                 return false;
             }
@@ -159,7 +160,7 @@ public class ActionBarPatch {
 
     private static boolean playerDownloadOnClick(String videoId) {
         try {
-            if (!EXTERNAL_DOWNLOADER_ACTION_BUTTON) {
+            if (!(EXTERNAL_DOWNLOADER_ACTION_BUTTON || Settings.IN_APP_DOWNLOADS.get())) {
                 return false;
             }
             long now = System.currentTimeMillis();
@@ -175,7 +176,7 @@ public class ActionBarPatch {
 
     public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
                                                  @NonNull CharSequence original) {
-        if (EXTERNAL_DOWNLOADER_ACTION_BUTTON &&
+        if ((EXTERNAL_DOWNLOADER_ACTION_BUTTON || Settings.IN_APP_DOWNLOADS.get()) &&
                 downloadButtonLabel.isEmpty() &&
                 conversionContext.toString().contains("music_download_button.")) {
             downloadButtonLabel = original.toString();

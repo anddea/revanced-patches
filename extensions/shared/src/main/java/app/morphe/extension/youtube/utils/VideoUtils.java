@@ -131,6 +131,7 @@ import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.InAppDownloadsPatch;
 import app.morphe.extension.youtube.patches.general.offline.OfflineDownloader;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackAudioPitchPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
@@ -231,6 +232,10 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void launchVideoExternalDownloader(@NonNull String videoId) {
+        if (InAppDownloadsPatch.isEnabled()) {
+            InAppDownloadsPatch.saveVideo(videoId);
+            return;
+        }
         // every video download entry point funnels through here.
         if (Settings.IN_APP_DOWNLOADER.get()) {
             OfflineDownloader.download(videoId);
@@ -274,6 +279,10 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void launchPlaylistExternalDownloader(@NonNull String playlistId) {
+        if (InAppDownloadsPatch.isEnabled()) {
+            InAppDownloadsPatch.savePlaylist(playlistId);
+            return;
+        }
         try {
             final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST.get();
             // If the package is not installed, show a dialog.

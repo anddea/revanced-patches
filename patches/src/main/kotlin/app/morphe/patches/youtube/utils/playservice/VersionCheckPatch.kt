@@ -199,6 +199,8 @@ var is_21_39_or_greater : Boolean by Delegates.notNull()
 var is_21_42_or_greater : Boolean by Delegates.notNull()
     private set
 var is_21_43_or_greater : Boolean by Delegates.notNull()
+var is_21_46_or_greater : Boolean by Delegates.notNull()
+    private set
 var is_21_45_or_greater : Boolean by Delegates.notNull()
     private set
 
@@ -311,6 +313,7 @@ val versionCheckPatch = resourcePatch(
         is_21_39_or_greater = isEqualsOrGreaterThan("21.39.00")
         is_21_42_or_greater = isEqualsOrGreaterThan("21.42.00")
         is_21_43_or_greater = isEqualsOrGreaterThan("21.43.00")
+        is_21_46_or_greater = isEqualsOrGreaterThan("21.46.00")
         is_21_45_or_greater = isEqualsOrGreaterThan("21.45.00")
     }
 }

@@ -244,7 +244,10 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             val cairoNotificationEnumReference = ImageEnumConstructorFingerprint
                 .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 
-            SetEnumMapFingerprint.let {
+            if (SetEnumMapFingerprint.matchOrNull() == null) {
+                hookNavigationIconMap(cairoNotificationEnumReference.toString(),
+                    "$EXTENSION_CLASS->withCairoNotificationFilledIcon")
+            } else SetEnumMapFingerprint.let {
                 it.method.apply {
                     val setEnumIntegerIndex = it.instructionMatches.last().index
                     val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC

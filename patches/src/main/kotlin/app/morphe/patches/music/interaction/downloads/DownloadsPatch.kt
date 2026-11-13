@@ -76,7 +76,8 @@ private val downloadsResourcePatch = resourcePatch {
     execute {
         copyResources("downloads", ResourceGroup("drawable", "morphe_music_downloaded_mark.xml"))
         addPreferenceCategory(CategoryType.MISC.value)
-        addSwitchPreference(CategoryType.MISC, "morphe_music_in_app_downloads", "false", "revanced_external_downloader_action")
+        addSwitchPreference(CategoryType.MISC, "morphe_music_in_app_downloads", "true")
+        addSwitchPreference(CategoryType.MISC, "morphe_music_native_downloads", "true")
         addSwitchPreference(CategoryType.MISC, "morphe_music_downloads_mark", "true", "morphe_music_in_app_downloads")
     }
 }
@@ -115,6 +116,7 @@ val downloadsPatch = bytecodePatch(
     DOWNLOADS.summary
 ) {
     dependsOn(
+        nativeDownloadsPatch,
         actionBarComponentsPatch,
         authHeadersPatch,
         lithoFilterPatch,

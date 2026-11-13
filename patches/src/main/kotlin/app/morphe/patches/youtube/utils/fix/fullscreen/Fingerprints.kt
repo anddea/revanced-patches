@@ -11,6 +11,7 @@ package app.morphe.patches.youtube.utils.fix.fullscreen
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -40,6 +41,19 @@ internal object FullscreenMoreVideosButtonFingerprint : Fingerprint(
             parameters = listOf("I", "I"),
             location = MatchAfterWithin(4)
         ),
+        opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately())
+    )
+)
+
+/** Older merged handlers open the panel directly and do not have the peeking-state bug. */
+internal object FullscreenMoreVideosUnconditionalFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IGET_OBJECT),
+        checkCast("L", location = MatchAfterImmediately()),
+        methodCall(opcode = Opcode.INVOKE_VIRTUAL, parameters = listOf("I", "I"),
+            returnType = "V", location = MatchAfterImmediately()),
         opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately())
     )
 )

@@ -359,6 +359,14 @@ public final class NavigationBar {
         enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
     }
 
+    /** Newer clients publish ordinary maps; copy before adding a missing icon. */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static Map withCairoNotificationFilledIcon(Map icons, Enum tabActivityCairo) {
+        Map copy = new java.util.HashMap(icons);
+        copy.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
+        return copy;
+    }
+
     public enum NavigationButton {
         HOME("PIVOT_HOME", "TAB_HOME_CAIRO"),
         SHORTS("TAB_SHORTS", "TAB_SHORTS_CAIRO"),

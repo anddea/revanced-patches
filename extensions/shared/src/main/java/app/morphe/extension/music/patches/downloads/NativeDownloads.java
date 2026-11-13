@@ -21,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+import app.morphe.extension.music.patches.DownloadsPatch;
 import app.morphe.extension.music.patches.flyout.FlyoutPatch.ProtocolBufferFieldInterface;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
@@ -69,7 +70,7 @@ public final class NativeDownloads {
     }
 
     public static Object rewriteCommand(Object original, java.util.Map<?, ?> context) {
-        if (!Settings.IN_APP_DOWNLOADS.get() || !(original instanceof Command command)) return original;
+        if (DownloadsPatch.isEnabled() || !Settings.IN_APP_DOWNLOADS.get() || !(original instanceof Command command)) return original;
         try {
             // signed-in non-Premium accounts receive an upsell batch without a playlist id.
             String headerPlaylist = playlistFromHeaderUpsell(command.toByteArray(), context);

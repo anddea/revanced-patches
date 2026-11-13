@@ -44,6 +44,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
 import app.morphe.patches.youtube.utils.fix.padding.BrowseListBottomPaddingFingerprint
 import app.morphe.patches.youtube.utils.navigation.addBottomBarContainerHook
+import app.morphe.patches.youtube.utils.navigation.hookNavigationIconMap
 import app.morphe.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
@@ -1030,7 +1031,10 @@ val navigationBarComponentsPatch = bytecodePatch(
         if (is_20_05_or_greater) {
             val watchLaterIcon = WatchLaterIconEnumFingerprint.instructionMatches.last().getFieldAccessed()
             SetEnumMapFingerprint.clearMatch()
-            SetEnumMapFingerprint.method.apply {
+            if (SetEnumMapFingerprint.matchOrNull() == null) {
+                hookNavigationIconMap(watchLaterIcon.toString(),
+                    "$EXTENSION_CLASS_DESCRIPTOR->withWatchLaterSelectedIcon")
+            } else SetEnumMapFingerprint.method.apply {
                 val putIndex = SetEnumMapFingerprint.instructionMatches.last().index
                 val mapRegister = getInstruction<FiveRegisterInstruction>(putIndex).registerC
                 val insertIndex = putIndex + 1

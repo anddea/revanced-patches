@@ -355,7 +355,7 @@ public class SegmentPlaybackController {
             if (!Settings.SB_ENABLED.get()) {
                 return;
             }
-            if (!Utils.isNetworkConnected()) {
+            if (!Utils.isNetworkConnected() && !SponsorBlockOfflineStorage.hasSavedSegments(newlyLoadedVideoId)) {
                 Logger.printDebug(() -> "Network not connected, ignoring video");
                 return;
             }
@@ -409,7 +409,16 @@ public class SegmentPlaybackController {
         Objects.requireNonNull(newlyLoadedVideoId);
         Utils.verifyOffMainThread();
 
-        SponsorSegment[] segments = SBRequester.getSegments(newlyLoadedVideoId);
+        SponsorSegment[] segments;
+        if (Utils.isNetworkConnected()) {
+            segments = SBRequester.getSegments(newlyLoadedVideoId);
+            // Keep the saved segments of downloaded videos up to date.
+            if (segments.length > 0 && SponsorBlockOfflineStorage.hasSavedSegments(newlyLoadedVideoId)) {
+                SponsorBlockOfflineStorage.saveSegments(newlyLoadedVideoId, segments);
+            }
+        } else {
+            segments = SponsorBlockOfflineStorage.loadSegments(newlyLoadedVideoId);
+        }
 
         Utils.runOnMainThread(() -> {
             if (!newlyLoadedVideoId.equals(videoId)) {

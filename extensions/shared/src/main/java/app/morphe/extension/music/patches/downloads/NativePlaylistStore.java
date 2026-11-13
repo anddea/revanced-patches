@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import app.morphe.extension.music.patches.DownloadsPatch;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -85,7 +86,7 @@ public final class NativePlaylistStore {
 
     /** Refreshes "Not in a playlist" in the background; requests made while one is queued are merged. */
     static void refreshUnsortedLater() {
-        if (!Settings.IN_APP_DOWNLOADS.get() || !refreshQueued.compareAndSet(false, true)) return;
+        if (DownloadsPatch.isEnabled() || !Settings.IN_APP_DOWNLOADS.get() || !refreshQueued.compareAndSet(false, true)) return;
         Utils.submitOnBackgroundThread(() -> {
             refreshQueued.set(false);
             try {

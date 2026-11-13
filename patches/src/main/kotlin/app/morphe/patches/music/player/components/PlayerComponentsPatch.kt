@@ -215,30 +215,9 @@ private val playerComponentsResourcePatch = resourcePatch(
 
     execute {
         // Since YT Music v6.42.51, the resources for the next button have been removed.
-        // On < 8.51, bytecode relies on hijacked TOP_START / TOP_END IDs.
-        // On 8.51+ (including 9.40), the extension resolves button IDs dynamically,
-        // so TOP_END and TOP_START must remain untouched so attrs.xml enum definitions compile.
-        if (!is_8_51_or_greater) {
-            val publicFile = get("res/values/public.xml")
-
-            if (is_6_42_or_greater) {
-                publicFile.writeText(
-                    publicFile.readText()
-                        .replace(
-                            "\"TOP_START\"",
-                            "\"$NEXT_BUTTON_VIEW_ID\""
-                        )
-                )
-            }
-            publicFile.writeText(
-                publicFile.readText()
-                    .replace(
-                        "\"TOP_END\"",
-                        "\"$PREVIOUS_BUTTON_VIEW_ID\""
-                    )
-            )
-        }
-
+        // Older bytecode looks up TOP_START / TOP_END. Use those IDs on the added views
+        // without renaming public resources, which also supply attrs.xml enum symbols.
+        // Newer clients keep the extension's dynamically resolved button IDs.
         if (is_6_42_or_greater) {
             insertNode(false)
         }
@@ -295,7 +274,7 @@ private fun ResourcePatchContext.insertNode(isPreviousButton: Boolean) {
 
 private fun Element.setNextButtonNodeAttribute(drawableName: String) {
     mapOf(
-        "android:id" to "@+id/$NEXT_BUTTON_VIEW_ID",
+        "android:id" to if (is_8_51_or_greater) "@+id/$NEXT_BUTTON_VIEW_ID" else "@id/TOP_START",
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",
@@ -311,7 +290,7 @@ private fun Element.setNextButtonNodeAttribute(drawableName: String) {
 
 private fun Element.setPreviousButtonNodeAttribute(drawableName: String) {
     mapOf(
-        "android:id" to "@+id/$PREVIOUS_BUTTON_VIEW_ID",
+        "android:id" to if (is_8_51_or_greater) "@+id/$PREVIOUS_BUTTON_VIEW_ID" else "@id/TOP_END",
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",

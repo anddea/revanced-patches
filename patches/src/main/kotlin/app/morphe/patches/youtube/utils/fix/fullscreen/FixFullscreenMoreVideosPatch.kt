@@ -21,7 +21,13 @@ internal val fixFullscreenMoreVideosPatch = bytecodePatch(
         // The "More videos" button of the fullscreen player opens the related videos only if their panel peeks.
         // The panel can be left in another state, such as hidden while the time bar is scrubbed,
         // and the button then does nothing until the device is rotated. The panel is opened from any state.
-        FullscreenMoreVideosButtonFingerprint.let {
+        val match = FullscreenMoreVideosButtonFingerprint.matchOrNull()
+        if (match == null) {
+            // Verify the old unconditional action rather than skipping an unknown implementation.
+            FullscreenMoreVideosUnconditionalFingerprint.method
+            return@execute
+        }
+        match.let {
             it.method.apply {
                 val index = it.instructionMatches[2].index
                 val register = getInstruction<OneRegisterInstruction>(index).registerA

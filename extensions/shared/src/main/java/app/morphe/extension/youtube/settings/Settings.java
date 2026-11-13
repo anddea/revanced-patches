@@ -480,6 +480,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER = new BooleanSetting("revanced_override_video_download_button_queue_manager", FALSE, true,
             "revanced_queue_manager_user_dialog_message", parent(OVERRIDE_VIDEO_DOWNLOAD_BUTTON));
     // built-in downloader, offline library and Downloads page replacement.
+    public static final BooleanSetting NATIVE_DOWNLOADS = new BooleanSetting("morphe_native_downloads", TRUE);
     public static final BooleanSetting IN_APP_DOWNLOADER = new BooleanSetting("revanced_in_app_downloader", FALSE);
     public static final BooleanSetting REPLACE_DOWNLOADS_PAGE = new BooleanSetting("revanced_replace_downloads_page", FALSE, parent(IN_APP_DOWNLOADER));
     public static final BooleanSetting SHOW_OFFLINE_LIBRARY_BUTTON = new BooleanSetting("revanced_show_offline_library_button", TRUE, true, parent(IN_APP_DOWNLOADER));
@@ -1184,6 +1185,7 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: SponsorBlock
     public static final BooleanSetting SB_ENABLED = new BooleanSetting("sb_enabled", TRUE);
+    public static final BooleanSetting SB_OFFLINE_SEGMENTS = new BooleanSetting("sb_offline_segments", TRUE, parent(SB_ENABLED));
     /**
      * Do not use directly, instead use {@link SponsorBlockSettings}
      */

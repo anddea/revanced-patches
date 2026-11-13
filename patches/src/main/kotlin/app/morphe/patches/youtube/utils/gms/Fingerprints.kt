@@ -24,9 +24,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = emptyList(),
     filters = listOf(
-        literal(icOfflineNoContentUpsideDown),
         literal(offlineNoContentBodyTextNotOfflineEligible),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
