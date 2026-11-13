@@ -30,9 +30,9 @@ val baseAutoCaptionsPatch = bytecodePatch(
 
         mapOf(
             startVideoInformerFingerprint to 0,
-            storyboardRendererDecoderRecommendedLevelFingerprint to 1
+            storyboardRendererDecoderRecommendedLevelFingerprint.second to 1
         ).forEach { (fingerprint, enabled) ->
-            fingerprint.methodOrThrow().addInstructions(
+            fingerprint.method.addInstructions(
                 0, """
                     const/4 v0, 0x$enabled
                     invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setCaptionsButtonStatus(Z)V

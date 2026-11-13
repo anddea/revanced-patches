@@ -20,6 +20,8 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.numberOfParameterRegisters
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
@@ -48,6 +50,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.endscreensuggestedvideo.endScreenSuggestedVideoPatch
+import app.morphe.patches.youtube.utils.fix.fullscreen.fixFullscreenMoreVideosPatch
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -65,6 +68,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_19_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.darkBackground
@@ -88,13 +92,12 @@ import app.morphe.util.fingerprint.injectLiteralInstructionViewCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
-import app.morphe.util.numberOfParameterRegisters
+import app.morphe.util.insertLiteralOverride
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -404,6 +407,7 @@ val playerComponentsPatch = bytecodePatch(
         endScreenSuggestedVideoPatch,
         engagementPanelHookPatch,
         fixProtoLibraryPatch,
+        fixFullscreenMoreVideosPatch,
         dismissPlayerHookPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
@@ -532,7 +536,7 @@ val playerComponentsPatch = bytecodePatch(
                 name == "onClick"
             }.hookInitVideoPanel(0)
 
-            startVideoInformerFingerprint.methodOrThrow().hookInitVideoPanel(1)
+            startVideoInformerFingerprint.method.hookInitVideoPanel(1)
 
             engagementPanelBuilderMethod.addInstructionsWithLabels(
                 0, """
@@ -570,6 +574,31 @@ val playerComponentsPatch = bytecodePatch(
                         move-result $parameter
                         """
                 )
+        }
+
+        if (is_21_11_or_greater) {
+            // Some accounts get the chapter skip turned off by the server config.
+            DoubleTapChapterSkipConfigFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val register = it.instructionMatches.first().getInstruction<TwoRegisterInstruction>().registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register }, $PLAYER_CLASS_DESCRIPTOR->enableDoubleTapChaptersConfig(Z)Z
+                            move-result v$register
+                        """
+                    )
+                }
+            }
+
+            DoubleTapChapterSkipFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$PLAYER_CLASS_DESCRIPTOR->disableDoubleTapChaptersFeatureFlag(Z)Z"
+                )
+            }
         }
 
         // endregion
@@ -807,7 +836,7 @@ val playerComponentsPatch = bytecodePatch(
 
         val continuationsField = with(WatchNextResponseParserFingerprint) {
             clearMatch()
-            instructionMatches[2].instruction.getReference<FieldReference>()!!
+            instructionMatches[2].fieldReference
         }
         val resultsClass = continuationsField.definingClass
         val helperMethodParameter = listOf(
@@ -825,10 +854,10 @@ val playerComponentsPatch = bytecodePatch(
                     name = "emptyProtobufList",
                 ),
             ),
-        ).instructionMatches.last().instruction.getReference<MethodReference>()!!
+        ).instructionMatches.last().methodReference
 
         val sectionIdentifierField = RelatedItemSectionFingerprint
-            .instructionMatches[1].instruction.getReference<FieldReference>()!!
+            .instructionMatches[1].fieldReference
         val watchNextResponseModelClass = WatchNextResponseModelClassResolverFingerprint
             .instructionMatches.last().instruction.getReference<TypeReference>()!!.type
 
@@ -855,9 +884,9 @@ val playerComponentsPatch = bytecodePatch(
             ),
         ).let {
             val contentsField =
-                it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                it.instructionMatches.first().fieldReference
             val itemSectionRendererField =
-                it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+                it.instructionMatches.last().fieldReference
             val itemSectionRendererDefaultInstance =
                 "${itemSectionRendererField.type}->a:${itemSectionRendererField.type}"
 

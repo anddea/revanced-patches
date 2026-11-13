@@ -59,6 +59,8 @@ import com.google.protobuf.MessageLite;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.lang.ref.WeakReference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -81,6 +83,16 @@ import app.morphe.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public final class ActionButtonsFilter extends Filter {
+    /**
+     * The last watch next responses that were read, compared by identity. The app parses a response it
+     * keeps again, after 'Hide related videos' and the 'Classic Two-Rows' action bar changed it in place.
+     * The serialized size of the response saved by the first read is then wrong, so it cannot be serialized.
+     * Synchronized on itself.
+     */
+    private static final WeakReference<?>[] readWatchNextResponses = new WeakReference<?>[8];
+    private static int readWatchNextResponseIndex;
+
+
     public enum ActionButton {
         UNKNOWN(false),
         ASK(
@@ -371,9 +383,28 @@ public final class ActionButtonsFilter extends Filter {
             return;
         }
 
+        synchronized (readWatchNextResponses) {
+            for (WeakReference<?> reference : readWatchNextResponses) {
+                if (reference != null && reference.get() == messageLite) {
+                    return;
+                }
+            }
+            readWatchNextResponses[readWatchNextResponseIndex] = new WeakReference<>(messageLite);
+            readWatchNextResponseIndex = (readWatchNextResponseIndex + 1) % readWatchNextResponses.length;
+        }
+
+        byte[] bytes;
+        try {
+            bytes = messageLite.toByteArray();
+        } catch (RuntimeException ex) {
+            // A response read before, which is no longer in the array of read responses.
+            Logger.printDebug(() -> "Watch next response was changed in place and cannot be serialized", ex);
+            return;
+        }
+
         synchronized (actionButtonLookup) {
             try {
-                var singleColumnWatchNextResults = SingleColumnWatchNextResults.parseFrom(messageLite.toByteArray());
+                var singleColumnWatchNextResults = SingleColumnWatchNextResults.parseFrom(bytes);
                 var primaryResults = singleColumnWatchNextResults.getPrimaryResults();
                 var secondaryResults = primaryResults.getSecondaryResults();
 

@@ -4,11 +4,15 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.player.seekbar
 
+import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterLast
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
@@ -19,6 +23,7 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarLiveSeekAbleRange
@@ -27,7 +32,6 @@ import app.morphe.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.morphe.patches.youtube.utils.resourceid.ytTextSecondary
 import app.morphe.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -259,16 +263,29 @@ internal object FullscreenLargeSeekbarFeatureFlagFingerprint : Fingerprint(
     )
 )
 
-// region Livestream DVR
-
-internal object VideoStreamingDataToStringFingerprint : Fingerprint(
-    name = "toString",
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Ljava/lang/String;",
-    filters = listOf(
-        string("VideoStreamingData(itags=")
+// 21.39: the flag (45691569) was removed. The rounded fullscreen seekbar is driven by a boolean
+// field on the seekbar state class, written by this method (state == FULLSCREEN && !flag).
+// Used to resolve that field reference. Matches ofv.L()V in YouTube 21.39.525 only.
+internal object FullscreenLargeSeekbarStateWriterFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.SGET_OBJECT,
+        Opcode.CONST_4,
+        Opcode.IF_NE,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.CONST_4,
+        Opcode.IGET_OBJECT,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.RETURN_VOID,
     )
 )
+
+// region Livestream DVR
 
 internal object VideoStreamingDataAllowSeekingFingerprint : Fingerprint(
     classFingerprint = VideoStreamingDataToStringFingerprint,
@@ -378,14 +395,28 @@ internal object SlideSeekbarGetViewControllerFingerprint : Fingerprint (
     )
 )
 
+/**
+ * Where a storyboard frame is cut from its storyboard image: the frame rectangle, then the region decode.
+ */
+internal object StoryboardFrameRegionFingerprint : Fingerprint (
+    returnType = "Landroid/graphics/Bitmap;",
+    parameters = listOf("L", "I", "Landroid/graphics/Bitmap;"),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("I"),
+            returnType = "Landroid/graphics/Rect;"
+        ),
+        opcode(opcode = Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        methodCall(
+            smali = $$"Landroid/graphics/BitmapRegionDecoder;->decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;"
+        ),
+        string("Storyboard regionDecoder.decodeRegion exception - ")
+    )
+)
+
 internal object SeekbarFineScrubbingBitmapFingerprint : Fingerprint (
-    classFingerprint = Fingerprint (
-        returnType = "Landroid/graphics/Bitmap;",
-        parameters = listOf("L", "I", "Landroid/graphics/Bitmap;"),
-        filters = listOf(
-            string("Storyboard regionDecoder.decodeRegion exception - ")
-        )
-    ),
+    classFingerprint = StoryboardFrameRegionFingerprint,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.DECLARED_SYNCHRONIZED),
     returnType = "V",
     parameters = listOf("Landroid/graphics/Bitmap;")
@@ -410,22 +441,27 @@ internal object SeekbarBigBoardsUpdateFingerprint : Fingerprint (
     )
 )
 
-internal object SeekbarBigBoardsUpdateLegacyFingerprint : Fingerprint (
-    classFingerprint = Fingerprint(
-        accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-        returnType = "V",
-        parameters = listOf("Z"),
-        filters = listOf(
-            fieldAccess(
-                opcode = Opcode.SGET_OBJECT,
-                smali = $$"Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;"
-            ),
-            fieldAccess(
-                opcode = Opcode.SGET_OBJECT,
-                smali = $$"Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;"
-            )
+/**
+ * Where the full screen seek preview (big boards) sets the scale of its image: center crop or fit center.
+ */
+internal object SeekbarBigBoardsScaleTypeFingerprint : Fingerprint (
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Z"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.SGET_OBJECT,
+            smali = $$"Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;"
+        ),
+        fieldAccess(
+            opcode = Opcode.SGET_OBJECT,
+            smali = $$"Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;"
         )
-    ),
+    )
+)
+
+internal object SeekbarBigBoardsUpdateLegacyFingerprint : Fingerprint (
+    classFingerprint = SeekbarBigBoardsScaleTypeFingerprint,
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "Z",
     parameters = listOf(),
@@ -436,8 +472,36 @@ internal object SeekbarBigBoardsUpdateLegacyFingerprint : Fingerprint (
     )
 )
 
+/**
+ * Where the full screen seek preview handles a scrub start (1), move (2) or end (3, 4).
+ * A scrub start shows the preview, then seeks it, and that is the last call of the seek method.
+ */
+internal object SeekbarBigBoardsScrubFingerprint : Fingerprint (
+    classFingerprint = SeekbarBigBoardsScaleTypeFingerprint,
+    returnType = "V",
+    parameters = listOf("I", "J"),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_DIRECT,
+            definingClass = "this",
+            parameters = listOf("J"),
+            returnType = "V"
+        )
+    )
+)
+
 internal object ShortsDisableSeekbarThumbnailsFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
         literal(45787901)
+    )
+)
+
+internal object CustomSeekbarThumbOnDrawFingerprint : Fingerprint(
+    classFingerprint = SeekbarFingerprint,
+    name = "onDraw",
+    filters = listOf(
+        methodCall(smali = "Ljava/lang/Math;->round(F)I"),
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        methodCall(name = "drawCircle", location = MatchAfterLast())
     )
 )

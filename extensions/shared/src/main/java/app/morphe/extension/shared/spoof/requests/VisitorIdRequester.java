@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-13.
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -15,6 +17,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -95,18 +98,36 @@ public final class VisitorIdRequester {
 
         synchronized (cache) {
             cache.put(clientType, new VisitorData(visitorId, System.currentTimeMillis()));
-            JSONObject json = new JSONObject();
-            try {
-                for (Map.Entry<ClientType, VisitorData> entry : cache.entrySet()) {
-                    VisitorData visitor = entry.getValue();
-                    json.put(entry.getKey().name(), new JSONObject()
-                            .put("visitorId", visitor.visitorId())
-                            .put("fetchedTime", visitor.fetchedTime()));
-                }
-                SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_CLIENT_IDS.save(json.toString());
-            } catch (JSONException ex) {
-                Logger.printException(() -> "Failed to update visitor IDs", ex);
+            saveCache();
+        }
+    }
+
+    /**
+     * Removes the visitor id of a client, so a new one is fetched for its next request.
+     */
+    public static void discardVisitorId(ClientType clientType) {
+        Logger.printDebug(() -> "Discard visitorId for clientType: " + clientType);
+
+        synchronized (cache) {
+            cache.remove(clientType);
+            saveCache();
+        }
+    }
+
+    @GuardedBy("cache")
+    private static void saveCache() {
+        JSONObject json = new JSONObject();
+        try {
+            for (Map.Entry<ClientType, VisitorData> entry : cache.entrySet()) {
+                VisitorData visitor = entry.getValue();
+                JSONObject data = new JSONObject()
+                        .put("visitorId", visitor.visitorId)
+                        .put("fetchedTime", visitor.fetchedTime);
+                json.put(entry.getKey().name(), data);
             }
+            SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_CLIENT_IDS.save(json.toString());
+        } catch (JSONException ex) {
+            Logger.printException(() -> "Failed to update visitor IDs", ex);
         }
     }
 
@@ -184,7 +205,8 @@ public final class VisitorIdRequester {
             final int connectionTimeoutMillis = 5000;
             String url = String.format(YT_API_URL_FORMAT,
                     // TVHTML5 does not support the '/visitor_id' endpoint.
-                    clientType == ClientType.TV_SABR ? "guide" : "visitor_id"
+                    // Include TV_SABR_WII_U (Morphe 5c6b8418).
+                    clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U ? "guide" : "visitor_id"
             );
             HttpURLConnection connection = Requester.openConnection(url);
             connection.setRequestMethod("POST");
@@ -198,7 +220,7 @@ public final class VisitorIdRequester {
                     }
                 }
             } else if (clientType.supportsOAuth2) {
-                String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
+                String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded(true);
                 if (!AuthUtils.isNotLoggedIn() && Utils.isNotEmpty(oauth2Authorization)) {
                     connection.setRequestProperty("Authorization", oauth2Authorization);
                 }
@@ -232,8 +254,21 @@ public final class VisitorIdRequester {
             }
 
             connection.disconnect();
+        } catch (SocketTimeoutException ex) {
+            Logger.LogMessage message = () -> "Debug: Fetch visitor data timeout";
+            if (BaseSettings.DEBUG.get()) {
+                Logger.printException(message, ex);
+            } else {
+                Logger.printInfo(message, ex);
+            }
         } catch (IOException ex) {
-            Logger.printException(() -> "Failed to fetch visitor data", ex);
+            // A slow or broken connection, which is not an error of the patch.
+            Logger.LogMessage message = () -> "Failed to fetch visitor data";
+            if (BaseSettings.DEBUG.get()) {
+                Logger.printException(message, ex);
+            } else {
+                Logger.printInfo(message, ex);
+            }
         } catch (JSONException ex) {
             Logger.printException(() -> "Failed to parse visitor data", ex);
         } catch (Exception ex) {

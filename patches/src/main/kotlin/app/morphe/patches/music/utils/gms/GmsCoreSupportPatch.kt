@@ -21,6 +21,10 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
+    executeBlock = {
+        allowCastingToAudioOnlyDevices()
+        searchDeviceFilesWithMediaProvider()
+    },
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 }

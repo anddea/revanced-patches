@@ -3,6 +3,7 @@ package app.morphe.patches.music.ads.general
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.navigation.components.navigationBarComponentsPatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ADS_PATH
@@ -25,9 +26,9 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.onStartMethod
 import app.morphe.patches.shared.mainactivity.onStopMethod
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -128,7 +129,9 @@ val adsPatch = adsPatch(
         // region patch for hide get premium
 
         // get premium button at the top of the account switching menu
-        getPremiumTextViewFingerprint.matchOrThrow().let {
+        // 9.40: `const/16` instead of `const/4` in the matched sequence; same hook point (the iget-boolean).
+        (runCatching { getPremiumTextViewFingerprint.matchOrNull() }.getOrNull()
+            ?: getPremiumTextViewV940Fingerprint.matchOrThrow()).let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.first().index
                 val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA

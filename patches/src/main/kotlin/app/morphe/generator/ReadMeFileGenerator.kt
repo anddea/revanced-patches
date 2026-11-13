@@ -22,7 +22,7 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
         "com.google.android.youtube" to "YouTube"
     )
 
-    override fun generate(version: String, patches: Set<Patch<*>>) {
+    override fun generate(version: String, patches: Set<Patch>) {
         val rootPath = Paths.get("").toAbsolutePath().parent!!
         val readMeFilePath = "$rootPath/README.md"
 
@@ -69,7 +69,7 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
                 .replace(Regex(replaceString), supportedVersion)
                 .let(readMeFile::writeText)
 
-            mutableMapOf<String, MutableSet<Patch<*>>>()
+            mutableMapOf<String, MutableSet<Patch>>()
                 .apply {
                     for (patch in patches) {
                         patch.compatibility?.mapNotNull { it.packageName }?.forEach { packageName ->

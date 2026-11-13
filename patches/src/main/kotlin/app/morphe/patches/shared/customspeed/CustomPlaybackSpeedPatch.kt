@@ -45,14 +45,14 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch as musicVersionCheckPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch as youtubeVersionCheckPatch
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
-import app.morphe.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference

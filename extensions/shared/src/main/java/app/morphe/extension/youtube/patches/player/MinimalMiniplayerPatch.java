@@ -16,8 +16,10 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Insets;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
@@ -27,10 +29,14 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.os.Build;
+import android.view.DisplayCutout;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.ViewTreeObserver;
+import android.view.WindowInsets;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,8 +50,11 @@ import app.morphe.extension.shared.ui.ViewAnimations;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch;
+import app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.ShortsPlayerState;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 import kotlin.Unit;
@@ -141,6 +150,7 @@ public final class MinimalMiniplayerPatch {
 
     private static final Rect clipBounds = new Rect();
     private static final Rect dockedBounds = new Rect();
+    private static final Rect horizontalSpan = new Rect();
     private static final int[] windowLocation = new int[2];
 
     private static final Rect morphFrom = new Rect();
@@ -160,6 +170,13 @@ public final class MinimalMiniplayerPatch {
     private static WeakReference<View> navigationBarRef = new WeakReference<>(null);
     private static WeakReference<MiniplayerBoundsController> boundsControllerRef = new WeakReference<>(null);
 
+    /**
+     * In the event that a short would be opened and overwrites the video and channel
+     * names, these fields will save the name of the currently open video.
+     */
+    private static String previousVideoTitle = "";
+    private static String previousChannelTitle = "";
+
     private static boolean listenersInstalled;
     private static boolean ticking;
     private static boolean playing;
@@ -177,6 +194,12 @@ public final class MinimalMiniplayerPatch {
     private static int barIndexInParent;
 
     /**
+     * A copy of the bar background, drawn beside the video while the player slides.
+     */
+    @Nullable
+    private static Drawable barFill;
+
+    /**
      * Set while pushing bounds of our own, which come back through the hook that reads them.
      */
     private static boolean applyingBounds;
@@ -187,6 +210,14 @@ public final class MinimalMiniplayerPatch {
      * it already reports the new state by the time the change is delivered.
      */
     private static boolean barShapeApplied;
+
+    /**
+     * The title last set to the title view. The view can show another text, as its title is
+     * replaced by {@link RestoreOriginalTitlesPatch} if enabled (original or DeArrow title),
+     * so it is set only when it changes.
+     */
+    @Nullable
+    private static String shownTitle;
 
     /**
      * Injection point.
@@ -215,6 +246,7 @@ public final class MinimalMiniplayerPatch {
 
             TextView title = Utils.getChildViewByResourceName(controlsLayout, "floaty_title");
             titleRef = new WeakReference<>(title);
+            shownTitle = null;
             if (title != null && HIDE_TITLE) {
                 title.setVisibility(View.GONE);
             }
@@ -251,6 +283,17 @@ public final class MinimalMiniplayerPatch {
             if (getCurrentMiniplayerType() == MINIMAL_BAR) {
                 startAfterVideo(title);
                 startAfterVideo(subtitleBar);
+
+                // Taken again for each new layout, as the theme may have changed.
+                if (barFill != null) {
+                    barFill.setBounds(0, 0, 0, 0);
+                    barFill = null;
+                }
+                View barContainer = barContainerRef.get();
+                Drawable barBackground = barContainer != null ? barContainer.getBackground() : null;
+                if (barBackground != null && barBackground.getConstantState() != null) {
+                    barFill = barBackground.getConstantState().newDrawable();
+                }
             } else {
                 // The contents sit on the video rather than beside it, so it is dimmed, and
                 // they take the overlay colors. The buttons alone have a backdrop of their own.
@@ -268,6 +311,8 @@ public final class MinimalMiniplayerPatch {
             }
 
             setBarGestures(controlsLayout);
+
+            listenToWindowLayout(controlsLayout);
 
             installListeners();
             updateBar();
@@ -304,6 +349,10 @@ public final class MinimalMiniplayerPatch {
     public static Rect getMiniplayerBounds(int left, int top, int right, int bottom) {
         originalBounds.set(left, top, right, bottom);
 
+        if (!ENABLED) {
+            return originalBounds;
+        }
+
         return getMinimalBarBounds(originalBounds);
     }
 
@@ -315,7 +364,27 @@ public final class MinimalMiniplayerPatch {
     public static Rect getMinimalBarBounds(Rect original) {
         try {
             if (!ENABLED) {
-                return original;
+                // Keeps a miniplayer other than the bar above the keyboard and the system
+                // navigation buttons, which YouTube rests it behind when the layout that holds it
+                // is not shrunk to leave them out.
+                if (applyingBounds) {
+                    // Ours, already moved.
+                    return original;
+                }
+
+                if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MINIMIZED) {
+                    // Growing into the full player, which is laid out behind them on purpose.
+                    restingBounds.setEmpty();
+                    return original;
+                }
+
+                View playerLayout = otherPlayerLayout();
+                if (playerLayout != null) {
+                    listenToWindowLayout(playerLayout);
+                }
+
+                restingBounds.set(original);
+                return aboveWindowBottom(original, playerLayout);
             }
 
             if (applyingBounds) {
@@ -331,19 +400,27 @@ public final class MinimalMiniplayerPatch {
                 return currentBounds;
             }
 
-            Rect docked = fullWidthSpan(original);
-            lastBounds.set(docked);
-
-            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED) {
-                barBoundsFor(docked);
+            // Prevents the video from anchoring into one of the display corners by spanning the
+            // bounds to full display width, making the transition to miniplayer smoother.
+            updateHorizontalSpan();
+            dockedBounds.set(horizontalSpan.left, original.top, horizontalSpan.right, original.bottom);
+            lastBounds.set(dockedBounds);
+            PlayerType getCurrent = PlayerType.getCurrent();
+            // While the player is up, this is only asked when the window changes, such as the
+            // keyboard closing or a rotation. What YouTube gets back is where the next collapse
+            // ends, so it is the bar for the new window, as it would be had nothing changed.
+            final boolean minimized = getCurrent == PlayerType.WATCH_WHILE_MINIMIZED;
+            if (minimized || getCurrent.isMaximizedOrFullscreen()) {
+                barBoundsFor(dockedBounds);
                 currentBounds.set(barBounds);
-                barShapeApplied = true;
+                if (minimized) {
+                    barShapeApplied = true;
+                }
                 return barBounds;
             }
 
-            currentBounds.set(docked);
-
-            return docked;
+            currentBounds.set(dockedBounds);
+            return dockedBounds;
         } catch (Exception ex) {
             Logger.printException(() -> "getMinimalBarBounds failure", ex);
         }
@@ -351,46 +428,142 @@ public final class MinimalMiniplayerPatch {
         return original;
     }
 
-    /**
-     * Prevents the video from anchoring into one of the display corners by spanning the
-     * bounds to full display width, making the transition to miniplayer smoother.
-     */
-    private static Rect fullWidthSpan(Rect original) {
-        dockedBounds.set(0, original.top, getWidthPixels(), original.bottom);
+    private static void barBoundsFor(Rect resting) {
+        View playerLayout = barPlayerLayout();
 
-        return dockedBounds;
+        // A floating miniplayer keeps a margin to the navigation bar, a docked bar sits against it.
+        // While the navigation bar is away, YouTube's own resting edge is already the right one.
+        int dockedBottom = resting.bottom;
+
+        View navigationBar = navigationBar();
+
+        // A rail beside the content says nothing about where the bar ends.
+        if (navigationBar != null && navigationBar.isShown()
+                && navigationBar.getWidth() >= navigationBar.getHeight()) {
+            navigationBar.getLocationInWindow(windowLocation);
+
+            // Where it rests, not where it is. YouTube slides it away while the feed scrolls, and
+            // a position taken mid-slide leaves the bar underneath it once it comes back.
+            final int top = windowLocation[1] - Math.round(navigationBar.getTranslationY());
+
+            // The bounds are relative to the layout that holds the player, not to the window. That
+            // layout can start below the status bar, which would otherwise move the bar down by its
+            // height and put it under the navigation bar.
+            int origin = 0;
+            if (playerLayout != null) {
+                playerLayout.getLocationInWindow(windowLocation);
+                origin = windowLocation[1];
+            }
+
+            // Docked against it even when YouTube rests lower. After a recreated activity its
+            // resting bounds are still the ones from before the system insets moved everything up.
+            dockedBottom = top - origin;
+        }
+
+        final int bottom = Math.min(dockedBottom, windowBottomFor(playerLayout)) - BAR_MARGIN;
+
+        updateHorizontalSpan();
+        barBounds.set(horizontalSpan.left + BAR_MARGIN, bottom - BAR_HEIGHT,
+                horizontalSpan.right - BAR_MARGIN, bottom);
     }
 
-    private static void barBoundsFor(Rect resting) {
-        final int bottom = barBottomFor(resting) - BAR_MARGIN;
+    /**
+     * Where a bar can span, relative to the layout that holds the player. Not the display metrics,
+     * which measure the whole display. In landscape the window leaves out the display cutout,
+     * such as a front camera hole, and the system navigation buttons can sit beside the content,
+     * so a bar as wide as the display is cut off there. The window also differs from the display
+     * in split screen and on foldables.
+     */
+    @SuppressWarnings("deprecation")
+    private static void updateHorizontalSpan() {
+        horizontalSpan.set(0, 0, Dim.getMetrics().widthPixels, 0);
 
-        barBounds.set(BAR_MARGIN, bottom - BAR_HEIGHT, getWidthPixels() - BAR_MARGIN, bottom);
+        try {
+            View watchPlayer = watchPlayer();
+            if (watchPlayer == null || !(watchPlayer.getParent() instanceof View parent)) return;
+
+            final int parentWidth = parent.getWidth();
+            View root = parent.getRootView();
+            WindowInsets insets = parent.getRootWindowInsets();
+            if (parentWidth <= 0 || root == null || insets == null) return;
+
+            int insetLeft;
+            int insetRight;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                Insets sideInsets = insets.getInsets(
+                        WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+                insetLeft = sideInsets.left;
+                insetRight = sideInsets.right;
+            } else {
+                insetLeft = insets.getSystemWindowInsetLeft();
+                insetRight = insets.getSystemWindowInsetRight();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    DisplayCutout cutout = insets.getDisplayCutout();
+                    if (cutout != null) {
+                        insetLeft = Math.max(insetLeft, cutout.getSafeInsetLeft());
+                        insetRight = Math.max(insetRight, cutout.getSafeInsetRight());
+                    }
+                }
+            }
+
+            // The insets are relative to the window, the bounds to the layout that holds the player.
+            parent.getLocationInWindow(windowLocation);
+            final int left = Math.max(0, insetLeft - windowLocation[0]);
+            final int right = Math.min(parentWidth, root.getWidth() - insetRight - windowLocation[0]);
+
+            if (right - left > 2 * BAR_MARGIN) {
+                horizontalSpan.set(left, 0, right, 0);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "updateHorizontalSpan failure", ex);
+        }
+    }
+
+    /**
+     * The lowest a miniplayer can rest in the layout that holds it, above the keyboard and the
+     * system navigation buttons. That layout is no longer shrunk to leave them out when the
+     * Navigation bar patch removes the keyboard margin of the page, or draws the window behind
+     * the system navigation buttons for the translucent navigation bar, and YouTube then rests
+     * the player behind them. Measured against them directly, so nothing changes when the layout
+     * already ends above them.
+     * <p>
+     * The keyboard is always measured where the window insets have it. With the feature flags of
+     * the translucent navigation bar left to the account, YouTube shrinks that layout by the
+     * keyboard height less the system navigation buttons, so it still ends behind the keyboard.
+     *
+     * @param playerLayout The layout that holds the player, which the bounds are relative to.
+     */
+    @SuppressWarnings("deprecation")
+    private static int windowBottomFor(@Nullable View playerLayout) {
+        if (playerLayout == null) return Integer.MAX_VALUE;
+
+        // This fork leaves the navigation bar layout flag to the account, so only the keyboard
+        // is measured here. On Android 11+ it must also be measured before the margin hook runs.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R
+                && !NavigationButtonsPatch.isKeyboardMarginRemoved()) {
+            return Integer.MAX_VALUE;
+        }
+
+        WindowInsets insets = playerLayout.getRootWindowInsets();
+        if (insets == null) return Integer.MAX_VALUE;
+
+        final int insetBottom;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            insetBottom = insets.getInsets(WindowInsets.Type.ime()).bottom;
+        } else {
+            // The translucent navigation bar is only used from Android 12, so this is the keyboard.
+            insetBottom = insets.getSystemWindowInsetBottom();
+        }
+        if (insetBottom <= 0) return Integer.MAX_VALUE;
+
+        // The insets are relative to the window, the bounds to the layout that holds the player.
+        playerLayout.getLocationInWindow(windowLocation);
+
+        return playerLayout.getRootView().getHeight() - insetBottom - windowLocation[1];
     }
 
     private static int getWidthPixels() {
         return Dim.getMetrics().widthPixels;
-    }
-
-    /**
-     * A floating miniplayer keeps a margin to the navigation bar, a docked bar sits against it.
-     * While the navigation bar is away, YouTube's own resting edge is already the right one.
-     */
-    private static int barBottomFor(Rect resting) {
-        View navigationBar = navigationBar();
-        if (navigationBar == null || !navigationBar.isShown()) return resting.bottom;
-
-        navigationBar.getLocationInWindow(windowLocation);
-
-        // Where it rests, not where it is. YouTube slides it away while the feed scrolls, and
-        // a position taken mid-slide leaves the bar underneath it once it comes back.
-        final int top = windowLocation[1] - Math.round(navigationBar.getTranslationY());
-
-        // A rail beside the content says nothing about where the bar ends.
-        if (navigationBar.getWidth() < navigationBar.getHeight()) return resting.bottom;
-
-        // Docked against it even when YouTube rests lower. After a recreated activity its
-        // resting bounds are still the ones from before the system insets moved everything up.
-        return top;
     }
 
     /**
@@ -412,14 +585,10 @@ public final class MinimalMiniplayerPatch {
             }
 
             if (getCurrentMiniplayerType() == MINIMAL_BAR) {
-                final int videoWidth = videoWidthFor(currentBounds.height());
-
+                // Always at the left edge. In a right-to-left layout YouTube mirrors the rect
+                // itself, which already puts the video at the end of the bar.
                 videoRect.set(currentBounds);
-                if (Utils.isRightToLeftLocale()) {
-                    videoRect.left = videoRect.right - videoWidth;
-                } else {
-                    videoRect.right = videoRect.left + videoWidth;
-                }
+                videoRect.right = videoRect.left + videoWidthFor(currentBounds.height());
             } else {
                 // Type 2 spans the bar with the video. YouTube fits anything that is not 16:9
                 // inside the bar instead, and the miniplayer has no background of its own, so
@@ -466,9 +635,8 @@ public final class MinimalMiniplayerPatch {
      * Injection point.
      */
     public static void setBoundsController(MiniplayerBoundsController controller) {
-        if (ENABLED) {
-            boundsControllerRef = new WeakReference<>(controller);
-        }
+        // Also kept for the other miniplayer types, to move them above the keyboard.
+        boundsControllerRef = new WeakReference<>(controller);
     }
 
     /**
@@ -830,8 +998,113 @@ public final class MinimalMiniplayerPatch {
                 }
             };
 
+    /**
+     * The player changes size for every frame of a slide without asking for its bounds.
+     */
+    private static final View.OnLayoutChangeListener watchPlayerLayoutListener =
+            (view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) ->
+                    updateBarFill(view);
+
+    /**
+     * The window bottom the miniplayer was last placed against.
+     */
+    private static int lastWindowBottom = Integer.MAX_VALUE;
+
+    private static WeakReference<ViewTreeObserver> windowObserverRef = new WeakReference<>(null);
+
+    /**
+     * The bounds YouTube last gave a miniplayer other than the bar, while minimized.
+     */
+    private static final Rect restingBounds = new Rect();
+
+    private static WeakReference<View> otherWatchPlayerRef = new WeakReference<>(null);
+
+    /**
+     * YouTube asks for the bounds when the navigation bar goes away for the keyboard, which is
+     * before the keyboard is reported as shown, and does not ask again once it is.
+     */
+    private static final ViewTreeObserver.OnGlobalLayoutListener windowLayoutListener = () -> {
+        final int windowBottom = windowBottomFor(ENABLED ? barPlayerLayout() : otherPlayerLayout());
+        if (windowBottom == lastWindowBottom) return;
+        lastWindowBottom = windowBottom;
+
+        // Not from inside the layout pass the change is reported from.
+        if (ENABLED) {
+            Utils.runOnMainThread(MinimalMiniplayerPatch::reapplyBarBounds);
+            return;
+        }
+
+        Utils.runOnMainThread(() -> {
+            if (restingBounds.isEmpty() || PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MINIMIZED) {
+                return;
+            }
+
+            MiniplayerBoundsController controller = boundsControllerRef.get();
+            if (controller == null) return;
+
+            applyingBounds = true;
+            try {
+                controller.patch_setBounds(aboveWindowBottom(new Rect(restingBounds), otherPlayerLayout()));
+            } finally {
+                applyingBounds = false;
+            }
+        });
+    };
+
+    private static void listenToWindowLayout(View view) {
+        ViewTreeObserver observer = view.getViewTreeObserver();
+        if (observer == windowObserverRef.get()) return;
+        windowObserverRef = new WeakReference<>(observer);
+
+        observer.removeOnGlobalLayoutListener(windowLayoutListener);
+        observer.addOnGlobalLayoutListener(windowLayoutListener);
+    }
+
+    /**
+     * A new rect when moved, as YouTube can keep the one it gets back.
+     */
+    private static Rect aboveWindowBottom(Rect bounds, @Nullable View playerLayout) {
+        // The margin YouTube itself keeps around its floating miniplayer.
+        final int lowestBottom = windowBottomFor(playerLayout) - BAR_MARGIN;
+        if (bounds.bottom <= lowestBottom) return bounds;
+
+        Rect moved = new Rect(bounds);
+        moved.offset(0, lowestBottom - bounds.bottom);
+        return moved;
+    }
+
+    @Nullable
+    private static View barPlayerLayout() {
+        View watchPlayer = watchPlayer();
+        return watchPlayer != null && watchPlayer.getParent() instanceof View parent ? parent : null;
+    }
+
+    /**
+     * The other miniplayer types have no bar layout to reach the window through.
+     */
+    @Nullable
+    private static View otherPlayerLayout() {
+        View watchPlayer = otherWatchPlayerRef.get();
+        // A recreated activity brings its own.
+        if (watchPlayer == null || !watchPlayer.isAttachedToWindow()) {
+            Activity activity = Utils.getActivity();
+            if (activity == null) return null;
+
+            watchPlayer = Utils.getChildViewByResourceName(activity.getWindow().getDecorView(), "watch_player");
+            if (watchPlayer == null) return null;
+
+            otherWatchPlayerRef = new WeakReference<>(watchPlayer);
+        }
+
+        return watchPlayer.getParent() instanceof View parent ? parent : null;
+    }
+
     private static void reapplyBarBounds() {
-        if (!barShapeApplied || morphing || lastBounds.isEmpty()) return;
+        if (morphing || lastBounds.isEmpty()) return;
+
+        // While the player is up the bar is where the next collapse ends. The keyboard closing
+        // under it moves the navigation bar only after YouTube asked where that is.
+        if (!barShapeApplied && !PlayerType.getCurrent().isMaximizedOrFullscreen()) return;
 
         MiniplayerBoundsController controller = boundsControllerRef.get();
         if (controller == null) return;
@@ -915,6 +1188,8 @@ public final class MinimalMiniplayerPatch {
         if (getCurrentMiniplayerType() == MINIMAL_BAR) {
             final int videoWidth = videoWidthFor(height);
 
+            updateBarFill(watchPlayer);
+
             // Only a bar is far wider than the video it holds. Going by the state instead would
             // uncover the video for as long as the player still holds the bar shape. Ads are
             // uncovered as well, their skip button is part of the overlay this hides.
@@ -981,6 +1256,31 @@ public final class MinimalMiniplayerPatch {
         barDrawsOverPlayer = over;
     }
 
+    /**
+     * While sliding the player is not clipped yet, and YouTube paints it black beside the video
+     * whatever the theme is. The bar background goes over that, so the bar has the same color
+     * from the start of the slide to the end of the morph.
+     * <p>
+     * Taken from the view and not the bounds, which only say where the slide ends. YouTube
+     * moves the player and the video towards there together, so the video stays 16:9.
+     */
+    private static void updateBarFill(View watchPlayer) {
+        if (barFill == null) return;
+
+        final int width = watchPlayer.getWidth();
+        final int height = watchPlayer.getHeight();
+        final int videoWidth = videoWidthFor(height);
+
+        if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED
+                || height <= 0 || width <= videoWidth) {
+            barFill.setBounds(0, 0, 0, 0);
+        } else if (Utils.isRightToLeftLocale()) {
+            barFill.setBounds(0, 0, width - videoWidth, height);
+        } else {
+            barFill.setBounds(videoWidth, 0, width, height);
+        }
+    }
+
     @Nullable
     private static View watchPlayer() {
         View watchPlayer = watchPlayerRef.get();
@@ -995,6 +1295,12 @@ public final class MinimalMiniplayerPatch {
         }
 
         watchPlayerRef = new WeakReference<>(watchPlayer);
+
+        if (barFill != null) {
+            watchPlayer.getOverlay().add(barFill);
+            watchPlayer.removeOnLayoutChangeListener(watchPlayerLayoutListener);
+            watchPlayer.addOnLayoutChangeListener(watchPlayerLayoutListener);
+        }
 
         return watchPlayer;
     }
@@ -1012,10 +1318,19 @@ public final class MinimalMiniplayerPatch {
     }
 
     private static void updateText() {
-        setText(titleRef.get(), VideoInformation.getVideoTitle());
+        if (!ShortsPlayerState.getCurrent().isOpen()) {
+            previousVideoTitle = VideoInformation.getVideoTitle();
+            previousChannelTitle = VideoInformation.getChannelName();
+        }
+
+        TextView titleView = titleRef.get();
+        if (titleView != null && !previousVideoTitle.equals(shownTitle)) {
+            shownTitle = previousVideoTitle;
+            setText(titleView, previousVideoTitle);
+        }
 
         TextView subtitle = subtitleRef.get();
-        if (setText(subtitle, VideoInformation.getChannelName())) {
+        if (setText(subtitle, previousChannelTitle)) {
             subtitle.setVisibility(View.VISIBLE);
         }
     }

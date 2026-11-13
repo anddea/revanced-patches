@@ -182,6 +182,22 @@ public final class ThemePatch {
     }
 
     /**
+     * Restores the synthetic resource qualifiers after Android replaces the Activity configuration.
+     * Select the existing overlay on Android 11+ instead of rebuilding its resource table.
+     */
+    public static void onConfigurationChanged(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+                PrecompiledResourcePalette.install(context);
+            } else {
+                RuntimeResourceOverlay.select(context);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to restore YouTube theme after configuration change", ex);
+        }
+    }
+
+    /**
      * Applies the selected palette to the separate Activity used by RVX settings. Runtime resource
      * loaders belong to a Resources instance, so a settings Activity created after YouTube's main
      * Activity must receive the loader before its theme and views are inflated.
@@ -267,8 +283,8 @@ public final class ThemePatch {
                     ? Settings.DARK_THEME.get()
                     : Settings.LIGHT_THEME.get();
             final boolean hideSplashIcon = Settings.DISABLE_SYSTEM_SPLASH.get()
-                    || (!"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
-                            && !isSplashAnimationDisabled());
+                    || isSplashAnimationDisabled()
+                    || !"original".equals(Settings.CUSTOM_BRANDING_ICON.get());
             final String splashIconSuffix = hideSplashIcon
                     ? SPLASH_THEME_NO_ICON_SUFFIX
                     : "";

@@ -1,12 +1,12 @@
 package app.morphe.patches.music.ads.general
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.buttonContainer
 import app.morphe.patches.music.utils.resourceid.floatingLayout
 import app.morphe.patches.music.utils.resourceid.modernDialogBackground
 import app.morphe.patches.music.utils.resourceid.musicNotifierShelf
 import app.morphe.patches.music.utils.resourceid.privacyTosFooter
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -68,6 +68,24 @@ internal val getPremiumTextViewFingerprint = legacyFingerprint(
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.CONST_4,
+        Opcode.IF_EQZ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC
+    ),
+    strings = listOf("FEmusic_history")
+)
+
+// 9.40: the visibility constant after the "get premium" flag is `const/16` instead of `const/4`.
+internal val getPremiumTextViewV940Fingerprint = legacyFingerprint(
+    name = "getPremiumTextViewV940Fingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    opcodes = listOf(
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_16,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,

@@ -1,14 +1,20 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1065
+ * https://github.com/MorpheApp/morphe-patches/pull/3635
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
+
 package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -26,7 +32,9 @@ import com.android.tools.smali.dexlib2.Opcode
 /** Medialib outer player (atad): `stopVideo`. */
 internal object StopVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("stopVideo", "MedialibPlayer.stopVideo"),
+    strings = listOf(
+        string("MedialibPlayer.stopVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /** Inner coordinator (athu): `playNextInQueue` / gapless. */
@@ -35,7 +43,10 @@ internal object PlayNextInQueueFingerprint : Fingerprint(
     filters = listOf(
         opcode(Opcode.IGET_OBJECT),
     ),
-    strings = listOf("gapless.seek.next", "playNextInQueue."),
+    strings = listOf(
+        string("gapless.seek.next", StringComparisonType.CONTAINS),
+        string("playNextInQueue.", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /** Audio/video toggle button class (nba). */
@@ -46,31 +57,35 @@ internal object AudioVideoToggleFingerprint : Fingerprint(
 
 internal object PauseVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("pauseVideo", "MedialibPlayer.pauseVideo()"),
+    strings = listOf(
+        string("MedialibPlayer.pauseVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 internal object PlayVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("playVideo", "MedialibPlayer.playVideo()"),
+    strings = listOf(
+        string("playVideo", StringComparisonType.CONTAINS),
+        string("MedialibPlayer.playVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /**
  * ExoPlayer concrete implementation (cpp) — unique "ExoPlayerImpl" log tag.
  * Must also check that the class implements ExoPlayer, because a synthetic Runnable
  * (coz) also references "ExoPlayerImpl" as a log tag.
+ * Matches seekTo, since newer app versions log with this tag in more than one method.
  */
 internal object ExoPlayerImplFingerprint : Fingerprint(
-    strings = listOf("ExoPlayerImpl"),
-    custom = { _, classDef ->
-        classDef.interfaces.any { it == "Landroidx/media3/exoplayer/ExoPlayer;" }
-    },
+    interfaces = listOf("Landroidx/media3/exoplayer/ExoPlayer;"),
+    strings = listOf("ExoPlayerImpl", "seekTo ignored because an ad is playing"),
 )
 
 /** MedialibPlayer loadVideo method (atzq.o). Scoped to StopVideoFingerprint class. */
 internal object LoadVideoFingerprint : Fingerprint(
     classFingerprint = StopVideoFingerprint,
     returnType = "V",
-    strings = listOf("MedialibPlayer.loadVideo("),
+    strings = listOf(string("MedialibPlayer.loadVideo(", StringComparisonType.STARTS_WITH)),
 )
 
 /**
@@ -110,5 +125,36 @@ internal object HandleDismissWatchEventFingerprint : Fingerprint(
     custom = { method, _ ->
         method.name == "handleDismissWatchEvent" && method.parameterTypes.size == 1
     },
+)
+
+internal object AudioEffectSessionFingerprint : Fingerprint(
+    name = "<init>",
+    strings = listOf(
+        "android.media.action.OPEN_AUDIO_EFFECT_CONTROL_SESSION",
+        "android.media.action.CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    )
+)
+
+internal object CloseAudioEffectSessionFingerprint : Fingerprint(
+    classFingerprint = AudioEffectSessionFingerprint,
+    returnType = "V",
+    parameters = listOf("I"),
+    filters = listOf(
+        string("android.media.extra.AUDIO_SESSION"),
+        methodCall(smali = "Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V")
+    )
+)
+
+/**
+ * Sets the player volume, which includes the app's volume normalization, and stores it in a field.
+ */
+internal object PlayerVolumeFingerprint : Fingerprint(
+    classFingerprint = PlayNextInQueueFingerprint,
+    returnType = "V",
+    parameters = listOf("F"),
+    filters = listOf(
+        methodCall(definingClass = "Landroidx/media3/exoplayer/ExoPlayer;", returnType = "V", parameters = listOf("F")),
+        fieldAccess(opcode = Opcode.IPUT, type = "F", location = MatchAfterImmediately())
+    )
 )
 

@@ -10,6 +10,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -52,6 +53,15 @@
 package app.morphe.patches.youtube.shorts.components
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.opcode
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
+import app.morphe.patches.youtube.utils.playservice.is_20_51_or_greater
+import app.morphe.util.matchAllMethodIndicesForEach
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -61,9 +71,11 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patcher.util.returnLate
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
@@ -73,6 +85,7 @@ import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
+import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -152,9 +165,9 @@ import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.methodOrNull
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.resolvable
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -164,7 +177,6 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.or
 import app.morphe.util.replaceLiteralInstructionCall
-import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -362,6 +374,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         versionCheckPatch,
+        // Custom actions are added to the bottom sheet menu.
+        bottomSheetFlyoutMenuPatch,
     )
 
     execute {
@@ -374,7 +388,9 @@ private val shortsCustomActionsPatch = bytecodePatch(
         hookToolBar("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setToolbarMenu")
 
         // toolbar in Shorts livestream
-        liveHeaderElementsContainerFingerprint.methodOrThrow().apply {
+        // YouTube 21.39 inlined this into LiveHeaderController.t(Z)V; fall back to that fingerprint.
+        (liveHeaderElementsContainerFingerprint.methodOrNull()
+            ?: liveHeaderElementsContainerFingerprint2139.methodOrThrow()).apply {
             val addViewIndex = indexOfAddLiveHeaderElementsContainerInstruction(this)
             val viewRegister = getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
 
@@ -430,21 +446,43 @@ private val shortsCustomActionsPatch = bytecodePatch(
 
                 // The modern renderer takes a separate path for menu items with this flag.
                 // Pass the flag along so the extension can retain a normal item as its template.
-                val elementTransformerFlagIndex = indexOfFirstInstructionReversedOrThrow(bottomSheetMenuInitializeIndex) {
-                    opcode == Opcode.AND_INT_LIT16 &&
-                            (this as WideLiteralInstruction).wideLiteral == 0x1000L
-                }
+                // YouTube 21.39: the `and-int/lit16 0x1000` flag test became `if-ne vX, const` + `or-int/2addr`;
+                // the boolean flag is the second register of the nearest preceding `or-int/2addr`.
+                val elementTransformerFlagIndexLegacy = runCatching {
+                    indexOfFirstInstructionReversedOrThrow(bottomSheetMenuInitializeIndex) {
+                        opcode == Opcode.AND_INT_LIT16 &&
+                                (this as WideLiteralInstruction).wideLiteral == 0x1000L
+                    }
+                }.getOrNull()
+                val elementTransformerFlagIndex = elementTransformerFlagIndexLegacy
+                    ?: indexOfFirstInstructionReversedOrThrow(addListIndex) {
+                        opcode == Opcode.OR_INT_2ADDR
+                    }
 
-                val bottomSheetMenuListIndex = it.instructionMatches.first().index
-                val bottomSheetMenuListField =
-                    (getInstruction<ReferenceInstruction>(bottomSheetMenuListIndex).reference as FieldReference)
+                // YouTube 21.39 added an earlier `iget-object, invoke-virtual, move-result, if-eqz` block
+                // (VIDEO_QUALITY_DETAIL_TEXT), so the first opcode match is no longer the menu list.
+                // Take the list field from the `iget-object` feeding the `add` receiver instead, and the
+                // hook point from its read right before the "menu is empty" check.
+                val addListReceiverRegister = getInstruction<FiveRegisterInstruction>(addListIndex).registerC
+                val bottomSheetMenuListField = getInstruction<ReferenceInstruction>(
+                    indexOfFirstInstructionReversedOrThrow(addListIndex) {
+                        opcode == Opcode.IGET_OBJECT &&
+                                (this as TwoRegisterInstruction).registerA == addListReceiverRegister
+                    }
+                ).reference as FieldReference
+                val bottomSheetMenuListIndex = indexOfFirstInstructionReversedOrThrow(
+                    indexOfFirstStringInstructionOrThrow("Bottom Sheet Menu is empty. No menu items were supported.")
+                ) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.toString() == bottomSheetMenuListField.toString()
+                }
 
                 val setFlyoutMenuObjectIndex = indexOfFirstInstructionReversedOrThrow(addListIndex) {
                     opcode == Opcode.IGET_OBJECT &&
                             getReference<FieldReference>()?.toString() == bottomSheetMenuListField.toString()
                 }
-                val elementTransformerFlagRegister =
-                    getInstruction<TwoRegisterInstruction>(elementTransformerFlagIndex).registerA
+                val elementTransformerFlagRegister = getInstruction<TwoRegisterInstruction>(elementTransformerFlagIndex)
+                    .let { if (elementTransformerFlagIndexLegacy != null) it.registerA else it.registerB }
 
                 val bottomSheetMenuClass = bottomSheetMenuListField.definingClass
                 val bottomSheetMenuList = bottomSheetMenuListField.type
@@ -793,9 +831,9 @@ val shortsAutoplayPatch = bytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         // Variable names are only a rough guess of what these methods do.
         val userActionMethodReference = ReelPlaybackFingerprint.instructionMatches[1]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
+            .methodReference
         val reelSequenceControllerMethodReference = ReelPlaybackFingerprint.instructionMatches[2]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
+            .methodReference
 
         ReelPlaybackRepeatFingerprint.method.apply {
             // Find the first call modified by extension code above.
@@ -1198,6 +1236,7 @@ val shortsComponentPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        fixProtoLibraryPatch,
 
         shortsCustomActionsResourcesPatch,
 
@@ -1241,9 +1280,11 @@ val shortsComponentPatch = bytecodePatch(
             id: Long,
             descriptor: String,
             reversed: Boolean
-        ) =
+        ) {
+            // Check the version before resolving the fingerprint: shortsButtonFingerprint is not
+            // guaranteed to resolve on 21.39 and nothing is injected for 20.18+ anyway.
+            if (is_20_18_or_greater) return
             methodOrThrow().apply {
-                if (is_20_18_or_greater) return@apply
                 val constIndex = indexOfFirstLiteralInstructionOrThrow(id)
                 val insertIndex = if (reversed)
                     indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.CHECK_CAST)
@@ -1256,6 +1297,7 @@ val shortsComponentPatch = bytecodePatch(
                     "invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->$descriptor(Landroid/view/View;)V"
                 )
             }
+        }
 
         fun Pair<String, Fingerprint>.hideButtons(
             id: Long,
@@ -1302,8 +1344,8 @@ val shortsComponentPatch = bytecodePatch(
 
         // region patch for hide like button (non-litho)
 
-        shortsButtonFingerprint.methodOrThrow().apply {
-            if (is_20_18_or_greater) return@apply
+        // Resolve the fingerprint only when it is actually used (not on 20.18+, e.g. 21.39).
+        if (!is_20_18_or_greater) shortsButtonFingerprint.methodOrThrow().apply {
             val insertIndex = indexOfFirstLiteralInstructionOrThrow(reelRightLikeIcon)
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
             val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_CLASS) + 2
@@ -1541,6 +1583,82 @@ val shortsComponentPatch = bytecodePatch(
         // endregion Disable experimental Shorts flags.
 
         addLithoFilter(BUTTON_FILTER_CLASS_DESCRIPTOR)
+
+        // region Show the navigation bar below the Shorts that show the comment bar instead of it.
+
+        // The Shorts opened from a channel show the comment bar below them instead of the
+        // navigation bar. When "Hide preview comment" hides the comment bar, nothing is shown
+        // in place of the navigation bar. The navigation bar is kept for these Shorts.
+        if (is_20_07_or_greater) {
+            ShortsNavigationBarModeFingerprint.match().let {
+                val navigationBarField = it.instructionMatches.first().fieldReference
+                val navigationBarModeField = it.instructionMatches[3].fieldReference
+
+                // Every read of the mode, such as by the Shorts pager and by the page of the Short.
+                Fingerprint(
+                    filters = listOf(
+                        fieldAccess(opcode = Opcode.IGET_OBJECT, reference = navigationBarField),
+                        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+                        opcode(Opcode.SGET_OBJECT, location = MatchAfterImmediately()),
+                        fieldAccess(
+                            opcode = Opcode.IGET,
+                            reference = navigationBarModeField,
+                            location = MatchAfterImmediately()
+                        )
+                    )
+                ).matchAll().forEach { match ->
+                    match.method.apply {
+                        val modeIndex = match.instructionMatches.last().index
+                        val modeRegister = getInstruction<TwoRegisterInstruction>(modeIndex).registerA
+
+                        addInstructions(
+                            modeIndex + 1,
+                            """
+                                invoke-static { v$modeRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->getNavigationBarMode(I)I
+                                move-result v$modeRegister
+                            """
+                        )
+
+                        val configIndex = match.instructionMatches.first().index
+                        val configRegister = getInstruction<TwoRegisterInstruction>(configIndex).registerB
+
+                        addInstructionsAtControlFlowLabel(
+                            configIndex,
+                            "invoke-static { v$configRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->setReelWatchConfig(Lcom/google/protobuf/MessageLite;)V"
+                        )
+                    }
+                }
+            }
+        }
+
+        // endregion
+
+        // region Hide the empty bar below a Short.
+
+        // The container of the bar below a Short keeps its height when the filter hides the bar,
+        // such as the comment bar, so the Short is shown above an empty black bar.
+        if (is_20_51_or_greater) {
+            Fingerprint(filters = listOf(resourceLiteral(
+                ResourceType.ID, "reel_bottom_action_bar_container"
+            ))).matchAllMethodIndicesForEach { literalInstructionIndex ->
+                val viewIndex = indexOfFirstInstruction(literalInstructionIndex) {
+                    getReference<MethodReference>()?.name == "findViewById"
+                } + 1
+                if (viewIndex <= 0 || getInstruction(viewIndex).opcode != Opcode.MOVE_RESULT_OBJECT) {
+                    return@matchAllMethodIndicesForEach
+                }
+                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+                addInstruction(
+                    viewIndex + 1,
+                    "invoke-static { v$viewRegister }, $BUTTON_FILTER_CLASS_DESCRIPTOR->hideEmptyBottomActionBar(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        // endregion
+
+
         addLithoFilter(SHELF_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(RETURN_YOUTUBE_CHANNEL_NAME_FILTER_CLASS_DESCRIPTOR)
 

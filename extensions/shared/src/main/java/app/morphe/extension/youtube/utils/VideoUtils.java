@@ -10,6 +10,7 @@
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -130,6 +131,8 @@ import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.InAppDownloadsPatch;
+import app.morphe.extension.youtube.patches.general.offline.OfflineDownloader;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackAudioPitchPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
@@ -229,6 +232,15 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void launchVideoExternalDownloader(@NonNull String videoId) {
+        if (InAppDownloadsPatch.isEnabled()) {
+            InAppDownloadsPatch.saveVideo(videoId);
+            return;
+        }
+        // every video download entry point funnels through here.
+        if (Settings.IN_APP_DOWNLOADER.get()) {
+            OfflineDownloader.download(videoId);
+            return;
+        }
         try {
             final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO.get();
             // If the package is not installed, show a dialog.
@@ -267,6 +279,10 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void launchPlaylistExternalDownloader(@NonNull String playlistId) {
+        if (InAppDownloadsPatch.isEnabled()) {
+            InAppDownloadsPatch.savePlaylist(playlistId);
+            return;
+        }
         try {
             final String downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST.get();
             // If the package is not installed, show a dialog.
@@ -460,14 +476,7 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void reloadVideo() {
-        if (!VideoInformation.lastPlayerResponseIsShort()) {
-            String id = VideoInformation.getPlayerResponseVideoId();
-            if (!id.isEmpty()) {
-                reloadVideo(id);
-                return;
-            }
-        }
-        reloadVideo(VideoInformation.getVideoId());
+        reloadVideo(VideoInformation.getStartingOrPlayingVideoId());
     }
 
     public static void reloadVideo(@NonNull String videoId) {
@@ -1030,10 +1039,10 @@ public class VideoUtils extends IntentUtils {
                 Button pitchMinusButton = createStyledButton(context, false, dip8, dip8);
                 Button pitchPlusButton = createStyledButton(context, true, dip8, dip8);
 
-                pitchMinusButton.setOnClickListener(v -> userSelectedPitch.accept(roundSpeedToNearestIncrement(
-                        VideoInformation.getPlaybackAudioPitch() - PITCH_ADJUSTMENT_CHANGE)));
-                pitchPlusButton.setOnClickListener(v -> userSelectedPitch.accept(roundSpeedToNearestIncrement(
-                        VideoInformation.getPlaybackAudioPitch() + PITCH_ADJUSTMENT_CHANGE)));
+                pitchMinusButton.setOnClickListener(v -> userSelectedPitch.accept(roundPitchToNearestIncrement(
+                        (float) (VideoInformation.getPlaybackAudioPitch() - PITCH_ADJUSTMENT_CHANGE))));
+                pitchPlusButton.setOnClickListener(v -> userSelectedPitch.accept(roundPitchToNearestIncrement(
+                        (float) (VideoInformation.getPlaybackAudioPitch() + PITCH_ADJUSTMENT_CHANGE))));
 
                 SeekBar pitchSlider = new SeekBar(context);
                 pitchSlider.setFocusable(true);
@@ -1052,7 +1061,7 @@ public class VideoUtils extends IntentUtils {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         if (fromUser) {
-                            userSelectedPitch.accept(roundSpeedToNearestIncrement(
+                            userSelectedPitch.accept(roundPitchToNearestIncrement(
                                     CustomPlaybackAudioPitchPatch.PLAYBACK_AUDIO_PITCH_MINIMUM + (progress / PROGRESS_BAR_VALUE_SCALE)));
                         }
                     }
@@ -1130,7 +1139,8 @@ public class VideoUtils extends IntentUtils {
                             case "×2" -> pitch * 2.0f;
                             default -> pitch;
                         };
-                        userSelectedPitch.accept(newValue);
+                        // Not rounded, a semitone step is deliberately off the 0.05 grid.
+                        userSelectedPitch.accept(clampPitch(newValue));
                     });
                     pitchButtonContainer.addView(pitchPresetButton);
                     pitchPresetGrid.addView(pitchButtonContainer);
@@ -1693,7 +1703,23 @@ public class VideoUtils extends IntentUtils {
         return Utils.clamp((float) roundedSpeed, (float) SPEED_ADJUSTMENT_CHANGE, PLAYBACK_SPEED_MAXIMUM);
     }
 
-    public static final float PITCH_ADJUSTMENT_CHANGE = 0.05f;
+    /**
+     * Rounds the given audio pitch to the nearest 0.05 increment, within the valid pitch range.
+     */
+    private static float roundPitchToNearestIncrement(float pitch) {
+        // Double precision for the same reason as the speed rounding.
+        final double roundedPitch = Math.round(pitch / PITCH_ADJUSTMENT_CHANGE) * PITCH_ADJUSTMENT_CHANGE;
+        return clampPitch((float) roundedPitch);
+    }
+
+    /**
+     * Keeps the audio pitch within the range the player accepts.
+     */
+    private static float clampPitch(float pitch) {
+        return Utils.clamp(pitch, (float) PITCH_ADJUSTMENT_CHANGE, VideoInformation.PLAYBACK_AUDIO_PITCH_MAXIMUM);
+    }
+
+    public static final double PITCH_ADJUSTMENT_CHANGE = 0.05;
     private static final double ONE_SEMITONE = Math.pow(2.0, 1.0 / 12.0);
 
     private static int pitchToProgressValue(float pitch) {

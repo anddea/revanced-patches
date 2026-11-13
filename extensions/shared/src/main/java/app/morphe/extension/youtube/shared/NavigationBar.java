@@ -14,7 +14,6 @@
 
 package app.morphe.extension.youtube.shared;
 
-import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
@@ -72,13 +71,6 @@ public final class NavigationBar {
      */
     public static void addOnNavigationButtonChangedListener(OnNavigationButtonChangedListener listener) {
         onNavigationButtonChangedListeners.add(listener);
-    }
-
-    /**
-     * Unregisters a listener from being notified when the navigation button changes.
-     */
-    public static void removeOnNavigationButtonChangedListener(OnNavigationButtonChangedListener listener) {
-        onNavigationButtonChangedListeners.remove(listener);
     }
 
     private static void notifyNavigationButtonChangedListeners(@Nullable NavigationButton button) {
@@ -253,6 +245,9 @@ public final class NavigationBar {
     public static void navigationTabLoaded(final View navigationButtonGroup) {
         try {
             String lastEnumName = lastYTNavigationEnumName;
+            // The enum is of this tab only. The 'You' tab has no enum, and it's
+            // created right after the Create tab of the newer layout.
+            lastYTNavigationEnumName = null;
 
             for (NavigationButton buttonType : NavigationButton.values()) {
                 if (buttonType.ytEnumNames.contains(lastEnumName)) {
@@ -277,17 +272,15 @@ public final class NavigationBar {
     /**
      * Injection point.
      * <p>
-     * Unique hook just for the 'Create' and 'You' tab.
+     * Unique hook just for the 'Create' and 'You' tab (all tabs in 21.43+).
      */
     public static void navigationImageResourceTabLoaded(View view) {
         // 'You' tab has no YT enum name and the enum hook is not called for it.
         // Compare the last enum to figure out which tab this actually is.
-        if (CREATE.ytEnumNames.contains(lastYTNavigationEnumName)) {
-            navigationTabLoaded(view);
-        } else {
+        if (lastYTNavigationEnumName == null) {
             lastYTNavigationEnumName = NavigationButton.LIBRARY.ytEnumNames.get(0);
-            navigationTabLoaded(view);
         }
+        navigationTabLoaded(view);
     }
 
     /**
@@ -366,6 +359,14 @@ public final class NavigationBar {
         enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
     }
 
+    /** Newer clients publish ordinary maps; copy before adding a missing icon. */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static Map withCairoNotificationFilledIcon(Map icons, Enum tabActivityCairo) {
+        Map copy = new java.util.HashMap(icons);
+        copy.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
+        return copy;
+    }
+
     public enum NavigationButton {
         HOME("PIVOT_HOME", "TAB_HOME_CAIRO"),
         SHORTS("TAB_SHORTS", "TAB_SHORTS_CAIRO"),
@@ -373,7 +374,12 @@ public final class NavigationBar {
          * Create new video tab.
          * This tab will never be in a selected state, even if the Create video UI is on screen.
          */
-        CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
+        CREATE(
+                "CREATION_TAB_LARGE",
+                "CREATION_TAB_LARGE_CAIRO",
+                // Newer layout, where the tab is a regular tab next to the 'You' tab.
+                "ADD_CIRCLE_OUTLINE"
+        ),
         /**
          * Only shown to automotive layout.
          */
@@ -386,6 +392,10 @@ public final class NavigationBar {
          * Only shown when 'Show Settings' is turned on.
          */
         SETTINGS("SETTINGS", "SETTINGS_CAIRO"),
+        /**
+         * Only shown when 'Show Watch later' is turned on.
+         */
+        WATCH_LATER("WATCH_LATER", "WATCH_LATER_FILLED", "WATCH_LATER_CAIRO"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when
@@ -464,7 +474,8 @@ public final class NavigationBar {
                 NavigationButton.LIBRARY,
                 NavigationButton.EXPLORE,
                 NavigationButton.SEARCH,
-                NavigationButton.SETTINGS
+                NavigationButton.SETTINGS,
+                NavigationButton.WATCH_LATER
         );
     }
 }

@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.swipecontrols
 
 import android.app.Activity
@@ -114,6 +124,12 @@ class SwipeControlsHostActivity : Activity() {
         }
 
         return if (gesture.submitTouchEvent(ev)) {
+            // The consumed event does not reach Activity.dispatchTouchEvent, which reports the
+            // user interaction. Without it YouTube thinks the user is idle and stops the autoplay
+            // countdown at the end of the video.
+            if (ev.actionMasked == MotionEvent.ACTION_DOWN) {
+                onUserInteraction()
+            }
             true
         } else {
             super.dispatchTouchEvent(ev)
@@ -123,6 +139,8 @@ class SwipeControlsHostActivity : Activity() {
     override fun dispatchKeyEvent(ev: KeyEvent?): Boolean {
         ensureInitialized()
         return if ((ev != null) && keys.onKeyEvent(ev)) {
+            // Activity.dispatchKeyEvent reports the user interaction for every key event.
+            onUserInteraction()
             true
         } else {
             super.dispatchKeyEvent(ev)

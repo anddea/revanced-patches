@@ -13,29 +13,89 @@ package app.morphe.patches.youtube.utils.fix.preference
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.cloneParameters
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.p0Register
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.settingmenu.PreferenceGroupFindPreferenceFingerprint
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.findFreeRegister
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import java.lang.ref.WeakReference
 
 private const val EXTENSION_CLASS =
     "$GENERAL_PATH/FixPreferenceIconPatch;"
+
+private lateinit var preferenceScreenMethodRef: WeakReference<MutableMethod>
+private lateinit var fragmentField: FieldReference
+private lateinit var getPreferenceScreenMethod: MethodReference
+
+/**
+ * Hook of the method that runs after the YouTube settings screen is built.
+ */
+internal val preferenceScreenHookPatch = bytecodePatch {
+    execute {
+        PreferenceScreenSyntheticFingerprint.let {
+            getPreferenceScreenMethod = it.instructionMatches[1].methodReference
+            fragmentField = it.classDef.fields.single { field ->
+                field.type == getPreferenceScreenMethod.definingClass
+            }
+
+            // 21.45+ reuses the fragment register and p0 before returning,
+            // so p0 is kept unchanged and the fragment is read again from it.
+            preferenceScreenMethodRef = WeakReference(it.method.cloneParameters())
+
+            // The hooks are added to the cloned method.
+            it.clearMatch()
+        }
+    }
+}
+
+/**
+ * Adds [instructions] before the settings screen method returns.
+ * [instructions] gets the register of the settings screen (not null),
+ * and [freeRegisterCount] free registers.
+ */
+internal fun addPreferenceScreenHook(
+    freeRegisterCount: Int,
+    instructions: (screenRegister: Int, freeRegisters: List<Int>) -> String
+) {
+    preferenceScreenMethodRef.get()!!.apply {
+        val insertIndex = indexOfFirstInstructionReversedOrThrow { opcode == Opcode.RETURN_VOID }
+        val registerProvider = getFreeRegisterProvider(insertIndex, freeRegisterCount + 1, p0Register)
+        val screenRegister = registerProvider.getFreeRegister()
+        val freeRegisters = List(freeRegisterCount) { registerProvider.getFreeRegister() }
+
+        addInstructionsAtControlFlowLabel(
+            insertIndex,
+            """
+                # p0 can be above v15 after the parameters are cloned.
+                move-object/from16 v$screenRegister, p0
+                iget-object v$screenRegister, v$screenRegister, $fragmentField
+                invoke-virtual { v$screenRegister }, $getPreferenceScreenMethod
+                move-result-object v$screenRegister
+                if-eqz v$screenRegister, :morphe_preference_screen_hook_exit
+
+                ${instructions(screenRegister, freeRegisters)}
+
+                :morphe_preference_screen_hook_exit
+                nop
+            """
+        )
+    }
+}
 
 private const val RVX_SETTINGS_KEY = "revanced_settings_key"
 
@@ -48,6 +108,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
         versionCheckPatch,
+        preferenceScreenHookPatch,
     )
 
     execute {
@@ -111,7 +172,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
 
         PreferenceKeyFingerprint.let {
             val preferenceKeyField = it.instructionMatches.first()
-                .instruction.getReference<FieldReference>()!!
+                .fieldReference
 
             it.classDef.apply {
                 getPreferenceKeyMethod = ImmutableMethod(
@@ -139,7 +200,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
 
         FindPreferenceByIndexFingerprint.let {
             val getAllPreferenceField = it.instructionMatches.last()
-                .instruction.getReference<FieldReference>()!!
+                .fieldReference
 
             it.classDef.apply {
                 helperMethod = ImmutableMethod(
@@ -231,33 +292,8 @@ internal val fixPreferenceIconPatch = bytecodePatch {
             }
         }
 
-        PreferenceScreenSyntheticFingerprint.let {
-            it.method.apply {
-                val getPreferenceScreenIndex = it.instructionMatches[1].index
-                val getPreferenceScreenRegister =
-                    getInstruction<FiveRegisterInstruction>(getPreferenceScreenIndex).registerC
-                val getPreferenceScreenReference =
-                    getInstruction<ReferenceInstruction>(getPreferenceScreenIndex).reference
-
-                val insertIndex = it.instructionMatches.last().index
-                val preferenceScreenRegister =
-                    findFreeRegister(insertIndex, getPreferenceScreenRegister)
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    """
-                        invoke-virtual { v$getPreferenceScreenRegister }, $getPreferenceScreenReference
-                        move-result-object v$preferenceScreenRegister
-
-                        if-eqz v$preferenceScreenRegister, :ignore
-
-                        invoke-virtual { v$preferenceScreenRegister }, $helperMethod
-
-                        :ignore
-                        nop
-                    """
-                )
-            }
+        addPreferenceScreenHook(0) { screenRegister, _ ->
+            "invoke-virtual { v$screenRegister }, $helperMethod"
         }
     }
 }

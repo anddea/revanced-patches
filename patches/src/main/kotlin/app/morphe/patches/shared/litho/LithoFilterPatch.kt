@@ -5,6 +5,7 @@
  * https://github.com/anddea/revanced-patches
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -35,6 +36,16 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.shared.litho
 
 import app.morphe.patcher.Fingerprint
@@ -44,12 +55,18 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patcher.util.returnLate
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH
+import app.morphe.patches.shared.litho.context.conversionContextPatch
+import app.morphe.patches.youtube.utils.litho.rendernext.disableRenderNextPatch
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
@@ -58,22 +75,19 @@ import app.morphe.patches.youtube.utils.playservice.is_20_22_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findFieldFromToString
-import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.or
-import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -109,6 +123,8 @@ val lithoFilterPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         versionCheckPatch,
+        disableRenderNextPatch,
+        conversionContextPatch,
     )
 
     var filterCount = 0
@@ -189,11 +205,16 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
+            // the looser ByteBuffer-field shape is only a fallback for
+            // YouTube 21.39 / YouTube Music 9.40; on older versions it also matches unrelated classes.
+            val protobufBufferLegacyMatch = ProtobufBufferReferenceLegacyFingerprint.matchOrNull()
+                ?: ProtobufBufferReferenceLegacyByteBufferFingerprint.match()
+
             if (!isYouTubeMusic) {
                 // Legacy non-native buffer. Supported YT Music versions use the native Upb encode
                 // path exposed at component creation, so the old ByteBuffer hook is only needed
                 // for YouTube's hybrid runtime.
-                ProtobufBufferReferenceLegacyFingerprint.method.addInstruction(
+                protobufBufferLegacyMatch.method.addInstruction(
                     0,
                     "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
                 )
@@ -203,7 +224,7 @@ val lithoFilterPatch = bytecodePatch(
 
             val flatBufferElementReferences = if (isYouTubeMusic) {
                 val elementInterface = ComponentCreateFingerprint.method.parameterTypes[2].toString()
-                val flatBufferBaseClass = ProtobufBufferReferenceLegacyFingerprint.classDef
+                val flatBufferBaseClass = protobufBufferLegacyMatch.classDef
                 val byteBufferField = flatBufferBaseClass.fields.single {
                     it.type == "Ljava/nio/ByteBuffer;"
                 }
@@ -253,7 +274,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // Find the identifier/path fields of the conversion context.
 
-            val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+            val conversionContextMatch = conversionContextFingerprintToString2.match()
             val conversionContextClass = conversionContextMatch.originalClassDef
             val conversionContextIdentifierField = conversionContextMatch.method
                 .findFieldFromToString("identifierProperty=")
@@ -469,7 +490,9 @@ val lithoFilterPatch = bytecodePatch(
             // FlatBuffer-backed elements at runtime, and forcing the FlatBuffer converter can
             // recreate stateful components such as the timed lyrics background during updates.
             if (!isYouTubeMusic) {
-                LithoConverterBufferUpbFeatureFlagFingerprint.let {
+                // YouTube 21.39 removed this flag (Upb is always on); the Upb buffer hook
+                // above handles that path
+                LithoConverterBufferUpbFeatureFlagFingerprint.matchOrNull()?.let {
                     // 20.22 the flag is still enabled in one location, but what it does is not known.
                     // Disable it anyway.
                     it.method.insertLiteralOverride(
@@ -488,6 +511,54 @@ val lithoFilterPatch = bytecodePatch(
                 "invoke-static { p2 }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
             )
 
+            // FlatBuffer converters do not implement the UPB encoder. Read the backing buffer
+            // from the current element, rather than the last unrelated parser invocation.
+            if (!isYouTubeMusic) {
+                val elementInterface = componentCreateFingerprint.methodOrThrow().parameterTypes[2].toString()
+                val bufferClass = byteBufferFingerprint.matchOrThrow().classDef
+                val byteBufferField = bufferClass.fields.single { it.type == "Ljava/nio/ByteBuffer;" }
+                var flatElement: FlatBufferElementReferences? = null
+                classDefForEach { candidate ->
+                    if (!candidate.interfaces.contains(elementInterface)) return@classDefForEach
+                    candidate.fields.forEach { field ->
+                        var type: String? = field.type
+                        while (type != null && type != "Ljava/lang/Object;") {
+                            if (type == bufferClass.type) {
+                                check(flatElement == null) { "Multiple FlatBuffer elements for $elementInterface" }
+                                flatElement = FlatBufferElementReferences(candidate.type, field, byteBufferField)
+                                break
+                            }
+                            type = try { classDefBy(type).superclass } catch (_: Exception) { null }
+                        }
+                    }
+                }
+                val flat = checkNotNull(flatElement) { "Missing FlatBuffer element for $elementInterface" }
+                componentCreateFingerprint.methodOrThrow().apply {
+                    // Conversion renders children recursively. Capture the parent's buffer only
+                    // after that work, immediately before its filter, or a child's invocation
+                    // overwrites the thread-local buffer before the parent can search it.
+                    val index = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+                    val registers = getFreeRegisterProvider(index, 2)
+                    val buffer = registers.getFreeRegister()
+                    val test = registers.getFreeRegister()
+                    addInstructionsAtControlFlowLabel(index, """
+                        move-object/from16 v$buffer, p3
+                        instance-of v$test, v$buffer, ${flat.elementClass}
+                        if-eqz v$test, :no_flat_buffer
+                        check-cast v$buffer, ${flat.elementClass}
+                        iget-object v$buffer, v$buffer, ${flat.elementField}
+                        iget-object v$buffer, v$buffer, ${flat.byteBufferField}
+                        invoke-static { v$buffer }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer(Ljava/nio/ByteBuffer;)V
+                        goto :flat_buffer_set
+                        :no_flat_buffer
+                        const/4 v$buffer, 0x0
+                        invoke-static { v$buffer }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer(Ljava/nio/ByteBuffer;)V
+                        :flat_buffer_set
+                        nop
+                    """)
+                }
+            }
+
             // endregion
 
             // region Hook the method that parses bytes into a ComponentContext
@@ -499,7 +570,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // Find the identifier/path fields of the conversion context.
             val conversionContextClass = conversionContextFingerprintToString2
-                .matchOrThrow()
+                .match()
                 .originalClassDef
 
             val conversionContextIdentifierField = componentContextParserFingerprint2.matchOrThrow().let {
@@ -613,12 +684,12 @@ val lithoFilterPatch = bytecodePatch(
                         goto :set_buffer
 
                         :empty_buffer
-                        const/4 v$freeRegister, 0x0
-                        new-array v$bufferRegister, v$freeRegister, [B
+                        goto :filter_component
 
                         :set_buffer
                         invoke-static { v$bufferRegister }, $EXTENSION_LEGACY_LITHO_FILTER_CLASS_DESCRIPTOR->setDirectProtoBuffer([B)V
 
+                        :filter_component
                         move-object/from16 v$freeRegister, p2
                         instance-of v$identifierRegister, v$freeRegister, ${conversionContextClass.type}
                         if-eqz v$identifierRegister, :unfiltered

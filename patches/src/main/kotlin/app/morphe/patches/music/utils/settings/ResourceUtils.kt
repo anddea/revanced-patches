@@ -381,6 +381,8 @@ internal object ResourceUtils {
         insertBeforeKey: String = "",
         entriesArrayKey: String = "",
         entryValuesArrayKey: String = "",
+        titleKey: String? = "${key}_title",
+        summaryKey: String = "${key}_summary",
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -390,9 +392,11 @@ internal object ResourceUtils {
                 }
                 .forEach { parent ->
                     val block: Element.() -> Unit = {
-                        setAttribute("android:title", "@string/${key}_title")
+                        if (titleKey != null) {
+                            setAttribute("android:title", "@string/$titleKey")
+                        }
                         if (setSummary) {
-                            setAttribute("android:summary", "@string/${key}_summary")
+                            setAttribute("android:summary", "@string/$summaryKey")
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:selectable", "true")

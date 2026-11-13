@@ -61,7 +61,7 @@ public final class ReloadVideoPatch {
             if (playerInterface == null) {
                 Utils.showToastShort(str("revanced_dismiss_player_not_available_toast"));
             } else {
-                String videoId = VideoInformation.getVideoId();
+                String videoId = VideoInformation.getStartingOrPlayingVideoId();
                 String playlistId = VideoInformation.getPlaylistId();
 
                 // Dismiss the player.

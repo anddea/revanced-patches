@@ -1,6 +1,6 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1685
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
@@ -79,6 +79,9 @@ final class TtsEngine {
     private boolean stopped;
     private boolean speaking;
     private MediaPlayer currentPlayer;
+    private float currentPlaybackRate = 1.0f;
+    private boolean currentPlaybackFollowsVideo;
+    private boolean currentPlaybackCompleted;
     /**
      * Boosts TTS playback gain above MediaPlayer's 1.0 ceiling so Edge MP3 (normalized to ~-16 LUFS)
      * matches YouTube media loudness (~-14 LUFS or louder). Null when no playback is active or when
@@ -121,10 +124,12 @@ final class TtsEngine {
 
         Utils.runOnBackgroundThread(() -> {
             try {
-                byte[] data = prefetch(text, voiceId, lang);
+                byte[] cached = TtsCache.getPreview(voiceId, lang, text);
+                byte[] data = cached != null ? cached : prefetch(text, voiceId, lang);
+                if (cached == null && data.length > 0) TtsCache.putPreview(voiceId, lang, text, data);
                 Utils.runOnMainThread(() -> {
                     if (data.length > 0 && !stopped && id == playbackId) {
-                        play(data, volume, VideoInformation.getPlaybackSpeed(), 0, id, onDone);
+                        play(data, volume, VideoInformation.getPlaybackSpeed(), 0, id, false, onDone);
                     } else if (id == playbackId) {
                         speaking = false;
                         if (onDone != null) onDone.run();
@@ -218,13 +223,18 @@ final class TtsEngine {
      * Plays the MP3 result through Android's MediaPlayer at natural speed (rate=1.0).
      */
     void play(byte[] mp3, float volume, long id, @Nullable Runnable onDone) {
-        play(mp3, volume, 1.0f, 0, id, onDone);
+        play(mp3, volume, 1.0f, 0, id, false, onDone);
     }
 
     /**
      * Plays the MP3 result through Android's MediaPlayer starting at {@code startTimeMs}.
      */
     void play(byte[] mp3, float volume, float rate, long startTimeMs, long id, @Nullable Runnable onDone) {
+        play(mp3, volume, rate, startTimeMs, id, true, onDone);
+    }
+
+    private void play(byte[] mp3, float volume, float rate, long startTimeMs, long id,
+                      boolean followVideo, @Nullable Runnable onDone) {
         Utils.verifyOnMainThread();
 
         // Reject audio that completed synthesis after stop() was called (e.g. post-seek).
@@ -239,7 +249,7 @@ final class TtsEngine {
         Utils.runOnBackgroundThread(() -> {
             try {
                 // playMp3 blocks until completion or error.
-                playMp3(mp3, volume, rate, startTimeMs, id);
+                playMp3(mp3, volume, rate, startTimeMs, id, followVideo);
             } catch (Exception ex) {
                 Utils.runOnMainThread(() -> {
                     if (!stopped && id == playbackId) {
@@ -266,7 +276,7 @@ final class TtsEngine {
         Utils.verifyOnMainThread();
         if (currentPlayer == null) return;
         try {
-            currentPlayer.pause();
+            if (currentPlayer.isPlaying()) currentPlayer.pause();
         } catch (Exception ex) {
             GoogleVoiceOverTranslationPatch.logError(() -> "MediaPlayer pause failed", ex);
         }
@@ -277,10 +287,21 @@ final class TtsEngine {
         Utils.verifyOnMainThread();
         if (currentPlayer == null) return;
         try {
-            currentPlayer.start();
+            startPlayer();
         } catch (Exception ex) {
             GoogleVoiceOverTranslationPatch.logError(() -> "MediaPlayer resume failed", ex);
         }
+    }
+
+    private void startPlayer() {
+        if (currentPlaybackCompleted) return;
+        if (currentPlaybackFollowsVideo && !VideoInformation.isPlayerPlaying()) {
+            if (currentPlayer.isPlaying()) currentPlayer.pause();
+            return;
+        }
+        if (currentPlayer.isPlaying()) return;
+        currentPlayer.setPlaybackParams(new PlaybackParams().setSpeed(currentPlaybackRate));
+        currentPlayer.start();
     }
 
     /** Updates the active playback volume. No-op if there is no active player. */
@@ -297,8 +318,14 @@ final class TtsEngine {
     /** Updates the active MediaPlayer's rate in place. No-op if there is no active player. */
     void setPlaybackRate(float rate) {
         Utils.verifyOnMainThread();
-        if (currentPlayer == null) return;
+        currentPlaybackRate = rate;
+        if (currentPlayer == null || currentPlaybackCompleted) return;
         try {
+            if (!currentPlayer.isPlaying()) return;
+            if (currentPlaybackFollowsVideo && !VideoInformation.isPlayerPlaying()) {
+                pause();
+                return;
+            }
             currentPlayer.setPlaybackParams(new PlaybackParams().setSpeed(rate));
         } catch (Exception ex) {
             GoogleVoiceOverTranslationPatch.logError(() -> "MediaPlayer setPlaybackRate failed", ex);
@@ -513,6 +540,7 @@ final class TtsEngine {
                     // Collect audio frames until the server signals turn.end.
                     ByteArrayOutputStream audioOut = new ByteArrayOutputStream();
                     collectAudio(persistentIn, audioOut);
+                    if (audioOut.size() == 0) throw new IOException("Edge TTS returned no audio");
 
                     lastSynthesisEndMs = System.currentTimeMillis();
                     return audioOut.toByteArray();
@@ -613,8 +641,9 @@ final class TtsEngine {
         StringBuilder sb = new StringBuilder(1024);
         for (int b; (b = in.read()) != -1; ) {
             sb.append((char) b);
+            if (sb.length() > 16_384) throw new IOException("WebSocket upgrade headers too large");
             if (sb.length() >= 4 && "\r\n\r\n".contentEquals(sb.subSequence(sb.length() - 4, sb.length()))) {
-                if (!sb.toString().contains("101")) {
+                if (!sb.toString().startsWith("HTTP/1.1 101 ")) {
                     throw new IOException("WebSocket upgrade failed: " + sb.substring(0, Math.min(sb.length(), 120)));
                 }
                 return;
@@ -673,16 +702,17 @@ final class TtsEngine {
                 readFully(in, maskBytes);
             }
 
+            if (payloadLen > 8L * 1024 * 1024) throw new IOException("WebSocket frame too large");
             byte[] payload = new byte[(int) payloadLen];
             readFully(in, payload);
             if (masked) {
                 for (int i = 0; i < payload.length; i++) payload[i] ^= maskBytes[i % 4];
             }
 
-            if (opcode == 0x8) break; // close frame
+            if (opcode == 0x8) throw new IOException("Edge TTS closed before turn.end");
 
             if (opcode == 0x1) { // text frame
-                if (new String(payload, StandardCharsets.UTF_8).contains("Path:turn.end")) break;
+                if (new String(payload, StandardCharsets.UTF_8).contains("Path:turn.end")) return;
             } else if (opcode == 0x2 && payload.length > 2) { // binary audio frame
                 // First 2 bytes encode the header length; audio data starts after the header.
                 int headerLen  = ((payload[0] & 0xFF) << 8) | (payload[1] & 0xFF);
@@ -693,6 +723,7 @@ final class TtsEngine {
             }
             // opcode 0x0 (continuation), 0x9 (ping), 0xA (pong) - ignored
         }
+        throw new IOException("Edge TTS socket ended before turn.end");
     }
 
     private void readFully(InputStream in, byte[] buf) throws IOException {
@@ -704,7 +735,25 @@ final class TtsEngine {
         }
     }
 
-    private void playMp3(byte[] mp3, float volume, float rate, long startTimeMs, long id) throws Exception {
+    private void startPreparedPlayback(float rate, long startTimeMs, boolean followVideo) {
+        currentPlaybackCompleted = false;
+        currentPlaybackRate = rate;
+        currentPlaybackFollowsVideo = followVideo;
+        if (startTimeMs > 0) currentPlayer.seekTo((int) startTimeMs);
+        startPlayer();
+    }
+
+    private void onPlaybackCompleted(MediaPlayer player, CountDownLatch latch) {
+        if (currentPlayer == player) {
+            // Block resume ticks while the synthesis thread queues player release.
+            currentPlaybackCompleted = true;
+            pause();
+        }
+        latch.countDown();
+    }
+
+    private void playMp3(byte[] mp3, float volume, float rate, long startTimeMs, long id,
+                         boolean followVideo) throws Exception {
         Utils.verifyOffMainThread();
         CountDownLatch latch = new CountDownLatch(1);
         MediaPlayer mp = new MediaPlayer();
@@ -752,7 +801,7 @@ final class TtsEngine {
                     @Override
                     public void close() {}
                 });
-                mp.setOnCompletionListener(m -> latch.countDown());
+                mp.setOnCompletionListener(m -> onPlaybackCompleted(m, latch));
                 mp.setOnErrorListener((m, what, extra) -> {
                     Logger.printDebug(() -> "MediaPlayer error what: " + what + " extra: " + extra);
                     latch.countDown();
@@ -760,17 +809,11 @@ final class TtsEngine {
                 });
 
                 mp.prepare();
-                if (rate != 1.0f) {
-                    mp.setPlaybackParams(new PlaybackParams().setSpeed(rate));
-                }
                 if (stopped || id != playbackId) {
                     latch.countDown();
                     return;
                 }
-                if (startTimeMs > 0) {
-                    mp.seekTo((int) startTimeMs);
-                }
-                mp.start();
+                startPreparedPlayback(rate, startTimeMs, followVideo);
             } catch (Exception ex) {
                 Logger.printDebug(() -> "MediaPlayer setup failed", ex);
                 latch.countDown();

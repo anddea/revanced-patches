@@ -450,4 +450,9 @@ public class ExternalDownloaderPlaylistPreference extends CustomDialogListPrefer
 
         return true;
     }
+
+    @Override
+    public boolean tracksNewEntries() {
+        return false; // Entries depend on the installed apps.
+    }
 }

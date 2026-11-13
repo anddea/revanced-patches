@@ -1,5 +1,16 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.formfactor
 
+import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.OpcodesFilter
@@ -81,3 +92,18 @@ internal object RepeatedItemSectionRendererFingerprint : Fingerprint(
         ),
     ),
 )
+
+private object ResponsiveContainerPropertiesToStringFingerprint : Fingerprint(
+    name = "toString",
+    strings = listOf("ResponsiveContainerProperties{usingResponsiveContainerConfiguration=")
+)
+
+/**
+ * Picks the responsive container properties by the width and height of a container.
+ * Since 21.30 the home feed lays out its items by the size class of the picked properties.
+ */
+context(patchContext: BytecodePatchContext)
+internal fun getResponsiveContainerPropertiesFingerprint() = object : Fingerprint(
+    returnType = ResponsiveContainerPropertiesToStringFingerprint.originalClassDef.type,
+    parameters = listOf("I", "I")
+) {}

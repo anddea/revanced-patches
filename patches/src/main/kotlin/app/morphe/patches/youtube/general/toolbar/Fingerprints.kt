@@ -57,6 +57,7 @@ import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingo
@@ -67,7 +68,6 @@ import app.morphe.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.morphe.patches.youtube.utils.resourceid.voiceSearch
 import app.morphe.patches.youtube.utils.resourceid.youTubeLogo
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or

@@ -6,7 +6,7 @@
     <string name="gms_core_dialog_dismiss_text">Nicht erneut anzeigen</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG hat keine Berechtigung, im Hintergrund zu laufen
 
-Folgen Sie der Anleitung “Don't kill my app” für Ihr Telefon und wenden Sie die Anleitungen auf Ihre MicroG-Installation an
+Befolge die Anleitung \"Don't kill my app\" für dein Telefon und wende die Anweisungen auf deine MicroG-Installation an
 
 Dies ist erforderlich, damit die App funktioniert"</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Akkuoptimierung muss für MicroG deaktiviert werden, um Probleme zu vermeiden
@@ -19,7 +19,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall GmsCore</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
-    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installiere es</string>
     <string name="morphe_ads_channel_whitelist_title">Werbe-Whitelist für Kanäle</string>
     <string name="morphe_aislist_submit_already_blocklisted">Dieser Kanal ist bereits auf der AiSList-Blockliste</string>
     <string name="morphe_aislist_submit_already_warnlisted">Dieser Kanal ist bereits auf der AiSList-Warnliste</string>
@@ -58,16 +58,71 @@ Meldungen sind öffentlich und werden überprüft, bevor ein Kanal zu einer List
     <string name="morphe_auto_pause_on_screen_lock_always">Immer pausieren, wenn gesperrt</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausieren, außer wenn drahtloses Audio verbunden ist</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Auto-Pause bei gesperrtem Gerät</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Fügt dem Menü für die Auto-Übersetzung weitere Sprachen hinzu</string>
+    <string name="morphe_auto_translate_additional_languages_title">Zusätzliche Auto-Übersetzungssprachen</string>
+    <string name="morphe_caption_block_translation_failed">Einige Untertitel-Übersetzungen sind nicht verfügbar. Verfügbare Untertitel werden angezeigt</string>
+    <string name="morphe_caption_blocks_too_large">Beide Untertitel-Sprachen passen nicht in diesen Player. Die Primärsprache wird angezeigt</string>
+    <string name="morphe_caption_scale_summary">Gilt für einsprachige und zweisprachige Untertitel</string>
+    <string name="morphe_caption_scale_title">Untertitelgröße</string>
+    <string name="morphe_captions_screen_summary">Automatische Untertitel und Untertitel-Cookies verwalten</string>
+    <string name="morphe_captions_screen_title">Untertitel</string>
+    <string name="morphe_copy_comments_success">Kommentar in die Zwischenablage kopiert</string>
+    <string name="morphe_copy_comments_summary">Tippe und halte einen Kommentar, um ihn zu kopieren</string>
+    <string name="morphe_copy_comments_title">Kommentare kopieren</string>
+    <string name="morphe_copy_select_text_copy_all">Alles kopieren</string>
+    <string name="morphe_copy_select_text_dialog_title">Text auswählen</string>
+    <string name="morphe_copy_select_text_success">Text in Zwischenablage kopiert</string>
+    <string name="morphe_copy_select_text_summary">Halte eine Videobeschreibung oder einen Beitrag gedrückt, um einen beliebigen Teil davon auszuwählen und zu kopieren</string>
+    <string name="morphe_copy_select_text_title">Text von Beschreibungen und Beiträgen auswählen</string>
+    <string name="morphe_copy_video_title_success">Videotitel in die Zwischenablage kopiert</string>
+    <string name="morphe_copy_video_title_summary">Tippe und halte den Videotitel, um ihn zu kopieren</string>
+    <string name="morphe_copy_video_title_title">Videotitel kopieren</string>
     <string name="morphe_custom_branding_icon_title">App-Icon</string>
-    <string name="morphe_disable_auto_hide_navigation_bar_summary">Audio Track-Menü-Header ausblenden</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">Die ausgewählte Datei ist kein unterstütztes Bild</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Benutzerdefiniertes Seekbar-Regler-Bild nicht gefunden</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Wählen Sie ein Bild oder ein animiertes GIF aus dem Gerätespeicher aus</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Regler-Bild</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">An Seekbar anpassen</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Originalgröße</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Regler-Größe</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Ersetzt den Seekbar-Regler durch ein benutzerdefiniertes Bild oder ein animiertes GIF</string>
+    <string name="morphe_custom_seekbar_thumb_title">Benutzerdefinierten Seekbar-Regler aktivieren</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow ersetzt Clickbait-Titel und -Thumbnails durch von der Community erstellte, die genauer und weniger sensationell sind. Titel werden von der Community geschrieben und abgestimmt, und Thumbnails sind Einzelbilder aus dem Video
+
+Videos werden über ein kurzes Präfix der gehashten Video-ID angefordert, sodass der Server nicht genau wissen kann, welches Video du gerade ansiehst. Wenn ein Video kein DeArrow-Thumbnail hat, wird das Original oder ein Standbild angezeigt"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Die Anzahl der Gelegenheitsstimmen in einer einzelnen Kategorie, wie zum Beispiel lustig oder kreativ, die erforderlich ist, um den Originaltitel anzuzeigen</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Mindestanzahl an Gelegenheitsstimmen, um den Originaltitel anzuzeigen</string>
+    <string name="morphe_dearrow_casual_mode_summary">Zeigt den ursprünglichen Titel anstelle des DeArrow-Titels, wenn DeArrow-Benutzer abgestimmt haben, dass ihnen der ursprüngliche Titel gefällt</string>
+    <string name="morphe_dearrow_casual_mode_title">Gelegenheitsmodus</string>
+    <string name="morphe_dearrow_error">DeArrow ist vorübergehend nicht verfügbar (Statuscode: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow ist vorübergehend nicht verfügbar</string>
+    <string name="morphe_dearrow_titles_icon_summary">Zeigt das DeArrow-Symbol bei Crowdsourcing-Videotiteln an. Tippen Sie auf das Symbol, um den Originaltitel und das Vorschaubild anzuzeigen</string>
+    <string name="morphe_dearrow_titles_icon_title">DeArrow-Symbol anzeigen</string>
+    <string name="morphe_dearrow_titles_title">DeArrow-Titel</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Verhindert, dass Feeds automatisch aktualisiert werden, nachdem sie veraltet sind</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Automatische Feed-Aktualisierung deaktivieren</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_summary">Hält die Navigationsleiste beim Scrollen sichtbar</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Auto-Ausblenden der Navigationsleiste deaktivieren</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
     <string name="morphe_disable_drc_audio_title">Audiokompression (DRC) deaktivieren</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Zeigt die Navigationsschaltflächen mit Beschriftungen an, wenn YouTube sie ohne Beschriftungen sendet</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Navigationsschaltflächen ohne Beschriftungen deaktivieren</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Scrollgeschwindigkeitslimit deaktivieren</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Zeigt Abonnements in der Navigationsleiste an, falls YouTube diese in einen Tab oben auf der Startseite verschiebt</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Navigations-Tabs in der Symbolleiste deaktivieren</string>
+    <string name="morphe_dual_captions_enabled_title">Zweisprachige Untertitel</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Wie lange das Licht nach dem Scrollstopp gedimmt bleibt. Bei 0 wird das Licht nur während des Scrollens gedimmt und kehrt sofort zurück, sobald das Scrollen stoppt</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dimm-Dauer</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dimmt das Licht, während die Seite gescrollt oder berührt wird</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Beim Scrollen dimmen</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dimmt das Licht bei hellen Videos, damit der Text auf der Seite lesbar bleibt</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Text lesbar halten</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Beleuchtet die gesamte Wiedergabeseite und die schwarzen Balken mit dem Video anstelle des Ambient-Modus</string>
+    <string name="morphe_enhanced_ambient_mode_title">Erweiterter Ambient-Modus</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Livestream-DVR-Dauer erweitern' ist möglicherweise nicht verfügbar
 
 Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
@@ -76,11 +131,17 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
     <string name="morphe_explore_menu_screen_title">Entdecken-Menü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Wenn es nicht funktioniert, versuche, MicroG zwangsweise zu beenden</string>
+    <string name="morphe_feed_long_press_menu_summary">Das Tippen und Gedrückthalten irgendwo auf einem Feed-Video öffnet dessen Menü</string>
+    <string name="morphe_feed_long_press_menu_title">Tippen und gedrückt halten, um das Videomenü zu öffnen</string>
+    <string name="morphe_feed_watch_later_button_summary">Eine „Später ansehen“-Schaltfläche wird auf den Thumbnails von Feed-Videos angezeigt, mit einem Häkchen, wenn das Video gespeichert ist. Durch Tippen wird das Video gespeichert oder entfernt, und durch Tippen und Halten wird „Zur Playlist hinzufügen“ geöffnet</string>
+    <string name="morphe_feed_watch_later_button_title">Schaltfläche \"Später ansehen\" auf Vorschaubildern anzeigen</string>
+    <string name="morphe_fix_status_bar_layout_summary">Behält das Layout der Statusleiste bei, sodass sie die oberen Leisten nicht überdeckt und über dem Player kein leerer Raum entsteht. Schalte diese Option aus, wenn die App abstürzt oder die oberen Leisten falsch aussehen</string>
+    <string name="morphe_fix_status_bar_layout_title">Überdeckung der oberen Leisten durch die Statusleiste beheben</string>
     <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original-Audiotrack erzwingen</string>
-    <string name="morphe_fullscreen_large_seekbar_title">Große Suchleiste im Vollbildmodus aktivieren</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Großen Fortschrittsbalken im Vollbildmodus aktivieren</string>
     <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Videoskalierungs-Schaltfläche im Hochformat-Player ausblenden</string>
     <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Nur im Vollbild anzeigen</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Tippen, um zwischen Standard, Strecken und Zoomen zu wechseln</string>
@@ -93,9 +154,9 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
 Einschränkungen:
 • Gefilterte KI-Shorts werden möglicherweise als leerer Bereich angezeigt
 • Einige KI-Videos werden möglicherweise weiterhin angezeigt"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Daten werden von AiSList bereitgestellt
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList ist eine Open-Source-Liste von YouTube-Kanälen, die KI-generierte Inhalte veröffentlichen, die von Freiwilligen gepflegt wird. Kanäle werden von Benutzern gemeldet und vor dem Hinzufügen überprüft
 
-Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattformen anzuzeigen"</string>
+Die Liste wird von GitHub heruntergeladen und Videos werden auf deinem Gerät gefiltert"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Blockierliste: Hohe Wahrscheinlichkeit</string>
     <string name="morphe_hide_aislist_hide_home_title">Videos auf Startseite ausblenden</string>
     <string name="morphe_hide_aislist_hide_search_title">Videos in der Suche ausblenden</string>
@@ -104,23 +165,27 @@ Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattfor
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Kanäle in der Blocklist</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Filter aktivieren, um Kanäle zu laden</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanäle werden geladen…</string>
-    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Startseite: %s
-• Suche: %s
-• Insgesamt: %s"</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Startseite: %1$s
+• Suche: %2$s
+• Insgesamt: %3$s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanäle in der Warnliste</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnliste: Moderate Wahrscheinlichkeit</string>
     <string name="morphe_hide_auto_dubbed_label_title">Hinweis „Automatisch synchronisiert“ ausblenden</string>
+    <string name="morphe_hide_channel_buttons_summary">Blendet Buttons wie Abonnieren, Kanal ansehen, Community und YouTube Music in Kanalprofilen in den Suchergebnissen aus</string>
+    <string name="morphe_hide_channel_buttons_title">Kanal-Buttons ausblenden</string>
     <string name="morphe_hide_courses_menu_title">Eintrag „Kurse“ ausblenden</string>
     <string name="morphe_hide_explore_button_title">Schaltfläche „Entdecken“ ausblenden</string>
     <string name="morphe_hide_fashion_menu_title">Eintrag „Mode &amp; Beauty“ ausblenden</string>
     <string name="morphe_hide_gaming_menu_title">Eintrag „Gaming“ ausblenden</string>
-    <string name="morphe_hide_get_premium_button_title">\'Get Premium\'-Button ausblenden</string>
+    <string name="morphe_hide_get_premium_button_title">Schaltfläche „Premium holen“ ausblenden</string>
     <string name="morphe_hide_hype_menu_title">Eintrag „Hype“ ausblenden</string>
     <string name="morphe_hide_hyped_label_title">Verstecke Hyped Label</string>
     <string name="morphe_hide_invite_to_message_card_summary">Blendet die Einladungskarte im Bereich \'Nachrichten\' im Tab \'Benachrichtigungen\' aus</string>
     <string name="morphe_hide_invite_to_message_card_title">\'Andere zum Chat einladen\'-Karte ausblenden</string>
     <string name="morphe_hide_learning_menu_title">Lernmenü ausblenden</string>
     <string name="morphe_hide_live_menu_title">Eintrag „Live“ ausblenden</string>
+    <string name="morphe_hide_live_streams_summary">Blendet Videos aus, die gerade live im Startseiten-Feed und in den Suchergebnissen sind</string>
+    <string name="morphe_hide_live_streams_title">Live-Streams ausblenden</string>
     <string name="morphe_hide_memberships_menu_title">Eintrag „Mitgliedschaften“ ausblenden</string>
     <string name="morphe_hide_movies_menu_title">Eintrag „Filme &amp; TV“ ausblenden</string>
     <string name="morphe_hide_music_menu_title">Eintrag „Musik“ ausblenden</string>
@@ -128,9 +193,17 @@ Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattfor
     <string name="morphe_hide_playables_menu_title">Eintrag „Playables“ ausblenden</string>
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Das Menü \"Audio-Track\" ist ausgeblendet
 
-Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\""</string>
+Um das Menü anzuzeigen, ändere \"Video-Streams vortäuschen\" in einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\""</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Menü \'Unterwegs\' ausblenden</string>
     <string name="morphe_hide_podcasts_menu_title">Eintrag „Podcasts“ ausblenden</string>
+    <string name="morphe_hide_post_comment_button_title">Schaltfläche „Kommentare“ ausblenden</string>
+    <string name="morphe_hide_post_comments_preview_summary">Blendet die Vorschau der Kommentare unter den Beiträgen aus</string>
+    <string name="morphe_hide_post_comments_preview_title">Kommentarvorschau ausblenden</string>
+    <string name="morphe_hide_post_dislike_button_summary">Beim erzwungenen Layout bleibt der Platz der Schaltfläche frei</string>
+    <string name="morphe_hide_post_dislike_button_title">Schaltfläche „Dislike“ ausblenden</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Like- und Dislike-Schaltflächen ausblenden</string>
+    <string name="morphe_hide_post_share_button_summary">Die Download-Schaltfläche der Beitragsbilder wird neben der Teilen-Schaltfläche gezeichnet, daher wird sie ebenfalls ausgeblendet</string>
+    <string name="morphe_hide_post_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
     <string name="morphe_hide_shopping_menu_title">Eintrag „Shopping“ ausblenden</string>
     <string name="morphe_hide_sports_menu_title">Eintrag „Sport“ ausblenden</string>
@@ -138,6 +211,8 @@ Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen belieb
     <string name="morphe_hide_stats_hidden_24h_title">Ausgeblendete Videos, letzte 24 Stunden</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">Zähler für den gesamten Zeitraum zurücksetzen?</string>
     <string name="morphe_hide_stats_hidden_all_title">Ausgeblendete Videos, insgesamt</string>
+    <string name="morphe_hide_status_bar_summary">Blendet die Systemstatusleiste aus. Wische vom oberen Bildschirmrand nach unten, um sie kurz einzublenden</string>
+    <string name="morphe_hide_status_bar_title">Statusleiste ausblenden</string>
     <string name="morphe_hide_sync_button_title">Schaltfläche „Mit Video synchronisieren“ ausblenden</string>
     <string name="morphe_hide_youtube_create_menu_title">Eintrag „YouTube Create“ ausblenden</string>
     <string name="morphe_hide_youtube_kids_menu_title">Eintrag „Youtube Kids“ ausblenden</string>
@@ -145,6 +220,32 @@ Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen belieb
     <string name="morphe_hide_youtube_premium_menu_title">Eintrag „YouTube Premium“ ausblenden</string>
     <string name="morphe_hide_youtube_studio_menu_title">Eintrag „YouTube Studio“ ausblenden</string>
     <string name="morphe_hide_youtube_works_menu_title">Menü „Wie YouTube funktioniert“ ausblenden</string>
+    <string name="morphe_live_chat_translate_bold_summary">Zeigt den übersetzten Text fett an</string>
+    <string name="morphe_live_chat_translate_bold_title">Übersetzten Text fett darstellen</string>
+    <string name="morphe_live_chat_translate_color_summary">Legt die Hex-Farbe des übersetzten Texts fest</string>
+    <string name="morphe_live_chat_translate_color_title">Farbe des übersetzten Texts</string>
+    <string name="morphe_live_chat_translate_copied">Nachricht in die Zwischenablage kopiert</string>
+    <string name="morphe_live_chat_translate_copy_button_summary">Fügt jeder Chat-Nachricht eine kleine Kopierschaltfläche hinzu</string>
+    <string name="morphe_live_chat_translate_copy_button_title">Schaltfläche zum Kopieren der Nachricht anzeigen</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">Dein DeepL API-Schlüssel. Google Übersetzer wird verwendet, wenn DeepL fehlschlägt, z. B. wenn das monatliche Limit des Schlüssels erreicht ist</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API-Schlüssel</string>
+    <string name="morphe_live_chat_translate_exclude_summary">Kommagetrennte Sprachcodes wie id,en. Nachrichten in diesen Sprachen werden nicht übersetzt</string>
+    <string name="morphe_live_chat_translate_exclude_title">Ausgeschlossene Sprachen</string>
+    <string name="morphe_live_chat_translate_language_title">Übersetzungssprache</string>
+    <string name="morphe_live_chat_translate_max_length_no_limit">Kein Limit</string>
+    <string name="morphe_live_chat_translate_max_length_summary">Längere Nachrichten werden nicht übersetzt angezeigt</string>
+    <string name="morphe_live_chat_translate_max_length_title">Maximale Nachrichtenlänge</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_screen_summary">Live-Chat- und Live-Chat-Wiedergabenachrichten übersetzen</string>
+    <string name="morphe_live_chat_translate_screen_title">Live-Chat-Übersetzung</string>
+    <string name="morphe_live_chat_translate_style_original_and_translated">Original (übersetzt)</string>
+    <string name="morphe_live_chat_translate_style_title">Übersetzungsstil</string>
+    <string name="morphe_live_chat_translate_style_translated_and_original">(Übersetzt) Original</string>
+    <string name="morphe_live_chat_translate_style_translated_only">Nur übersetzt</string>
+    <string name="morphe_live_chat_translate_summary">Übersetzt Live-Chat- und Live-Chat-Wiedergabenachrichten, sobald sie auf dem Bildschirm erscheinen</string>
+    <string name="morphe_live_chat_translate_title">Live-Chat übersetzen</string>
+    <string name="morphe_live_chat_translate_use_color_summary">Wendet eine benutzerdefinierte Farbe auf den übersetzten Text an</string>
+    <string name="morphe_live_chat_translate_use_color_title">Benutzerdefinierte Farbe für übersetzten Text</string>
     <string name="morphe_livestream_dvr_not_available">"'Livestream-DVR aktivieren' ist möglicherweise nicht verfügbar
 
 Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
@@ -152,25 +253,69 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_livestream_dvr_title">Livestream-DVR aktivieren</string>
     <string name="morphe_music_package_name_summary">Paketname Ihrer installierten Musik-App</string>
     <string name="morphe_music_package_name_title">Paketname der Musik-App</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Passt die Deckkraft der Glas-Navigationsleiste an (0 ist transparent, 100 ist undurchsichtig)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Deckkraft des Glases</string>
+    <string name="morphe_navigation_bar_glass_size_button_spacing">Schaltflächenabstand</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Angezeigte Schaltflächen: %1$s von %2$s</string>
+    <string name="morphe_navigation_bar_glass_size_height">Höhe</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Passe die Höhe, die Breite und den Schaltflächenabstand der Glas-Navigationsleiste mithilfe einer Vorschau an. Schaltflächen, die nicht in die Bildschirmbreite passen, werden ausgeblendet</string>
+    <string name="morphe_navigation_bar_glass_size_title">Größe der Glas-Navigationsleiste</string>
+    <string name="morphe_navigation_bar_glass_size_width">Maximale Breite</string>
+    <string name="morphe_navigation_bar_glass_summary">Zeigt die Navigationsleiste als schwebende, abgerundete, halbtransparente Kapsel an. Nicht verfügbar bei dem Stil „Undurchsichtige Navigationsleiste“</string>
+    <string name="morphe_navigation_bar_glass_title">Glas-Navigationsleiste aktivieren</string>
+    <string name="morphe_navigation_bar_style_entry_2">Transluzent</string>
+    <string name="morphe_navigation_bar_style_title">Stil der Navigationsleiste</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Dieser Stil wird möglicherweise von deinem Gerät oder deiner YouTube-Version nicht unterstützt und kann zu Layoutproblemen oder Abstürzen führen</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
-    <string name="morphe_open_channel_of_live_avatar_summary">Verhindert, dass der Livestream geöffnet wird, wenn Sie auf das Avatar des Kanals tippen</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Verhindert, dass der Livestream geöffnet wird, wenn du auf den Avatar des Kanals tippst</string>
     <string name="morphe_open_channel_of_live_avatar_title">Kanal vom Live-Avatar aus öffnen</string>
     <string name="morphe_open_videos_fullscreen_title">Videos im Vollbildmodus öffnen</string>
     <string name="morphe_override_youtube_music_buttons_summary">Öffnet deine bevorzugte Musik-App anstelle der Standard-YouTube-Music-App</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube-Music-Schaltfläche überschreiben</string>
+    <string name="morphe_pip_button_flyout_name">Zu Bild-im-Bild wechseln</string>
+    <string name="morphe_pip_button_flyout_title">Bild-im-Bild-Menü anzeigen</string>
+    <string name="morphe_pip_button_overlay_title">Bild-im-Bild-Schaltfläche anzeigen</string>
+    <string name="morphe_playback_buffer_size_entry_low">Niedrig</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maximal</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Mittel</string>
+    <string name="morphe_playback_buffer_size_title">Puffergröße der Wiedergabe</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Immer an</string>
     <string name="morphe_playback_in_feeds_entry_off">Aus</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Nur über WLAN</string>
     <string name="morphe_playback_in_feeds_title">Wiedergabe in Feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Deckkraft des Hintergrunds hinter den Player-Steuertasten und der Zeitleiste anpassen (0 = unsichtbar, 100 = deckend)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Hintergrundtransparenz der Steuertasten</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Die Bestätigung wird nicht angezeigt, nachdem ein Video aus einer Playlist entfernt wurde</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Snackbar zum Entfernen der Playlist ausblenden</string>
+    <string name="morphe_playlist_long_press_drag_summary">Tippen Sie lange auf ein Video Ihrer Playlist, um es an eine neue Position zu ziehen</string>
+    <string name="morphe_playlist_long_press_drag_title">Zum Neuordnen der Playlist-Videos lange drücken</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Playlist-Drag-Handles sind einfacher zu greifen</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Playlist-Drag-Griffe verbreitern</string>
+    <string name="morphe_post_buttons_layout_entry_1">Server</string>
+    <string name="morphe_post_buttons_layout_entry_2">Erzwungen</string>
+    <string name="morphe_post_buttons_layout_title">Layout der Beitrags-Schaltflächen</string>
+    <string name="morphe_post_buttons_screen_summary">Wähle das Layout der Schaltflächen unter den Community-Beiträgen und welche Schaltflächen ausgeblendet werden sollen</string>
+    <string name="morphe_post_buttons_screen_title">Beitrags-Schaltflächen</string>
+    <string name="morphe_post_image_download_failed">Das Bild konnte nicht heruntergeladen werden</string>
+    <string name="morphe_post_image_download_flyout">Bilder herunterladen</string>
+    <string name="morphe_post_image_download_flyout_single">Bild herunterladen</string>
+    <string name="morphe_post_image_download_not_found">In diesem Beitrag wurde kein Bild gefunden</string>
+    <string name="morphe_post_image_download_saved">%1$s Bilder unter %2$s gespeichert</string>
+    <string name="morphe_post_image_download_saved_single">Bild unter %s gespeichert</string>
+    <string name="morphe_post_image_download_started">%s Bilder werden heruntergeladen…</string>
+    <string name="morphe_post_image_download_started_single">Bild wird heruntergeladen…</string>
+    <string name="morphe_post_image_download_summary">Neben der Teilen-Schaltfläche von Beiträgen mit Bildern oder GIFs wird eine Download-Schaltfläche angezeigt und dem Menü wird ein Download-Eintrag hinzugefügt</string>
+    <string name="morphe_post_image_download_title">Beitragsbilder herunterladen</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Anschalten</string>
+    <string name="morphe_preferred_caption_language_summary">Wählt automatisch eine Untertitel-Sprache für jedes Video aus</string>
+    <string name="morphe_preferred_caption_language_title">Bevorzugte Untertitelsprache</string>
     <string name="morphe_queue_manager_check_failed_auth">Nicht angemeldet</string>
     <string name="morphe_queue_manager_check_failed_video_id">Keine Video-ID</string>
     <string name="morphe_reload_video_summary_off">Schaltfläche „Video wiederholen“ ist ausgeblendet</string>
@@ -186,6 +331,9 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
     <string name="morphe_restore_old_player_buttons_summary">Stellt die fettgedruckten Videoplayer-Schaltflächen in den älteren, dünneren visuellen Stil zurück</string>
     <string name="morphe_restore_old_player_buttons_title">Alten Player-Button-Stil wiederherstellen</string>
+    <string name="morphe_restore_original_titles_loading">Titel wird geladen…</string>
+    <string name="morphe_restore_original_titles_summary">Zeigt die ursprünglichen Videotitel, Videobeschreibungen und Kanalbeschreibungen anstelle der automatisch übersetzten</string>
+    <string name="morphe_restore_original_titles_title">Originaltitel wiederherstellen</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
@@ -194,21 +342,31 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_save_to_watch_later_button_title">Schaltfläche \'Später ansehen\' anzeigen</string>
     <string name="morphe_save_to_watch_later_error_toast">Dieses Video kann nicht zur Wiedergabeliste \"Später ansehen\" hinzugefügt werden</string>
     <string name="morphe_save_to_watch_later_flyout_title">Später ansehen</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Ermöglicht das Speichern von kinderbezogenen Videos in \'Später ansehen\' über das Flyout-Menü</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Schaltfläche \'Später ansehen\' in Kinder-Videos anzeigen</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Ermöglicht das Speichern von Shorts in \'Später ansehen\' über das Flyout-Menü</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Zeige die Schaltfläche \'Speichern in Später ansehen\' im Shorts-Flyout</string>
     <string name="morphe_save_to_watch_later_success_toast">Video erfolgreich zur Wiedergabeliste \"Später ansehen\" hinzugefügt</string>
-    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Am häufigsten wiederholt</string>
+    <string name="morphe_search_comments_applied">Ändere die Sortierreihenfolge oder öffne die Kommentare erneut, um sie zu durchsuchen</string>
+    <string name="morphe_search_comments_clear">Löschen</string>
+    <string name="morphe_search_comments_cleared">Suche gelöscht. Ändere die Sortierreihenfolge oder öffne die Kommentare erneut, um alle Kommentare anzuzeigen</string>
+    <string name="morphe_search_comments_hint">Zu suchende Wörter</string>
+    <string name="morphe_search_comments_summary">Tippe auf die Suchschaltfläche in den Kommentaren, um nur die geladenen Kommentare anzuzeigen, die alle gesuchten Wörter enthalten. Setze Wörter in Anführungszeichen, um nach einer Phrase zu suchen</string>
+    <string name="morphe_search_comments_title">Kommentare durchsuchen</string>
+    <string name="morphe_secondary_caption_language_summary">Zeigt eine zweite Sprache bei den Untertiteln an und fügt dem Untertitelmenü einen Umschalter für zweisprachige Untertitel hinzu</string>
+    <string name="morphe_secondary_caption_language_title">Sekundäre Untertitel-Sprache</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Am häufigsten wiedergegeben</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Zeigt ein Vorschaubild beim Ziehen des Fortschrittsbalkens an</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Vorschaubild beim Suchen anzeigen</string>
     <string name="morphe_settings_menu_copy_path">Kopiert: %s</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Öffnen Sie den Bildschirm der Standard-App-Einstellungen einmal, um die Liste zu befüllen</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Öffne den Bildschirm der Standard-App-Einstellungen einmal, um die Liste zu befüllen</string>
     <string name="morphe_settings_menu_filter_screen_summary">Elemente auf dem Bildschirm der Standard-App-Einstellungen anhand ihres sichtbaren Namens ausblenden</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter für das Einstellungsmenü</string>
     <string name="morphe_settings_name_custom_item_hint">Name eingeben</string>
     <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
     <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
+    <string name="morphe_settings_new_indicator_days_summary">Anzahl der Tage, an denen ein Punkt neben den durch ein Update hinzugefügten Einstellungen und Optionen angezeigt wird</string>
+    <string name="morphe_settings_new_indicator_days_title">Neue Einstellungen hervorheben</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Nur Pausen, die mindestens so lang sind, werden verkürzt. Wirkt sich erst aus, wenn das nächste Video startet</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimale Pausenlänge</string>
+    <string name="morphe_skip_silence_summary">Überspringt automatisch stille Pausen im Video-Audio</string>
+    <string name="morphe_skip_silence_title">Stille überspringen</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Farbe</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Einfarbig</string>
     <string name="morphe_splash_screen_animation_style_title">Startanimation</string>
@@ -217,7 +375,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menü „Audiotrack“ fehlt</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>
-    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersiver Modus ist nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Der immersive 360°-VR-Modus ist nicht verfügbar</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
     <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Die Anmeldung bei Android VR ist erforderlich</string>
     <string name="morphe_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
@@ -229,12 +387,17 @@ Die Wiedergabe kann stottern oder Frames verlieren"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Durch Aktivierung dieser Einstellung kann Software-AV1-Decodierung verwendet werden
 
 Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s hat mehrmals hintereinander nicht funktioniert, aber %2$s schon
+
+Soll %2$s als Standard-Client festgelegt werden?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Wechseln</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Standard-Client funktioniert nicht</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player-JavaScript-Variante</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
     <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Für Android VR ist eine separate Anmeldung erforderlich. Tippen Sie hier, um fortzufahren</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
@@ -268,6 +431,8 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen</string>
+    <string name="morphe_stable_caption_blocks_summary">Gruppiert einsprachige automatische Untertitel in stabilen, lesbaren Blöcken. Zweisprachige Untertitel verwenden immer Blöcke. Einige Wörter können erscheinen, bevor sie gesprochen werden</string>
+    <string name="morphe_stable_caption_blocks_title">Stabile Untertitelblöcke</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Tippen für Warteschlangenoptionen, tippen und halten, um zu „Später ansehen“ hinzuzufügen</string>
     <string name="morphe_swap_save_and_queue_actions_title">Tausche Speichern- und Warteschlangenaktionen</string>
     <string name="morphe_tablet_layout_in_player_summary">"Stellt das alte Player-Layout wieder her
@@ -276,9 +441,32 @@ Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert i
     <string name="morphe_tablet_layout_in_player_title">Tablet-Layout im Player aktivieren</string>
     <string name="morphe_theme_color_change_foreground_summary">Verwende die Themenfarbe für Text und Symbole</string>
     <string name="morphe_theme_color_change_foreground_title">Vordergrundfarbe ändern</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Schwarz</string>
+    <string name="morphe_theme_entry_classic_youtube">Klassisch (Altes YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Dunkles Blau</string>
+    <string name="morphe_theme_entry_dark_green">Dunkles Grün</string>
+    <string name="morphe_theme_entry_dark_orange">Dunkles Orange</string>
+    <string name="morphe_theme_entry_dark_pink">Dunkles Pink</string>
+    <string name="morphe_theme_entry_dark_red">Dunkles Rot</string>
+    <string name="morphe_theme_entry_dark_yellow">Dunkles Gelb</string>
+    <string name="morphe_theme_entry_light_blue">Helles Blau</string>
+    <string name="morphe_theme_entry_light_green">Helles Grün</string>
+    <string name="morphe_theme_entry_light_orange">Helles Orange</string>
+    <string name="morphe_theme_entry_light_pink">Helles Pink</string>
+    <string name="morphe_theme_entry_light_red">Helles Rot</string>
+    <string name="morphe_theme_entry_light_yellow">Helles Gelb</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primär</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Sekundär</string>
+    <string name="morphe_theme_entry_modern_youtube">Modernes YouTube</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Klassisch (einzeilig)</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Klassisch (zweizeilig)</string>
+    <string name="morphe_video_action_bar_layout_title">Video-Aktionsleisten-Layout</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Einschränkung: Klassische Layouts kehren zum alten Stil des \"Weitere Videos\"-Overlays zurück</string>
     <string name="morphe_video_quality_prioritize_dialog">Ist diese Einstellung deaktiviert, werden bei älteren Videos möglicherweise keine Optionen zur Videoqualität angezeigt</string>
     <string name="morphe_video_quality_prioritize_summary">Priorisiert die höchstmögliche Videoqualität gegenüber der Codec-Effizienz</string>
     <string name="morphe_video_quality_prioritize_title">Videoqualität priorisieren</string>
+    <string name="morphe_volume_boost_summary">Wenn du über die maximale Lautstärke hinaus nach oben wischst, wird sie verstärkt, was laute Audios verzerren kann</string>
+    <string name="morphe_volume_boost_title">Lautstärke-Boost</string>
     <string name="morphe_vot_caption_language_title">Sprache</string>
     <string name="morphe_vot_cost_free">Kostenlos</string>
     <string name="morphe_vot_cost_per_hour">%s pro 100 Videostunden</string>
@@ -292,14 +480,14 @@ Wechsel in den Einstellungen zu einem anderen Übersetzungsanbieter oder verwend
     <string name="morphe_vot_http_error_title">Übersetzung nicht verfügbar</string>
     <string name="morphe_vot_max_speech_rate_summary">Maximaler Geschwindigkeitsmultiplikator beim Anpassen der Sprache an einen Untertitelplatz</string>
     <string name="morphe_vot_max_speech_rate_title">Maximale Sprechgeschwindigkeit</string>
-    <string name="morphe_vot_mymemory_email_summary">Optional. Geben Sie Ihre MyMemory-E-Mail-Adresse ein, um das tägliche Limit von 5.000 auf 50.000 Zeichen zu erhöhen. Lassen Sie das Feld leer, um das anonyme Limit zu verwenden</string>
+    <string name="morphe_vot_mymemory_email_summary">Optional. Gib deine MyMemory-E-Mail-Adresse ein, um das tägliche Limit von 5.000 auf 50.000 Zeichen zu erhöhen. Lass das Feld leer, um das anonyme Limit zu verwenden</string>
     <string name="morphe_vot_mymemory_email_title">MyMemory E-Mail</string>
     <string name="morphe_vot_mymemory_error">Übersetzung mit MyMemory fehlgeschlagen (Status %s)</string>
-    <string name="morphe_vot_mymemory_info_summary">"Kostenloses Übersetzungs-API, kein API-Key erforderlich. Bis zu 5.000 Zeichen pro Tag im kostenlosen Tarif oder bis zu 50.000 Zeichen pro Tag mit einer E-Mail-Adresse
+    <string name="morphe_vot_mymemory_info_summary">"Kostenlose Übersetzungs-API, kein API-Key erforderlich. Bis zu 5.000 Zeichen pro Tag im kostenlosen Tarif oder bis zu 50.000 Zeichen pro Tag mit einer E-Mail-Adresse
 
-Tippen Sie hier, um MyMemory.translated.net zu öffnen"</string>
+Tippe hier, um MyMemory.translated.net zu öffnen"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Du hast dein tägliches kostenloses Übersetzungskontingent für MyMemory (5.000 Zeichen) verbraucht. Füge eine MyMemory registrierte E-Mail-Adresse in den Einstellungen hinzu, um das tägliche Limit auf 50.000 Zeichen zu erhöhen oder wechsel zu einem anderen Übersetzungsdienst</string>
-    <string name="morphe_vot_mymemory_quota_message_with_email">Sie haben heute Ihr MyMemory-Übersetzungskontingent (50.000 Zeichen) verbraucht. Wechseln Sie zu einem anderen Übersetzungsdienst oder versuchen Sie es morgen erneut</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Du hast heute dein MyMemory-Übersetzungskontingent (50.000 Zeichen) verbraucht. Wechsle zu einem anderen Übersetzungsdienst oder versuche es morgen erneut</string>
     <string name="morphe_vot_mymemory_quota_next_available">Wieder verfügbar um %s</string>
     <string name="morphe_vot_mymemory_quota_title">MyMemory tägliches Limit erreicht</string>
     <string name="morphe_vot_openrouter_api_key_summary">Ihr OpenRouter API-Key. Erstellen Sie einen Key unter OpenRouter.ai &gt; Workspace &gt; API-Keys</string>
@@ -307,11 +495,11 @@ Tippen Sie hier, um MyMemory.translated.net zu öffnen"</string>
     <string name="morphe_vot_openrouter_credits_message">Dein Guthabenlimit für OpenRouter wurde erreicht. Lade dein Guthaben auf oder erhöhe das Ausgabenlimit bei OpenRouter.ai</string>
     <string name="morphe_vot_openrouter_credits_title">OpenRouter-Guthabenlimit erreicht</string>
     <string name="morphe_vot_openrouter_error">Übersetzung mit OpenRouter fehlgeschlagen (HTTP %s)</string>
-    <string name="morphe_vot_openrouter_info_summary">"Kostenpflichtige KI-Übersetzung über OpenRouter. Laden Sie Guthaben auf und übersetzen Sie Tausende von Videos. Mistral Nemo ist die günstigste Option, Gemma 4 bietet die höchste Qualität
+    <string name="morphe_vot_openrouter_info_summary">"Kostenpflichtige KI-Übersetzung über OpenRouter. Lade Guthaben auf und übersetze Tausende von Videos. Mistral Nemo ist die günstigste Option, Gemma 4 bietet die höchste Qualität
 
-Tippen Sie hier, um OpenRouter.ai zu öffnen"</string>
+Tippe hier, um OpenRouter.ai zu öffnen"</string>
     <string name="morphe_vot_openrouter_model_title">OpenRouter-Modell</string>
-    <string name="morphe_vot_openrouter_not_configured_message">Geben Sie Ihren OpenRouter-API-Key in den Einstellungen ein, bevor Sie diesen Anbieter auswählen</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Gib deinen OpenRouter-API-Key in den Einstellungen ein, bevor du diesen Anbieter auswählst</string>
     <string name="morphe_vot_openrouter_not_configured_title">OpenRouter nicht konfiguriert</string>
     <string name="morphe_vot_openrouter_open_website">Öffne OpenRouter.ai</string>
     <string name="morphe_vot_original_audio_volume_summary">Lautstärke des Original-YouTube-Audios, während die Übersetzung spricht</string>
@@ -330,19 +518,10 @@ Tippen Sie hier, um OpenRouter.ai zu öffnen"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Old style flyout menu is used</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Custom dialog is used</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow bietet von der Community bereitgestellte Vorschaubilder für YouTube-Videos. Diese Vorschaubilder sind oft relevanter als die von YouTube bereitgestellten
-
-Wenn diese Option aktiviert ist, werden Video-URLs an den API-Server gesendet und keine anderen Daten werden gesendet. Wenn ein Video keine DeArrow-Vorschaubilder hat, wird das originale oder ein Standbild angezeigt
-
-Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">Über DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Ungültige DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Die URL des Cache Endpunkts der DeArrow Thumbnails</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API-Endpunkt</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast wird nicht angezeigt, wenn DeArrow nicht verfügbar ist</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast wird angezeigt, wenn DeArrow nicht verfügbar ist</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow ist vorübergehend nicht verfügbar (Statuscode: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow ist vorübergehend nicht verfügbar</string>
     <string name="revanced_alt_thumbnail_home_title">Für den Home-Tab</string>
     <string name="revanced_alt_thumbnail_library_title">Für den \"Für dich\"-Tab</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Original-Vorschaubilder</string>
@@ -353,9 +532,6 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_alt_thumbnail_search_title">Für Suchergebnisse</string>
     <string name="revanced_alt_thumbnail_stills">Zeige noch Videoaufnahmen</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Standbilder werden vom Anfang / Mitte / Ende jedes Videos erstellt. Diese Bilder stammen von YouTube und es wird keine externe API verwendet</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Standbilder in hoher Qualität verwenden</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Standbilder in mittlerer Qualität verwenden. Die Vorschaubilder werden schneller geladen, aber Livestreams, unveröffentlichte oder sehr alte Videos können leere Vorschaubilder anzeigen</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Schnelle Standbilder verwenden</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Anfang</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Mitte</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Ende</string>
@@ -371,11 +547,11 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Videoqualität hinzufügen</string>
     <string name="revanced_append_time_stamp_information_type_title">Informationstyp anhängen</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Video quality menu type</string>
-    <string name="revanced_auto_captions_style_entry_1">Erforderlich, damit automatische Untertitel korrekt funktionieren</string>
+    <string name="revanced_auto_captions_style_entry_1">Immer anzeigen</string>
     <string name="revanced_auto_captions_style_entry_2">Nie anzeigen</string>
     <string name="revanced_auto_captions_style_entry_3">Bei Stummschaltung anzeigen</string>
-    <string name="revanced_auto_captions_style_entry_4">Zeige bei stummgeschaltet</string>
-    <string name="revanced_auto_captions_style_title">Automatische Untertitel-Ansicht</string>
+    <string name="revanced_auto_captions_style_entry_4">Bei Stummschaltung anzeigen</string>
+    <string name="revanced_auto_captions_style_title">Sichtbarkeit automatischer Untertitel</string>
     <string name="revanced_back_button_always_exits_feed_title">Zurück-Taste verlässt den Feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden nicht umgangen</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden umgangen</string>
@@ -386,34 +562,34 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
 
 Durch Aktivieren dieser Option können fehlende Bilder behoben werden, die in einigen Regionen blockiert sind"</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Bild-Host yt4.ggpht.com verwenden</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Bildgebietsbeschränkungen umgehen</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Regionsbeschränkungen für Bilder umgehen</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL-Umleitungen werden nicht umgangen</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL-Umleitungen werden umgangen</string>
     <string name="revanced_bypass_url_redirects_title">URL-Weiterleitungen umgehen</string>
     <string name="revanced_cancel">Abbrechen</string>
-    <string name="revanced_change_form_factor_entry_1">Standard</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
-    <string name="revanced_change_form_factor_entry_3">Tablets</string>
-    <string name="revanced_change_form_factor_entry_4">Automobil</string>
+    <string name="revanced_change_form_factor_entry_3">Tablet</string>
+    <string name="revanced_change_form_factor_entry_4">Auto</string>
     <string name="revanced_change_form_factor_entry_5">Tablet (min. 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automobil</string>
     <string name="revanced_change_form_factor_title">Geräte-Layout</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Die Änderungen umfassen:
+    <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
 
 Tablet-Layout
-• Community-Beiträge sind ausgeblendet
-• Die Einstellung 'Wiedergabe in Feeds' ist nicht verfügbar
-• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
-• 'Weitere Videos'-Overlay ist möglicherweise nicht verfügbar
-• Die alte, nicht eingeklappte Video-Aktionsleiste wird angezeigt
+• Community-Beiträge werden ausgeblendet
+• Die Einstellung \"Wiedergabe in Feeds\" ist nicht verfügbar
+• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
+• Das Overlay \"Weitere Videos\" ist möglicherweise nicht verfügbar
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt
+• Flyout-Menüelemente funktionieren möglicherweise nicht korrekt
 
-Automotive-Layout
+Automobil-Layout
 • Der Feed ist nach Themen und Kanälen organisiert
-• Die Einstellung 'Wiedergabe in Feeds' ist nicht verfügbar
-• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
-• 'Weitere Videos'-Overlay ist möglicherweise nicht verfügbar
-• Shorts werden im normalen Player geöffnet
-• Die alte, nicht eingeklappte Video-Aktionsleiste wird angezeigt"</string>
+• Die Einstellung \"Wiedergabe in Feeds\" ist nicht verfügbar
+• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
+• Das Overlay \"Weitere Videos\" ist möglicherweise nicht verfügbar
+• Shorts öffnen sich im regulären Player
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Schalter werden verwendet</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Textschalter werden verwendet</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Umschalttyp ändern</string>
@@ -431,13 +607,13 @@ Bei serverseitigen Änderungen kann sich die Hintergrundfarbe der Snackleiste ni
     <string name="revanced_change_start_page_entry_all_subscriptions">Alle Abonnements</string>
     <string name="revanced_change_start_page_entry_browse">Kanäle durchsuchen</string>
     <string name="revanced_change_start_page_entry_courses">Kurse / Lernen</string>
-    <string name="revanced_change_start_page_entry_explore">Erforschen</string>
+    <string name="revanced_change_start_page_entry_explore">Entdecken</string>
     <string name="revanced_change_start_page_entry_fashion">Mode &amp; Schönheit</string>
     <string name="revanced_change_start_page_entry_gaming">Spielen</string>
     <string name="revanced_change_start_page_entry_history">Verlauf</string>
     <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Bibliothek</string>
-    <string name="revanced_change_start_page_entry_liked_videos">Videos, die ich mag</string>
+    <string name="revanced_change_start_page_entry_liked_videos">Videos, die mir gefallen</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
     <string name="revanced_change_start_page_entry_movies">Filme</string>
     <string name="revanced_change_start_page_entry_music">Musik</string>
@@ -445,12 +621,12 @@ Bei serverseitigen Änderungen kann sich die Hintergrundfarbe der Snackleiste ni
     <string name="revanced_change_start_page_entry_notifications">Benachrichtigungen</string>
     <string name="revanced_change_start_page_entry_playlists">Playlisten</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
-    <string name="revanced_change_start_page_entry_search">Suchen</string>
-    <string name="revanced_change_start_page_entry_shopping">Einkaufen</string>
+    <string name="revanced_change_start_page_entry_search">Suche</string>
+    <string name="revanced_change_start_page_entry_shopping">Shopping</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
-    <string name="revanced_change_start_page_entry_trending">Beliebt</string>
+    <string name="revanced_change_start_page_entry_trending">Trends</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Virtuelle Realität</string>
     <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
     <string name="revanced_change_start_page_entry_your_clips">Deine Clips</string>
@@ -479,7 +655,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_custom_playback_speed_menu_type_title">Menü-Typ für benutzerdefinierte Wiedergabegeschwindigkeiten</string>
     <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Wiedergabegeschwindigkeiten müssen kleiner als %s sein</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
-    <string name="revanced_custom_playback_speeds_summary">Geben Sie Ihre bevorzugte Wiedergabegeschwindigkeitsoption ein</string>
+    <string name="revanced_custom_playback_speeds_summary">Gib deine bevorzugte Wiedergabegeschwindigkeit ein</string>
     <string name="revanced_custom_playback_speeds_title">Benutzerdefinierte Wiedergabegeschwindigkeiten</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Die Transparenz der Spieler-Überlagerung muss zwischen 0-100 liegen</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Deckkraft Wert zwischen 0-100, wobei 0 transparent ist</string>
@@ -529,7 +705,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_disable_ambient_mode_summary">Disables ambient mode</string>
     <string name="revanced_disable_ambient_mode_summary_off">Modus \"Ambient\" ist aktiviert</string>
     <string name="revanced_disable_ambient_mode_summary_on">Modus \"Ambient\" ist deaktiviert</string>
-    <string name="revanced_disable_ambient_mode_title">Modus \"Ambient\" deaktivieren</string>
+    <string name="revanced_disable_ambient_mode_title">Ambient-Modus deaktivieren</string>
     <string name="revanced_disable_auto_captions_summary_off">Automatische Untertitel sind aktiviert</string>
     <string name="revanced_disable_auto_captions_summary_on">Automatische Untertitel sind deaktiviert</string>
     <string name="revanced_disable_auto_captions_title">Autounterschriften deaktivieren</string>
@@ -567,31 +743,31 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">Haptik für das Rückgängigmachen der Suche deaktivieren</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Haptisches Feedback bei Tippen und Halten ist aktiviert</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Haptisches Feedback bei Tippen und Halten ist deaktiviert</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Deaktivieren Sie das Antippen und Halten von Haptik</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Haptik bei Tippen und Halten deaktivieren</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Zoomhaptik deaktivieren</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">Automatische HDR-Helligkeit ist aktiviert</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">Automatische HDR-Helligkeit ist deaktiviert</string>
     <string name="revanced_disable_hdr_auto_brightness_title">Deaktiviere automatische HDR-Helligkeit</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR-Video ist aktiviert</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR-Video ist deaktiviert</string>
-    <string name="revanced_disable_hdr_video_title">Deaktiviere HDR-Video</string>
+    <string name="revanced_disable_hdr_video_title">HDR-Video deaktivieren</string>
     <string name="revanced_disable_landscape_mode_summary_off">Querformat im Vollbild Modus aktiviert</string>
     <string name="revanced_disable_landscape_mode_summary_on">Querformat im Vollbild Modus deaktiviert</string>
     <string name="revanced_disable_landscape_mode_title">Querformat deaktivieren</string>
     <string name="revanced_disable_layout_updates_summary_off">Der Server aktualisiert das Layout</string>
     <string name="revanced_disable_layout_updates_summary_on">Der Server aktualisiert das Layout nicht</string>
     <string name="revanced_disable_layout_updates_title">Layoutaktualisierungen deaktivieren</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout wird auf das bei der Erstinstallation verwendete Layout zurückgesetzt
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout kehrt zum Layout zurück, das bei der Erstinstallation verwendet wurde
 
 Einige serverseitige Layouts werden möglicherweise nicht zurückgesetzt
 
-Folgende Änderungen werden vorgenommen:
-• Komponenten im Aufklappmenü des Players (oder in verwandten Einstellungen) funktionieren eventuell nicht
-• Sich aktualisierende Zahlen werden nicht animiert
-• Der Tab „Mediathek“ wird angezeigt
-• Der Abschnitt „Musik“ in der Videobeschreibung funktioniert möglicherweise nicht
-• Elemente im Aufklappmenü des Players können nicht ausgeblendet werden
-• Die Schaltfläche zum Kontowechsel im Tab „Mediathek“ wird eventuell nicht angezeigt"</string>
+Folgende Änderungen sind enthalten:
+• Komponenten im Flyout-Menü des Players (oder verwandte Einstellungen) funktionieren eventuell nicht
+• Laufende Zahlen sind nicht animiert
+• Tab „Mediathek“ wird angezeigt
+• Der Musikabschnitt der Videobeschreibung funktioniert eventuell nicht
+• Elemente im Flyout-Menü des Players können nicht ausgeblendet werden
+• Die Schaltfläche zum Kontowechsel wird eventuell nicht im Tab „Mediathek“ angezeigt"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchtet, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>
@@ -605,7 +781,7 @@ Folgende Änderungen werden vorgenommen:
     <string name="revanced_disable_resuming_shorts_player_title">Fortsetzen des Shorts Players deaktivieren</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Rollende Zahlen sind animiert</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Rollende Zahlen sind nicht animiert</string>
-    <string name="revanced_disable_rolling_number_animations_title">Rollladen-Animationen deaktivieren</string>
+    <string name="revanced_disable_rolling_number_animations_title">Animationen für rollende Zahlen deaktivieren</string>
     <string name="revanced_disable_seekbar_chapters_summary_off">Kapitel sind in der Suchleiste aktiviert</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Kapitel sind in der Suchleiste deaktiviert</string>
     <string name="revanced_disable_seekbar_chapters_title">Suchleisten-Kapitel deaktivieren</string>
@@ -648,7 +824,7 @@ Information:
 • Videowiedergabe wird mehr Internet-Daten als VP9 verwenden
 • VP9-Codec wird immer noch für HDR-Videos verwendet"</string>
     <string name="revanced_disable_vp9_codec_title">VP9 Codec deaktivieren</string>
-    <string name="revanced_dismiss_player_not_available_toast">Video-ID ist nicht verfügbar. Bitte laden Sie das Video manuell neu</string>
+    <string name="revanced_dismiss_player_not_available_toast">Video-ID ist nicht verfügbar. Bitte lade das Video manuell neu</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Kairoer Suchleiste ist deaktiviert</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Kairo Suchleiste ist aktiviert
 
@@ -750,7 +926,7 @@ Um diese Funktion zu nutzen, ändern Sie einfach 'Standard-Client (Spoof-Streami
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s ist nicht installiert
 Bitte lade %2$s von der Webseite herunter"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warnung</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installiere es</string>
     <string name="revanced_external_downloader_other_item">Andere</string>
     <string name="revanced_external_downloader_other_item_hint">Paketname eingeben</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Paketname Ihrer installierten externen Downloader-App, wie z. B. YTDLnis</string>
@@ -760,7 +936,7 @@ Bitte lade %2$s von der Webseite herunter"</string>
     <string name="revanced_external_downloader_package_name_video_title">Paketname des Video-Downloaders</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Es konnte keine installierte App mit dem Paketnamen %s gefunden werden
 
-Überprüfen Sie, ob der Paketname korrekt ist und die App installiert ist"</string>
+Überprüfe, ob der Paketname korrekt ist und die App installiert ist"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Hype Button Symbol ist ausgeblendet</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Hype Button Symbol wird angezeigt</string>
     <string name="revanced_fix_hype_button_icon_title">Fix Hype Button Symbol</string>
@@ -781,7 +957,7 @@ Bekanntes Problem: Manchmal erscheint die Wisch-Überlagerung, bevor zum Vollbil
     <string name="revanced_fix_transcript_title">Transkript reparieren</string>
     <string name="revanced_force_hdr_video_summary">Zwingt die App, dieses Gerät als HDR-fähig zu erkennen</string>
     <string name="revanced_force_hdr_video_title">HDR-Video erzwingen</string>
-    <string name="revanced_force_hdr_video_user_dialog_message">"Verwenden Sie dies, wenn HDR-Dekodierung funktioniert, YouTube jedoch kein HDR anbietet, wie z. B. einige HyperOS-Geräte, die HLG verbergen
+    <string name="revanced_force_hdr_video_user_dialog_message">"Verwende dies, wenn HDR-Dekodierung funktioniert, YouTube jedoch kein HDR anbietet, wie z. B. einige HyperOS-Geräte, die HLG verbergen
 
 Einschränkungen:
 • Farben können falsch aussehen, wenn das Display tatsächlich kein HDR anzeigen kann
@@ -850,7 +1026,7 @@ Info:
     <string name="revanced_hide_ai_comments_summary_title">KI-Kommentar-Zusammenfassung ausblenden</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Abschnitt mit KI-generierter Videozusammenfassung wird angezeigt</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">KI-generierter Videozusammenfassungsbereich ist ausgeblendet</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_title">KI-generierte Videozusammenfassungs-Bereich ausblenden</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Bereich „KI-generierte Videozusammenfassung“ ausblenden</string>
     <string name="revanced_hide_album_card_summary_off">Albumkarten werden angezeigt</string>
     <string name="revanced_hide_album_card_summary_on">Albumkarten werden ausgeblendet</string>
     <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
@@ -859,10 +1035,10 @@ Info:
     <string name="revanced_hide_ask_button_title">Schaltfläche „Fragen“ ausblenden</string>
     <string name="revanced_hide_ask_section_summary_off">Ask Abschnitt wird angezeigt</string>
     <string name="revanced_hide_ask_section_summary_on">Ask Abschnitt ist ausgeblendet</string>
-    <string name="revanced_hide_ask_section_title">Ask-Bereich ausblenden</string>
+    <string name="revanced_hide_ask_section_title">Bereich „Fragen“ ausblenden</string>
     <string name="revanced_hide_attributes_section_summary_off">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen werden angezeigt</string>
     <string name="revanced_hide_attributes_section_summary_on">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen sind ausgeblendet</string>
-    <string name="revanced_hide_attributes_section_title">Attributes-Bereich ausblenden</string>
+    <string name="revanced_hide_attributes_section_title">Bereich „Attribute“ ausblenden</string>
     <string name="revanced_hide_autoplay_preview_summary_off">Autoplay-Vorschau wird angezeigt</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Autoplay-Vorschau ist ausgeblendet</string>
     <string name="revanced_hide_autoplay_preview_title">Autoplay-Vorschau ausblenden</string>
@@ -910,7 +1086,7 @@ Info:
     <string name="revanced_hide_channel_tab_filter_strings_hint">"Shorts
 Playlists
 Store"</string>
-    <string name="revanced_hide_channel_tab_filter_strings_summary">Geben Sie die Namen der Kanalregisterkarten ein, die durch neue Zeilen getrennt werden sollen, um danach zu filtern</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">Gib die Namen der Kanalregisterkarten ein, nach denen gefiltert werden soll, getrennt durch Zeilenumbrüche</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">Kanalregisterfilter</string>
     <string name="revanced_hide_channel_tab_summary_off">Kanal-Tab-Filter ist deaktiviert</string>
     <string name="revanced_hide_channel_tab_summary_on">Kanal-Tab-Filter ist aktiviert</string>
@@ -920,7 +1096,7 @@ Store"</string>
     <string name="revanced_hide_channel_watermark_title">Kanal-Wasserzeichen ausblenden</string>
     <string name="revanced_hide_chapters_section_summary_off">Kapitel wird angezeigt</string>
     <string name="revanced_hide_chapters_section_summary_on">Kapitel ist ausgeblendet</string>
-    <string name="revanced_hide_chapters_section_title">Chapters-Bereich ausblenden</string>
+    <string name="revanced_hide_chapters_section_title">Kapitel-Bereich ausblenden</string>
     <string name="revanced_hide_chips_shelf_off">Chips-Abschnitt wird angezeigt</string>
     <string name="revanced_hide_chips_shelf_on">Chips-Abschnitt wird versteckt</string>
     <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
@@ -970,7 +1146,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_community_posts_channel_summary_on">Auf Kanalseite ausgeblendet</string>
     <string name="revanced_hide_community_posts_channel_title">Auf Kanalseite ausblenden</string>
     <string name="revanced_hide_connect_button_title">Schaltfläche „Verbinden“ ausblenden</string>
-    <string name="revanced_hide_corrections_section_title">Corrections-Bereich ausblenden</string>
+    <string name="revanced_hide_corrections_section_title">Bereich „Korrekturen“ ausblenden</string>
     <string name="revanced_hide_course_progress_section_title">Kursfortschritt-Bereich ausblenden</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator Store-Regal unter dem Videoplayer wird angezeigt</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator Store-Regal unter dem Videoplayer ist ausgeblendet</string>
@@ -989,7 +1165,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_download_button_title">Schaltfläche „Herunterladen“ ausblenden</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Endbildschirmkarten werden angezeigt</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Endbildschirmkarten sind ausgeblendet</string>
-    <string name="revanced_hide_end_screen_cards_title">Endkarte ausblenden</string>
+    <string name="revanced_hide_end_screen_cards_title">Endkarten ausblenden</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Endbildschirm-Shop-Banner wird angezeigt</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Endbildschirm-Shop-Banner ist ausgeblendet</string>
     <string name="revanced_hide_end_screen_store_banner_title">Shop-Banner im Endscreen ausblenden</string>
@@ -1005,19 +1181,19 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_expandable_shelf_summary_off">Erweiterbare Regale werden angezeigt</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Erweiterbare Regale sind ausgeblendet</string>
     <string name="revanced_hide_expandable_shelf_title">Erweiterbare Regale ausblenden</string>
-    <string name="revanced_hide_explore_course_section_title">Kurs erkunden-Bereich ausblenden</string>
+    <string name="revanced_hide_explore_course_section_title">Bereich „Kurs erkunden“ ausblenden</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Der Abschnitt „Podcast entdecken“ wird angezeigt</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Der Abschnitt „Podcast entdecken“ ist ausgeblendet</string>
-    <string name="revanced_hide_explore_podcast_section_title">Podcast erkunden-Bereich ausblenden</string>
+    <string name="revanced_hide_explore_podcast_section_title">Bereich „Podcast erkunden“ ausblenden</string>
     <string name="revanced_hide_explore_section_title">Entdecken-Bereich ausblenden</string>
     <string name="revanced_hide_featured_channels_section_title">Ausblenden des Bereichs „Empfohlene Kanäle“</string>
     <string name="revanced_hide_featured_links_section_summary_off">Bereich „Empfohlene Links“ wird angezeigt</string>
     <string name="revanced_hide_featured_links_section_summary_on">Bereich „Empfohlene Links“ wird ausgeblendet</string>
-    <string name="revanced_hide_featured_links_section_title">Empfohlene Links-Bereich ausblenden</string>
+    <string name="revanced_hide_featured_links_section_title">Bereich „Empfohlene Links“ ausblenden</string>
     <string name="revanced_hide_featured_playlists_section_title">Bereich mit empfohlenen Playlists ausblenden</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Bereich „Empfohlene Videos“ wird angezeigt</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Bereich „Empfohlene Videos“ wird ausgeblendet</string>
-    <string name="revanced_hide_featured_videos_section_title">Empfohlene Videos-Bereich ausblenden</string>
+    <string name="revanced_hide_featured_videos_section_title">Bereich „Empfohlene Videos“ ausblenden</string>
     <string name="revanced_hide_feed_captions_button_off">Schaltfläche \"Untertitel\" wird angezeigt</string>
     <string name="revanced_hide_feed_captions_button_on">Schaltfläche \"Untertitel\" ist versteckt</string>
     <string name="revanced_hide_feed_captions_button_title">Verstecke \"Untertitel\" Schaltfläche</string>
@@ -1049,7 +1225,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
     <string name="revanced_hide_handle_summary_off">Handle wird angezeigt</string>
     <string name="revanced_hide_handle_summary_on">Handle ist ausgeblendet</string>
-    <string name="revanced_hide_handle_title">Verstecke Handle</string>
+    <string name="revanced_hide_handle_title">Handle ausblenden</string>
     <string name="revanced_hide_hashtag_section_title">Hashtag-Bereich ausblenden</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" wird angezeigt</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" ist ausgeblendet</string>
@@ -1082,12 +1258,11 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \"Schlüsselkonzepte\" wird angezeigt</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Abschnitt \"Schlüsselkonzepte\" ist ausgeblendet</string>
     <string name="revanced_hide_key_concepts_section_title">Abschnitt „Schlüsselkonzepte“ ausblenden</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Die Startseite / Abonnements / Suche / Kommentare werden gefiltert, um Inhalte auszublenden, die mit den Filtern übereinstimmen
+    <string name="revanced_hide_keyword_content_about_summary">"Startseite / Abonnements / Suche / Kommentare werden gefiltert, um Inhalte auszublenden, die mit Stichwortphrasen übereinstimmen
 
 Einschränkungen:
-• Shorts können nicht nach Kanalnamen ausgeblendet werden
-• Einige UI-Komponenten lassen sich möglicherweise nicht ausblenden
-• Die Suche nach einem Stichwort liefert möglicherweise keine Ergebnisse"</string>
+• Einige Shorts können nicht nach Kanalnamen ausgeblendet werden
+• Einige UI-Komponenten lassen sich möglicherweise nicht ausblenden"</string>
     <string name="revanced_hide_keyword_content_about_title">Über Keyword-Filterung</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Durch das Umschließen eines Stichwortes / einer Wortgruppe mit doppelten Anführungszeichen werden unvollständige Übereinstimmungen bei Videotiteln und Kanalnamen verhindert&lt;br&gt;&lt;br&gt;Beispielsweise wird &lt;br&gt;&lt;b&gt;\"ki\"&lt;/b&gt; das folgende Video ausblenden: &lt;b&gt;Wie KI funktioniert&lt;/b&gt;&lt;br&gt;, aber nicht: &lt;b&gt;Wie lebten die  Wikinger?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Ganze Wörter abgleichen</string>
@@ -1097,12 +1272,10 @@ Einschränkungen:
     <string name="revanced_hide_keyword_content_home_summary_off">Videos im Home-Tab werden nicht nach Schlüsselwörtern gefiltert</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Videos im Home-Tab werden nach Schlüsselwörtern gefiltert</string>
     <string name="revanced_hide_keyword_content_home_title">Videos auf der Startseite nach Stichwörtern ausblenden</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Gib Schlüsselwörter und Phrasen ein, die du ausblenden möchtest, getrennt durch neue Zeilen
+    <string name="revanced_hide_keyword_content_phrases_summary">"Geben Sie Schlüsselwörter und Phrasen ein, die Sie ausblenden möchten, getrennt durch neue Zeilen
 
-Schlüsselwörter können beliebige Texte sein, die in Videotiteln oder Kanalnamen angezeigt werden
-
-Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iPhone, TikTok, LeBlanc)"</string>
-    <string name="revanced_hide_keyword_content_phrases_title">Zu versteckende Stichwörter</string>
+Schlüsselwörter können beliebige Texte sein, die in Videotiteln angezeigt werden. Das Schlüsselwort @Benutzername blendet alle Inhalte bestimmter Ersteller aus"</string>
+    <string name="revanced_hide_keyword_content_phrases_title">Auszublendende Stichwörter</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Suchergebnisse werden nicht nach Schlüsselwörtern gefiltert</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Suchergebnisse werden nach Schlüsselwörtern gefiltert</string>
     <string name="revanced_hide_keyword_content_search_title">Suchergebnisse nach Stichwörtern ausblenden</string>
@@ -1113,9 +1286,6 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' Operator (\'&amp;\') ist aktiviert.&lt;br&gt;&lt;br&gt;Wenn &lt;strong&gt;\"Blau\" &amp; \"Rot\"&lt;/strong&gt; als Stichwort verwendet wird, Schlüsselwörter, die sowohl &lt;strong&gt;Blaue&lt;/strong&gt; als auch &lt;strong&gt;Rote&lt;/strong&gt; enthalten, werden gefiltert</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">\'AND\' Operator verwenden (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Stichwort wird alle Videos ausblenden: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Kann Schlüsselwort nicht verwenden: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Füge Anführungszeichen hinzu, um als Stichwort zu verwenden: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Schlüsselwort hat widersprüchliche Erklärungen: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Stichwort ist zu kurz und benötigt Anführungszeichen: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Neueste Beiträge werden angezeigt</string>
     <string name="revanced_hide_latest_posts_summary_on">Neueste Beiträge werden ausgeblendet</string>
@@ -1259,7 +1429,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_off">\'In VR ansehen\'-Menü wird angezeigt</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_on">\'In VR ansehen\'-Menü wird ausgeblendet</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_title">\'In VR ansehen\'-Menü ausblenden</string>
-    <string name="revanced_hide_player_flyout_quality_title">„Qualität“ Ausblenden</string>
+    <string name="revanced_hide_player_flyout_quality_title">„Qualität“ ausblenden</string>
     <string name="revanced_hide_player_fullscreen_button_summary_off">Vollbild-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"Vollbild-Schaltfläche wird ausgeblendet"</string>
     <string name="revanced_hide_player_fullscreen_button_title">Vollbild-Schaltfläche ausblenden</string>
@@ -1380,7 +1550,7 @@ Info:
     <string name="revanced_hide_shorts_live_header_title">Live-Chat-Kopfzeile ausblenden</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">Live-Vorschau wird angezeigt</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">Live-Vorschau ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_live_preview_title">Ausblenden \"Live-Vorschau\"</string>
+    <string name="revanced_hide_shorts_live_preview_title">Live-Vorschau ausblenden</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Standortbutton wird angezeigt</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Standortbutton ist ausgeblendet</string>
     <string name="revanced_hide_shorts_location_button_title">Standortschaltfläche ausblenden</string>
@@ -1616,8 +1786,8 @@ Bekanntes Problem: Wenn diese Einstellung aktiviert ist, sind YouTube Doodles ni
     <string name="revanced_language_VI">Vietnamesisch\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinesisch\n<small>中文</small></string>
     <string name="revanced_language_title">RVX-Sprache</string>
-    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausiere die Wiedergabe mit horizontaler Geste</string>
-    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Merke dir die Position der Geste</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Wiedergabe mit horizontaler Geste pausieren</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Position der Geste merken</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Doppel-Tipp-Aktion und Pinch um die Größe zu verändern, ist deaktiviert</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Doppeltippen und mit zwei Fingern vergrößern/verkleinern ist aktiviert
 
@@ -1655,16 +1825,16 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
     <string name="revanced_miniplayer_rounded_corners_title">Abgerundete Ecken aktivieren</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
     <string name="revanced_miniplayer_type_entry_3">Minimal 2</string>
-    <string name="revanced_miniplayer_type_entry_4">Tablets</string>
+    <string name="revanced_miniplayer_type_entry_4">Tablet</string>
     <string name="revanced_miniplayer_type_entry_5">Modern 1</string>
     <string name="revanced_miniplayer_type_entry_6">Modern 2</string>
     <string name="revanced_miniplayer_type_entry_7">Modern 3</string>
-    <string name="revanced_miniplayer_type_title">Minispielertyp</string>
+    <string name="revanced_miniplayer_type_title">Miniplayer-Typ</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelgröße muss zwischen %1$s und %2$s liegen</string>
-    <string name="revanced_miniplayer_width_dip_summary">Legen Sie die Anfangsgröße auf dem Bildschirm in Pixeln fest</string>
+    <string name="revanced_miniplayer_width_dip_summary">Lege die Anfangsgröße auf dem Bildschirm in Pixeln fest</string>
     <string name="revanced_miniplayer_width_dip_title">Standardgröße</string>
-    <string name="revanced_navigation_bar_animations_summary">Audio Track-Menü-Fußzeile ausblenden</string>
-    <string name="revanced_navigation_bar_animations_title">Navigation bar animations aktivieren</string>
+    <string name="revanced_navigation_bar_animations_summary">Animiert Übergänge beim Wechseln zwischen Tabs</string>
+    <string name="revanced_navigation_bar_animations_title">Animationen der Navigationsleiste aktivieren</string>
     <string name="revanced_open_links_externally_summary_off">Öffnet Links im In-App-Browser</string>
     <string name="revanced_open_links_externally_summary_on">Öffnet Links im externen Browser</string>
     <string name="revanced_open_links_externally_title">Öffne Links extern</string>
@@ -1758,7 +1928,6 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen</
     <string name="revanced_preference_screen_account_menu_title">Account-Menü</string>
     <string name="revanced_preference_screen_action_buttons_summary">Aktionsschaltflächen unter Videos ausblenden oder anzeigen</string>
     <string name="revanced_preference_screen_ads_title">Werbeanzeigen</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternative Vorschaubilder</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Ambient-Modus deaktivieren oder Einschränkungen des Ambient-Modus umgehen</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ambient-Modus</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Karussell-Regal auf der Startseite, in den Suchergebnissen und im Abo-Feed ein- oder ausblenden</string>
@@ -1873,7 +2042,7 @@ Beschreibung
 ══════════════
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Der obere Rand der Schnellaktionen muss zwischen 0-32 liegen. Zurückgesetzt auf Standardwerte</string>
-    <string name="revanced_quick_actions_top_margin_summary">Legen Sie den oberen Rand der Schnellaktionsleiste fest (0-32 dp)</string>
+    <string name="revanced_quick_actions_top_margin_summary">Lege den oberen Rand der Schnellaktionsleiste fest (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Oberer Rand für Schnellaktionen</string>
     <string name="revanced_remember_playback_audio_pitch_toast">Standard-Tonhöhe geändert zu: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Änderungen der Wiedergabegeschwindigkeit gelten nur für das aktuelle Video</string>
@@ -1881,7 +2050,7 @@ Beschreibung
     <string name="revanced_remember_playback_speed_last_selected_title">Wiedergabegeschwindigkeit speichern</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standardwiedergabegeschwindigkeit geändert wird</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Wiedergabegeschwindigkeit geändert wird</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_title">Geschwindigkeitsänderungsbenachrichtigungen</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Benachrichtigungen bei Geschwindigkeitsänderung</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">Veränderungen an der Wiedergabegeschwindigkeit ist nur für den aktuellen Short gültig</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"Änderungen zur Wiedergabegeschwindigkeit werden für alle Shorts übernommen
 
@@ -1895,7 +2064,7 @@ Information:
     <string name="revanced_remember_playback_speed_toast_shorts">Standard Shorts Wiedergabegeschwindigkeit wurde zu %s verändert</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Videoqualität speichern</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Videoqualität merken</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standard-Videoqualität geändert wird</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Videoqualität geändert wird</string>
     <string name="revanced_remember_video_quality_mobile">Mobile</string>
@@ -1954,9 +2123,9 @@ Klicken Sie hier, um zu sehen, wie Sie einen API-Schlüssel ausgeben"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Gehen Sie zu &lt;a href=%1$s&gt;Erstellen Sie ein neues Projekt&lt;/a&gt;.&lt;br&gt;. Klicken Sie auf die &lt;b&gt;Erstelle&lt;/b&gt; Schaltfläche.&lt;br&gt;3. Gehen Sie zu &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Klicken Sie auf &lt;b&gt;&lt;/b&gt; Knopf.&lt;br&gt;5. Klicken Sie auf &lt;b&gt;CREDENTIALS&lt;/b&gt; Schaltfläche.&lt;br&gt;6. Wählen Sie die Option &lt;b&gt;Öffentliche Daten&lt;/b&gt; aus.&lt;br&gt;7. Klicken Sie auf die &lt;b&gt;NEXT&lt;/b&gt; Schaltfläche.&lt;br&gt;8. API-Schlüssel kopieren.&lt;br&gt;&lt;br&gt; ※ API-Schlüssel sollte niemals mit anderen geteilt werden, daher ist er nicht in den Einstellungen Import / Export enthalten</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Entwicklerschlüssel ausgeben</string>
     <string name="revanced_ryd_about">Über</string>
-    <string name="revanced_ryd_attribution_summary">"Daten werden von der Return YouTube Dislike API bereitgestellt
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike stellt die Anzahl der Dislikes wieder her, die YouTube im Jahr 2021 versteckt hat. Die Zahlen stammen aus Daten, die vor der Entfernung archiviert wurden, und werden für neuere Videos aus den Stimmen seiner Nutzer geschätzt, sind also ungefähr und werden alle paar Tage aktualisiert
 
-Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
+Die ID des Videos, das du dir ansiehst, wird an die Return YouTube Dislike-API gesendet, und deine Likes und Dislikes werden anonym gesendet, um die Schätzungen zu verbessern"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
     <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
@@ -1971,7 +2140,7 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_estimated_like_summary_on">Videos mit deaktivierten \"Gefällt mir\"-Angaben zeigen eine geschätzte Anzahl von \"Gefällt mir\"-Angaben</string>
     <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes sind nicht verfügbar (Limit der Client-API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes sind vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_ryd_failure_generic">Dislikes sind nicht verfügbar (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
@@ -1986,7 +2155,7 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Die Daten werden von der SponsorBlock API bereitgestellt. Tippen Sie hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
     <string name="revanced_sb_api_url_changed">API-URL geändert</string>
-    <string name="revanced_sb_api_url_invalid">API URL ist ungültig</string>
+    <string name="revanced_sb_api_url_invalid">API-URL ist ungültig</string>
     <string name="revanced_sb_api_url_reset">API-URL zurückgesetzt</string>
     <string name="revanced_sb_appearance_category">Darstellung</string>
     <string name="revanced_sb_auto_hide_skip_button_duration">Anzeigedauer des Überspringen-Buttons</string>
@@ -2042,9 +2211,9 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_sb_general_uuid_invalid">Private Benutzer-ID muss mindestens 30 Zeichen lang sein</string>
     <string name="revanced_sb_general_uuid_sum">Das sollte vertraulich behandelt werden. Das ist wie ein Passwort und sollte mit niemandem geteilt werden. Wenn jemand das hat, kann er sich für dich ausgeben</string>
     <string name="revanced_sb_guidelines_popup_already_read">Bereits gelesen</string>
-    <string name="revanced_sb_guidelines_popup_content">Lesen Sie die SponsorBlock Richtlinien bevor Sie neue Segmente erstellen</string>
-    <string name="revanced_sb_guidelines_popup_open">Zeig sie mir</string>
-    <string name="revanced_sb_guidelines_popup_title">Den Richtlinien folgen</string>
+    <string name="revanced_sb_guidelines_popup_content">Lies die Richtlinien von SponsorBlock, bevor du neue Segmente erstellst</string>
+    <string name="revanced_sb_guidelines_popup_open">Anzeigen</string>
+    <string name="revanced_sb_guidelines_popup_title">Halte dich an die Richtlinien</string>
     <string name="revanced_sb_guidelines_preference_sum">Richtlinien enthalten Regeln und Tipps zum Erstellen neuer Segmente</string>
     <string name="revanced_sb_guidelines_preference_title">Richtlinien</string>
     <string name="revanced_sb_new_segment_choose_category">Wähle die Segmentkategorie</string>
@@ -2052,7 +2221,7 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_sb_new_segment_confirm_content">"Das Segment ist von
 
 %1$s
-nach
+bis
 %2$s
 
 (%3$s)
@@ -2068,17 +2237,17 @@ Bereit zum Einreichen?"</string>
 
 %s
 
-Wenn Sie keine Markierung senden, tippen Sie auf Abbrechen und markieren Sie die zweite Position"</string>
+Wenn du keine Markierung sendest, tippe auf Abbrechen und markiere die zweite Position"</string>
     <string name="revanced_sb_new_segment_highlight_submit">Markierung senden</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">%s als Start oder Ende eines neuen Segments festlegen?</string>
     <string name="revanced_sb_new_segment_mark_end">Ende</string>
-    <string name="revanced_sb_new_segment_mark_locations_first">Markieren Sie zuerst einen Zeitpunkt auf der Zeitleiste</string>
+    <string name="revanced_sb_new_segment_mark_locations_first">Markiere zuerst einen Zeitpunkt auf der Zeitleiste</string>
     <string name="revanced_sb_new_segment_mark_start">Start</string>
     <string name="revanced_sb_new_segment_now">Jetzt</string>
-    <string name="revanced_sb_new_segment_preview_segment_first">Vorschau des Segments und sorgt dafür, dass es reibungslos überspringt</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">Sieh dir eine Vorschau des Segments an und stelle sicher, dass es reibungslos übersprungen wird</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Start muss vor dem Ende sein</string>
-    <string name="revanced_sb_new_segment_time_end">Das Segiment endet bei</string>
-    <string name="revanced_sb_new_segment_time_start">Das Segiment beginnt ab</string>
+    <string name="revanced_sb_new_segment_time_end">Das Segment endet bei</string>
+    <string name="revanced_sb_new_segment_time_start">Das Segment beginnt ab</string>
     <string name="revanced_sb_new_segment_title">Neues SponsorBlock Segment</string>
     <string name="revanced_sb_segments_filler">Abschweifung / Witze</string>
     <string name="revanced_sb_segments_filler_sum">Tangentiale Szenen oder Witze, die nicht erforderlich sind, um den Hauptinhalt des Videos zu verstehen. Enthält keine Segmente, die Kontext oder Hintergrunddetails liefern</string>
@@ -2090,7 +2259,7 @@ Wenn Sie keine Markierung senden, tippen Sie auf Abbrechen und markieren Sie die
     <string name="revanced_sb_segments_interaction_sum">Eine kurze Erinnerung, sie in der Mitte des Inhalts zu liken, abonnieren oder folgen. Wenn er lang ist oder es um etwas Bestimmtes geht, sollte es stattdessen als Eigenwerbung gekennzeichnet sein</string>
     <string name="revanced_sb_segments_intro">Unterbrechung/Introanimation</string>
     <string name="revanced_sb_segments_intro_sum">Ein Intervall ohne aktuellen Inhalt. Kann eine Pause, ein statischer Frame oder eine wiederholende Animation sein. Enthält keine Übergänge mit Informationen</string>
-    <string name="revanced_sb_segments_nomusic">Musikvideos: Nicht-Musik-Passagen</string>
+    <string name="revanced_sb_segments_nomusic">Musik: Nicht-Musik-Abschnitt</string>
     <string name="revanced_sb_segments_nomusic_sum">Nur für die Verwendung in Musikvideos. Abschnitte von Musikvideos ohne Musik, die noch nicht von einer anderen Kategorie abgedeckt werden</string>
     <string name="revanced_sb_segments_outro">Endkarte / Credits</string>
     <string name="revanced_sb_segments_outro_sum">Credits oder wenn die YouTube-Endkarten erscheinen. Nicht für Fazite mit Informationen</string>
@@ -2115,37 +2284,37 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_skip_automatically_once">Automatisch einmal überspringen</string>
     <string name="revanced_sb_skip_button_compact">Überspringen</string>
     <string name="revanced_sb_skip_button_filler">Abschweifung überspringen</string>
-    <string name="revanced_sb_skip_button_highlight">Zum Hervorheben springen</string>
+    <string name="revanced_sb_skip_button_highlight">Zum Highlight springen</string>
     <string name="revanced_sb_skip_button_hook">Hook überspringen</string>
     <string name="revanced_sb_skip_button_interaction">Interaktion überspringen</string>
     <string name="revanced_sb_skip_button_intro_beginning">Einleitung überspringen</string>
     <string name="revanced_sb_skip_button_intro_end">Unterbrechung überspringen</string>
     <string name="revanced_sb_skip_button_nomusic">Nicht-Musik überspringen</string>
-    <string name="revanced_sb_skip_button_outro">Überspringen</string>
+    <string name="revanced_sb_skip_button_outro">Outro überspringen</string>
     <string name="revanced_sb_skip_button_preview_beginning">Vorschau überspringen</string>
-    <string name="revanced_sb_skip_button_preview_end">Rückfall überspringen</string>
+    <string name="revanced_sb_skip_button_preview_end">Zusammenfassung überspringen</string>
     <string name="revanced_sb_skip_button_selfpromo">Promo überspringen</string>
     <string name="revanced_sb_skip_button_sponsor">Sponsor überspringen</string>
     <string name="revanced_sb_skip_button_unsubmitted">Segment überspringen</string>
     <string name="revanced_sb_skip_ignore">Deaktivieren</string>
-    <string name="revanced_sb_skip_seekbaronly">In Suchleiste anzeigen</string>
-    <string name="revanced_sb_skip_showbutton">Einen Skip-Button anzeigen</string>
+    <string name="revanced_sb_skip_seekbaronly">In Zeitleiste anzeigen</string>
+    <string name="revanced_sb_skip_showbutton">Überspringen-Button anzeigen</string>
     <string name="revanced_sb_skipped_filler">Abschweifung übersprungen</string>
-    <string name="revanced_sb_skipped_highlight">Zum Hervorheben übersprungen</string>
+    <string name="revanced_sb_skipped_highlight">Zum Highlight gesprungen</string>
     <string name="revanced_sb_skipped_hook">Hook übersprungen</string>
     <string name="revanced_sb_skipped_interaction">Nervige Erinnerung übersprungen</string>
     <string name="revanced_sb_skipped_intro_beginning">Intro übersprungen</string>
-    <string name="revanced_sb_skipped_intro_end">Übersprungene Unterbrechung</string>
+    <string name="revanced_sb_skipped_intro_end">Unterbrechung übersprungen</string>
     <string name="revanced_sb_skipped_multiple_segments">Mehrere Segmente übersprungen</string>
-    <string name="revanced_sb_skipped_nomusic">Nicht-Musik-Sektion übersprungen</string>
+    <string name="revanced_sb_skipped_nomusic">Nicht-Musik-Abschnitt übersprungen</string>
     <string name="revanced_sb_skipped_outro">Outro übersprungen</string>
     <string name="revanced_sb_skipped_preview_beginning">Vorschau übersprungen</string>
-    <string name="revanced_sb_skipped_preview_end">Übersprungene Rücklage</string>
+    <string name="revanced_sb_skipped_preview_end">Rückblick übersprungen</string>
     <string name="revanced_sb_skipped_selfpromo">Eigenwerbung übersprungen</string>
     <string name="revanced_sb_skipped_sponsor">Sponsor übersprungen</string>
     <string name="revanced_sb_skipped_unsubmitted">Nicht übermitteltes Segment übersprungen</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock vorübergehend nicht verfügbar</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_sb_square_layout">Quadratische Bedienelemente verwenden</string>
     <string name="revanced_sb_square_layout_sum_off">Schaltflächen und Bedienelemente sind abgerundet</string>
@@ -2166,17 +2335,17 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_stats_self_saved_sum">Das ist &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_submissions">Du hast &lt;b&gt;%s&lt;/b&gt; Segmente erstellt</string>
     <string name="revanced_sb_stats_submissions_sum">Tippen Sie hier, um Ihre Segmente anzuzeigen</string>
-    <string name="revanced_sb_stats_username">Ihr Benutzername: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_username">Dein Benutzername: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tippe hier, um deinen Benutzernamen zu ändern</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden; Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden; Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Benutzername wurde geändert</string>
     <string name="revanced_sb_submit_failed_duplicate">"Kann das Segment nicht übermitteln
 Existiert bereits"</string>
     <string name="revanced_sb_submit_failed_forbidden">Das Segment kann nicht gesendet werden: %s</string>
     <string name="revanced_sb_submit_failed_invalid">Segment kann nicht gesendet werden: %s</string>
-    <string name="revanced_sb_submit_failed_rate_limit">Segment kann nicht übermittelt werden. Rate Limited (zu viele vom selben Benutzer oder der gleichen IP)</string>
+    <string name="revanced_sb_submit_failed_rate_limit">Segment kann nicht übermittelt werden. Ratenbegrenzung (zu viele vom selben Benutzer oder von derselben IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock ist vorübergehend nicht verfügbar</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Segment kann nicht gesendet werden (Status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Segment kann nicht gesendet werden (Status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segment erfolgreich übertragen</string>
     <string name="revanced_sb_toast_on_connection_error">Verbindungsfehler-Benachrichtigungen anzeigen</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
@@ -2187,7 +2356,7 @@ Existiert bereits"</string>
     <string name="revanced_sb_vote_downvote">Schlecht bewerten</string>
     <string name="revanced_sb_vote_failed_forbidden">Kann nicht für Segment abstimmen: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Abstimmung für Segment nicht möglich (API Timeout)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Segment kann nicht gewählt werden (Status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Abstimmung für Segment nicht möglich (Status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s bis %2$s</string>
     <string name="revanced_sb_vote_upvote">Gut bewerten</string>
@@ -2225,27 +2394,27 @@ Dies kann nicht funktionieren, wenn:
     <string name="revanced_settings_import_export_as_text_summary">Import / Export settings as text</string>
     <string name="revanced_settings_import_failed">Failed to import settings</string>
     <string name="revanced_settings_import_reset">RVX-Einstellungen auf Standardwerte zurückgesetzt</string>
-    <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
+    <string name="revanced_settings_import_success">%s Einstellungen importiert</string>
     <string name="revanced_settings_import_summary">Import settings from a saved file</string>
     <string name="revanced_settings_import_title">Import settings</string>
     <string name="revanced_settings_navigate_up">Nach oben navigieren</string>
     <string name="revanced_settings_reset">Zurücksetzen</string>
     <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
     <string name="revanced_settings_search_clear_history">Suchverlauf löschen</string>
-    <string name="revanced_settings_search_clear_history_message">Möchten Sie wirklich den gesamten Suchverlauf löschen?</string>
-    <string name="revanced_settings_search_empty_history_summary">Um den Suchverlauf zu speichern, geben Sie eine Suchanfrage ein und drücken Sie Enter</string>
+    <string name="revanced_settings_search_clear_history_message">Möchtest du wirklich den gesamten Suchverlauf löschen?</string>
+    <string name="revanced_settings_search_empty_history_summary">Um den Suchverlauf zu speichern, gib eine Suchanfrage ein und drücke Enter</string>
     <string name="revanced_settings_search_empty_history_title">Suchverlauf ist leer</string>
     <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
     <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
     <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
     <string name="revanced_settings_search_no_results_summary">Versuchen Sie ein anderes Schlüsselwort</string>
     <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
-    <string name="revanced_settings_search_recent_searches">Kürzliche Suchen</string>
+    <string name="revanced_settings_search_recent_searches">Letzte Suchen</string>
     <string name="revanced_settings_search_remove">Aus Suchverlauf entfernen</string>
     <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
-    <string name="revanced_settings_search_tips_summary">"• Tippen Sie auf einen Pfad, um dorthin zu navigieren
-• Halten Sie eine Einstellung gedrückt, um dorthin zu navigieren
-• Drücken Sie Enter, um eine Suchanfrage im Verlauf zu speichern
+    <string name="revanced_settings_search_tips_summary">"• Tippe auf einen Pfad, um dorthin zu navigieren
+• Halte eine Einstellung gedrückt, um dorthin zu navigieren
+• Drücke Enter, um eine Suchanfrage im Verlauf zu speichern
 • Die Suche ignoriert Groß- und Kleinschreibung sowie Satzzeichen
 • Übergeordnete Einstellungen erscheinen über deaktivierten untergeordneten Einstellungen"</string>
     <string name="revanced_settings_search_tips_title">Suchtipps</string>
@@ -2293,8 +2462,8 @@ Dies kann nicht funktionieren, wenn:
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Die Höhe muss zwischen 0-100 (%) liegen</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Konfigurieren Sie den Prozentsatz der Höhe des leeren Leerraums, wenn die Navigationsleiste ausgeblendet ist, zwischen 0 und 100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Prozentsatz des leeren Speichers</string>
-    <string name="revanced_shorts_player_type_regular_player">Normaler Spieler</string>
-    <string name="revanced_shorts_player_type_regular_player_fullscreen">Normaler Spieler im Vollbildmodus</string>
+    <string name="revanced_shorts_player_type_regular_player">Normaler Player</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Normaler Player im Vollbildmodus</string>
     <string name="revanced_shorts_player_type_title">Shorts öffnen mit</string>
     <string name="revanced_show_search_button_title">Schaltfläche „Suche“ anzeigen</string>
     <string name="revanced_show_settings_button_title">Schaltfläche „Einstellungen“ anzeigen</string>
@@ -2322,9 +2491,9 @@ Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm"</string
     <string name="revanced_spoof_app_version_target_invalid_toast">Ungültige Spoof App Version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Geben Sie das Spoof App Versionsziel ein</string>
     <string name="revanced_spoof_app_version_title">App-Version spoofen</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Die App-Version wird zu einer älteren Version gefälscht
+    <string name="revanced_spoof_app_version_user_dialog_message">"Die App-Version wird als ältere Version vorgetäuscht
 
-Dadurch ändert sich das Erscheinungsbild und die Funktionen der App, es können jedoch unbekannte Nebeneffekte auftreten
+Dadurch ändern sich das Erscheinungsbild und die Funktionen der App, es können jedoch unbekannte Nebeneffekte auftreten
 
 Sollte die Funktion später deaktiviert werden, wird empfohlen, die App-Daten zu löschen, um Fehler in der Benutzeroberfläche zu vermeiden"</string>
     <string name="revanced_spoof_device_dimensions_summary">Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet werden</string>
@@ -2383,6 +2552,8 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 Among JavaScript clients, the recommended client is TV"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Klicken Sie hier, um zu erfahren, wie Sie einen Authentifizierungstoken erhalten</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Über Android VR Auth</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Undurchsichtig</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparent</string>
     <string name="revanced_swipe_brightness_summary_off">Vollbild-Helligkeits-Swipe ist deaktiviert</string>
     <string name="revanced_swipe_brightness_summary_on">"Vollbild-Helligkeits-Swipe ist aktiviert
 
@@ -2425,12 +2596,12 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Helligkeit beim Beenden oder Einschalten des Vollbildes nicht speichern und wiederherstellen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Helligkeit speichern und wiederherstellen, wenn Vollbild verlassen oder betreten wird</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Helligkeit speichern und wiederherstellen</string>
-    <string name="revanced_swipe_seek_title">Wischgesten aktivieren</string>
+    <string name="revanced_swipe_seek_title">Zum Spulen wischen</string>
     <string name="revanced_swipe_speed_title">Geste für Geschwindigkeitssteuerung aktivieren</string>
     <string name="revanced_swipe_text_overlay_size_summary">Passt die Größe auf dem Bildschirm an (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Textgröße Gesten-Overlays</string>
-    <string name="revanced_swipe_threshold_summary">Legen Sie die erforderliche Wischdistanz fest, bevor eine Anpassung ausgelöst wird</string>
-    <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
+    <string name="revanced_swipe_threshold_summary">Lege die erforderliche Wischdistanz fest, bevor eine Anpassung ausgelöst wird</string>
+    <string name="revanced_swipe_threshold_title">Schwellenwert für Wischweite</string>
     <string name="revanced_swipe_top_zone_title">Wischgeste nach oben</string>
     <string name="revanced_swipe_volume_distance_summary">Höhere Werte erfordern mehr Wischen pro Lautstärkestufe</string>
     <string name="revanced_swipe_volume_distance_title">Empfindlichkeit der Lautstärken-Gestensteuerung</string>
@@ -2514,7 +2685,6 @@ Haftungsausschluss: Cookies, die ohne Anmeldung ausgestellt werden, können ung�
     <string name="revanced_webview_toast_empty">%s ist leer</string>
     <string name="revanced_webview_toast_no_network">Bitte prüfen Sie Ihre Internetverbindung</string>
     <string name="revanced_webview_toast_unavailable">WebView ist nicht verfügbar</string>
-    <string name="revanced_webview_visitor_data">Besucherdaten</string>
     <string name="revanced_whitelist_add_failed">Der Kanal \'%1$s\' konnte nicht auf die Whitelist für %2$s gesetzt werden</string>
     <string name="revanced_whitelist_added">Der Kanal \'%1$s\' wurde auf die Whitelist für %2$s gesetzt</string>
     <string name="revanced_whitelist_empty">Es gibt keine Kanäle auf der Whitelist</string>

@@ -4,6 +4,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.utils.gms
@@ -22,9 +24,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = emptyList(),
     filters = listOf(
-        literal(icOfflineNoContentUpsideDown),
         literal(offlineNoContentBodyTextNotOfflineEligible),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
@@ -36,13 +36,17 @@ internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
 internal object LoadingFrameLayoutControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("L"),
+    // YouTube 21.39 changed the single parameter from an object to a boolean (`qzf.a(Z)V`).
     filters = listOf(
         literal(icOfflineNoContentUpsideDown),
         literal(offlineNoContentBodyTextNotOfflineEligible),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
-    )
+    ),
+    custom = { method, _ ->
+        method.parameterTypes.size == 1 &&
+                method.parameterTypes.first().toString().let { it.startsWith("L") || it == "Z" }
+    }
 )
 
 internal object GmsDeviceComplianceCheckFingerprint : Fingerprint(
@@ -59,5 +63,16 @@ internal object GmsDeviceComplianceCheckFingerprint : Fingerprint(
             returnType = "V",
             opcode = Opcode.INVOKE_VIRTUAL
         )
+    )
+)
+
+/**
+ * Asks GmsCore if the account has a capability, such as being a supervised account.
+ */
+internal object AccountHasCapabilitiesFingerprint : Fingerprint(
+    returnType = "Ljava/lang/Integer;",
+    parameters = listOf("Landroid/accounts/Account;", "[Ljava/lang/String;"),
+    filters = listOf(
+        string("This call can involve network request. It is unsafe to call from main thread.")
     )
 )

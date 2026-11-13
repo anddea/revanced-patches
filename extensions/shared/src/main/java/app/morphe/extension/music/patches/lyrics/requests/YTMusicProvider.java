@@ -7,22 +7,23 @@
 
 package app.morphe.extension.music.patches.lyrics.requests;
 
+import app.morphe.extension.music.patches.lyrics.LyricsManager;
+
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.innertube.utils.AuthUtils;
 import app.morphe.extension.shared.requests.Requester;
 
 public final class YTMusicProvider implements LyricsProvider {
@@ -39,77 +40,32 @@ public final class YTMusicProvider implements LyricsProvider {
 
     private static final String WEB_REMIX_VERSION = "1.20260914.01.00";
     private static final String ANDROID_MUSIC_VERSION = "7.21.50";
-    private static final String INNERTUBE_USER_AGENT =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                    + "(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36";
-
-    @Override
-    public String name() {
-        return "YTMusic";
-    }
+    private static final String INNERTUBE_USER_AGENT = LyricsRequests.CHROME_DESKTOP_USER_AGENT;
 
     @Nullable
-    @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
-        final String videoId = VideoInformation.getVideoId();
-        if (videoId.isEmpty()) {
-            return null;
-        }
+    private static String fetchLyricsBrowseId(String videoId) throws Exception {
+        JSONObject body = new JSONObject();
+        body.put("context", buildContext("WEB_REMIX", WEB_REMIX_VERSION));
+        body.put("videoId", videoId);
+        body.put("playlistId", "RDAMVM" + videoId);
 
-        final String browseId = fetchLyricsBrowseId(videoId);
-        if (browseId == null) {
-            return null;
-        }
-
-        final Lyrics plainResult = fetchLyrics(browseId, false);
-        if (plainResult != null && !plainResult.isEmpty()) {
-            if (plainResult.synced()) {
-                return plainResult;
-            }
-            final Lyrics timedResult = fetchLyrics(browseId, true);
-            if (timedResult != null && timedResult.synced()) {
-                return timedResult;
-            }
-            return plainResult;
-        }
-
-        final Lyrics androidResult = fetchLyrics(browseId, true);
-        if (androidResult != null && !androidResult.isEmpty()) {
-            return androidResult;
-        }
-
-        return null;
-    }
-
-    @Nullable
-    private static String fetchLyricsBrowseId(String videoId) {
+        // WEB_REMIX rejects the Android account headers captured by Downloads.
+        final HttpURLConnection conn = postInnertube(NEXT_URL, body.toString(),
+                WEB_REMIX_VERSION);
         try {
-            JSONObject body = new JSONObject();
-            body.put("context", buildContext("WEB_REMIX", WEB_REMIX_VERSION));
-            body.put("videoId", videoId);
-            body.put("playlistId", "RDAMVM" + videoId);
-
-            final HttpURLConnection conn = postInnertube(NEXT_URL, body.toString(),
-                    WEB_REMIX_VERSION, true);
-            try {
-                final int code = conn.getResponseCode();
-                if (code != 200) {
-                    LyricsRequests.logFailure("YTMusic", conn);
-                    return null;
-                }
-                JSONObject response = Requester.parseJSONObject(conn);
-                return extractLyricsBrowseId(response);
-            } finally {
-                conn.disconnect();
+            final int code = conn.getResponseCode();
+            if (code != Requester.HTTP_STATUS_CODE_SUCCESS) {
+                throw new IOException("YTMusic /next returned HTTP " + code);
             }
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "Could not fetch YTMusic browse ID", ex);
-            return null;
+            JSONObject response = Requester.parseJSONObject(conn);
+            return extractLyricsBrowseId(response);
+        } finally {
+            conn.disconnect();
         }
     }
 
     @Nullable
-    private static String extractLyricsBrowseId(JSONObject response) {
+    static String extractLyricsBrowseId(JSONObject response) {
         try {
             final JSONArray tabs = response
                     .getJSONObject("contents")
@@ -137,35 +93,6 @@ public final class YTMusicProvider implements LyricsProvider {
             Logger.printDebug(() -> "Could not extract YTMusic lyrics browse ID", ex);
         }
         return null;
-    }
-
-    @Nullable
-    private Lyrics fetchLyrics(String browseId, boolean useAndroidClient) {
-        try {
-            final String clientVersion = useAndroidClient
-                    ? ANDROID_MUSIC_VERSION : WEB_REMIX_VERSION;
-            JSONObject body = new JSONObject();
-            body.put("context", buildContext(
-                    useAndroidClient ? "ANDROID_MUSIC" : "WEB_REMIX", clientVersion));
-            body.put("browseId", browseId);
-
-            final HttpURLConnection conn = postInnertube(BROWSE_URL, body.toString(),
-                    clientVersion, false);
-            try {
-                final int code = conn.getResponseCode();
-                if (code != 200) {
-                    conn.disconnect();
-                    return null;
-                }
-                JSONObject response = Requester.parseJSONObject(conn);
-                return parseLyricsResponse(response);
-            } finally {
-                conn.disconnect();
-            }
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "Could not fetch YTMusic lyrics", ex);
-            return null;
-        }
     }
 
     @Nullable
@@ -250,7 +177,7 @@ public final class YTMusicProvider implements LyricsProvider {
     }
 
     @Nullable
-    private static String parseSourceProvider(String sourceMessage) {
+    static String parseSourceProvider(String sourceMessage) {
         if (sourceMessage.startsWith("Source: ")) {
             final String provider = sourceMessage.substring(8).trim();
             return provider.isEmpty() ? null : provider;
@@ -259,7 +186,7 @@ public final class YTMusicProvider implements LyricsProvider {
     }
 
     @Nullable
-    private static JSONObject navigateTimedLyricsModel(JSONObject response) {
+    static JSONObject navigateTimedLyricsModel(JSONObject response) {
         try {
             return response
                     .getJSONObject("contents")
@@ -277,7 +204,7 @@ public final class YTMusicProvider implements LyricsProvider {
     }
 
     @Nullable
-    private static String extractPlainTextLyrics(JSONObject response) {
+    static String extractPlainTextLyrics(JSONObject response) {
         try {
             final JSONArray sectionContents = response
                     .getJSONObject("contents")
@@ -314,7 +241,7 @@ public final class YTMusicProvider implements LyricsProvider {
         return null;
     }
 
-    private static List<LyricsLine> parseTimedLyrics(JSONArray timedArray) {
+    static List<LyricsLine> parseTimedLyrics(JSONArray timedArray) {
         final List<LyricsLine> lines = new ArrayList<>();
         for (int i = 0; i < timedArray.length(); i++) {
             JSONObject entry = timedArray.optJSONObject(i);
@@ -333,7 +260,7 @@ public final class YTMusicProvider implements LyricsProvider {
         return lines;
     }
 
-    private static long parseTimestamp(JSONObject cueRange, String key) {
+    static long parseTimestamp(JSONObject cueRange, String key) {
         if (cueRange == null) {
             return LyricsLine.NO_TIME;
         }
@@ -364,8 +291,7 @@ public final class YTMusicProvider implements LyricsProvider {
     }
 
     private static HttpURLConnection postInnertube(String url, String jsonBody,
-                                                    String clientVersion,
-                                                    boolean sendAuth) throws Exception {
+                                                   String clientVersion) throws Exception {
         final HttpURLConnection conn = Requester.openConnection(url);
         conn.setRequestMethod("POST");
         conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
@@ -378,20 +304,80 @@ public final class YTMusicProvider implements LyricsProvider {
         conn.setRequestProperty("Origin", "https://music.youtube.com");
         conn.setDoOutput(true);
 
-        if (sendAuth) {
-            for (Map.Entry<String, String> entry :
-                    AuthUtils.getRequestHeader().entrySet()) {
-                if (!entry.getValue().isEmpty()) {
-                    conn.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-            }
-        }
-
         final byte[] bytes = jsonBody.getBytes(java.nio.charset.StandardCharsets.UTF_8);
         conn.setFixedLengthStreamingMode(bytes.length);
         try (java.io.OutputStream out = conn.getOutputStream()) {
             out.write(bytes);
         }
         return conn;
+    }
+
+    @Override
+    public String name() {
+        return "YTMusic";
+    }
+
+    @Nullable
+    @Override
+    public FetchResult fetch(TrackInfo track) throws Exception {
+        final String videoId = VideoInformation.getVideoId();
+        if (videoId.isEmpty()) {
+            // Metadata can start a lookup before the video ID hook runs.
+            // Throw so LyricsManager does not cache this attempt as "no lyrics".
+            throw new IOException("YTMusic lyrics lookup requires a video ID");
+        }
+
+        final String browseId = fetchLyricsBrowseId(videoId);
+        if (browseId == null) {
+            return null;
+        }
+
+        final Lyrics plainResult = fetchLyrics(browseId, false);
+        if (plainResult != null && !plainResult.isEmpty()) {
+            if (plainResult.synced()) {
+                return FetchResult.of(plainResult);
+            }
+            final Lyrics timedResult = fetchLyrics(browseId, true);
+            if (timedResult != null && timedResult.synced()) {
+                return FetchResult.of(timedResult);
+            }
+            return FetchResult.of(plainResult);
+        }
+
+        final Lyrics androidResult = fetchLyrics(browseId, true);
+        if (androidResult != null && !androidResult.isEmpty()) {
+            return FetchResult.of(androidResult);
+        }
+
+        return null;
+    }
+
+    @Nullable
+    private Lyrics fetchLyrics(String browseId, boolean useAndroidClient) {
+        try {
+            final String clientVersion = useAndroidClient
+                    ? ANDROID_MUSIC_VERSION : WEB_REMIX_VERSION;
+            JSONObject body = new JSONObject();
+            body.put("context", buildContext(
+                    useAndroidClient ? "ANDROID_MUSIC" : "WEB_REMIX", clientVersion));
+            body.put("browseId", browseId);
+
+            final HttpURLConnection conn = postInnertube(BROWSE_URL, body.toString(),
+                    clientVersion);
+            try {
+                final int code = conn.getResponseCode();
+                if (code != 200) {
+                    conn.disconnect();
+                    return null;
+                }
+                JSONObject response = Requester.parseJSONObject(conn);
+                return parseLyricsResponse(response);
+            } finally {
+                conn.disconnect();
+            }
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Could not fetch YTMusic lyrics", ex);
+            return null;
+        }
     }
 }

@@ -43,10 +43,12 @@ class EnhancedXMLProcessor(XMLProcessor):
             tree = ET.ElementTree(root)
             # Store the full element tag as a string to preserve attributes,
             # formatting, and nested tags (e.g., <b>, <i>).
-            strings_dict = {
-                elem.attrib["name"]: {"text": ET.tostring(elem, encoding="unicode")}
-                for elem in root.findall(".//string[@name]")
-            }
+            strings_dict: dict[str, dict[str, str]] = {}
+            for elem in root.findall(".//string[@name]"):
+                # Tail text belongs to the resource layout, not the string. Comments,
+                # sorting and indentation can change it without changing the resource.
+                elem.tail = None
+                strings_dict[elem.attrib["name"]] = {"text": ET.tostring(elem, encoding="unicode")}
         except (DefusedET.ParseError, KeyError):
             logger.exception("Failed to parse XML content string: %s")
             return None, None, {}
@@ -330,6 +332,10 @@ def _process_language_dir(
 
     if strings_for_update_xml:
         update_or_create_xml(updated_strings_path, strings_for_update_xml)
+        was_modified = True
+
+    # Diff cleanup can remove the last pending update after missing-string cleanup ran.
+    if XMLProcessor.cleanup_if_empty(updated_strings_path):
         was_modified = True
 
     # Process forced_strings.xml

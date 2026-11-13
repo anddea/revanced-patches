@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.settings;
 
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
+
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
@@ -12,6 +14,7 @@ import android.widget.Toolbar;
 
 import app.morphe.extension.shared.settings.BaseActivityHook;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.general.offline.OfflineScreens;
 import app.morphe.extension.youtube.patches.theme.ThemePatch;
 import app.morphe.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.morphe.extension.youtube.settings.search.YouTubeSearchViewController;
@@ -54,6 +57,8 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static void initialize(Activity parentActivity) {
+        // LicenseActivity also hosts the offline library and player.
+        if (OfflineScreens.initialize(parentActivity)) return;
         ThemePatch.applyToSettingsActivity(parentActivity);
         settingsDarkMode = ThemeUtils.isDarkModeEnabled();
         BaseActivityHook.initialize(new YouTubeActivityHook(), parentActivity);
@@ -185,10 +190,17 @@ public class YouTubeActivityHook extends BaseActivityHook {
      * <p>
      * Overrides {@link Activity#finish()} of the injection Activity.
      *
-     * @return if the original activity finish method should be allowed to run.
+     * @param activity The LicenseActivity instance.
+     * @return if the back press was handled and the original activity finish method must not run.
      */
     @SuppressWarnings("unused")
-    public static boolean handleBackPress() {
-        return YouTubeSearchViewController.handleFinish(searchViewController);
+    public static boolean handleBackPress(Activity activity) {
+        // Offline screens handle their own back presses.
+        if (OfflineScreens.hostsScreen(activity)) {
+            return OfflineScreens.handleBackPress(activity);
+        }
+        return YouTubeSearchViewController.handleFinish(searchViewController)
+                || AbstractPreferenceFragment
+                .showRestartDialogIfNeeded(activity);
     }
 }

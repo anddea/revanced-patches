@@ -6,8 +6,8 @@ import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -72,6 +72,33 @@ internal object VideoIdFingerprint : Fingerprint(
         methodCall(
             smali = "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
             location = MatchAfterWithin(6)
+        ),
+        opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately())
+    )
+)
+
+/**
+ * YouTube 21.39 moved the `Map.put(videoId, …)` into a helper of the same class
+ * (`q(Ljava/lang/String;L…;)V`), so the video id is now followed by one more
+ * interface call and the call to that helper.
+ *
+ * Added by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support.
+ */
+internal object VideoIdHelperPutFingerprint : Fingerprint(
+    classFingerprint = VideoIdParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        methodCall(opcode = Opcode.INVOKE_INTERFACE, returnType = "Ljava/lang/String;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()), // videoId
+        opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            definingClass = "this",
+            returnType = "V",
+            location = MatchAfterImmediately()
         ),
         opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately())
     )

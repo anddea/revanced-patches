@@ -41,10 +41,6 @@ internal enum class PatchList(
         "Disable Cairo splash animation",
         "Adds an option to disable Cairo splash animation."
     ),
-    FORCE_ORIGINAL_AUDIO(
-        "Force original audio",
-        "Adds an option to disable audio tracks from being automatically enabled."
-    ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
@@ -63,7 +59,7 @@ internal enum class PatchList(
     ),
     DOWNLOADS(
         "Downloads",
-        "Adds support to download songs for offline playback inside YouTube Music."
+        "Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -76,6 +72,10 @@ internal enum class PatchList(
     FLYOUT_MENU_COMPONENTS(
         "Flyout menu components",
         "Adds options to hide or change flyout menu components."
+    ),
+    FORCE_ORIGINAL_AUDIO(
+        "Force original audio",
+        "Adds an option to disable audio tracks from being automatically enabled."
     ),
     GMSCORE_SUPPORT(
         "GmsCore support",
@@ -148,6 +148,10 @@ internal enum class PatchList(
     SETTINGS_MENU_FILTER(
         "Settings menu filter",
         "Adds an option to hide items on the standard YouTube Music settings screen by their visible name."
+    ),
+    SKIP_SILENCE(
+        "Skip silence",
+        "Adds an option to automatically skip silent pauses in audio playback."
     ),
     SPONSORBLOCK(
         "SponsorBlock",

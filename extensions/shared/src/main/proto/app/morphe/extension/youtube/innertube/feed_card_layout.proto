@@ -1,0 +1,656 @@
+syntax = "proto3";
+
+package app.morphe.extension.youtube.innertube.feedcards;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.morphe.extension.youtube.innertube";
+option java_outer_classname = "FeedCardLayoutOuterClass";
+
+// Bytes of the newElement of an elementRenderer.
+message Element {
+    ElementType type = 1;
+    ElementProperties properties = 2;
+}
+
+message ElementProperties {
+    ElementIdentifierProperties identifierProperties = 183314536;
+}
+
+message ElementIdentifierProperties {
+    string identifier = 1;
+}
+
+message ElementType {
+    ComponentType componentType = 168777401;
+}
+
+message ComponentType {
+    TemplateConfig templateConfig = 3;
+    ElementModel model = 5;
+    SubscriptionConfig subscriptionConfig = 6;
+}
+
+message TemplateConfig {
+    UriTemplateConfig uriTemplateConfig = 172035250;
+}
+
+message UriTemplateConfig {
+    string uri = 1;
+}
+
+message ElementModel {
+    // Classic feed video (video_lockup_with_attachment.eml).
+    VideoWithContextModel videoWithContextModel = 232954548;
+    // Feed card video (lockup.eml).
+    LockupModel lockupModel = 413471385;
+    // Action bar of the watch page that is not collapsed, such as on tablets (video_action_bar.eml).
+    VideoActionBarModel videoActionBarModel = 389155117;
+    // Channel bar of the watch page, in its own row above the action bar (compact_channel_bar.eml).
+    CompactChannelBarModel compactChannelBarModel = 391108665;
+    // Header of the shelves, such as the Shorts shelf (shelf_header.eml).
+    ShelfHeaderModel shelfHeaderModel = 229393850;
+    // Horizontal shelf of videos, with its header (horizontal_shelf.eml).
+    HorizontalShelfModel horizontalShelfModel = 312131490;
+    // Short of the Shorts shelf (shorts_video_cell.eml).
+    ShortsVideoCellModel shortsVideoCellModel = 519005951;
+    // Short of the Shorts shelf of the channel home (shorts_pivot_item.eml).
+    ShortsPivotItemModel shortsPivotItemModel = 343516017;
+    // Shelf of Shorts in a carousel, with its header (shorts_shelf.eml), such as in the search results.
+    ShortsShelfModel shortsShelfModel = 315733268;
+    // Video of the vertical shelves below a shelf header, such as in the channel home (grid_video_wrapper.eml),
+    // and playlist or podcast of these shelves (grid_video.eml).
+    GridVideoModel gridVideoModel = 234662488;
+    // Playlist or podcast in a row of a list, such as in the vertical shelves of the channel home (compact_playlist.eml).
+    CompactPlaylistModel compactPlaylistModel = 202672916;
+}
+
+message CompactPlaylistModel {
+    CompactPlaylistData data = 16;
+}
+
+message CompactPlaylistData {
+    string accessibilityText = 5;
+}
+
+message GridVideoModel {
+    GridVideoData data = 1;
+    string accessibilityText = 19;
+}
+
+// Texts are bytes, as the fields are not all texts in every element.
+message GridVideoData {
+    GridVideoThumbnail thumbnail = 1;
+    GridVideoMetadata metadata = 2;
+}
+
+message GridVideoThumbnail {
+    // Text of the badge of a playlist or a podcast, such as "249 episodes".
+    bytes collectionCountText = 6;
+}
+
+message GridVideoMetadata {
+    bytes title = 1;
+    // Such as "Channel · Playlist".
+    bytes subtitle = 2;
+    // Such as "Updated 2 days ago".
+    bytes details = 3;
+}
+
+message ShortsShelfModel {
+    // Data of the shelf header, which shorts_shelf.eml shows with shelf_header.eml.
+    ShelfHeaderData header = 1;
+}
+
+message ShortsVideoCellModel {
+    ShortsVideoCellData data = 17;
+}
+
+message ShortsVideoCellData {
+    string accessibilityText = 4;
+}
+
+message ShortsPivotItemModel {
+    // The same fields as the data of the Short of the Shorts shelf.
+    ShortsVideoCellData data = 9;
+}
+
+message HorizontalShelfModel {
+    HorizontalShelfData data = 20;
+}
+
+message HorizontalShelfData {
+    // Data of the shelf header, which horizontal_shelf_content.eml shows with shelf_header.eml.
+    ShelfHeaderData header = 1;
+}
+
+message ShelfHeaderModel {
+    ShelfHeaderData data = 1;
+}
+
+message ShelfHeaderData {
+    bytes icon = 1;
+    string title = 20;
+    string accessibilityText = 26;
+    ShelfHeaderStyle style = 57;
+}
+
+message ShelfHeaderStyle {
+    // Header of the card layout (modern_type_shelf_header_content.eml), with a bigger title and without the icon.
+    bool modernType = 1;
+}
+
+// Fills the theme and the capabilities of the model when the element is bound.
+message SubscriptionConfig {
+    EnvironmentSubscriptionConfig environmentSubscriptionConfig = 212323971;
+    ThemeSubscriptionConfig themeSubscriptionConfig = 386334485;
+    CapabilitiesSubscriptionConfig capabilitiesSubscriptionConfig = 386334486;
+}
+
+message EnvironmentSubscriptionConfig {
+    int32 modelField = 1;
+    int32 resultField = 2;
+}
+
+message ThemeSubscriptionConfig {
+    ThemeMapping mapping = 1;
+    int32 modelField = 2;
+}
+
+message ThemeMapping {
+    bytes identifier = 1;
+    int32 resultField = 2;
+}
+
+message CapabilitiesSubscriptionConfig {
+    CapabilitiesMapping mapping = 1;
+    int32 modelField = 2;
+}
+
+message CapabilitiesMapping {
+    string identifier = 1;
+    int32 resultField = 2;
+}
+
+message VideoWithContextModel {
+    bytes theme = 6;
+    bytes environment = 10;
+    VideoWithContextData data = 18;
+    ElementContext context = 26;
+}
+
+message VideoWithContextData {
+    VideoData videoData = 1;
+    string accessibilityText = 2;
+    string menuAccessibilityText = 3;
+    bytes onTap = 4;
+    bytes menuOnTap = 5;
+    bytes inlinePlayback = 6; // Commands that start and stop the inline playback (feed autoplay).
+    bool compact = 22; // Thumbnail beside the title, such as the videos of the playlists and the rows of the library.
+    bytes attachment = 43; // Content below the video, such as the description and the 'Buy or rent' button of the movies.
+    int32 collectionStack = 38; // Draws a stack behind the thumbnail of the playlists and the mixes.
+    bool horizontal = 57; // Thumbnail beside the title and the metadata, such as the search results on tablets.
+}
+
+message VideoData {
+    VideoThumbnail thumbnail = 1;
+    ChannelAvatar avatar = 3;
+    string url = 6;
+    LockupMetadata lockupMetadata = 21;
+    LockupImage decoratedAvatar = 23; // Avatar with a ring, such as the avatar of live channels.
+    LockupImage avatarStack = 24; // Avatars of the channels of a collaboration.
+}
+
+message VideoThumbnail {
+    bytes image = 1;
+    string timestampText = 2;
+    int32 badgeStyle = 4; // Same values of the badge style of the cards.
+    float progress = 5; // Watched fraction, from 0 to 1.
+    string videoCountText = 6; // Playlists.
+    // Only the playlists and the mixes have the following fields.
+    bool isPlaylist = 7;
+    bool isMix = 8;
+    int32 collectionStyle1 = 13;
+    int32 collectionStyle2 = 16;
+    uint32 badgeColor = 22;
+    uint32 badgeDarkColor = 24;
+    int32 badgeIconType = 36;
+    int32 collectionStyle3 = 42;
+    CollectionStackColors stackColors = 55;
+    string timestampAccessibilityText = 11;
+    string badgeIcon = 19; // Drawable name, such as the live icon.
+}
+
+message CollectionStackColors {
+    uint32 frontColor = 1;
+    uint32 backColor = 2;
+}
+
+message ChannelAvatar {
+    bytes image = 1;
+    string accessibilityText = 3;
+    int32 avatarImageSize = 4;
+    bytes endpoint = 5;
+}
+
+message LockupModel {
+    LockupViewModelHolder viewModel = 1;
+    ElementContext context = 3;
+    bytes theme = 4;
+    bytes environment = 5;
+    LockupPadding padding = 1376;
+}
+
+// Padding of the card, in dp. Without it the card has the default horizontal margins.
+message LockupPadding {
+    float start = 1;
+    float end = 2;
+    float top = 3;
+    float bottom = 4;
+}
+
+// View model of the elements with the model of lockupModel, such as the cards.
+message LockupViewModelHolder {
+    LockupViewModel lockupViewModel = 8179;
+    // Model of thumbnail_bottom_overlay.eml.
+    ThumbnailBottomOverlayViewModel thumbnailBottomOverlayViewModel = 1214;
+    // Model of compactify_video_action_bar.eml.
+    VideoActionBarViewModel videoActionBarViewModel = 2185;
+}
+
+message CompactChannelBarModel {
+    ElementContext context = 2;
+    SubscribeState subscribeState = 3;
+    CompactChannelBarViewModelHolder viewModel = 9;
+    bool useThemeFromContext = 11;
+}
+
+message SubscribeState {
+    string key = 1;
+}
+
+message CompactChannelBarViewModelHolder {
+    CompactChannelBarViewModel compactChannelBarViewModel = 1107;
+}
+
+message CompactChannelBarViewModel {
+    SubscribeButtonViewModelHolder subscribeButton = 24;
+    int32 channelBarStyle = 26;
+    ChannelBarHeaderViewModelHolder channelBarHeader = 27;
+}
+
+message SubscribeButtonViewModelHolder {
+    SubscribeButtonViewModel subscribeButtonViewModel = 518912898;
+}
+
+message SubscribeButtonViewModel {
+    string stateEntityStoreKey = 3;
+}
+
+message ChannelBarHeaderViewModelHolder {
+    ChannelBarHeaderViewModel channelBarHeaderViewModel = 477514866;
+}
+
+message ChannelBarHeaderViewModel {
+    int32 style = 5;
+}
+
+message VideoActionBarModel {
+    VideoActionBarData videoActionBarData = 17;
+}
+
+message VideoActionBarData {
+    repeated VideoActionBarItem actions = 1;
+}
+
+// Action bar of the watch page, which shows the like button, the share button and the others.
+message VideoActionBarViewModel {
+    repeated VideoActionBarItem actions = 1;
+    int32 layoutStyle = 3;
+    VideoActionBarLayoutConfig layoutConfig = 4;
+    VideoActionBarItemContent subscribeButton = 6; // Beside the buttons of the minimal layout.
+    VideoActionBarSize size = 7;
+}
+
+message VideoActionBarLayoutConfig {
+    bool iconButtons = 6; // Buttons of the minimal layout, with an icon above their text.
+    bool enableMarginStartAdjustment = 7; // Starts the row with the channel further from the start of the screen.
+}
+
+message VideoActionBarSize {
+    float minButtonsWidth = 1;
+    float maxButtonsWidth = 2;
+    int32 buttonSpacing = 3;
+    int32 maxVisibleButtons = 4;
+}
+
+message VideoActionBarItem {
+    VideoActionBarItemContent content = 10;
+}
+
+// Only the fields that the layouts place differently are declared.
+message VideoActionBarItemContent {
+    optional bytes subscribeButton = 1107;
+    VideoActionBarLikeDislike likeDislikeButtons = 484586709; // Classic layout.
+    LikeButtonViewModel likeButton = 484585818;
+    DislikeButtonViewModel dislikeButton = 484590786;
+    AddToPlaylistButtonViewModel saveButton = 484598023;
+    ButtonViewModel button = 461054335;
+    VideoActionBarOverflow overflow = 37098; // Minimal layout.
+    VideoActionBarDownloadButton downloadButton = 33561776;
+    optional bytes accountLinkButton = 492031756;
+    optional bytes clipButton = 490025863;
+    optional bytes menuHeader = 15469; // Item of the overflow menu that is not a button.
+}
+
+message VideoActionBarDownloadButton {
+    int32 style = 14;
+    optional string premiumOfferText = 34; // Below the text of the item in the overflow menu.
+}
+
+// Like and dislike buttons of the classic layout, joined in one item.
+message VideoActionBarLikeDislike {
+    VideoActionBarItemContent likeButton = 1;
+    VideoActionBarItemContent dislikeButton = 2;
+    bool showLikeCount = 5;
+    VideoActionBarLikeCount likeCount = 7;
+    string likeCountAnimationParams = 10;
+    bool animationEnabled1 = 13;
+    bool animationEnabled2 = 14;
+    string likeAnimationUrl = 15;
+    string likedAnimationUrl = 16;
+}
+
+message VideoActionBarLikeCount {
+    string entityKey = 1;
+}
+
+message DislikeButtonViewModel {
+    ToggleButtonViewModelHolder toggleButtonViewModel = 1;
+}
+
+message VideoActionBarOverflow {
+    ButtonViewModelHolder menuButton = 1;
+    repeated VideoActionBarItemContent menuItems = 2;
+    repeated VideoActionBarItemContent shownItems = 3; // Same as the items of the action bar.
+    int32 menuStyle = 4;
+}
+
+message LockupViewModel {
+    ContentImage contentImage = 2;
+    LockupMetadata metadata = 3;
+    string contentId = 4;
+    int32 contentType = 5;
+    LockupInlinePlayback inlinePlayback = 6;
+    RendererContext rendererContext = 997;
+}
+
+// Inline playback of the thumbnail (feed autoplay), read by lockup_thumbnail.eml.
+message LockupInlinePlayback {
+    bytes inlinePlayback = 1; // Same message of the inline playback of the classic layout.
+}
+
+message ContentImage {
+    ThumbnailViewModel thumbnailViewModel = 1036;
+    CollectionThumbnailViewModel collectionThumbnailViewModel = 1035; // Playlists and mixes.
+}
+
+message CollectionThumbnailViewModel {
+    CollectionPrimaryThumbnail primaryThumbnail = 1;
+}
+
+message CollectionPrimaryThumbnail {
+    ThumbnailViewModel thumbnailViewModel = 1036;
+}
+
+message ThumbnailViewModel {
+    bytes image = 1;
+    repeated ThumbnailOverlay overlays = 2;
+}
+
+message ThumbnailOverlay {
+    // Only the badges are shown by lockup_thumbnail.eml.
+    ThumbnailBottomOverlayViewModel thumbnailBottomOverlayViewModel = 1214;
+    ThumbnailOverlayBadgeViewModel thumbnailOverlayBadgeViewModel = 1295; // Badges of playlists and mixes.
+    ThumbnailElementOverlay thumbnailElementOverlay = 36905;
+}
+
+// Element drawn over the thumbnail.
+message ThumbnailElementOverlay {
+    Element element = 1;
+}
+
+message ThumbnailBottomOverlayViewModel {
+    ThumbnailOverlayProgressBar progressBar = 2;
+    repeated ThumbnailBadge badges = 4;
+}
+
+// Watch progress bar at the bottom of the thumbnail (thumbnail_overlay_progress_bar.eml).
+message ThumbnailOverlayProgressBar {
+    ThumbnailOverlayProgressBarViewModel thumbnailOverlayProgressBarViewModel = 1222;
+}
+
+message ThumbnailOverlayProgressBarViewModel {
+    float progress = 1; // Watched fraction, from 0 to 1.
+    int32 style = 6; // 3: at the bottom edge of the thumbnail, without the space below.
+}
+
+message ThumbnailOverlayBadgeViewModel {
+    repeated ThumbnailBadge thumbnailBadges = 1;
+}
+
+message ThumbnailBadge {
+    ThumbnailBadgeViewModel thumbnailBadgeViewModel = 1128;
+}
+
+message ThumbnailBadgeViewModel {
+    ThumbnailBadgeIcon icon = 1;
+    string text = 2;
+    int32 badgeStyle = 3;
+    RendererContext rendererContext = 997;
+}
+
+message ThumbnailBadgeIcon {
+    repeated ThumbnailBadgeIconSource sources = 1;
+}
+
+message ThumbnailBadgeIconSource {
+    ClientResource clientResource = 3;
+}
+
+// Icon of the app, by its drawable name.
+message ClientResource {
+    string imageName = 2;
+}
+
+message RendererContext {
+    AccessibilityContext accessibilityContext = 2;
+    CommandContext commandContext = 3;
+}
+
+message AccessibilityContext {
+    string label = 1;
+}
+
+message CommandContext {
+    bytes onTap = 3;
+}
+
+message LockupMetadata {
+    LockupMetadataViewModel lockupMetadataViewModel = 8178;
+}
+
+message LockupMetadataViewModel {
+    bytes title = 1;
+    LockupImage image = 2;
+    ContentMetadata metadata = 3;
+    ButtonViewModelHolder menuButton = 4;
+    TextStyle titleStyle = 14;
+    repeated ActionButton actionButtons = 17;
+}
+
+message TextStyle {
+    int32 style = 1;
+}
+
+message LockupImage {
+    DecoratedAvatarViewModel decoratedAvatarViewModel = 1105;
+}
+
+message DecoratedAvatarViewModel {
+    AvatarViewModelHolder avatar = 1;
+    string a11yLabel = 6;
+    RendererContext rendererContext = 997;
+}
+
+message AvatarViewModelHolder {
+    AvatarViewModel avatarViewModel = 437811886;
+}
+
+message AvatarViewModel {
+    bytes image = 1;
+    int32 avatarImageSize = 4;
+}
+
+message ContentMetadata {
+    ContentMetadataViewModel contentMetadataViewModel = 514549827;
+}
+
+message ContentMetadataViewModel {
+    repeated MetadataRow metadataRows = 1;
+    string delimiter = 2;
+}
+
+message MetadataRow {
+    repeated MetadataPart metadataParts = 1;
+}
+
+message MetadataPart {
+    AttributedText text = 2;
+    string accessibilityLabel = 3;
+}
+
+message AttributedText {
+    string content = 1;
+    repeated AttachmentRun attachmentRuns = 8;
+}
+
+message AttachmentRun {
+    int32 startIndex = 1;
+    int32 length = 2;
+}
+
+message ActionButton {
+    oneof button {
+        ButtonViewModel buttonViewModel = 461054335;
+        LikeButtonViewModel likeButtonViewModel = 484585818;
+        AddToPlaylistButtonViewModel addToPlaylistButtonViewModel = 484598023;
+    }
+}
+
+message ButtonViewModelHolder {
+    ButtonViewModel buttonViewModel = 461054335;
+}
+
+message ButtonViewModel {
+    string iconName = 2;
+    string title = 3;
+    InnertubeCommandHolder onTap = 4;
+    string accessibilityText = 5;
+    int32 style = 7;
+    int32 type = 11;
+    int32 buttonSize = 13;
+    int32 state = 14;
+    string targetId = 17;
+    int32 iconStyle = 40;
+}
+
+message ToggleButtonViewModelHolder {
+    ToggleButtonViewModel toggleButtonViewModel = 479644279;
+}
+
+message ToggleButtonViewModel {
+    ButtonViewModelHolder defaultButtonViewModel = 1;
+    ButtonViewModelHolder toggledButtonViewModel = 2;
+    string identifier = 4;
+}
+
+message LikeButtonViewModel {
+    ToggleButtonViewModelHolder toggleButtonViewModel = 1;
+    string likeStatusEntityKey = 3;
+    LikeStatusEntity likeStatusEntity = 6;
+    int32 likeCountEnabled = 7;
+    // The following fields are of the buttons of the minimal action bar of the watch page.
+    bool animationEnabled1 = 8;
+    bool animationEnabled2 = 9;
+    bool animationEnabled3 = 10;
+    string likeAnimationUrl = 11;
+    string likedAnimationUrl = 12;
+    string likeCountAnimationParams = 14;
+}
+
+message LikeStatusEntity {
+    string key = 1;
+    int32 likeStatus = 2;
+}
+
+message AddToPlaylistButtonViewModel {
+    ToggleButtonViewModelHolder toggleButtonViewModel = 1;
+}
+
+message InnertubeCommandHolder {
+    InnertubeCommand innertubeCommand = 169495254;
+}
+
+message InnertubeCommand {
+    BrowseEndpoint browseEndpoint = 48687626;
+    LikeEndpoint likeEndpoint = 63158558;
+    OpenPopupAction openPopupAction = 98150882;
+}
+
+// Command of the menu button of the feed videos.
+message OpenPopupAction {
+    // Menu (PlaylistQueueRenderer.Menu), parsed only where it is read, because every feed video has one.
+    bytes popup = 1;
+}
+
+message BrowseEndpoint {
+    string browseId = 2;
+}
+
+message LikeEndpoint {
+    int32 status = 1;
+    LikeTarget target = 2;
+}
+
+message LikeTarget {
+    string videoId = 1;
+}
+
+message LikeStatusEntityKey {
+    string videoId = 2;
+    int32 entityType = 4;
+    int32 version = 5;
+}
+
+// Context of the element models.
+message ElementContext {
+    ElementsExperiments elementsExperiments = 1022;
+}
+
+message ElementsExperiments {
+    CardLayoutExperiments cardLayoutExperiments = 5;
+    // Experiments read by lockup_metadata_ue.eml.
+    bytes lockupMetadataExperiments = 26;
+    // Experiments read by lockup.eml and lockup_thumbnail.eml (field 524937).
+    bytes lockupExperiments = 42;
+}
+
+// Experiments read by the cards and the classic layout. Besides these, lockup_metadata_ue.eml reads
+// 516593 (leaves out the menu button) and 520547, video_lockup_with_attachment.eml 475852 and 513889,
+// video_lockup_attachments.eml 445511.
+message CardLayoutExperiments {
+    // Background in the color sampled from the thumbnail.
+    bool enableColorSampledBackground = 491718;
+    // Background below the title and the metadata.
+    bool enableMetadataBackground = 489259;
+}

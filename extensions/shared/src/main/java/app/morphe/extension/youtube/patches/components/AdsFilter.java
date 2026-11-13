@@ -1,9 +1,20 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.spoof.SpoofOSNamePatch;
 
 /**
  * If A/B testing is applied, ad components can only be filtered by identifier
@@ -20,6 +31,16 @@ import app.morphe.extension.youtube.settings.Settings;
  */
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
+
+    /**
+     * Injection point.
+     * <p>
+     * The ads of the Shorts feed are placed between the Shorts of every channel,
+     * so they are not ads of a whitelisted channel.
+     */
+    public static String hideShortsAds(String osName) {
+        return SpoofOSNamePatch.getOSName(Settings.HIDE_VIDEO_ADS.get());
+    }
 
     private final ByteArrayFilterGroup creatorStoreShelfBuffer;
     private final StringFilterGroup creatorStoreShelf;

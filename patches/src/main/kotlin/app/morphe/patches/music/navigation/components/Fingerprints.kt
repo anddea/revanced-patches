@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -47,18 +48,18 @@ import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
-import app.morphe.patches.music.utils.resourceid.colorGrey
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.text1
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
+import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -67,13 +68,12 @@ import app.morphe.patches.music.utils.resourceid.ytOutlineSamples
 import app.morphe.patches.music.utils.resourceid.ytOutlineYouTubeMusic
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
-internal val tabLayoutFingerprint = legacyFingerprint(
-    name = "tabLayoutFingerprint",
+internal object tabLayoutFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
     strings = listOf("FEmusic_radio_builder"),
-    literals = listOf(colorGrey)
+    filters = listOf(resourceLiteral(ResourceType.COLOR, "ytm_color_grey_12"))
 )
 
 /** Matches navigation tab creation across the legacy and Cairo navigation implementations. */
@@ -110,12 +110,11 @@ internal object TabLayoutTextFingerprint : Fingerprint(
 )
 
 /** Legacy navigation tab match retained for replacement hooks that only exist before 8.51. */
-internal val legacyTabLayoutTextFingerprint = legacyFingerprint(
-    name = "legacyTabLayoutTextFingerprint",
+internal object legacyTabLayoutTextFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
@@ -125,9 +124,9 @@ internal val legacyTabLayoutTextFingerprint = legacyFingerprint(
         Opcode.MOVE_RESULT
     ),
     strings = listOf("FEmusic_search"),
-    literals = listOf(text1),
-    customFingerprint = { method, _ ->
-        indexOfMapInstruction(method) >= 0 &&
+    custom = { method, _ ->
+        method.containsLiteralInstruction(text1) &&
+                indexOfMapInstruction(method) >= 0 &&
                 indexOfGetVisibilityInstruction(method) >= 0 &&
                 indexOfSetTextInstruction(method) >= 0
     }
@@ -170,4 +169,59 @@ internal object ThemeMapConstructorFingerprint : Fingerprint(
             hasOutlineSamples && hasOutlineUpgrade
         } == true
     }
+)
+
+// 9.40: the outline drawable literals moved from the theme class constructor into a private helper
+// (Lixj;->c(Optional)V) that <init> calls. Match that helper; the patch then hooks the class constructor.
+internal object ThemeMapHelperFingerprint : Fingerprint(
+    returnType = "V",
+    custom = { method, _ ->
+        method.name != "<init>" && method.name != "<clinit>" &&
+                method.implementation?.instructions?.let { instructions ->
+                    var hasOutlineSamples = false
+                    var hasOutlineUpgrade = false
+                    for (instruction in instructions) {
+                        if (instruction.opcode == Opcode.CONST) {
+                            val literal = (instruction as? WideLiteralInstruction)?.wideLiteral
+                            if (literal == ytOutlineSamples) {
+                                hasOutlineSamples = true
+                            } else if (literal == ytOutlineYouTubeMusic) {
+                                hasOutlineUpgrade = true
+                            }
+                        }
+                    }
+                    hasOutlineSamples && hasOutlineUpgrade
+                } == true
+    }
+)
+
+/**
+ * Matches the onMeasure method of the watch-while layout, which gives the view the pages are in
+ * its height, the height of the layout without the height of the navigation bar.
+ * The height is the third argument of the first static call that takes a view and two sizes
+ * after the log of a navigation bar without height.
+ */
+internal object WatchWhileLayoutOnMeasureFingerprint : Fingerprint(
+    definingClass = "WatchWhileLayout;",
+    name = "onMeasure",
+    returnType = "V",
+    parameters = listOf("I", "I"),
+    filters = listOf(
+        string("visiblePivotBarHeight is 0"),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            returnType = "V",
+            parameters = listOf("Landroid/view/View;", "I", "I")
+        )
+    )
+)
+
+/**
+ * Matches every method that reads the feature flag of the floating miniplayer,
+ * a rounded card with room on its sides and below it. 9.39+
+ */
+internal object FloatingMiniplayerFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45823962L)
+    )
 )

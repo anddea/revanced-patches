@@ -42,6 +42,7 @@
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/2524
+ * https://github.com/MorpheApp/morphe-patches/pull/3684
  *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
@@ -61,9 +62,11 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.shared.mainactivity.onConfigurationChangedMethod
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.shared.mapping.resourceMappingPatch
@@ -87,7 +90,6 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.forEachChildElement
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -362,6 +364,20 @@ private val runtimeThemeBytecodePatch = bytecodePatch(
     execute {
         // Keep the runtime theme hook owned by Theme so it is applied whenever this patch is selected.
         injectOnCreateMethodCall(THEME_EXTENSION_CLASS_DESCRIPTOR, "setTheme")
+
+        // Android replaces the synthetic MCC/MNC when rotating the Activity. Restore the palette
+        // after the superclass handles the configuration, before YouTube inflates new menu views.
+        onConfigurationChangedMethod.apply {
+            val superCallIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_SUPER &&
+                        getReference<MethodReference>()?.name == "onConfigurationChanged"
+            }
+            addInstruction(
+                superCallIndex + 1,
+                "invoke-static/range { p0 .. p0 }, $THEME_EXTENSION_CLASS_DESCRIPTOR" +
+                        "->onConfigurationChanged(Landroid/content/Context;)V"
+            )
+        }
 
         // Prepare the overlay before the first Activity. The shared extension hook initializes its
         // Context at the beginning of Application.onCreate, so insert immediately after that

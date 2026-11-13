@@ -16,14 +16,18 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
+import app.morphe.extension.music.patches.lyrics.LyricsMerge;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
-import app.morphe.extension.music.patches.lyrics.Word;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
+import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
@@ -31,30 +35,171 @@ import app.morphe.extension.shared.requests.Requester;
 public final class SimpMusicProvider implements LyricsProvider {
 
     private static final String BASE_URL = "https://api-lyrics.simpmusic.org/v1/";
+
+    private static final String CLIENT_USER_AGENT = "SimpMusicLyrics/1.0";
+
+    private static final String NAME = "SimpMusic";
+
     private static final Pattern HTML_ENTITY =
             Pattern.compile("&#x([0-9a-fA-F]+);|&#(\\d+);");
 
+    /** Several space kinds arrive in a body; only one is drawn, so they all fold to it. */
+    private static final Pattern WHITESPACE =
+            Pattern.compile("[\\s\\u00A0\\u2000-\\u200A\\u202F\\u3000]+");
+
+    static String sourceUrl(String videoId) {
+        return "https://lyrics.simpmusic.org/#/video/" + videoId;
+    }
+
+    static String sanitizeLrc(String lrc, long[] offsetHolder) {
+        String[] rawLines = lrc.split("\\r?\\n");
+        StringBuilder sb = new StringBuilder(lrc.length());
+
+        for (String rawLine : rawLines) {
+            String trimmed = rawLine.trim();
+            if (trimmed.startsWith("[offset:")) {
+                int close = trimmed.indexOf(']');
+                if (close > 0) {
+                    String val = trimmed.substring(8, close).trim();
+                    try {
+                        offsetHolder[0] = (long) (Double.parseDouble(val) * 1000);
+                    } catch (NumberFormatException ex) {
+                        Logger.printDebug(() -> "Could not parse offset in SimpMusic LRC", ex);
+                    }
+                }
+                continue;
+            }
+            sb.append(rawLine).append('\n');
+        }
+
+        String result = decodeHtmlEntities(sb.toString());
+        // The whitespace next to a tag marks a word boundary, so it is left for the parser
+        // to read; only runs of spaces inside the text are folded here.
+        result = result.replaceAll("[ \t]{2,}", " ");
+        return result.trim();
+    }
+
+    static String decodeHtmlEntities(String text) {
+        Matcher matcher = HTML_ENTITY.matcher(text);
+        StringBuilder builder = new StringBuilder();
+        int last = 0;
+        while (matcher.find()) {
+            builder.append(text, last, matcher.start());
+            try {
+                if (matcher.group(1) != null) {
+                    builder.append((char) Integer.parseInt(Objects.requireNonNull(matcher.group(1)), 16));
+                } else {
+                    builder.append((char) Integer.parseInt(Objects.requireNonNull(matcher.group(2))));
+                }
+            } catch (NumberFormatException ex) {
+                Logger.printDebug(() -> "Could not parse HTML entity in SimpMusic", ex);
+                builder.append(matcher.group(0));
+            }
+            last = matcher.end();
+        }
+        builder.append(text, last, text.length());
+        return builder.toString()
+                .replace("&nbsp;", "\u00A0")
+                .replace("&amp;", "&")
+                .replace("&lt;", "<")
+                .replace("&gt;", ">")
+                .replace("&quot;", "\"")
+                .replace("&apos;", "'");
+    }
+
+    /** A CJK word boundary is carried by the timings, so the spaces its richSync writes between words are noise in the drawn text. */
+    static List<LyricsLine> normalizeLines(List<LyricsLine> lines) {
+        List<LyricsLine> result = new ArrayList<>(lines.size());
+        for (LyricsLine line : lines) {
+            String text = removeCjkSpaces(WHITESPACE.matcher(line.text()).replaceAll(" ").trim());
+            if (!text.equals(line.text())) {
+                result.add(new LyricsLine(line.startTimeMs(), line.endTimeMs(), text, line.words(),
+                        line.agentId(), line.isDuet(), line.isBG(), line.songPart()));
+            } else {
+                result.add(line);
+            }
+        }
+        return result;
+    }
+
+    static String removeCjkSpaces(String text) {
+        final int length = text.length();
+        final StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            final char c = text.charAt(i);
+            if (c != ' ') {
+                sb.append(c);
+                continue;
+            }
+            final boolean left = i > 0 && ScriptDetector.isHanOrKana(text.codePointBefore(i));
+            final boolean right = i + 1 < length && ScriptDetector.isHanOrKana(text.codePointAt(i + 1));
+            if (!(left && right)) {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+    static Lyrics withContributor(@Nullable Lyrics lyrics, @Nullable String contributor) {
+        return LyricsMerge.addCredit(lyrics,
+                contributor == null ? null : "Submitted by " + contributor);
+    }
+
     @Override
     public String name() {
-        return "SimpMusic";
+        return NAME;
+    }
+
+    @Override
+    public boolean hasCandidates() {
+        return true;
     }
 
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         final String videoId = VideoInformation.getVideoId();
-        if (videoId == null || videoId.isEmpty()) {
+        if (videoId.isEmpty()) {
             return null;
         }
-        return fetchByVideoId(videoId);
+        return FetchResult.of(fetchByVideoId(videoId));
+    }
+
+    @Override
+    public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) {
+        final String videoId = VideoInformation.getVideoId();
+        final JSONArray data = videoId.isEmpty() ? null : fetchEntries(videoId);
+        if (data == null) {
+            return Collections.emptyList();
+        }
+        List<LyricsRequests.VotedLyrics> found = new ArrayList<>();
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject entry = data.optJSONObject(i);
+            if (entry == null) {
+                continue;
+            }
+            Lyrics lyrics = parseEntry(entry, videoId);
+            if (lyrics != null && !lyrics.isEmpty()) {
+                found.add(new LyricsRequests.VotedLyrics(entry.optInt("vote", 0), lyrics));
+            }
+        }
+        return LyricsRequests.videoIdCandidates(found);
     }
 
     @Nullable
     private Lyrics fetchByVideoId(String videoId) {
+        final JSONArray data = fetchEntries(videoId);
+        return data == null ? null : pickBestEntry(data, videoId);
+    }
+
+    /** Every lyric the API has for the video, or null when it has none. */
+    @Nullable
+    private JSONArray fetchEntries(String videoId) {
         HttpURLConnection connection = null;
         try {
             final String url = BASE_URL + LyricsRequests.encode(videoId);
             connection = LyricsRequests.openConnection(url);
+            connection.setRequestProperty("User-Agent", CLIENT_USER_AGENT);
             connection.setRequestProperty("Accept", "application/json");
 
             final int code = connection.getResponseCode();
@@ -71,10 +216,7 @@ public final class SimpMusicProvider implements LyricsProvider {
                 return null;
             }
             final JSONArray data = root.optJSONArray("data");
-            if (data == null || data.length() == 0) {
-                return null;
-            }
-            return pickBestEntry(data, videoId);
+            return data == null || data.length() == 0 ? null : data;
         } catch (IOException | JSONException ex) {
             Logger.printDebug(() -> "Could not query SimpMusic API", ex);
             return null;
@@ -83,10 +225,6 @@ public final class SimpMusicProvider implements LyricsProvider {
                 connection.disconnect();
             }
         }
-    }
-
-    private static String sourceUrl(String videoId) {
-        return "https://lyrics.simpmusic.org/#/video/" + videoId;
     }
 
     @Nullable
@@ -113,133 +251,41 @@ public final class SimpMusicProvider implements LyricsProvider {
 
     @Nullable
     private Lyrics parseEntry(JSONObject entry, String videoId) {
-        // Prefer rich sync (word-level), then synced (line-level), then plain.
+        final String contributor = LyricsRequests.optString(entry, "contributor");
         final String richSync = LyricsRequests.optString(entry, "richSyncLyrics");
         if (richSync != null) {
-            return parseLrc(richSync, videoId);
+            return withContributor(parseLrc(richSync, videoId), contributor);
         }
         final String synced = LyricsRequests.optString(entry, "syncedLyrics");
         if (synced != null) {
-            return parseLrc(synced, videoId);
+            return withContributor(parseLrc(synced, videoId), contributor);
         }
         final String plain = LyricsRequests.optString(entry, "plainLyric");
         if (plain != null) {
-            final List<LyricsLine> lines = LrcParser.parsePlain(plain);
+            final List<LyricsLine> lines = normalizeLines(LrcParser.parsePlain(plain));
             if (!lines.isEmpty()) {
-                return new Lyrics(lines, name(), false,
-                        null, null, null, null, plain, "plain", sourceUrl(videoId));
+                return withContributor(new Lyrics(lines, name(), false,
+                        null, null, null, null, plain, "plain", sourceUrl(videoId)), contributor);
             }
         }
         return null;
     }
 
     @Nullable
-    private Lyrics parseLrc(String lrc, String videoId) {
+    static Lyrics parseLrc(String lrc, String videoId) {
         final long[] offsetHolder = {0};
         final String sanitized = sanitizeLrc(lrc, offsetHolder);
         final LrcParser.LrcParseResult result = LrcParser.parseSyncedWithCreditLines(sanitized);
         if (result.lines.isEmpty()) {
             return null;
         }
-        List<LyricsLine> lines = collapseSpaces(result.lines);
+        List<LyricsLine> lines = normalizeLines(result.lines);
         if (offsetHolder[0] != 0) {
-            lines = applyOffset(lines, offsetHolder[0]);
+            lines = LyricsRequests.applyOffset(lines, offsetHolder[0]);
         }
-        return new Lyrics(lines, name(), true,
+        return new Lyrics(lines, NAME, true,
                 null, null, null,
-                result.creditLines.isEmpty() ? null : result.creditLines,
-                sanitized, "lrc", sourceUrl(videoId));
-    }
-
-    private static String sanitizeLrc(String lrc, long[] offsetHolder) {
-        String[] rawLines = lrc.split("\\r?\\n");
-        StringBuilder sb = new StringBuilder(lrc.length());
-
-        for (String rawLine : rawLines) {
-            String trimmed = rawLine.trim();
-            if (trimmed.startsWith("[offset:")) {
-                int close = trimmed.indexOf(']');
-                if (close > 0) {
-                    String val = trimmed.substring(8, close).trim();
-                    try {
-                        offsetHolder[0] = (long) (Double.parseDouble(val) * 1000);
-                    } catch (NumberFormatException ex) {
-                        Logger.printDebug(() -> "Could not parse offset in SimpMusic LRC", ex);
-                    }
-                }
-                continue;
-            }
-            sb.append(rawLine).append('\n');
-        }
-
-        String result = decodeHtmlEntities(sb.toString());
-        result = result.replaceAll("[ \t]{2,}", " ");
-        result = result.replaceAll(">[ \t]+<", "><");
-        result = result.replaceAll(">[ \t]+", ">");
-        return result.trim();
-    }
-
-    private static String decodeHtmlEntities(String text) {
-        Matcher matcher = HTML_ENTITY.matcher(text);
-        StringBuilder builder = new StringBuilder();
-        int last = 0;
-        while (matcher.find()) {
-            builder.append(text, last, matcher.start());
-            try {
-                if (matcher.group(1) != null) {
-                    builder.append((char) Integer.parseInt(matcher.group(1), 16));
-                } else {
-                    builder.append((char) Integer.parseInt(matcher.group(2)));
-                }
-            } catch (NumberFormatException ex) {
-                Logger.printDebug(() -> "Could not parse HTML entity in SimpMusic", ex);
-                builder.append(matcher.group(0));
-            }
-            last = matcher.end();
-        }
-        builder.append(text, last, text.length());
-        return builder.toString()
-                .replace("&amp;", "&")
-                .replace("&lt;", "<")
-                .replace("&gt;", ">")
-                .replace("&quot;", "\"")
-                .replace("&apos;", "'");
-    }
-
-    private static List<LyricsLine> collapseSpaces(List<LyricsLine> lines) {
-        List<LyricsLine> result = new ArrayList<>(lines.size());
-        for (LyricsLine line : lines) {
-            String text = line.text().replaceAll(" {2,}", " ").trim();
-            if (!text.equals(line.text())) {
-                result.add(new LyricsLine(line.startTimeMs(), line.endTimeMs(), text, line.words(),
-                        line.agentId(), line.isDuet(), line.isBG(), line.songPart()));
-            } else {
-                result.add(line);
-            }
-        }
-        return result;
-    }
-
-    private static List<LyricsLine> applyOffset(List<LyricsLine> lines, long offsetMs) {
-        List<LyricsLine> adjusted = new ArrayList<>(lines.size());
-        for (LyricsLine line : lines) {
-            long newStart = line.startTimeMs() + offsetMs;
-            long newEnd = line.endTimeMs() != LyricsLine.NO_TIME
-                    ? line.endTimeMs() + offsetMs : LyricsLine.NO_TIME;
-            List<Word> adjustedWords = new ArrayList<>();
-            if (line.words() != null) {
-                for (Word word : line.words()) {
-                    adjustedWords.add(new Word(
-                            word.startMs() + offsetMs,
-                            word.endMs() + offsetMs,
-                            word.text(),
-                            word.romaji(),
-                            word.endsWithSpace()));
-                }
-            }
-            adjusted.add(new LyricsLine(newStart, newEnd, line.text(), adjustedWords,
-                    line.agentId(), line.isDuet(), line.isBG(), line.songPart()));
-        }
-        return adjusted;
+                null, result.creditLines.isEmpty() ? null : result.creditLines,
+                sanitized, "lrc", sourceUrl(videoId), null, null);
     }
 }

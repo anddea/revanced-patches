@@ -4,6 +4,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
@@ -27,8 +28,8 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.VideoQualityFingerprint
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.getFiveRegisters
-import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -149,6 +150,12 @@ val playerFlyoutMenuPatch = bytecodePatch(
         // region patch for hide pip mode menu
 
         PipModeConfigFingerprint.method.insertLiteralOverride(
+            45427407L,
+            "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
+        )
+
+        // YouTube 21.39 inlines the flag into more callers than the matched config method.
+        insertLiteralOverrideAtInlinedSites(
             45427407L,
             "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
         )

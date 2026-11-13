@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches;
 
 import static app.morphe.extension.shared.settings.BaseSettings.GMS_SHOW_DIALOG;
@@ -24,6 +34,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+
+import androidx.annotation.Nullable;
 
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -43,6 +56,37 @@ public class GmsCoreSupport {
             = "com.google";
     private static final String DONT_KILL_MY_APP_LINK
             = "https://dontkillmyapp.com";
+
+    /**
+     * Account capabilities of child, supervised and teen accounts, as Base32 of "303-cap", "1242-cap",
+     * "1786-cap" and "322-cap". GmsCore allows the capabilities it can not look up, so every account got
+     * the defaults of a supervised or teen account, such as the bedtime, break and Shorts feed limit
+     * reminders turned on, which are set again for each account that is used for the first time,
+     * such as after switching account or clearing the app data.
+     * Google Play services denies them for other accounts.
+     */
+    private static final List<String> SUPERVISED_ACCOUNT_CAPABILITIES = List.of(
+            "gmydglldmfya",
+            "gezdimrnmnqxa",
+            "ge3tqnrnmnqxa",
+            "gmzdelldmfya"
+    );
+
+    /**
+     * Injection point.
+     *
+     * @return If the account capability check is denied without asking GmsCore.
+     */
+    public static boolean denySupervisedAccountCapability(@Nullable String[] capabilities) {
+        if (capabilities != null) {
+            for (String capability : capabilities) {
+                if (SUPERVISED_ACCOUNT_CAPABILITIES.contains(capability)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     private static void open(Activity mActivity, String queryOrLink) {
         Intent intent;

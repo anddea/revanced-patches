@@ -5,6 +5,7 @@
  * https://github.com/anddea/revanced-patches
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -44,6 +45,7 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.util.*
 import app.morphe.util.fingerprint.legacyFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -300,6 +302,26 @@ internal object ProtobufBufferReferenceLegacyFingerprint : Fingerprint(
             !field.type.startsWith("Ljava/") &&
             !field.type.startsWith("Landroid/")
         }
+    }
+)
+
+/**
+ * YouTube 21.39 and YouTube Music 9.40 dropped the extra object field that
+ * [ProtobufBufferReferenceLegacyFingerprint] relies on, so identify the class by its own ByteBuffer field.
+ * Only used when that fingerprint does not match: on older versions this looser shape also matches other classes.
+ */
+internal object ProtobufBufferReferenceLegacyByteBufferFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("I", "Ljava/nio/ByteBuffer;"),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.IPUT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.SUB_INT_2ADDR,
+    ),
+    custom = { _, classDef ->
+        classDef.fields.any { field -> field.type == "Ljava/nio/ByteBuffer;" }
     }
 )
 

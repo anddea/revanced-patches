@@ -5,7 +5,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.morphe.patches.shared.indexOfReleaseInstruction
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -16,7 +15,7 @@ fun baseSpoofAppVersionPatch(
     description = "baseSpoofAppVersionPatch"
 ) {
     execute {
-        createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
+        createPlayerRequestBodyWithModelFingerprint.method.apply {
             val versionIndex = indexOfReleaseInstruction(this) + 1
             val insertIndex =
                 indexOfFirstInstructionReversedOrThrow(versionIndex, Opcode.IPUT_OBJECT)

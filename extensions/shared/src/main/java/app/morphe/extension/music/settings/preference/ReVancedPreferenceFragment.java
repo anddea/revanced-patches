@@ -1,5 +1,7 @@
 package app.morphe.extension.music.settings.preference;
 
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
+
 import static app.morphe.extension.music.settings.Settings.APP_INFO;
 import static app.morphe.extension.music.settings.Settings.BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN;
 import static app.morphe.extension.music.settings.Settings.CHANGE_START_PAGE;
@@ -25,7 +27,6 @@ import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_S
 import static app.morphe.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
 import static app.morphe.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.morphe.extension.music.utils.ExtendedUtils.getLayoutParams;
-import static app.morphe.extension.music.utils.RestartUtils.showRestartDialog;
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT;
 import static app.morphe.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY;
@@ -105,19 +106,16 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             if (key.equals(setting.key)) {
                 ((BooleanSetting) setting).save(newValue);
                 if (setting.rebootApp) {
-                    showRebootDialog();
+                    AbstractPreferenceFragment.setRestartNeeded();
                 }
                 break;
             }
         }
     }
 
+    /** Marks legacy Music preference changes for the shared settings-exit prompt. */
     public static void showRebootDialog() {
-        final Activity activity = ActivityHook.getActivity();
-        if (activity == null)
-            return;
-
-        showRestartDialog(activity);
+        AbstractPreferenceFragment.setRestartNeeded();
     }
 
     @Override
@@ -387,7 +385,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
             final boolean restartNeeded = Setting.importFromJSON(context, sb.toString());
             if (restartNeeded) {
-                ReVancedPreferenceFragment.showRebootDialog();
+                AbstractPreferenceFragment.setRestartNeeded();
             }
         } catch (IOException e) {
             showToastShort(str("revanced_settings_import_failed"));
@@ -403,7 +401,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             }
             final boolean restartNeeded = Setting.importFromJSON(mActivity, replacementSettings);
             if (restartNeeded) {
-                ReVancedPreferenceFragment.showRebootDialog();
+                AbstractPreferenceFragment.setRestartNeeded();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "importSettings failure", ex);

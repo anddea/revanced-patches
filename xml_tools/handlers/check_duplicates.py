@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("xml_tools")
 
-BLACKLIST: frozenset[str] = frozenset({
-    "morphe_app_refresh_rate_default",
-})
+BLACKLIST: set[frozenset[str]] = {
+    frozenset({"morphe_music_lyrics_rime_dict_title", "morphe_music_lyrics_romanization_provider_rime"}),
+}
 
 
 def extract_string_texts(path: Path) -> dict[str, str]:
@@ -45,15 +45,13 @@ def extract_string_texts(path: Path) -> dict[str, str]:
 
 
 def find_duplicate_strings(path: Path) -> dict[str, list[str]]:
-    """Find string names that share the same text content."""
+    """Find duplicate text, excluding explicitly allowed resource-name groups."""
     names_by_text: defaultdict[str, list[str]] = defaultdict(list)
     for name, text in extract_string_texts(path).items():
         names_by_text[text].append(name)
 
     return {
-        text: names
-        for text, names in names_by_text.items()
-        if len([n for n in names if n not in BLACKLIST]) > 1
+        text: names for text, names in names_by_text.items() if len(names) > 1 and frozenset(names) not in BLACKLIST
     }
 
 
@@ -76,4 +74,4 @@ def process(app: str, _base_dir: Path | None = None) -> None:
 
     logger.info("Duplicate string text found in %s:", path)
     for names in duplicate_strings.values():
-        logger.info("  ❌ %s", ", ".join(sorted(names)))
+        logger.info("  ❌ %s", " - ".join(sorted(names)))

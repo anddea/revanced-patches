@@ -17,11 +17,11 @@ import java.nio.file.StandardCopyOption
 private val classLoader = object {}.javaClass.classLoader
 
 @Suppress("UNCHECKED_CAST")
-fun Patch<*>.getStringOptionValue(key: String) =
+fun Patch.getStringOptionValue(key: String) =
     options[key] as Option<String>
 
 @Suppress("UNCHECKED_CAST")
-fun Patch<*>.getBooleanOptionValue(key: String) =
+fun Patch.getBooleanOptionValue(key: String) =
     options[key] as Option<Boolean>
 
 fun Option<String>.valueOrThrow() = value
@@ -241,8 +241,7 @@ fun ResourcePatchContext.removeOverlayBackground(
     targetId: Array<String>,
 ) {
     files.forEach { file ->
-        val resourceDirectory = get("res")
-        val targetXmlPath = resourceDirectory.resolve("layout").resolve(file)
+        val targetXmlPath = get("res/layout/$file")
 
         if (targetXmlPath.exists()) {
             targetId.forEach { identifier ->

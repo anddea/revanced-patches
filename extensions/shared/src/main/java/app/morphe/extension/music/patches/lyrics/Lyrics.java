@@ -15,76 +15,83 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Lyrics of a single track, either synced (each line carries a timestamp) or plain.
  *
- * @param providerName Provider name shown to the user, for example {@code LRCLIB}.
- * @param translations Embedded translations keyed by BCP-47 language tag (e.g. {@code zh},
- *                     {@code en}, {@code zh-Hans}). A translation entry is a line-level list
- *                     aligned 1:1 with {@link #lines()}; an empty string marks a line with no
- *                     translation. {@code null} when the source ships none.
- * @param romanization Legacy single-language romanization, kept for backward compatibility.
+ * @param providerName  Provider name shown to the user, for example {@code LRCLIB}.
+ * @param translations  Embedded translations keyed by BCP-47 language tag (e.g. {@code zh},
+ *                      {@code en}, {@code zh-Hans}). A translation entry is a line-level list
+ *                      aligned 1:1 with {@link #lines()}; an empty string marks a line with no
+ *                      translation. {@code null} when the source ships none.
+ * @param romanization  Legacy single-language romanization, kept for backward compatibility.
  * @param romanizations Multi-language romanizations keyed by BCP-47 language tag.
- * @param songwriters Songwriter/credits names extracted from TTML metadata.
- * @param rawFormat Decrypted raw lyrics text in the provider's original format (e.g. LRC, QRC, TTML).
- * @param formatType File extension for the raw format (e.g. {@code "lrc"}, {@code "qrc"}, {@code "ttml"}).
- * @param sourceUrl Optional URL to the song page on the provider's platform, opened when the
- *                  source label is clicked.
+ * @param songwriters   Songwriter names extracted from TTML metadata or provider API.
+ * @param credits       Credit lines extracted from the lyrics body, such as the lyricist and the
+ *                      composer, and non-standard metadata fields without a TTML equivalent.
+ * @param rawFormat     Decrypted raw lyrics text in the provider's original format (e.g. LRC, QRC, TTML).
+ * @param formatType    File extension for the raw format (e.g. {@code "lrc"}, {@code "qrc"}, {@code "ttml"}).
+ * @param sourceUrl     Optional URL to the song page on the provider's platform, opened when the
+ *                      source label is clicked.
+ * @param about         Song description, shown under the credits on the info line.
+ * @param agentNames    Agent ID to display name map, parsed from TTML head {@code <ttm:agent>}.
  */
 public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
                      @Nullable List<LyricsLine> romanization,
                      @Nullable Map<String, List<LyricsLine>> translations,
                      @Nullable Map<String, List<LyricsLine>> romanizations,
                      @Nullable List<String> songwriters,
+                     @Nullable List<String> credits,
                      @Nullable String rawFormat,
                      @Nullable String formatType,
-                     @Nullable String sourceUrl) {
-
-    public record ScoredLyrics(int score, Lyrics lyrics) {
-    }
-
-    public static List<Lyrics> sortLyricsByScore(List<ScoredLyrics> scored) {
-        scored.sort((a, b) -> b.score - a.score);
-        return scored.stream()
-                .map(s -> s.lyrics)
-                .collect(Collectors.toList());
-    }
+                     @Nullable String sourceUrl,
+                     @Nullable String about,
+                     @Nullable Map<String, String> agentNames) {
 
     /** Marker for a track that was looked up successfully but has no lyrics anywhere. */
     public static final Lyrics NOT_FOUND = new Lyrics(Collections.emptyList(), "", false,
-            null, null, null, null, null, null, null);
-
+            null, null, null, null, null, null, null, null, null);
     public static final String CAPTIONS_PROVIDER = "Captions";
+
+    /** Every provider but Genius ships no description, so most call sites keep the shorter form. */
+    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
+                  @Nullable List<LyricsLine> romanization,
+                  @Nullable Map<String, List<LyricsLine>> translations,
+                  @Nullable Map<String, List<LyricsLine>> romanizations,
+                  @Nullable List<String> songwriters,
+                  @Nullable String rawFormat,
+                  @Nullable String formatType,
+                  @Nullable String sourceUrl) {
+        this(lines, providerName, synced, romanization, translations, romanizations,
+                songwriters, null, rawFormat, formatType, sourceUrl, null, null);
+    }
+
+    /** Convenience for callers that supply about/agentNames but no credits. */
+    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
+                  @Nullable List<LyricsLine> romanization,
+                  @Nullable Map<String, List<LyricsLine>> translations,
+                  @Nullable Map<String, List<LyricsLine>> romanizations,
+                  @Nullable List<String> songwriters,
+                  @Nullable String rawFormat,
+                  @Nullable String formatType,
+                  @Nullable String sourceUrl,
+                  @Nullable String about,
+                  @Nullable Map<String, String> agentNames) {
+        this(lines, providerName, synced, romanization, translations, romanizations,
+                songwriters, null, rawFormat, formatType, sourceUrl, about, agentNames);
+    }
 
     public Lyrics {
         lines = Collections.unmodifiableList(lines);
         romanization = (romanization == null) ? null : Collections.unmodifiableList(romanization);
         translations = (translations == null) ? null : unmodifiableTranslations(translations);
         romanizations = (romanizations == null) ? null : unmodifiableTranslations(romanizations);
+        credits = (credits == null) ? null : Collections.unmodifiableList(credits);
     }
 
-    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
-                  @Nullable List<LyricsLine> romanization,
-                  @Nullable Map<String, List<LyricsLine>> translations) {
-        this(lines, providerName, synced, romanization, translations, null, null, null, null, null);
-    }
-
-    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
-                  @Nullable List<LyricsLine> romanization,
-                  @Nullable Map<String, List<LyricsLine>> translations,
-                  @Nullable Map<String, List<LyricsLine>> romanizations) {
-        this(lines, providerName, synced, romanization, translations, romanizations, null, null, null, null);
-    }
-
-    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced) {
-        this(lines, providerName, synced, null, null, null, null, null, null, null);
-    }
-
-    public Lyrics(List<LyricsLine> lines, String providerName, boolean synced,
-                  @Nullable List<LyricsLine> romanization) {
-        this(lines, providerName, synced, romanization, null, null, null, null, null, null);
+    public static List<ScoredLyrics> sortScoredByScore(List<ScoredLyrics> scored) {
+        scored.sort((a, b) -> b.score - a.score);
+        return scored;
     }
 
     private static Map<String, List<LyricsLine>> unmodifiableTranslations(
@@ -95,6 +102,155 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
             out.put(entry.getKey(), value == null ? null : Collections.unmodifiableList(value));
         }
         return Collections.unmodifiableMap(out);
+    }
+
+    public static List<LyricsLine> fixAnomalousWordTimestamps(List<LyricsLine> lines) {
+        final int size = lines.size();
+        if (size == 0) return lines;
+        List<LyricsLine> out = new ArrayList<>(lines);
+        for (int i = 0; i < size; i++) {
+            LyricsLine line = out.get(i);
+            if (!line.hasWords()) continue;
+            List<Word> words = line.words();
+            final int count = words.size();
+            if (count == 0) continue;
+
+            final long lineStart = line.startTimeMs();
+            final long lineEnd = line.endTimeMs();
+
+            long prevEnd = lineStart != LyricsLine.NO_TIME ? lineStart : 0;
+            boolean changed = false;
+            boolean unsalvageable = false;
+            Word[] fixed = new Word[count];
+
+            for (int j = 0; j < count; j++) {
+                Word w = words.get(j);
+                // A negative time is not a small time, it is the absence of one.
+                final boolean untimed = w.startMs() < 0 || w.endMs() < 0;
+                // Only a missing start or one well before the line is replaced; any other
+                // repair keeps the word where it starts and only fixes its end.
+                final boolean badStart = w.startMs() < 0
+                        || (w.startMs() > 0 && lineStart > 0 && w.startMs() < lineStart - 500);
+                final boolean anomalous = untimed
+                        || badStart
+                        || (w.startMs() == 0 && lineStart > 0)
+                        || (w.endMs() == 0 && w.startMs() > 0)
+                        || (w.startMs() > 0 && w.startMs() == w.endMs());
+
+                if (!anomalous) {
+                    prevEnd = Math.max(w.endMs(), w.startMs());
+                    fixed[j] = w;
+                    continue;
+                }
+
+                // Repairing off a line that is not timed either would build the timings out of
+                // numbers that were never times, so the words go and the line is sung in one go.
+                if (untimed && lineStart < 0) {
+                    unsalvageable = true;
+                    break;
+                }
+
+                long nextStart = Long.MAX_VALUE;
+                for (int k = j + 1; k < count; k++) {
+                    Word nw = words.get(k);
+                    if (nw.startMs() > 0 && nw.endMs() > nw.startMs()) {
+                        nextStart = nw.startMs();
+                        break;
+                    }
+                }
+
+                if (nextStart == Long.MAX_VALUE) {
+                    nextStart = lineEnd != LyricsLine.NO_TIME
+                            ? lineEnd : prevEnd + 800;
+                }
+
+                final long newStart = badStart
+                        ? Math.max(prevEnd, lineStart > 0 ? lineStart : 0)
+                        : Math.max(prevEnd, w.startMs());
+                long newEnd = nextStart;
+                if (newEnd <= newStart) {
+                    newEnd = newStart + (w.endMs() > w.startMs() ? (w.endMs() - w.startMs()) : 50);
+                }
+                if (newEnd - newStart < 50) {
+                    newEnd = newStart + 50;
+                }
+
+                fixed[j] = new Word(newStart, newEnd, w.text(), w.romaji(),
+                        w.endsWithSpace(), w.ruby());
+                prevEnd = newEnd;
+                changed = true;
+            }
+
+            if (unsalvageable) {
+                out.set(i, new LyricsLine(line.startTimeMs(), line.endTimeMs(),
+                        line.text(), List.of(), line.agentId(), line.isDuet(),
+                        line.isBG(), line.songPart()));
+            } else if (changed) {
+                out.set(i, new LyricsLine(line.startTimeMs(), line.endTimeMs(),
+                        line.text(), List.of(fixed), line.agentId(), line.isDuet(),
+                        line.isBG(), line.songPart()));
+            }
+        }
+        return Collections.unmodifiableList(out);
+    }
+
+    public static List<LyricsLine> clampLastWordEnds(List<LyricsLine> lines) {
+        final int size = lines.size();
+        if (size == 0) return lines;
+        List<LyricsLine> out = new ArrayList<>(lines);
+        for (int i = 0; i < size; i++) {
+            LyricsLine line = out.get(i);
+            if (!line.hasWords()) continue;
+            List<Word> words = line.words();
+            final int lastIdx = words.size() - 1;
+            Word lastWord = words.get(lastIdx);
+            // A line end at or before the last word's start is not an end for that word.
+            final boolean lineEndUsable = line.endTimeMs() != LyricsLine.NO_TIME
+                    && line.endTimeMs() > lastWord.startMs();
+            long effectiveEnd = lastWord.endMs();
+            if (effectiveEnd == LyricsLine.NO_TIME || effectiveEnd <= lastWord.startMs()) {
+                effectiveEnd = lineEndUsable ? line.endTimeMs() : lastWord.startMs() + 800L;
+            }
+            long nextStart = LyricsLine.NO_TIME;
+            for (int j = i + 1; j < size; j++) {
+                final LyricsLine candidate = out.get(j);
+                if (candidate.isBG()) {
+                    continue;
+                }
+                nextStart = candidate.startTimeMs();
+                break;
+            }
+            if (nextStart != LyricsLine.NO_TIME) {
+                effectiveEnd = Math.min(effectiveEnd, nextStart);
+            }
+            // Also respect the line's own endTimeMs if set.
+            if (lineEndUsable) {
+                effectiveEnd = Math.min(effectiveEnd, line.endTimeMs());
+            }
+            // The floor keeps the last word on screen, but it must not reach into the next
+            // line: ranges crossing a line boundary chain the karaoke highlight over several
+            // lines at once.
+            long floor = lastWord.startMs() + 200;
+            if (nextStart != LyricsLine.NO_TIME && nextStart > lastWord.startMs()) {
+                floor = Math.min(floor, nextStart);
+            }
+            effectiveEnd = Math.max(effectiveEnd, floor);
+            if (effectiveEnd != lastWord.endMs()) {
+                List<Word> newWords = new ArrayList<>(words);
+                newWords.set(lastIdx, new Word(lastWord.startMs(), effectiveEnd,
+                        lastWord.text(), lastWord.romaji(), lastWord.endsWithSpace(), lastWord.ruby()));
+                out.set(i, new LyricsLine(line.startTimeMs(), line.endTimeMs(),
+                        line.text(), newWords, line.agentId(), line.isDuet(),
+                        line.isBG(), line.songPart()));
+            }
+        }
+        return Collections.unmodifiableList(out);
+    }
+
+    public Lyrics withLines(List<LyricsLine> newLines) {
+        return new Lyrics(newLines, providerName(), synced(), romanization(),
+                translations(), romanizations(), songwriters(), credits(), rawFormat(),
+                formatType(), sourceUrl(), about(), agentNames());
     }
 
     public boolean isEmpty() {
@@ -155,106 +311,6 @@ public record Lyrics(List<LyricsLine> lines, String providerName, boolean synced
         return "Lyrics{" + providerName + ", synced=" + synced + ", lines=" + lines.size() + "}";
     }
 
-    public static List<LyricsLine> fixAnomalousWordTimestamps(List<LyricsLine> lines) {
-        final int size = lines.size();
-        if (size == 0) return lines;
-        List<LyricsLine> out = new ArrayList<>(lines);
-        for (int i = 0; i < size; i++) {
-            LyricsLine line = out.get(i);
-            if (!line.hasWords()) continue;
-            List<Word> words = line.words();
-            final int count = words.size();
-            if (count == 0) continue;
-
-            final long lineStart = line.startTimeMs();
-            final long lineEnd = line.endTimeMs();
-
-            long prevEnd = lineStart != LyricsLine.NO_TIME ? lineStart : 0;
-            boolean changed = false;
-            Word[] fixed = new Word[count];
-
-            for (int j = 0; j < count; j++) {
-                Word w = words.get(j);
-                final boolean anomalous = (w.startMs() == 0 && lineStart > 0)
-                        || (w.endMs() == 0 && w.startMs() > 0)
-                        || (w.startMs() > 0 && w.startMs() == w.endMs())
-                        || (w.startMs() > 0 && w.startMs() < lineStart - 500);
-
-                if (!anomalous) {
-                    prevEnd = Math.max(w.endMs(), w.startMs());
-                    fixed[j] = w;
-                    continue;
-                }
-
-                long nextStart = Long.MAX_VALUE;
-                for (int k = j + 1; k < count; k++) {
-                    Word nw = words.get(k);
-                    if (nw.startMs() > 0 && nw.endMs() > nw.startMs()) {
-                        nextStart = nw.startMs();
-                        break;
-                    }
-                }
-
-                if (nextStart == Long.MAX_VALUE) {
-                    nextStart = lineEnd != LyricsLine.NO_TIME
-                            ? lineEnd : prevEnd + 800;
-                }
-
-                long newStart = Math.max(prevEnd, lineStart > 0 ? lineStart : 0);
-                long newEnd = nextStart;
-                if (newEnd <= newStart) {
-                    newEnd = newStart + 50;
-                }
-                if (newEnd - newStart < 50) {
-                    newEnd = newStart + 50;
-                }
-
-                fixed[j] = new Word(newStart, newEnd, w.text(), w.romaji(),
-                        w.endsWithSpace());
-                prevEnd = newEnd;
-                changed = true;
-            }
-
-            if (changed) {
-                out.set(i, new LyricsLine(line.startTimeMs(), line.endTimeMs(),
-                        line.text(), List.of(fixed), line.agentId(), line.isDuet(),
-                        line.isBG(), line.songPart()));
-            }
-        }
-        return Collections.unmodifiableList(out);
-    }
-
-    public static List<LyricsLine> clampLastWordEnds(List<LyricsLine> lines) {
-        final int size = lines.size();
-        if (size == 0) return lines;
-        List<LyricsLine> out = new ArrayList<>(lines);
-        for (int i = 0; i < size; i++) {
-            LyricsLine line = out.get(i);
-            if (!line.hasWords()) continue;
-            List<Word> words = line.words();
-            final int lastIdx = words.size() - 1;
-            Word lastWord = words.get(lastIdx);
-            long effectiveEnd = lastWord.endMs();
-            if (i + 1 < size) {
-                final long nextStart = out.get(i + 1).startTimeMs();
-                if (nextStart != LyricsLine.NO_TIME) {
-                    effectiveEnd = Math.min(effectiveEnd, nextStart);
-                }
-            }
-            // Also respect the line's own endTimeMs if set.
-            if (line.endTimeMs() != LyricsLine.NO_TIME) {
-                effectiveEnd = Math.min(effectiveEnd, line.endTimeMs());
-            }
-            effectiveEnd = Math.max(effectiveEnd, lastWord.startMs() + 200);
-            if (effectiveEnd != lastWord.endMs()) {
-                List<Word> newWords = new ArrayList<>(words);
-                newWords.set(lastIdx, new Word(lastWord.startMs(), effectiveEnd,
-                        lastWord.text(), lastWord.romaji(), lastWord.endsWithSpace()));
-                out.set(i, new LyricsLine(line.startTimeMs(), line.endTimeMs(),
-                        line.text(), newWords, line.agentId(), line.isDuet(),
-                        line.isBG(), line.songPart()));
-            }
-        }
-        return Collections.unmodifiableList(out);
+    public record ScoredLyrics(int score, Lyrics lyrics) {
     }
 }

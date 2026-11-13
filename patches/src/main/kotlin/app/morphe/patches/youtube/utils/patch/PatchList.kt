@@ -9,13 +9,9 @@ internal enum class PatchList(
         "App refresh rate",
         "Adds an option to change the app refresh rate."
     ),
-    ALTERNATIVE_THUMBNAILS(
-        "Alternative thumbnails",
-        "Adds options to replace video thumbnails using the DeArrow API or image captures from the video."
-    ),
     AMBIENT_MODE_CONTROL(
         "Ambient mode control",
-        "Adds options to disable Ambient mode and to bypass Ambient mode restrictions."
+        "Adds Enhanced Ambient mode and options to force Ambient mode on, bypass its power saving restrictions, and disable it entirely or in fullscreen."
     ),
     BYPASS_IMAGE_REGION_RESTRICTIONS(
         "Bypass image region restrictions",
@@ -24,6 +20,10 @@ internal enum class PatchList(
     BYPASS_URL_REDIRECTS(
         "Bypass URL redirects",
         "Adds an option to bypass URL redirects and open the original URL directly."
+    ),
+    CAPTIONS(
+        "Captions",
+        "Adds stable caption blocks, caption size, and synchronized bilingual captions."
     ),
     CHANGE_FORM_FACTOR(
         "Change form factor",
@@ -41,6 +41,10 @@ internal enum class PatchList(
         "Change start page",
         "Adds an option to set which page the app opens in instead of the homepage."
     ),
+    COPY_TEXT(
+        "Copy text",
+        "Adds options to copy the video title and comments, and to select text of video descriptions and posts, by tapping and holding them."
+    ),
     CUSTOM_SHORTS_ACTION_BUTTONS(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."
@@ -57,17 +61,21 @@ internal enum class PatchList(
         "Custom DPI",
         "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
     ),
+    DEARROW(
+        "DeArrow",
+        "Adds options to replace video thumbnails and titles using the DeArrow API, or replace video thumbnails with image captures from the video."
+    ),
     DESCRIPTION_COMPONENTS(
         "Description components",
         "Adds options to hide and disable description components."
     ),
+    DISABLE_AUTO_FEED_REFRESH(
+        "Disable auto feed refresh",
+        "Adds an option to stop feeds from refreshing automatically after they become outdated."
+    ),
     DISABLE_QUIC_PROTOCOL(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
-    ),
-    FORCE_ORIGINAL_AUDIO(
-        "Force original audio",
-        "Adds an option to disable audio tracks from being automatically enabled."
     ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
@@ -101,6 +109,10 @@ internal enum class PatchList(
         "Disable sign in to TV popup",
         "Adds an option to disable the popup asking to sign into a TV on the same local network."
     ),
+    DOWNLOAD_POST_IMAGES(
+        "Download post images",
+        "Adds a button and a menu item to download the images and GIFs of posts."
+    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging and exporting RVX logs to the clipboard."
@@ -108,6 +120,15 @@ internal enum class PatchList(
     ENABLE_GRADIENT_LOADING_SCREEN(
         "Enable gradient loading screen",
         "Adds an option to enable the gradient loading screen."
+    ),
+    FEED_VIDEO_ACTIONS(
+        "Feed video actions",
+        "Adds a Watch later button to video thumbnails in feeds, " +
+                "and opens the video menu by tapping and holding anywhere on a video."
+    ),
+    FORCE_ORIGINAL_AUDIO(
+        "Force original audio",
+        "Adds an option to disable audio tracks from being automatically enabled."
     ),
     FULLSCREEN_COMPONENTS(
         "Fullscreen components",
@@ -169,13 +190,9 @@ internal enum class PatchList(
         "Hide shortcuts",
         "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
-    OVERRIDE_YOUTUBE_MUSIC_BUTTONS(
-        "Override YouTube Music buttons",
-        "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
-    ),
     HOOK_DOWNLOAD_ACTIONS(
         "Hook download actions",
-        "Adds support to download videos with an external downloader app using the in-app download button."
+        "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos."
     ),
     MINIPLAYER(
         "Miniplayer",
@@ -197,6 +214,18 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    OVERRIDE_YOUTUBE_MUSIC_BUTTONS(
+        "Override YouTube Music buttons",
+        "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
+    ),
+    PICTURE_IN_PICTURE_BUTTON(
+        "Picture-in-picture button",
+        "Adds an option to display a picture-in-picture button in the video player."
+    ),
+    PLAYBACK_BUFFER(
+        "Playback buffer",
+        "Adds an option to change the video playback buffer size."
+    ),
     PLAYBACK_IN_FEEDS(
         "Playback in feeds",
         "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
@@ -209,13 +238,13 @@ internal enum class PatchList(
         "PoToken provider",
         "Adds option to get PoToken using the built-in PoToken provider."
     ),
+    PREFERRED_CAPTION_LANGUAGE(
+        "Preferred caption language",
+        "Adds an option to automatically select captions in your preferred language."
+    ),
     RELOAD_VIDEO(
         "Reload video",
         "Adds an option to display a button in the video player to reload the current video."
-    ),
-    SAVE_TO_WATCH_LATER(
-        "Save to Watch later",
-        "Adds options to save videos to Watch later from the video player or feed flyout menu."
     ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
@@ -229,6 +258,10 @@ internal enum class PatchList(
         "Remove viewer discretion dialog",
         "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction."
     ),
+    RESTORE_ORIGINAL_TITLES(
+        "Restore original titles",
+        "Adds an option to show the original video titles, video descriptions and channel descriptions instead of the auto-translated ones."
+    ),
     RETURN_YOUTUBE_DISLIKE(
         "Return YouTube Dislike",
         "Adds an option to show the dislike count of videos using the Return YouTube Dislike API."
@@ -240,6 +273,19 @@ internal enum class PatchList(
     SANITIZE_SHARING_LINKS(
         "Sanitize sharing links",
         "Adds an option to sanitize sharing links by removing tracking query parameters."
+    ),
+    PLAYLIST_IMPROVEMENTS(
+        "Playlist improvements",
+        "Adds options to widen playlist drag handles, reorder videos by long press, " +
+                "and hide removal confirmations."
+    ),
+    SAVE_TO_WATCH_LATER(
+        "Save to Watch later",
+        "Adds options to save videos to Watch later from the video player or feed flyout menu."
+    ),
+    SEARCH_COMMENTS(
+        "Search comments",
+        "Adds a button to the comments to show only the loaded comments that contain the searched words."
     ),
     SEEKBAR_COMPONENTS(
         "Seekbar components",
@@ -260,6 +306,10 @@ internal enum class PatchList(
     SHORTS_COMPONENTS(
         "Shorts components",
         "Adds options to hide or change components related to YouTube Shorts."
+    ),
+    SKIP_SILENCE(
+        "Skip silence",
+        "Adds an option to automatically skip silent pauses in audio playback."
     ),
     SNACK_BAR_COMPONENTS(
         "Snack bar components",
@@ -289,9 +339,17 @@ internal enum class PatchList(
         "Toolbar components",
         "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons."
     ),
+    TRANSLATE_LIVE_CHAT(
+        "Translate live chat",
+        "Adds an option to translate live chat and live chat replay messages."
+    ),
     TRANSLATIONS_FOR_YOUTUBE(
         "Translations for YouTube",
         "Add translations or remove string resources."
+    ),
+    UNLOCK_QUEUE(
+        "Unlock queue",
+        "Adds an option to unlock YouTube’s video queue."
     ),
     VIDEO_PLAYBACK(
         "Video playback",

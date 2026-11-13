@@ -218,3 +218,8 @@ message OverflowMenuButtonViewModel {
 message SegmentedLikeDislikeButtonViewModel {
     string teasersOrderEntityKey = 10;
 }
+
+message ChannelGuidelinesStateEntityPayload {
+    string key = 1;
+    bool shouldRequireViewerAck = 2;
+}

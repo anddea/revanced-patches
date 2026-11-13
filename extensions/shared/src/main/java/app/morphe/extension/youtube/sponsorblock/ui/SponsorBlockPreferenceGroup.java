@@ -183,6 +183,18 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
 
+            SwitchPreference offlineSegments = new SwitchPreference(context);
+            offlineSegments.setKey(Settings.SB_OFFLINE_SEGMENTS.key);
+            offlineSegments.setTitle(str("sb_offline_segments_title"));
+            offlineSegments.setEnabled(Settings.SB_OFFLINE_SEGMENTS.isAvailable());
+            offlineSegments.setChecked(Settings.SB_OFFLINE_SEGMENTS.get());
+            offlineSegments.setSummary(str("sb_offline_segments_summary"));
+            offlineSegments.setOnPreferenceChangeListener((preference, newValue) -> {
+                Settings.SB_OFFLINE_SEGMENTS.save((Boolean) newValue);
+                return true;
+            });
+            addPreference(offlineSegments);
+
             PreferenceCategory appearanceCategory = new PreferenceCategory(context);
             appearanceCategory.setTitle(str("revanced_sb_appearance_category"));
             addPreference(appearanceCategory);

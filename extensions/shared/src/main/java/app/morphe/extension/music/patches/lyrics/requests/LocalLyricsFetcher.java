@@ -13,7 +13,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.MediaStore;
 
 import androidx.annotation.Nullable;
@@ -24,17 +23,18 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.function.IntPredicate;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
+import app.morphe.extension.music.patches.lyrics.requests.CharactersConverter;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 public final class LocalLyricsFetcher {
 
-    private LocalLyricsFetcher() {
-    }
+    public static final String PROVIDER_NAME = "Local";
 
     /**
      * Value of {@code MediaMetadataRetriever.METADATA_KEY_LYRICS}. Kept as a literal because the
@@ -42,10 +42,12 @@ public final class LocalLyricsFetcher {
      * the framework on API 30+, so it is used only as a best-effort fallback after direct parsing.
      */
     private static final int METADATA_KEY_LYRICS = 0x104;
-
     private static final int MAX_TAG_BYTES = 16 * 1024 * 1024;
-
     private static final int M4A_TAIL_BYTES = 4 * 1024 * 1024;
+    private static final int MAX_M4A_DEPTH = 32;
+
+    private LocalLyricsFetcher() {
+    }
 
     @Nullable
     public static Lyrics fetch(@Nullable Uri mediaUri) {
@@ -53,6 +55,15 @@ public final class LocalLyricsFetcher {
             return null;
         }
 
+        try {
+            return readEmbeddedLyrics(mediaUri);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    @Nullable
+    private static Lyrics readEmbeddedLyrics(Uri mediaUri) {
         Context context = Utils.getContext();
         if (context == null) {
             return null;
@@ -134,11 +145,11 @@ public final class LocalLyricsFetcher {
                 }
                 String selection = MediaStore.Audio.Media.TITLE + " LIKE ? ESCAPE '\\'";
                 Cursor cursor = resolver.query(base, projection, selection,
-                        new String[]{ likeEscape(t) }, null);
+                        new String[]{likeEscape(t)}, null);
                 if (cursor != null && cursor.getCount() == 0) {
                     cursor.close();
                     cursor = resolver.query(base, projection, selection,
-                            new String[]{ "%" + likeEscape(t) + "%" }, null);
+                            new String[]{"%" + likeEscape(t) + "%"}, null);
                 }
                 if (cursor == null) {
                     continue;
@@ -276,7 +287,7 @@ public final class LocalLyricsFetcher {
     }
 
     @Nullable
-    private static String extractLyrics(byte[] d) {
+    static String extractLyrics(byte[] d) {
         if (d.length >= 3 && d[0] == 'I' && d[1] == 'D' && d[2] == '3') {
             String s = parseId3v2(d);
             if (s != null) {
@@ -296,9 +307,15 @@ public final class LocalLyricsFetcher {
             }
         }
         if (d.length >= 8 && d[4] == 'f' && d[5] == 't' && d[6] == 'y' && d[7] == 'p') {
-            return parseM4a(d);
+            LyricsCandidate best = new LyricsCandidate();
+            walkM4a(d, 0, d.length, 0, best);
+            return best.value;
         }
         return null;
+    }
+
+    private static boolean isOutOfBounds(byte[] d, int off, int len) {
+        return off < 0 || len <= 0 || off + (long) len > d.length;
     }
 
     @Nullable
@@ -310,10 +327,19 @@ public final class LocalLyricsFetcher {
         final int tagSize = syncsafe(d[6], d[7], d[8], d[9]);
         int pos = 10;
         if ((major == 3 || major == 4) && (d[5] & 0x40) != 0) {
-            final int extSize = readInt32BE(d, 10);
+            if (d.length < 14) {
+                return null;
+            }
+            // ID3v2.4 stores the extended header size as syncsafe, ID3v2.3 as plain big-endian.
+            final int extSize = (major == 4)
+                    ? syncsafe(d[10], d[11], d[12], d[13])
+                    : readInt32BE(d, 10);
+            if (extSize < 0 || extSize > d.length - 10) {
+                return null;
+            }
             pos = 10 + extSize;
         }
-        final int end = Math.min(pos + tagSize, d.length);
+        final int end = Math.min(10 + tagSize, d.length);
         final int idLen;
         final int headerLen;
         final boolean syncsafeSize;
@@ -326,51 +352,45 @@ public final class LocalLyricsFetcher {
             headerLen = 10;
             syncsafeSize = (major == 4);
         }
+        String best = null;
+        int bestRank = -1;
         while (pos + headerLen <= end) {
             String id = new String(d, pos, idLen, StandardCharsets.ISO_8859_1);
             final int size = (headerLen == 6)
                     ? (((d[pos + 3] & 0xFF) << 16) | ((d[pos + 4] & 0xFF) << 8) | (d[pos + 5] & 0xFF))
                     : (syncsafeSize ? syncsafe(d[pos + 4], d[pos + 5], d[pos + 6], d[pos + 7])
-                                    : readInt32BE(d, pos + 4));
+                       : readInt32BE(d, pos + 4));
             final int bodyOff = pos + headerLen;
             if (size < 0 || bodyOff + size > d.length) {
                 break;
             }
+            String candidate = null;
+            int candidateRank = -1;
             switch (id) {
                 case "USLT", "ULT" -> {
-                    String s = parseTextFrame(d, bodyOff, size);
-                    if (s != null && !s.trim().isEmpty()) {
-                        return s;
-                    }
+                    candidate = parseTextFrame(d, bodyOff, size);
+                    candidateRank = 0;
                 }
                 case "SYLT", "SLT" -> {
-                    String s = parseSylt(d, bodyOff, size);
-                    if (s != null && !s.trim().isEmpty()) {
-                        return s;
-                    }
+                    candidate = parseSylt(d, bodyOff, size);
+                    candidateRank = 3;
                 }
                 case "TXXX" -> {
-                    String desc = parseTxxxDescription(d, bodyOff, size);
-                    if (desc != null && desc.length() >= 5
-                            && (desc.regionMatches(true, 0, "LYRICS", 0, 6)
-                             || desc.regionMatches(true, 0, "LYRIC", 0, 5))) {
-                        String s = parseTxxxValue(d, bodyOff, size);
-                        if (s != null && !s.trim().isEmpty()) {
-                            return s;
-                        }
+                    candidateRank = id3DescRank(parseTxxxDescription(d, bodyOff, size));
+                    if (candidateRank >= 0) {
+                        candidate = parseTxxxValue(d, bodyOff, size);
                     }
                 }
                 case "COMM" -> {
-                    String desc = parseCommDescription(d, bodyOff, size);
-                    if (desc != null && desc.length() >= 5
-                            && (desc.regionMatches(true, 0, "LYRICS", 0, 6)
-                             || desc.regionMatches(true, 0, "LYRIC", 0, 5))) {
-                        String s = parseCommBody(d, bodyOff, size);
-                        if (s != null && !s.trim().isEmpty()) {
-                            return s;
-                        }
+                    candidateRank = id3DescRank(parseCommDescription(d, bodyOff, size));
+                    if (candidateRank >= 0) {
+                        candidate = parseCommBody(d, bodyOff, size);
                     }
                 }
+            }
+            if (candidateRank > bestRank && candidate != null && !candidate.trim().isEmpty()) {
+                best = candidate;
+                bestRank = candidateRank;
             }
             // Null padding detection: all bytes of frame ID are 0 -> padding reached.
             boolean allNull = true;
@@ -385,12 +405,46 @@ public final class LocalLyricsFetcher {
             }
             pos = bodyOff + size;
         }
-        return null;
+        return best;
+    }
+
+    /** Rank of an ID3 lyrics description; -1 when it is not a lyrics description. */
+    private static int id3DescRank(@Nullable String desc) {
+        if (desc == null) {
+            return -1;
+        }
+        // Match the whole name: "LYRICIST" must not be treated as "LYRIC" lyrics.
+        // A language suffix such as "LYRICS-zho" or "LYRICS:zho" is allowed.
+        final String name = stripLanguageSuffix(desc.trim());
+        if (name.equalsIgnoreCase("SYNCEDLYRICS")) {
+            return 3;
+        }
+        if (name.equalsIgnoreCase("LYRICS")) {
+            return 2;
+        }
+        if (name.equalsIgnoreCase("LYRIC")) {
+            return 1;
+        }
+        if (name.equalsIgnoreCase("UNSYNCEDLYRICS")) {
+            return 0;
+        }
+        return -1;
+    }
+
+    /** Strip a trailing language code such as "-zho", ":zho" or "_zho" from a tag name. */
+    private static String stripLanguageSuffix(String name) {
+        for (int i = 0; i < name.length(); i++) {
+            final char c = name.charAt(i);
+            if (c == '-' || c == ':' || c == '_') {
+                return name.substring(0, i);
+            }
+        }
+        return name;
     }
 
     @Nullable
     private static String parseTxxxDescription(byte[] d, int off, int len) {
-        if (len <= 1) return null;
+        if (isOutOfBounds(d, off, len) || len <= 1) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descEnd = indexOfNullTerm(d, off + 1, frameEnd, enc);
@@ -400,7 +454,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseTxxxValue(byte[] d, int off, int len) {
-        if (len <= 1) return null;
+        if (isOutOfBounds(d, off, len) || len <= 1) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descEnd = indexOfNullTerm(d, off + 1, frameEnd, enc);
@@ -421,7 +475,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseCommDescription(byte[] d, int off, int len) {
-        if (len <= 4) return null;
+        if (isOutOfBounds(d, off, len) || len <= 4) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descStart = off + 1 + 3;
@@ -432,7 +486,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseCommBody(byte[] d, int off, int len) {
-        if (len <= 4) return null;
+        if (isOutOfBounds(d, off, len) || len <= 4) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descStart = off + 1 + 3;
@@ -454,7 +508,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseTextFrame(byte[] d, int off, int len) {
-        if (len <= 0) {
+        if (isOutOfBounds(d, off, len) || len <= 0) {
             return null;
         }
         final int enc = d[off] & 0xFF;
@@ -489,7 +543,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseSylt(byte[] d, int off, int len) {
-        if (len <= 0) {
+        if (isOutOfBounds(d, off, len) || len < 5) {
             return null;
         }
         final int enc = d[off] & 0xFF;
@@ -523,10 +577,9 @@ public final class LocalLyricsFetcher {
             }
             if (!seg.isEmpty()) {
                 if (tsMs >= 0) {
-                    final long min = tsMs / 60_000;
-                    final long sec = (tsMs / 1000) % 60;
-                    final long cs = (tsMs % 1000) / 10;
-                    sb.append(String.format(Locale.US, "[%02d:%02d.%02d]", min, sec, cs));
+                    sb.append('[')
+                            .append(LrcParser.formatCentiseconds(tsMs))
+                            .append(']');
                 }
                 sb.append(seg).append('\n');
             }
@@ -570,44 +623,56 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseVorbisComment(byte[] d, int start, int size) {
+        if (isOutOfBounds(d, start, size)) {
+            return null;
+        }
         final int end = start + size;
         int p = start;
         if (p + 4 > end) {
             return null;
         }
         final int vendorLen = readInt32LE(d, p);
+        if (vendorLen < 0 || vendorLen > end - (p + 4)) {
+            return null;
+        }
         p += 4 + vendorLen;
         if (p + 4 > end) {
             return null;
         }
         final int count = readInt32LE(d, p);
         p += 4;
+        String best = null;
+        int bestRank = -1;
         for (int i = 0; i < count && p + 4 <= end; i++) {
             final int len = readInt32LE(d, p);
             p += 4;
-            if (p + len > end) {
+            if (len < 0 || p + (long) len > end) {
                 break;
             }
             String comment = new String(d, p, len, StandardCharsets.UTF_8);
             p += len;
-            if (comment.regionMatches(true, 0, "LYRICS=", 0, 7)) {
-                return comment.substring(7);
-            } else if (comment.regionMatches(true, 0, "LYRIC=", 0, 6)) {
-                return comment.substring(6);
-            } else if (comment.regionMatches(true, 0, "SYNCEDLYRICS=", 0, 13)) {
-                return comment.substring(13);
-            } else if (comment.regionMatches(true, 0, "UNSYNCEDLYRICS=", 0, 15)) {
-                return comment.substring(15);
+            final int eq = comment.indexOf('=');
+            if (eq <= 0) {
+                continue;
             }
+            final int rank = vorbisLyricsRank(comment.substring(0, eq).trim());
+            if (rank < 0 || rank <= bestRank) {
+                continue;
+            }
+            final String value = comment.substring(eq + 1);
+            if (value.trim().isEmpty()) {
+                continue;
+            }
+            best = value;
+            bestRank = rank;
         }
-        return null;
+        return best;
     }
 
     @Nullable
     private static String parseOgg(byte[] d) {
         int pos = 0;
         StringBuilder packet = new StringBuilder();
-        int segmentsLeft = 0;
         while (pos + 27 <= d.length) {
             if (d[pos] != 'O' || d[pos + 1] != 'g' || d[pos + 2] != 'g' || d[pos + 3] != 'S') {
                 break;
@@ -626,22 +691,19 @@ public final class LocalLyricsFetcher {
                 packet.append(new String(d, dataPos, segLen, StandardCharsets.ISO_8859_1));
                 dataPos += segLen;
             }
-            if (numSegments > 0 && (d[pos + 27 + numSegments - 1] & 0xFF) == 255) {
-                segmentsLeft++;
-            } else {
-                if (segmentsLeft > 0) {
-                    segmentsLeft--;
-                } else {
-                    String payload = packet.toString();
-                    final int marker = payload.indexOf("\003vorbis");
-                    if (marker >= 0) {
-                        String s = parseVorbisCommentFromPacket(payload, marker + 7);
-                        if (s != null) {
-                            return s;
-                        }
+            // A packet continues on the next page when the last lacing value is 255.
+            final boolean continues = numSegments > 0
+                    && (d[pos + 27 + numSegments - 1] & 0xFF) == 255;
+            if (!continues) {
+                String payload = packet.toString();
+                final int marker = payload.indexOf("\003vorbis");
+                if (marker >= 0) {
+                    String s = parseVorbisCommentFromPacket(payload, marker + 7);
+                    if (s != null) {
+                        return s;
                     }
-                    packet.setLength(0);
                 }
+                packet.setLength(0);
             }
             pos = dataPos;
         }
@@ -651,7 +713,7 @@ public final class LocalLyricsFetcher {
     @Nullable
     private static String parseVorbisCommentFromPacket(String payload, int off) {
         final int len = payload.length();
-        if (off + 4 > len) {
+        if (off < 0 || off + 4 > len) {
             return null;
         }
         int p = off;
@@ -659,6 +721,9 @@ public final class LocalLyricsFetcher {
                 | ((payload.charAt(p + 1) & 0xFF) << 8)
                 | ((payload.charAt(p + 2) & 0xFF) << 16)
                 | ((payload.charAt(p + 3) & 0xFF) << 24);
+        if (vendorLen < 0 || vendorLen > len - (p + 4)) {
+            return null;
+        }
         p += 4 + vendorLen;
         if (p + 4 > len) {
             return null;
@@ -668,37 +733,77 @@ public final class LocalLyricsFetcher {
                 | ((payload.charAt(p + 2) & 0xFF) << 16)
                 | ((payload.charAt(p + 3) & 0xFF) << 24);
         p += 4;
+        String best = null;
+        int bestRank = -1;
         for (int i = 0; i < count && p + 4 <= len; i++) {
             final int entryLen = ((payload.charAt(p) & 0xFF))
                     | ((payload.charAt(p + 1) & 0xFF) << 8)
                     | ((payload.charAt(p + 2) & 0xFF) << 16)
                     | ((payload.charAt(p + 3) & 0xFF) << 24);
             p += 4;
-            if (p + entryLen > len) {
+            if (entryLen < 0 || p + (long) entryLen > len) {
                 break;
             }
             String comment = payload.substring(p, p + entryLen);
             p += entryLen;
-            if (comment.regionMatches(true, 0, "LYRICS=", 0, 7)) {
-                return decodeAutoDetect(comment.substring(7).getBytes(StandardCharsets.ISO_8859_1), 3);
-            } else if (comment.regionMatches(true, 0, "LYRIC=", 0, 6)) {
-                return decodeAutoDetect(comment.substring(6).getBytes(StandardCharsets.ISO_8859_1), 3);
-            } else if (comment.regionMatches(true, 0, "SYNCEDLYRICS=", 0, 13)) {
-                return decodeAutoDetect(comment.substring(13).getBytes(StandardCharsets.ISO_8859_1), 3);
-            } else if (comment.regionMatches(true, 0, "UNSYNCEDLYRICS=", 0, 15)) {
-                return decodeAutoDetect(comment.substring(15).getBytes(StandardCharsets.ISO_8859_1), 3);
+            final int eq = comment.indexOf('=');
+            if (eq <= 0) {
+                continue;
+            }
+            final int rank = vorbisLyricsRank(comment.substring(0, eq).trim());
+            if (rank < 0 || rank <= bestRank) {
+                continue;
+            }
+            final String value = comment.substring(eq + 1);
+            if (value.trim().isEmpty()) {
+                continue;
+            }
+            best = value;
+            bestRank = rank;
+        }
+        return best == null
+                ? null
+                : decodeAutoDetect(best.getBytes(StandardCharsets.ISO_8859_1), 3);
+    }
+
+    /** Rank of a Vorbis lyrics tag name; -1 when it is not a lyrics tag. */
+    private static int vorbisLyricsRank(String name) {
+        if (name.equalsIgnoreCase("SYNCEDLYRICS")) {
+            return 3;
+        }
+        if (name.equalsIgnoreCase("LYRICS")) {
+            return 2;
+        }
+        if (name.equalsIgnoreCase("LYRIC")) {
+            return 1;
+        }
+        if (name.equalsIgnoreCase("UNSYNCEDLYRICS")) {
+            return 0;
+        }
+        return -1;
+    }
+
+    /** Highest-priority lyrics value found in an M4A atom tree. */
+    private static final class LyricsCandidate {
+        private int rank = -1;
+        @Nullable
+        private String value;
+
+        void offer(int candidateRank, @Nullable String candidateValue) {
+            if (candidateValue == null || candidateValue.trim().isEmpty()) {
+                return;
+            }
+            if (candidateRank > rank) {
+                rank = candidateRank;
+                value = candidateValue;
             }
         }
-        return null;
     }
 
-    @Nullable
-    private static String parseM4a(byte[] d) {
-        return walkM4a(d, 0, d.length);
-    }
-
-    @Nullable
-    private static String walkM4a(byte[] d, int start, int end) {
+    private static void walkM4a(byte[] d, int start, int end, int depth, LyricsCandidate best) {
+        if (depth > MAX_M4A_DEPTH) {
+            return;
+        }
         int pos = start;
         while (pos + 8 <= end) {
             final int size = readInt32BE(d, pos);
@@ -709,14 +814,9 @@ public final class LocalLyricsFetcher {
             final int c1 = d[pos + 5] & 0xFF;
             final int c2 = d[pos + 6] & 0xFF;
             final int c3 = d[pos + 7] & 0xFF;
-            final boolean isLyrics = (c0 == 0xA9 && c1 == 'l' && c2 == 'y' && c3 == 'r')
-                    || (c0 == 'l' && c1 == 'y' && c2 == 'r' && c3 == ' ')
-                    || (c0 == 'L' && c1 == 'Y' && c2 == 'R' && c3 == ' ');
-            if (isLyrics) {
-                String s = readM4aData(d, pos + 8, pos + size);
-                if (s != null && !s.trim().isEmpty()) {
-                    return s;
-                }
+            final int rank = m4aLyricsRank(c0, c1, c2, c3);
+            if (rank >= 0) {
+                best.offer(rank, readM4aData(d, pos + 8, pos + size));
             } else {
                 String type = new String(d, pos + 4, 4, StandardCharsets.ISO_8859_1);
                 if (type.equals("meta") || type.equals("ilst") || type.equals("udta")
@@ -726,15 +826,25 @@ public final class LocalLyricsFetcher {
                     if (type.equals("meta")) {
                         child = pos + 12;
                     }
-                    String s = walkM4a(d, child, pos + size);
-                    if (s != null) {
-                        return s;
-                    }
+                    walkM4a(d, child, pos + size, depth + 1, best);
                 }
             }
             pos += size;
         }
-        return null;
+    }
+
+    /** Rank of an M4A lyrics atom; -1 when the four-character code is not lyrics. */
+    private static int m4aLyricsRank(int c0, int c1, int c2, int c3) {
+        if (c0 == 0xA9 && c1 == 'l' && c2 == 'y' && c3 == 'r') {
+            return 2;
+        }
+        if (c0 == 'l' && c1 == 'y' && c2 == 'r' && c3 == ' ') {
+            return 1;
+        }
+        if (c0 == 'L' && c1 == 'Y' && c2 == 'R' && c3 == ' ') {
+            return 0;
+        }
+        return -1;
     }
 
     @Nullable
@@ -767,9 +877,6 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static Lyrics fallbackViaMediaMetadataRetriever(Context context, Uri uri) {
-        if (Build.VERSION.SDK_INT < 30) {
-            return null;
-        }
         try (MediaMetadataRetriever retriever = new MediaMetadataRetriever()) {
             retriever.setDataSource(context, uri);
             String raw = retriever.extractMetadata(METADATA_KEY_LYRICS);
@@ -791,21 +898,17 @@ public final class LocalLyricsFetcher {
 
         LrcParser.LrcParseResult result = LrcParser.parseSyncedWithCreditLines(raw);
         if (!result.lines.isEmpty()) {
-            boolean synced = false;
-            for (LyricsLine line : result.lines) {
-                if (line.hasWords()) {
-                    synced = true;
-                    break;
-                }
-            }
-            return new Lyrics(result.lines, "Local", synced, null, null, null,
-                    result.creditLines.isEmpty() ? null : result.creditLines,
-                    raw, "lrc", null);
+            // LRC line timestamps synchronize whole lines; word-level
+            // (karaoke) timestamps are not required for synchronized lyrics.
+            final boolean synced = !result.lines.isEmpty();
+            return new Lyrics(result.lines, PROVIDER_NAME, synced, null, null, null,
+                    null, result.creditLines.isEmpty() ? null : result.creditLines,
+                    raw, "lrc", null, null, null);
         }
 
         List<LyricsLine> plain = LrcParser.parsePlain(raw);
         if (!plain.isEmpty()) {
-            return new Lyrics(plain, "Local", false, null, null, null, null, raw, "lrc", null);
+            return new Lyrics(plain, PROVIDER_NAME, false, null, null, null, null, raw, "lrc", null);
         }
 
         return null;
@@ -867,7 +970,10 @@ public final class LocalLyricsFetcher {
                     return i + 1;
                 }
             } else {
-                if ((d[i] & 0xFF) == 0 && (d[i + 1] & 0xFF) == 0) {
+                // UTF-16 terminators must be aligned to a code unit, otherwise the low byte
+                // of an ASCII character followed by the terminator looks like a terminator.
+                if (((i - start) & 1) == 0
+                        && (d[i] & 0xFF) == 0 && (d[i + 1] & 0xFF) == 0) {
                     return i + 2;
                 }
             }
@@ -901,28 +1007,32 @@ public final class LocalLyricsFetcher {
         if (isValidUtf8(b)) {
             return new String(b, StandardCharsets.UTF_8);
         }
-        if (isLikelyGbk(b)) {
+        if (isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> c >= 0x40 && c <= 0xFE && c != 0x7F)) {
             try {
                 return new String(b, "GBK");
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not decode GBK text", ex);
             }
         }
-        if (isLikelyBig5(b)) {
+        if (isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> (c >= 0x40 && c <= 0x7E) || (c >= 0xA1 && c <= 0xFE))) {
             try {
                 return new String(b, "Big5");
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not decode Big5 text", ex);
             }
         }
-        if (isLikelyShiftJis(b)) {
+        if (isLikelyDoubleByte(b, c -> (c >= 0x81 && c <= 0x9F) || (c >= 0xE0 && c <= 0xEF),
+                c -> (c >= 0x40 && c <= 0x7E) || (c >= 0x80 && c <= 0xFC))) {
             try {
                 return new String(b, "Shift_JIS");
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not decode Shift_JIS text", ex);
             }
         }
-        if (isLikelyEucKr(b)) {
+        if (isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> c >= 0x41 && c <= 0xFE)) {
             try {
                 return new String(b, "EUC-KR");
             } catch (Exception ex) {
@@ -972,7 +1082,12 @@ public final class LocalLyricsFetcher {
         return true;
     }
 
-    private static boolean isLikelyGbk(byte[] b) {
+    /**
+     * Whether every non-ASCII byte belongs to a two-byte character of the encoding described by
+     * its lead and trail byte ranges, and at least one does. A lead byte with nothing usable
+     * after it means the text is not in this encoding, which is what tells the next one its turn.
+     */
+    private static boolean isLikelyDoubleByte(byte[] b, IntPredicate lead, IntPredicate trail) {
         int i = 0;
         int pairs = 0;
         while (i < b.length) {
@@ -981,75 +1096,9 @@ public final class LocalLyricsFetcher {
                 i++;
                 continue;
             }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
+            if (lead.test(b0) && i + 1 < b.length) {
                 int b1 = b[i + 1] & 0xFF;
-                if (b1 >= 0x40 && b1 <= 0xFE && b1 != 0x7F) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
-    }
-
-    private static boolean isLikelyBig5(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if ((b1 >= 0x40 && b1 <= 0x7E) || (b1 >= 0xA1 && b1 <= 0xFE)) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
-    }
-
-    private static boolean isLikelyShiftJis(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (((b0 >= 0x81 && b0 <= 0x9F) || (b0 >= 0xE0 && b0 <= 0xEF)) && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if ((b1 >= 0x40 && b1 <= 0x7E) || (b1 >= 0x80 && b1 <= 0xFC)) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
-    }
-
-    private static boolean isLikelyEucKr(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if (b1 >= 0x41 && b1 <= 0xFE) {
+                if (trail.test(b1)) {
                     pairs++;
                     i += 2;
                     continue;
@@ -1092,5 +1141,10 @@ public final class LocalLyricsFetcher {
     /** Escapes SQLite LIKE wildcards so the pattern matches the literal string. */
     private static String likeEscape(String s) {
         return s.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+    }
+    private static String parseM4a(byte[] d) {
+        LyricsCandidate best = new LyricsCandidate();
+        walkM4a(d, 0, d.length, 0, best);
+        return best.value;
     }
 }

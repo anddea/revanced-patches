@@ -367,11 +367,8 @@ public class GeneralPatch {
 
     private static final boolean DISABLE_LAYOUT_UPDATES =
             Settings.DISABLE_LAYOUT_UPDATES.get();
-    private static final boolean FIX_VIDEO_ACTION_BAR = Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()
-            // If "Disable layout updates" is enabled, this narrower override is not required.
-            && !DISABLE_LAYOUT_UPDATES
-            // Tablets already have a non-collapsed video action bar.
-            && !PackageUtils.isTablet();
+    private static final boolean FIX_VIDEO_ACTION_BAR =
+            app.morphe.extension.youtube.patches.RestoreOldVideoActionBarPatch.usesClassicLayout();
     private static volatile boolean needFetch = true;
 
     /**
