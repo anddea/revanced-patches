@@ -63,11 +63,11 @@
     <string name="morphe_music_apple_music_token_title">Apple Music Media-user-token</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: تم مسح media-user-token</string>
     <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: رمز media-user-token غير صالح - يرجى التحقق والمحاولة مرة أخرى</string>
-    <string name="morphe_music_apple_music_token_toast_saved">Apple Music: الرمز غير صالح — حاول مرة أخرى</string>
-    <string name="morphe_music_apple_token_optional_hint">مفتاح أبل ميوزك اختياري. بدونه، سيتم استعمال ليريكلي كإحتياط</string>
+    <string name="morphe_music_apple_music_token_toast_saved">Apple Music: تم حفظ media-user-token</string>
+    <string name="morphe_music_apple_token_optional_hint">رمز Apple Music اختياري. بدونه، سيتم استخدام Lyrically كبديل</string>
     <string name="morphe_music_crossfade_about_best_summary">التشغيل العادي للأغاني من أغنية إلى أخرى، والتقديم التلقائي، والتكرار الواحد (حيث تتلاشى الأغنية في نفسها)، والصوت المحلي — مكبر صوت الهاتف، وسماعات الرأس السلكية، والبلوتوث، أو USB</string>
     <string name="morphe_music_crossfade_about_best_title">يعمل بشكل أفضل مع</string>
-    <string name="morphe_music_crossfade_about_credit_summary">ميزة Transitions مقدمة من VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_summary">ميزة التلاشي التدريجي مقدمة من VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">حقوق الملكية</string>
     <string name="morphe_music_crossfade_about_how_summary">"التلاشي المتقاطع يدمج نهاية أغنية مع بداية الأغنية التالية، باستخدام المدة والمنحنى اللذين تحددهما
 
@@ -104,9 +104,9 @@
     <string name="morphe_music_crossfade_duration_title">مدة التلاشي</string>
     <string name="morphe_music_crossfade_enabled_title">تفعيل التلاشي</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">يطبّق تأثير التلاشي التدريجي عند انتهاء مسار بشكل طبيعي</string>
-    <string name="morphe_music_crossfade_on_auto_advance_title">التعتيم أثناء التقديم التلقائي</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">التلاشي أثناء التقدم التلقائي</string>
     <string name="morphe_music_crossfade_on_skip_summary">يطبّق تأثير التلاشي التدريجي عند الانتقال يدويًا إلى المسار التالي</string>
-    <string name="morphe_music_crossfade_on_skip_title">التعتيم عند تخطي يدوي</string>
+    <string name="morphe_music_crossfade_on_skip_title">التلاشي عند التخطي يدويًا</string>
     <string name="morphe_music_crossfade_paused_toast">تم إيقاف التلاشي التدريجي لهذه الجلسة</string>
     <string name="morphe_music_crossfade_resumed_toast">تم استئناف التلاشي التدريجي</string>
     <string name="morphe_music_crossfade_screen_summary">امزج المسارات مع بعضها بسلاسة</string>
@@ -120,8 +120,8 @@
 1. سجل الدخول في deezer.com
 2. افتح DevTools → Application → Cookies → deezer.com
 3. إنسخ الحقل \"arl\""</string>
-    <string name="morphe_music_deezer_arl_title">Deezer: انسخ قيمة \"arl\"</string>
-    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: قيمة arl غير صالحة — حاول مرة أخرى</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
+    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: تم مسح arl</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: رمز arl غير صالح - يرجى التحقق والمحاولة مرة أخرى</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: تم حفظ قيمة arl</string>
     <string name="morphe_music_downloads_already_running">التنزيل جارٍ بالفعل</string>
@@ -136,15 +136,18 @@
     <string name="morphe_music_downloads_started">بدأ التنزيل</string>
     <string name="morphe_music_downloads_starting">جارٍ بدء التنزيل…</string>
     <string name="morphe_music_downloads_unknown_track">تعذّر تحديد المسار المطلوب تنزيله</string>
+    <string name="morphe_music_hide_you_may_also_like_section_title">إخفاء قسم \"قد يعجبك أيضاً\"</string>
+    <string name="morphe_music_hide_your_downloads_shelf_title">إخفاء رف \'تنزيلاتك\'</string>
     <string name="morphe_music_in_app_downloads_summary">تنزيل الصوت داخل YouTube Music بدلاً من فتح تطبيق التنزيل الخارجي</string>
     <string name="morphe_music_in_app_downloads_title">التنزيل داخل التطبيق</string>
-    <string name="morphe_music_lyrics_about_summary">"يتم مطابقة الكلمات المفتاحية بالعنوان والفنان، قد لا يجد البيانات الوصفية غير العادية شيئاً أو النسخة الخاطئة. استخدم تحديث للتبديل بين النسخ. المزوّدون المعلمّون بـ * يتطلبون رمزاً. جميع المزوّدين المفعّلين ليسوا دائماً مُطلَبين بالترتيب الذي حددته، بل يستجيبون بناءً على سرعتهم
+    <string name="morphe_music_lyrics_about_summary">"تتم مطابقة الكلمات بالعنوان والفنان، وقد لا تعثر البيانات الوصفية غير المعتادة على شيء أو تجد نسخة خاطئة. استخدم التحديث للتبديل بين النسخ. المزوّدون المعلّمون بـ * يتطلبون رمزًا. لا يتم طلب جميع المزوّدين المفعّلين دائمًا بالترتيب الذي حددته، بل يستجيبون بحسب سرعتهم
 
-تأتي الكلمات المفتاحية من خدمات تابعة لجهات خارجية غير مرتبطة أو مدعومة أو معتمدة من قبل RVX. يُستخدم كل منها كما هو: تبقى الكلمات المفتاحية، ومدى توفرها، والترخيص الخاص بها لدى تلك الخدمات ومنح التراخيص لها، واستخدامها يمكن أن يكون خاضعاً لشروط الخدمة الخاصة بها. ما يصل إلى خدمة مفعّلة هو فقط الاستعلام الذي طلبته - العنوان، والفنان، ومعرّف الفيديو حيث تحتاجه تلك الخدمة. نقطة نهاية الذكاء الاصطناعي الاختيارية والنسخ السريع QuickLRC تعمل فقط بعد تكوينها، وتتلقى نص الكلمات المفتاحية أو عنوان URL للفيديو للمسار"</string>
+تأتي الكلمات من خدمات تابعة لجهات خارجية غير مرتبطة بـ RVX أو مدعومة أو معتمدة منها. يُستخدم كل منها كما هو: تبقى الكلمات ومدى توفرها وترخيصها لدى تلك الخدمات وأصحاب حقوقها، وقد يخضع استخدامها لشروط الخدمة الخاصة بها. ما يصل إلى خدمة مفعّلة هو فقط الاستعلام الذي طلبته - العنوان والفنان ومعرّف الفيديو حيث تحتاجه تلك الخدمة. تعمل نقطة نهاية الذكاء الاصطناعي الاختيارية ونسخ QuickLRC فقط بعد تكوينهما، وتتلقيان نص الكلمات أو عنوان URL لفيديو المسار"</string>
     <string name="morphe_music_lyrics_about_title">حول كلمات الأغاني الخاصة بطرف ثالث</string>
     <string name="morphe_music_lyrics_ai_config_api_token_label">مفتاح API (اختياري)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL نقطة نهاية API (مثل https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_label">عنوان URL الأساسي</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_presets">الإعدادات المسبقة للخدمة</string>
     <string name="morphe_music_lyrics_ai_config_base_url_presets_title">اختر خدمة</string>
     <string name="morphe_music_lyrics_ai_config_deepl_key_label">مفتاح المصادقة (مجاني أو احترافي)</string>
     <string name="morphe_music_lyrics_ai_config_extra_body_hint">قم بوضع علامات الاقتباس على الأسماء والقيم، على سبيل المثال {\"temperature\": 0.3}. يتم رفض القيمة غير المشمولة بعلامتي اقتباس تحتوي على / أو : Model و messages لا يمكن تعيينهما هنا</string>
@@ -157,29 +160,35 @@
     <string name="morphe_music_lyrics_ai_config_fetching_models">جاري جلب النماذج...</string>
     <string name="morphe_music_lyrics_ai_config_model_label">النموذج</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">التعليمات</string>
+    <string name="morphe_music_lyrics_ai_config_reasoning_effort">جهد الاستدلال</string>
+    <string name="morphe_music_lyrics_ai_config_ruby_prompt_label">تلقين روبي (كانا)</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: متصل! (%2$s)</string>
     <string name="morphe_music_lyrics_ai_config_status_failed">%s: فشل الاتصال. تحقق من الإعدادات</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">الإعدادات غير مكتملة أو تم رفضها من قبل المزود</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">يجب أن يبدأ عنوان URL الأساسي بـ http:// أو https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">جارٍ التحقق من الاتصال…</string>
     <string name="morphe_music_lyrics_ai_config_test_connection">اختبار الاتصال</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">تم حفظ إعدادات الترجمة وRomanization</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">تم حفظ الإعدادات</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">عناصر نائبة: {task}، {language}، {title}، {artist}، {count}، {lines}. تترك العناصر غير المعروفة كما هي مكتوبة</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">قالب المطالبة</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">تم حفظ الموجه، لكن نقطة نهاية الذكاء الاصطناعي غير صالحة للاستخدام بعد. قم بتكوينها تحت إعدادات الذكاء الاصطناعي أولاً</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_reset">تم إعادة تعيين المطالبة</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_saved">تم حفظ المطالبة</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">تم حفظ الإعدادات، ولكن نقطة نهاية الذكاء الاصطناعي غير قابلة للاستخدام بعد</string>
+    <string name="morphe_music_lyrics_ai_section_apply">تطبيق المقاطع</string>
+    <string name="morphe_music_lyrics_ai_section_detecting">جاري الاكتشاف</string>
+    <string name="morphe_music_lyrics_ai_section_failed">لم يتمكن الذكاء الاصطناعي من اكتشاف المقاطع لهذا المسار</string>
+    <string name="morphe_music_lyrics_ai_section_no_text">لا توجد كلمات أغاني لاكتشاف المقاطع لها</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">السماح بالقراءات غير اللاتينية من مصدر كلمات الأغنية؛ عند تعطيله، احتفظ فقط بالحروف اللاتينية والحروف المشدّدة وأرقام النغمة</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">تمكين النقل الحرفي</string>
-    <string name="morphe_music_lyrics_clear_cache_done">تم مسح %s ميجابايت</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">حذف %s ميجابايت من كلمات الأغاني المحفوظة على هذا الجهاز</string>
+    <string name="morphe_music_lyrics_clear_cache_done">تم حذف %s ميغابايت</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">حذف %s ميغابايت من كلمات الأغاني المخزّنة على هذا الجهاز</string>
     <string name="morphe_music_lyrics_clear_cache_title">مسح كلمات الأغاني المخزنة</string>
     <string name="morphe_music_lyrics_contribute_credit">اضغط مطولاً على زر النسخ لحفظ ملف LRC هذا؛ إذا تمكّنت من ضبط توقيتاته بدقة ومشاركتها مع مزودي الخدمة في المجتمع، فسنكون شاكرين لك</string>
     <string name="morphe_music_lyrics_copied">تم النسخ إلى الحافظة</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">إذا تمت تصفية الكلمات بشكل غير صحيح إلى الأسفل، فاضبط هذا أو امسحه. علامات مفصولة بفواصل: تُعرض الأسطر التي تحتوي على علامة متبوعة بنقطتين كمعلومات اعتماد في الأسفل. اتركه فارغًا لتعطيله</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">علامات سطر المعلومات</string>
+    <string name="morphe_music_lyrics_current">الحالي</string>
     <string name="morphe_music_lyrics_custom_regex_summary">تعبير نمطي يُطبَّق على العناوين والفنانين والألبومات قبل البحث عن كلمات الأغاني وعند تقييم درجة تطابق عنوانين. اتركه فارغًا لتعطيل الاستخدامين معًا. الإعداد الافتراضي يزيل العبارات الزائدة الشائعة مثل \"Official Video\" و\"Remaster\" و\"【插曲】\" و\"- Topic\"</string>
-    <string name="morphe_music_lyrics_custom_regex_title">تعبير مرشّح الكلمات</string>
+    <string name="morphe_music_lyrics_custom_regex_title">تعبير نمطي للبيانات الوصفية</string>
+    <string name="morphe_music_lyrics_device_unavailable">كلمات الأغاني غير متوفرة لملف الجهاز هذا</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">تبديل ترتيب الفنان والعنوان في المشغل المصغر وواجهة \"MediaSession\". تشغيل يعني \"الفنان - العنوان\" وإطفاء يعني \"العنوان - الفنان\". لا يؤثر هذا الإجراء على البحث عن كلمات الأغاني</string>
     <string name="morphe_music_lyrics_display_artist_first_title">عند التشغيل: تكون الرومنة أسفل الكلمات والترجمة أعلاها. عند الإيقاف: تبقى الرومنة أعلى الكلمات والترجمة أسفلها</string>
     <string name="morphe_music_lyrics_dual_only">النمط المزدوج</string>
@@ -189,31 +198,37 @@
     <string name="morphe_music_lyrics_dynamic_background_title">خلفية ديناميكية</string>
     <string name="morphe_music_lyrics_enabled_summary">عرض كلمات الأغاني من خدمة خارجية، والرجوع إلى كلمات الأغاني المدمجة في حالة عدم العثور عليها</string>
     <string name="morphe_music_lyrics_enabled_title">استخدام كلمات أغاني من طرف ثالث</string>
+    <string name="morphe_music_lyrics_focus_spotlight_summary">يتم تعتيم كل سطر غير نشط بشكل أكبر كلما زاد بعده عن السطر الذي يتم غناؤه. عند إيقاف هذا الخيار، يتم تعتيم جميع السطور غير النشطة بنفس الدرجة</string>
+    <string name="morphe_music_lyrics_focus_spotlight_title">تعتيم السطور البعيدة بشكل أكبر</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">يجعل الحرف الأول من كل سطر في كلمات الأغنية حرفاً كبيراً</string>
     <string name="morphe_music_lyrics_force_capitalize_title">تكبير الحرف الأول</string>
-    <string name="morphe_music_lyrics_force_center_summary">وضع ON يضع كل سطر في المنتصف ويتجاهل محاذاة المصدر، بما في ذلك جوانب الثنائي؛ وضع OFF يحافظ على المحاذاة التي تطلبها كلمات الأغنية</string>
+    <string name="morphe_music_lyrics_force_center_summary">عند التشغيل يوضع كل سطر في المنتصف ويتم تجاهل محاذاة المصدر، بما في ذلك جوانب الثنائي؛ وعند الإيقاف تُحفظ المحاذاة التي تطلبها كلمات الأغنية</string>
     <string name="morphe_music_lyrics_force_center_title">توسيط كلمات الأغنية دائمًا</string>
+    <string name="morphe_music_lyrics_gap_dots_summary">يظهر ثلاث نقاط بين السطور خلال الفاصل الموسيقي الطويل، والتي تمتلئ تدريجياً مع انتهاء الفاصل</string>
+    <string name="morphe_music_lyrics_gap_dots_title">إظهار نقاط الفاصل الموسيقي</string>
+    <string name="morphe_music_lyrics_han_form_summary">عند تفعيل هذا الخيار، يتم اتباع لغة الترجمة المستهدفة لتحويل كلمات الأغاني بين الكتابة المبسطة والتقليدية</string>
+    <string name="morphe_music_lyrics_han_form_title">تحويل الصيغة الصينية</string>
     <string name="morphe_music_lyrics_hide_info_summary">إخفاء سطر الإسناد الظاهر أسفل الكلمات</string>
     <string name="morphe_music_lyrics_hide_info_title">إخفاء سطر الإسناد</string>
     <string name="morphe_music_lyrics_hide_played_summary">إخفاء سطور الكلمات الموجودة فوق السطر الحالي</string>
-    <string name="morphe_music_lyrics_hide_played_title">إخفاء السطر الجاري تشغيله</string>
+    <string name="morphe_music_lyrics_hide_played_title">إخفاء الكلمات المشغّلة</string>
     <string name="morphe_music_lyrics_hide_unplayed_summary">إخفاء أسطر الكلمات أسفل السطر الجاري تشغيله على الشاشة</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">إخفاء الكلمات غير المشغّلة</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">يمنع انطفاء الشاشة عندما تكون لوحة الكلمات مفتوحة</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">إبقاء الشاشة مضاءة أثناء عرض الكلمات</string>
     <string name="morphe_music_lyrics_line_scale_summary">يرسم كل سطر ليس جزءًا من الغناء الحالي بشكل أصغر قليلاً، فوق تعتيمه</string>
     <string name="morphe_music_lyrics_line_scale_title">تقليص الأسطر غير النشطة</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_building">قراءة %1$s: %2$s%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">جارٍ تحميل %1$s: %2$s%%</string>
     <string name="morphe_music_lyrics_local_romanization_dict_chinese">الكلمات الصينية (pinyin-pro، ~17 ميغابايت)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_cldr">النقل الحرفي للغات اليونانية والسلافية السييريانية (بما في ذلك الروسية والأوكرانية والبلغارية والصربية والبيلاروسية والمقدونية)، والجورجية والأرمنية والعبرية والعربية والعفرية والسريانية (CLDR، ~0.5 ميغابايت)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_cldr">النقل الحرفي لليونانية والسيريلية السلافية (بما في ذلك الروسية والأوكرانية والبلغارية والصربية والبيلاروسية والمقدونية)، والجورجية والأرمنية والعبرية والعربية والأمهرية والسريانية (CLDR، ~0.5 ميغابايت)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">فشل التنزيل - قم بإيقاف هذا الأمر وتشغيله مرة أخرى للمحاولة مجددًا</string>
     <string name="morphe_music_lyrics_local_romanization_dict_japanese">اليابانية (SudachiDict، ~75 ميغابايت)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_ready">القراءات جاهزة (%s إدخال)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">النُطْقات جاهزة (%s إدخالًا)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_unidict">الأحرف الصينية والكانتونية (UniDict، ~8 ميغابايت)</string>
     <string name="morphe_music_lyrics_local_romanization_download_started">جارٍ تحميل قواميس القراءة…</string>
-    <string name="morphe_music_lyrics_local_romanization_summary">تقرأ كل كلمة من كلمات الأغنية الزمنية (مزامنة الكلمات مفعّلة)؛ لا تحتاج الكورية إلى تحميل؛ تسعة عشر كتابة تشترك في تنزيل واحد من CLDR؛ تُقرأ الأحرف الهانية بقائمة كلمات Rime عندما يغطي جدول الكلمات اللغة</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">تقرأ كل كلمة من كلمات الأغنية الزمنية (مزامنة الكلمات مفعّلة)؛ لا تحتاج الكورية إلى تنزيل؛ أربع عشرة كتابة تشترك في تنزيل واحد من CLDR؛ تُقرأ الأحرف الهانية بقائمة كلمات Rime عندما يغطي جدول الكلمات اللغة</string>
     <string name="morphe_music_lyrics_local_romanization_title">التهجئة المحلية والمزامنة</string>
-    <string name="morphe_music_lyrics_mediasession_summary">يعرض السطر الحالي على شاشة القفل وAndroid Auto والبلوتوث. يتطلب Android 11 أو أحدث</string>
+    <string name="morphe_music_lyrics_mediasession_summary">يعرض السطر الحالي على شاشة القفل، وAndroid Auto والبلوتوث</string>
     <string name="morphe_music_lyrics_mediasession_title">أظهار كلمات \"MediaSession\" في شاشة القفل</string>
     <string name="morphe_music_lyrics_mini_artist_max_label">الحد الأقصى لوقت الشاشة (ملي ثانية)</string>
     <string name="morphe_music_lyrics_mini_artist_min_label">الحد الأدنى لوقت الشاشة (ملي ثانية)</string>
@@ -248,22 +263,22 @@
     <string name="morphe_music_lyrics_rime_char_source_none">لا توجد قراءة للحرف</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">أحرف ماندرين</string>
     <string name="morphe_music_lyrics_rime_dict_add">إضافة</string>
-    <string name="morphe_music_lyrics_rime_dict_add_hint">ملف .dict.yaml، أو أرشيف zip يحتوي على واحد، مع أسطر مثل 字 ham و 典 din2. يتم جلب القائمة عندما تحددها وتضغط حفظ، وترخيصها خاص بك لفحصه</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">ملف .dict.yaml، أو ملف zip يحتوي على واحد، مع أسطر مثل 字 ham و 典 din2. يتم جلب القائمة عند تحديدها والنقر على حفظ، وترخيصها متاح لك لمراجعته</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">إضافة قائمة كلمات Rime</string>
-    <string name="morphe_music_lyrics_rime_dict_added">تمت إضافة %s - حددها واضغط على حفظ لتنزيلها</string>
+    <string name="morphe_music_lyrics_rime_dict_added">تمت إضافة %s - حدده ثم اضغط على «حفظ» لتنزيله</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">يجب أن يتكون الرمز من حرفين أو ثلاثة أحرف، كما في hak</string>
     <string name="morphe_music_lyrics_rime_dict_bad_field">لا يمكن أن يحتوي الاسم والعنوان على خط عمودي</string>
     <string name="morphe_music_lyrics_rime_dict_bad_url">يجب أن يبدأ العنوان بـ https://</string>
-    <string name="morphe_music_lyrics_rime_dict_building">قراءة قائمة الكلمات: %s%%</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%s لديه بالفعل جدول كلمات</string>
-    <string name="morphe_music_lyrics_rime_dict_empty">"قائمة كلمات ريم تتطلب أيضاً UniDict: في مزوّد القاموس غير المتصل، حدّد \"محرفي الصينية والكantonese (UniDict)\" ودعّه ينتهي من التحميل أولاً. بدونه، القائمة التي تقرأ المحرفات لن تنتج أي قراءة
+    <string name="morphe_music_lyrics_rime_dict_building">جارٍ تحميل قائمة الكلمات: %s%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">يحتوي %s بالفعل على جدول كلمات</string>
+    <string name="morphe_music_lyrics_rime_dict_empty">"تتطلب قائمة كلمات Rime أيضًا UniDict: في مزوّد القاموس غير المتصل، حدّد \"الأحرف الصينية والكانتونية (UniDict)\" واتركه ينتهي من التنزيل أولاً. بدونه، لن تنتج القائمة التي تقرأ الأحرف أي قراءة
 
-حدّد القوائم التي يجب أن تقرأها قائمة كلمات ريم، ثم اضغط حفظ لتحميلها. تتم إزالة القائمة التي أضفتها عندما تلغي تحديدك لها
+حدّد القوائم التي يجب أن تقرأها قائمة كلمات Rime، ثم اضغط حفظ لتنزيلها. تُزال القائمة التي أضفتها عند إلغاء تحديدها
 
-كل قائمة هي جدول خاص بك للكلمة-إلى-القراءة، ملف .dict.yaml مع أسطر مثل:
+كل قائمة هي جدول خاص بك للكلمة والقراءة، وهي ملف .dict.yaml بأسطر مثل:
 字 ham
 典 din2
-العمود الأول هو الكلمة، والثاني قراءتها؛ يتم تجاهل الأعمدة والأسطر الإضافية بدون علامة تبويب"</string>
+العمود الأول هو الكلمة، والثاني قراءتها؛ تُتجاهل الأعمدة الإضافية والأسطر التي لا تحتوي على علامة تبويب"</string>
     <string name="morphe_music_lyrics_rime_dict_failed">فشل تحميل قائمة الكلمات - انقر فوق حفظ مرة أخرى للمحاولة مجددًا</string>
     <string name="morphe_music_lyrics_rime_dict_field_char_source">أحرف ليست ضمن كلمة</string>
     <string name="morphe_music_lyrics_rime_dict_field_code">رمز اللغة</string>
@@ -275,26 +290,25 @@
     <string name="morphe_music_lyrics_rime_dict_incomplete">املأ الرمز والاسم والعنوان</string>
     <string name="morphe_music_lyrics_rime_dict_no_table">لم يتم تحديد أي قائمة كلمات Rime للغة المذكورة أعلاه. انقر على هذا الاسم لتحديد واحد، أو اختر لغة تحتوي على قائمة</string>
     <string name="morphe_music_lyrics_rime_dict_ready">قوائم الكلمات جاهزة</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">قوائم الكلمات جاهزة (%s إدخال)</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%s يتم قراءته بواسطة الرومنايزر المدمج ولا يمكنه قبول قائمة كلمات</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">قوائم الكلمات جاهزة (%s إدخالًا)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">تتم معالجة %s بواسطة أداة التحويل الصوتي المدمجة، ولا يمكن إضافة قائمة كلمات إليه</string>
     <string name="morphe_music_lyrics_rime_dict_reserved_row">غير مستخدم: هذه اللغة تمتلك بالفعل قراءتها الخاصة، لذا قم بإلغاء تحديدها لإزالة ذلك</string>
     <string name="morphe_music_lyrics_rime_dict_title">قائمة كلمات Rime</string>
+    <string name="morphe_music_lyrics_romanization_provider_icu">محول ICU للنصوص</string>
     <string name="morphe_music_lyrics_romanization_provider_local">قاموس غير متصل</string>
-    <string name="morphe_music_lyrics_romanization_provider_title">التعريب أو النقل الحرفي</string>
-    <string name="morphe_music_lyrics_romanization_target_language">"لغة هدف الإملاء الصوتي أو النقل الحرفي:
+    <string name="morphe_music_lyrics_romanization_provider_rime">قائمة كلمات Rime</string>
+    <string name="morphe_music_lyrics_romanization_provider_title">الرومنة أو النقل الحرفي</string>
+    <string name="morphe_music_lyrics_romanization_target_language">"لغة هدف الرومنة أو النقل الحرفي:
 %s"</string>
     <string name="morphe_music_lyrics_romanize_failed">تعذّرت رومنة كلمات الأغنية</string>
     <string name="morphe_music_lyrics_romanize_hide">مُروَّن</string>
-    <string name="morphe_music_lyrics_romanize_language_title">لغة التعريب أو النقل الحرفي</string>
+    <string name="morphe_music_lyrics_romanize_language_none">بدون</string>
+    <string name="morphe_music_lyrics_romanize_language_title">لغة الرومنة أو النقل الحرفي</string>
     <string name="morphe_music_lyrics_romanize_only">الرومنة فقط</string>
-    <string name="morphe_music_lyrics_romanized_by_ai">تمت الكتابة بالحروف اللاتينية بواسطة %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">تمت الرومنة بواسطة Google</string>
+    <string name="morphe_music_lyrics_romanized_by_local">تمت الرومنة بواسطة %s</string>
     <string name="morphe_music_lyrics_romanizing">جارٍ الرومنة…</string>
-    <string name="morphe_music_lyrics_ruby_generating">جاري إنشاء روبي...</string>
-    <string name="morphe_music_lyrics_ruby_provider_title">روبي</string>
-    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">هيراغانا (ひらがな)</string>
-    <string name="morphe_music_lyrics_ruby_style_entry_katakana">كاتاكانا (カタカナ)</string>
-    <string name="morphe_music_lyrics_ruby_style_title">نص روبي</string>
+    <string name="morphe_music_lyrics_ruby_language_title">هدف الروبي</string>
     <string name="morphe_music_lyrics_saved">محفوظة</string>
     <string name="morphe_music_lyrics_sb_matching_summary">المطابقة بدون المقاطع التي يتخطاها SponsorBlock ونقل الكلمات إلى الصوت الصادر. عند إيقاف التشغيل، يتم تجاهل SponsorBlock تمامًا</string>
     <string name="morphe_music_lyrics_sb_matching_title">استخدم مقاطع SponsorBlock لإزاحة كلمات الأغنية</string>
@@ -302,20 +316,25 @@
     <string name="morphe_music_lyrics_search_artist_hint">الفنان</string>
     <string name="morphe_music_lyrics_search_dialog_title">البحث عن الكلمات</string>
     <string name="morphe_music_lyrics_search_empty">أدخل عنوان الأغنية واسم الفنان</string>
+    <string name="morphe_music_lyrics_search_google">البحث باستخدام Google</string>
     <string name="morphe_music_lyrics_search_no_providers">لا يمكن لأي من المزودين المفعّلين البحث عن أغانٍ أخرى</string>
     <string name="morphe_music_lyrics_search_title_hint">عنوان الأغنية</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">انسخ نص الكلمات الأصلي كنص عادي؛ اضغط مطولاً لحفظ ملف مصدر الكلمات الخام إلى مجلد التنزيلات</string>
+    <string name="morphe_music_lyrics_section_display_title">العرض</string>
+    <string name="morphe_music_lyrics_section_panel_title">لوحة</string>
+    <string name="morphe_music_lyrics_section_sync_title">المزامنة</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">انقر لنسخ كلمات الأغاني الأصلية كنص عادي؛ اضغط مطولاً لحفظ ملف مصدر كلمات الأغاني الخام وملف TTML محول في التنزيلات</string>
     <string name="morphe_music_lyrics_show_copy_button_title">إظهار زر النسخ</string>
+    <string name="morphe_music_lyrics_show_current_button_summary">عند تمرير كلمات الأغنية يدوياً، يظهر زر للعودة إلى السطر الذي يتم غناؤه حالياً</string>
+    <string name="morphe_music_lyrics_show_current_button_title">عرض زر السطر الحالي</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">انقر للتبديل إلى مرشح الكلمات التالي؛ اضغط مطولاً للبحث عن الكلمات بعنوان الأغنية والفنان</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">إظهار زر التحديث</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">انقر للتبديل بين التعريب والنقل الحرفي؛ اضغط مطولاً للتعريب أو النقل الحرفي فقط. يستخدم مقدمي التعريب المفعّلين بالترتيب المحدد</string>
-    <string name="morphe_music_lyrics_show_romanize_button_title">إظهار زر التعريب أو النقل الحرفي</string>
-    <string name="morphe_music_lyrics_show_ruby_button_summary">انقر لتبديل قراءات روبي فوق كلمات الأغاني؛ اضغط مطولاً للتبديل بين الهيراغانا والكاتاكانا. يستخدم مزودي روبي المُمكّنين حسب ترتيبهم المذكور</string>
-    <string name="morphe_music_lyrics_show_ruby_button_title">عرض زر روبي</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">انقر للتبديل بين الرومنة والنقل الحرفي؛ اضغط مطولاً للرومنة أو النقل الحرفي فقط. يستخدم مقدمي الرومنة المفعّلين بالترتيب المحدد</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">إظهار زر الرومنة أو النقل الحرفي</string>
     <string name="morphe_music_lyrics_show_section_summary">ضع علامة صغيرة على كل قسم جديد في كلمات الأغنية، مثل مقطع أو لازمة</string>
     <string name="morphe_music_lyrics_show_section_title">إظهار علامات الأقسام</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">انقر للتبديل بين الترجمة؛ اضغط مطولاً للترجمة فقط. يستخدم مقدمي الترجمة المفعّلين بالترتيب المحدد</string>
     <string name="morphe_music_lyrics_show_translate_button_title">إظهار زر الترجمة</string>
+    <string name="morphe_music_lyrics_source_advice_summary">قم بتمكين مزوّدي الخدمة الذين تستخدمهم فقط، أو احتفظ بالإعدادات الافتراضية - يمكن أن تؤدي الطلبات المستمرة إلى إرهاق مواقع الكلمات الخاصة بالمجتمعات الصغيرة</string>
     <string name="morphe_music_lyrics_source_all_disabled">جميع مزودي الخدمة معطّلون - كلمات الأغاني المدمجة وكلمات الأغاني المضمنة</string>
     <string name="morphe_music_lyrics_source_label">المصدر: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">استعادة الطلب الافتراضي للمزوّدين</string>
@@ -323,9 +342,11 @@
     <string name="morphe_music_lyrics_source_title">خدمة كلمات الأغاني</string>
     <string name="morphe_music_lyrics_split_background_summary">يفصل الأصوات الخلفية والتوافق عن السطر الرئيسي. ينقل صوت خلفية مكتوب بين أقواس، مثل \"(أوه) أريدك\"، خارج السطر المغني إلى سطر أكثر تعتيمًا خاصًا به</string>
     <string name="morphe_music_lyrics_split_background_title">إظهار الأصوات الخلفية بشكل منفصل</string>
+    <string name="morphe_music_lyrics_spring_scroll_summary">تمرير كلمات الأغنية بفيزياء مرنة، وتحريك كل سطر قليلاً بعد السطر الذي يسبقه. قم بإيقاف هذه الميزة لتوفير البطارية في الأجهزة البطيئة</string>
+    <string name="morphe_music_lyrics_spring_scroll_title">استخدام التمرير المرن</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">يزيل النقاط والفواصل والنقطتين الرأسيتين والفاصلة المنقوطة في نهاية أسطر كلمات الأغاني. مع الإبقاء على علامات الاستفهام وعلامات التعجب وعلامات الحذف وعلامات الاقتباس والأقواس</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">إزالة علامات الترقيم الختامية</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">تبديل ترتيب عرض الترجمة والرومنة أسفل كلمات الأغاني</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">ينقل الترجمة فوق كلمات الأغاني؛ بينما يظل القراءة والرومنة بالأسفل</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">تبديل موضع الترجمة والرومنة</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">انقر على سطر للانتقال إلى تلك اللحظة في الأغنية، اضغط مطولاً لنسخ الكلمة الموجودة تحت إصبعك، أو السطر بأكمله عند الضغط غير الموجه لكلمة. الإيقاف يلغي كلا الحدثين</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">انقر واضغط مطولاً على سطر</string>
@@ -360,17 +381,31 @@
     <string name="morphe_music_lyrics_translation_provider_title">الترجمة</string>
     <string name="morphe_music_lyrics_translation_target_language">"لغة هدف الترجمة:
 %s"</string>
-    <string name="morphe_music_lyrics_use_ai_section_summary">يستخدم فقط عندما لا يقدم مقدم الخدمة أي تسميات للأقسام مثل الجوقة أو الآية، والتي يكتشفها نموذجك المتوافق مع OpenAI بعد ذلك. تعديل الصف يفتح أيضًا تعليماته</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">يُستخدم فقط عندما لا يوفر المزوّد تسميات للأقسام مثل اللازمة أو المقطع، فيكتشفها نموذجك المتوافق مع OpenAI. تعديل الصف يفتح أيضًا تعليماته</string>
     <string name="morphe_music_lyrics_use_ai_section_title">اكتشاف الأقسام باستخدام الذكاء الاصطناعي</string>
+    <string name="morphe_music_lyrics_with_ruby_provider">%1$s (مع %2$s)</string>
     <string name="morphe_music_lyrics_word_sync_summary">أعطِ الأولوية للكلمات المتزامنة كلمةً بكلمة عند توفرها. وعندما تحمل الكلمات توقيتًا للكلمات، يتم تمييز كل كلمة أو مقطع في توقيت مع الموسيقى</string>
     <string name="morphe_music_lyrics_word_sync_title">قم بتمييز الكلمات والمقاطع اللفظية المتزامنة</string>
+    <string name="morphe_music_lyrics_written_by">تأليف: %s</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">رمز المستخدم</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">أضف رمزًا فقط لاستخدام حسابك الخاص. يجب أن يكون من تطبيق Musixmatch لنظام Android: الرموز المنسوخة من musixmatch.com تخص عميل سطح المكتب المتوقف عن العمل وترفضها واجهة API</string>
     <string name="morphe_music_musixmatch_token_optional_hint">يعمل Musixmatch بدون رمز، لذلك يمكن ترك هذا الحقل فارغًا</string>
-    <string name="morphe_music_musixmatch_token_title">Musixmatch: انسخ قيمة رمز المستخدم</string>
+    <string name="morphe_music_musixmatch_token_title">رمز Musixmatch</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">ميوزكسماج: تم مسح توكين المستخدم</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: رمز المستخدم غير صالح - يرجى التحقق والمحاولة مرة أخرى</string>
     <string name="morphe_music_musixmatch_token_toast_saved">ميوزكسماج: تم حفظ توكين المستخدم</string>
+    <string name="morphe_music_navigation_bar_glass_light_summary">يصبغ شريط التنقل الزجاجي باللون الأبيض بدلاً من الداكن، للحصول على زجاج أكثر فاتحاً وصفاءً</string>
+    <string name="morphe_music_navigation_bar_glass_light_title">زجاج فاتح</string>
+    <string name="morphe_music_navigation_bar_glass_opacity_title">الشفافية</string>
+    <string name="morphe_music_navigation_bar_glass_preview_home">الصفحة الرئيسية</string>
+    <string name="morphe_music_navigation_bar_glass_size_button_spacing">تباعد الزر</string>
+    <string name="morphe_music_navigation_bar_glass_size_buttons_shown">الأزرار المعروضة: %1$s من %2$s</string>
+    <string name="morphe_music_navigation_bar_glass_size_height">الارتفاع</string>
+    <string name="morphe_music_navigation_bar_glass_size_summary">ضبط الارتفاع، والعرض، وتباعد الأزرار، والشفافية وسطوع الحافة لشريط التنقل الزجاجي، مع معاينة. يتم إخفاء الأزرار التي لا تتناسب مع عرض الشاشة</string>
+    <string name="morphe_music_navigation_bar_glass_size_title">حجم ونمط شريط التنقل الزجاجي</string>
+    <string name="morphe_music_navigation_bar_glass_size_width">أقصى عرض</string>
+    <string name="morphe_music_navigation_bar_glass_summary">يعرض شريط التنقل ككبسولة عائمة ومستديرة وشبه شفافة</string>
+    <string name="morphe_music_navigation_bar_glass_title">تمكين شريط التنقل الزجاجي</string>
     <string name="morphe_music_scrobbling_log_out">تسجيل خروج</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"إلصق ملف تعريف إرتباط \"sp_dc\" من Spotify
 
@@ -378,14 +413,19 @@
 1. سجل الدخول في open.spotify.com
 2. افتح DevTools → Application → Cookies → open.spotify.com
 3. إنسخ الحقل \"sp_dc\""</string>
-    <string name="morphe_music_spotify_token_title">Spotify: انسخ قيمة \"sp_dc\"</string>
+    <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">سبوتيفاي: \"sp_cd\" تم مسحه</string>
     <string name="morphe_music_spotify_token_toast_invalid">Spotify: رمز sp_dc غير صالح - يرجى التحقق والمحاولة مرة أخرى</string>
-    <string name="morphe_music_spotify_token_toast_saved">Spotify: تكون قيمة sp_dc مطلوبة — بدونها لن تعمل الميزة</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify: تم حفظ sp_dc</string>
     <string name="morphe_music_token_dialog_get_token">الحصول على الرمز</string>
-    <string name="morphe_music_youtube_cookies_dialog_instruction">"الصق سلسلة الكوكيز كاملة (أزواج key=value مفصولة بفواصل منقوطة)
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"الصق ملفات تعريف ارتباط YouTube لجلب الشروحات والنصوص الزمنية من YouTube
 
-الكوكيز المطلوبة: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
+الخطوات:
+1. افتح youtube.com في متصفح وسجّل الدخول
+2. افتح DevTools (F12) ← Application ← Cookies ← youtube.com
+3. انسخ سلسلة ملفات تعريف الارتباط كاملة (أزواج key=value مفصولة بفواصل منقوطة)
+
+ملفات تعريف الارتباط المطلوبة: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">كوكيز YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: تم مسح الكوكيز</string>
     <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: ملفات تعريف ارتباط غير صالحة - يرجى التحقق والمحاولة مرة أخرى</string>
@@ -397,7 +437,7 @@
     <string name="morphe_oauth2_connection_failure_status_400">انتهت صلاحية تسجيل الدخول إلى Android VR، حاول تسجيل الدخول إلى VR مرة أخرى</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
-    <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
+    <string name="morphe_oauth2_toast_reset">تم تسجيل الخروج من Android VR</string>
     <string name="morphe_playback_in_feeds_entry_off">متوقف</string>
     <string name="morphe_replace_music_with_youtube_summary">يستبدل music.youtube.com بـ youtube.com في الروابط المُشاركة</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
@@ -416,6 +456,7 @@
     <string name="morphe_settings_menu_filter_picker_empty">افتح شاشة إعدادات التطبيق القياسية مرة واحدة لتعبئة القائمة</string>
     <string name="morphe_settings_menu_filter_screen_summary">إخفاء العناصر في شاشة إعدادات التطبيق القياسية بالاسم المرئي</string>
     <string name="morphe_settings_menu_filter_screen_title">تصفية قائمة الإعدادات</string>
+    <string name="morphe_settings_music_lyrics_metadata_title">الفلاتر</string>
     <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
     <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
     <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
@@ -434,7 +475,7 @@
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_screen_summary">ضبط خاصية تمويه هوية العميل لمنع مشاكل التشغيل</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">لم يتم تسجيل الدخول إلى Android VR. انقر هنا لتسجيل الدخول</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">يتطلب Android VR تسجيل دخول منفصل. انقر هنا للمتابعة</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">للحصول على هذه الميزة، غيّر \'العميل الافتراضي\' إلى Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">مسجل حاليًا في Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">تسجيل الدخول إلى Android VR</string>
@@ -785,9 +826,9 @@
     <string name="revanced_remember_shuffle_state_title">تذكر حالة الترتيب العشوائي</string>
     <string name="revanced_remember_video_quality_auto_mobile">تغيير جودة بيانات الجوال الافتراضية إلى تلقائي</string>
     <string name="revanced_remember_video_quality_auto_wifi">تغيير جودة "واي فاي" الافتراضية إلى تلقائي</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">تذكر جودة الفيديو المحددة مسبقاً</string>
-    <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary">إظهار إشعار مؤقت (Toast) عند تغيير جودة الفيديو الافتراضية</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">يطبق تحديد الجودة اليدوي على جميع الفيديوهات المستقبلية</string>
+    <string name="revanced_remember_video_quality_last_selected_title">تذكر جودة الفيديو</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">يعرض إشعارًا عند حفظ جودة افتراضية جديدة</string>
     <string name="revanced_remember_video_quality_mobile">تغيير جودة بيانات الجوال الافتراضية إلى %s</string>
     <string name="revanced_remember_video_quality_none">فشل تعيين الجودة</string>
     <string name="revanced_remember_video_quality_wifi">تغيير جودة "واي فاي" الافتراضية إلى %s</string>
@@ -850,7 +891,7 @@
     <string name="revanced_ryd_compact_layout_summary">يقلل من عرض زر الإعجاب لتوفير المساحة</string>
     <string name="revanced_ryd_compact_layout_title">استخدام زر الإعجاب المصغّر</string>
     <string name="revanced_ryd_dislike_percentage_summary">يعرض إحصائية لم يعجبني كنسبة مئوية من الإعجابات بدلًا من رقم</string>
-    <string name="revanced_ryd_dislike_percentage_title">عرض لم يعجبني كــ نسبة مئوية</string>
+    <string name="revanced_ryd_dislike_percentage_title">عرض لم يعجبني كنسبة مئوية</string>
     <string name="revanced_ryd_enabled_summary">إظهار عدد عدم الإعجاب في الفيديوهات</string>
     <string name="revanced_ryd_enabled_title">تمكين استعادة عدد مرات لم يعجبني</string>
     <string name="revanced_ryd_estimated_like_summary">يعرض عددًا تقديريًا للإعجابات في الفيديوهات التي قام المنشئ بتعطيل الإعجابات فيها</string>
@@ -938,7 +979,7 @@
     <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
     <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
     <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
-    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \"%s\"</string>
+    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
     <string name="revanced_settings_search_remove">إزالة من سجل البحث</string>
     <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>

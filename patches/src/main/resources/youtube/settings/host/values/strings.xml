@@ -84,6 +84,15 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">Uses the selected animation as Android's system splash</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">Use as system splash</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">The selected file is not a supported image</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Custom seekbar thumb image not found</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Select an image or animated GIF from device storage</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Thumb image</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Fit seekbar</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Original size</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Thumb size</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Replace the seekbar thumb with a custom image or animated GIF</string>
+    <string name="morphe_custom_seekbar_thumb_title">Enable custom seekbar thumb</string>
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
     <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
     <string name="morphe_dark_theme_title">Dark theme</string>
@@ -121,6 +130,14 @@ Tap here to open DeArrow.ajay.app"</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Shows Subscriptions in the navigation bar, if YouTube moves it to a tab at the top of Home</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Disable toolbar navigation tabs</string>
     <string name="morphe_dual_captions_enabled_title">Bilingual captions</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">How long the light stays dim after scrolling stops. With 0 only scrolling dims the light, and it comes back as soon as scrolling stops</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dim duration</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dims the light while the page is scrolled or touched</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Dim while scrolling</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dims the light on bright videos so the text on the page stays readable</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Keep text readable</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Lights the whole watch page and black bars with the video, in place of Ambient mode</string>
+    <string name="morphe_enhanced_ambient_mode_title">Enhanced Ambient mode</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -133,6 +150,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_feed_long_press_menu_title">Tap and hold to open video menu</string>
     <string name="morphe_feed_watch_later_button_summary">A Watch later button is shown on the thumbnails of feed videos. Tapping and holding it opens Save to playlist</string>
     <string name="morphe_feed_watch_later_button_title">Show Watch later button on thumbnails</string>
+    <string name="morphe_fix_status_bar_layout_summary">Keeps the layout of the status bar consistent, so it does not cover the top bars and leaves no empty space above the player. Turn this off if the app crashes or the top bars look wrong</string>
+    <string name="morphe_fix_status_bar_layout_title">Fix status bar covering the top bars</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
@@ -208,6 +227,8 @@ To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client e
     <string name="morphe_hide_stats_hidden_24h_title">Videos hidden, last 24 hours</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">Reset all time counter?</string>
     <string name="morphe_hide_stats_hidden_all_title">Videos hidden, all time</string>
+    <string name="morphe_hide_status_bar_summary">Hides the system status bar. Swipe down from the top edge to show it for a moment</string>
+    <string name="morphe_hide_status_bar_title">Hide status bar</string>
     <string name="morphe_hide_sync_button_title">Hide \'Sync to video\' button</string>
     <string name="morphe_hide_youtube_create_menu_title">Hide YouTube Create menu</string>
     <string name="morphe_hide_youtube_kids_menu_title">Hide YouTube Kids menu</string>
@@ -250,6 +271,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
     <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
     <string name="morphe_music_package_name_title">Music app package name</string>
+    <string name="morphe_native_downloads_summary">Save videos and playlists using YouTube downloads. Disable to use the configured downloader</string>
+    <string name="morphe_native_downloads_title">Native downloads</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Adjust the transparency level of the glass navigation bar (0 is transparent, 100 is opaque)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Glass opacity</string>
     <string name="morphe_navigation_bar_glass_size_bottom_spacing">Bottom spacing</string>
@@ -292,6 +315,12 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">The confirmation is not shown after a video is removed from a playlist</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Hide playlist removal snackbar</string>
+    <string name="morphe_playlist_long_press_drag_summary">Touch and hold a video of your playlist to drag it to a new position</string>
+    <string name="morphe_playlist_long_press_drag_title">Long press to reorder playlist videos</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Playlist drag handles are easier to grab</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Widen playlist drag handles</string>
     <string name="morphe_post_buttons_layout_entry_1">Server</string>
     <string name="morphe_post_buttons_layout_entry_2">Enforced</string>
     <string name="morphe_post_buttons_layout_title">Post buttons layout</string>
@@ -480,6 +509,10 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_theme_settings_title">Theme settings</string>
     <string name="morphe_unlock_queue_summary">Unlocks YouTube’s video queue</string>
     <string name="morphe_unlock_queue_title">Unlock queue</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Classic One-Row</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Classic Two-Rows</string>
+    <string name="morphe_video_action_bar_layout_title">Video action bar layout</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Limitation: Classic layouts revert to old style \'More videos\' overlay</string>
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
@@ -1021,16 +1054,16 @@ Limitations:
     <string name="revanced_gemini_error_transcription_parse">Failed to parse transcription data</string>
     <string name="revanced_gemini_error_translation_failed">Gemini translation failed</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini translation parsing failed</string>
-    <string name="revanced_gemini_models_title">Model cascade</string>
-    <string name="revanced_gemini_models_summary">Enter one model ID per line, in fallback order. All API keys are tried for each model before moving to the next. Leave empty to use the default cascade, or use Reset to restore it.</string>
+    <string name="revanced_gemini_google_search_summary">Let Gemini search the web for summaries and chat answers, with source links. Gemini 3 Search Grounding requires paid Gemini API access with available quota. Google AI subscription plans do not include paid API access, API billing is separate. Additional API charges may apply</string>
     <string name="revanced_gemini_google_search_title">Ground with Google Search</string>
-    <string name="revanced_gemini_google_search_summary">Let Gemini search the web for summaries and chat answers, with source links. Gemini 3 Search Grounding requires paid Gemini API access with available quota. Google AI subscription plans do not include paid API access, API billing is separate. Additional API charges may apply.</string>
     <string name="revanced_gemini_highlight_words_summary">Highlight each spoken word in video subtitles</string>
     <string name="revanced_gemini_highlight_words_title">Highlight spoken words</string>
     <string name="revanced_gemini_loading_default">Loading...</string>
     <string name="revanced_gemini_loading_summarize">Summarizing the video...</string>
     <string name="revanced_gemini_loading_transcribe">Transcribing the video...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Getting subtitles...</string>
+    <string name="revanced_gemini_models_summary">Enter one model ID per line, in fallback order. All API keys are tried for each model before moving to the next. Leave empty to use the default cascade, or use Reset to restore it</string>
+    <string name="revanced_gemini_models_title">Model cascade</string>
     <string name="revanced_gemini_status_translating">Translating with Gemini...\n\n⚠️ This step may fail if Gemini ignores the instructions or hits the limit</string>
     <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
     <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
@@ -1362,8 +1395,6 @@ Keywords can be any text shown in video titles. @UserName keyword hides all cont
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' operator (\'&amp;\') is enabled.&lt;br&gt;&lt;br&gt;When &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; is used as a keyword, keywords containing both &lt;strong&gt;Blue&lt;/strong&gt; and &lt;strong&gt;Red&lt;/strong&gt; will be filtered</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">Use \'AND\' operator (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
-
-
     <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown</string>
     <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden</string>
@@ -3115,42 +3146,6 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="morphe_hide_status_bar_title">Hide status bar</string>
-    <string name="morphe_hide_status_bar_summary">Hides the system status bar. Swipe down from the top edge to show it for a moment</string>
-    <string name="morphe_fix_status_bar_layout_title">Fix status bar covering the top bars</string>
-    <string name="morphe_fix_status_bar_layout_summary">Keeps the layout of the status bar consistent, so it does not cover the top bars and leaves no empty space above the player. Turn this off if the app crashes or the top bars look wrong</string>
-    <string name="morphe_custom_seekbar_thumb_category_title">Custom seekbar thumb</string>
-    <string name="morphe_custom_seekbar_thumb_title">Enable custom seekbar thumb</string>
-    <string name="morphe_custom_seekbar_thumb_summary">Replace the seekbar thumb with a custom image or animated GIF</string>
-    <string name="morphe_custom_seekbar_thumb_file_title">Thumb image</string>
-    <string name="morphe_custom_seekbar_thumb_file_summary">Select an image or animated GIF from device storage</string>
-    <string name="morphe_custom_seekbar_thumb_file_invalid">The selected file is not a supported image</string>
-    <string name="morphe_custom_seekbar_thumb_file_not_found">Custom seekbar thumb image not found</string>
-    <string name="morphe_custom_seekbar_thumb_scale_type_title">Thumb size</string>
-    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Fit seekbar</string>
-    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Original size</string>
-    <string name="morphe_enhanced_ambient_mode_title">Enhanced Ambient mode</string>
-    <string name="morphe_enhanced_ambient_mode_summary">Lights the whole watch page and black bars with the video, in place of Ambient mode</string>
-    <string name="morphe_enhanced_ambient_mode_readable_text_title">Keep text readable</string>
-    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dims the light on bright videos so the text on the page stays readable</string>
-    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Dim while scrolling</string>
-    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dims the light while the page is scrolled or touched</string>
-    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dim duration</string>
-    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">How long the light stays dim after scrolling stops. With 0 only scrolling dims the light, and it comes back as soon as scrolling stops</string>
-    <string name="morphe_playlist_wide_drag_handles_title">Widen playlist drag handles</string>
-    <string name="morphe_playlist_wide_drag_handles_summary">Playlist drag handles are easier to grab</string>
-    <string name="morphe_playlist_hide_removal_snackbar_title">Hide playlist removal snackbar</string>
-    <string name="morphe_playlist_hide_removal_snackbar_summary">The confirmation is not shown after a video is removed from a playlist</string>
-    <string name="morphe_playlist_long_press_drag_title">Long press to reorder playlist videos</string>
-    <string name="morphe_playlist_long_press_drag_summary">Touch and hold a video of your playlist to drag it to a new position</string>
-    <string name="morphe_video_action_bar_layout_title">Video action bar layout</string>
-    <string name="morphe_video_action_bar_layout_entry_1">Default</string>
-    <string name="morphe_video_action_bar_layout_entry_2">Classic One-Row</string>
-    <string name="morphe_video_action_bar_layout_entry_3">Minimal</string>
-    <string name="morphe_video_action_bar_layout_entry_4">Classic Two-Rows</string>
-    <string name="morphe_video_action_bar_layout_user_dialog_message">Limitation: Classic layouts revert to old style \'More videos\' overlay</string>
-    <string name="morphe_native_downloads_title">Native downloads</string>
-    <string name="morphe_native_downloads_summary">Save videos and playlists using YouTube downloads. Disable to use the configured downloader.</string>
+    <string name="sb_offline_segments_summary">Save SponsorBlock segments for downloaded videos</string>
     <string name="sb_offline_segments_title">Offline segments</string>
-    <string name="sb_offline_segments_summary">Save SponsorBlock segments for downloaded videos.</string>
 </resources>

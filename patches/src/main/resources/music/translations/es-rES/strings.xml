@@ -142,6 +142,8 @@ Pasos:
     <string name="morphe_music_downloads_starting">Iniciando descarga…</string>
     <string name="morphe_music_downloads_storage_permission">Permite el acceso al almacenamiento y luego pulsa de nuevo Descargar</string>
     <string name="morphe_music_downloads_unknown_track">No se pudo identificar la pista que descargar</string>
+    <string name="morphe_music_hide_you_may_also_like_section_title">Ocultar sección \'Quizás también te guste\'</string>
+    <string name="morphe_music_hide_your_downloads_shelf_title">Ocultar estantería \"Tus descargas\"</string>
     <string name="morphe_music_in_app_downloads_summary">Descarga el audio dentro de YouTube Music en lugar de abrir la aplicación de descarga externa</string>
     <string name="morphe_music_in_app_downloads_title">Descargar en la aplicación</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"Las canciones y las listas de reproducción se guardan en Música/RVX y se reproducen mediante el reproductor nativo de archivos locales de YouTube Music. Permite el acceso al audio cuando Música te lo solicite
@@ -151,11 +153,12 @@ La opción Descargas (en la Biblioteca o en el menú de la cuenta) abre la bibli
 Los archivos de audio permanecen tras desinstalar Música; la organización de las listas de reproducción forma parte de los datos de la aplicación. Al desactivar esta opción, se restaura la navegación predeterminada de Descargas. Las descargas Premium nunca se modifican"</string>
     <string name="morphe_music_lyrics_about_summary">"Las letras se emparejan por título e intérprete; metadatos inusuales pueden no encontrar nada o la versión incorrecta. Usa actualizar para cambiar de versiones. Los proveedores marcados con * requieren un token. No siempre se solicitan todos los proveedores habilitados en tu orden, pero responden según su velocidad
 
-Las letras provienen de servicios de terceros que no están afiliados, patrocinados ni respaldados por RVX. Cada uno se utiliza tal cual: las letras, su disponibilidad y su licenciamiento permanecen en esos servicios y sus licenciantes, y su uso puede estar sujeto a sus términos de servicio. Lo que llega a un servicio habilitado es solo la búsqueda que solicitaste: el título, el artista y, donde ese servicio lo necesite, el ID de video. El punto final opcional de IA y la transcripción QuickLRC solo se ejecutan después de configurarlos, y reciben el texto de las letras o la URL de video de la pista"</string>
+Las letras provienen de servicios de terceros que no están afiliados, patrocinados ni respaldados por RVX. Cada uno se utiliza tal cual: las letras, su disponibilidad y su licenciamiento permanecen en esos servicios y sus licenciantes, y su uso puede estar sujeto a sus términos de servicio. Lo que llega a un servicio habilitado es solo la búsqueda que solicitaste: el título, el artista y, donde ese servicio lo necesite, el ID de vídeo. El punto de conexión opcional de IA y la transcripción QuickLRC solo se ejecutan después de configurarlos, y reciben el texto de las letras o la URL de vídeo de la pista"</string>
     <string name="morphe_music_lyrics_about_title">Sobre letras de terceros</string>
     <string name="morphe_music_lyrics_ai_config_api_token_label">Clave de API (opcional)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL del extremo de la API (por ej. https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_label">URL base</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_presets">Ajustes predeterminados del servicio</string>
     <string name="morphe_music_lyrics_ai_config_base_url_presets_title">Elegir un servicio</string>
     <string name="morphe_music_lyrics_ai_config_deepl_key_label">Clave de autenticación (Gratuita o Pro)</string>
     <string name="morphe_music_lyrics_ai_config_extra_body_hint">Pon nombres y valores entre comillas, por ej. {\"temperature\": 0.3}. Se rechaza un valor sin comillas que contenga / o :. El modelo y los mensajes no se pueden configurar aquí</string>
@@ -168,6 +171,8 @@ Las letras provienen de servicios de terceros que no están afiliados, patrocina
     <string name="morphe_music_lyrics_ai_config_fetching_models">Obteniendo modelos...</string>
     <string name="morphe_music_lyrics_ai_config_model_label">Modelo</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">Indicación</string>
+    <string name="morphe_music_lyrics_ai_config_reasoning_effort">Esfuerzo de razonamiento</string>
+    <string name="morphe_music_lyrics_ai_config_ruby_prompt_label">Indicador de Ruby (Kana)</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: ¡Conectado! (%2$s)</string>
     <string name="morphe_music_lyrics_ai_config_status_failed">%s: Error de conexión. Comprueba la configuración</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid">Configuración incompleta o rechazada por el proveedor</string>
@@ -175,12 +180,14 @@ Las letras provienen de servicios de terceros que no están afiliados, patrocina
     <string name="morphe_music_lyrics_ai_config_status_validating">Validando la conexión...</string>
     <string name="morphe_music_lyrics_ai_config_summary">Configurar claves de API, modelos, endpoints y prompts</string>
     <string name="morphe_music_lyrics_ai_config_test_connection">Probar conexión</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Ajustes de traducción y romanización guardados</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Ajustes guardados</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Marcadores de posición: {task}, {language}, {title}, {artist}, {count}, {lines}. Los desconocidos se dejan tal como se han escrito</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Plantilla de Prompt</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Aviso guardado, pero el punto final de IA aún no es utilizable. Configúralo primero en Ajustes de IA</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt restablecido</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt guardado</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Ajustes guardados, pero el punto de conexión de la IA aún no está disponible</string>
+    <string name="morphe_music_lyrics_ai_section_apply">Aplicar secciones</string>
+    <string name="morphe_music_lyrics_ai_section_detecting">Detectando</string>
+    <string name="morphe_music_lyrics_ai_section_failed">La IA no pudo detectar las secciones para esta pista</string>
+    <string name="morphe_music_lyrics_ai_section_no_text">No hay letras para detectar secciones</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Permitir lecturas no latinas procedentes de la fuente de letras; cuando está desactivado, conserva solo letras latinas, letras acentuadas y dígitos de tono</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Habilitar transliteración</string>
     <string name="morphe_music_lyrics_clear_cache_done">%s MB liberados</string>
@@ -190,8 +197,10 @@ Las letras provienen de servicios de terceros que no están afiliados, patrocina
     <string name="morphe_music_lyrics_copied">Copiado al portapapeles</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Si las letras se filtran incorrectamente al final, ajusta o borra esto. Marcadores separados por comas: las líneas que contienen un marcador seguido de dos puntos se muestran como información de créditos al final. Déjalo vacío para desactivarlo</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Marcadores de línea de información</string>
+    <string name="morphe_music_lyrics_current">Actual</string>
     <string name="morphe_music_lyrics_custom_regex_summary">Expresión regular aplicada a títulos, artistas y álbumes antes de buscar las letras y al puntuar si dos títulos coinciden. Déjala vacía para desactivar ambas. La predeterminada elimina términos comunes como \"Vídeo oficial\", \"Remaster\", \"【插曲】\" y \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Regex de metadatos</string>
+    <string name="morphe_music_lyrics_device_unavailable">Las letras no están disponibles para este archivo del dispositivo</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Alterna el orden de visualización de artista y título en el reproductor en miniatura y MediaSession. Activado: \"Artista - Título\"; desactivado: \"Título - Artista\". No afecta a la búsqueda de letras</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Orden de visualización de artista y título</string>
     <string name="morphe_music_lyrics_dual_only">Modo dual</string>
@@ -201,10 +210,16 @@ Las letras provienen de servicios de terceros que no están afiliados, patrocina
     <string name="morphe_music_lyrics_dynamic_background_title">Fondo dinámico</string>
     <string name="morphe_music_lyrics_enabled_summary">Muestra letras de un servicio de terceros, recurriendo a las letras integradas cuando no se encuentran</string>
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceros</string>
+    <string name="morphe_music_lyrics_focus_spotlight_summary">Atenúa cada línea inactiva más cuanto más lejos esté de la línea que se está cantando. Cuando está desactivado, todas las líneas inactivas se atenúan por igual</string>
+    <string name="morphe_music_lyrics_focus_spotlight_title">Atenuar más las líneas distantes</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Pone en mayúscula la primera letra de cada línea de la letra</string>
     <string name="morphe_music_lyrics_force_capitalize_title">Mayúscula en la primera letra</string>
     <string name="morphe_music_lyrics_force_center_summary">ON coloca todas las líneas en el centro e ignora la alineación original, incluidos los lados del dúo; OFF mantiene la alineación que piden las letras</string>
     <string name="morphe_music_lyrics_force_center_title">Centrar siempre las letras</string>
+    <string name="morphe_music_lyrics_gap_dots_summary">Muestra tres puntos entre las líneas durante un intermedio instrumental largo, los cuales se llenan a medida que el intermedio termina</string>
+    <string name="morphe_music_lyrics_gap_dots_title">Mostrar puntos de intermedio instrumental</string>
+    <string name="morphe_music_lyrics_han_form_summary">Cuando está activado, sigue el idioma de destino de la traducción para convertir las letras entre la escritura simplificada y tradicional</string>
+    <string name="morphe_music_lyrics_han_form_title">Conversión de forma china</string>
     <string name="morphe_music_lyrics_hide_info_summary">Oculta la línea de créditos que se muestra debajo de las letras</string>
     <string name="morphe_music_lyrics_hide_info_title">Ocultar línea de créditos</string>
     <string name="morphe_music_lyrics_hide_played_summary">Oculta las líneas de letra por encima de la línea que se está reproduciendo</string>
@@ -225,29 +240,29 @@ Las letras provienen de servicios de terceros que no están afiliados, patrocina
     <string name="morphe_music_lyrics_local_romanization_download_started">Descargando diccionarios de lectura…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Lee cada palabra de una letra sincronizada por tiempo (sincronización de palabras activada); coreano no requiere descarga; catorce scripts comparten una descarga CLDR; los caracteres Han son leídos por la Lista de palabras Rime cuando su tabla de palabras cubre el idioma</string>
     <string name="morphe_music_lyrics_local_romanization_title">Romanización y alineación local</string>
-    <string name="morphe_music_lyrics_mediasession_summary">Muestra la línea actual en la pantalla de bloqueo, Android Auto y Bluetooth. Requiere Android 11 o posterior</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Muestra la línea actual en la pantalla de bloqueo, Android Auto y Bluetooth</string>
     <string name="morphe_music_lyrics_mediasession_title">Mostrar letras de MediaSession en la pantalla de bloqueo</string>
     <string name="morphe_music_lyrics_mini_artist_max_label">Tiempo máximo en pantalla (ms)</string>
     <string name="morphe_music_lyrics_mini_artist_min_label">Tiempo mínimo en pantalla (ms)</string>
-    <string name="morphe_music_lyrics_mini_artist_timing_explanation">Solo para animaciones multilínea. Mantenga cada fotograma durante al menos el tiempo mínimo. Al llegar al máximo, avance la línea del artista incluso si la letra permanece igual</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_explanation">Solo para animaciones multilínea. Mantén cada fotograma durante al menos el tiempo mínimo. Al llegar al máximo, avanza la línea del artista incluso si la letra permanece igual</string>
     <string name="morphe_music_lyrics_mini_artist_timing_invalid">El mínimo debe ser 0 o superior. El máximo debe ser superior a 0 y al menos el valor del mínimo</string>
     <string name="morphe_music_lyrics_mini_encapsulation_invalid">El formato debe contener {lrc}</string>
-    <string name="morphe_music_lyrics_mini_encapsulation_summary">Formato de la línea de letra en el miniplayer y en MediaSession. {lrc} es la línea y {n} es cuántas veces seguidas se canta. El texto entre dos puntos solo se muestra cuando la línea se repite. Use \\: para dos puntos</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_summary">Formato de la línea de letra en el miniplayer y en MediaSession. {lrc} es la línea y {n} es cuántas veces seguidas se canta. El texto entre dos puntos solo se muestra cuando la línea se repite. Usa \\: para dos puntos</string>
     <string name="morphe_music_lyrics_mini_encapsulation_title">Formato de línea de letra</string>
-    <string name="morphe_music_lyrics_mini_instrumental_summary">Se muestra en el miniplayer y en la MediaSession durante un interludio instrumental. Cada línea es un marco de animación. {t} es el título, {a} es el artista y {lrc} es la última línea de la letra</string>
+    <string name="morphe_music_lyrics_mini_instrumental_summary">Se muestra en el miniplayer y en la MediaSession durante un interludio instrumental. Cada línea es un fotograma de animación. {t} es el título, {a} es el artista y {lrc} es la última línea de la letra</string>
     <string name="morphe_music_lyrics_mini_instrumental_title">Interludio instrumental</string>
     <string name="morphe_music_lyrics_mini_line_limits_artist">"Límite de líneas del artista
-Divide el formato de pista poblado en marcos cíclicos. 0 desactiva la división"</string>
+Divide el formato de pista completo en fotogramas cíclicos. 0 desactiva la división"</string>
     <string name="morphe_music_lyrics_mini_line_limits_invalid">Introduce límites de números enteros del 0 al 10000 y un peso de caracteres mayor que 0</string>
     <string name="morphe_music_lyrics_mini_line_limits_lyrics">"Límite de línea de la letra
-Divida las letras más largas en mitades equilibradas. 0 desactiva la división"</string>
+Divide las letras más largas en mitades equilibradas. 0 desactiva la división"</string>
     <string name="morphe_music_lyrics_mini_line_limits_summary">Límites de línea de la letra y del artista, y peso de caracteres de ancho completo</string>
     <string name="morphe_music_lyrics_mini_line_limits_title">Límites de longitud de línea</string>
     <string name="morphe_music_lyrics_mini_line_limits_weight">"Peso de caracteres de ancho completo
 Se aplica a ambos límites. A 1.75, cuatro caracteres de ancho completo cuentan como 7"</string>
     <string name="morphe_music_lyrics_mini_next_offset_ms_summary">Desplaza el momento en que se muestra la siguiente línea en el miniplayer y en MediaSession. Usa un valor negativo si las líneas aparecen tarde, por ejemplo, en la pantalla de bloqueo</string>
     <string name="morphe_music_lyrics_mini_next_offset_ms_title">Desfase de tiempo del miniplayer y de la MediaSession</string>
-    <string name="morphe_music_lyrics_mini_track_format_summary">Formato de la pista que se muestra con la letra en el miniplayer y en MediaSession. {t} es el título, {a} es el artista y {v} es la versión, como Acústico, cuando la fuente de la letra proporciona una. El texto entre dos dos puntos solo se muestra cuando cada variable en su interior tiene un valor; escriba \\: para dos puntos simples. Cada línea se muestra por turnos, avanzando cada vez que cambia la letra</string>
+    <string name="morphe_music_lyrics_mini_track_format_summary">Formato de la pista que se muestra con la letra en el miniplayer y en MediaSession. {t} es el título, {a} es el artista y {v} es la versión, como Acústico, cuando la fuente de la letra proporciona una. El texto entre dos dos puntos solo se muestra cuando cada variable en su interior tiene un valor; escribe \\: para dos puntos simples. Cada línea se muestra por turnos, avanzando cada vez que cambia la letra</string>
     <string name="morphe_music_lyrics_mini_track_format_title">Formato de título de canción/artista</string>
     <string name="morphe_music_lyrics_miniplayer_summary">Muestra la línea actual en el reproductor reducido, con la pista movida al subtítulo</string>
     <string name="morphe_music_lyrics_miniplayer_title">Mostrar letras en el reproductor en miniatura</string>
@@ -260,7 +275,7 @@ Se aplica a ambos límites. A 1.75, cuatro caracteres de ancho completo cuentan 
     <string name="morphe_music_lyrics_rime_char_source_none">Sin lectura de carácter</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Caracteres mandarín</string>
     <string name="morphe_music_lyrics_rime_dict_add">Añadir</string>
-    <string name="morphe_music_lyrics_rime_dict_add_hint">Un archivo .dict.yaml, o un zip que lo contenga, con líneas como 字 ham y 典 din2. La lista se obtiene cuando la marcas y tocas Guardar, y su licencia es tuya para verificar</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">Un archivo .dict.yaml, o un zip que contenga uno, con líneas como 字 ham y 典 din2. La lista se obtiene al marcar la casilla y pulsar Guardar, y su licencia queda bajo su responsabilidad</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Añadir una Lista de palabras Rime</string>
     <string name="morphe_music_lyrics_rime_dict_added">Añadido %s; márcalo y pulsa Guardar para descargarlo</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">El código debe tener dos o tres letras, como en hak</string>
@@ -292,22 +307,21 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
     <string name="morphe_music_lyrics_rime_dict_reserved_row">No utilizado: este idioma ya tiene su propia lectura, por lo tanto, desmárcalo para eliminarlo</string>
     <string name="morphe_music_lyrics_rime_dict_title">Lista de palabras Rime</string>
     <string name="morphe_music_lyrics_romanization_provider_google">Google (por defecto)</string>
+    <string name="morphe_music_lyrics_romanization_provider_icu">Transliterador ICU</string>
     <string name="morphe_music_lyrics_romanization_provider_local">Diccionario sin conexión</string>
+    <string name="morphe_music_lyrics_romanization_provider_rime">Lista de palabras Rime</string>
     <string name="morphe_music_lyrics_romanization_provider_title">Romanización o transliteración</string>
     <string name="morphe_music_lyrics_romanization_target_language">"Idioma objetivo de romanización o transliteración:
 %s"</string>
     <string name="morphe_music_lyrics_romanize_failed">No se pudieron romanizar las letras</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizado</string>
+    <string name="morphe_music_lyrics_romanize_language_none">Nada</string>
     <string name="morphe_music_lyrics_romanize_language_title">Idioma de romanización o transliteración</string>
     <string name="morphe_music_lyrics_romanize_only">Solo romanización</string>
-    <string name="morphe_music_lyrics_romanized_by_ai">Romanizado por %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanizado por Google</string>
+    <string name="morphe_music_lyrics_romanized_by_local">Romanizado por %s</string>
     <string name="morphe_music_lyrics_romanizing">Romanizando…</string>
-    <string name="morphe_music_lyrics_ruby_generating">Generando ruby…</string>
-    <string name="morphe_music_lyrics_ruby_provider_title">Ruby</string>
-    <string name="morphe_music_lyrics_ruby_style_entry_hiragana">Hiragana (ひらがな)</string>
-    <string name="morphe_music_lyrics_ruby_style_entry_katakana">Katakana (カタカナ)</string>
-    <string name="morphe_music_lyrics_ruby_style_title">Script de Ruby</string>
+    <string name="morphe_music_lyrics_ruby_language_title">Destino de Ruby</string>
     <string name="morphe_music_lyrics_saved">Guardado</string>
     <string name="morphe_music_lyrics_sb_matching_summary">Sincroniza las letras sin los segmentos que omite SponsorBlock y las ajusta al audio resultante. Desactivado ignora SponsorBlock por completo</string>
     <string name="morphe_music_lyrics_sb_matching_title">Usar segmentos de SponsorBlock para el desfase de las letras</string>
@@ -315,20 +329,25 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
     <string name="morphe_music_lyrics_search_artist_hint">Artista</string>
     <string name="morphe_music_lyrics_search_dialog_title">Buscar letras</string>
     <string name="morphe_music_lyrics_search_empty">Introduce un título de canción y un artista</string>
+    <string name="morphe_music_lyrics_search_google">Buscar con Google</string>
     <string name="morphe_music_lyrics_search_no_providers">Ninguno de los proveedores activados puede buscar otras canciones</string>
     <string name="morphe_music_lyrics_search_title_hint">Título de la canción</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Pulsa para copiar la letra original como texto sin formato; mantén pulsado para guardar el archivo fuente de la letra sin formato en Descargas</string>
+    <string name="morphe_music_lyrics_section_display_title">Pantalla</string>
+    <string name="morphe_music_lyrics_section_panel_title">Panel</string>
+    <string name="morphe_music_lyrics_section_sync_title">Sincronización</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Pulsa para copiar la letra original como texto sin formato; mantén pulsado para guardar el archivo fuente de la letra sin formato y un archivo TTML convertido en Descargas</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botón Copiar</string>
+    <string name="morphe_music_lyrics_show_current_button_summary">Mientras se desplazan las letras a mano, muestra un botón que vuelve a la línea que se está cantando</string>
+    <string name="morphe_music_lyrics_show_current_button_title">Mostrar botón Actual</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">Toca para cambiar a la siguiente letra candidata; mantén pulsado para buscar letras por título de canción y artista</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostrar botón Actualizar</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Toca para alternar romanización o transliteración; mantén pulsado solo para romanización o transliteración. Utiliza los proveedores de romanización habilitados en su orden indicado</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostrar botón de romanización o transliteración</string>
-    <string name="morphe_music_lyrics_show_ruby_button_summary">Pulsa para activar o desactivar las lecturas ruby sobre la letra; mantén pulsado para cambiar entre hiragana y katakana. Utiliza los proveedores de ruby activados en el orden en que aparecen en la lista</string>
-    <string name="morphe_music_lyrics_show_ruby_button_title">Mostrar botón de Ruby</string>
     <string name="morphe_music_lyrics_show_section_summary">Etiqueta cada nueva sección de la letra con una pequeña etiqueta, como «Verso» o «Estribillo»</string>
     <string name="morphe_music_lyrics_show_section_title">Mostrar etiquetas de sección</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Toca para alternar la traducción; mantén pulsado solo para traducción. Utiliza los proveedores de traducción habilitados en su orden indicado</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botón Traducir</string>
+    <string name="morphe_music_lyrics_source_advice_summary">Activa solo los proveedores que uses, o mantén el predeterminado: las peticiones constantes pueden saturar los pequeños sitios de letras comunitarios</string>
     <string name="morphe_music_lyrics_source_all_disabled">Todos los proveedores desactivados: letras integradas y letras incrustadas</string>
     <string name="morphe_music_lyrics_source_label">Fuente: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Restaura los proveedores al orden de prioridad predeterminado</string>
@@ -336,9 +355,11 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
     <string name="morphe_music_lyrics_source_title">Servicio de letras</string>
     <string name="morphe_music_lyrics_split_background_summary">Separa los coros y armonías de la línea principal. Mueve un coro escrito entre paréntesis, como \"(Oh) te quiero\", fuera de la línea cantada hacia una línea más tenue por sí misma</string>
     <string name="morphe_music_lyrics_split_background_title">Mostrar coros por separado</string>
+    <string name="morphe_music_lyrics_spring_scroll_summary">Desplaza las letras con física de resorte y mueve cada línea un poco después de la anterior. Desactívalo para ahorrar batería en dispositivos más lentos</string>
+    <string name="morphe_music_lyrics_spring_scroll_title">Usar desplazamiento elástico</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Elimina puntos, comas, dos puntos y puntos y coma al final de las líneas de la letra. Se mantienen los signos de interrogación, de exclamación, puntos suspensivos, comillas y paréntesis</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Eliminar puntuación final</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">Intercambia el orden de visualización de la traducción y la romanización debajo de la letra</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Mueve la traducción arriba de las letras; la lectura y la romanización permanecen debajo</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Intercambiar traducción y romanización</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Pulsa una línea para saltar a ese momento de la canción; mantenla pulsada para copiar la palabra sobre la que esté tu dedo o toda la línea si no la pulsas sobre una palabra. Al desactivar esta opción, se eliminan ambos gestos</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Tocar y mantener pulsada una línea</string>
@@ -352,7 +373,7 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
     <string name="morphe_music_lyrics_transcribe_cancelled">Transcripción cancelada</string>
     <string name="morphe_music_lyrics_transcribe_failed">QuickLRC no pudo procesar esta pista</string>
     <string name="morphe_music_lyrics_transcribe_key_cleared">Clave API de QuickLRC borrada</string>
-    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC genera tiempos para letras que no los tienen, o las transcribe desde la pista, con un costo de créditos. Con una clave configurada, las pistas sin letras ofrecen transcripción y el diálogo de búsqueda obtiene un botón de alineación</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC genera tiempos para letras que no los tienen, o las transcribe desde la pista, con un coste de créditos. Con una clave configurada, las pistas sin letras ofrecen transcripción y el diálogo de búsqueda obtiene un botón de alineación</string>
     <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC no aceptó esa clave</string>
     <string name="morphe_music_lyrics_transcribe_key_saved">Clave API de QuickLRC guardada</string>
     <string name="morphe_music_lyrics_transcribe_key_set_summary">Clave de QuickLRC guardada. Usa el botón alinear en el diálogo de búsqueda de letras, o el aviso del panel cuando una pista no tenga letras</string>
@@ -377,8 +398,10 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
 %s"</string>
     <string name="morphe_music_lyrics_use_ai_section_summary">Solo se utiliza cuando el proveedor no envía etiquetas de sección, como «Estribillo» o «Verso», que tu modelo compatible con OpenAI detecta a continuación. Editar la fila también abre su prompt</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Detectar secciones con IA</string>
+    <string name="morphe_music_lyrics_with_ruby_provider">%1$s (con %2$s)</string>
     <string name="morphe_music_lyrics_word_sync_summary">Prioriza las letras palabra por palabra cuando estén disponibles. Cuando las letras incluyen tiempos por palabra, resalta cada palabra o sílaba al ritmo de la música</string>
     <string name="morphe_music_lyrics_word_sync_title">Resaltar palabras o sílabas sincronizadas</string>
+    <string name="morphe_music_lyrics_written_by">Escrito por: %s</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">token de usuario</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Añade un token solo para usar tu propia cuenta. Tiene que provenir de la aplicación de Musixmatch para Android: los tokens copiados de musixmatch.com pertenecen al cliente de escritorio que ya no está disponible y la API los rechaza</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch funciona sin token, así que este campo puede quedarse vacío</string>
@@ -386,6 +409,18 @@ La primera columna es la palabra, la segunda su lectura; se ignoran columnas adi
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token de usuario borrado</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuario no válido. Compruébalo e inténtalo de nuevo</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token de usuario guardado</string>
+    <string name="morphe_music_navigation_bar_glass_light_summary">Tinta la barra de navegación de cristal de blanco en lugar de oscuro, para un cristal más claro y luminoso</string>
+    <string name="morphe_music_navigation_bar_glass_light_title">Cristal claro</string>
+    <string name="morphe_music_navigation_bar_glass_opacity_title">Opacidad</string>
+    <string name="morphe_music_navigation_bar_glass_preview_home">Inicio</string>
+    <string name="morphe_music_navigation_bar_glass_size_button_spacing">Espacio de botones</string>
+    <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Botones mostrados: %1$s de %2$s</string>
+    <string name="morphe_music_navigation_bar_glass_size_height">Altura</string>
+    <string name="morphe_music_navigation_bar_glass_size_summary">Ajusta la altura, el ancho, el espacio de los botones, la opacidad y el brillo del borde de la barra de navegación de cristal, con una vista previa. Los botones que no caben en el ancho de la pantalla se ocultan</string>
+    <string name="morphe_music_navigation_bar_glass_size_title">Tamaño y estilo de la barra de navegación de cristal</string>
+    <string name="morphe_music_navigation_bar_glass_size_width">Ancho máximo</string>
+    <string name="morphe_music_navigation_bar_glass_summary">Muestra la barra de navegación como una cápsula translúcida, redondeada y flotante</string>
+    <string name="morphe_music_navigation_bar_glass_title">Activar barra de navegación de cristal</string>
     <string name="morphe_music_not_in_playlist">No en una lista de reproducción</string>
     <string name="morphe_music_playlist_download_complete">Lista de reproducción guardada: %s pistas</string>
     <string name="morphe_music_playlist_download_failed">Descarga de la lista de reproducción fallida. Las canciones completadas permanecen en los archivos del dispositivo; toca Descargar para intentarlo de nuevo</string>
@@ -454,7 +489,8 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Abre la pantalla de configuración de la aplicación estándar una vez para completar la lista</string>
     <string name="morphe_settings_menu_filter_screen_summary">Oculta elementos en la pantalla de configuración de la aplicación estándar por su nombre visible</string>
-    <string name="morphe_settings_menu_filter_screen_title">Filtro del menú de configuración</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filtro del menú de ajustes</string>
+    <string name="morphe_settings_music_lyrics_metadata_title">Filtros</string>
     <string name="morphe_settings_name_custom_item_hint">Introduce un nombre</string>
     <string name="morphe_settings_name_empty_warning">El nombre no puede estar vacío</string>
     <string name="morphe_settings_name_title">Nombre de los ajustes de RVX</string>
@@ -472,8 +508,8 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_title">El cliente predeterminado no funciona</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">No has iniciado sesión en Android VR. Pulsa aquí para iniciar sesión</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Configura la falsificación del cliente para evitar problemas de reproducción</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR requiere un inicio de sesión independiente. Toca aquí para continuar</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar esta función, cambia \'Cliente predeterminado\' a \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Actualmente conectado a Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Inicio de sesión de Android VR</string>
@@ -821,9 +857,9 @@ Descarga %2$s desde el sitio web"</string>
     <string name="revanced_remember_shuffle_state_title">Recordar estado aleatorio</string>
     <string name="revanced_remember_video_quality_auto_mobile">Cambia la calidad predeterminada con datos móviles a Auto</string>
     <string name="revanced_remember_video_quality_auto_wifi">Cambia la calidad predeterminada con Wi-Fi a Auto</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">Recuerda la última calidad de vídeo seleccionada</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary">Mostrar un mensaje al cambiar la calidad de vídeo por defecto</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">Aplica tu selección manual de calidad a todos los vídeos futuros</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Recordar calidad de vídeo</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Muestra una notificación cuando se guarda una nueva calidad predeterminada</string>
     <string name="revanced_remember_video_quality_mobile">Cambiando la calidad predeterminada con datos móviles a %s</string>
     <string name="revanced_remember_video_quality_none">Error al establecer calidad</string>
     <string name="revanced_remember_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a %s</string>
@@ -886,9 +922,9 @@ Toca para ver cómo crear una clave de API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Clave API de datos de YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Ve a &lt;a href=%1$s&gt;Crear un nuevo proyecto&lt;/a&gt;.&lt;br&gt;2. Pulsa en el botón &lt;b&gt;CREAR&lt;/b&gt;.&lt;br&gt;3. 3. Ve a &lt;a href=%2$s&gt;API v3 de datos de YouTube&lt;/a&gt;.&lt;br&gt;4. Pulsa en el botón &lt;b&gt;HABILITAR&lt;/b&gt;.&lt;br&gt;5. Pulsa en &lt;b&gt;CREAR&lt;/b&gt;. Pulsa en el botón &lt;b&gt;CREAR CREDENCIALES&lt;/b&gt;.&lt;br&gt;6. Selecciona la opción &lt;b&gt;Datos públicos&lt;/b&gt;.&lt;br&gt;7. Pulsa en el botón &lt;b&gt; SIGUIENTE&lt;/b&gt;.&lt;br&gt;8. Copia la clave API.&lt;br&gt;&lt;br&gt;※ La clave API nunca debe ser compartida con otros, por lo que no se incluye en los ajustes de Importar / Exportar</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Crear clave de desarrollador API v3 de datos de YouTube</string>
-    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike restaura los contadores de no me gusta que YouTube ocultó en 2021. Los contadores provienen de datos archivados antes de la eliminación y se estiman para videos más nuevos a partir de los votos de sus usuarios, por lo que son aproximados y se actualizan cada pocos días
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike restaura los contadores de no me gusta que YouTube ocultó en 2021. Los contadores provienen de datos archivados antes de la eliminación y se estiman para vídeos más nuevos a partir de los votos de sus usuarios, por lo que son aproximados y se actualizan cada pocos días
 
-El ID del video que ves se envía a la API de Return YouTube Dislike, y tus me gusta y no me gusta se envían de forma anónima para mejorar las estimaciones"</string>
+El ID del vídeo que ves se envía a la API de Return YouTube Dislike, y tus me gusta y no me gusta se envían de forma anónima para mejorar las estimaciones"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Reduce el ancho del botón de \'Me gusta\' para ahorrar espacio</string>
     <string name="revanced_ryd_compact_layout_title">Usar botón de \'Me gusta\' compacto</string>

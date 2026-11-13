@@ -77,6 +77,15 @@
     <string name="morphe_copy_video_title_summary">แตะค้างที่ชื่อวิดีโอเพื่อคัดลอก</string>
     <string name="morphe_copy_video_title_title">คัดลอกชื่อวิดีโอ</string>
     <string name="morphe_custom_branding_icon_title">ไอคอนแอป</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">ไฟล์ที่เลือกไม่ใช่รูปภาพที่รองรับ</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">ไม่พบรูปภาพปุ่มเลื่อน seekbar แบบกำหนดเอง</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">เลือกรูปภาพหรือ GIF เคลื่อนไหวจากที่เก็บข้อมูลในอุปกรณ์</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">รูปภาพปุ่มเลื่อน</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">ปรับให้พอดีกับ seekbar</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">ขนาดต้นฉบับ</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">ขนาดปุ่มเลื่อน</string>
+    <string name="morphe_custom_seekbar_thumb_summary">แทนที่ปุ่มเลื่อน seekbar ด้วยรูปภาพแบบกำหนดเองหรือ GIF เคลื่อนไหว</string>
+    <string name="morphe_custom_seekbar_thumb_title">เปิดใช้งานปุ่มเลื่อน seekbar แบบกำหนดเอง</string>
     <string name="morphe_dark_theme_custom_color_title">ปรับแต่งโหมดมืด</string>
     <string name="morphe_dearrow_about_summary">"DeArrow จะแทนที่ชื่อและภาพขนาดย่อที่คลิกเบตด้วยที่มาจาก crowdsource ซึ่งแม่นยำกว่าและไม่เร้าอารมณ์มากเกินไป ชื่อเขียนและโหวตโดยชุมชน และภาพขนาดย่อคือเฟรมจากวิดีโอ
 
@@ -87,7 +96,7 @@
     <string name="morphe_dearrow_casual_mode_title">โหมดทั่วไป</string>
     <string name="morphe_dearrow_error">DeArrow ไม่พร้อมใช้งานชั่วคราว (รหัสสถานะ: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow ไม่พร้อมใช้งานชั่วคราว</string>
-    <string name="morphe_dearrow_titles_icon_summary">แสดงไอคอน DeArrow บนชื่อวิดีโอที่มาจากคราวด์ซอร์ส</string>
+    <string name="morphe_dearrow_titles_icon_summary">แสดงไอคอน DeArrow บนชื่อวิดีโอที่ใช้ข้อมูลจาก crowdsource แตะที่ไอคอนเพื่อแสดงชื่อและภาพตัวอย่างต้นฉบับ</string>
     <string name="morphe_dearrow_titles_icon_title">แสดงไอคอน DeArrow</string>
     <string name="morphe_dearrow_titles_title">ชื่อวิดีโอจาก DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">ป้องกันไม่ให้ฟีดรีเฟรชโดยอัตโนมัติหลังจากที่ล้าสมัย</string>
@@ -96,7 +105,7 @@
     <string name="morphe_disable_auto_hide_navigation_bar_title">ปิดใช้งานการซ่อนแถบนำทางอัตโนมัติ</string>
     <string name="morphe_disable_drc_audio_summary_off">เสียง DRC ถูกเปิด</string>
     <string name="morphe_disable_drc_audio_summary_on">เสียง DRC ถูกปิด</string>
-    <string name="morphe_disable_drc_audio_title">ปิดเสียง DRC</string>
+    <string name="morphe_disable_drc_audio_title">ปิดใช้งานเสียง DRC</string>
     <string name="morphe_disable_icon_only_navigation_buttons_summary">แสดงปุ่มนำทางพร้อมป้ายกำกับ หาก YouTube ส่งมาโดยไม่มีป้ายกำกับ</string>
     <string name="morphe_disable_icon_only_navigation_buttons_title">ปิดใช้งานปุ่มนำทางที่ไม่มีป้ายกำกับ</string>
     <string name="morphe_disable_quic_protocol_summary_off">โพรโทคอล QUIC ถูกเปิดใช้งาน</string>
@@ -106,6 +115,14 @@
     <string name="morphe_disable_toolbar_navigation_tabs_summary">แสดงการติดตามในแถบนำทาง หาก YouTube ย้ายไปไว้ในแท็บที่ด้านบนของหน้าหลัก</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">ปิดใช้งานแท็บการนำทางบนแถบเครื่องมือ</string>
     <string name="morphe_dual_captions_enabled_title">คำบรรยายสองภาษา</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">ระยะเวลาที่แสงไฟจะยังคงหรี่อยู่หลังจากหยุดเลื่อน หากตั้งค่าเป็น 0 แสงไฟจะหรี่เฉพาะตอนเลื่อน และจะกลับมาสว่างทันทีที่หยุดเลื่อน</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">ระยะเวลาการหรี่ไฟ</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">หรี่แสงไฟในขณะที่เลื่อนหน้าหรือสัมผัสหน้าจอ</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">หรี่ไฟขณะเลื่อน</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">ลดแสงสว่างในวิดีโอที่สว่างเกินไปเพื่อให้ข้อความบนหน้ายังคงอ่านออก</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">รักษาข้อความให้อ่านออก</string>
+    <string name="morphe_enhanced_ambient_mode_summary">ทำให้หน้าการรับชมและแถบสีดำทั้งหมดสว่างขึ้นตามวิดีโอ แทนที่โหมดแอมเบียนท์</string>
+    <string name="morphe_enhanced_ambient_mode_title">โหมดแอมเบียนท์แบบปรับปรุง</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -118,6 +135,8 @@
     <string name="morphe_feed_long_press_menu_title">แตะค้างไว้เพื่อเปิดเมนูวิดีโอ</string>
     <string name="morphe_feed_watch_later_button_summary">ปุ่ม \"ดูภายหลัง\" จะแสดงบนภาพตัวอย่างของวิดีโอในฟีด โดยจะมีเครื่องหมายถูกหากวิดีโอถูกบันทึกไว้ การแตะจะบันทึกหรือลบวิดีโอ และการแตะค้างไว้จะเปิด \"บันทึกไปยังเพลย์ลิสต์\"</string>
     <string name="morphe_feed_watch_later_button_title">แสดงปุ่มดูภายหลังบนภาพย่อ</string>
+    <string name="morphe_fix_status_bar_layout_summary">คงรูปแบบของแถบสถานะให้สอดคล้องกัน เพื่อไม่ให้เกิดการบังแถบด้านบนและเหลือพื้นที่ว่างเปล่าเหนือเครื่องเล่น เปิดการใช้งานนี้หากแอปค้างหรือแถบด้านบนแสดงผลผิดปกติ</string>
+    <string name="morphe_fix_status_bar_layout_title">แก้ไขแถบสถานะไม่ให้บังแถบด้านบน</string>
     <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น \'Android Studio\' และ \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
     <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
@@ -192,6 +211,8 @@
     <string name="morphe_hide_stats_hidden_24h_title">วิดีโอที่ซ่อนไว้, 24 ชั่วโมงที่ผ่านมา</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">รีเซ็ตตัวนับเวลาทั้งหมดหรือไม่?</string>
     <string name="morphe_hide_stats_hidden_all_title">วิดีโอที่ซ่อนไว้, ตลอดเวลา</string>
+    <string name="morphe_hide_status_bar_summary">ซ่อนแถบสถานะของระบบ ปัดลงจากขอบด้านบนเพื่อแสดงชั่วครู่</string>
+    <string name="morphe_hide_status_bar_title">ซ่อนแถบสถานะ</string>
     <string name="morphe_hide_sync_button_title">ซ่อนปุ่ม \'ซิงค์กับวิดีโอ\'</string>
     <string name="morphe_hide_youtube_create_menu_title">ซ่อนเมนู YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">ซ่อนเมนู YouTube Kids</string>
@@ -272,6 +293,12 @@
     <string name="morphe_playback_in_feeds_title">การเล่นในฟีด</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ปรับความทึบแสงของพื้นหลังด้านหลังปุ่มควบคุมเครื่องเล่นและแถบเวลา (0 คือโปร่งใส, 100 คือทึบแสง)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">ความทึบแสงของพื้นหลังปุ่มควบคุม</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">จะไม่มีการแสดงการยืนยันหลังจากนำวิดีโอออกจากเพลย์ลิสต์</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">ซ่อนแถบแจ้งเตือนชั่วคราวการนำออกจากเพลย์ลิสต์</string>
+    <string name="morphe_playlist_long_press_drag_summary">แตะและกดวิดีโอในเพลย์ลิสต์ของคุณค้างไว้เพื่อลากไปยังตำแหน่งใหม่</string>
+    <string name="morphe_playlist_long_press_drag_title">กดค้างไว้เพื่อจัดลำดับวิดีโอในเพลย์ลิสต์ใหม่</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">มือจับสำหรับลากเพลย์ลิสต์สามารถจับได้ง่ายขึ้น</string>
+    <string name="morphe_playlist_wide_drag_handles_title">ขยายมือจับสำหรับลากเพลย์ลิสต์</string>
     <string name="morphe_post_buttons_layout_entry_1">เซิร์ฟเวอร์</string>
     <string name="morphe_post_buttons_layout_entry_2">บังคับใช้</string>
     <string name="morphe_post_buttons_layout_title">เลย์เอาต์ปุ่มโพสต์</string>
@@ -367,19 +394,19 @@
     <string name="morphe_spoof_video_streams_client_failing_dialog_title">ไคลเอ็นต์เริ่มต้นไม่ทำงาน</string>
     <string name="morphe_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">ไม่สามารถดึงข้อมูลไคลเอ็นต์ทั้งหมดได้</string>
-    <string name="morphe_spoof_video_streams_player_js_variant_title">แปลรูปแบบ JavaScript ของเพลเยอร์</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">รูปแบบ JavaScript ของเครื่องเล่น</string>
     <string name="morphe_spoof_video_streams_screen_summary">ปลอมแปลงสตรีมวิดีโอของไคลเอนต์เพื่อป้องกันปัญหาการเล่น</string>
     <string name="morphe_spoof_video_streams_screen_title">ปลอมแปลงสตรีมวิดีโอ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">ยังไม่ได้เข้าสู่ระบบ Android VR กดที่นี่เพื่อเข้าสู่ระบบ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR ต้องมีการลงชื่อเข้าใช้แยกต่างหาก แตะที่นี่เพื่อดำเนินการต่อ</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">เปลี่ยน \'ไคลเอ็นต์เริ่มต้น\' เป็น Android VR เพื่อใช้งานคุณสมบัติ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">อยู่ในส่วนของ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">ลงชื่อเข้าใช้ Android VR อยู่ในขณะนี้</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">เข้าสู่ระบบ Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"รหัสเข้าสู่ระบบ: %s
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"รหัสเปิดใช้งาน: %s
 
-1. กด 'เปิดเว็บไซต์' ด้านล่างเพื่อเปิดเข้าสู่เว็บไซต์ 'ที่เชื่อมต่ออุปกรณ์'
-2. วางข้อมูลจากคลิปบอร์ด (หรือสามารถพิมพ์ออกมาได้) ของรหัสเข้าสู่ระบบที่อยู่ด้านบนนี้
-3. หากต้องเข้าสู่ระบบ Google ให้ดำเนินการทันที ถ้ามีหลายบัญชีให้เลือกบัญชีนี้ของ YouTube
-4. กด 'Metadata API'
+1. กด 'เปิดเว็บไซต์' ด้านล่างเพื่อเปิดเว็บไซต์ 'เชื่อมต่ออุปกรณ์'
+2. วางรหัสเปิดใช้งานที่แสดงด้านบนจากคลิปบอร์ด (หรือพิมพ์ตาม)
+3. หากมีการขอให้เข้าสู่ระบบ Google ให้เข้าสู่ระบบ หากมีหลายบัญชี ให้เลือกบัญชี YouTube นี้
+4. กด 'อนุญาตการเข้าถึง YouTube VR'
 5. กลับมาที่แอปนี้หลังจากเห็นข้อความ 'อุปกรณ์ได้เชื่อมต่อแล้ว'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">คำแนะนำ</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"กดต่อไปเพื่อลงชื่อเข้าใช้ใน Android VR เพื่อแก้ปัญหาการเล่นกลับบางครั้ง
@@ -414,6 +441,10 @@
     <string name="morphe_tablet_layout_in_player_title">เปิดใช้งานรูปแบบแท็บเล็ตในเครื่องเล่น</string>
     <string name="morphe_theme_color_change_foreground_summary">ใช้สีธีมสำหรับข้อความและไอคอน</string>
     <string name="morphe_theme_color_change_foreground_title">เปลี่ยนสีพื้นหน้า</string>
+    <string name="morphe_video_action_bar_layout_entry_2">แบบคลาสสิกแถวเดียว</string>
+    <string name="morphe_video_action_bar_layout_entry_4">แบบคลาสสิกสองแถว</string>
+    <string name="morphe_video_action_bar_layout_title">รูปแบบแถบการทำงานของวิดีโอ</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">ข้อจำกัด: เลย์เอาต์แบบคลาสสิกจะกลับไปใช้การซ้อนทับ \'วิดีโอเพิ่มเติม\' แบบเก่า</string>
     <string name="morphe_video_quality_prioritize_dialog">หากปิดการตั้งค่านี้ วิดีโอเก่าบางรายการอาจไม่แสดงตัวเลือกคุณภาพวิดีโอ</string>
     <string name="morphe_video_quality_prioritize_summary">จัดลำดับความสำคัญของคุณภาพวิดีโอสูงสุดเหนือประสิทธิภาพของ codec</string>
     <string name="morphe_video_quality_prioritize_title">จัดลำดับความสำคัญของคุณภาพวิดีโอ</string>
@@ -464,10 +495,6 @@
     <string name="morphe_vot_voice_gender_female_multilingual">หญิงหลายภาษา</string>
     <string name="morphe_vot_voice_gender_male">ชาย</string>
     <string name="morphe_vot_voice_gender_male_multilingual">ชายหลายภาษา</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">จะไม่มีการแสดงการยืนยันหลังจากนำวิดีโอออกจากดูภายหลัง</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">ซ่อนแถบแจ้งเตือนชั่วคราวการนำวิดีโอออกจากดูภายหลัง</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">ที่จับสำหรับลากวิดีโอใน \"ดูภายหลัง\" สามารถจับได้ง่ายขึ้น</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">ขยายที่จับสำหรับลาก \'ดูภายหลัง\' ให้กว้างขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพขั้นสูง</string>
@@ -522,7 +549,7 @@
 • รายการเมนูป๊อปอัพอาจทำงานไม่ถูกต้อง
 
 เลย์เอาต์รถยนต์
-• ฟीडจัดเรียงตามหัวข้อและช่อง
+• ฟีดจัดเรียงตามหัวข้อและช่อง
 • การตั้งค่าการเล่นในฟีดไม่สามารถใช้งาน
 • ปุ่มรีมิกซ์และปุ่มเสียงไม่สามารถใช้งานใน Shorts
 • ภาพซ้อนทับ 'วิดีโอเพิ่มเติม' อาจไม่ปรากฏ
@@ -655,7 +682,7 @@
     <string name="revanced_force_hdr_video_user_dialog_message">"ใช้หากการถอดรหัส HDR ทำงานได้ แต่ YouTube ไม่นำเสนอ HDR เช่น อุปกรณ์ HyperOS บางรุ่นที่ซ่อน HLG
 
 ข้อจำกัด:
-• สีอาจดูผิดเพี้ยนไป หากหน้าจอมิสามารถแสดง HDR ได้จริง
+• สีอาจดูผิดเพี้ยนไป หากหน้าจอไม่สามารถแสดง HDR ได้จริง
 • การเล่นอาจล้มเหลวหากตัวถอดรหัสไม่สามารถจัดการ HDR ได้
 • HDR ยังคงขึ้นอยู่กับสตรีมวิดีโอ \"spoof\""</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">ป้อนชื่อเมนูด้านล่างคลัง / คุณที่คุณต้องการกรอง คั่นด้วยบรรทัดใหม่</string>
@@ -711,7 +738,7 @@
     <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">ส่วนความคิดเห็นใต้วิดีโอในหน้าแรกแสดงอยู่</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">ส่วนความคิดเห็นใต้วิดีโอในหน้าแรกถูกซ่อน</string>
-    <string name="revanced_hide_comments_section_in_home_feed_title">ซ่อนส่วนความคิดเห็นในหน้าแชทหลัก</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">ซ่อนส่วนความคิดเห็นในฟีดหน้าแรก</string>
     <string name="revanced_hide_comments_section_summary_off">ส่วนความคิดเห็นแสดงอยู่</string>
     <string name="revanced_hide_comments_section_summary_on">ส่วนความคิดเห็นถูกซ่อนไว้</string>
     <string name="revanced_hide_comments_section_title">ซ่อนส่วนความคิดเห็น</string>
@@ -798,9 +825,8 @@
     <string name="revanced_hide_keyword_content_about_summary">"หน้าแรก / การติดตาม / การค้นหา / ความคิดเห็น จะถูกกรองเพื่อซ่อนเนื้อหาที่ตรงกับวลีคำสำคัญ
 
 ข้อจำกัด:
-• Shorts ไม่สามารถซ่อนได้ตามชื่อช่อง
-• บางส่วนของส่วนประกอบ UI อาจไม่ถูกซ่อน
-• การค้นหาคำหลักอาจไม่แสดงผลลัพธ์"</string>
+• Shorts บางส่วนไม่สามารถซ่อนได้ตามชื่อช่อง
+• บางส่วนของส่วนประกอบ UI อาจไม่ถูกซ่อน"</string>
     <string name="revanced_hide_keyword_content_about_title">เกี่ยวกับการกรองคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">การล้อมรอบคีย์เวิร์ด/วลีด้วยเครื่องหมายคำพูดคู่จะป้องกันการจับคู่บางส่วนของชื่อวิดีโอและชื่อช่อง&lt;br&gt;&lt;br&gt;ตัวอย่างเช่น&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; จะซ่อนวิดีโอ: &lt;b&gt;AI ทำงานอย่างไร?&lt;/b&gt;&lt;br&gt;แต่จะไม่ซ่อน: &lt;b&gt;Fair use แปลว่าอะไร?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">จับคู่ทั้งคำ</string>
@@ -808,11 +834,9 @@
     <string name="revanced_hide_keyword_content_home_summary_off">วิดีโอในแท็บหน้าแรกไม่ได้ถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_summary_on">วิดีโอในแท็บหน้าแรกถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_title">ซ่อนวิดีโอหน้าแรกตามคำสำคัญ</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"ป้อนคำหลักและวลีที่จะซ่อน โดยแยกด้วยบรรทัดใหม่
+    <string name="revanced_hide_keyword_content_phrases_summary">"ป้อนคำสำคัญและวลีที่ต้องการซ่อน โดยแยกด้วยการขึ้นบรรทัดใหม่
 
-คำหลักสามารถเป็นข้อความใดๆ ที่แสดงในชื่อวิดีโอหรือชื่อช่อง
-
-คำที่มีตัวพิมพ์ใหญ่อยู่ตรงกลางต้องตรงตามตัวพิมพ์ใหญ่เล็ก (เช่น iPhone, TikTok, LeBlanc)"</string>
+คำสำคัญสามารถเป็นข้อความใดก็ได้ที่แสดงในชื่อวิดีโอ คำสำคัญ @UserName จะซ่อนเนื้อหาทั้งหมดจากครีเอเตอร์ที่ระบุ"</string>
     <string name="revanced_hide_keyword_content_phrases_title">คำสำคัญที่จะซ่อน</string>
     <string name="revanced_hide_keyword_content_search_summary_off">ผลลัพธ์การค้นหาไม่ได้ถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_search_summary_on">ผลลัพธ์การค้นหาถูกกรองตามคำสำคัญ</string>
@@ -821,9 +845,6 @@
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">วิดีโอในแท็บการสมัครสมาชิกถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">ซ่อนวิดีโอการติดตามตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">คำสำคัญจะซ่อนวิดีโอทั้งหมด: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">ไม่สามารถใช้คำสำคัญ: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">เพิ่มเครื่องหมายคำพูดเพื่อใช้คำสำคัญ: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">คำสำคัญมีการประกาศที่ขัดแย้งกัน: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">คำสำคัญสั้นเกินไปและต้องใช้เครื่องหมายคำพูด: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">โพสต์ล่าสุดแสดงอยู่</string>
     <string name="revanced_hide_latest_posts_summary_on">โพสต์ล่าสุดถูกซ่อนไว้</string>
@@ -925,7 +946,7 @@
     <string name="revanced_hide_shorts_sound_button_title">ซ่อนปุ่มเสียง</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">ป้ายกำกับข้อมูลเมตาเสียงแสดงอยู่</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">ป้ายกำกับข้อมูลเมตาเสียงถูกซ่อนไว้</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_title">ซ่อนป้ายเมตามีเดียเสียง</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_title">ซ่อนป้ายข้อมูลเสียง</string>
     <string name="revanced_hide_shorts_stickers_summary_off">แสดงสติกเกอร์</string>
     <string name="revanced_hide_shorts_stickers_summary_on">ซ่อนสติกเกอร์</string>
     <string name="revanced_hide_shorts_stickers_title">ซ่อนสติกเกอร์</string>
@@ -946,7 +967,7 @@
     <string name="revanced_hide_stop_ads_button_title">ซ่อนปุ่ม \'หยุดโฆษณา\'</string>
     <string name="revanced_hide_store_button_summary_off">ปุ่ม \"ร้านค้า\" แสดงอยู่</string>
     <string name="revanced_hide_store_button_summary_on">ปุ่ม \"ร้านค้า\" ถูกซ่อน</string>
-    <string name="revanced_hide_store_button_title">ซ่อนปุ่มแชร์</string>
+    <string name="revanced_hide_store_button_title">ซ่อนปุ่มร้านค้า</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">แสดงแถบช่องที่ติดตาม</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">ซ่อนแถบช่องที่ติดตามแล้ว</string>
     <string name="revanced_hide_subscribed_channels_bar_title">ซ่อนแถบช่องที่ติดตาม</string>
@@ -1099,9 +1120,9 @@ ID ของวิดีโอที่คุณรับชมจะถูก�
     <string name="revanced_sanitize_comments_category_bar_summary_on">ปุ่มหมวดหมู่ยกเว้น \'ด้านบน\' และ \'ใหม่ล่าสุด\' จะซ่อนอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_title">ลบความปลอดภัยแถบหมวดหมู่</string>
     <string name="revanced_sanitize_video_subtitle_title">ล้างข้อความคำบรรยายวิดีโอ</string>
-    <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
+    <string name="revanced_sb_api_url_changed">API URL ถูกเปลี่ยนแล้ว</string>
     <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
-    <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
+    <string name="revanced_sb_api_url_reset">API URL เปลี่ยนเป็นค่าเริ่มต้นแล้ว</string>
     <string name="revanced_sb_appearance_category">หน้าตา</string>
     <string name="revanced_sb_auto_hide_skip_button_duration">ระยะเวลาปุ่มข้าม</string>
     <string name="revanced_sb_auto_hide_skip_button_duration_sum">นานแค่ไหนที่จะแสดงปุ่มข้ามและปุ่มข้ามไปยังไฮไลต์ก่อนที่จะซ่อนโดยอัตโนมัติ</string>
@@ -1172,7 +1193,7 @@ ID ของวิดีโอที่คุณรับชมจะถูก�
     <string name="revanced_sb_new_segment_disabled_category">หมวดหมู่ถูกปิดใช้งานในการตั้งค่า กรุณาเปิดใช้งานหมวดหมู่เพื่อส่ง</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ค่าเวลาที่ให้มาผิดพลาด</string>
-    <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขเวลาของส่วนด้วยตนเอง</string>
     <string name="revanced_sb_new_segment_highlight_content">"เวลาไฮไลท์ถูกต้องหรือไม่?
 
 %s
@@ -1183,7 +1204,7 @@ ID ของวิดีโอที่คุณรับชมจะถูก�
     <string name="revanced_sb_new_segment_mark_locations_first">ระบุตำแหน่งบนแถบเวลาขั้นแรก</string>
     <string name="revanced_sb_new_segment_mark_start">เริ่มต้น</string>
     <string name="revanced_sb_new_segment_now">ตอนนี้</string>
-    <string name="revanced_sb_new_segment_preview_segment_first">ดูตัวอย่างส่วน และตรวจสอบ</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">ดูตัวอย่างส่วนนี้ และตรวจสอบว่าข้ามได้อย่างราบรื่น</string>
     <string name="revanced_sb_new_segment_start_is_before_end">จุดเริ่มต้นต้องอยู่ก่อนจุดสิ้นสุด</string>
     <string name="revanced_sb_new_segment_time_end">เวลาที่จบส่วนนี้</string>
     <string name="revanced_sb_new_segment_time_start">เวลาที่เริ่มต้นส่วนนี้</string>
@@ -1194,11 +1215,11 @@ ID ของวิดีโอที่คุณรับชมจะถูก�
     <string name="revanced_sb_segments_highlight_sum">ส่วนของวิดีโอที่คนส่วนใหญ่กำลังมองหา</string>
     <string name="revanced_sb_segments_hook">การเกริ่นนำ / คำทักทาย</string>
     <string name="revanced_sb_segments_hook_sum">ตัวอย่างที่บรรยายสำหรับวิดีโอที่จะมาถึง, คำทักทายและคำอำลา ไม่รวมส่วนที่เพิ่มเนื้อหาเพิ่มเติม</string>
-    <string name="revanced_sb_segments_interaction">แจ้งเตือนการกด (ติดตาม)</string>
+    <string name="revanced_sb_segments_interaction">การเตือนให้โต้ตอบ (ติดตาม)</string>
     <string name="revanced_sb_segments_interaction_sum">การเตือนสั้นๆ เพื่อให้ชอบ สมัครรับข้อมูล หรือติดตามพวกเขาในช่วงกลางของเนื้อหา หากยาวหรือเกี่ยวกับบางสิ่งบางอย่างโดยเฉพาะ ควรอยู่ภายใต้การโปรโมตตัวเองแทน</string>
     <string name="revanced_sb_segments_intro">แอนิเมชันช่วงพัก / ช่วงต้น</string>
     <string name="revanced_sb_segments_intro_sum">ช่วงเวลาที่ไม่มีเนื้อหาจริง อาจเป็นการหยุดชั่วคราว เฟรมนิ่ง หรือภาพเคลื่อนไหวซ้ำๆ ไม่รวมการเปลี่ยนแปลงที่มีข้อมูล</string>
-    <string name="revanced_sb_segments_nomusic">เพลง: ไม่พบเพลง</string>
+    <string name="revanced_sb_segments_nomusic">เพลง: ส่วนที่ไม่มีเพลง</string>
     <string name="revanced_sb_segments_nomusic_sum">สำหรับใช้ในมิวสิควิดีโอเท่านั้น ส่วนของมิวสิควิดีโอที่ไม่มีเพลง ซึ่งไม่ได้รับการครอบคลุมโดยหมวดหมู่อื่นๆ อยู่แล้ว</string>
     <string name="revanced_sb_segments_outro">ฉากจบ / เครดิต</string>
     <string name="revanced_sb_segments_outro_sum">เครดิตหรือเมื่อบัตรสิ้นสุด YouTube ปรากฏขึ้น ไม่ใช่สำหรับข้อสรุปที่มีข้อมูล</string>
@@ -1275,8 +1296,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_sb_stats_username">ชื่อผู้ใช้ของคุณ: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">แตะที่นี่เพื่อเปลี่ยนชื่อผู้ใช้ของคุณ</string>
     <string name="revanced_sb_stats_username_change_unknown_error">ไม่สามารถเปลี่ยนชื่อได้: สถานะ: %1$s %2$s</string>
-    <string name="revanced_sb_stats_username_changed">เปลื่ยนชื่อเรียบร้อยแล้ว</string>
-    <string name="revanced_sb_submit_failed_duplicate">"ไม่สามารถส่งส่วนได้\nมีอยู่แล้ว"</string>
+    <string name="revanced_sb_stats_username_changed">เปลี่ยนชื่อผู้ใช้สำเร็จ</string>
+    <string name="revanced_sb_submit_failed_duplicate">"ไม่สามารถส่งส่วนได้
+มีอยู่แล้ว"</string>
     <string name="revanced_sb_submit_failed_forbidden">ไม่สามารถส่งส่วน: %s</string>
     <string name="revanced_sb_submit_failed_invalid">ไม่สามารถส่งส่วน: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">ไม่สามารถส่งส่วนได้ จํากัดอัตรา (มากเกินไปจากผู้ใช้หรือ IP เดียวกัน)</string>

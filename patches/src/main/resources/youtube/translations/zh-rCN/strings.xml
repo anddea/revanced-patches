@@ -64,7 +64,7 @@
     <string name="morphe_caption_blocks_too_large">两种字幕语言都无法适配此播放器。正在显示主要语言。</string>
     <string name="morphe_caption_scale_summary">适用于单语言和双语字幕</string>
     <string name="morphe_caption_scale_title">字幕大小</string>
-    <string name="morphe_captions_screen_summary">显示搜索按钮</string>
+    <string name="morphe_captions_screen_summary">管理自动字幕和字幕 Cookie</string>
     <string name="morphe_captions_screen_title">字幕</string>
     <string name="morphe_copy_comments_success">评论已复制到剪贴板</string>
     <string name="morphe_copy_comments_summary">点按并按住评论即可复制</string>
@@ -78,6 +78,15 @@
     <string name="morphe_copy_video_title_summary">点按并按住视频标题即可复制</string>
     <string name="morphe_copy_video_title_title">复制视频标题</string>
     <string name="morphe_custom_branding_icon_title">应用图标</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">所选文件不是支持的图像</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">未找到自定义进度条滑块图像</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">从设备存储中选择图像或动画 GIF</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">滑块图像</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">适应进度条</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">原始大小</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">滑块大小</string>
+    <string name="morphe_custom_seekbar_thumb_summary">将进度条滑块替换为自定义图像或动画 GIF</string>
+    <string name="morphe_custom_seekbar_thumb_title">启用自定义进度条滑块</string>
     <string name="morphe_dearrow_about_summary">"DeArrow 会用更准确、更不耸人听闻的众包标题和缩略图来替换点击诱饵标题和缩略图。标题由社区撰写并投票决定，缩略图则是从视频中截取的帧
 
 视频通过视频 ID 哈希值的一小段前缀来请求，因此服务器无法确切知道您正在观看的是哪个视频。如果某个视频没有 DeArrow 缩略图，则会显示原始缩略图或静态帧"</string>
@@ -87,12 +96,12 @@
     <string name="morphe_dearrow_casual_mode_title">休闲模式</string>
     <string name="morphe_dearrow_error">DeArrow 暂时不可用（状态码：%s）</string>
     <string name="morphe_dearrow_error_generic">DeArrow 暂时不可用</string>
-    <string name="morphe_dearrow_titles_icon_summary">在众包视频标题上显示DeArrow图标</string>
+    <string name="morphe_dearrow_titles_icon_summary">在众包视频标题上显示 DeArrow 图标。点击该图标可显示原始标题和缩略图</string>
     <string name="morphe_dearrow_titles_icon_title">显示DeArrow图标</string>
     <string name="morphe_dearrow_titles_title">DeArrow 标题</string>
     <string name="morphe_disable_auto_feed_refresh_summary">防止信息流在过期后自动刷新</string>
     <string name="morphe_disable_auto_feed_refresh_title">关闭信息流自动刷新</string>
-    <string name="morphe_disable_auto_hide_navigation_bar_summary">隐藏“音轨”菜单页脚</string>
+    <string name="morphe_disable_auto_hide_navigation_bar_summary">保持导航栏在滚动时可见</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">禁用自动隐藏导航栏</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 音频已启用</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 音频已禁用</string>
@@ -106,6 +115,14 @@
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 将“订阅”移至主页顶部的标签页，则在导航栏中显示“订阅”</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">禁用工具栏导航标签</string>
     <string name="morphe_dual_captions_enabled_title">双语字幕</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">滚动停止后灯光保持调暗状态的时间。设置为 0 时，仅在滚动时调暗灯光，滚动停止后立即恢复</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">调暗时长</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">在滚动或触摸页面时调暗灯光</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">滚动时调暗</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">调暗亮色视频的光照，使页面上的文本保持可读</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">保持文本可读</string>
+    <string name="morphe_enhanced_ambient_mode_summary">用视频颜色照亮整个观看页面和黑边，以替代氛围模式</string>
+    <string name="morphe_enhanced_ambient_mode_title">增强型氛围模式</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
@@ -118,6 +135,8 @@
     <string name="morphe_feed_long_press_menu_title">长按打开视频菜单</string>
     <string name="morphe_feed_watch_later_button_summary">在 Feed 视频的缩略图上显示“稍后观看”按钮，如果视频已保存则显示勾选标记。点击可保存或移除视频，长按可打开“保存到播放列表”</string>
     <string name="morphe_feed_watch_later_button_title">在缩略图上显示稍后观看按钮</string>
+    <string name="morphe_fix_status_bar_layout_summary">保持状态栏布局一致，使其不覆盖顶部栏且播放器上方无空白区域。如果应用崩溃或顶部栏显示异常，请关闭此选项</string>
+    <string name="morphe_fix_status_bar_layout_title">修复状态栏覆盖顶部栏的问题</string>
     <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
@@ -158,7 +177,7 @@
     <string name="morphe_hide_explore_button_title">隐藏探索按钮</string>
     <string name="morphe_hide_fashion_menu_title">隐藏“时尚与美妆”菜单</string>
     <string name="morphe_hide_gaming_menu_title">隐藏游戏菜单</string>
-    <string name="morphe_hide_get_premium_button_title">隐藏“获取高级版”按钮</string>
+    <string name="morphe_hide_get_premium_button_title">隐藏「获取 Premium」按钮</string>
     <string name="morphe_hide_hype_menu_title">隐藏Hype菜单</string>
     <string name="morphe_hide_hyped_label_title">隐藏热门标签</string>
     <string name="morphe_hide_invite_to_message_card_summary">隐藏在通知标签的消息部分显示的邀请卡片</string>
@@ -175,7 +194,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"“音频轨道”菜单已隐藏
 
 要显示“音频轨道”菜单，请将“伪装视频流”更改为除“Android Studio”和“Android VR 降级”以外的任何客户端"</string>
-    <string name="morphe_hide_player_flyout_on_the_go_title">隐藏\'离线\'菜单</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">隐藏“外出时”菜单</string>
     <string name="morphe_hide_podcasts_menu_title">隐藏播客菜单</string>
     <string name="morphe_hide_post_comment_button_title">隐藏评论按钮</string>
     <string name="morphe_hide_post_comments_preview_summary">隐藏帖子下方的评论预览</string>
@@ -192,6 +211,8 @@
     <string name="morphe_hide_stats_hidden_24h_title">过去 24 小时内隐藏的视频</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">重置所有计时器？</string>
     <string name="morphe_hide_stats_hidden_all_title">所有时间隐藏的视频</string>
+    <string name="morphe_hide_status_bar_summary">隐藏系统状态栏。从顶部边缘向下滑动可短暂显示它</string>
+    <string name="morphe_hide_status_bar_title">隐藏状态栏</string>
     <string name="morphe_hide_sync_button_title">隐藏“同步到视频”按钮</string>
     <string name="morphe_hide_youtube_create_menu_title">隐藏YouTube Create菜单</string>
     <string name="morphe_hide_youtube_kids_menu_title">隐藏YouTube Kids菜单</string>
@@ -271,6 +292,12 @@
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">调整播放器控制按钮和时间栏后面背景的不透明度（0为不可见，100为完全不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按钮背景不透明度</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">从播放列表中移除视频后不再显示确认提示</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">隐藏播放列表移除提示栏</string>
+    <string name="morphe_playlist_long_press_drag_summary">触摸并按住播放列表中的视频，将其拖动到新位置</string>
+    <string name="morphe_playlist_long_press_drag_title">长按以重新排列播放列表视频</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">播放列表拖动手柄更容易抓取</string>
+    <string name="morphe_playlist_wide_drag_handles_title">加宽播放列表拖动手柄</string>
     <string name="morphe_post_buttons_layout_entry_1">服务器</string>
     <string name="morphe_post_buttons_layout_entry_2">强制</string>
     <string name="morphe_post_buttons_layout_title">帖子按钮布局</string>
@@ -369,7 +396,7 @@
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器JavaScript变种</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
     <string name="morphe_spoof_video_streams_screen_title">欺骗视频流</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">未登录 Android VR。点击此处登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR 需要单独登录。点击此处继续</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将“默认客户端”更改为Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">当前已登录 Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登录</string>
@@ -413,6 +440,10 @@
     <string name="morphe_tablet_layout_in_player_title">在播放器中启用平板电脑布局</string>
     <string name="morphe_theme_color_change_foreground_summary">使用主题颜色用于文本和图标</string>
     <string name="morphe_theme_color_change_foreground_title">更改前景颜色</string>
+    <string name="morphe_video_action_bar_layout_entry_2">经典单行</string>
+    <string name="morphe_video_action_bar_layout_entry_4">经典双行</string>
+    <string name="morphe_video_action_bar_layout_title">视频操作栏布局</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">限制：经典布局将恢复到旧样式的“更多视频”叠加层</string>
     <string name="morphe_video_quality_prioritize_dialog">如果关闭此设置，旧视频可能不显示视频质量选项</string>
     <string name="morphe_video_quality_prioritize_summary">优先考虑最高视频画质而不是编解码器效率</string>
     <string name="morphe_video_quality_prioritize_title">优先视频画质</string>
@@ -463,10 +494,6 @@
     <string name="morphe_vot_voice_gender_female_multilingual">多语言女声</string>
     <string name="morphe_vot_voice_gender_male">男声</string>
     <string name="morphe_vot_voice_gender_male_multilingual">多语言男声</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">从“稍后观看”中移除视频后不再显示确认提示</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">隐藏“稍后观看”移除提示栏</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">“稍后观看”视频的拖动手柄更易于抓取</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">加宽“稍后观看”拖动手柄</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_title">打开高级画质菜单</string>
@@ -502,9 +529,9 @@
     <string name="revanced_append_time_stamp_information_type_summary_on">添加视频分辨率。播放视频时，长按时间戳可更改类型</string>
     <string name="revanced_append_time_stamp_information_type_title">添加信息类型</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">视频画质菜单类型</string>
-    <string name="revanced_auto_captions_style_entry_1">搜索按钮位置</string>
+    <string name="revanced_auto_captions_style_entry_1">始终显示</string>
     <string name="revanced_auto_captions_style_entry_2">从不显示</string>
-    <string name="revanced_auto_captions_style_entry_3">显示设置按钮</string>
+    <string name="revanced_auto_captions_style_entry_3">取消静音时显示</string>
     <string name="revanced_auto_captions_style_entry_4">显示静音时的字幕</string>
     <string name="revanced_auto_captions_style_title">自动字幕可见性</string>
     <string name="revanced_back_button_always_exits_feed_title">返回按钮退出信息流</string>
@@ -951,7 +978,7 @@
     <string name="revanced_gradient_seekbar_positions_summary">渐变的起始和结束位置从0到1用逗号分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">渐变进度条边界</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">输入要筛选的资料库/您底部菜单名称，用换行符分隔</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">启用资料库/您底部的菜单筛选</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">资料库/您底部的菜单筛选</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">如果匹配则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“获取 YouTube Premium”&lt;/b&gt;菜单，你只能使用&lt;b&gt;“获取 YouTube Premium”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">如果包含则进行过滤。&lt;br&gt;&lt;br&gt;要隐藏&lt;b&gt;“获取 YouTube Premium”&lt;/b&gt;菜单，你可以使用&lt;b&gt;“YouTube Premium”&lt;/b&gt;或&lt;b&gt;“Premium”&lt;/b&gt;作为关键字。</string>
     <string name="revanced_hide_account_menu_filter_type_title">账号菜单过滤类型</string>
@@ -1122,7 +1149,7 @@
     <string name="revanced_hide_end_screen_cards_title">隐藏片尾卡</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">结束画面商店横幅已显示</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">结束画面商店横幅已隐藏</string>
-    <string name="revanced_hide_end_screen_store_banner_title">商店横幅已隐藏</string>
+    <string name="revanced_hide_end_screen_store_banner_title">隐藏片尾商店横幅</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_off">显示片尾画面推荐视频</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">片尾画面推荐视频已隐藏</string>
     <string name="revanced_hide_end_screen_suggested_video_title">隐藏片尾推荐视频</string>
@@ -1214,12 +1241,11 @@
     <string name="revanced_hide_key_concepts_section_summary_off">“主要概念”部分已显示</string>
     <string name="revanced_hide_key_concepts_section_summary_on">“主要概念”部分已隐藏</string>
     <string name="revanced_hide_key_concepts_section_title">隐藏‘关键概念’部分</string>
-    <string name="revanced_hide_keyword_content_about_summary">"首页/订阅/搜索/评论会过滤掉与关键词短语匹配的内容
+    <string name="revanced_hide_keyword_content_about_summary">"首页 / 订阅 / 搜索 / 评论将经过过滤，以隐藏与关键词短语匹配的内容
 
 限制：
-• Shorts 无法通过频道名称隐藏
-• 某些 UI 组件可能不会隐藏
-• 搜索关键词可能没有结果"</string>
+• 部分 Shorts 无法通过频道名称隐藏
+• 某些 UI 组件可能不会隐藏"</string>
     <string name="revanced_hide_keyword_content_about_title">关于关键字过滤</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">使用带双引号的关键字/短语来防止过滤掉只有部分匹配的视频标题和频道名称&lt;br&gt;&lt;br&gt;例如，&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 将隐藏视频： &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不会隐藏： &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">匹配整个词语</string>
@@ -1229,11 +1255,9 @@
     <string name="revanced_hide_keyword_content_home_summary_off">首页视频不会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首页视频将会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"输入要隐藏的关键词和短语，换行隔开
+    <string name="revanced_hide_keyword_content_phrases_summary">"输入要隐藏的关键词和短语，用换行符分隔
 
-关键词可以是视频标题或频道名称中显示的任何文本
-
-中间带有大写字母的单词必须完全匹配大小写（例如：iPhone、TikTok、LeBlanc）"</string>
+关键词可以是视频标题中显示的任何文本。@UserName 关键词可隐藏特定创作者的所有内容"</string>
     <string name="revanced_hide_keyword_content_phrases_title">要隐藏的关键字</string>
     <string name="revanced_hide_keyword_content_search_summary_off">搜索结果不会根据关键字过滤</string>
     <string name="revanced_hide_keyword_content_search_summary_on">搜索结果将会根据关键字过滤</string>
@@ -1244,10 +1268,7 @@
     <string name="revanced_hide_keyword_content_use_and_operator_summary_off">已禁用“与”运算符（“&amp;”）。&lt;br&gt;&lt;br&gt;当使用 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 作为关键字时，将过滤包含 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 的关键字。</string>
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">已启用“与”运算符（“&amp;”）。&lt;br&gt;&lt;br&gt;当使用 &lt;strong&gt;\"Blue\" &amp; \"Red\"&lt;/strong&gt; 作为关键字时，将过滤同时包含 &lt;strong&gt;Blue&lt;/strong&gt; 和 &lt;strong&gt;Red&lt;/strong&gt; 的关键字。</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">使用“与”运算符（“&amp;”）</string>
-    <string name="revanced_hide_keyword_toast_invalid_broad">关键词将隐藏所有影片：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">无法使用关键词：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">添加引号以使用关键词：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">关键词存在冲突声明：%s</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">关键词将隐藏所有视频：%s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">关键词过短，需要加上引号：%s</string>
     <string name="revanced_hide_latest_posts_summary_off">最新帖子已显示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新帖子已隐藏</string>
@@ -1514,7 +1535,7 @@
     <string name="revanced_hide_shorts_live_header_title">隐藏实时聊天栏</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">实时预览已显示</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">实时预览已隐藏</string>
-    <string name="revanced_hide_shorts_live_preview_title">隐藏预览</string>
+    <string name="revanced_hide_shorts_live_preview_title">隐藏实时预览</string>
     <string name="revanced_hide_shorts_location_button_summary_off">位置按钮已显示</string>
     <string name="revanced_hide_shorts_location_button_summary_on">位置按钮已隐藏</string>
     <string name="revanced_hide_shorts_location_button_title">隐藏位置按钮</string>
@@ -1815,7 +1836,7 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必须介于 %1$s 和 %2$s 之间</string>
     <string name="revanced_miniplayer_width_dip_summary">设置启动时屏幕上的大小，以像素为单位</string>
     <string name="revanced_miniplayer_width_dip_title">默认大小</string>
-    <string name="revanced_navigation_bar_animations_summary">软光上子检查些“通过”软光浩通的新闻</string>
+    <string name="revanced_navigation_bar_animations_summary">切换标签页时显示过渡动画</string>
     <string name="revanced_navigation_bar_animations_title">启用导航栏动画</string>
     <string name="revanced_open_links_externally_summary_off">在应用内浏览器中打开链接。</string>
     <string name="revanced_open_links_externally_summary_on">在外部浏览器中打开链接。</string>
@@ -2163,7 +2184,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_duration_2s">2 秒</string>
     <string name="revanced_sb_duration_3s">3 秒</string>
     <string name="revanced_sb_duration_4s">4 秒</string>
-    <string name="revanced_sb_duration_5s">5秒</string>
+    <string name="revanced_sb_duration_5s">5 秒</string>
     <string name="revanced_sb_duration_6s">6 秒</string>
     <string name="revanced_sb_duration_7s">7 秒</string>
     <string name="revanced_sb_duration_8s">8 秒</string>
@@ -2211,14 +2232,10 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_new_segment_adjust">调整：标记片段的开始和结束时间</string>
     <string name="revanced_sb_new_segment_choose_category">选择片段的类别</string>
     <string name="revanced_sb_new_segment_compare">验证片段</string>
-    <string name="revanced_sb_new_segment_confirm_content">"视频片段
-
-由
+    <string name="revanced_sb_new_segment_confirm_content">"片段从
 
 %1$s
-
-直到
-
+到
 %2$s
 
 (%3$s)
@@ -2230,7 +2247,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_new_segment_edit">编辑片段</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段开始或结束的时间吗？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">给定的时间无效</string>
-    <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑线段时间</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑片段时间</string>
     <string name="revanced_sb_new_segment_forward">前进指定时间（默认：150ms）</string>
     <string name="revanced_sb_new_segment_highlight_content">"高亮显示的时间是否正确？
 
@@ -2249,7 +2266,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_new_segment_start_is_before_end">起始位置须在结束位置前</string>
     <string name="revanced_sb_new_segment_time_end">片段结束时间</string>
     <string name="revanced_sb_new_segment_time_start">片段开始时间</string>
-    <string name="revanced_sb_new_segment_title">新的 SpongorBlock 片段</string>
+    <string name="revanced_sb_new_segment_title">新的 SponsorBlock 片段</string>
     <string name="revanced_sb_segments_filler">离题 / 笑话</string>
     <string name="revanced_sb_segments_filler_sum">视频中非必需的切题场景或笑话，不包括提供上下文或背景细节的部分</string>
     <string name="revanced_sb_segments_highlight">重点</string>
@@ -2483,7 +2500,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_shorts_player_type_regular_player">普通播放器</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">普通播放器全屏</string>
     <string name="revanced_shorts_player_type_title">使用 Shorts 播放器打开</string>
-    <string name="revanced_show_search_button_title">隐藏搜索按钮</string>
+    <string name="revanced_show_search_button_title">显示搜索按钮</string>
     <string name="revanced_show_settings_button_title">显示设置按钮</string>
     <string name="revanced_show_settings_button_type_title">设置按钮操作</string>
     <string name="revanced_show_toolbar_settings_button_index_title">设置按钮位置</string>
@@ -2608,7 +2625,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑动到最低亮度手势不启用自动亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑动到最低亮度手势将启用自动亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">启用自动亮度手势</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">使状态栏完全不透明</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">调整透明度（0 为透明，100 为不透明）</string>
     <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">设置亮度控制进度条的颜色</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">滑动提示层亮度颜色</string>
@@ -2654,7 +2671,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">快进滑动手势区域位于顶部，播放速度区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">播放速度滑动手势区域位于顶部，快进区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">切换播放速度和快进手势</string>
-    <string name="revanced_swipe_text_overlay_size_summary">选择要在工具栏中显示的组件</string>
+    <string name="revanced_swipe_text_overlay_size_summary">调整屏幕文字的大小（1-30）</string>
     <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
     <string name="revanced_swipe_threshold_summary">设置触发调整所需的滑动距离</string>
     <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>

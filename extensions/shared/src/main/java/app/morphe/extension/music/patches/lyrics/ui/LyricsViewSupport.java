@@ -426,7 +426,7 @@ final class LyricsViewSupport {
                 if (romanizedFromGoogle) {
                     source = str("morphe_music_lyrics_romanized_by_google");
                 } else if (romanizedFromAI && romanizedAiModel != null) {
-                    source = String.format(str("morphe_music_lyrics_romanized_by_ai"), romanizedAiModel);
+                    source = String.format(str("morphe_music_lyrics_romanized_by_local"), romanizedAiModel);
                 } else if (romanizedLocalDictionary != null) {
                     // Named and nothing more: the licences are in the licenses dialog.
                     source = String.format(str("morphe_music_lyrics_romanized_by_local"),

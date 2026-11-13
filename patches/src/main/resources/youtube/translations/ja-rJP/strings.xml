@@ -84,6 +84,15 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_custom_branding_splash_animation_size_title">スプラッシュアニメーションの大きさ</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">選択したアニメーションを Android のシステムスプラッシュとして使用します。</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">システムスプラッシュとして使用</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">選択されたファイルはサポートされている画像ではありません</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">カスタムシークバーつまみの画像が見つかりません</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">デバイスのストレージから画像またはアニメーションGIFを選択してください</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">つまみの画像</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">シークバーに合わせる</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">元のサイズ</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">つまみのサイズ</string>
+    <string name="morphe_custom_seekbar_thumb_summary">シークバーのつまみをカスタム画像またはアニメーションGIFに置き換えます</string>
+    <string name="morphe_custom_seekbar_thumb_title">カスタムシークバーつまみを有効にする</string>
     <string name="morphe_dark_theme_custom_color_summary">「カスタム」が選択されている場合に使用されます。</string>
     <string name="morphe_dark_theme_custom_color_title">カスタムダークテーマの色</string>
     <string name="morphe_dark_theme_title">ダークテーマ</string>
@@ -120,6 +129,14 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube が [登録チャンネル] ボタンをホームフィード上部のタブに移動するレイアウトを有効にした場合、そのレイアウトを無効にし、下部のナビゲーションバーに [登録チャンネル] ボタンを戻します。</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">ナビゲーションボタンの最上部への移動を無効化</string>
     <string name="morphe_dual_captions_enabled_title">二ヶ国語字幕</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">スクロールが停止した後、ライトが暗いままになる時間です。0に設定すると、スクロール中のみライトが暗くなり、停止するとすぐに元の明るさに戻ります</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">暗くする時間</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">ページをスクロールまたはタッチしている間、ライトを暗くします</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">スクロール中に暗くする</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">明るい動画の光を抑え、ページ上のテキストが読みやすい状態を維持します</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">テキストの可読性を維持</string>
+    <string name="morphe_enhanced_ambient_mode_summary">アンビエント モードの代わりに、動画に合わせて再生ページ全体と黒いバーを照らします</string>
+    <string name="morphe_enhanced_ambient_mode_title">強化版アンビエント モード</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"[ライブ配信の DVR の制限を拡張] をオンにしたときに正常に動作しない可能性があります。
 
 この問題を解決するには、[動画ストリームを偽装] をオンにして [デフォルトのクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
@@ -132,6 +149,8 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_feed_long_press_menu_title">長押しで動画のメニューを開く</string>
     <string name="morphe_feed_watch_later_button_summary">フィード内の動画のサムネイルに [後で見る] ボタンを表示します。長押しすると [再生リストに保存] メニューが開きます。</string>
     <string name="morphe_feed_watch_later_button_title">サムネイルに [後で見る] ボタンを表示</string>
+    <string name="morphe_fix_status_bar_layout_summary">ステータスバーのレイアウトを統一し、上部のバーが覆われないようにして、プレイヤーの上に空白ができないようにします。アプリがクラッシュしたり、上部のバーの表示がおかしい場合は、これをオフにしてください</string>
+    <string name="morphe_fix_status_bar_layout_title">ステータスバーが上部のバーを覆っている問題を修正</string>
     <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] でクライアントを「Android Studio」および「Android VR Downgraded」を除く任意のクライアントに設定してください。</string>
     <string name="morphe_force_original_audio_summary_off">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
@@ -206,6 +225,8 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_hide_stats_hidden_24h_title">直近 24 時間の除外動画数</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">全期間の除外動画数をリセットしますか？</string>
     <string name="morphe_hide_stats_hidden_all_title">全期間の除外動画数</string>
+    <string name="morphe_hide_status_bar_summary">システムのステータスバーを非表示にします。上端から下にスワイプすると、一時的に表示できます</string>
+    <string name="morphe_hide_status_bar_title">ステータスバーを非表示</string>
     <string name="morphe_hide_sync_button_title">[動画に同期] ボタンを非表示</string>
     <string name="morphe_hide_youtube_create_menu_title">「YouTube Create」を非表示</string>
     <string name="morphe_hide_youtube_kids_menu_title">「YouTube Kids」を非表示</string>
@@ -222,15 +243,15 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_live_chat_translate_copied">メッセージをクリップボードにコピーしました</string>
     <string name="morphe_live_chat_translate_copy_button_summary">すべてのチャットメッセージに小さなコピーボタンを追加します</string>
     <string name="morphe_live_chat_translate_copy_button_title">メッセージのコピーボタンを表示</string>
-    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL APIキー。キーの月間制限に達した場合など、DeepLで失敗した場合はGoogle翻訳が使用されます</string>
-    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL APIキー</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_summary">DeepL API キーを入力してください。キーの月間利用制限に達した場合など、DeepL 翻訳が利用できないときは Google 翻訳が使用されます</string>
+    <string name="morphe_live_chat_translate_deepl_api_key_title">DeepL API キー</string>
     <string name="morphe_live_chat_translate_exclude_summary">id、en のようにカンマで区切った言語コードを入力してください。これらの言語のメッセージは翻訳されません</string>
     <string name="morphe_live_chat_translate_exclude_title">除外する言語</string>
     <string name="morphe_live_chat_translate_language_title">翻訳言語</string>
     <string name="morphe_live_chat_translate_max_length_no_limit">上限なし</string>
     <string name="morphe_live_chat_translate_max_length_summary">長いメッセージは翻訳されずに表示されます</string>
     <string name="morphe_live_chat_translate_max_length_title">最大メッセージ長</string>
-    <string name="morphe_live_chat_translate_provider_deepl">DeepL</string>
+    <string name="morphe_live_chat_translate_provider_deepl">DeepL 翻訳</string>
     <string name="morphe_live_chat_translate_screen_summary">ライブチャットとライブチャットのリプレイメッセージを翻訳します</string>
     <string name="morphe_live_chat_translate_screen_title">ライブチャット翻訳</string>
     <string name="morphe_live_chat_translate_style_original_and_translated">原文 (翻訳後)</string>
@@ -289,6 +310,12 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_playback_in_feeds_title">フィードで再生</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">動画プレーヤーのコントロール (再生ボタンなど) の背景に表示される、ふちどりのための円形の影の透明度を設定します (0 が透明)。</string>
     <string name="morphe_player_control_buttons_background_opacity_title">プレーヤーのコントロールの背景の透明度</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">ビデオをプレイリストから削除した後に確認メッセージが表示されなくなります</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">プレイリスト削除のスナックバーを非表示にする</string>
+    <string name="morphe_playlist_long_press_drag_summary">プレイリストの動画をタッチして長押しすると、新しい位置にドラッグできます</string>
+    <string name="morphe_playlist_long_press_drag_title">長押ししてプレイリストの動画を並べ替える</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">プレイリストのドラッグハンドルを掴みやすくなります</string>
+    <string name="morphe_playlist_wide_drag_handles_title">プレイリストのドラッグハンドルの幅を広げる</string>
     <string name="morphe_post_buttons_layout_entry_1">サーバー</string>
     <string name="morphe_post_buttons_layout_entry_2">強制</string>
     <string name="morphe_post_buttons_layout_title">投稿ボタンのレイアウト</string>
@@ -461,6 +488,10 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_theme_entry_white">White</string>
     <string name="morphe_theme_settings_summary">アプリのテーマ、外観、ブランディングをカスタマイズできます。</string>
     <string name="morphe_theme_settings_title">テーマの設定</string>
+    <string name="morphe_video_action_bar_layout_entry_2">クラシック1行</string>
+    <string name="morphe_video_action_bar_layout_entry_4">クラシック2行</string>
+    <string name="morphe_video_action_bar_layout_title">動画アクションバーのレイアウト</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">制限：クラシックレイアウトは、旧スタイルの「おすすめ動画」オーバーレイに戻ります</string>
     <string name="morphe_video_quality_prioritize_dialog">この設定をオフにすると、古い動画で画質を手動で選択できなくなる可能性があります。</string>
     <string name="morphe_video_quality_prioritize_summary">コーデックの圧縮効率よりも利用可能な最高画質を優先します。</string>
     <string name="morphe_video_quality_prioritize_title">動画の画質を優先</string>
@@ -513,10 +544,6 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="morphe_vot_voice_gender_female_multilingual">女性 (多言語)</string>
     <string name="morphe_vot_voice_gender_male">男性</string>
     <string name="morphe_vot_voice_gender_male_multilingual">男性 (多言語)</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">「後で見る」から動画を削除した後に確認メッセージが表示されなくなります</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">「後で見る」削除スナックバーを非表示にする</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">「後で見る」ビデオのドラッグハンドルを掴みやすくなります</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">「後で見る」のドラッグハンドルを広げる</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
@@ -1330,9 +1357,6 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">「AND」演算子 (&amp;) を有効にします。&lt;br&gt;&lt;br&gt;&lt;strong&gt;「Blue」&amp;「Red」&lt;/strong&gt; をキーワードとして使用すると、&lt;strong&gt;「Blue」と「Red」&lt;/strong&gt;の両方を含むキーワードがフィルタリングされます。</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">「AND」演算子 (&amp;) を使用</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">キーワード「%1$s」は範囲が広すぎるため、この単語を含むすべての動画を非表示にします。</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">「%s」はキーワードとして使用できません。</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">キーワード「%s」を使用するには、引用符を追加してください。</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">キーワード「%s」には矛盾する宣言があります。</string>
     <string name="revanced_hide_keyword_toast_invalid_length">キーワード「%s」は短すぎるため、引用符が必要です。</string>
     <string name="revanced_hide_latest_posts_summary_off">「最新の投稿」を非表示にします。</string>
     <string name="revanced_hide_latest_posts_summary_on">「最新の投稿」を非表示にします。</string>

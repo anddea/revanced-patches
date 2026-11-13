@@ -652,7 +652,7 @@ private fun organizeLyricsPreferences() {
         }
         adoptChild("PreferenceCategory") {
             setAttribute("android:key", "morphe_music_lyrics_section_service")
-            setAttribute("android:title", "@string/morphe_music_lyrics_section_service_title")
+            setAttribute("android:title", "@string/morphe_music_lyrics_source_title")
             listOf(
                 "source", "source_advice", "translation_provider", "translation_language",
                 "romanization_provider", "romanize_language", "allow_transliteration", "clear_cache"

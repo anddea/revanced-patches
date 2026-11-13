@@ -18,6 +18,8 @@ logger = logging.getLogger("xml_tools")
 
 # Constants
 BLACKLISTED_STRINGS: set[str] = {
+    "morphe_music_lyrics_romanization_provider_icu",
+    "morphe_music_lyrics_romanization_provider_rime",
     "revanced_extended_audio_tracks_unavailable",
     "revanced_remember_video_quality_mobile",
     "revanced_remember_video_quality_wifi",

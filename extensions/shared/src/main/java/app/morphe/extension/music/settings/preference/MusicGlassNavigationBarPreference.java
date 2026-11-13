@@ -71,9 +71,9 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
 
         // The usual buttons, if no navigation bar with the glass was shown yet.
         buttons.add(str("morphe_music_navigation_bar_glass_preview_home"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_samples"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_explore"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_library"));
+        buttons.add(str("revanced_change_start_page_entry_samples"));
+        buttons.add(str("revanced_change_start_page_entry_explore"));
+        buttons.add(str("revanced_change_start_page_entry_library"));
         buttons.setShowLabels(!Settings.HIDE_NAVIGATION_LABEL.get());
         return buttons;
     }

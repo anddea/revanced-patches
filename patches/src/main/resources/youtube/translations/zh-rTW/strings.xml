@@ -78,6 +78,15 @@
     <string name="morphe_copy_video_title_summary">長按影片標題即可複製</string>
     <string name="morphe_copy_video_title_title">複製影片標題</string>
     <string name="morphe_custom_branding_icon_title">應用程式圖示</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">選取的檔案不是支援的圖片</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">找不到自訂跳轉列滑桿圖片</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">從裝置儲存空間選擇圖片或動畫 GIF</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">滑桿圖片</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">適配跳轉列</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">原始大小</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">滑桿大小</string>
+    <string name="morphe_custom_seekbar_thumb_summary">將跳轉列滑桿替換為自訂圖片或動畫 GIF</string>
+    <string name="morphe_custom_seekbar_thumb_title">啟用自訂跳轉列滑桿</string>
     <string name="morphe_dearrow_about_summary">"DeArrow 以更準確且不那麼誇大的社群提交內容取代點擊誘餌標題和縮圖。標題由社群撰寫和投票，縮圖則取自影片的畫面
 
 影片是透過雜湊影片 ID 的短前綴來請求，因此伺服器無法確切知道您正在查看哪部影片。如果影片沒有 DeArrow 縮圖，則會顯示原始影片或靜態擷取畫面"</string>
@@ -87,7 +96,7 @@
     <string name="morphe_dearrow_casual_mode_title">休閒模式</string>
     <string name="morphe_dearrow_error">DeArrow 暫時無法使用（狀態碼：%s）</string>
     <string name="morphe_dearrow_error_generic">DeArrow 暫時無法使用</string>
-    <string name="morphe_dearrow_titles_icon_summary">在群眾外包的影片標題上顯示 DeArrow 圖示</string>
+    <string name="morphe_dearrow_titles_icon_summary">在群眾外包的影片標題上顯示 DeArrow 圖示。點擊圖示可顯示原始標題和縮圖</string>
     <string name="morphe_dearrow_titles_icon_title">顯示 DeArrow 圖示</string>
     <string name="morphe_dearrow_titles_title">DeArrow 標題</string>
     <string name="morphe_disable_auto_feed_refresh_summary">防止動態消息在過時後自動重新整理</string>
@@ -106,6 +115,14 @@
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 將「訂閱」移至首頁頂端的分頁，則在導覽列中顯示訂閱</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">停用工具列導覽分頁</string>
     <string name="morphe_dual_captions_enabled_title">雙語字幕</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">停止捲動後燈光保持調暗的時間。設定為 0 則僅在捲動時調暗燈光，停止捲動後立即恢復</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">調暗持續時間</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">在捲動或觸碰頁面時調暗燈光</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">捲動時調暗</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">調低明亮影片的亮度，使頁面上的文字保持可讀</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">保持文字可讀性</string>
+    <string name="morphe_enhanced_ambient_mode_summary">使用影片色彩照亮整個觀看頁面及黑邊，以取代微光效果</string>
+    <string name="morphe_enhanced_ambient_mode_title">增強型微光效果</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"「延長直播 DVR 時長」可能無法使用
 
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
@@ -118,7 +135,9 @@
     <string name="morphe_feed_long_press_menu_title">輕觸並按住以開啟影片選單</string>
     <string name="morphe_feed_watch_later_button_summary">在饋送影片的縮圖上會顯示「稍後觀看」按鈕，若影片已儲存則會顯示勾選標記。輕觸按鈕可儲存或移除影片，長按則可開啟「儲存至播放清單」</string>
     <string name="morphe_feed_watch_later_button_title">在縮圖上顯示稍後觀看按鈕</string>
-    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 和 Android VR Downgraded 以外的任何用戶端。</string>
+    <string name="morphe_fix_status_bar_layout_summary">保持狀態列的版面配置一致，使其不會遮蓋頂部工具列，且在播放器上方不會留有空白。如果應用程式發生當機或頂部工具列顯示異常，請停用此選項</string>
+    <string name="morphe_fix_status_bar_layout_title">修復狀態列遮蓋頂部工具列的問題</string>
+    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「欺騙影片串流」變更為「Android Studio」和「Android VR Downgraded」以外的任何用戶端。</string>
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
@@ -192,6 +211,8 @@
     <string name="morphe_hide_stats_hidden_24h_title">已隱藏影片，過去 24 小時</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">要重置所有時間計數器嗎？</string>
     <string name="morphe_hide_stats_hidden_all_title">已隱藏影片，所有時間</string>
+    <string name="morphe_hide_status_bar_summary">隱藏系統狀態列。從頂端邊緣向下滑動可暫時顯示狀態列</string>
+    <string name="morphe_hide_status_bar_title">隱藏狀態列</string>
     <string name="morphe_hide_sync_button_title">隱藏「同步到影片」按鈕</string>
     <string name="morphe_hide_youtube_create_menu_title">隱藏 YouTube Create 選單</string>
     <string name="morphe_hide_youtube_kids_menu_title">隱藏 YouTube Kids 選單</string>
@@ -268,9 +289,15 @@
     <string name="morphe_playback_in_feeds_entry_always_on">持續開啟</string>
     <string name="morphe_playback_in_feeds_entry_off">關閉</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">僅 Wi-Fi</string>
-    <string name="morphe_playback_in_feeds_title">feeds 中的播放</string>
+    <string name="morphe_playback_in_feeds_title">動態消息中的播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">調整播放器控制按鈕和時間列後方背景的不透明度（0 為隱形，100 為不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按鈕背景不透明度</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">從播放清單移除影片後不再顯示確認提示</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">隱藏播放清單移除提示欄</string>
+    <string name="morphe_playlist_long_press_drag_summary">觸碰並按住播放清單中的影片，將其拖曳至新位置</string>
+    <string name="morphe_playlist_long_press_drag_title">長按以重新排列播放清單中的影片</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">播放清單拖曳控制項更容易抓取</string>
+    <string name="morphe_playlist_wide_drag_handles_title">加寬播放清單拖曳控制項</string>
     <string name="morphe_post_buttons_layout_entry_1">伺服器</string>
     <string name="morphe_post_buttons_layout_entry_2">強制執行</string>
     <string name="morphe_post_buttons_layout_title">貼文按鈕佈局</string>
@@ -301,7 +328,7 @@
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
-    <string name="morphe_restore_old_player_buttons_summary">欺騙伺服器以提供更高品質的選項，方法是偽造裝置尺寸</string>
+    <string name="morphe_restore_old_player_buttons_summary">還原為較舊、較細的視覺風格，取代粗體的影片播放器控制項</string>
     <string name="morphe_restore_old_player_buttons_title">還原舊播放器按鈕樣式</string>
     <string name="morphe_restore_original_titles_loading">正在載入標題…</string>
     <string name="morphe_restore_original_titles_summary">顯示原始影片標題、影片說明和頻道說明，而非自動翻譯的內容</string>
@@ -344,7 +371,7 @@
     <string name="morphe_splash_screen_animation_style_title">啟動動畫</string>
     <string name="morphe_spoof_video_streams_about_end_early">• 播放可能會提早 1 秒結束</string>
     <string name="morphe_spoof_video_streams_about_js">• 如果解密失敗，播放可能會失敗</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 「音軌」選單遺失</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 「音訊軌道」選單遺失</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR 全景模式不可用</string>
@@ -358,7 +385,7 @@
     <string name="morphe_spoof_video_streams_av1_title">允許「Android VR」/ visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
 
-AV1 視訊播放可能會卡頓或丟格"</string>
+AV1 影片播放可能會卡頓或丟格"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 已多次無法執行，但 %2$s 可以執行。
 
 將 %2$s 設定為預設客戶端嗎？"</string>
@@ -369,7 +396,7 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器 JavaScript 變種</string>
     <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
     <string name="morphe_spoof_video_streams_screen_title">偽裝影片串流</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登入 Android VR。輕觸這裡即可登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR 需要獨立登入。請點擊此處繼續</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">已登入 Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登入</string>
@@ -413,6 +440,10 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="morphe_tablet_layout_in_player_title">在播放器中啟用平板版面配置</string>
     <string name="morphe_theme_color_change_foreground_summary">為文字和圖示使用主題顏色</string>
     <string name="morphe_theme_color_change_foreground_title">變更前景顏色</string>
+    <string name="morphe_video_action_bar_layout_entry_2">經典單列</string>
+    <string name="morphe_video_action_bar_layout_entry_4">經典雙列</string>
+    <string name="morphe_video_action_bar_layout_title">影片操作列版面組態</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">限制：經典版面會恢復為舊式『更多影片』覆蓋層</string>
     <string name="morphe_video_quality_prioritize_dialog">如果關閉此設定，則舊影片可能不會顯示任何影片品質選項</string>
     <string name="morphe_video_quality_prioritize_summary">優先考慮可用的最高影片品質，而非編碼器效率</string>
     <string name="morphe_video_quality_prioritize_title">優先影片品質</string>
@@ -439,7 +470,7 @@ AV1 視訊播放可能會卡頓或丟格"</string>
 點擊此處開啟 MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">您已用完今天的免費 MyMemory 翻譯額度 (5,000 個字元)。在設定中新增 MyMemory 電子郵件地址，將每日額度提高到 50,000 個字元，或切換至其他翻譯服務</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">您已用完今天的 MyMemory 翻譯額度 (50,000 個字元)。切換至其他翻譯服務或明天再試</string>
-    <string name="morphe_vot_mymemory_quota_next_available">%s 可使用下次重置</string>
+    <string name="morphe_vot_mymemory_quota_next_available">下次可用時間：%s</string>
     <string name="morphe_vot_mymemory_quota_title">MyMemory 每日額度已達標</string>
     <string name="morphe_vot_openrouter_api_key_summary">您的 OpenRouter API 金鑰。在 OpenRouter.ai &gt; 工作區 &gt; API 金鑰中建立金鑰</string>
     <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 金鑰</string>
@@ -463,10 +494,6 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">多語言女性</string>
     <string name="morphe_vot_voice_gender_male">男性</string>
     <string name="morphe_vot_voice_gender_male_multilingual">多語言男性</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">從「稍後觀看」移除影片後將不再顯示確認提示</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">隱藏「稍後觀看」移除提示欄</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">「稍後觀看」影片的拖曳控制項將更容易抓取</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">加寬「稍後觀看」拖曳控制項</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">已顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_title">開啟進階畫質選單</string>
@@ -617,7 +644,7 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_custom_playback_speed_menu_type_title">自定義播放速度選單類型</string>
     <string name="revanced_custom_playback_speeds_invalid">自訂播放速度必須小於 %s</string>
     <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度格式不正確</string>
-    <string name="revanced_custom_playback_speeds_summary">點擊並按住播放速度</string>
+    <string name="revanced_custom_playback_speeds_summary">輸入您偏好的播放速度選項</string>
     <string name="revanced_custom_playback_speeds_title">自訂播放速度</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">播放器疊加層不透明度必須介於 0-100 之間。重設為預設值。</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明。</string>
@@ -928,7 +955,7 @@ AV1 視訊播放可能會卡頓或丟格"</string>
 限制：
 • 如果顯示器實際上無法顯示 HDR，顏色可能會看起來不正確。
 • 如果解碼器無法處理 HDR，播放可能會失敗。
-• HDR 仍然取決於 spoof 影片串流用戶端。"</string>
+• HDR 仍然取決於「欺騙影片串流」用戶端。"</string>
     <string name="revanced_fullscreen_ads_closed_toast">全螢幕廣告已關閉。</string>
     <string name="revanced_gemini_cancelled">已取消</string>
     <string name="revanced_gemini_chat_input_hint">關於這部影片</string>
@@ -962,14 +989,14 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_gms_show_dialog_title">顯示 GMSCore 優化對話框</string>
     <string name="revanced_gradient_seekbar_positions_summary">漸變起始與結束位置範圍從 0 到 1，以逗號分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">輸入資料庫 / 您要在底部選單中篩選的名稱，以新行分隔</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">啟用資料庫 / 您在底部選單中的篩選選項</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">輸入要篩選的媒體庫 / 你的底部選單名稱，每行一個</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">媒體庫 / 你的底部選單篩選</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">"如果匹配則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 作為關鍵字。"</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">"如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;'獲取 YouTube Premium'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;'YouTube Premium'&lt;/b&gt; 或 &lt;b&gt;'Premium'&lt;/b&gt; 作為關鍵字。"</string>
     <string name="revanced_hide_account_menu_filter_type_title">帳戶選單過濾類型</string>
     <string name="revanced_hide_account_menu_summary">"隱藏帳戶選單和你的內容分頁的元素。
 部分元件可能不會隱藏。"</string>
-    <string name="revanced_hide_account_menu_title">啟用資料庫 / 您在底部選單中的篩選選項</string>
+    <string name="revanced_hide_account_menu_title">啟用媒體庫 / 你的底部選單篩選</string>
     <string name="revanced_hide_action_bar_summary_off">動作列已顯示</string>
     <string name="revanced_hide_action_bar_summary_on">動作列已隱藏</string>
     <string name="revanced_hide_action_bar_title">隱藏動作列</string>
@@ -1081,7 +1108,7 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_hide_comments_by_members_summary_on">會員的評論橫幅已隱藏。</string>
     <string name="revanced_hide_comments_by_members_title">隱藏會員評論橫幅</string>
     <string name="revanced_hide_comments_carousel_filter_strings_summary">輸入要篩選的評論輪播名稱，每行一個</string>
-    <string name="revanced_hide_comments_carousel_filter_strings_title">啟用評論輪播過濾器</string>
+    <string name="revanced_hide_comments_carousel_filter_strings_title">評論輪播過濾器</string>
     <string name="revanced_hide_comments_carousel_title">啟用評論輪播過濾器</string>
     <string name="revanced_hide_comments_carousel_user_dialog_message">"注意：
 • 請務必輸入輪播項目確切的名稱（例如：詢問、熱門影片、在 YouTube Music 中聆聽等）。
@@ -1225,12 +1252,11 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">已顯示核心概念區塊</string>
     <string name="revanced_hide_key_concepts_section_summary_on">已隱藏核心概念區塊</string>
     <string name="revanced_hide_key_concepts_section_title">隱藏「關鍵概念」區塊</string>
-    <string name="revanced_hide_keyword_content_about_summary">"「首頁/訂閱/搜尋/留言」將會篩選內容，以隱藏符合關鍵字詞組的相關內容
+    <string name="revanced_hide_keyword_content_about_summary">"「首頁 / 訂閱 / 搜尋 / 留言」將會篩選內容，以隱藏符合關鍵字詞組的內容
 
 限制：
-• 無法依頻道名稱隱藏 Shorts
-• 部份 UI 元件可能無法隱藏
-• 搜尋關鍵字可能無法顯示結果"</string>
+• 部份 Shorts 無法依頻道名稱隱藏
+• 部份 UI 組件可能無法隱藏"</string>
     <string name="revanced_hide_keyword_content_about_title">關於關鍵字篩選</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部份相符&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">比對整個字詞</string>
@@ -1240,11 +1266,9 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_hide_keyword_content_home_summary_off">首頁影片將不會被關鍵字篩選</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首頁分頁的影片會被關鍵字篩選</string>
     <string name="revanced_hide_keyword_content_home_title">依關鍵字隱藏首頁影片</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"要隱藏的關鍵字和詞語，請用換行符號分隔
+    <string name="revanced_hide_keyword_content_phrases_summary">"輸入要隱藏的關鍵字和短語，請用換行符號分隔
 
-關鍵字可以是影片標題或頻道名稱中顯示的任何文字
-
-中間有大寫字母的詞語必須完全匹配（例如：iPhone、TikTok、LeBlanc）"</string>
+關鍵字可以是影片標題中顯示的任何文字。使用 @使用者名稱 關鍵字可隱藏特定創作者的所有內容"</string>
     <string name="revanced_hide_keyword_content_phrases_title">要隱藏的關鍵字</string>
     <string name="revanced_hide_keyword_content_search_summary_off">搜尋結果將不會被關鍵字篩選</string>
     <string name="revanced_hide_keyword_content_search_summary_on">搜尋結果將會被關鍵字篩選</string>
@@ -1256,9 +1280,6 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">"'AND' 運算 ('&amp;') 已被啟用。&lt;br&gt;&lt;br&gt;當 &lt;strong&gt;"Blue" &amp; "Red"&lt;/strong&gt; 用作關鍵字時，包含兩者的關鍵字 &lt;strong&gt;Blue&lt;/strong&gt; 和 &lt;strong&gt;Red&lt;/strong&gt; 將被過濾。"</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">"使用 'AND' 運算 ('&amp;')"</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字將隱藏所有影片：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">無法使用關鍵字：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">請加上引號來使用關鍵字：%s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">關鍵字存在衝突宣告：%s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">關鍵字過短，需要加上引號：%s</string>
     <string name="revanced_hide_latest_posts_summary_off">已顯示最新貼文</string>
     <string name="revanced_hide_latest_posts_summary_on">已隱藏最新貼文</string>
@@ -2019,7 +2040,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_queue_manager_add_to_queue_and_reload_video">加入並重新載入影片</string>
     <string name="revanced_queue_manager_check_failed_auth">未登入</string>
     <string name="revanced_queue_manager_check_failed_generic">失敗：%s</string>
-    <string name="revanced_queue_manager_check_failed_playlist_id">沒有播放列表 ID</string>
+    <string name="revanced_queue_manager_check_failed_playlist_id">沒有播放清單 ID</string>
     <string name="revanced_queue_manager_check_failed_queue">佇列是空的</string>
     <string name="revanced_queue_manager_check_failed_video_id">沒有影片 ID</string>
     <string name="revanced_queue_manager_fetch_failed_add">加入佇列失敗</string>
@@ -2039,7 +2060,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">移除並開啟佇列</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">移除並重新載入影片</string>
     <string name="revanced_queue_manager_remove_queue">移除佇列</string>
-    <string name="revanced_queue_manager_save_queue">將佇列儲存至播放列表</string>
+    <string name="revanced_queue_manager_save_queue">將佇列儲存至播放清單</string>
     <string name="revanced_queue_manager_show_original_video_information">顯示原始影片資訊</string>
     <string name="revanced_queue_manager_user_dialog_message">"不要開啟外部下載器，而是開啟佇列管理器對話方塊。
 
@@ -2073,7 +2094,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_remember_playback_audio_pitch_toast">已將預設音訊音調變更為：%s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度變更僅適用於目前的影片</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度變更適用於所有影片</string>
-    <string name="revanced_remember_playback_speed_last_selected_title">將您的手動速度選擇套用至所有未來的影片</string>
+    <string name="revanced_remember_playback_speed_last_selected_title">記住播放速度</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">變更預設播放速度時不會顯示提示</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">變更預設播放速度時會顯示提示</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">在變更預設播放速度時顯示通知</string>
@@ -2090,7 +2111,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_remember_playback_speed_toast_shorts">將預設短影音播放速度變更為：%s。</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">畫質變更僅適用於目前的影片</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">畫質變更適用於所有影片</string>
-    <string name="revanced_remember_video_quality_last_selected_title">將您的手動畫質選擇套用至所有未來的影片</string>
+    <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">變更預設影片畫質時不會顯示提示</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">變更預設影片畫質時會顯示提示</string>
     <string name="revanced_remember_video_quality_mobile">行動數據</string>
@@ -2334,7 +2355,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_skipped_filler">已跳過不相關內容</string>
     <string name="revanced_sb_skipped_highlight">已跳到精華</string>
     <string name="revanced_sb_skipped_hook">已跳過掛鉤</string>
-    <string name="revanced_sb_skipped_interaction">已跳過提醒</string>
+    <string name="revanced_sb_skipped_interaction">已跳過煩人的提醒</string>
     <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
     <string name="revanced_sb_skipped_intro_end">已跳過中場休息</string>
     <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>
@@ -2344,7 +2365,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_skipped_preview_end">已跳過回顧</string>
     <string name="revanced_sb_skipped_selfpromo">已跳過自我推廣</string>
     <string name="revanced_sb_skipped_sponsor">已跳過贊助商廣告</string>
-    <string name="revanced_sb_skipped_unsubmitted">跳過了未提交的片段</string>
+    <string name="revanced_sb_skipped_unsubmitted">已跳過未提交的片段</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用（狀態 %s）</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 逾時）</string>
@@ -2353,8 +2374,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_square_layout_sum_on">已將按鈕和控制項設為方形</string>
     <string name="revanced_sb_stats">統計資訊</string>
     <string name="revanced_sb_stats_connection_failure">統計資料暫時不可用（API 離線）</string>
-    <string name="revanced_sb_stats_reputation">你的評價是 &lt;b&gt;%.2f&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_saved">你已為人們省下了觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間</string>
+    <string name="revanced_sb_stats_reputation">你的信譽為 &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_saved">你已幫助大家省下觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s 小時 %2$s 分鐘</string>
     <string name="revanced_sb_stats_saved_minute_format">%1$s 分鐘 %2$s 秒</string>
     <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
@@ -2545,11 +2566,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_app_version_target_invalid_toast">無效的偽裝應用程式版本: %s。</string>
     <string name="revanced_spoof_app_version_target_summary">輸入偽裝的應用程式版本目標。</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"App version will be spoofed to an older version
+    <string name="revanced_spoof_app_version_user_dialog_message">"應用程式版本將被偽裝成較舊的版本。
 
-This will change the appearance and features of the app, but unknown side effects may occur
+這會改變應用程式的外觀和功能，但可能會產生未知的副作用。
 
-If later turned off, it is recommended to clear the app data to prevent UI bugs"</string>
+若之後關閉此設定，建議清除應用程式資料以避免 UI 錯誤"</string>
     <string name="revanced_spoof_device_dimensions_summary">啟用此設定可以解鎖更高的影片畫質</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 音軌選單遺失。

@@ -84,6 +84,15 @@ Raporlar herkese açıktır ve bir kanal listeye eklenmeden önce incelenir. Kal
     <string name="morphe_custom_branding_splash_animation_size_title">Splash animasyon boyutu</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">Seçilen animasyonu Android'in sistem açılış ekranı olarak kullanır</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">Sistem sıçraması olarak kullan</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">Seçilen dosya desteklenen bir resim değil</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Özel zaman çubuğu tutamacı resmi bulunamadı</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Cihaz depolamasından bir resim veya animasyonlu GIF seçin</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Tutamacın resmi</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Zaman çubuğuna sığdır</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Orijinal boyut</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Tutamaç boyutu</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Zaman çubuğu tutamacını özel bir resim veya animasyonlu GIF ile değiştirin</string>
+    <string name="morphe_custom_seekbar_thumb_title">Özel zaman çubuğu tutamacını etkinleştir</string>
     <string name="morphe_dark_theme_custom_color_summary">Özel seçildiğinde kullanılır</string>
     <string name="morphe_dark_theme_custom_color_title">Özel koyu tema rengi</string>
     <string name="morphe_dark_theme_title">Koyu tema</string>
@@ -96,7 +105,7 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_dearrow_casual_mode_title">Gündelik mod</string>
     <string name="morphe_dearrow_error">DeArrow geçici olarak kullanılamıyor (durum kodu: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow geçici olarak kullanılamıyor</string>
-    <string name="morphe_dearrow_titles_icon_summary">Kitle kaynaklı video başlıklarında DeArrow simgesini gösterir</string>
+    <string name="morphe_dearrow_titles_icon_summary">Kitle kaynaklı video başlıklarında DeArrow simgesini gösterir. Orijinal başlığı ve küçük resmi görmek için simgeye dokunun</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow simgesini göster</string>
     <string name="morphe_dearrow_titles_summary">Video başlıklarını, DeArrow'a gönderilen ve kullanıcılar tarafından oluşturulan başlıklarla değiştirir</string>
     <string name="morphe_dearrow_titles_title">DeArrow başlıkları</string>
@@ -118,6 +127,14 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube, Abonelikler\'i Ana Sayfa\'nın üstündeki bir sekmeye taşırsa, onu gezinti çubuğunda gösterir</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Araç çubuğu gezinti sekmelerini devre dışı bırak</string>
     <string name="morphe_dual_captions_enabled_title">İki dilli altyazılar</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Kaydırma durduktan sonra ışığın ne kadar süre karartılı kalacağı. 0 değeriyle, ışık yalnızca kaydırma sırasında kararır ve kaydırma durur durmaz eski haline döner</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Karartma süresi</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Sayfa kaydırıldığında veya dokunulduğunda ışığı karartır</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Kaydırırken karart</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Parlak videolarda sayfadaki metnin okunabilir kalması için ışığı kısar</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Metni okunabilir tut</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Videoyla birlikte tüm izleme sayfasını ve siyah çubukları aydınlatır, Ambiyans modunun yerini alır</string>
+    <string name="morphe_enhanced_ambient_mode_title">Geliştirilmiş Ambiyans modu</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini genişlet' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
@@ -130,6 +147,8 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_feed_long_press_menu_title">Video menüsünü açmak için dokunun ve basılı tutun</string>
     <string name="morphe_feed_watch_later_button_summary">Akış videolarının küçük resimlerinde, video kaydedilmişse bir onay işaretiyle birlikte bir \'Daha sonra izle\' düğmesi gösterilir. Buna dokunmak videoyu kaydeder veya kaldırır, basılı tutmak ise \'Oynatma listesine kaydet\' seçeneğini açar</string>
     <string name="morphe_feed_watch_later_button_title">Küçük resimlerde Daha Sonra İzle düğmesini göster</string>
+    <string name="morphe_fix_status_bar_layout_summary">Üst barları kapatmaması ve oynatıcının üzerinde boş alan bırakmaması için durum çubuğu düzenini tutarlı hale getirir. Uygulama çöktüğünde veya üst barlar yanlış göründüğünde bu özelliği kapatın</string>
+    <string name="morphe_fix_status_bar_layout_title">Durum çubuğunun üst barları kapatmasını düzelt</string>
     <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
@@ -202,8 +221,10 @@ Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
     <string name="morphe_hide_sports_menu_title">Sporlar menüsünü gizle</string>
     <string name="morphe_hide_stats_hidden_24h_reset_title">Son 24 saat sayacını sıfırla?</string>
     <string name="morphe_hide_stats_hidden_24h_title">Son 24 saatte gizlenen videolar</string>
-    <string name="morphe_hide_stats_hidden_all_reset_title">Tüm zamanlayıcıyı sıfırla?</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Tüm zamanlar sayacını sıfırla?</string>
     <string name="morphe_hide_stats_hidden_all_title">Tüm zamanlarda gizlenen videolar</string>
+    <string name="morphe_hide_status_bar_summary">Sistem durum çubuğunu gizler. Bir anlığına göstermek için üst kenardan aşağı kaydırın</string>
+    <string name="morphe_hide_status_bar_title">Durum çubuğunu gizle</string>
     <string name="morphe_hide_sync_button_title">\'Videoyla senkronize et\' düğmesini gizle</string>
     <string name="morphe_hide_youtube_create_menu_title">YouTube Oluştur menüsünü gizle</string>
     <string name="morphe_hide_youtube_kids_menu_title">YouTube Kids menüsünü gizle</string>
@@ -249,7 +270,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_navigation_bar_glass_opacity_summary">Cam gezinme çubuğunun şeffaflık düzeyini ayarlayın (0 şeffaf, 100 opak)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Cam opaklığı</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Düğme boşluğu</string>
-    <string name="morphe_navigation_bar_glass_size_buttons_shown">Gösterilen düğmeler: %2$s üzerinden %1$s</string>
+    <string name="morphe_navigation_bar_glass_size_buttons_shown">Gösterilen düğmeler: %2$s düğmeden %1$s tanesi</string>
     <string name="morphe_navigation_bar_glass_size_height">Yükseklik</string>
     <string name="morphe_navigation_bar_glass_size_summary">Cam gezinme çubuğunun yüksekliğini, genişliğini ve düğme boşluğunu bir önizleme ile ayarlayın. Ekran genişliğine sığmayan düğmeler gizlenir</string>
     <string name="morphe_navigation_bar_glass_size_title">Cam gezinme çubuğu boyutu</string>
@@ -287,6 +308,12 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_playback_in_feeds_title">Akışlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynatıcı kontrol düğmelerinin ve zaman çubuğunun arkasındaki arka planın opaklığını ayarlayın (0 görünmez, 100 opaktır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Düğme arka plan opaklığı</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Oynatma listesinden bir video kaldırıldığında onay gösterilmez</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Oynatma listesi kaldırma bildirimini gizle</string>
+    <string name="morphe_playlist_long_press_drag_summary">Oynatma listenizin bir videosunu yeni bir yere sürüklemek için dokunun ve basılı tutun</string>
+    <string name="morphe_playlist_long_press_drag_title">Oynatma listesi videolarını sıralamak için basılı tut</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Oynatma listesi sürükleme tutamaçları daha kolay tutulabilir</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Oynatma listesi sürükleme tutamaçlarını genişlet</string>
     <string name="morphe_post_buttons_layout_entry_1">Sunucu</string>
     <string name="morphe_post_buttons_layout_entry_2">Zorunlu</string>
     <string name="morphe_post_buttons_layout_title">Gönderi düğmeleri düzeni</string>
@@ -362,7 +389,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_splash_screen_animation_style_title">Başlangıç animasyonu</string>
     <string name="morphe_spoof_video_streams_about_end_early">• Oynatma 1 saniye erken sona erebilir</string>
     <string name="morphe_spoof_video_streams_about_js">• Eşleştirme başarısız olursa oynatma da başarısız olabilir</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Ses Parçası menüsü eksik</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Ses Parçası\' menüsü eksik</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersif modu mevcut değil</string>
@@ -387,7 +414,7 @@ AV1 ile video oynatma takılabilir veya kare atlayabilir"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Oynatıcı JavaScript varyantı</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
     <string name="morphe_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR oturumu açılmadı. Oturum açmak için buraya dokunun</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR ayrı bir oturum açma işlemi gerektirir. Devam etmek için buraya dokunun</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi Android VR olarak değiştirin</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda Android VR oturumu açık</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR oturum açma</string>
@@ -450,6 +477,10 @@ Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha f
     <string name="morphe_theme_entry_pale_yellow">Soluk Sarı</string>
     <string name="morphe_theme_entry_white">Beyaz</string>
     <string name="morphe_theme_settings_title">Tema ayarları</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Klasik Tek Satır</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Klasik İki Satır</string>
+    <string name="morphe_video_action_bar_layout_title">Video eylem çubuğu düzeni</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Kısıtlama: Klasik düzen, eski tip \'Daha fazla video\' paneline geri döner</string>
     <string name="morphe_video_quality_prioritize_dialog">Bu ayar devre dışı bırakılırsa, eski videolar için video kalitesi seçenekleri görüntülenmeyebilir</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek verimliliğinden ziyade en yüksek video kalitesine öncelik verir</string>
     <string name="morphe_video_quality_prioritize_title">Video kalitesine öncelik ver</string>
@@ -501,10 +532,6 @@ OpenRouter.ai'yi açmak için buraya dokunun"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Çok dilli kadın</string>
     <string name="morphe_vot_voice_gender_male">Erkek</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Çok dilli erkek</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">Daha sonra izle\'den bir video kaldırıldığında onay bildirimi gösterilmez</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">Daha sonra izle\'den kaldırma snackbarını gizle</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">Daha sonra izle videolarının sürükleme tutamaçlarını tutması daha kolaydır</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">Daha sonra izle sürükleme tutamaçlarını genişlet</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Gelişmiş kalite menüsünü aç</string>
@@ -1253,12 +1280,11 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_key_concepts_section_summary_off">Anahtar kavramlar kısmı görünür</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Anahtar kavramlar kısmı gizli</string>
     <string name="revanced_hide_key_concepts_section_title">\'Anahtar Kavramlar\' bölümünü gizle</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Ana Sayfa / Abonelikler / Arama / Yorumlar anahtar kelime öbekleriyle eşleşen içeriği gizlemek için filtrelenir
+    <string name="revanced_hide_keyword_content_about_summary">"Ana sayfa / Abonelikler / Arama / Yorumlar anahtar kelime ifadeleriyle eşleşen içeriği gizlemek için filtrelenir
 
-Sınırlamalar:
-• Shorts, kanal adına göre gizlenemez
-• Bazı arayüz bileşenleri gizlenemeyebilir
-• Bir anahtar kelime araması sonuç göstermeyebilir"</string>
+Kısıtlamalar:
+• Bazı Shorts'lar kanal adı ile filtrelenemez
+• Bazı arayüz bileşenleri gizlenmeyebilir"</string>
     <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;b&gt;\"ağustos\"&lt;/b&gt;, &lt;b&gt;Ağustos ayında kardan adam yapmak!&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ancak &lt;b&gt;Ağustosböcekleri hakkında bilgiler&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
@@ -1268,11 +1294,9 @@ Sınırlamalar:
     <string name="revanced_hide_keyword_content_home_summary_off">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
     <string name="revanced_hide_keyword_content_home_title">Ana sayfadaki videoları anahtar kelimelerle gizle</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Gizlemek istediğiniz anahtar kelimeleri ve ifadeleri yeni satırlarla ayırarak girin
+    <string name="revanced_hide_keyword_content_phrases_summary">"Gizlenecek anahtar kelimeleri ve ifadeleri satırlara ayrılmış olarak girin
 
-Anahtar kelimeler, video başlıklarında veya kanal adlarında görünen herhangi bir metin olabilir
-
-Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: iPhone, TikTok, LeBlanc)"</string>
+Anahtar kelimeler, video başlıklarında gösterilen herhangi bir metin olabilir. @KullanıcıAdı anahtar kelimesi, belirli oluşturucuların tüm içeriğini gizler"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Gizlenecek anahtar kelimeler</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Arama sonuçları anahtar kelimelerle filtrelenmez</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Arama sonuçları anahtar kelimelerle filtrelenir</string>
@@ -1284,9 +1308,6 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">\'AND\' operatörü (\'&amp;\') etkin.&lt;br&gt;&lt;br&gt;Anahtar kelime olarak &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; kullanıldığında, &lt;strong&gt;\"Mavi\" &amp; \"Kırmızı\"&lt;/strong&gt; ifadesini içeren anahtar kelimeler filtrelenir</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">\'AND\' operatörünü (\'&amp;\') kullan</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Kelime bütün videoları gizler: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Anahtar kelime kullanılamıyor: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Kullanmak için tırnak içine alın: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Anahtar kelimede çelişki var: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Kelime kısa, tırnak içine alın: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Son gönderiler görünür</string>
     <string name="revanced_hide_latest_posts_summary_on">Son gönderiler gizli</string>
@@ -2470,7 +2491,7 @@ Aynısı mevcut"</string>
     <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
     <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
     <string name="revanced_settings_search_recent_searches">Son aramalar</string>
-    <string name="revanced_settings_search_remove">Arama geçmişinden kaldırılsın mı</string>
+    <string name="revanced_settings_search_remove">Arama geçmişinden kaldır</string>
     <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
     <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
 • Bir ayara gitmek için üzerine uzun basın

@@ -84,6 +84,15 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_custom_branding_splash_animation_size_title">Rozmiar animacji powitalnej</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">Użyj wybranej animacji jako powitalnego ekranu systemu Android</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">Użyj jako systemu rozpryskowego</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">Wybrany plik nie jest obsługiwanym obrazem</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Nie znaleziono własnego obrazu uchwytu paska postępu</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Wybierz obraz lub animowany plik GIF z pamięci urządzenia</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Obraz uchwytu</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Dopasuj do paska postępu</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Oryginalny rozmiar</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Rozmiar uchwytu</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Zastąp uchwyt paska postępu własnym obrazem lub animowanym plikiem GIF</string>
+    <string name="morphe_custom_seekbar_thumb_title">Włącz własny uchwyt paska postępu</string>
     <string name="morphe_dark_theme_custom_color_summary">Używane, gdy wybrano opcję Niestandardowe</string>
     <string name="morphe_dark_theme_custom_color_title">Niestandardowy ciemny kolor motywu</string>
     <string name="morphe_dark_theme_title">Ciemny motyw</string>
@@ -96,7 +105,7 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_dearrow_casual_mode_title">Tryb swobodny</string>
     <string name="morphe_dearrow_error">DeArrow jest niedostępny (kod statusu: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow jest niedostępny</string>
-    <string name="morphe_dearrow_titles_icon_summary">Wyświetla ikonę DeArrow przy społecznościowych tytułach filmów</string>
+    <string name="morphe_dearrow_titles_icon_summary">Wyświetla ikonę DeArrow przy tytułach filmów zgłoszonych przez społeczność. Dotknij ikony, aby pokazać oryginalny tytuł i miniaturkę</string>
     <string name="morphe_dearrow_titles_icon_title">Pokaż ikonę DeArrow</string>
     <string name="morphe_dearrow_titles_summary">Zastępuje tytuły filmów tytułami utworzonymi w oparciu o crowdsourcing i przesłanymi do DeArrow</string>
     <string name="morphe_dearrow_titles_title">Tytuły DeArrow</string>
@@ -118,6 +127,14 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Wyświetla Subskrypcje na pasku nawigacji, jeśli YouTube przeniesie je do zakładki na górze strony głównej</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Wyłącz zakładki nawigacji na pasku narzędzi</string>
     <string name="morphe_dual_captions_enabled_title">Napisy dwujęzyczne</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Określa, jak długo podświetlenie pozostaje przyciemnione po zakończeniu przewijania. Przy wartości 0 przyciemnienie działa tylko w trakcie przewijania i ustępuje natychmiast po jego zatrzymaniu</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Czas przyciemnienia</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Przyciemnia podświetlenie podczas przewijania lub dotykania strony</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Przyciemniaj podczas przewijania</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Przyciemnia podświetlenie przy jasnych filmach, aby tekst na stronie pozostał czytelny</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Zachowaj czytelność tekstu</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Podświetla całą stronę odtwarzania oraz czarne pasy kolorami z filmu, zastępując standardowy tryb oświetlenia kinowego</string>
+    <string name="morphe_enhanced_ambient_mode_title">Ulepszony tryb oświetlenia kinowego</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -130,6 +147,8 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_feed_long_press_menu_title">Przytrzymaj, aby otworzyć menu filmu</string>
     <string name="morphe_feed_watch_later_button_summary">Na miniaturkach filmów na stronie głównej wyświetlany jest przycisk \"Do obejrzenia\" ze znacznikiem wyboru, jeśli film jest zapisany. Dotknięcie go zapisuje lub usuwa film, a przytrzymanie otwiera okno \"Zapisz na playliście\"</string>
     <string name="morphe_feed_watch_later_button_title">Pokaż przycisk \"Do obejrzenia\" na miniaturkach</string>
+    <string name="morphe_fix_status_bar_layout_summary">Utrzymuje spójny układ paska stanu, dzięki czemu nie zasłania on górnych pasków ani nie zostawia pustego miejsca nad odtwarzaczem. Wyłącz tę opcję, jeśli aplikacja ulega awarii lub górne paski wyświetlają się nieprawidłowo</string>
+    <string name="morphe_fix_status_bar_layout_title">Napraw pasek stanu zasłaniający górne paski</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
@@ -204,6 +223,8 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_hide_stats_hidden_24h_title">Ukryte filmy, ostatnie 24 godziny</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">Zresetować całkowity licznik?</string>
     <string name="morphe_hide_stats_hidden_all_title">Ukryte filmy, od początku</string>
+    <string name="morphe_hide_status_bar_summary">Ukrywa systemowy pasek stanu. Przesuń w dół od górnej krawędzi, aby na chwilę go wyświetlić</string>
+    <string name="morphe_hide_status_bar_title">Ukryj pasek stanu</string>
     <string name="morphe_hide_sync_button_title">Ukryj przycisk \"Zsynchronizuj z filmem\"</string>
     <string name="morphe_hide_youtube_create_menu_title">Ukryj menu YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">Ukryj menu YouTube Kids</string>
@@ -246,16 +267,17 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
     <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
     <string name="morphe_music_package_name_title">Nazwa pakietu aplikacji muzycznej</string>
-    <string name="morphe_navigation_bar_glass_opacity_summary">Dostosuj poziom krycia szklanego paska nawigacji (0 to pełna przezroczystość, 100 to brak przezroczystości)</string>
-    <string name="morphe_navigation_bar_glass_opacity_title">Krycie szkła</string>
+    <string name="morphe_navigation_bar_glass_opacity_summary">Dostosuj poziom krycia przeźroczystego paska nawigacji (0 to pełna przeźroczystość, 100 to brak przeźroczystości)</string>
+    <string name="morphe_navigation_bar_glass_opacity_title">Krycie przeźroczystości</string>
+    <string name="morphe_navigation_bar_glass_size_bottom_spacing">Rozstaw dolny</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Odstęp między przyciskami</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Widoczne przyciski: %1$s z %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">Wysokość</string>
-    <string name="morphe_navigation_bar_glass_size_summary">Dostosuj wysokość, szerokość oraz odstępy między przyciskami szklanego paska nawigacji z podglądem na żywo. Przyciski, które nie mieszczą się na szerokości ekranu, są ukrywane</string>
-    <string name="morphe_navigation_bar_glass_size_title">Rozmiar szklanego paska nawigacji</string>
+    <string name="morphe_navigation_bar_glass_size_summary">Dostosuj wysokość, szerokość oraz odstępy między przyciskami przeźroczystego paska nawigacji z podglądem na żywo. Przyciski, które nie mieszczą się na szerokości ekranu, są ukrywane</string>
+    <string name="morphe_navigation_bar_glass_size_title">Rozmiar przeźroczystego paska nawigacji</string>
     <string name="morphe_navigation_bar_glass_size_width">Maks. szerokość</string>
     <string name="morphe_navigation_bar_glass_summary">Wyświetla pasek nawigacji jako pływającą, zaokrągloną, półprzezroczystą kapsułkę. Niedostępne przy nieprzezroczystym stylu paska nawigacji</string>
-    <string name="morphe_navigation_bar_glass_title">Włącz szklany pasek nawigacji</string>
+    <string name="morphe_navigation_bar_glass_title">Włącz przeźroczysty pasek nawigacji</string>
     <string name="morphe_navigation_bar_style_entry_2">Półprzezroczysty</string>
     <string name="morphe_navigation_bar_style_title">Styl paska nawigacji</string>
     <string name="morphe_navigation_bar_style_user_dialog_message">Ten styl może nie być obsługiwany przez Twoje urządzenie lub wersję YouTube i może powodować błędy układu lub awarie aplikacji</string>
@@ -287,10 +309,16 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_playback_in_feeds_title">Odtwarzanie w kanałach</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Dostosuj krycie tła za przyciskami sterowania odtwarzacza i paskiem czasu (0 to brak krycia, 100 to pełne krycie)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Krycie tła przycisków sterowania</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Potwierdzenie nie jest wyświetlane po usunięciu filmu z playlisty</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Ukryj pasek powiadomienia o usunięciu z playlisty</string>
+    <string name="morphe_playlist_long_press_drag_summary">Przytrzymaj film na swojej playliście, aby przeciągnąć go na nową pozycję</string>
+    <string name="morphe_playlist_long_press_drag_title">Przytrzymaj, aby zmienić kolejność filmów na playliście</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Uchwyty do przeciągania na playliście są łatwiejsze do złapania</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Poszerz uchwyty przeciągania na playliście</string>
     <string name="morphe_post_buttons_layout_entry_1">Serwerowy</string>
     <string name="morphe_post_buttons_layout_entry_2">Wymuszony</string>
     <string name="morphe_post_buttons_layout_title">Układ przycisków postów</string>
-    <string name="morphe_post_buttons_screen_summary">Wybierz układ przycisków pod postami społeczności oraz określ, które przyciski mają być ukryte</string>
+    <string name="morphe_post_buttons_screen_summary">Zdecyduj, jaki ma być układ przycisków pod postami społeczności oraz które przyciski ukryć</string>
     <string name="morphe_post_buttons_screen_title">Przyciski postów</string>
     <string name="morphe_post_image_download_failed">Nie udało się pobrać obrazu</string>
     <string name="morphe_post_image_download_flyout">Pobierz obrazy</string>
@@ -396,7 +424,7 @@ Ustawić %2$s jako domyślnego klienta?"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Wariant skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_screen_summary">Skonfiguruj fałszowanie klienta, aby zapobiec problemom z odtwarzaniem</string>
     <string name="morphe_spoof_video_streams_screen_title">Fałszowanie strumieni filmów</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Dotknij tutaj, aby się zalogować</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR wymaga osobnego logowania. Dotknij tutaj, aby kontynuować</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">By używać tej funkcji, zmień \"Domyślny klient\" na Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Obecnie zalogowano do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Logowanie Android VR</string>
@@ -470,6 +498,10 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_theme_settings_title">Ustawienia motywu</string>
     <string name="morphe_unlock_queue_summary">Odblokowuje kolejkę filmów YouTube</string>
     <string name="morphe_unlock_queue_title">Odblokuj kolejkę</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Klasyczny jednorzędowy</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Klasyczny dwurzędowy</string>
+    <string name="morphe_video_action_bar_layout_title">Układ paska akcji filmu</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Ograniczenie: Układy klasyczne przywracają stary styl nakładki \"Więcej filmów\"</string>
     <string name="morphe_video_quality_prioritize_dialog">Jeśli to ustawienie będzie wyłączone, starsze filmy mogą nie wyświetlać opcji wyboru jakości filmu</string>
     <string name="morphe_video_quality_prioritize_summary">Nadaje priorytet najwyższej dostępnej jakości filmu kosztem wydajności kodeka</string>
     <string name="morphe_video_quality_prioritize_title">Priorytet jakości filmu</string>
@@ -522,10 +554,6 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_vot_voice_gender_female_multilingual">Żeński wielojęzyczny</string>
     <string name="morphe_vot_voice_gender_male">Męski</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Męski wielojęzyczny</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">Nie wyświetla potwierdzenia po usunięciu filmu z playlisty \"Do obejrzenia\"</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">Ukryj powiadomienie o usunięciu z \"Do obejrzenia\"</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">Uchwyty do przeciągania filmów na playliście \"Do obejrzenia\" są łatwiejsze do chwycenia</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">Poszerz uchwyty przeciągania w \"Do obejrzenia\"</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_title">Otwórz menu zaawansowanej jakości</string>
@@ -1325,12 +1353,11 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_key_concepts_section_summary_off">Sekcja „Kluczowe koncepcje” jest widoczna</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Sekcja „Kluczowe koncepcje” jest ukryta</string>
     <string name="revanced_hide_key_concepts_section_title">Ukryj sekcję \"Kluczowe pojęcia\"</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Strona główna / Subskrypcje / Wyniki wyszukiwania / Komentarze są filtrowane, aby ukryć treści, które zawierają słowa z filtra
+    <string name="revanced_hide_keyword_content_about_summary">"Strona główna / Subskrypcje / Wyszukiwanie / Komentarze są filtrowane, aby ukryć treści pasujące do podanych słów i fraz
 
-Ograniczenia:
-• Filmy Short nie mogą być ukryte po nazwie kanału
-• Niektóre elementy interfejsu mogą nie być ukryte
-• Wyszukiwanie słowa z filtru może nie pokazywać żadnych wyników"</string>
+​Ograniczenia:
+• Niektórych filmów Short nie można ukryć po nazwie kanału
+• Niektóre elementy interfejsu mogą nie zostać ukryte"</string>
     <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Otoczenie słowa/frazy cudzysłowem zapobiegnie częściowym dopasowaniom w tytułach filmów i nazwach kanałów&lt;br&gt;&lt;br&gt;Na przykład,&lt;br&gt;&lt;b&gt;\"kot\"&lt;/b&gt; ukryje film: &lt;b&gt;Jak zachowuje się kot?&lt;/b&gt;&lt;br&gt;lecz nie ukryje: &lt;b&gt;Wielki bojkot znanej marki&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Dopasuj całe wyrazy</string>
@@ -1340,11 +1367,9 @@ Ograniczenia:
     <string name="revanced_hide_keyword_content_home_summary_off">Filmy na stronie głównej nie są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Filmy na stronie głównej są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_title">Ukryj filmy na stronie głównej</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Wprowadź słowa i frazy do ukrycia, każda w nowej linii
+    <string name="revanced_hide_keyword_content_phrases_summary">"Wprowadź słowa i frazy do ukrycia, rozdzielając je nowymi wierszami
 
-Słowem może być dowolny tekst wyświetlany w tytułach filmów lub nazwach kanałów
-
-Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, TikTok, InPost)"</string>
+​Słowem może być dowolny tekst widoczny w tytułach filmów lub nazwach kanałów. Słowo @NazwaUżytkownika ukrywa wszystkie treści od określonych twórców"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Słowa do ukrycia</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Wyniki wyszukiwania nie są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Wyniki wyszukiwania są filtrowane przez słowa</string>
@@ -1356,9 +1381,6 @@ Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, Tik
     <string name="revanced_hide_keyword_content_use_and_operator_summary_on">Włączone. &lt;br&gt;&lt;br&gt;Kiedy &lt;strong&gt;\"Niebieski\" i \"Czerwony\"&lt;/strong&gt; są używane jako słowa kluczowe, słowa te zawierające &lt;strong&gt;Niebieski&lt;/strong&gt; oraz &lt;strong&gt;Czerwony&lt;/strong&gt; będą filtrowane</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">Użyj operatora \'AND\' (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Słowo ukryje wszystkie filmy: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Nie można użyć słowa: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Dodaj cudzysłowy, aby użyć słowa: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Słowo zawiera sprzeczne deklaracje: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Słowo jest za krótkie i wymaga użycia cudzysłowu: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Najnowsze posty są widoczne</string>
     <string name="revanced_hide_latest_posts_summary_on">Najnowsze posty są ukryte</string>
@@ -2630,7 +2652,7 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_import_export_as_text_summary">Importuje/Eksportuje ustawienia w formie tekstu</string>
     <string name="revanced_settings_import_failed">Nie udało się zaimportować ustawień</string>
     <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia RVX</string>
-    <string name="revanced_settings_import_success">Zaimportowano %s ustawień</string>
+    <string name="revanced_settings_import_success">Zaimportowano ustawienia: %s</string>
     <string name="revanced_settings_import_summary">Importuje ustawienia z zapisanego pliku</string>
     <string name="revanced_settings_import_title">Zaimportuj ustawienia</string>
     <string name="revanced_settings_navigate_up">Przejdź w górę</string>
@@ -2846,9 +2868,9 @@ Warunki: 'Przycisk od odświeżenia filmu' oraz 'Zawsze pokazuj przycisk od odś
 Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
-    <string name="revanced_status_bar_translucency_entry_opaque">Nieprzejrzysty</string>
-    <string name="revanced_status_bar_translucency_entry_transparent">Przezroczysty</string>
-    <string name="revanced_status_bar_translucency_title">Przezroczystość paska stanu</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Nieprzeźroczysty</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Przeźroczysty</string>
+    <string name="revanced_status_bar_translucency_title">Przeźroczystość paska stanu</string>
     <string name="revanced_swipe_bottom_zone_title">Gest przesunięcia dołem</string>
     <string name="revanced_swipe_brightness_distance_summary">Ilość pikseli do przesunięcia w celu zmiany jasności. Niższe wartości powodują szybszą zmianę jasności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Odległość jasności</string>

@@ -4,8 +4,16 @@
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật</string>
     <string name="gms_core_dialog_continue_text">Tiếp tục</string>
     <string name="gms_core_dialog_dismiss_text">Không hiển thị lại nữa</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"microG không có quyền chạy nền.\n\nHãy làm theo hướng dẫn \"Don\"t kill my app\" dành cho điện thoại của bạn và áp dụng các bước đó cho cài đặt microG.\n\nĐiều này cần thiết cho ứng dụng hoạt động"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Bạn cần tắt tối ưu hóa pin để tránh phát sinh lỗi.\n\nĐừng lo, tắt tối ưu hóa pin cho microG sẽ không làm hao pin hơn.\n\nBấm tiếp tục để tắt tối ưu hóa"</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"microG không có quyền chạy nền
+
+Hãy làm theo hướng dẫn \"Don't kill my app\" dành cho điện thoại của bạn và áp dụng các bước đó cho cài đặt microG
+
+Điều này cần thiết để ứng dụng hoạt động"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Bạn cần tắt tối ưu hóa pin để tránh phát sinh lỗi
+
+Đừng lo, tắt tối ưu hóa pin cho microG sẽ không làm hao pin hơn
+
+Bấm tiếp tục để tắt tối ưu hóa"</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Yêu cầu thực hiện</string>
     <string name="gms_core_offline_account_login_error">Nếu gần đây bạn đã cập nhật thông tin tài khoản của mình, hãy gỡ và cài lại GmsCore</string>
@@ -76,6 +84,15 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
     <string name="morphe_custom_branding_splash_animation_size_title">Kích thước hoạt ảnh khởi động</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">Sử dụng hoạt ảnh đã chọn làm màn hình khởi động (splash screen) của hệ thống Android</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">Sử dụng làm màn hình khởi động hệ thống</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">Tệp đã chọn không phải là hình ảnh được hỗ trợ</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Không tìm thấy hình ảnh nút kéo thanh tiến trình tùy chỉnh</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Chọn một hình ảnh hoặc GIF động từ bộ nhớ thiết bị</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Hình ảnh nút kéo</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Vừa với thanh tiến trình</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Kích thước gốc</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Kích thước nút kéo</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Thay thế nút kéo thanh tiến trình bằng hình ảnh tùy chỉnh hoặc GIF động</string>
+    <string name="morphe_custom_seekbar_thumb_title">Bật tùy chỉnh nút kéo thanh tiến trình</string>
     <string name="morphe_dark_theme_custom_color_summary">Màu sắc chủ đề tối tùy chỉnh</string>
     <string name="morphe_dark_theme_custom_color_title">Màu sắc chủ đề tối tùy chỉnh</string>
     <string name="morphe_dark_theme_title">Giao diện tối</string>
@@ -88,7 +105,7 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_dearrow_casual_mode_title">Chế độ thông thường</string>
     <string name="morphe_dearrow_error">DeArrow tạm thời không khả dụng (mã trạng thái: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow tạm thời không khả dụng</string>
-    <string name="morphe_dearrow_titles_icon_summary">Hiển thị biểu tượng DeArrow trên các tiêu đề video do cộng đồng đóng góp</string>
+    <string name="morphe_dearrow_titles_icon_summary">Hiển thị biểu tượng DeArrow trên tiêu đề video được đóng góp bởi cộng đồng. Nhấn vào biểu tượng để hiển thị tiêu đề và hình thu nhỏ gốc</string>
     <string name="morphe_dearrow_titles_icon_title">Hiển thị biểu tượng DeArrow</string>
     <string name="morphe_dearrow_titles_summary">Thay thế tiêu đề video bằng các tiêu đề do cộng đồng đóng góp trên DeArrow</string>
     <string name="morphe_dearrow_titles_title">Tiêu đề DeArrow</string>
@@ -110,6 +127,14 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Hiển thị Mục đăng ký trong thanh điều hướng, nếu YouTube chuyển nó thành một tab ở đầu Trang chủ</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Vô hiệu hóa các tab điều hướng trên thanh công cụ</string>
     <string name="morphe_dual_captions_enabled_title">Phụ đề song ngữ</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Thời gian đèn giữ trạng thái mờ sau khi ngừng cuộn. Với giá trị 0, chỉ khi cuộn đèn mới mờ đi và sẽ sáng trở lại ngay khi ngừng cuộn</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Thời gian làm mờ</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Làm mờ đèn khi trang được cuộn hoặc chạm vào</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Làm mờ khi cuộn</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Giảm độ sáng của các video sáng để văn bản trên trang vẫn dễ đọc</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Giữ cho văn bản dễ đọc</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Chiếu sáng toàn bộ trang xem và các thanh đen theo video, thay thế cho Chế độ môi trường xung quanh</string>
+    <string name="morphe_enhanced_ambient_mode_title">Chế độ môi trường xung quanh nâng cao</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
 
 Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
@@ -122,6 +147,8 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_feed_long_press_menu_title">Chạm và giữ để mở menu video</string>
     <string name="morphe_feed_watch_later_button_summary">Nút Xem sau được hiển thị trên hình thu nhỏ của các video trong nguồn cấp dữ liệu, với dấu kiểm nếu video đã được lưu. Nhấn vào nút này để lưu hoặc xóa video, và nhấn giữ để mở Lưu vào danh sách phát</string>
     <string name="morphe_feed_watch_later_button_title">Hiển thị nút Xem sau trên hình thu nhỏ</string>
+    <string name="morphe_fix_status_bar_layout_summary">Giữ bố cục thanh trạng thái nhất quán, để thanh này không che các thanh trên cùng và không để khoảng trống phía trên trình phát. Tắt tùy chọn này nếu ứng dụng bị lỗi hoặc các thanh trên cùng hiển thị sai</string>
+    <string name="morphe_fix_status_bar_layout_title">Sửa thanh trạng thái che các thanh trên cùng</string>
     <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành bất kỳ client nào ngoại trừ \'Android Studio\' và \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
@@ -196,6 +223,8 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_hide_stats_hidden_24h_title">Số video đã ẩn trong 24 giờ qua</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">Đặt lại tất cả bộ đếm thời gian?</string>
     <string name="morphe_hide_stats_hidden_all_title">Số video đã ẩn từ trước đến nay</string>
+    <string name="morphe_hide_status_bar_summary">Ẩn thanh trạng thái hệ thống. Vuốt xuống từ mép trên để hiện thanh trạng thái trong giây lát</string>
+    <string name="morphe_hide_status_bar_title">Ẩn thanh trạng thái</string>
     <string name="morphe_hide_sync_button_title">Ẩn nút \"Đồng bộ với video\"</string>
     <string name="morphe_hide_youtube_create_menu_title">Ẩn menu YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">Ẩn menu YouTube Kids</string>
@@ -278,6 +307,12 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_playback_in_feeds_title">Phát trong trang video</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Điều chỉnh độ mờ của nền phía sau các nút điều khiển trình phát và thanh thời gian (0 là vô hình, 100 là đặc)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Độ mờ nền của các nút điều khiển</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Thông báo xác nhận sẽ không hiển thị sau khi một video bị xóa khỏi danh sách phát</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Ẩn snackbar thông báo xóa danh sách phát</string>
+    <string name="morphe_playlist_long_press_drag_summary">Chạm và giữ một video trong danh sách phát của bạn để kéo đến vị trí mới</string>
+    <string name="morphe_playlist_long_press_drag_title">Nhấn giữ để sắp xếp lại các video trong danh sách phát</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Tay nắm kéo danh sách phát dễ nắm hơn</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Mở rộng tay nắm kéo danh sách phát</string>
     <string name="morphe_post_buttons_layout_entry_1">Máy chủ</string>
     <string name="morphe_post_buttons_layout_entry_2">Bắt buộc</string>
     <string name="morphe_post_buttons_layout_title">Bố cục nút bài đăng</string>
@@ -386,7 +421,7 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Biến thể JavaScript của trình phát</string>
     <string name="morphe_spoof_video_streams_screen_summary">Cấu hình giả mạo client nhằm tránh lỗi khi phát</string>
     <string name="morphe_spoof_video_streams_screen_title">Giả mạo luồng phát video</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Chưa đăng nhập Android VR. Bấm vào đây để đăng nhập</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR yêu cầu đăng nhập riêng. Nhấn vào đây để tiếp tục</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Để dùng tính năng này, thay đổi \"Client mặc định\" thành Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Đã đăng nhập vào Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Đăng nhập Android VR</string>
@@ -422,7 +457,7 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="morphe_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát</string>
     <string name="morphe_stable_caption_blocks_summary">Nhóm các phụ đề tự động đơn ngôn ngữ thành các khối ổn định, dễ đọc. Phụ đề song ngữ luôn sử dụng các khối. Một số từ có thể xuất hiện trước khi được nói</string>
     <string name="morphe_stable_caption_blocks_title">Các khối phụ đề ổn định</string>
-    <string name="morphe_swap_save_and_queue_actions_summary">Chạm để xem các tùy chọn hàng đợi, chạm và giữ để lưu vào Watch later</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Chạm để xem các tùy chọn hàng đợi, chạm và giữ để lưu vào Xem sau</string>
     <string name="morphe_swap_save_and_queue_actions_title">Đổi chỗ Lưu và tùy chọn Hàng chờ</string>
     <string name="morphe_tablet_layout_in_player_summary">"Khôi phục bố cục trình phát cũ
 
@@ -435,6 +470,10 @@ Hạn chế: Nếu tùy chọn \"Khôi phục thanh thao tác video cũ\" bị t
     <string name="morphe_theme_entry_patch_option">Tùy chọn bản vá</string>
     <string name="morphe_theme_entry_white">Trắng</string>
     <string name="morphe_theme_settings_summary">Tùy chỉnh chủ đề, giao diện và nhận diện thương hiệu của ứng dụng</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Một hàng Cổ điển</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Hai hàng cổ điển</string>
+    <string name="morphe_video_action_bar_layout_title">Bố cục thanh thao tác video</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Hạn chế: Bố cục cổ điển sẽ quay lại kiểu lớp phủ \'Xem thêm video\' cũ</string>
     <string name="morphe_video_quality_prioritize_dialog">Nếu tắt tính năng này, các video cũ có thể không hiển thị tùy chọn chất lượng video</string>
     <string name="morphe_video_quality_prioritize_summary">Ưu tiên chất lượng video cao nhất hơn là tối ưu codec</string>
     <string name="morphe_video_quality_prioritize_title">Ưu tiên chất lượng video</string>
@@ -465,7 +504,7 @@ Bấm vào đây để truy cập MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Bạn đã dùng hết hạn mức dịch miễn phí của MyMemory cho hôm nay (5.000 ký tự). Hãy chuyển sang dịch vụ dịch khác hoặc thử lại vào ngày mai</string>
     <string name="morphe_vot_mymemory_quota_next_available">Có thể thử lại vào lúc %s</string>
     <string name="morphe_vot_mymemory_quota_title">Đã đạt giới hạn dịch hàng ngày của MyMemory</string>
-    <string name="morphe_vot_openrouter_api_key_summary">Nhập khóa API OpenRouter.\nTạo khóa tại OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Khóa API OpenRouter của bạn. Tạo khóa tại OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">Khóa API OpenRouter</string>
     <string name="morphe_vot_openrouter_credits_message">Đã đạt giới hạn sử dụng OpenRouter. Hãy nạp thêm số dư hoặc tăng giới hạn chi tiêu của khóa tại OpenRouter.ai</string>
     <string name="morphe_vot_openrouter_credits_title">Đã đạt giới hạn số dư OpenRouter</string>
@@ -487,10 +526,6 @@ Bấm vào đây để truy cập OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Giọng nữ đa ngôn ngữ</string>
     <string name="morphe_vot_voice_gender_male">Nam</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Giọng nam đa ngôn ngữ</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">Thông báo xác nhận sẽ không hiển thị sau khi một video bị xóa khỏi Xem sau</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">Ẩn thông báo xóa Xem sau</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">Các tay cầm kéo của video Xem sau sẽ dễ nắm bắt hơn</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">Mở rộng tay cầm kéo Xem sau</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_title">Mở menu Chất lượng nâng cao</string>
@@ -646,7 +681,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Mục tốc độ phát kiểu cũ được sử dụng</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Kiểu mục tốc độ phát tùy chỉnh</string>
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tùy chỉnh phải nhỏ hơn %s</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ</string>
     <string name="revanced_custom_playback_speeds_summary">Nhập tùy chọn tốc độ phát mà bạn thích</string>
     <string name="revanced_custom_playback_speeds_title">Tốc độ phát tùy chỉnh</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Độ mờ của lớp phủ trình phát phải nằm trong khoảng 0 - 100</string>
@@ -1292,9 +1327,8 @@ Hạn chế: Các bình luận chữ xanh không dùng kiểu chữ mặc địn
     <string name="revanced_hide_keyword_content_about_summary">"Trang chủ / Kênh đăng ký / Tìm kiếm / Bình luận được lọc để ẩn nội dung khớp với cụm từ khóa
 
 Hạn chế:
-• Không thể ẩn Shorts theo tên kênh
-• Một số thành phần giao diện có thể không bị ẩn
-• Khi tìm kiếm từ khóa đó có thể không cho kết quả nào"</string>
+• Một số Shorts không thể ẩn theo tên kênh
+• Một số thành phần giao diện có thể không bị ẩn"</string>
     <string name="revanced_hide_keyword_content_about_title">Giới thiệu về bộ lọc từ khóa</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Đặt từ hoặc cụm từ cần lọc trong dấu ngoặc kép sẽ ngăn chặn các kết quả chỉ trùng một phần với tiêu đề video và tên kênh&lt;br&gt;&lt;br&gt;Ví dụ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; sẽ ẩn video: &lt;b&gt;AI hoạt động ra sao?&lt;/b&gt;&lt;br&gt;nhưng sẽ không ẩn: &lt;b&gt;Hai lai nghĩa là gì?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Khớp toàn bộ từ</string>
@@ -1306,9 +1340,7 @@ Hạn chế:
     <string name="revanced_hide_keyword_content_home_title">Ẩn video Trang chủ theo từ khóa</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Nhập từ khóa và cụm từ cần ẩn, mỗi dòng một từ/cụm từ
 
-Từ khóa ở đây là bất kỳ văn bản nào mà bạn thấy trong tiêu đề video hoặc tên kênh
-
-Từ có chữ in hoa ở giữa phải được nhập chính xác (ví dụ: iPhone, TikTok, LeBlanc)"</string>
+Từ khóa có thể là bất kỳ văn bản nào hiển thị trong tiêu đề video. Từ khóa @UserName sẽ ẩn tất cả nội dung từ những nhà sáng tạo cụ thể"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Từ khóa để ẩn</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Kết quả tìm kiếm không được lọc bằng từ khóa</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Kết quả tìm kiếm đã được lọc bằng từ khóa</string>
@@ -1322,9 +1354,6 @@ Từ có chữ in hoa ở giữa phải được nhập chính xác (ví dụ: i
 &lt;br&gt;&lt;br&gt;Khi dùng từ khoá &lt;strong&gt;\"Xanh\" &amp; \"Đỏ\"&lt;/strong&gt;, thì kết quả chứa cả &lt;strong&gt;Xanh&lt;/strong&gt; và &lt;strong&gt;Đỏ&lt;/strong&gt; sẽ bị lọc</string>
     <string name="revanced_hide_keyword_content_use_and_operator_title">Toán tử \'AND\' (\'&amp;\')</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa sẽ ẩn tất cả video: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Không thể dùng từ khóa: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Hãy thêm dấu ngoặc kép để sử dụng từ khoá: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Từ khóa có các định nghĩa mâu thuẫn với nhau. %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa quá ngắn và cần phải có dấu ngoặc kép: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Bài đăng mới nhất được hiển thị</string>
     <string name="revanced_hide_latest_posts_summary_on">Bài đăng mới nhất đã bị ẩn</string>
@@ -2424,7 +2453,7 @@ Nếu bạn chưa muốn gửi đoạn nổi bật, hãy bấm Hủy và đánh 
     <string name="revanced_sb_segments_interaction_sum">Một lời nhắc ngắn rằng hãy thích, đăng ký hoặc theo dõi họ ở giữa nội dung. Nếu nó dài hoặc về một điều gì đó cụ thể, nó nên phân loại vào Tự quảng cáo</string>
     <string name="revanced_sb_segments_intro">Chuyển cảnh / Hoạt ảnh intro</string>
     <string name="revanced_sb_segments_intro_sum">Một khoảng thời gian không có nội dung thực tế. Có thể là tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Không bao gồm các phần chuyển cảnh chứa thông tin</string>
-    <string name="revanced_sb_segments_nomusic">Âm nhạc nhưng không có nhạc</string>
+    <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không có nhạc</string>
     <string name="revanced_sb_segments_nomusic_sum">Chỉ dành cho video âm nhạc. Phần của video âm nhạc nhưng không có nhạc, mà cũng không được phân loại vào danh mục khác</string>
     <string name="revanced_sb_segments_outro">Thẻ kết thúc / Credit</string>
     <string name="revanced_sb_segments_outro_sum">Danh đề hoặc khi màn hình kết thúc của YouTube xuất hiện. Không dành cho phần kết có chứa thông tin</string>
@@ -2461,7 +2490,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
     <string name="revanced_sb_skip_button_sponsor">Bỏ qua nhà tài trợ</string>
     <string name="revanced_sb_skip_button_unsubmitted">Bỏ qua phân đoạn</string>
     <string name="revanced_sb_skip_ignore">Tắt</string>
-    <string name="revanced_sb_skip_seekbaronly">Đã hiển thị trên thanh tiến trình</string>
+    <string name="revanced_sb_skip_seekbaronly">Hiện trên thanh tiến trình</string>
     <string name="revanced_sb_skip_showbutton">Hiện nút Bỏ qua</string>
     <string name="revanced_sb_skipped_filler">Đã bỏ qua đoạn lạc đề</string>
     <string name="revanced_sb_skipped_highlight">Đã bỏ qua đến phần nổi bật</string>
@@ -2701,7 +2730,7 @@ Hạn chế: Tiêu đề video sẽ biến mất khi nhấn vào"</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"Phiên bản ứng dụng sẽ được giả mạo thành một phiên bản cũ hơn
 
-Giúp thay đổi giao diện và tính năng của ứng dụng, nhưng đồng thời cũng có thể xảy ra một số lỗi không xác định
+Thao tác này sẽ thay đổi giao diện và tính năng của ứng dụng, nhưng đồng thời cũng có thể xảy ra một số lỗi không xác định
 
 Nếu muốn tắt tính năng này sau đó, bạn nên xóa dữ liệu ứng dụng để tránh vỡ giao diện"</string>
     <string name="revanced_spoof_device_dimensions_summary">Bật tính năng này có thể mở khóa chất lượng video cao hơn</string>

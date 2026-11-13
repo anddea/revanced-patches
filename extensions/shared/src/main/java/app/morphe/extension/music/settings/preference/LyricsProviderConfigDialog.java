@@ -334,7 +334,7 @@ final class LyricsProviderConfigDialog {
                 str("revanced_settings_reset"),
                 () -> {
                     reset.run();
-                    Utils.showToastShort(str("morphe_music_lyrics_ai_config_toast_reset"));
+                    Utils.showToastShort(str("revanced_settings_import_reset"));
                 },
                 true
         );
@@ -480,7 +480,7 @@ final class LyricsProviderConfigDialog {
 
     private static String reasoningEffortLabel(String effort) {
         if (effort.isEmpty()) {
-            return str("morphe_music_lyrics_ai_config_reasoning_effort_default");
+            return str("morphe_app_refresh_rate_default");
         }
         return Character.toUpperCase(effort.charAt(0)) + effort.substring(1);
     }

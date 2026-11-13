@@ -84,6 +84,15 @@
     <string name="morphe_custom_branding_splash_animation_size_title">اندازه انیمیشن صفحه شروع (اسپلش)</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">از انیمیشن انتخاب‌شده به‌عنوان اسپلش (صفحه آغازین) سیستم اندروید استفاده می‌کند</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">اندازه انیمیشن صفحه شروع (اسپلش)</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">فایل انتخاب‌شده یک تصویر پشتیبانی‌شده نیست</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">تصویر شست سفارشی نوار جست‌وجو پیدا نشد</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">انتخاب یک تصویر یا GIF متحرک از حافظه دستگاه</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">تصویر شست</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">مناسب با نوار جست‌وجو</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">اندازهٔ اصلی</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">اندازهٔ شست</string>
+    <string name="morphe_custom_seekbar_thumb_summary">جایگزینی شست نوار جست‌وجو با یک تصویر سفارشی یا GIF متحرک</string>
+    <string name="morphe_custom_seekbar_thumb_title">فعال‌کردن شست سفارشی نوار جست‌وجو</string>
     <string name="morphe_dark_theme_custom_color_summary">زمانی استفاده می‌شود که گزینه «سفارشی» (Custom) انتخاب شده باشد</string>
     <string name="morphe_dark_theme_custom_color_title">رنگ سفارشی برای تم تیره</string>
     <string name="morphe_dark_theme_title">تم تاریک</string>
@@ -96,7 +105,7 @@
     <string name="morphe_dearrow_casual_mode_title">حالت غیررسمی</string>
     <string name="morphe_dearrow_error">DeArrow موقتاً در دسترس نیست (کد وضعیت: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow موقتاً در دسترس نیست</string>
-    <string name="morphe_dearrow_titles_icon_summary">آیکون DeArrow را روی عنوان‌های ویدیویی جمع‌سپاری‌شده نمایش می‌دهد</string>
+    <string name="morphe_dearrow_titles_icon_summary">آیکون DeArrow را روی عنوان ویدیوهای crowdsourced نمایش می‌دهد. برای نمایش عنوان و تصویر بندانگشتی اصلی روی آیکون ضربه بزنید</string>
     <string name="morphe_dearrow_titles_icon_title">نمایش آیکون DeArrow</string>
     <string name="morphe_dearrow_titles_summary">عنوان‌های ویدیوها را با عنوان‌های ارائه‌شده توسط کاربران در DeArrow جایگزین می‌کند</string>
     <string name="morphe_dearrow_titles_title">عنوان‌های DeArrow</string>
@@ -118,6 +127,14 @@
     <string name="morphe_disable_toolbar_navigation_tabs_summary">اگر YouTube بخش اشتراکات را به تبی در بالای صفحه اصلی منتقل کرد، این گزینه آن را در نوار پیمایش نمایش می‌دهد</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">غیرفعال‌کردن تب‌های پیمایش نوار ابزار</string>
     <string name="morphe_dual_captions_enabled_title">زیرنویس‌های دو زبانه</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">مدت زمانی که نور پس از توقف پیمایش کم‌نور می‌ماند. با مقدار 0، فقط هنگام پیمایش نور کم می‌شود و به محض توقف پیمایش، به حالت قبل برمی‌گردد</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">مدت زمان کم‌نوری</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">هنگام پیمایش یا لمس صفحه، نور را کم می‌کند</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">کم‌نور شدن هنگام پیمایش</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">شدت نور در ویدیوهای روشن را کاهش می‌دهد تا متن‌های صفحه خوانا باقی بمانند</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">خوانا نگه داشتن متن</string>
+    <string name="morphe_enhanced_ambient_mode_summary">به جای حالت محیطی، تمام صفحه تماشا و نوارهای سیاه را با رنگ ویدیو روشن می‌کند</string>
+    <string name="morphe_enhanced_ambient_mode_title">حالت محیطی پیشرفته</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">ممکن است گزینه «افزایش مدت‌زمان DVR پخش زنده» (Expand livestream DVR duration) در دسترس نباشد
 
 برای رفع این مشکل، گزینه «جعل جریان‌های ویدیویی» (Spoof video streams) را فعال کنید و «کلاینت پیش‌فرض» (Default client) را روی «TV Simply» یا «visionOS» قرار دهید</string>
@@ -130,6 +147,8 @@
     <string name="morphe_feed_long_press_menu_title">ضربه بزنید و نگه دارید تا منوی ویدیو باز شود</string>
     <string name="morphe_feed_watch_later_button_summary">یک دکمهٔ «تماشای بعدی» روی تصاویر بندانگشتی ویدئوهای فید نمایش داده می‌شود و اگر ویدئو ذخیره شده باشد، یک علامت تیک دارد. ضربه زدن روی آن باعث ذخیره یا حذف ویدئو می‌شود و ضربه طولانی روی آن، گزینهٔ «ذخیره در فهرست پخش» را باز می‌کند</string>
     <string name="morphe_feed_watch_later_button_title">نمایش دکمه \"تماشا بعداً\" روی تصاویر بندانگشتی</string>
+    <string name="morphe_fix_status_bar_layout_summary">چیدمان نوار وضعیت را یکپارچه نگه می‌دارد، بنابراین بر نوارهای بالایی پوشانده نمی‌شود و فضای خالی در بالای پخش‌کننده باقی نمی‌گذارد. اگر برنامه کرش کرد یا نوارهای بالایی به درستی نمایش داده نشدند، این گزینه را غیرفعال کنید</string>
+    <string name="morphe_fix_status_bar_layout_title">رفع پوشانده شدن نوارهای بالا توسط نوار وضعیت</string>
     <string name="morphe_force_original_audio_not_available">برای استفاده از این قابلیت، «جعل جریان‌های ویدئویی» را به هر کلاینتی به‌جز «Android Studio» و «Android VR Downgraded» تغییر دهید</string>
     <string name="morphe_force_original_audio_summary_off">استفاده از صدای پیش‌فرض</string>
     <string name="morphe_force_original_audio_summary_on">استفاده از زبان صوتی اصلی</string>
@@ -204,6 +223,8 @@
     <string name="morphe_hide_stats_hidden_24h_title">ویدئوهای پنهان‌شده در ۲۴ ساعت گذشته</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">شمارندهٔ همهٔ زمان‌ها بازنشانی شود؟</string>
     <string name="morphe_hide_stats_hidden_all_title">ویدئوهای پنهان‌شده در همهٔ زمان‌ها</string>
+    <string name="morphe_hide_status_bar_summary">نوار وضعیت سیستم را پنهان می‌کند. برای نمایش لحظه‌ای آن، از لبه بالایی به پایین بکشید</string>
+    <string name="morphe_hide_status_bar_title">پنهان کردن نوار وضعیت</string>
     <string name="morphe_hide_sync_button_title">پنهان‌کردن دکمهٔ «همگام‌سازی با ویدئو»</string>
     <string name="morphe_hide_youtube_create_menu_title">پنهان‌کردن منوی YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">پنهان‌کردن منوی YouTube Kids</string>
@@ -215,7 +236,7 @@
     <string name="morphe_light_theme_title">تم روشن</string>
     <string name="morphe_live_chat_translate_bold_summary">متن ترجمه‌شده را به صورت ضخیم نمایش می‌دهد</string>
     <string name="morphe_live_chat_translate_bold_title">ضخیم کردن متن ترجمه‌شده</string>
-    <string name="morphe_live_chat_translate_color_summary">رنگ هگس متن ترجمه‌شده را تنظیم کنید</string>
+    <string name="morphe_live_chat_translate_color_summary">کد رنگ هگزادسیمال متن ترجمه‌شده را تنظیم کنید</string>
     <string name="morphe_live_chat_translate_color_title">رنگ متن ترجمه‌شده</string>
     <string name="morphe_live_chat_translate_copied">پیام در کلیپ‌بورد کپی شد</string>
     <string name="morphe_live_chat_translate_copy_button_summary">یک دکمهٔ کپی کوچک به هر پیام چت اضافه می‌کند</string>
@@ -287,6 +308,12 @@
     <string name="morphe_playback_in_feeds_title">پخش در خوراک‌ها</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">شفافیت پس‌زمینهٔ پشت دکمه‌های کنترل پخش‌کننده و نوار زمان را تنظیم کنید (۰ نامرئی و ۱۰۰ یک‌دست است)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">شفافیت پس‌زمینهٔ دکمه‌های کنترل</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">پس از حذف یک ویدیو از لیست پخش، تاییدیه نمایش داده نمی‌شود</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">مخفی کردن اسنک‌بار حذف از لیست پخش</string>
+    <string name="morphe_playlist_long_press_drag_summary">یک ویدیو از لیست پخش خود را لمس کرده و نگه دارید تا آن را به موقعیت جدیدی بکشید</string>
+    <string name="morphe_playlist_long_press_drag_title">برای تغییر ترتیب ویدیوهای لیست پخش، فشار طولانی دهید</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">گرفتن دستگیره‌های جابه‌جایی لیست پخش آسان‌تر می‌شود</string>
+    <string name="morphe_playlist_wide_drag_handles_title">عریض‌تر کردن دستگیره‌های جابه‌جایی لیست پخش</string>
     <string name="morphe_post_buttons_layout_entry_1">سرور</string>
     <string name="morphe_post_buttons_layout_entry_2">اجباری</string>
     <string name="morphe_post_buttons_layout_title">چیدمان دکمه‌های پست</string>
@@ -300,7 +327,7 @@
     <string name="morphe_post_image_download_saved_single">تصویر در %s ذخیره شد</string>
     <string name="morphe_post_image_download_started">در حال دانلود %s تصویر…</string>
     <string name="morphe_post_image_download_started_single">در حال دانلود تصویر…</string>
-    <string name="morphe_post_image_download_summary">یک دکمه دانلود در کنار دکمه اشتراک‌گذاری پست‌های دارای تصویر یا GIF نمایش داده می‌شود و یک گزینه دانلود به منوی آن‌ها اضافه می‌گردد</string>
+    <string name="morphe_post_image_download_summary">یک دکمه دانلود در کنار دکمه اشتراک‌گذاری پست‌های دارای تصویر یا GIF نمایش داده می‌شود و یک گزینه دانلود به منوی آن‌ها اضافه می‌شود</string>
     <string name="morphe_post_image_download_title">دانلود تصاویر پست</string>
     <string name="morphe_potoken_provider_expired_dialog_message">توکن تعبیه‌شده در این نسخه از ارائه‌دهنده PoToken دیگر کار نمی‌کند
 
@@ -377,7 +404,7 @@
     <string name="morphe_spoof_video_streams_player_js_variant_title">گونهٔ JavaScript پخش‌کننده</string>
     <string name="morphe_spoof_video_streams_screen_summary">جعل کلاینت را برای جلوگیری از مشکلات پخش پیکربندی کنید</string>
     <string name="morphe_spoof_video_streams_screen_title">جعل جریان‌های ویدئویی</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">به Android VR وارد نشده‌اید. برای ورود، اینجا ضربه بزنید</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR به یک ورود به سیستم مجزا نیاز دارد. برای ادامه اینجا را لمس کنید</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">برای استفاده از این قابلیت، «کلاینت پیش‌فرض» را به Android VR تغییر دهید</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">در حال حاضر به Android VR وارد شده‌اید</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">ورود به Android VR</string>
@@ -413,6 +440,10 @@
     <string name="morphe_tablet_layout_in_player_title">فعال‌کردن طرح‌بندی تبلت در پخش‌کننده</string>
     <string name="morphe_theme_color_change_foreground_summary">از رنگ طرح برای متن و آیکون‌ها استفاده می‌کند</string>
     <string name="morphe_theme_color_change_foreground_title">تغییر رنگ پیش‌زمینه</string>
+    <string name="morphe_video_action_bar_layout_entry_2">کلاسیک تک‌ردیفه</string>
+    <string name="morphe_video_action_bar_layout_entry_4">کلاسیک دوردیفه</string>
+    <string name="morphe_video_action_bar_layout_title">طرح‌بندی نوار عملیات ویدئو</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">محدودیت: چیدمان‌های کلاسیک به لایه‌ی قدیمی «ویدیوهای بیشتر» بازمی‌گردند</string>
     <string name="morphe_video_quality_prioritize_dialog">اگر این تنظیم خاموش باشد، ویدئوهای قدیمی ممکن است هیچ گزینهٔ کیفیت ویدئویی نشان ندهند</string>
     <string name="morphe_video_quality_prioritize_summary">بالاترین کیفیت موجود را بر کارایی کدک اولویت می‌دهد</string>
     <string name="morphe_video_quality_prioritize_title">اولویت‌دادن به کیفیت ویدئو</string>
@@ -463,10 +494,6 @@
     <string name="morphe_vot_voice_gender_female_multilingual">زن چندزبانه</string>
     <string name="morphe_vot_voice_gender_male">مرد</string>
     <string name="morphe_vot_voice_gender_male_multilingual">مرد چندزبانه</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">پس از حذف یک ویدیو از \"بعداً می‌بینم\"، تاییدیه نمایش داده نمی‌شود</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">مخفی کردن اسنک‌بار حذف از \"بعداً می‌بینم\"</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">دستگیره‌های کشیدن ویدیوهای \"بعداً می‌بینم\" راحت‌تر قابل گرفتن هستند</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">عریض‌تر کردن دستگیره‌های کشیدن «بعداً می‌بینم»</string>
     <string name="revanced_advanced_video_quality_menu_title">بازکردن منوی کیفیت پیشرفته</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">نشانی نقطهٔ پایانی حافظهٔ پنهان تصاویر بندانگشتی DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">نقطهٔ پایانی API DeArrow</string>
@@ -503,16 +530,16 @@
 • پست‌های انجمن پنهان می‌شوند
 • تنظیم پخش در فید در دسترس نیست
 • دکمه‌های ریمیکس و صدا در Shorts در دسترس نیستند
-• ممکن است روی‌هم‌افتادگی «ویدئوهای بیشتر» در دسترس نباشد
-• نوار عملیات قدیمی ویدئو به‌صورت بازشده نمایش داده می‌شود
+• ممکن است پوشش «ویدئوهای بیشتر» در دسترس نباشد
+• نوار عملیات قدیمی ویدیو به‌صورت بازشده نمایش داده می‌شود
 
 طرح‌بندی خودرویی
 • فید بر اساس موضوع‌ها و کانال‌ها سازمان‌دهی می‌شود
 • تنظیم پخش در فید در دسترس نیست
 • دکمه‌های ریمیکس و صدا در Shorts در دسترس نیستند
-• ممکن است روی‌هم‌افتادگی «ویدئوهای بیشتر» در دسترس نباشد
+• ممکن است پوشش «ویدئوهای بیشتر» در دسترس نباشد
 • Shorts در پخش‌کنندهٔ معمولی باز می‌شود
-• نوار عملیات قدیمی ویدئو به‌صورت بازشده نمایش داده می‌شود"</string>
+• نوار عملیات قدیمی ویدیو به‌صورت بازشده نمایش داده می‌شود"</string>
     <string name="revanced_change_server_side_snack_bar_background_summary_on">Background color of the server-side snackbar has changed</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">همهٔ اشتراک‌ها</string>
     <string name="revanced_change_start_page_entry_browse">مرور کانال‌ها</string>
@@ -683,25 +710,19 @@
     <string name="revanced_hide_keyword_content_about_summary">"خانه / اشتراک‌ها / جست‌وجو / دیدگاه‌ها فیلتر می‌شوند تا محتوای منطبق با عبارت‌های کلیدی پنهان شود
 
 محدودیت‌ها:
-• Shorts را نمی‌توان بر اساس نام کانال پنهان کرد
-• ممکن است بعضی مؤلفه‌های رابط کاربری پنهان نشوند
-• جست‌وجوی یک کلمهٔ کلیدی ممکن است نتیجه‌ای نشان ندهد"</string>
+• برخی Shorts را نمی‌توان بر اساس نام کانال پنهان کرد
+• ممکن است بعضی مؤلفه‌های رابط کاربری پنهان نشوند"</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">قرار دادن کلمه یا عبارت کلیدی درون گیومهٔ دوتایی، از مطابقت جزئی با عنوان ویدئو و نام کانال جلوگیری می‌کند&lt;br&gt;&lt;br&gt;برای مثال،&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ویدئوی &lt;b&gt;هوش مصنوعی چگونه کار می‌کند؟&lt;/b&gt; را پنهان می‌کند&lt;br&gt;اما این مورد را پنهان نمی‌کند: &lt;b&gt;منظور از استفادهٔ منصفانه چیست؟&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">مطابقت با کلمه‌های کامل</string>
     <string name="revanced_hide_keyword_content_comments_title">پنهان‌کردن دیدگاه‌ها بر اساس کلمه‌های کلیدی</string>
     <string name="revanced_hide_keyword_content_home_title">پنهان‌کردن ویدئوهای خانه بر اساس کلمه‌های کلیدی</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"کلمه‌ها و عبارت‌هایی را که باید پنهان شوند، هرکدام در خطی جدا وارد کنید
+    <string name="revanced_hide_keyword_content_phrases_summary">"کلمات کلیدی و عبارت‌هایی را که می‌خواهید پنهان شوند، با خطوط جدید از هم جدا کرده و وارد کنید
 
-کلمه‌ها می‌توانند هر متنی باشند که در عنوان ویدئو یا نام کانال نمایش داده می‌شود
-
-کلمه‌هایی که در میانه حروف بزرگ دارند باید دقیقاً مطابقت کنند (مثلاً iPhone، TikTok، LeBlanc)"</string>
+کلمات کلیدی می‌توانند هر متنی باشند که در عناوین ویدیو نمایش داده می‌شود. کلمه کلیدی @UserName تمام محتوای سازندگان خاصی را پنهان می‌کند"</string>
     <string name="revanced_hide_keyword_content_phrases_title">کلمه‌های کلیدی برای پنهان‌کردن</string>
     <string name="revanced_hide_keyword_content_search_title">پنهان‌کردن نتایج جست‌وجو بر اساس کلمه‌های کلیدی</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">پنهان‌کردن ویدئوهای اشتراک‌ها بر اساس کلمه‌های کلیدی</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">کلمهٔ کلیدی همهٔ ویدئوها را پنهان می‌کند: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">استفاده از کلمهٔ کلیدی ممکن نیست: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">برای استفاده از کلمهٔ کلیدی، گیومه اضافه کنید: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">کلمهٔ کلیدی اعلان‌های متناقض دارد: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">کلمهٔ کلیدی خیلی کوتاه است و به گیومه نیاز دارد: %s</string>
     <string name="revanced_hide_latest_videos_button_summary_off">دکمه آخرین ویدئوها نمایش داده می‌شود</string>
     <string name="revanced_hide_latest_videos_button_summary_on">دکمه آخرین ویدئوها پنهان است</string>

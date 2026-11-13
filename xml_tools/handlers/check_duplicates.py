@@ -8,13 +8,18 @@ import logging
 from collections import defaultdict
 from typing import TYPE_CHECKING
 
-from config.settings import Settings
 from defusedxml import ElementTree as DefusedET
+
+from config.settings import Settings
 
 if TYPE_CHECKING:
     from pathlib import Path
 
 logger = logging.getLogger("xml_tools")
+
+BLACKLIST: set[frozenset[str]] = {
+    frozenset({"morphe_music_lyrics_rime_dict_title", "morphe_music_lyrics_romanization_provider_rime"}),
+}
 
 
 def extract_string_texts(path: Path) -> dict[str, str]:
@@ -40,15 +45,13 @@ def extract_string_texts(path: Path) -> dict[str, str]:
 
 
 def find_duplicate_strings(path: Path) -> dict[str, list[str]]:
-    """Find duplicate text so callers reuse a single string resource without exemptions."""
+    """Find duplicate text, excluding explicitly allowed resource-name groups."""
     names_by_text: defaultdict[str, list[str]] = defaultdict(list)
     for name, text in extract_string_texts(path).items():
         names_by_text[text].append(name)
 
     return {
-        text: names
-        for text, names in names_by_text.items()
-        if len(names) > 1
+        text: names for text, names in names_by_text.items() if len(names) > 1 and frozenset(names) not in BLACKLIST
     }
 
 

@@ -84,6 +84,15 @@ Laporan bersifat publik dan ditinjau sebelum saluran ditambahkan ke daftar. Peng
     <string name="morphe_custom_branding_splash_animation_size_title">Ukuran animasi splash</string>
     <string name="morphe_custom_branding_use_as_system_splash_summary">Gunakan animasi terpilih sebagai splash sistem Android</string>
     <string name="morphe_custom_branding_use_as_system_splash_title">Gunakan sebagai splash sistem</string>
+    <string name="morphe_custom_seekbar_thumb_file_invalid">Berkas yang dipilih bukan gambar yang didukung</string>
+    <string name="morphe_custom_seekbar_thumb_file_not_found">Gambar thumb seekbar khusus tidak ditemukan</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">Pilih gambar atau GIF animasi dari penyimpanan perangkat</string>
+    <string name="morphe_custom_seekbar_thumb_file_title">Gambar thumb</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">Sesuaikan seekbar</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">Ukuran asli</string>
+    <string name="morphe_custom_seekbar_thumb_scale_type_title">Ukuran thumb</string>
+    <string name="morphe_custom_seekbar_thumb_summary">Ganti thumb seekbar dengan gambar khusus atau GIF animasi</string>
+    <string name="morphe_custom_seekbar_thumb_title">Aktifkan thumb seekbar khusus</string>
     <string name="morphe_dark_theme_custom_color_summary">Digunakan saat Kustom dipilih</string>
     <string name="morphe_dark_theme_custom_color_title">Warna tema gelap Kustom</string>
     <string name="morphe_dark_theme_title">Tema gelap</string>
@@ -96,7 +105,7 @@ Video diminta dengan awalan pendek dari ID video yang di-hash, sehingga server t
     <string name="morphe_dearrow_casual_mode_title">Mode kasual</string>
     <string name="morphe_dearrow_error">DeArrow sementara tidak tersedia (kode status: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow sementara tidak tersedia</string>
-    <string name="morphe_dearrow_titles_icon_summary">Menampilkan ikon DeArrow pada judul video kontribusi pengguna</string>
+    <string name="morphe_dearrow_titles_icon_summary">Menampilkan ikon DeArrow pada judul video crowdsourced. Ketuk ikon untuk menampilkan judul dan thumbnail asli</string>
     <string name="morphe_dearrow_titles_icon_title">Tampilkan ikon DeArrow</string>
     <string name="morphe_dearrow_titles_title">Judul DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Mencegah feed agar tidak disegarkan secara otomatis setelah kedaluwarsa</string>
@@ -117,6 +126,14 @@ Video diminta dengan awalan pendek dari ID video yang di-hash, sehingga server t
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Menampilkan Subscription di bilah navigasi, jika YouTube memindahkannya ke tab di bagian atas Beranda</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Nonaktifkan tab navigasi toolbar</string>
     <string name="morphe_dual_captions_enabled_title">Teks Dwibahasa</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Berapa lama cahaya tetap redup setelah pengguliran berhenti. Dengan 0, hanya pengguliran yang meredupkan cahaya, dan cahaya akan kembali segera setelah pengguliran berhenti</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_title">Durasi redup</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Meredupkan cahaya saat halaman digulir atau disentuh</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Redupkan saat menggulir</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_summary">Meredupkan cahaya pada video terang agar teks di halaman tetap terbaca</string>
+    <string name="morphe_enhanced_ambient_mode_readable_text_title">Jaga agar teks tetap terbaca</string>
+    <string name="morphe_enhanced_ambient_mode_summary">Menerangi seluruh halaman tontonan dan bilah hitam dengan video, sebagai pengganti Mode pencahayaan sinematik</string>
+    <string name="morphe_enhanced_ambient_mode_title">Mode pencahayaan sinematik yang ditingkatkan</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Perluas durasi siaran langsung DVR' mungkin tidak tersedia
 
 Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
@@ -129,6 +146,8 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_feed_long_press_menu_title">Ketuk dan tahan untuk membuka menu video</string>
     <string name="morphe_feed_watch_later_button_summary">Tombol Tonton nanti ditampilkan pada thumbnail video feed, dengan tanda centang jika video disimpan. Mengetuk tombol ini akan menyimpan atau menghapus video, dan mengetuk serta menahannya akan membuka Simpan ke daftar putar</string>
     <string name="morphe_feed_watch_later_button_title">Tampilkan tombol Tonton nanti pada thumbnail</string>
+    <string name="morphe_fix_status_bar_layout_summary">Menjaga tata letak status bar konsisten, sehingga tidak menutupi bar atas dan tidak meninggalkan ruang kosong di atas pemutar. Matikan ini jika aplikasi mengalami crash atau bar atas terlihat salah</string>
+    <string name="morphe_fix_status_bar_layout_title">Perbaiki status bar yang menutupi bar atas</string>
     <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali \'Android Studio\' dan \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
     <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
@@ -186,7 +205,7 @@ Daftar diunduh dari GitHub dan video difilter di perangkat Anda"</string>
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu 'Trek Audio' disembunyikan
 
 Untuk menampilkan menu 'Trek Audio', ubah 'Palsukan aliran video' ke klien apa pun selain 'Android Studio' dan 'Android VR Downgraded'"</string>
-    <string name="morphe_hide_player_flyout_on_the_go_title">Sembunyikan menu \'Mode perjalanan\'</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Sembunyikan menu \'Mode mendengarkan\'</string>
     <string name="morphe_hide_podcasts_menu_title">Sembunyikan menu Podcast</string>
     <string name="morphe_hide_post_comment_button_title">Sembunyikan tombol Komentar</string>
     <string name="morphe_hide_post_comments_preview_summary">Menyembunyikan pratinjau komentar di bawah postingan</string>
@@ -203,6 +222,8 @@ Untuk menampilkan menu 'Trek Audio', ubah 'Palsukan aliran video' ke klien apa p
     <string name="morphe_hide_stats_hidden_24h_title">Video disembunyikan, 24 jam terakhir</string>
     <string name="morphe_hide_stats_hidden_all_reset_title">Atur ulang semua penghitung waktu?</string>
     <string name="morphe_hide_stats_hidden_all_title">Video disembunyikan, sepanjang waktu</string>
+    <string name="morphe_hide_status_bar_summary">Menyembunyikan bilah status sistem. Geser ke bawah dari tepi atas untuk menampilkannya sesaat</string>
+    <string name="morphe_hide_status_bar_title">Sembunyikan bilah status</string>
     <string name="morphe_hide_sync_button_title">Sembunyikan tombol \'Sinkronkan ke video\'</string>
     <string name="morphe_hide_youtube_create_menu_title">Sembunyikan menu YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">Sembunyikan menu YouTube Kids</string>
@@ -286,6 +307,12 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_playback_in_feeds_title">Pemutaran di feed</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Sesuaikan opasitas latar belakang di belakang tombol kontrol pemutar dan bilah waktu (0 tidak terlihat, 100 solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opasitas latar belakang tombol kontrol</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Konfirmasi tidak ditampilkan setelah video dihapus dari daftar putar</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Sembunyikan snackbar penghapusan daftar putar</string>
+    <string name="morphe_playlist_long_press_drag_summary">Sentuh dan tahan video di daftar putar Anda untuk menyeretnya ke posisi baru</string>
+    <string name="morphe_playlist_long_press_drag_title">Tekan lama untuk mengatur ulang urutan video daftar putar</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">Handle seret daftar putar lebih mudah diambil</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Perlebar handle seret daftar putar</string>
     <string name="morphe_post_buttons_layout_entry_1">Server</string>
     <string name="morphe_post_buttons_layout_entry_2">Dipaksakan</string>
     <string name="morphe_post_buttons_layout_title">Tata letak tombol postingan</string>
@@ -391,7 +418,7 @@ Jadikan %2$s sebagai klien bawaan?"</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Varian pemutar JavaScript</string>
     <string name="morphe_spoof_video_streams_screen_summary">Konfigurasikan pemalsuan klien untuk mencegah masalah pemutaran</string>
     <string name="morphe_spoof_video_streams_screen_title">Palsukan aliran video</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Tidak masuk ke Android VR. Ketuk disini untuk masuk</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR memerlukan login terpisah. Ketuk di sini untuk melanjutkan</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Untuk menggunakan fitur ini, ubah \'Klien bawaan\' ke Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Saat ini sedang masuk ke Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Masuk Android VR</string>
@@ -463,6 +490,10 @@ Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Vi
     <string name="morphe_theme_entry_white">Putih</string>
     <string name="morphe_theme_settings_summary">Kustomisasi tema aplikasi, tampilan, dan branding</string>
     <string name="morphe_theme_settings_title">Pengaturan Tema</string>
+    <string name="morphe_video_action_bar_layout_entry_2">Satu Baris Klasik</string>
+    <string name="morphe_video_action_bar_layout_entry_4">Dua Baris Klasik</string>
+    <string name="morphe_video_action_bar_layout_title">Tata letak bilah tindakan video</string>
+    <string name="morphe_video_action_bar_layout_user_dialog_message">Batasan: Tata letak Klasik kembali ke overlay \'Video lainnya\' gaya lama</string>
     <string name="morphe_video_quality_prioritize_dialog">Jika setelan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritaskan kualitas video tertinggi yang tersedia daripada efisiensi codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritaskan kualitas video</string>
@@ -514,10 +545,6 @@ Ketuk di sini untuk membuka OpenRouter.ai"</string>
     <string name="morphe_vot_voice_gender_female_multilingual">Wanita multibahasa</string>
     <string name="morphe_vot_voice_gender_male">Pria</string>
     <string name="morphe_vot_voice_gender_male_multilingual">Pria multibahasa</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_summary">Konfirmasi tidak ditampilkan setelah video dihapus dari Tonton nanti</string>
-    <string name="morphe_watch_later_hide_removal_snackbar_title">Sembunyikan snackbar penghapusan Tonton nanti</string>
-    <string name="morphe_watch_later_wide_drag_handles_summary">Handle seret video Tonton nanti lebih mudah digenggam</string>
-    <string name="morphe_watch_later_wide_drag_handles_title">Perlebar handle seret Tonton nanti</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_title">Buka menu kualitas Lanjutan</string>
@@ -560,7 +587,7 @@ Ketuk dan tahan untuk beralih jenis informasi yang ditambahkan"</string>
     <string name="revanced_auto_captions_style_entry_2">Jangan pernah tampilkan</string>
     <string name="revanced_auto_captions_style_entry_3">Tampilkan saat audio tidak dibisukan</string>
     <string name="revanced_auto_captions_style_entry_4">Tampilkan saat audio dibisukan</string>
-    <string name="revanced_auto_captions_style_title">Ketentuan teks otomatis</string>
+    <string name="revanced_auto_captions_style_title">Visibilitas teks otomatis</string>
     <string name="revanced_back_button_always_exits_feed_title">Tombol kembali menutup feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Batasan mode Sinematik untuk menghemat daya tidak diabaikan</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Batasan mode Sinematik untuk menghemat daya diabaikan</string>
@@ -1109,7 +1136,7 @@ Toko"</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Disembunyikan di saluran</string>
     <string name="revanced_hide_community_posts_channel_title">Sembunyikan di saluran</string>
     <string name="revanced_hide_connect_button_title">Sembunyikan tombol Sambungkan</string>
-    <string name="revanced_hide_corrections_section_title">Sembunyikan bagian komentar</string>
+    <string name="revanced_hide_corrections_section_title">Sembunyikan bagian Koreksi</string>
     <string name="revanced_hide_course_progress_section_title">Sembunyikan bagian \'Kemajuan kursus\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Rak toko kreator di bawah pemutar video ditampilkan</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Rak toko kreator di bawah pemutar video disembunyikan</string>
@@ -1137,7 +1164,7 @@ Toko"</string>
     <string name="revanced_hide_expandable_card_entry_3">Sembunyikan semua</string>
     <string name="revanced_hide_expandable_card_entry_4">Sembunyikan kartu produk dan ringkasan</string>
     <string name="revanced_hide_expandable_card_entry_5">Sembunyikan semua</string>
-    <string name="revanced_hide_expandable_card_title">Kartu yang dapat diperluas di bawah video ditampilkan</string>
+    <string name="revanced_hide_expandable_card_title">Kartu yang dapat diperluas di bawah video</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Rak yang dapat diperluas ditampilkan</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Rak yang dapat diperluas disembunyikan</string>
     <string name="revanced_hide_expandable_shelf_title">Sembunyikan rak yang dapat diperluas</string>
@@ -1208,11 +1235,10 @@ Toko"</string>
     <string name="revanced_hide_keyword_content_about_summary">"Beranda / Subscription / Pencarian / Komentar disaring untuk menyembunyikan konten yang cocok dengan frasa kata kunci
 
 Batasan:
-• Shorts tidak dapat disembunyikan berdasarkan nama channel
-• Beberapa komponen UI mungkin tidak disembunyikan
-• Pencarian kata kunci mungkin tidak menampilkan hasil"</string>
+• Beberapa Shorts tidak dapat disembunyikan berdasarkan nama channel
+• Beberapa komponen UI mungkin tidak disembunyikan"</string>
     <string name="revanced_hide_keyword_content_about_title">Tentang penyaringan kata kunci</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Melingkupi kata kunci/frasa dengan tanda kutip ganda akan mencegah pencocokan sebagian judul video dan nama saluran&lt;br&gt;&lt;br&gt;Misalnya,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; akan menyembunyikan video: &lt;b&gt;Bagaimana cara kerja AI?&lt;/b&gt;&lt;br&gt;tetapi tidak akan menyembunyikan: &lt;b&gt;Apa yang dimaksud dengan Jakarta Fair?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Melingkupi kata kunci/frasa dengan tanda kutip ganda akan mencegah pencocokan sebagian judul video dan nama saluran&lt;br&gt;&lt;br&gt;Misalnya,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; akan menyembunyikan video: &lt;b&gt;Bagaimana cara kerja AI?&lt;/b&gt;&lt;br&gt;tetapi tidak akan menyembunyikan: &lt;b&gt;Apa arti fair use?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Cocokkan seluruh kata</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Komentar tidak disaring</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Komentar disaring</string>
@@ -1222,9 +1248,7 @@ Batasan:
     <string name="revanced_hide_keyword_content_home_title">Sembunyikan video beranda dengan kata kunci</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Masukkan kata kunci dan frasa yang akan disembunyikan, dipisahkan dengan baris baru
 
-Kata kunci dapat berupa teks apa pun yang muncul dalam judul video atau nama saluran
-
-Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya, iPhone, TikTok, LeBlanc)"</string>
+Kata kunci dapat berupa teks apa pun yang muncul dalam judul video. Kata kunci @NamaPengguna menyembunyikan semua konten dari kreator tertentu"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Kata kunci yang ingin disembunyikan</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Hasil pencarian tidak disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Hasil pencarian disaring berdasarkan kata kunci</string>
@@ -1233,9 +1257,6 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya, iPh
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Sembunyikan video subscription dengan kata kunci</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Kata kunci akan menyembunyikan semua video: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Tidak dapat menggunakan kata kunci: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Tambahkan tanda kutip untuk menggunakan kata kunci: %s</string>
-    <string name="revanced_hide_keyword_toast_invalid_conflicting">Kata kunci punya keterangan yang berkonflik: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Kata kunci terlalu pendek dan butuh tanda kutip: %s</string>
     <string name="revanced_hide_latest_posts_summary_off">Postingan terbaru ditampilkan</string>
     <string name="revanced_hide_latest_posts_summary_on">Postingan terbaru disembunyikan</string>
@@ -1641,7 +1662,7 @@ Kuota harian untuk kunci API pada paket gratis adalah 10.000, dan 1 kuota diguna
 Klik untuk melihat cara mendapatkan kunci API"</string>
     <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike mengembalikan jumlah dislike yang disembunyikan YouTube pada tahun 2021. Jumlah tersebut berasal dari data yang diarsipkan sebelum penghapusan dan diperkirakan untuk video yang lebih baru dari suara penggunanya, sehingga bersifat perkiraan dan diperbarui setiap beberapa hari
 
-ID video yang Anda tonton dikirim ke API Return YouTube Dislike, dan suka dan tidak suka Anda dikirim secara anonim untuk meningkatkan perkiraan.}"</string>
+ID video yang Anda tonton dikirim ke API Return YouTube Dislike, dan suka dan tidak suka Anda dikirim secara anonim untuk meningkatkan perkiraan"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
     <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
@@ -1734,7 +1755,7 @@ sampai
 Siap mengirim?"</string>
     <string name="revanced_sb_new_segment_confirm_title">Apakah waktunya benar?</string>
     <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di setelan. Aktifkan kategori untuk dikirim</string>
-    <string name="revanced_sb_new_segment_edit_by_hand_content">Apakah Anda ingin menubah waktu awal atau akhir segmen?</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_content">Apakah Anda ingin mengubah waktu awal atau akhir segmen?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Waktu yang diberikan tidak sah</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Ubah waktu segmen secara manual</string>
     <string name="revanced_sb_new_segment_highlight_content">"Apakah waktu sorotan sudah benar?
@@ -1868,7 +1889,7 @@ Sudah ada"</string>
     <string name="revanced_settings_import">Impor</string>
     <string name="revanced_settings_import_copy">Salin</string>
     <string name="revanced_settings_import_reset">Setelan ReVanced diatur ke bawaan</string>
-    <string name="revanced_settings_import_success">%s Setelan diimpor</string>
+    <string name="revanced_settings_import_success">%s setelan diimpor</string>
     <string name="revanced_settings_navigate_up">Navigasi ke atas</string>
     <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
