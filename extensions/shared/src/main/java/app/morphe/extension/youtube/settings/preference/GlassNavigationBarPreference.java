@@ -313,7 +313,7 @@ public class GlassNavigationBarPreference extends Preference {
             final float bottom = height - Dim.dp(values[3]) * scale;
             final float top = bottom - capsuleHeight;
             rect.set(left, top, left + capsuleWidth, bottom);
-            final float radius = capsuleHeight / 2;
+            final float radius = capsuleHeight * GlassNavigationBar.getCornerRadiusFraction();
 
             paint.setColor(dark ? 0x99383838 : 0x99F7F7F7);
             canvas.drawRoundRect(rect, radius, radius, paint);

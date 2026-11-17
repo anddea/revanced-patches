@@ -179,17 +179,18 @@ public final class GlassNavigationBarLayout {
      * content, so it follows the density, the font size and the language.
      *
      * @param tabs        The parent of the buttons.
-     * @param iconId      The id of the view that holds the icon of a button, or 0 if not known.
+     * @param iconIds     The ids of the view that holds the icon of a button, the first one or 0 if not known,
+     *                    then the ids of the icon of other kinds of buttons, such as buttons without a label.
      * @param labelId     The id of the label of a button, or 0 if not known.
      * @param hidden      The buttons hidden because they do not fit.
      */
-    public static Buttons measureButtons(ViewGroup tabs, int iconId, int labelId, Set<View> hidden) {
+    public static Buttons measureButtons(ViewGroup tabs, int[] iconIds, int labelId, Set<View> hidden) {
         final int count = tabs.getChildCount();
         List<View> buttons = new ArrayList<>(count);
         int[] contentWidths = new int[count];
         int contentTop = Integer.MAX_VALUE;
         int contentBottom = 0;
-        final boolean idsKnown = iconId != 0 && labelId != 0;
+        final boolean idsKnown = iconIds[0] != 0 && labelId != 0;
 
         for (int i = 0; i < count; i++) {
             View button = tabs.getChildAt(i);
@@ -203,19 +204,46 @@ public final class GlassNavigationBarLayout {
             for (int j = 0, contentCount = group.getChildCount(); j < contentCount; j++) {
                 View child = group.getChildAt(j);
                 final int id = child.getId();
-                if (!idsKnown || id == iconId || id == labelId) {
+                boolean isContent = !idsKnown || id == labelId;
+                for (int iconId : iconIds) {
+                    isContent |= iconId != 0 && id == iconId;
+                }
+                if (isContent) {
                     contents.add(child);
                 }
             }
             if (idsKnown && contents.isEmpty()) {
-                View icon = group.findViewById(iconId);
+                View icon = null;
+                for (int iconId : iconIds) {
+                    if (icon == null && iconId != 0) {
+                        icon = group.findViewById(iconId);
+                    }
+                }
                 View label = group.findViewById(labelId);
                 if (icon != null) contents.add(icon);
                 if (label != null) contents.add(label);
             }
 
             for (View child : contents) {
-                if (!isShownIn(child, button)) continue;
+                // If the view and its parents up to the ancestor are visible.
+                boolean isShownIn;
+                isShownIn: {
+                    View view = child;
+                    while (view != button) {
+                        if (view.getVisibility() != View.VISIBLE) {
+                            isShownIn = false;
+                            break isShownIn;
+                        }
+                        ViewParent parent = view.getParent();
+                        if (!(parent instanceof View parentView)) {
+                            isShownIn = false;
+                            break isShownIn;
+                        }
+                        view = parentView;
+                    }
+                    isShownIn = true;
+                }
+                if (!isShownIn) continue;
 
                 // The whole label, also if the button is narrower and the label is cut.
                 buttonContentWidth = Math.max(buttonContentWidth, child instanceof TextView label
@@ -223,7 +251,15 @@ public final class GlassNavigationBarLayout {
                                 + label.getPaddingLeft() + label.getPaddingRight()
                         : child.getWidth());
                 if (laidOut && child.getHeight() > 0) {
-                    final int top = getTopIn(child, button);
+                    // The top of the view in the coordinates of the ancestor.
+                    View topView = child;
+                    int top = 0;
+                    while (topView != button) {
+                        top += topView.getTop();
+                        ViewParent parent = topView.getParent();
+                        if (!(parent instanceof View parentView)) break;
+                        topView = parentView;
+                    }
                     contentTop = Math.min(contentTop, top);
                     contentBottom = Math.max(contentBottom, top + child.getHeight());
                 }
@@ -275,33 +311,6 @@ public final class GlassNavigationBarLayout {
             button.setVisibility(View.VISIBLE);
         }
         hidden.clear();
-    }
-
-    /**
-     * @return If the view and its parents up to the ancestor are visible.
-     */
-    private static boolean isShownIn(View view, View ancestor) {
-        while (view != ancestor) {
-            if (view.getVisibility() != View.VISIBLE) return false;
-            ViewParent parent = view.getParent();
-            if (!(parent instanceof View parentView)) return false;
-            view = parentView;
-        }
-        return true;
-    }
-
-    /**
-     * @return The top of the view in the coordinates of the ancestor.
-     */
-    private static int getTopIn(View view, View ancestor) {
-        int top = 0;
-        while (view != ancestor) {
-            top += view.getTop();
-            ViewParent parent = view.getParent();
-            if (!(parent instanceof View parentView)) break;
-            view = parentView;
-        }
-        return top;
     }
 
     /**

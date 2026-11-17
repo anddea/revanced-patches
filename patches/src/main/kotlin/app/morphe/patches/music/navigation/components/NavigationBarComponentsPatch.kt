@@ -42,6 +42,11 @@
 
 package app.morphe.patches.music.navigation.components
 
+import app.morphe.patcher.patch.classDefBy
+import app.morphe.patcher.patch.mutableClassDefBy
+import app.morphe.patches.music.player.components.playerComponentsPatch
+import app.morphe.patches.shared.misc.media.MediaSessionSetPlaybackStateFingerprint
+import app.morphe.patches.shared.misc.media.hookMediaSessionArgument
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -140,6 +145,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
     dependsOn(
         changeStartPagePatch,
+        playerComponentsPatch,
         navigationBarComponentsResourcePatch,
         sharedResourceIdPatch,
         settingsPatch,
@@ -482,6 +488,31 @@ val navigationBarComponentsPatch = bytecodePatch(
             "revanced_replace_navigation_button_about"
         )
 
+        if (is_9_39_or_greater) {
+            MediaSessionSetPlaybackStateFingerprint.hookMediaSessionArgument(
+                "Lapp/morphe/extension/music/patches/MusicGlassMiniplayer;->onSetPlaybackState(Landroid/media/session/PlaybackState;)V"
+            )
+            // The time bars of the player and of the miniplayer share an obfuscated class. The time bar
+            // of the miniplayer has no id, so the class is marked for the glass miniplayer to find it.
+            val timeBarClass = classDefBy(
+                "Lcom/google/android/apps/youtube/music/watchpage/MusicPlaybackControlsTimeBar;"
+            ).superclass!!
+            mutableClassDefBy(timeBarClass).interfaces.add(
+                "Lapp/morphe/extension/music/patches/MusicGlassMiniplayer\$TimeBar;"
+            )
+            addSwitchPreference(CategoryType.PLAYER, "morphe_music_miniplayer_glass", "false")
+            addCustomPreference(CategoryType.PLAYER.value, "morphe_music_miniplayer_glass_corner_radius",
+                "app.morphe.extension.music.settings.preference.MusicGlassMiniplayerPreference",
+                titleKey = "morphe_music_miniplayer_glass_style_title",
+                summaryKey = "morphe_music_miniplayer_glass_style_summary")
+            addCustomPreference(CategoryType.PLAYER.value, "morphe_music_miniplayer_glass_blur",
+                "app.morphe.extension.shared.settings.preference.SeekBarPreference")
+            addSwitchPreference(CategoryType.PLAYER, "morphe_music_miniplayer_glass_light", "false")
+            addSwitchPreference(CategoryType.PLAYER, "morphe_music_miniplayer_glass_album_tint", "true")
+            addSwitchPreference(CategoryType.PLAYER, "morphe_music_miniplayer_glass_spinning_artwork", "false")
+            addSwitchPreference(CategoryType.PLAYER, "morphe_music_miniplayer_glass_hide_progress_bar", "false")
+        }
+
         if (is_9_15_or_greater) {
             // The glass navigation bar uses the floating miniplayer of the app.
             if (is_9_39_or_greater) {
@@ -513,9 +544,11 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass", "false")
-            addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_opacity",
-                "app.morphe.extension.shared.settings.preference.SeekBarPreference", setSummary = false)
             addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_light", "false")
+            addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_blur",
+                "app.morphe.extension.shared.settings.preference.SeekBarPreference")
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_album_tint", "false")
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_hide_indicator", "false")
             addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_height",
                 "app.morphe.extension.music.settings.preference.MusicGlassNavigationBarPreference",
                 titleKey = "morphe_music_navigation_bar_glass_size_title",

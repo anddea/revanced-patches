@@ -50,6 +50,7 @@ import app.morphe.extension.youtube.utils.ThemeUtils;
 import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.player.MinimalMiniplayerPatch;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.morphe.extension.youtube.shared.RootView;
@@ -66,6 +67,8 @@ import app.morphe.extension.youtube.shared.RootView;
  */
 @SuppressWarnings("unused")
 public final class GlassNavigationBar {
+
+    public static final int MARGIN_HORIZONTAL = Dim.dp12;
 
     private static final int PIVOT_BAR = NavigationButtonsPatch.PIVOT_BAR;
 
@@ -111,9 +114,19 @@ public final class GlassNavigationBar {
         }
     }
 
-    static boolean isEnabled() {
+    public static boolean isEnabled() {
         return ENABLED;
     }
+
+    /**
+     * The corner radius of the capsule, in parts of its height: less round by default, with corners like the
+     * glass miniplayer, or with round ends. Also used by the preview in the settings.
+     */
+    public static float getCornerRadiusFraction() {
+        return Settings.NAVIGATION_BAR_GLASS_ROUND.get() ? 0.5f : 0.3f;
+    }
+
+    private static final float CORNER_RADIUS_FRACTION = getCornerRadiusFraction();
 
     /**
      * The least room between the bottom of the capsule and the bottom of the bar,
@@ -129,8 +142,8 @@ public final class GlassNavigationBar {
     private static final float DARK_BLUR_TINT_ALPHA = 0.40f;
 
     /**
-     * How opaque the glass is, from the opacity slider. The slider is at 50 by default, which
-     * keeps the default alphas, and every alpha is scaled by it: 0 is fully clear, 100 doubles them.
+     * How opaque the glass is, from the opacity slider. Every alpha is scaled by it: 50 keeps the
+     * default alphas, 0 is fully clear and 100 doubles them. The slider is at 20 by default, a clear glass.
      */
     private static final float OPACITY_SCALE = SeekBarPreference.clampToRange(Settings.NAVIGATION_BAR_GLASS_OPACITY) / 50f;
 
@@ -416,6 +429,41 @@ public final class GlassNavigationBar {
         }
     }
 
+    private static final int[] capsuleLocation = new int[2];
+
+    /**
+     * Called from {@link MinimalMiniplayerPatch}, which keeps the minimal miniplayer as wide as the capsule
+     * in landscape.
+     *
+     * @param out Set to the left and the right of the capsule in the window.
+     * @return If the navigation bar is drawn as a capsule. It still is while the app slides the bar away.
+     */
+    public static boolean getCapsuleSpanInWindow(int[] out) {
+        if (!ENABLED) return false;
+
+        View pivotBar = currentPivotBar.get();
+        if (pivotBar == null || !pivotBar.isAttachedToWindow() || pivotBar.getWidth() <= 0
+                || pivotBar.getVisibility() != View.VISIBLE
+                || !(pivotBar.getBackground() instanceof GlassDrawable)) {
+            return false;
+        }
+
+        // The same edges as the capsule host.
+        float left = pivotBar.getPaddingLeft();
+        float right = pivotBar.getWidth() - pivotBar.getPaddingRight();
+        if (pivotBar instanceof ViewGroup bar && bar.getChildCount() > 0
+                && bar.getChildAt(0) instanceof ViewGroup tabs && tabs.getWidth() > 0) {
+            left = Math.max(left, tabs.getLeft() + tabs.getTranslationX());
+            right = Math.min(right, tabs.getRight() + tabs.getTranslationX());
+        }
+        if (right <= left) return false;
+
+        pivotBar.getLocationInWindow(capsuleLocation);
+        out[0] = capsuleLocation[0] + Math.round(left);
+        out[1] = capsuleLocation[0] + Math.round(right);
+        return true;
+    }
+
     public static final class GlassAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
@@ -429,6 +477,7 @@ public final class GlassNavigationBar {
         synchronized (tabViews) {
             tabViews.put(button, new WeakReference<>(tabView));
         }
+
     }
 
     @Nullable
@@ -975,7 +1024,7 @@ public final class GlassNavigationBar {
             shaderLeft = capsule.left;
             shaderRight = capsule.right;
 
-            final float radius = capsule.height() / 2;
+            final float radius = capsule.height() * CORNER_RADIUS_FRACTION;
             capsulePath.reset();
             capsulePath.addRoundRect(capsule, radius, radius, Path.Direction.CW);
 
@@ -1031,7 +1080,7 @@ public final class GlassNavigationBar {
                 capsule.set(left, top, right, bottom);
                 if (capsule.width() <= 0 || capsule.height() <= 0) return;
 
-                final float radius = capsule.height() / 2;
+                final float radius = capsule.height() * CORNER_RADIUS_FRACTION;
                 updateShaders();
 
                 // The Shorts player ends above the navigation bar, so the background of the window
@@ -1047,7 +1096,7 @@ public final class GlassNavigationBar {
                     scratch.inset(-i * 0.5f * STROKE_WIDTH, -i * 0.5f * STROKE_WIDTH);
                     scratch.offset(0, i * STROKE_WIDTH);
                     shadowPaint.setAlpha(shadowAlpha / i);
-                    final float shadowRadius = scratch.height() / 2;
+                    final float shadowRadius = scratch.height() * CORNER_RADIUS_FRACTION;
                     canvas.drawRoundRect(scratch, shadowRadius, shadowRadius, shadowPaint);
                 }
 
@@ -1082,13 +1131,13 @@ public final class GlassNavigationBar {
                 // The dark line inside the rim.
                 scratch.set(capsule);
                 scratch.inset(RIM_WIDTH + BEVEL_WIDTH / 2, RIM_WIDTH + BEVEL_WIDTH / 2);
-                final float bevelRadius = scratch.height() / 2;
+                final float bevelRadius = Math.max(0, radius - RIM_WIDTH - BEVEL_WIDTH / 2);
                 canvas.drawRoundRect(scratch, bevelRadius, bevelRadius, bevelPaint);
 
                 // The rim lit from outside, brighter at the top.
                 scratch.set(capsule);
                 scratch.inset(RIM_WIDTH / 2, RIM_WIDTH / 2);
-                final float rimRadius = scratch.height() / 2;
+                final float rimRadius = Math.max(0, radius - RIM_WIDTH / 2);
                 canvas.drawRoundRect(scratch, rimRadius, rimRadius, rimPaint);
                 canvas.drawRoundRect(scratch, rimRadius, rimRadius, strokePaint);
             } catch (Exception ex) {

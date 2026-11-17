@@ -3150,4 +3150,29 @@ Authorization is required to request translation with live voices for videos tha
     <string name="sb_offline_segments_title">Offline segments</string>
     <string name="revanced_swipe_navigation_title">Swipe to switch navigation tabs</string>
     <string name="revanced_swipe_navigation_summary">Swipe left or right anywhere on the screen to switch between visible navigation items, including custom tabs</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobile Web sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Optional: sign in to the YouTube website to play videos with your account. Tap here to continue</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Currently signed into Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">To use this feature, change \'Default client\' to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Sign in to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"Mobile Web plays videos signed out, or signed in to the YouTube website
+
+• Signed in, videos that need an account can be played, such as age-restricted videos
+• The Google sign-in page opens in this app
+• The sign-in is used only to get the videos you play
+• The sign-in is saved only on this device
+
+To sign in, press continue below"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Sign-in saved
+
+• Your Morphe settings will not import/export the Mobile Web sign-in
+• If Google ends the sign-in, videos are played signed out until you sign in again
+• Signing out also signs this device out of the YouTube website"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web sign in expired, try signing in to Mobile Web again</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Signed out of Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Android System WebView is not available. Install or enable it to sign in</string>
+    <string name="morphe_navigation_bar_glass_round_title">Round glass navigation bar</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Gives the glass navigation bar round ends, instead of corners like the glass miniplayer</string>
+    <string name="morphe_miniplayer_glass_title">Glass miniplayer</string>
+    <string name="morphe_miniplayer_glass_summary">Shows the miniplayer as translucent glass with rounded corners, like the glass navigation bar. Requires the glass navigation bar</string>
 </resources>

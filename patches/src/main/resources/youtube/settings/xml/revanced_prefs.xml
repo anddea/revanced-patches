@@ -113,6 +113,7 @@
             <!-- SETTINGS: NAVIGATION_BAR_GLASS
             <SwitchPreference android:key="morphe_navigation_bar_glass" android:title="@string/morphe_navigation_bar_glass_title" android:summary="@string/morphe_navigation_bar_glass_summary" />
             <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_navigation_bar_glass_opacity" android:title="@string/morphe_navigation_bar_glass_opacity_title" android:summary="@string/morphe_navigation_bar_glass_opacity_summary" />
+            <SwitchPreference android:key="morphe_navigation_bar_glass_round" android:title="@string/morphe_navigation_bar_glass_round_title" android:summary="@string/morphe_navigation_bar_glass_round_summary" />
             <app.morphe.extension.youtube.settings.preference.GlassNavigationBarPreference android:key="morphe_navigation_bar_glass_height" android:title="@string/morphe_navigation_bar_glass_size_title" android:summary="@string/morphe_navigation_bar_glass_size_summary" />SETTINGS: NAVIGATION_BAR_GLASS -->
 
             <!-- SETTINGS: ANIMATED_NAVIGATION_BAR
@@ -784,6 +785,7 @@
             <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
 
             <!-- SETTINGS: MINIPLAYER_HIDE_TITLE
+            <SwitchPreference android:key="morphe_miniplayer_glass" android:title="@string/morphe_miniplayer_glass_title" android:summary="@string/morphe_miniplayer_glass_summary" />
             <SwitchPreference android:title="@string/revanced_miniplayer_hide_title_title" android:key="revanced_miniplayer_hide_title" />SETTINGS: MINIPLAYER_HIDE_TITLE -->
 
             <!-- SETTINGS: MINIPLAYER_WIDTH_DIP

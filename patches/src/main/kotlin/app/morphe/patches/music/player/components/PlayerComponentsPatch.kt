@@ -304,6 +304,8 @@ private fun Element.setPreviousButtonNodeAttribute(drawableName: String) {
     }
 }
 
+private const val COLOR_CLASS_DESCRIPTOR = "Lapp/morphe/extension/music/patches/ChangeMiniplayerColorPatch;"
+
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerComponentsFilter;"
 
@@ -599,7 +601,8 @@ val playerComponentsPatch = bytecodePatch(
             val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
                 val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
                 val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
-                getInstruction<ReferenceInstruction>(iPutIndex).reference
+                addInstruction(iPutIndex, "invoke-static {v${getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V")
+                getInstruction<ReferenceInstruction>(iPutIndex + 1).reference
             }
 
             miniPlayerConstructorFingerprint.mutableClassOrThrow().methods.filter {
@@ -616,7 +619,7 @@ val playerComponentsPatch = bytecodePatch(
 
                     addInstructionsWithLabels(
                         invokeDirectIndex + 1, """
-                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
+                            invoke-static {}, $COLOR_CLASS_DESCRIPTOR->changeMiniplayerColor()Z
                             move-result v$freeRegister
                             if-eqz v$freeRegister, :theme_color
                             if-eqz p1, :off
@@ -624,7 +627,8 @@ val playerComponentsPatch = bytecodePatch(
                             move-result-object v$freeRegister
                             check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
                             iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
-                            invoke-static {v$freeRegister}, $PLAYER_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)V
+                            invoke-static {v$freeRegister}, $COLOR_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)I
+                            move-result v$freeRegister
                             iput v$freeRegister, p0, $colorMathPlayerIPutReference
                             goto :off
                             :theme_color
@@ -665,6 +669,7 @@ val playerComponentsPatch = bytecodePatch(
                 toggleMethodParameters = legacyToggleMatch.originalMethod.parameters.map { it.type }
                 colorMathPlayerIPutReference =
                     constructor.getInstruction<ReferenceInstruction>(iPutIndex).reference
+                constructor.addInstruction(iPutIndex, "invoke-static {v${constructor.getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V")
                 readColorSmali = { register ->
                     """
                         invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
@@ -686,6 +691,13 @@ val playerComponentsPatch = bytecodePatch(
                 colorMathPlayerIPutReference =
                     ModernMiniPlayerDefaultColorFieldFingerprint.instructionMatches.last()
                         .getInstruction<ReferenceInstruction>().reference
+                val defaultColorInstruction = ModernMiniPlayerDefaultColorFieldFingerprint.instructionMatches.last()
+                ModernMiniPlayerDefaultColorFieldFingerprint.method.addInstruction(
+                    ModernMiniPlayerDefaultColorFieldFingerprint.method.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.IPUT && getReference<FieldReference>() == colorMathPlayerIPutReference
+                    },
+                    "invoke-static {v${defaultColorInstruction.getInstruction<TwoRegisterInstruction>().registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V"
+                )
                 readColorSmali = { register ->
                     """
                         iget-object v$register, p1, $stateFieldReference
@@ -707,12 +719,13 @@ val playerComponentsPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     invokeDirectIndex + 1,
                     """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
+                        invoke-static {}, $COLOR_CLASS_DESCRIPTOR->changeMiniplayerColor()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :theme_color
                         if-eqz p1, :off
                         ${readColorSmali(freeRegister)}
-                        invoke-static {v$freeRegister}, $PLAYER_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)V
+                        invoke-static {v$freeRegister}, $COLOR_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)I
+                            move-result v$freeRegister
                         iput v$freeRegister, p0, $colorMathPlayerIPutReference
                         goto :off
                         :theme_color
@@ -755,8 +768,8 @@ val playerComponentsPatch = bytecodePatch(
                 addInstructions(
                     setBackgroundColorIndex,
                     """
-                        invoke-static {v$tabLayoutRegister, v$colorRegister}, $PLAYER_CLASS_DESCRIPTOR->registerNavigationBar(Landroid/view/View;I)V
-                        invoke-static {v$colorRegister}, $PLAYER_CLASS_DESCRIPTOR->overrideNavigationBarColor(I)I
+                        invoke-static {v$tabLayoutRegister, v$colorRegister}, $COLOR_CLASS_DESCRIPTOR->registerNavigationBar(Landroid/view/View;I)V
+                        invoke-static {v$colorRegister}, $COLOR_CLASS_DESCRIPTOR->overrideNavigationBarColor(I)I
                         move-result v$colorRegister
                     """
                 )
@@ -777,7 +790,7 @@ val playerComponentsPatch = bytecodePatch(
 
         watchWhileDismissedFingerprint(musicActivityPeerClass).method.addInstructions(
             0,
-            "invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->onMiniplayerDismissed()V"
+            "invoke-static {}, $COLOR_CLASS_DESCRIPTOR->onMiniplayerDismissed()V"
         )
         addSwitchPreference(
             CategoryType.PLAYER,

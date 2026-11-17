@@ -10,6 +10,8 @@
 
 package app.morphe.patches.youtube.player.miniplayer.general
 
+import app.morphe.patches.youtube.utils.seekbarOnDrawFingerprint
+import app.morphe.patches.youtube.utils.seekbarFingerprint
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -816,6 +818,12 @@ val miniplayerPatch = bytecodePatch(
                 """
             )
         }
+
+        // The progress bar under the glass bar is cut to the straight bottom edge of the glass.
+        seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).addInstruction(
+            0,
+            "invoke-static/range {p0 .. p1}, $MINIMAL_EXTENSION_CLASS_DESCRIPTOR->clipSeekbar(Landroid/view/View;Landroid/graphics/Canvas;)V"
+        )
 
         // endregion
 
