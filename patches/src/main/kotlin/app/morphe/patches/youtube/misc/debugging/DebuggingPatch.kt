@@ -1,5 +1,7 @@
 package app.morphe.patches.youtube.misc.debugging
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patches.youtube.shared.PushNotificationReceivedFingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -94,4 +96,13 @@ val debuggingPatch = bytecodePatch(
         // endregion
 
     }
+    // Done in finalize, so notifications are saved before the hooks
+    // of other patches can hide them.
+    finalize {
+        PushNotificationReceivedFingerprint.method.addInstruction(
+            0,
+            "invoke-static { p2 }, Lapp/morphe/extension/youtube/patches/SavePushNotificationsPatch;->savePushNotification(Lcom/google/protobuf/MessageLite;)V"
+        )
+    }
+
 }

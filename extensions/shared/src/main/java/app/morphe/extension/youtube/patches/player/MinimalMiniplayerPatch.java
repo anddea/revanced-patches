@@ -116,9 +116,14 @@ public final class MinimalMiniplayerPatch {
             && GlassNavigationBar.isEnabled();
 
     /**
-     * A docked bar sits against the edges, so it has no rounded corners.
+     * Independent of the horizontal margin, so both glass bar styles use the configured gap.
      */
-    // This fork currently exposes the detached bar only.
+    private static final int GLASS_BOTTOM_SPACING =
+            Dim.dp(SeekBarPreference.clampToRange(Settings.MINIPLAYER_GLASS_BOTTOM_SPACING));
+
+    /**
+     * Both glass bar styles float with rounded corners, as upstream does with docking disabled.
+     */
     private static final int GLASS_CORNER_RADIUS = Dim.dp16;
 
     /**
@@ -165,6 +170,11 @@ public final class MinimalMiniplayerPatch {
     private static int videoWidthFor(int height) {
         return Math.round(height * 16f / 9f);
     }
+
+    /**
+     * Do not set it to 1.00f, otherwise it will cause artifacts (e.g: with the controls fading).
+     */
+    private static final float maxDragProgress = 0.95f;
 
     private static final long TICK_MILLIS = 500;
 
@@ -269,6 +279,19 @@ public final class MinimalMiniplayerPatch {
     private static boolean playerClipToOutline;
     private static final Rect videoOutlineBounds = new Rect();
     private static float videoOutlineRadius;
+
+    /**
+     * YouTube 21.13 reapplies its native outline after player bounds changes, including when
+     * native rounded corners are disabled. Restore the glass outline after that layout pass.
+     * Only change the view when needed, so this listener does not keep scheduling frames.
+     */
+    private static final ViewTreeObserver.OnPreDrawListener videoOutlineListener = () -> {
+        View player = roundedPlayerRef.get();
+        if (player != null && inBarMode()) {
+            applyVideoOutline(player);
+        }
+        return true;
+    };
 
     /**
      * Set while pushing bounds of our own, which come back through the hook that reads them.
@@ -481,6 +504,24 @@ public final class MinimalMiniplayerPatch {
             dockedBounds.set(horizontalSpan.left, original.top, horizontalSpan.right, original.bottom);
             lastBounds.set(dockedBounds);
             PlayerType getCurrent = PlayerType.getCurrent();
+            if (getCurrent == PlayerType.WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED) {
+                barBoundsFor(dockedBounds);
+
+                final int maxDragTop = barBounds.top > 0 ? barBounds.top : dockedBounds.top;
+                final float progress = maxDragTop > 0
+                        ? Math.min(maxDragProgress, Math.max(0.0f, (float) original.top / maxDragTop))
+                        : maxDragProgress;
+
+                final int currentLeft = interpolate(dockedBounds.left, barBounds.left, progress);
+                final int currentTop = interpolate(dockedBounds.top, barBounds.top, progress);
+                final int currentRight = interpolate(dockedBounds.right, barBounds.right, progress);
+                final int currentBottom = interpolate(dockedBounds.bottom, barBounds.bottom, progress);
+
+                currentBounds.set(new Rect(currentLeft, currentTop, currentRight, currentBottom));
+
+                return currentBounds;
+            }
+
             // While the player is up, this is only asked when the window changes, such as the
             // keyboard closing or a rotation. What YouTube gets back is where the next collapse
             // ends, so it is the bar for the new window, as it would be had nothing changed.
@@ -535,7 +576,8 @@ public final class MinimalMiniplayerPatch {
             dockedBottom = top - origin;
         }
 
-        final int bottom = Math.min(dockedBottom, windowBottomFor(playerLayout)) - BAR_MARGIN;
+        final int bottom = Math.min(dockedBottom, windowBottomFor(playerLayout))
+                - (GLASS ? GLASS_BOTTOM_SPACING : BAR_MARGIN);
 
         updateHorizontalSpan();
         barBounds.set(horizontalSpan.left + BAR_MARGIN, bottom - BAR_HEIGHT,
@@ -641,10 +683,6 @@ public final class MinimalMiniplayerPatch {
         return playerLayout.getRootView().getHeight() - insetBottom - windowLocation[1];
     }
 
-    private static int getWidthPixels() {
-        return Dim.getMetrics().widthPixels;
-    }
-
     /**
      * Injection point.
      * <p>
@@ -653,13 +691,6 @@ public final class MinimalMiniplayerPatch {
     public static void applyVideoRect(Rect videoRect) {
         try {
             if (!ENABLED) {
-                return;
-            }
-
-            if (!inBarMode()) {
-                videoRect.left = 0;
-                videoRect.right = getWidthPixels();
-
                 return;
             }
 
@@ -1349,6 +1380,9 @@ public final class MinimalMiniplayerPatch {
         View rounded = roundedPlayerRef.get();
         if (clip == null || clip.isEmpty() || radius <= 0) {
             if (rounded != null) {
+                if (rounded.getViewTreeObserver().isAlive()) {
+                    rounded.getViewTreeObserver().removeOnPreDrawListener(videoOutlineListener);
+                }
                 rounded.setOutlineProvider(playerOutline);
                 rounded.setClipToOutline(playerClipToOutline);
                 roundedPlayerRef = new WeakReference<>(null);
@@ -1368,15 +1402,28 @@ public final class MinimalMiniplayerPatch {
             roundedPlayerRef = new WeakReference<>(watchPlayer);
             videoOutlineBounds.set(clip);
             videoOutlineRadius = radius;
-            watchPlayer.setOutlineProvider(VIDEO_OUTLINE);
-            watchPlayer.setClipToOutline(true);
+            watchPlayer.getViewTreeObserver().addOnPreDrawListener(videoOutlineListener);
+            applyVideoOutline(watchPlayer);
             return;
         }
 
+        applyVideoOutline(watchPlayer);
         if (!videoOutlineBounds.equals(clip) || videoOutlineRadius != radius) {
             videoOutlineBounds.set(clip);
             videoOutlineRadius = radius;
             watchPlayer.invalidateOutline();
+        }
+    }
+
+    /**
+     * Keeps the video clipped to the glass even if a native player update replaced its outline.
+     */
+    private static void applyVideoOutline(View player) {
+        if (player.getOutlineProvider() != VIDEO_OUTLINE) {
+            player.setOutlineProvider(VIDEO_OUTLINE);
+        }
+        if (!player.getClipToOutline()) {
+            player.setClipToOutline(true);
         }
     }
 

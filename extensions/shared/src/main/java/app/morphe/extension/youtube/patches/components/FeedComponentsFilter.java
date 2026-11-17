@@ -133,6 +133,7 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup liveStream;
     private final ByteArrayFilterGroup liveStreamBuffer;
     private final StringFilterGroup videoLabels;
+    private final StringFilterGroup videoMetadataLabels;
     private final ByteArrayFilterGroupList videoLabelsGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup videoRecommendationLabels;
 
@@ -405,6 +406,12 @@ public final class FeedComponentsFilter extends Filter {
                 null,
                 "|badge.e"
         );
+        // Labels such as 'Auto-dubbed' or 'Hyped' in the metadata of the feed cards of a newer A/B test.
+        videoMetadataLabels = new StringFilterGroup(
+                null,
+                "content_metadata.e"
+        );
+
         videoLabelsGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_AUTO_DUBBED_LABEL,
@@ -476,6 +483,7 @@ public final class FeedComponentsFilter extends Filter {
                 surveys,
                 ticketShelfPath,
                 videoLabels,
+                videoMetadataLabels,
                 videoRecommendationLabels
         );
     }
@@ -751,6 +759,12 @@ public final class FeedComponentsFilter extends Filter {
 
         if (matchedGroup == videoLabels) {
             return ExtendedUtils.IS_20_31_OR_GREATER && videoLabelsGroupList.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == videoMetadataLabels) {
+            // Only the label itself, and not a larger part of the metadata that contains a label.
+            return new BufferAsciiStrings(buffer).getStrings().startsWith("badge.e")
+                    && videoLabelsGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == videoRecommendationLabels) {

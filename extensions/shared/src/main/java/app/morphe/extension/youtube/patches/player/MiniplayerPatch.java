@@ -521,6 +521,20 @@ public final class MiniplayerPatch {
             return original;
         }
 
+        return roundedCornersEnabled();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean getRoundedCorners() {
+        return !roundedCornersEnabled();
+    }
+
+    /**
+     * The glass minimal bar rounds the bar and the video itself, to the corners of the glass.
+     */
+    private static boolean roundedCornersEnabled() {
         return MINIPLAYER_ROUNDED_CORNERS_ENABLED
                 && !(MINIMAL_BAR_SELECTED && MinimalMiniplayerPatch.isGlass());
     }

@@ -40,14 +40,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.youtube.general.downloads
 
 import app.morphe.patcher.Fingerprint
@@ -160,6 +152,12 @@ val downloadActionsPatch = bytecodePatch(
     )
 
     execute {
+        app.morphe.patcher.Fingerprint(
+            definingClass = "Lapp/morphe/extension/youtube/videoplayer/ShortsDownloadButton;",
+            name = "isPatchIncluded",
+            returnType = "Z"
+        ).method.addInstructions(0, "const/4 v0, 0x1\nreturn v0")
+
         // Track the top-level player menu even when Hide player flyout menu is excluded.
         addLithoFilter("Lapp/morphe/extension/youtube/patches/components/PlayerFlyoutMenuFilter;")
 

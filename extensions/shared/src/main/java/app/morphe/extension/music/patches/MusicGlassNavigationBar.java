@@ -145,23 +145,14 @@ public final class MusicGlassNavigationBar {
         heightPercent = SeekBarPreference.clampToRange(Settings.NAVIGATION_BAR_GLASS_HEIGHT);
         widthPercent = SeekBarPreference.clampToRange(Settings.NAVIGATION_BAR_GLASS_WIDTH);
         buttonSpacing = Dim.dp(SeekBarPreference.clampToRange(Settings.NAVIGATION_BAR_GLASS_BUTTON_SPACING));
+        floatingRoom = Dim.dp(SeekBarPreference.clampToRange(Settings.NAVIGATION_BAR_GLASS_BOTTOM_SPACING));
     }
 
     /**
      * The least room between the bottom of the capsule and the bottom of the screen,
      * so the capsule floats above it.
      */
-    private static final int FLOATING_ROOM = Dim.dp10;
-
-    /**
-     * How far the capsule may reach into the room for the system navigation buttons or gesture handle.
-     */
-    private static final int MAX_SYSTEM_ROOM_OVERLAP = Dim.dp4;
-
-    /**
-     * How far the capsule may reach into the room for the system navigation buttons or gesture handle.
-     */
-    private static final int MAX_SYSTEM_ROOM_OVERLAP = Dim.dp4;
+    private static int floatingRoom;
 
     /**
      * Room between the top of the bar and the top of the capsule. The floating miniplayer
@@ -806,16 +797,18 @@ public final class MusicGlassNavigationBar {
                         final int capsuleHeight = GlassNavigationBarLayout.getCapsuleHeight(
                                 buttonsHeight, contentHeight, heightPercent);
                         final int capsuleTopInButtons = contentTop - (capsuleHeight - contentHeight) / 2;
-                        final int paddingTop = Math.max(0, TOP_ROOM - capsuleTopInButtons);
+                        // Negative padding removes the unused room inside the app's fixed-height tabs,
+                        // so a smaller capsule also shrinks the bar and keeps the miniplayer above it.
+                        final int paddingTop = TOP_ROOM - capsuleTopInButtons;
                         final int capsuleTop = paddingTop + capsuleTopInButtons;
                         final int capsuleBottom = capsuleTop + capsuleHeight;
 
                         // The room needed between the bottom of the capsule and the bottom of the screen.
-                        final int neededRoom = Math.max(FLOATING_ROOM,
-                                getSystemBottomRoom(pivotBar) - MAX_SYSTEM_ROOM_OVERLAP);
+                        // The chosen spacing may place the glass in the system navigation area.
+                        final int neededRoom = floatingRoom;
                         final int roomBelowButtons = paddingTop + buttonsHeight - capsuleBottom;
                         final int roomBelowBar = getRoomBelow(pivotBar);
-                        final int paddingBottom = Math.max(0, neededRoom - roomBelowButtons - roomBelowBar);
+                        final int paddingBottom = neededRoom - roomBelowButtons - roomBelowBar;
 
                         capsuleHost.set(tabs.getLeft() + horizontalPadding, capsuleTop,
                                 tabs.getRight() - horizontalPadding, capsuleBottom);

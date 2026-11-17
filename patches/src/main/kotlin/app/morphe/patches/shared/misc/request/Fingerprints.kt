@@ -9,6 +9,7 @@ package app.morphe.patches.shared.misc.request
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.string
@@ -63,6 +64,7 @@ internal fun BytecodePatchContext.getBuildRequestFingerprint() = object : Finger
 private const val MEDIA_INTERFACES = "Lcom/google/android/libraries/youtube/media/interfaces/"
 
 internal const val HTTP_REQUEST_CLASS_TYPE = "${MEDIA_INTERFACES}HttpRequest;"
+internal const val HTTP_HEADER_CLASS_TYPE = "${MEDIA_INTERFACES}HttpHeader;"
 
 /**
  * The parameters depend on the app version. Newer versions also take a boolean.
@@ -70,6 +72,19 @@ internal const val HTTP_REQUEST_CLASS_TYPE = "${MEDIA_INTERFACES}HttpRequest;"
 internal object HttpRequestConstructorFingerprint : Fingerprint(
     definingClass = HTTP_REQUEST_CLASS_TYPE,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+)
+
+/**
+ * Sets the name of the header, and then its value.
+ */
+internal object HttpHeaderConstructorFingerprint : Fingerprint(
+    definingClass = HTTP_HEADER_CLASS_TYPE,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    parameters = listOf("Ljava/lang/String;", "Ljava/lang/String;"),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, definingClass = "this", type = "Ljava/lang/String;"),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, definingClass = "this", type = "Ljava/lang/String;"),
+    )
 )
 
 /**

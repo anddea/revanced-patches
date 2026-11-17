@@ -179,7 +179,8 @@ public class CustomDialogListPreference extends ListPreference {
             return entries;
         }
 
-        CharSequence[] marked = entries.clone();
+        // Entries can be a String[], which cannot hold the spans added here.
+        CharSequence[] marked = Arrays.copyOf(entries, entries.length, CharSequence[].class);
         for (int i = 0, length = Math.min(entries.length, entryValues.length); i < length; i++) {
             if (newEntryValues.contains(entryValues[i].toString())) {
                 marked[i] = NewIndicatorSpan.addTo(entries[i], newEntryColor);

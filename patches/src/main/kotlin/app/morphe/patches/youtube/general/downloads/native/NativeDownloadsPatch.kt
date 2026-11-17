@@ -1,6 +1,8 @@
 /*
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/4890
+ * https://github.com/MorpheApp/morphe-patches/pull/4909
  *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
@@ -10,19 +12,31 @@
 
 package app.morphe.patches.youtube.general.downloads.native
 
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.numberOfParameterRegistersLogical
+import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
+import app.morphe.patches.shared.FormatStreamModelToStringFingerprint
+import app.morphe.patches.youtube.video.format.videoFormatPatch
+import app.morphe.util.cloneMutable
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.morphe.patcher.patch.classDefBy
-import app.morphe.patcher.patch.patch
+import app.morphe.patcher.patch.PatchException
+import app.morphe.util.findMutableClassOrThrow
+import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.cloneParameters
 import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.registersUsed
+import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayWithRegistryMethodRef
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -40,6 +54,15 @@ import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 
 internal const val EXTENSION_IN_APP_DOWNLOADS_CLASS = "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch;"
 
+private const val EXTENSION_STREAM_SELECTOR_INTERFACE =
+    "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$DownloadStreamSelector;"
+
+private const val EXTENSION_STREAMING_DATA_INTERFACE =
+    "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$StreamingDataInterface;"
+
+private const val EXTENSION_FORMAT_STREAM_INTERFACE =
+    "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$FormatStreamInterface;"
+
 private const val EXTENSION_SPOOF_CLASS = "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;"
 
 private const val EXTENSION_SHORTS_DOWNLOAD_BUTTON =
@@ -56,12 +79,15 @@ private const val GET_GENERATED_REGISTRY =
 /**
  * @return The default instance field of a proto message, which the message is parsed with.
  */
+context(_: BytecodePatchContext)
 private fun protoDefaultInstance(messageType: String) =
     Fingerprint(definingClass = messageType, name = "<clinit>", filters = listOf(fieldAccess(definingClass = messageType, type = messageType, opcode = com.android.tools.smali.dexlib2.Opcode.SPUT_OBJECT))).instructionMatches.first().fieldReference
 
 /** Morphe native offline downloads and its playback, quality and settings fixes. */
-internal val nativeDownloadsPatch = patch {
-    dependsOn(sharedExtensionPatch, settingsPatch, spoofStreamingDataPatch, fixProtoLibraryPatch,
+internal val nativeDownloadsPatch = bytecodePatch(
+    description = "Native offline downloads and stream selection.",
+) {
+    dependsOn(sharedExtensionPatch, settingsPatch, videoFormatPatch, resourceMappingPatch, spoofStreamingDataPatch, fixProtoLibraryPatch,
         elementProtoParserHookPatch, commandRouterHookPatch, versionCheckPatch)
     execute {
         if (!is_20_21_or_greater) {
@@ -76,6 +102,34 @@ internal val nativeDownloadsPatch = patch {
 
         // Add the Download button to the playlist page headers, which only Premium accounts get.
         hookElement("$EXTENSION_IN_APP_DOWNLOADS_CLASS->addPlaylistDownloadButton([B)[B")
+
+        // This patcher lacks upstream addPatchInterface; expose the same Object-based bridges.
+        fun MutableClass.addPatchInterface(interfaceType: String, name: String, field: FieldReference) {
+            if (interfaceType !in interfaces) interfaces.add(interfaceType)
+            methods.add(ImmutableMethod(type, name, listOf(), field.type.let {
+                if (name == "patch_getFormatStreams") "Ljava/util/List;" else "Ljava/lang/Object;"
+            }, AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                MutableMethodImplementation(2)).toMutable().apply {
+                addInstructions(0, "iget-object v0, p0, $field\nreturn-object v0")
+            })
+        }
+        fun MutableClass.addPatchInterface(interfaceType: String, name: String, target: MethodReference) {
+            if (interfaceType !in interfaces) interfaces.add(interfaceType)
+            val bridge = findMutableClassOrThrow(interfaceType).methods.first { it.name == name }
+            val targetMethod = methods.first { it.name == target.name && it.parameterTypes == target.parameterTypes }
+            val static = AccessFlags.STATIC.isSet(targetMethod.accessFlags)
+            val opcode = if (static) "invoke-static" else if (AccessFlags.PRIVATE.isSet(targetMethod.accessFlags)) "invoke-direct" else "invoke-virtual"
+            methods.add(ImmutableMethod(type, name, bridge.parameters, bridge.returnType,
+                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                MutableMethodImplementation(bridge.parameterTypes.size + 2)).toMutable().apply {
+                val casts = target.parameterTypes.mapIndexedNotNull { index, parameter ->
+                    if (parameter.startsWith("L") && parameter != bridge.parameterTypes[index])
+                        "check-cast p${index + 1}, $parameter" else null
+                }.joinToString("\n")
+                val first = if (static) 1 else 0
+                addInstructions(0, "$casts\n$opcode/range { p$first .. p${bridge.parameterTypes.size} }, $target\nmove-result-object v0\nreturn-object v0")
+            })
+        }
 
         // region In-app downloads.
 
@@ -314,20 +368,10 @@ internal val nativeDownloadsPatch = patch {
             )
         }
 
-        OfflineSettingCategoryConstructorFingerprint.method.addInstructions(
-            0,
-            """
-                # Full HD format option is available.
-                invoke-static { p1 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->unlockOfflineSetting(Z)Z
-                move-result p1
-
-                # Download quality is enabled.
-                invoke-static { p3 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->unlockOfflineSetting(Z)Z
-                move-result p3
-            """
-        )
-
-        // Offer 1080p on screens that are less than 1080 pixels wide.
+        // Offer up to 2160p on every screen. The app offers only the qualities up to the
+        // shorter side of the screen, and the server offers up to 1080p.
+        val copyImmutableListMethod = OfflineSettingsConstructorFingerprint
+            .instructionMatches.first().methodReference!!
         OfflineSettingsConstructorFingerprint.method.addInstructions(
             0,
             """
@@ -336,12 +380,137 @@ internal val nativeDownloadsPatch = patch {
             """
         )
 
+        // The download quality setting lists the same qualities as the quality picker.
+        OfflineSettingCategoryConstructorFingerprint.method.addInstructions(
+            0,
+            """
+                # Full HD format option is available, which adds 1080p to the download quality formats.
+                invoke-static { p1 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->isFullHdFormatOptionAvailable(Z)Z
+                move-result p1
+
+                # Download quality is enabled.
+                invoke-static { p3 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->unlockOfflineSetting(Z)Z
+                move-result p3
+
+                # Download quality formats.
+                invoke-static { p5, p7 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->getDownloadQualityFormatTypes(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
+                move-result-object p5
+                invoke-static { p5 }, $copyImmutableListMethod
+                move-result-object p5
+            """
+        )
+
+        // Labels of the qualities above 1080p in the download quality setting.
+        FormatTypeLabelFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { p0 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->getDownloadQualityLabel(Ljava/lang/Object;)I
+                move-result v0
+                if-eqz v0, :app_label
+                return v0
+                :app_label
+                nop
+            """
+        )
+
+        // Open the quality picker of a download fully expanded, since the qualities above
+        // 1080p push the lowest qualities below the collapsed sheet.
+        val skipCollapsedField = ShowActionSheetCommandFingerprint
+            .instructionMatches.last().fieldReference
+        DownloadQualityPickerCommandFingerprint.let {
+            val bitFieldMatch = it.instructionMatches.last()
+            val bitField = bitFieldMatch.fieldReference
+            if (bitField.definingClass != skipCollapsedField.definingClass) {
+                throw PatchException("Unexpected command class: ${bitField.definingClass}")
+            }
+            val bitFieldInstruction = bitFieldMatch.getInstruction<TwoRegisterInstruction>()
+            val valueRegister = bitFieldInstruction.registerA
+            val commandRegister = bitFieldInstruction.registerB
+
+            it.method.addInstructions(
+                bitFieldMatch.index + 1,
+                """
+                    invoke-static { }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->expandDownloadQualityPicker()Z
+                    move-result v$valueRegister
+                    iput-boolean v$valueRegister, v$commandRegister, $skipCollapsedField
+                    iget v$valueRegister, v$commandRegister, $bitField
+                    or-int/lit16 v$valueRegister, v$valueRegister, 0x200
+                    iput v$valueRegister, v$commandRegister, $bitField
+                """
+            )
+        }
+
+        // Log the download qualities that are dropped or not available, and optionally save 1440p
+        // and 2160p even if the device or server checks of the app rule out their streams.
+        StreamingDataFormatStreamsFingerprint.let {
+            it.classDef.addPatchInterface(
+                EXTENSION_STREAMING_DATA_INTERFACE,
+                "patch_getFormatStreams",
+                it.instructionMatches.first().fieldReference!!
+            )
+        }
+        FormatStreamModelToStringFingerprint.let {
+            it.classDef.addPatchInterface(
+                EXTENSION_FORMAT_STREAM_INTERFACE,
+                "patch_getFormat",
+                it.instructionMatches[5].fieldReference!!
+            )
+        }
+        DownloadStreamSelectorFingerprint.let {
+            it.classDef.apply {
+                val originalSelectorMethod = it.method.cloneMutable(name = "patch_originalSelectStream")
+                methods.add(originalSelectorMethod)
+
+                addPatchInterface(
+                    EXTENSION_STREAM_SELECTOR_INTERFACE,
+                    "patch_selectStream",
+                    originalSelectorMethod
+                )
+                addPatchInterface(
+                    EXTENSION_STREAM_SELECTOR_INTERFACE,
+                    "patch_fetchContentLength",
+                    FetchContentLengthFingerprint.method
+                )
+            }
+
+            it.method.addInstructions(
+                0,
+                """
+                    invoke-static/range { p0 .. p6 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->selectDownloadStream(Ljava/lang/Object;IIILjava/lang/Object;ZLjava/lang/Object;)Ljava/lang/Object;
+                    move-result-object v0
+                    check-cast v0, ${it.method.returnType}
+                    return-object v0
+                """
+            )
+        }
+        DownloadTransferStreamsFingerprint.let {
+            // The method has no free registers. Its parameters stay in the p registers.
+            it.method.cloneParameters().apply {
+                val pairIndex = it.instructionMatches[1].index + numberOfParameterRegistersLogical
+                val pairInstruction = getInstruction(pairIndex)
+                val videoStreamRegister = pairInstruction.registersUsed[1]
+                val videoStreamType = pairInstruction.getReference<MethodReference>()!!.parameterTypes.first()
+
+                // p3 and p4 are the audio track and the video ID, which are not needed.
+                addInstructions(
+                    pairIndex,
+                    """
+                        move-object/from16 p3, v$videoStreamRegister
+                        move/from16 p4, p1
+                        invoke-static/range { p3 .. p5 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->selectDownloadVideoStream(Ljava/lang/Object;ILjava/lang/Object;)Ljava/lang/Object;
+                        move-result-object v$videoStreamRegister
+                        check-cast v$videoStreamRegister, $videoStreamType
+                    """
+                )
+            }
+        }
+
         // Commands run by the extension have no interaction logger, which saving a video
         // can use without checking it is set. The logger interface has a logger that logs nothing.
         // Everything reading the logger from a context uses the same type, so any match will do.
         val interactionLoggerType = InteractionLoggerContextFingerprint.matchAll().first()
             .instructionMatches.last().instruction.getReference<TypeReference>()!!.type
-        val noOpInteractionLogger = classDefBy(interactionLoggerType).fields.single { field ->
+        val noOpInteractionLogger = findMutableClassOrThrow(interactionLoggerType).fields.single { field ->
             AccessFlags.STATIC.isSet(field.accessFlags) && field.type == interactionLoggerType
         }
         NoOpInteractionLoggerFingerprint.method.addInstructions(

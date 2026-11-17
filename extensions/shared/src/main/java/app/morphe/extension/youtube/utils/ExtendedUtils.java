@@ -61,6 +61,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
     public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
+    public static final boolean IS_20_37_OR_GREATER = isVersionOrGreater("20.37.00");
     public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
     public static final boolean IS_21_21_OR_GREATER = isVersionOrGreater("21.21.00");
     public static final boolean IS_21_29_OR_GREATER = isVersionOrGreater("21.29.00");

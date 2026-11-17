@@ -143,7 +143,7 @@ public abstract class SeekBarsPreviewPreference extends Preference {
                     }
                 },
                 () -> {},
-                str("morphe_settings_reset"),
+                str("revanced_settings_reset"),
                 () -> {
                     for (int i = 0; i < settings.length; i++) {
                         seekBars[i].setProgress(SeekBarPreference.valueToProgress(

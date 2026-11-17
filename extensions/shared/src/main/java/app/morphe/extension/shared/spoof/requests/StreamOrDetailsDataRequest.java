@@ -25,6 +25,8 @@ import static app.morphe.extension.shared.utils.Utils.submitOnBackgroundThread;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
 
 import android.net.Uri;
+import android.util.Base64;
+import android.util.Base64InputStream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -71,7 +73,9 @@ import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
-import app.morphe.extension.shared.spoof.PreferredClientCheck;
+import app.morphe.extension.shared.spoof.MwebSignIn;
+import app.morphe.extension.shared.spoof.MwebSiteSession;
+import app.morphe.extension.shared.spoof.MwebStream;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
@@ -122,6 +126,11 @@ public class StreamOrDetailsDataRequest {
         // Without a network, the fetch of a video gets the token and the visitor ids.
         if (!Utils.isNetworkConnected()) {
             return;
+        }
+
+        if (clientOrder.length > 0 && clientOrder[0].isWebClient()) {
+            // The website takes several seconds to make the PoToken of its first video.
+            MwebSiteSession.warmUp();
         }
 
         for (ClientType client : clientOrder) {
@@ -176,6 +185,13 @@ public class StreamOrDetailsDataRequest {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String PAGE_ID_HEADER = "X-Goog-PageId";
+    /**
+     * Asks the website host to encode a response that a browser could run as a script, such as a proto response.
+     * The response then has {@link #SAFETY_ENCODING_HEADER}.
+     */
+    private static final String ENCODE_RESPONSE_HEADER = "X-Goog-Encode-Response-If-Executable";
+    private static final String SAFETY_ENCODING_HEADER = "X-Goog-Safety-Encoding";
+    private static final String BASE64_ENCODING = "base64";
     private static final String API_FORMAT_VERSION_HEADER = "X-GOOG-API-FORMAT-VERSION";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
 
@@ -439,7 +455,14 @@ public class StreamOrDetailsDataRequest {
         final boolean isStream = clientType != ClientType.GET_CHANNEL_FROM_ID && clientType != ClientType.SAVE_TO_WATCH_LATER;
 
         try {
-            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(clientType, forDownload);
+            // Web clients accept only the cookies of a web sign in, and not the access token of the app.
+            // Without a web sign in, the client is used signed out, as the website is.
+            Map<String, String> webSignInHeaders = clientType.isWebClient()
+                    ? MwebSignIn.getRequestHeaders()
+                    : null;
+
+            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
+                    clientType, forDownload, webSignInHeaders != null);
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
@@ -450,9 +473,25 @@ public class StreamOrDetailsDataRequest {
                 String authorization = playerHeaders.get(AUTHORIZATION_HEADER);
                 boolean authHeadersIncludes = Utils.isNotEmpty(authorization);
 
+                // The web sign in is used, and the request is made to the website host, as the website makes it:
+                // MWEB.
+                if (clientType.isWebClient()) {
+                    if (webSignInHeaders == null) {
+                        Logger.printDebug(() -> "Not signed in to the website, using signed out: " + clientType
+                                + ", videoId: " + videoId);
+                    } else {
+                        for (Map.Entry<String, String> header : webSignInHeaders.entrySet()) {
+                            connection.setRequestProperty(header.getKey(), header.getValue());
+                        }
+                        // The website host refuses a proto response, which a browser could run as a script,
+                        // unless it is encoded. See buildPlayerResponseBuffer.
+                        connection.setRequestProperty(ENCODE_RESPONSE_HEADER, BASE64_ENCODING);
+                        Logger.printDebug(() -> "Set web sign in: " + clientType + ", videoId: " + videoId);
+                    }
+                }
                 // Auth header is required, but the user is not logged in. These clients are skipped:
                 // ANDROID_CREATOR, ANDROID_MUSIC_REEL, ANDROID_MUSIC_NO_SDK.
-                if (clientType.canLogin && clientType.requireLogin && !authHeadersIncludes) {
+                else if (clientType.canLogin && clientType.requireLogin && !authHeadersIncludes) {
                     Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
                             + ", videoId: " + videoId);
                     return null;
@@ -481,7 +520,7 @@ public class StreamOrDetailsDataRequest {
                     }
                 }
                 // These clients can play videos without the auth header:
-                // TV_SABR, TV_SIMPLY, VISIONOS_1_02 (VISIONOS_1_03), VISIONOS_1_06.
+                // TV_SABR, TV_SIMPLY, VISIONOS_1_02 (VISIONOS_1_03), VISIONOS_1_06 (VISIONOS_1_06_AV1).
                 else {
                     Logger.printDebug(() -> "Do not set auth header: " + clientType + ", videoId: " + videoId);
                 }
@@ -492,6 +531,13 @@ public class StreamOrDetailsDataRequest {
                 // To prevent this, each client uses a different visitorId.
                 // See: https://github.com/MorpheApp/morphe-patches/issues/2283.
                 visitorId = VisitorIdRequester.getVisitorId(clientType);
+                // A signed in web client uses the visitor of its website session.
+                if (webSignInHeaders != null) {
+                    String sessionVisitorData = MwebSignIn.getVisitorData();
+                    if (sessionVisitorData != null) {
+                        visitorId = sessionVisitorData;
+                    }
+                }
                 if (Utils.isNotEmpty(visitorId)) {
                     connection.setRequestProperty(VISITOR_ID_HEADER, visitorId);
                 } else {
@@ -517,7 +563,18 @@ public class StreamOrDetailsDataRequest {
             connection.getOutputStream().write(requestBody);
 
             final int responseCode = connection.getResponseCode();
+            if (clientType.isWebClient()) {
+                // The website session renews some of its cookies with each response.
+                MwebSignIn.saveResponseCookies(connection);
+            }
             if (responseCode == HttpURLConnection.HTTP_OK) return connection;
+
+            if (clientType.isWebClient() && (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED
+                    || responseCode == HttpURLConnection.HTTP_FORBIDDEN)) {
+                // The sign in is checked again with the next fetch.
+                MwebSignIn.onSignInRefused();
+            }
+
 
             if (isStream) {
                 handleConnectionError("Playback error " + clientType + ": " + responseCode + " " + connection.getResponseMessage(), null, showErrorToasts);
@@ -558,7 +615,9 @@ public class StreamOrDetailsDataRequest {
             return null;
         }
 
-        try (InputStream inputStream = connection.getInputStream()) {
+        try (InputStream inputStream = BASE64_ENCODING.equals(connection.getHeaderField(SAFETY_ENCODING_HEADER))
+                ? new Base64InputStream(connection.getInputStream(), Base64.DEFAULT)
+                : connection.getInputStream()) {
             if (returnStreamObject) {
                 PlayerResponse playerResponse;
                 if (clientType.usePlayerEndpoint) {
@@ -656,12 +715,33 @@ public class StreamOrDetailsDataRequest {
                     }
                 }
 
+                if (clientType.isWebClient()) {
+                    // The media requests use the streaming session that the website made for the video,
+                    // so the PoToken of the session is made by the website itself.
+                    MwebSiteSession.Session siteSession = MwebSiteSession.fetch(videoId);
+                    if (siteSession == null) {
+                        Logger.printDebug(() -> "Skipping client since the website gave no streaming session: "
+                                + clientType + ", videoId: " + videoId);
+                        return null;
+                    }
+                    responseBuilder.setStreamingData(responseBuilder.getStreamingData().toBuilder()
+                            .setServerAbrStreamingUrl(siteSession.serverAbrStreamingUrl));
+                    MwebStream.onStreams(videoId, siteSession);
+                }
+
                 byte[] streamingDataBuffer = responseBuilder.build().toByteArray();
                 byte[] playerConfigBuffer = null;
                 boolean hasAndroidMedia = false;
 
                 if (clientType.requireSABR && playerResponse.hasPlayerConfig()) {
                     PlayerConfig.Builder playerConfigBuilder = playerResponse.getPlayerConfig().toBuilder();
+
+                    // Newer client versions, such as the Android VR version of ANDROID_VR_EXPERIMENTAL,
+                    // turn on how the player handles ads the server inserts into the SABR stream.
+                    // Some videos can then load again in a loop and never start, so the config is removed,
+                    // as the client versions without it do not send it.
+                    // See: https://github.com/MorpheApp/morphe-patches/issues/4791.
+                    playerConfigBuilder.clearDaiConfig();
 
                     // If 'androidMedialibConfig' exists in the response, all playerConfigs are compatible.
                     // Override all playerConfigs.
@@ -726,10 +806,18 @@ public class StreamOrDetailsDataRequest {
                     : clientStreamOrderOverride;
             int i = 0;
             for (ClientType clientTypeStream : clientOrderToUse) {
+                if (skipClient(clientTypeStream)) {
+                    continue;
+                }
                 final boolean showErrorToast = ((++i == clientOrderToUse.length) || debugEnabled) && !isDownload;
 
                 if (clientTypeStream.requireJS) {
                     JavaScriptManager.warmUpInBackground();
+                }
+
+                if (clientTypeStream.isWebClient()) {
+                    // The website makes the streaming session while the player request is made.
+                    MwebSiteSession.start(videoId);
                 }
 
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
@@ -754,12 +842,6 @@ public class StreamOrDetailsDataRequest {
                 }
 
                 if (playerResponseBuffer != null) {
-                    if (!isDownload) {
-                        // Stats for nerds and the SABR choice describe what is playing,
-                        // so the client is set when the streams are given to the player, and not here.
-                        // The first attempt is with the default client.
-                        PreferredClientCheck.onStreamsFetched(videoId, i == 1, clientTypeStream);
-                    }
                     return playerResponseBuffer;
                 }
             }
@@ -863,6 +945,24 @@ public class StreamOrDetailsDataRequest {
     }
 
     /**
+     * Called when the streams of the Mobile Web client of a video cannot be played.
+     * The fetch of the video is not reused, so when the video is loaded again, such as when the player is
+     * started again, the Mobile Web client is used again with a new session of the website.
+     */
+    public static void onWebClientFailed(String videoId, String reason) {
+        Logger.printDebug(() -> "Mobile Web cannot play: " + videoId + " reason: " + reason);
+        synchronized (streamCache) {
+            StreamOrDetailsDataRequest request = streamCache.get(videoId);
+            if (request != null && request.future.isDone()) {
+                StreamData stream = request.getStream();
+                if (stream != null && stream.client().isWebClient()) {
+                    streamCache.remove(videoId);
+                }
+            }
+        }
+    }
+
+    /**
      * Called when a media response asks the player to load the player response of its video again.
      * The fetches started before are not reused, since they can hold the streams the player is asked to replace.
      * This does not know the video, but a reload is rare.
@@ -887,8 +987,33 @@ public class StreamOrDetailsDataRequest {
             return true;
         }
         final long age = System.currentTimeMillis() - fetchStartTime;
-        return age < MAX_MILLISECONDS_TO_REUSE_FAILED_FETCH
-                || (age < MAX_MILLISECONDS_TO_REUSE_STREAMS && getStreamDetails() instanceof StreamData);
+        if (age < MAX_MILLISECONDS_TO_REUSE_FAILED_FETCH) {
+            return true;
+        }
+        StreamData stream = getStream();
+        // The streams of a client used because the Mobile Web client could not play the video are not reused,
+        // so when the video is played again, such as when the player is started again, the Mobile Web client
+        // is used again with a new session of the website.
+        return age < MAX_MILLISECONDS_TO_REUSE_STREAMS && stream != null && !isWebClientFallback(stream.client());
+    }
+
+    /**
+     * @return If the client comes after the Mobile Web client in the order of this fetch,
+     *         so the streams are of the client used because the Mobile Web client could not play the video.
+     */
+    private boolean isWebClientFallback(ClientType client) {
+        if (client.isWebClient()) {
+            return false;
+        }
+        for (ClientType orderClient : clientOrder) {
+            if (orderClient == client) {
+                return false;
+            }
+            if (orderClient.isWebClient() && !skipClient(orderClient)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

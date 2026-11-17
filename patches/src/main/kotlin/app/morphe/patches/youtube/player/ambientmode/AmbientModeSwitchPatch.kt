@@ -42,6 +42,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -111,6 +112,21 @@ val ambientModeSwitchPatch = bytecodePatch(
         //
         addDrawableColorHook("$EXTENSION_ENHANCED_AMBIENT_MODE_CLASS->getLithoColor(Landroid/graphics/drawable/Drawable;I)I", passDrawable = true)
         videoTimeHook(EXTENSION_ENHANCED_AMBIENT_MODE_CLASS, "setVideoTime")
+        // Without this the rows of the playlist panel keep their plain background.
+        TouchFeedbackDrawableDrawFingerprint.let {
+            it.methodOrNull?.apply {
+                val index = it.instructionMatches.first().index
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                replaceInstruction(
+                    index,
+                    "invoke-static { v${instruction.registerC}, v${instruction.registerD}, p0 }, " +
+                            "$EXTENSION_ENHANCED_AMBIENT_MODE_CLASS->drawTouchFeedbackBackground(" +
+                            "Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;" +
+                            "Landroid/graphics/drawable/Drawable;)V"
+                )
+            }
+        }
         AmbientModeToggleFingerprint.let {
             it.method.apply {
                 val index = it.instructionMatches.last().index

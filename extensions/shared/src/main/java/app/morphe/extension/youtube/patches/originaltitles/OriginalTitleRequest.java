@@ -139,6 +139,35 @@ final class OriginalTitleRequest {
     }
 
     /**
+     * Fetches the titles of the video again, including its DeArrow branding, such as after a vote on its titles.
+     */
+    static CompletableFuture<String> fetchAgain(String videoId) {
+        synchronized (cache) {
+            DeArrowBrandingRequest.removeFromCache(videoId);
+            cache.remove(videoId);
+            retryTimes.remove(videoId);
+            failedFetchCounts.remove(videoId);
+            return fetch(videoId);
+        }
+    }
+
+    /**
+     * Does not start fetching the titles.
+     *
+     * @return The titles of the video, or null if not fetched.
+     */
+    @Nullable
+    static String getIfFetched(String videoId) {
+        CompletableFuture<String> future = cache.get(videoId);
+        if (future == null || !future.isDone() || future.isCompletedExceptionally()) {
+            return null;
+        }
+        String title = future.getNow(null);
+        OriginalVideo original = originalVideos.get(videoId);
+        return title != null ? title : original == null ? null : original.title();
+    }
+
+    /**
      * Starts fetching the title if needed, and does not wait for it.
      *
      * @return The original title, or null if not yet available.
@@ -220,6 +249,13 @@ final class OriginalTitleRequest {
             return null;
         }
         return originalFetched ? originalTitle : fetchOriginalTitle(videoId);
+    }
+
+    /** Fetches the uploader's title independently of the selected DeArrow replacement. */
+    static CompletableFuture<String> fetchOriginalTitleIfNeeded(String videoId) {
+        OriginalVideo original = originalVideos.get(videoId);
+        return original != null ? CompletableFuture.completedFuture(original.title())
+                : CompletableFuture.supplyAsync(() -> fetchOriginalTitle(videoId), Utils::runOnBackgroundThread);
     }
 
     @Nullable

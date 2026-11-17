@@ -92,17 +92,27 @@ public class AmbientLightMathTest {
 
     @Test
     public void blendWithoutKeepJumpsToTheTarget() {
-        int[] current = filled(RED, 2);
-        AmbientLightMath.blend(current, filled(BLUE, 2), 0);
-        assertArrayEquals(filled(BLUE, 2), current);
+        float[] current = {255f, 0f, 0f, 255f, 0f, 0f};
+        int[] colors = new int[2];
+        AmbientLightMath.blend(current, filled(BLUE, 2), 0f, colors);
+        assertArrayEquals(filled(BLUE, 2), colors);
     }
 
     @Test
-    public void blendConvergesOnTheTarget() {
-        int[] current = filled(RED, 1);
-        int[] target = filled(BLUE, 1);
-        for (int i = 0; i < 30; i++) AmbientLightMath.blend(current, target, 112);
-        assertTrue(AmbientLightMath.difference(current, target) <= 1);
+    public void aSlowBlendStillReachesTheTarget() {
+        // In whole levels a step this small would be rounded away.
+        float[] current = {100f, 100f, 100f};
+        int[] target = {0xFF6E6E6E};
+        int[] colors = new int[1];
+        for (int i = 0; i < 400; i++) AmbientLightMath.blend(current, target, 0.98f, colors);
+        assertEquals(target[0], colors[0]);
+    }
+
+    @Test
+    public void theLightKeepsAThirdOfAChangeAfterItsSmoothingTime() {
+        assertEquals(1f, AmbientLightMath.keptShare(0, 1f), 0.001f);
+        assertEquals(0.368f, AmbientLightMath.keptShare(1_000, 1f), 0.001f);
+        assertEquals(0.368f, AmbientLightMath.keptShare(500, 0.5f), 0.001f);
     }
 
     private static float[] linear(int... pixels) {
@@ -117,7 +127,7 @@ public class AmbientLightMathTest {
         float[] near = linear(RED, BLUE, RED, BLUE);
         float[] far = linear(0xFF808080, 0xFF808080, 0xFF808080, 0xFF808080);
         float[] out = new float[6];
-        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, -1000, 100, 100}, 100, 101, out, 2, 1);
+        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, -1000, 100, 100}, 100, 101, 0f, out, 2, 1);
 
         assertTrue(out[0] > out[3]);
         assertTrue(out[5] > out[2]);
@@ -128,7 +138,7 @@ public class AmbientLightMathTest {
         float[] near = linear(RED, RED, RED, RED);
         float[] far = linear(0xFF646464, 0xFF646464, 0xFF646464, 0xFF646464);
         float[] out = new float[3];
-        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, 0, 100, 100}, 100, 400, out, 1, 1);
+        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, 0, 100, 100}, 100, 400, 0f, out, 1, 1);
 
         float expected = (0x64 / 255f) * (0x64 / 255f);
         assertEquals(expected, out[0], 0.001f);
@@ -136,9 +146,28 @@ public class AmbientLightMathTest {
         assertEquals(expected, out[2], 0.001f);
     }
 
+    @Test
+    public void withBlurTheSoftLightTakesOverCloserToThePicture() {
+        // The last of four rows is three quarters of a picture height below the picture.
+        float[] near = linear(RED, RED, RED, RED);
+        float[] far = linear(0xFF646464, 0xFF646464, 0xFF646464, 0xFF646464);
+        float[] plain = new float[12];
+        float[] blurred = new float[12];
+        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, 0, 100, 100}, 100, 200, 0f, plain, 1, 4);
+        AmbientLightMath.render(near, 2, 2, far, 2, 2, new int[]{0, 0, 100, 100}, 100, 200, 1f, blurred, 1, 4);
+
+        float soft = (0x64 / 255f) * (0x64 / 255f);
+        assertTrue(plain[9] > soft * 1.5f);
+        assertEquals(soft, blurred[9], 0.001f);
+    }
+
     private static void soften(float[] light, int width, int height, float[] picture) {
+        soften(light, width, height, picture, 0f);
+    }
+
+    private static void soften(float[] light, int width, int height, float[] picture, float blur) {
         AmbientLightMath.soften(light, new float[light.length], new float[light.length],
-                width, height, picture, new float[]{0f, 0f, 0f});
+                width, height, picture, new float[]{0f, 0f, 0f}, blur);
     }
 
     @Test
@@ -176,6 +205,24 @@ public class AmbientLightMathTest {
     }
 
     @Test
+    public void blurTakesTheShapesOutOfTheLightNextToThePicture() {
+        int width = 64;
+        int height = 160;
+        float[] plain = new float[3 * width * height];
+        for (int i = 0; i < width * height; i++) {
+            plain[i * 3] = i % width < width / 2 ? 1f : 0f;
+        }
+        float[] blurred = plain.clone();
+        soften(plain, width, height, new float[]{0f, 0f, 64f, 10f});
+        soften(blurred, width, height, new float[]{0f, 0f, 64f, 10f}, 1f);
+
+        // Close to the edge between the two colors, right below the picture.
+        float plainContrast = plain[(12 * width + 30) * 3] - plain[(12 * width + 33) * 3];
+        float blurredContrast = blurred[(12 * width + 30) * 3] - blurred[(12 * width + 33) * 3];
+        assertTrue(plainContrast > blurredContrast * 1.5f);
+    }
+
+    @Test
     public void pageColorsBecomeTransparent() {
         assertEquals(0, AmbientLightMath.seeThroughColor(DARK_PAGE, DARK_PAGE));
         assertEquals(0, AmbientLightMath.seeThroughColor(0xFF000000, DARK_PAGE));
@@ -198,12 +245,12 @@ public class AmbientLightMathTest {
 
     @Test
     public void darkLightNeedsNoCoverOnADarkPage() {
-        assertEquals(0f, AmbientLightMath.readabilityCover(flatLight(10, 10, 0.3f), 10, 10, 0, true), 0f);
+        assertEquals(0f, AmbientLightMath.readabilityCover(flatLight(10, 10, 0.3f), 10, 10, 0, 0, 0, 10, true), 0f);
     }
 
     @Test
     public void brightLightIsCoveredDownToAReadableBrightnessOnADarkPage() {
-        float cover = AmbientLightMath.readabilityCover(flatLight(10, 10, 1f), 10, 10, 0, true);
+        float cover = AmbientLightMath.readabilityCover(flatLight(10, 10, 1f), 10, 10, 0, 0, 0, 10, true);
         assertEquals(0.5f, 1f - cover, 0.02f);
     }
 
@@ -211,21 +258,41 @@ public class AmbientLightMathTest {
     public void aFewBrightSpotsDoNotCoverThePage() {
         float[] light = flatLight(10, 10, 0.3f);
         Arrays.fill(light, 0, 3 * 5, 1f);
-        assertEquals(0f, AmbientLightMath.readabilityCover(light, 10, 10, 0, true), 0f);
+        assertEquals(0f, AmbientLightMath.readabilityCover(light, 10, 10, 0, 0, 0, 10, true), 0f);
     }
 
     @Test
     public void darkLightIsCoveredOnALightPage() {
-        float cover = AmbientLightMath.readabilityCover(flatLight(10, 10, 0.1f), 10, 10, 0, false);
+        float cover = AmbientLightMath.readabilityCover(flatLight(10, 10, 0.1f), 10, 10, 0, 0, 0, 10, false);
         assertTrue(cover > 0f);
-        assertEquals(0f, AmbientLightMath.readabilityCover(flatLight(10, 10, 0.9f), 10, 10, 0, false), 0f);
+        assertEquals(0f, AmbientLightMath.readabilityCover(flatLight(10, 10, 0.9f), 10, 10, 0, 0, 0, 10, false), 0f);
+    }
+
+    @Test
+    public void aWeakerLightNeedsLessCover() {
+        assertEquals(0.5f, AmbientLightMath.coverAtStrength(0.5f, 1f), 0f);
+        // As much of the light is left as at full strength: 0.75 * (1 - 1/3) = 0.5.
+        assertEquals(1f / 3f, AmbientLightMath.coverAtStrength(0.5f, 0.75f), 0.001f);
+        assertEquals(0f, AmbientLightMath.coverAtStrength(0.5f, 0.5f), 0f);
+        assertEquals(0f, AmbientLightMath.coverAtStrength(0.5f, 0.25f), 0f);
+        assertEquals(0f, AmbientLightMath.coverAtStrength(0f, 0.75f), 0f);
     }
 
     @Test
     public void onlyTheRowsBelowThePictureCount() {
         float[] light = flatLight(10, 10, 0.3f);
         Arrays.fill(light, 0, 3 * 10 * 5, 1f);
-        assertEquals(0f, AmbientLightMath.readabilityCover(light, 10, 10, 5, true), 0f);
+        assertEquals(0f, AmbientLightMath.readabilityCover(light, 10, 10, 5, 5, 0, 10, true), 0f);
+    }
+
+    @Test
+    public void thePageNextToThePlayerCountsToo() {
+        // The player covers the upper left of the window, and a bright picture lights the column next to it.
+        float[] light = flatLight(10, 10, 0.3f);
+        for (int y = 0; y < 5; y++) Arrays.fill(light, 3 * (y * 10 + 6), 3 * (y * 10 + 10), 1f);
+        assertTrue(AmbientLightMath.readabilityCover(light, 10, 10, 5, 0, 0, 6, true) > 0f);
+        // A player as wide as the window has no page next to it.
+        assertEquals(0f, AmbientLightMath.readabilityCover(light, 10, 10, 5, 0, 0, 10, true), 0f);
     }
 
     @Test
@@ -340,6 +407,14 @@ public class AmbientLightMathTest {
         assertFalse(AmbientLightMath.isConverted(scene(0), scaled(scene(0), 17, 20, 38)));
         // Every level raised by the same amount, which moves the bright parts too far.
         assertFalse(AmbientLightMath.isConverted(scene(0), scaled(scene(0), 1, 1, 30)));
+    }
+
+    @Test
+    public void blackPictureIsFound() {
+        assertTrue(AmbientLightMath.isBlack(filled(0xFF000000, 48 * 27)));
+        assertTrue(AmbientLightMath.isBlack(filled(0xFF101010, 48 * 27)));
+        assertFalse(AmbientLightMath.isBlack(filled(0xFF202020, 48 * 27)));
+        assertFalse(AmbientLightMath.isBlack(scene(0)));
     }
 
     @Test

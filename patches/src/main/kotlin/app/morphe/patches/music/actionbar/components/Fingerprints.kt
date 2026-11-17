@@ -39,13 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches/pull/1881
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.music.actionbar.components
 
 import app.morphe.patcher.Fingerprint

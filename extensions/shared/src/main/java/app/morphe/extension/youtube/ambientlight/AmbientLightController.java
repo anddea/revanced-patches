@@ -101,6 +101,8 @@ public final class AmbientLightController {
     /** Video time reports stop while paused, and arrive about once a second while playing. */
     private static final long PLAYING_TIMEOUT_MS = 2_000;
     private static final long PAGE_SCAN_INTERVAL_MS = 1_000;
+    /** How far into a video its first light waits for a picture that is not black and that stays. */
+    private static final long VIDEO_START_MS = 1_000;
     private static final long RETRY_DELAY_MS = 300;
     private static final int MAX_RETRIES = 20;
     /** Captures the black bars of a video are judged over. */
@@ -161,7 +163,7 @@ public final class AmbientLightController {
      * Immutable snapshot of where the video and the light are. Layouts are compared by
      * identity, never with equals.
      */
-    private record Layout(int[] video, int windowWidth, int windowHeight, int gridHeight,
+    private record Layout(int[] video, int[] player, int windowWidth, int windowHeight, int gridHeight,
                           List<Region> regions, boolean hasLight) {
     }
 
@@ -262,9 +264,16 @@ public final class AmbientLightController {
     private static final int[] lastCapture = new int[PICTURE_WIDTH * PICTURE_HEIGHT];
     private static final int[] lastPicture = new int[PICTURE_WIDTH * PICTURE_HEIGHT];
     private static boolean hasLastPicture;
+    /** Pictures in a row that are not black and close to the one before, until the first light. */
+    private static int steadyPictures;
     private static int convertedCaptures;
     private static int brighterCaptures;
     private static final int[] near = new int[PICTURE_WIDTH * PICTURE_HEIGHT];
+    /** The colors of {@code near} before rounding, 3 floats for each pixel. */
+    private static final float[] nearExact = new float[PICTURE_WIDTH * PICTURE_HEIGHT * LIGHT_CHANNELS];
+    private static long lastBlend;
+    /** The blur the light was last made with. */
+    private static float madeBlur = -1f;
     private static final int[] far = new int[FAR_WIDTH * FAR_HEIGHT];
     private static final float[] nearLinear = new float[PICTURE_WIDTH * PICTURE_HEIGHT * LIGHT_CHANNELS];
     private static final float[] farLinear = new float[FAR_WIDTH * FAR_HEIGHT * LIGHT_CHANNELS];
@@ -273,6 +282,10 @@ public final class AmbientLightController {
     private static float wantedCover;
     /** Written by the worker thread. */
     private static volatile float cover;
+    /** Where the video was when the cover was last chosen. */
+    private static int[] coverVideo = new int[0];
+    /** If a panel was open over the page when the cover was last chosen. */
+    private static boolean coverPanel;
     private static float[] encodedLight = new float[0];
     private static float[] presentedLight = new float[0];
     private static float[] lightSoft = new float[0];
@@ -401,7 +414,10 @@ public final class AmbientLightController {
             if (host != null && host.getRootView() == rootRef.get()) {
                 pendingDrawables.remove(drawable);
                 seeThroughDrawables.put(drawable, Boolean.TRUE);
-                return replacement;
+                // A drawable keeps the color it has when it is given the color 0. One that was
+                // drawn with its own color before, as a header that has moved out of its list
+                // to stick to the top, would stay opaque.
+                return replacement == 0 ? pageColor & 0x00FFFFFF : replacement;
             }
 
             seeThroughDrawables.remove(drawable);
@@ -411,6 +427,19 @@ public final class AmbientLightController {
             Logger.printException(() -> "getLithoColor failure", ex);
             return color;
         }
+    }
+
+    /**
+     * Injection point. YouTube's drawable for touch feedback draws the background of its view
+     * under the feedback.
+     */
+    public static void drawTouchFeedbackBackground(Drawable background, Canvas canvas, Drawable feedback) {
+        try {
+            if (seeThrough && SeeThroughPage.drawPanelLight(background, canvas, feedback)) return;
+        } catch (Exception ex) {
+            Logger.printException(() -> "drawTouchFeedbackBackground failure", ex);
+        }
+        background.draw(canvas);
     }
 
     /**
@@ -428,8 +457,13 @@ public final class AmbientLightController {
     private static void update() {
         try {
             PlayerType type = PlayerType.getCurrent();
+            // Ambient mode can be turned off in fullscreen. The light stays off while a fullscreen
+            // player is pulled down, and comes back once the player is no longer fullscreen.
+            final boolean fullscreenOff = Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN.get()
+                    && (type == PlayerType.WATCH_WHILE_FULLSCREEN
+                    || (type == PlayerType.WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN && !active));
             // Battery saver turns the light off like Ambient mode, unless that restriction is bypassed.
-            final boolean on = ambientModeToggle && !PlayerPatch.bypassAmbientModeRestrictions(
+            final boolean on = ambientModeToggle && !fullscreenOff && !PlayerPatch.bypassAmbientModeRestrictions(
                     ((PowerManager) Utils.getContext().getSystemService(Context.POWER_SERVICE)).isPowerSaveMode());
             // The page content can be built before the light shows, and must be see-through already.
             // On its way to the miniplayer, the page fades out, and the light with it. On its way
@@ -554,7 +588,13 @@ public final class AmbientLightController {
             if (!active) return;
             updateDrawables();
             updateLayout();
-            if (!active || !pageCleared) return;
+            if (!active) return;
+            if (!pageCleared) {
+                // The first light can wait for the video to start, which nothing reports. The
+                // app draws when it does, and the captures go on.
+                captureSoon();
+                return;
+            }
 
             final boolean pageChanged = SeeThroughPage.keep();
             final long now = SystemClock.uptimeMillis();
@@ -686,12 +726,13 @@ public final class AmbientLightController {
         final boolean hasLight = videoBounds[0] >= MIN_RECT_SIZE || videoBounds[1] >= MIN_RECT_SIZE
                 || root.getWidth() - videoBounds[2] >= MIN_RECT_SIZE || root.getHeight() - videoBounds[3] >= MIN_RECT_SIZE;
         // Without surfaces: the window draws the light until the player rests.
-        layout = new Layout(videoBounds, root.getWidth(), root.getHeight(), gridHeight(root),
-                Collections.emptyList(), hasLight);
+        layout = new Layout(videoBounds, new int[]{left, top, right, bottom}, root.getWidth(), root.getHeight(),
+                gridHeight(root), Collections.emptyList(), hasLight);
         settled = false;
         onMoved();
         // The view draws the light around the video, and the video has moved in the view.
         if (playerLight != null) playerLight.invalidate();
+        SeeThroughPage.invalidateBackdropLight();
         scheduleTick();
     }
 
@@ -723,7 +764,7 @@ public final class AmbientLightController {
             for (LightSurface surface : playerSurfaces) surface.setTranslationX(away);
             Layout current = layout;
             if (current != null && !current.regions().isEmpty()) {
-                layout = new Layout(current.video(), current.windowWidth(), current.windowHeight(),
+                layout = new Layout(current.video(), current.player(), current.windowWidth(), current.windowHeight(),
                         current.gridHeight(), Collections.emptyList(), current.hasLight());
                 settled = false;
                 scheduleTick();
@@ -810,8 +851,8 @@ public final class AmbientLightController {
         placeSurfaces(playerSurfaces, player, player.indexOfChild(branch) + 1, true, playerRects, regions);
         surfacesPlaced = true;
         // A new layout, so that the light is drawn on the surfaces also when the picture is still.
-        layout = new Layout(videoBounds, current.windowWidth(), current.windowHeight(), current.gridHeight(),
-                regions, current.hasLight());
+        layout = new Layout(videoBounds, current.player(), current.windowWidth(), current.windowHeight(),
+                current.gridHeight(), regions, current.hasLight());
         settled = false;
         scheduleTick();
     }
@@ -876,14 +917,24 @@ public final class AmbientLightController {
 
     private static void requestFrame() {
         redraw = true;
-        settled = false;
         surfaceBuffers++;
+        captureSoon();
+    }
+
+    private static void captureSoon() {
+        settled = false;
         // The next capture is half a second away while the picture is still.
         if (stillCaptures.get() >= STILL_CAPTURES_BEFORE_SLOWDOWN) {
             stillCaptures.set(0);
-            mainHandler.removeCallbacks(tickRunnable);
-            tickScheduled = false;
+            tickNow();
+        } else {
+            scheduleTick();
         }
+    }
+
+    private static void tickNow() {
+        mainHandler.removeCallbacks(tickRunnable);
+        tickScheduled = false;
         scheduleTick();
     }
 
@@ -971,7 +1022,10 @@ public final class AmbientLightController {
             }
             PixelCopy.request(video, bitmap, result -> {
                 if (result == PixelCopy.SUCCESS) {
-                    captureFailures.set(0);
+                    // The next capture is a second away after failed ones, as while a video loads.
+                    if (captureFailures.getAndSet(0) >= CAPTURE_FAILURES_BEFORE_BACKOFF) {
+                        mainHandler.post(AmbientLightController::tickNow);
+                    }
                     process(bitmap, current);
                 } else {
                     captureFailures.incrementAndGet();
@@ -1021,6 +1075,16 @@ public final class AmbientLightController {
             } else {
                 convertedCaptures = 0;
             }
+            // Many videos start with a black picture, which is on the surface under the thumbnail
+            // before the video plays, and with a fade from it. Its light would turn a white page
+            // dark for a moment before the video is seen. So the first light of a video waits
+            // for a picture that is not black and that is close to the picture before it.
+            if (!pageCleared) {
+                steadyPictures = AmbientLightMath.isBlack(pictureColors) ? 0
+                        : hasLastPicture && steadyPictures > 0 && AmbientLightMath.difference(
+                        lastPicture, pictureColors) < SCENE_CUT_DIFFERENCE ? steadyPictures + 1 : 1;
+            }
+            final boolean ready = steadyPictures >= 2 || lastVideoTime >= VIDEO_START_MS;
             hasLastPicture = true;
             System.arraycopy(pictureColors, 0, lastPicture, 0, lastPicture.length);
 
@@ -1028,20 +1092,39 @@ public final class AmbientLightController {
             final boolean unchanged = difference <= UNCHANGED_DIFFERENCE;
             final boolean emptySurface = redraw;
             redraw = false;
-            if (unchanged && current == drawnLayout) {
+            final float blur = SeekBarPreference.clampToRange(Settings.ENHANCED_AMBIENT_MODE_BLUR) / 100f;
+            if (unchanged && current == drawnLayout && blur == madeBlur) {
                 stillCaptures.incrementAndGet();
-                if (stepCover() || emptySurface) {
-                    if (!present(current)) redraw = true;
-                } else {
+                // A panel that opens or closes over a picture that stays the same changes the cover.
+                final boolean coverMoved = SeeThroughPage.hasPanel() == coverPanel
+                        || light.length != LIGHT_COLUMNS * current.gridHeight() * LIGHT_CHANNELS
+                        ? stepCover() : chooseCover(current, LIGHT_COLUMNS, current.gridHeight());
+                if (!coverMoved && !emptySurface) {
                     settled = true;
+                } else if (!present(current)) {
+                    redraw = true;
+                    return;
                 }
+                if (ready) onLightShown();
                 return;
             }
             settled = false;
             stillCaptures.set(0);
-            AmbientLightMath.blend(near, pictureColors,
-                    resetSmoothing || difference >= SCENE_CUT_DIFFERENCE ? 0 : SMOOTHING_KEEP);
+            final long now = SystemClock.uptimeMillis();
+            final float smoothing = SeekBarPreference.clampToRange(Settings.ENHANCED_AMBIENT_MODE_SMOOTHING) / 10f;
+            final float keep;
+            if (resetSmoothing) {
+                keep = 0f;
+            } else if (smoothing > 0f) {
+                // The user wants a light that takes its time. The light of a scene cut comes in over that time too.
+                keep = AmbientLightMath.keptShare(now - lastBlend, smoothing);
+            } else {
+                keep = difference >= SCENE_CUT_DIFFERENCE ? 0f : SMOOTHING_KEEP / 256f;
+            }
+            lastBlend = now;
+            AmbientLightMath.blend(nearExact, pictureColors, keep, near);
             resetSmoothing = false;
+            madeBlur = blur;
             AmbientLightMath.downsample(near, PICTURE_WIDTH, FULL_PICTURE, far, FAR_WIDTH, FAR_HEIGHT);
 
             AmbientLightMath.toLinear(near, nearLinear);
@@ -1055,20 +1138,14 @@ public final class AmbientLightController {
                 lightScratch = new float[length];
             }
             AmbientLightMath.render(nearLinear, PICTURE_WIDTH, PICTURE_HEIGHT, farLinear, FAR_WIDTH, FAR_HEIGHT,
-                    current.video(), current.windowWidth(), current.windowHeight(), light, width, height);
+                    current.video(), current.windowWidth(), current.windowHeight(), blur, light, width, height);
             AmbientLightMath.toLinear(new int[]{pageColor}, pageLinear);
             final float toGridX = width / (float) current.windowWidth();
             final float toGridY = height / (float) current.windowHeight();
             float[] gridVideo = {current.video()[0] * toGridX, current.video()[1] * toGridY,
                     current.video()[2] * toGridX, current.video()[3] * toGridY};
-            AmbientLightMath.soften(light, lightSoft, lightScratch, width, height, gridVideo, pageLinear);
-            // Without the content of the page, as in fullscreen, there is no text to keep readable.
-            // A cover would show as a darker frame around a fullscreen player that is pulled down.
-            wantedCover = Settings.ENHANCED_AMBIENT_MODE_READABLE_TEXT.get()
-                    ? SeeThroughPage.contentAlpha() * AmbientLightMath.readabilityCover(light, width, height,
-                    current.video()[3] * height / current.windowHeight(), AmbientLightMath.luma(pageColor) < 128)
-                    : 0f;
-            final boolean coverMoved = stepCover();
+            AmbientLightMath.soften(light, lightSoft, lightScratch, width, height, gridVideo, pageLinear, blur);
+            final boolean coverMoved = chooseCover(current, width, height);
 
             if (encodedLight.length != length) {
                 encodedLight = new float[length];
@@ -1076,7 +1153,10 @@ public final class AmbientLightController {
             }
             final float change = AmbientLightMath.encode(light, encodedLight, presentedLight, width, height, gridVideo);
             final boolean visible = current != drawnLayout || change >= MIN_VISIBLE_CHANGE;
-            if (!visible && !coverMoved && !emptySurface) return;
+            if (!visible && !coverMoved && !emptySurface) {
+                if (ready) onLightShown();
+                return;
+            }
 
             if (visible) {
                 float[] shown = encodedLight;
@@ -1087,7 +1167,7 @@ public final class AmbientLightController {
             litLayout = current;
             if (present(current)) {
                 drawnLayout = current;
-                if (!pageCleared) mainHandler.post(AmbientLightController::onFrameShown);
+                if (ready) onLightShown();
             } else {
                 redraw = true;
             }
@@ -1176,8 +1256,8 @@ public final class AmbientLightController {
         final int under = onPage || AmbientLightMath.luma(pageColor) < 128 ? pageColor : Color.BLACK;
         // The surfaces get the color, then the light at its strength, then the cover of the page.
         // That comes to the color with this much of the light over it.
-        final float shown = strength / (float) FULL_STRENGTH;
-        final int share = !lit ? 0 : Math.round(255 * (onPage ? shown * (1f - cover * shown) : shown));
+        final float shown = shownStrength() / (float) FULL_STRENGTH;
+        final int share = !lit ? 0 : Math.round(255 * (onPage ? shown * (1f - shownCover(shown)) : shown));
 
         view.getLocationInWindow(drawLocation);
         Paint paint = windowColorPaint;
@@ -1277,10 +1357,11 @@ public final class AmbientLightController {
     private static boolean present(Layout current) {
         if (veiled) mainHandler.post(windowLightRunnable);
         final int buffers = surfaceBuffers;
-        lightPaint.setAlpha(Math.min(255, strength * 255 / FULL_STRENGTH));
+        final int shown = shownStrength();
+        lightPaint.setAlpha(Math.min(255, shown * 255 / FULL_STRENGTH));
         final float scaleX = current.windowWidth() / (float) LIGHT_COLUMNS;
         final float scaleY = current.windowHeight() / (float) current.gridHeight();
-        final int coverAlpha = Math.round(cover * strength * 255 / FULL_STRENGTH);
+        final int coverAlpha = Math.round(255 * shownCover(shown / (float) FULL_STRENGTH));
         final int coverColor = coverAlpha << 24 | (pageColor & 0xFFFFFF);
         // A dimmed light shows what is under it. The bars of the player are not white on a light page.
         final int barColor = AmbientLightMath.luma(pageColor) < 128 ? pageColor : Color.BLACK;
@@ -1296,6 +1377,78 @@ public final class AmbientLightController {
             mainHandler.post(unveilRunnable);
         }
         return drawn;
+    }
+
+    /**
+     * @return The strength set by the user, which the light has at rest.
+     */
+    private static int restStrength() {
+        return FULL_STRENGTH * SeekBarPreference.clampToRange(Settings.ENHANCED_AMBIENT_MODE_STRENGTH) / 100;
+    }
+
+    /**
+     * @return The strength the light is shown with: the strength set by the user at rest, and on
+     *         the way from there to the dimmed light while the light fades.
+     */
+    private static int shownStrength() {
+        final int rest = restStrength();
+        final int low = Math.min(DIMMED_STRENGTH, rest);
+        return low + (rest - low) * (strength - DIMMED_STRENGTH) / (FULL_STRENGTH - DIMMED_STRENGTH);
+    }
+
+    /**
+     * @param shown The share of the light that is shown, from 0 to 1.
+     * @return How much of the page color covers the light so that the text stays readable, from
+     *         0 to 1: what the light needs at the strength set by the user, fading with the light
+     *         and with the content of the page. Without the content, as in fullscreen, there is
+     *         no text to keep readable, and a cover would show as a darker frame around a
+     *         fullscreen player that is pulled down.
+     */
+    private static float shownCover(float shown) {
+        final float rest = restStrength() / (float) FULL_STRENGTH;
+        return SeeThroughPage.contentAlpha() * AmbientLightMath.coverAtStrength(cover, rest) * shown / rest;
+    }
+
+    /**
+     * Worker thread. Chooses the cover for the light of this capture.
+     *
+     * @return If the cover changed.
+     */
+    private static boolean chooseCover(Layout current, int width, int height) {
+        // A panel over the page, such as the comments, is there to be read.
+        coverPanel = SeeThroughPage.hasPanel();
+        if (!Settings.ENHANCED_AMBIENT_MODE_READABLE_TEXT.get() && !coverPanel) {
+            wantedCover = 0f;
+            return stepCover();
+        }
+        // Without the content of the page there is nothing below the video to choose the cover
+        // for. The cover of before stays, and is chosen again when the content is back.
+        if (SeeThroughPage.contentAlpha() == 0f) return false;
+
+        int[] player = current.player();
+        wantedCover = AmbientLightMath.readabilityCover(light, width, height,
+                current.video()[3] * height / current.windowHeight(), player[1] * height / current.windowHeight(),
+                player[0] * width / current.windowWidth(), player[2] * width / current.windowWidth(),
+                AmbientLightMath.luma(pageColor) < 128);
+        // The cover follows the light of a video that stays in its place with a delay, so that
+        // scene cuts do not pump. A video that has moved, as on its way back from fullscreen or
+        // the miniplayer, has other light below it, and that light has its own cover at once.
+        if (Arrays.equals(current.video(), coverVideo)) return stepCover();
+
+        coverVideo = current.video();
+        if (cover == wantedCover) return false;
+        cover = wantedCover;
+        return true;
+    }
+
+    /**
+     * Main thread. A panel has opened over the page or has closed, and the light gets another
+     * cover, also while the video is paused.
+     */
+    static void onPanelChanged() {
+        settled = false;
+        stillCaptures.set(0);
+        scheduleTick();
     }
 
     /**
@@ -1444,6 +1597,13 @@ public final class AmbientLightController {
             if (Math.abs(first[i] - second[i]) > BARS_TOLERANCE) return false;
         }
         return true;
+    }
+
+    /**
+     * Worker thread. The surfaces show the light of the picture that the video has now.
+     */
+    private static void onLightShown() {
+        if (!pageCleared) mainHandler.post(AmbientLightController::onFrameShown);
     }
 
     private static void onFrameShown() {

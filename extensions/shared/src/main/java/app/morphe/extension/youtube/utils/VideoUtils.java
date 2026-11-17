@@ -41,18 +41,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- * https://github.com/MorpheApp/morphe-patches/pull/2282
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.extension.youtube.utils;
 
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
@@ -681,9 +669,7 @@ public class VideoUtils extends IntentUtils {
                     VideoQualityInterface selectedQuality = currentQualities[originalIndex];
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
 
-                    if (VideoQualityPatch.shouldRememberVideoQuality()) {
-                        VideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
-                    }
+                    VideoQualityPatch.userChangedQualityInNewFlyout(selectedQuality.patch_getResolution());
                     // Don't update button icon now. Icon will update when the actual
                     // quality is changed by YT.  This is needed to ensure the icon is correct
                     // if YT ignores changing from 1080p Premium to regular 1080p.

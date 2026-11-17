@@ -50,7 +50,7 @@ public final class ClassicSubscriptionsLayoutPatch {
         MessageLite patch_getPivotBarItemRenderer();
     }
 
-    private static final String HOME_BROWSE_ID = "FEwhat_to_watch";
+    public static final String HOME_BROWSE_ID = "FEwhat_to_watch";
     private static final String SUBSCRIPTIONS_BROWSE_ID = "FEsubscriptions";
     private static final String SHORTS_BROWSE_ID = "FEshorts";
     private static final String LIBRARY_BROWSE_ID = "FElibrary";

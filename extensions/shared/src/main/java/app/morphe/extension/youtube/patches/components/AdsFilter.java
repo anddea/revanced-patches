@@ -10,6 +10,12 @@
 
 package app.morphe.extension.youtube.patches.components;
 
+import java.nio.charset.StandardCharsets;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.innertube.FeedCardLayoutOuterClass.Element;
+import app.morphe.extension.youtube.innertube.FeedCardLayoutOuterClass.ElementModel;
+import app.morphe.extension.youtube.patches.utils.FeedVideoCards;
+
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
@@ -31,6 +37,44 @@ import app.morphe.extension.youtube.patches.spoof.SpoofOSNamePatch;
  */
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
+
+    /**
+     * Injection point for Premium promotions delivered as feed cards.
+     * Malformed or unrelated elements retain their original bytes.
+     */
+    public static byte[] hidePremiumPromotionCard(byte[] bytes) {
+        try {
+            final String elementText = FeedVideoCards.getElementText(bytes);
+            if (elementText.contains(PREMIUM_BROWSE_ID) && elementText.contains(PROMOTION_IMAGE_PATH)
+                    && Settings.HIDE_YOUTUBE_PREMIUM_PROMOTION.get()) {
+                // The accounts of a newer A/B test of the feed cards get the Premium promotion as a card,
+                // with a promotion image instead of the thumbnail of a video.
+                ElementModel model = Element.parseFrom(bytes).getType().getComponentType().getModel();
+                if (model.hasLockupModel() && model.getLockupModel().getViewModel().getLockupViewModel()
+                        .getContentImage().getThumbnailViewModel().getImage()
+                        .toString(StandardCharsets.ISO_8859_1).contains(PROMOTION_IMAGE_PATH)) {
+                    Logger.printDebug(() -> "Hiding YouTube Premium promotion card");
+                    return EMPTY_BYTE_ARRAY;
+                }
+            }
+
+        } catch (Exception ex) {
+            Logger.printException(() -> "hidePremiumPromotionCard failure", ex);
+        }
+        return bytes;
+    }
+
+    /**
+     * Browse id of the Premium page, opened by the buttons of the Premium promotions.
+     */
+    private static final String PREMIUM_BROWSE_ID = "SPunlimited";
+    /**
+     * Images of the YouTube promotions, such as https://www.gstatic.com/youtube/img/promos/growth/abc_960x300.png.
+     * The images of the videos are on other hosts.
+     */
+    private static final String PROMOTION_IMAGE_PATH = "gstatic.com/youtube/img/promos/";
+
+    private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
      * Injection point.

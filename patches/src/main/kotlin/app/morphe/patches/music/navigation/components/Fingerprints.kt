@@ -225,3 +225,23 @@ internal object FloatingMiniplayerFeatureFlagFingerprint : Fingerprint(
         literal(45823962L)
     )
 )
+
+/**
+ * The WatchWhileLayout styleable entry 7 is floatingMiniPlayerBottomMargin (9.39+).
+ * Follow its dimension read to the field also used for the collapsed player height.
+ */
+internal object FloatingMiniplayerBottomMarginFingerprint : Fingerprint(
+    definingClass = "WatchWhileLayout;",
+    name = "<init>",
+    parameters = listOf("Landroid/content/Context;", "Landroid/util/AttributeSet;"),
+    filters = listOf(
+        literal(7L),
+        methodCall(
+            definingClass = "Landroid/content/res/TypedArray;",
+            name = "getDimensionPixelSize",
+            location = MatchAfterWithin(3)
+        ),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT, type = "I", location = MatchAfterImmediately())
+    )
+)

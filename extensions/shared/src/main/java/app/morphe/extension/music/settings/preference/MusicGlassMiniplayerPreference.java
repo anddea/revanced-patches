@@ -41,20 +41,23 @@ public class MusicGlassMiniplayerPreference extends SeekBarsPreviewPreference {
             Settings.MINIPLAYER_GLASS_CORNER_RADIUS,
             Settings.MINIPLAYER_GLASS_ARTWORK_PADDING,
             Settings.MINIPLAYER_GLASS_RIM,
-            Settings.MINIPLAYER_GLASS_OPACITY
+            Settings.MINIPLAYER_GLASS_OPACITY,
+            Settings.MINIPLAYER_GLASS_BOTTOM_SPACING
     };
 
     private static final String[] TITLES = {
             "morphe_music_miniplayer_glass_corner_radius_title",
             "morphe_music_miniplayer_glass_artwork_padding_title",
             "morphe_music_miniplayer_glass_rim_title",
-            "morphe_music_miniplayer_glass_opacity_title"
+            "morphe_music_miniplayer_glass_opacity_title",
+            "morphe_music_miniplayer_glass_bottom_spacing_title"
     };
 
     private static final int INDEX_CORNER_RADIUS = 0;
     private static final int INDEX_ARTWORK_PADDING = 1;
     private static final int INDEX_RIM = 2;
     private static final int INDEX_OPACITY = 3;
+    private static final int INDEX_BOTTOM_SPACING = 4;
 
     public MusicGlassMiniplayerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -84,7 +87,7 @@ public class MusicGlassMiniplayerPreference extends SeekBarsPreviewPreference {
      * The miniplayer at its real size over some content, so the translucency of the glass shows.
      */
     private static final class PreviewView extends View implements GlassCapsuleDrawable.Host {
-        private static final int HEIGHT = Dim.dp(120);
+        private static final int HEIGHT = Dim.dp(168);
         private static final int MARGIN = MusicGlassNavigationBar.MARGIN_HORIZONTAL;
 
         /**
@@ -165,7 +168,7 @@ public class MusicGlassMiniplayerPreference extends SeekBarsPreviewPreference {
             rect.set(width * 0.6f, height * 0.12f, width * 0.94f, height * 0.92f);
             canvas.drawRoundRect(rect, corner, corner, paint);
 
-            final int top = Math.round((height - CARD_HEIGHT) / 2);
+            final int top = Math.round(height - CARD_HEIGHT - Dim.dp(values[INDEX_BOTTOM_SPACING]));
             card.set(MARGIN, top, Math.round(width) - MARGIN, top + CARD_HEIGHT);
             glass.setBounds(card);
             glass.draw(canvas);

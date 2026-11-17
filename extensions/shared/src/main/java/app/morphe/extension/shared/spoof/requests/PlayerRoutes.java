@@ -22,6 +22,7 @@ import java.util.Locale;
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.spoof.MwebSignIn;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
 import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
@@ -75,6 +76,12 @@ public final class PlayerRoutes {
 
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000;
 
+    /**
+     * InnerTube of the website. The API host ignores the cookies of a web sign in,
+     * so a signed in web client uses the website host, as the website does.
+     */
+    private static final String WEB_API_URL = MwebSignIn.ORIGIN + "/youtubei/v1/";
+
     private PlayerRoutes() {
     }
 
@@ -85,12 +92,14 @@ public final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
+            // The website names only its client and its browser.
+            final boolean web = clientType.isWebClient();
             client.put("clientName", clientType.clientName);
             client.put("clientVersion", clientType.clientVersion);
             if (visitorId != null && !visitorId.isEmpty()) {
                 client.put("visitorData", visitorId);
             }
-            if (clientType.deviceModel != null) {
+            if (!web && clientType.deviceModel != null) {
                 client.put("deviceMake", clientType.deviceMake);
                 client.put("deviceModel", clientType.deviceModel);
                 client.put("osName", clientType.osName);
@@ -100,7 +109,10 @@ public final class PlayerRoutes {
                     client.put("androidSdkVersion", androidSdkVersion);
                 }
             }
-            String platform = clientType.clientPlatform;
+            if (web) {
+                client.put("userAgent", clientType.getUserAgent());
+            }
+            String platform = web ? null : clientType.clientPlatform;
             if (platform != null && !platform.isEmpty()) {
                 client.put("platform", platform);
             }
@@ -148,7 +160,9 @@ public final class PlayerRoutes {
                 JSONObject contentPlaybackContext = new JSONObject();
                 contentPlaybackContext.put(
                         "referer",
-                        String.format("https://www.youtube.com/tv#/watch?v=%s", videoId)
+                        web
+                                ? MwebSignIn.ORIGIN + "/watch?v=" + videoId
+                                : String.format("https://www.youtube.com/tv#/watch?v=%s", videoId)
                 );
                 contentPlaybackContext.put("html5Preference", "HTML5_PREF_WANTS");
                 Integer signatureTimestamp = JavaScriptManager.getSignatureTimestamp();
@@ -185,11 +199,15 @@ public final class PlayerRoutes {
     }
 
     static HttpURLConnection getPlayerResponseConnectionFromRoute(ClientType clientType) throws IOException {
-        return getPlayerResponseConnectionFromRoute(clientType, false);
+        return getPlayerResponseConnectionFromRoute(clientType, false, false);
     }
 
+    /**
+     * @param webSignIn If the request is made with the cookies of a web sign in.
+     */
     static HttpURLConnection getPlayerResponseConnectionFromRoute(ClientType clientType,
-                                                                  boolean includeVideoDetails) throws IOException {
+                                                                  boolean includeVideoDetails,
+                                                                  boolean webSignIn) throws IOException {
         Route.CompiledRoute route;
         if (!clientType.usePlayerEndpoint) {
             route = includeVideoDetails
@@ -200,10 +218,11 @@ public final class PlayerRoutes {
                     ? GET_PLAYER_STREAMING_DATA_WITH_DETAILS
                     : GET_PLAYER_STREAMING_DATA;
         }
-        var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
+        var connection = Requester.getConnectionFromCompiledRoute(
+                webSignIn ? WEB_API_URL : YT_API_URL, route);
 
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("User-Agent", clientType.userAgent);
+        connection.setRequestProperty("User-Agent", clientType.getUserAgent());
         // Not a typo. "Client-Name" uses the client type id (ported from Morphe).
         connection.setRequestProperty("X-YouTube-Client-Name", String.valueOf(clientType.id));
         connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);

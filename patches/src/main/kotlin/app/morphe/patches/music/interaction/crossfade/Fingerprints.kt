@@ -100,7 +100,9 @@ internal object LoadVideoFingerprint : Fingerprint(
 internal object LoopStateAdapterFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Ljava/lang/Object;"),
-    strings = listOf("attempted to update repeat mode but media session was null"),
+    filters = listOf(
+        string("attempted to update repeat mode but media session was null", StringComparisonType.STARTS_WITH)
+    )
 )
 
 /**

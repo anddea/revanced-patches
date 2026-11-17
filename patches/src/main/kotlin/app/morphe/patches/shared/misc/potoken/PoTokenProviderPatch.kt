@@ -14,9 +14,6 @@ package app.morphe.patches.shared.misc.potoken
 import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.ResourcePatchContext
-import app.morphe.patches.shared.misc.request.hookMediaRequest
-import app.morphe.patches.shared.misc.request.hookMediaResponseChunk
-import app.morphe.patches.shared.misc.request.mediaRequestPatch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.registersUsed
@@ -51,7 +48,7 @@ internal fun poTokenProviderPatch(
 ) {
     block()
 
-    dependsOn(poTokenProviderResourcePatch, mediaRequestPatch)
+    dependsOn(poTokenProviderResourcePatch)
 
     execute {
         resourceContext.document("AndroidManifest.xml").use { document ->
@@ -145,10 +142,6 @@ internal fun poTokenProviderPatch(
                 }
             }
         }
-
-        // Watch media responses for the server rejecting the token the provider made.
-        hookMediaRequest("$EXTENSION_CLASS->onMediaRequest")
-        hookMediaResponseChunk("$EXTENSION_CLASS->onMediaResponseChunk")
 
         updatePatchStatus(EXTENSION_PATCH_STATUS_CLASS_DESCRIPTOR, "PoTokenProvider")
 

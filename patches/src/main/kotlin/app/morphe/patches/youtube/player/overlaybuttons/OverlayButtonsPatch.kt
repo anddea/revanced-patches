@@ -1,16 +1,4 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- *
- * Modified by lavinhoque33, 2026-10-21.
- */
-
-/*
  * Copyright (C) 2022-2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -21,6 +9,7 @@
  * - Francesco Marastoni (https://github.com/Francesco146)
  * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
  * - inotia00 (https://github.com/inotia00)
+ * - lavinhoque33 (https://github.com/lavinhoque33)
  * - MondayNitro (https://github.com/MondayNitro)
  * - rufusin (https://github.com/rufusin)
  *

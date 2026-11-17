@@ -10,6 +10,9 @@
 
 package app.morphe.patches.youtube.ads.general
 
+import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
+import app.morphe.patches.youtube.utils.proto.hookElement
+
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -78,6 +81,7 @@ val adsPatch = adsPatch(
 
         dependsOn(
             settingsPatch,
+            elementProtoParserHookPatch,
             lithoFilterPatch,
             lithoLayoutPatch,
             sharedResourceIdPatch,
@@ -91,6 +95,7 @@ val adsPatch = adsPatch(
     methodDescriptor = "hideVideoAds",
     executeBlock = {
         addLithoFilter(ADS_FILTER_CLASS_DESCRIPTOR)
+        hookElement("$ADS_FILTER_CLASS_DESCRIPTOR->hidePremiumPromotionCard([B)[B")
         addEngagementPanelIdHook("$ADS_CLASS_DESCRIPTOR->hidePlayerPopupAds(Ljava/lang/String;)Z")
 
         // Only the triggers that expire the ad slots are handled, so no ad slot is entered.

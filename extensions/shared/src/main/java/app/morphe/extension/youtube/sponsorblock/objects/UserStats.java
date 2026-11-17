@@ -63,11 +63,10 @@ public class UserStats {
     @NonNull
     @Override
     public String toString() {
-        // Do not include private user id in toString().
+        // Do not include private user ID in toString(),
+        // Do not include public user id/name either.
         return "UserStats{"
-                + "publicUserId='" + publicUserId + '\''
-                + ", userName='" + userName + '\''
-                + ", reputation=" + reputation
+                + "reputation=" + reputation
                 + ", segmentCount=" + segmentCount
                 + ", ignoredSegmentCount=" + ignoredSegmentCount
                 + ", viewCount=" + viewCount

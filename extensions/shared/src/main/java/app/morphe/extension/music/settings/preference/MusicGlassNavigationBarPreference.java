@@ -28,6 +28,7 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
             Settings.NAVIGATION_BAR_GLASS_HEIGHT,
             Settings.NAVIGATION_BAR_GLASS_WIDTH,
             Settings.NAVIGATION_BAR_GLASS_BUTTON_SPACING,
+            Settings.NAVIGATION_BAR_GLASS_BOTTOM_SPACING,
             Settings.NAVIGATION_BAR_GLASS_OPACITY,
             Settings.NAVIGATION_BAR_GLASS_RIM
     };
@@ -36,12 +37,13 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
             "morphe_music_navigation_bar_glass_size_height",
             "morphe_music_navigation_bar_glass_size_width",
             "morphe_music_navigation_bar_glass_size_button_spacing",
+            "morphe_music_navigation_bar_glass_size_bottom_spacing",
             "morphe_music_navigation_bar_glass_opacity_title",
             "morphe_music_navigation_bar_glass_rim_title"
     };
 
-    private static final int INDEX_OPACITY = 3;
-    private static final int INDEX_RIM = 4;
+    private static final int INDEX_OPACITY = 4;
+    private static final int INDEX_RIM = 5;
 
     public MusicGlassNavigationBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -65,6 +67,11 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
     @Override
     protected int getHorizontalMargin() {
         return MusicGlassNavigationBar.MARGIN_HORIZONTAL;
+    }
+
+    @Override
+    protected int getBottomSpacing(int[] values) {
+        return values[3];
     }
 
     @Override

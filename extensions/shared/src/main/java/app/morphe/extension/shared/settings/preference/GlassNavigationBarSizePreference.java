@@ -138,6 +138,13 @@ public abstract class GlassNavigationBarSizePreference extends SeekBarsPreviewPr
     protected abstract int getHorizontalMargin();
 
     /**
+     * @return The minimum bottom spacing in dp, so the preview follows the app's spacing slider.
+     */
+    protected int getBottomSpacing(int[] values) {
+        return 10;
+    }
+
+    /**
      * @param values The values of the sliders.
      * @return How opaque the glass in the preview is: 1 keeps the default alphas, 0 is fully clear, 2 doubles them.
      */
@@ -206,6 +213,7 @@ public abstract class GlassNavigationBarSizePreference extends SeekBarsPreviewPr
         ViewGroup layout = (ViewGroup) view;
         PreviewView preview = (PreviewView) layout.getChildAt(0);
         TextView shownButtons = (TextView) layout.getChildAt(1);
+        preview.bottomSpacing = Dim.dp(getBottomSpacing(values));
         preview.setStyle(getOpacityScale(values), isLightTint(), getRimScale(values), getTintColor(), isIndicatorShown());
 
         final int screenWidth = getContext().getResources().getDisplayMetrics().widthPixels;
@@ -249,6 +257,7 @@ public abstract class GlassNavigationBarSizePreference extends SeekBarsPreviewPr
         private final GlassCapsuleDrawable glass;
         private final Rect capsule = new Rect();
         private boolean indicatorShown = true;
+        private int bottomSpacing = Dim.dp10;
 
         PreviewView(Context context, PreviewButtons buttons, int[] values, int margin, float cornerRadiusFraction) {
             super(context);
@@ -346,7 +355,7 @@ public abstract class GlassNavigationBarSizePreference extends SeekBarsPreviewPr
             final float capsuleHeight = GlassNavigationBarLayout.getCapsuleHeight(baseHeight, contentHeight, values[0]) * scale;
             final float capsuleWidth = shownButtons * buttonWidth;
             final float left = (width - capsuleWidth) / 2;
-            final float bottom = height - Dim.dp10 * scale;
+            final float bottom = height - bottomSpacing * scale;
             final float top = bottom - capsuleHeight;
             capsule.set(Math.round(left), Math.round(top), Math.round(left + capsuleWidth), Math.round(bottom));
             glass.setBounds(capsule);

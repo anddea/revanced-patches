@@ -221,6 +221,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final IntegerSetting NAVIGATION_BAR_GLASS_HEIGHT = new IntegerSetting("morphe_music_navigation_bar_glass_height", 100, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
     public static final IntegerSetting NAVIGATION_BAR_GLASS_WIDTH = new IntegerSetting("morphe_music_navigation_bar_glass_width", 100, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
     public static final IntegerSetting NAVIGATION_BAR_GLASS_BUTTON_SPACING = new IntegerSetting("morphe_music_navigation_bar_glass_button_spacing", 48, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
+    public static final IntegerSetting NAVIGATION_BAR_GLASS_BOTTOM_SPACING = new IntegerSetting("morphe_music_navigation_bar_glass_bottom_spacing", 14, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
     public static final IntegerSetting NAVIGATION_BAR_GLASS_BLUR = new IntegerSetting("morphe_music_navigation_bar_glass_blur", 20, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
     public static final IntegerSetting NAVIGATION_BAR_GLASS_RIM = new IntegerSetting("morphe_music_navigation_bar_glass_rim", 50, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
     public static final BooleanSetting NAVIGATION_BAR_GLASS_ALBUM_TINT = new BooleanSetting("morphe_music_navigation_bar_glass_album_tint", FALSE, false, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR)));
@@ -238,11 +239,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final IntegerSetting MINIPLAYER_GLASS_BLUR = new IntegerSetting("morphe_music_miniplayer_glass_blur", 20, false, parent(MINIPLAYER_GLASS));
     public static final IntegerSetting MINIPLAYER_GLASS_RIM = new IntegerSetting("morphe_music_miniplayer_glass_rim", 50, false, parent(MINIPLAYER_GLASS));
     public static final BooleanSetting MINIPLAYER_GLASS_LIGHT = new BooleanSetting("morphe_music_miniplayer_glass_light", FALSE, false, parent(MINIPLAYER_GLASS));
-    public static final BooleanSetting MINIPLAYER_GLASS_ALBUM_TINT = new BooleanSetting("morphe_music_miniplayer_glass_album_tint", TRUE, false, parent(MINIPLAYER_GLASS));
+    public static final BooleanSetting MINIPLAYER_GLASS_ALBUM_TINT = new BooleanSetting("morphe_music_miniplayer_glass_album_tint", FALSE, false, parent(MINIPLAYER_GLASS));
     public static final BooleanSetting MINIPLAYER_GLASS_SPINNING_ARTWORK = new BooleanSetting("morphe_music_miniplayer_glass_spinning_artwork", FALSE, false, parent(MINIPLAYER_GLASS));
     public static final BooleanSetting MINIPLAYER_GLASS_HIDE_PROGRESS_BAR = new BooleanSetting("morphe_music_miniplayer_glass_hide_progress_bar", FALSE, false, parent(MINIPLAYER_GLASS));
     public static final IntegerSetting MINIPLAYER_GLASS_CORNER_RADIUS = new IntegerSetting("morphe_music_miniplayer_glass_corner_radius", 18, false, parent(MINIPLAYER_GLASS));
     public static final IntegerSetting MINIPLAYER_GLASS_ARTWORK_PADDING = new IntegerSetting("morphe_music_miniplayer_glass_artwork_padding", 7, false, parent(MINIPLAYER_GLASS));
+    public static final IntegerSetting MINIPLAYER_GLASS_BOTTOM_SPACING = new IntegerSetting("morphe_music_miniplayer_glass_bottom_spacing", 2, false, parent(MINIPLAYER_GLASS));
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", FALSE, true, parentInverted(MINIPLAYER_GLASS));
     public static final BooleanSetting CHANGE_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_music_change_navigation_bar_color", FALSE, true, parentsAll(parent(CHANGE_MINIPLAYER_COLOR), parentInverted(NAVIGATION_BAR_GLASS)));
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
@@ -411,6 +413,8 @@ public class Settings extends SharedYouTubeSettings {
                 50, 100, 5, "%"));
         SeekBarPreference.register(new SeekBarConfig(NAVIGATION_BAR_GLASS_BUTTON_SPACING,
                 8, 96, 4, "dp"));
+        SeekBarPreference.register(new SeekBarConfig(NAVIGATION_BAR_GLASS_BOTTOM_SPACING,
+                0, 96, 2, "dp"));
         SeekBarPreference.register(new SeekBarConfig(MINIPLAYER_GLASS_OPACITY,
                 0, 100, 1, "%"));
         SeekBarPreference.register(new SeekBarConfig(MINIPLAYER_GLASS_BLUR,
@@ -419,6 +423,8 @@ public class Settings extends SharedYouTubeSettings {
                 0, 100, 5, "%"));
         SeekBarPreference.register(new SeekBarConfig(MINIPLAYER_GLASS_CORNER_RADIUS,
                 8, 32, 1, "dp"));
+        SeekBarPreference.register(new SeekBarConfig(MINIPLAYER_GLASS_BOTTOM_SPACING,
+                0, 96, 2, "dp"));
         SeekBarPreference.register(new SeekBarConfig(MINIPLAYER_GLASS_ARTWORK_PADDING,
                 4, 14, 1, "dp"));
 

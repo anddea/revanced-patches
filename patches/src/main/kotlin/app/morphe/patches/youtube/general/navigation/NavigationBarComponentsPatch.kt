@@ -258,6 +258,25 @@ val navigationBarComponentsPatch = bytecodePatch(
                 }
             }
 
+            // Without the edge to edge top bar, the player can keep the top inset of the window
+            // and is laid out below the status bar twice.
+            if (is_20_05_or_greater) {
+                PlayerStableInsetsFingerprint.let {
+                    it.method.apply {
+                        val index = it.instructionMatches[1].index
+                        val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index + 1,
+                            """
+                                invoke-static/range { v$register .. v$register }, $PATCHES_PATH/theme/StatusBarPatch;->getPlayerStableInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
+                                move-result-object v$register
+                            """
+                        )
+                    }
+                }
+            }
+
             // Without the edge to edge top bar, the top bars are laid out with the stable insets,
             // which keep the height of the hidden status bar.
             SystemWindowInsetsChangedFingerprint.takeIf { it.matchOrNull() != null }?.let {

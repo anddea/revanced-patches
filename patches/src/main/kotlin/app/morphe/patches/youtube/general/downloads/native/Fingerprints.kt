@@ -10,6 +10,7 @@
 
 package app.morphe.patches.youtube.general.downloads.native
 
+import app.morphe.patches.shared.VideoStreamingDataToStringFingerprint
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
@@ -20,6 +21,8 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patcher.string
 import app.morphe.patches.youtube.video.information.ModernChannelInformationFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -404,6 +407,57 @@ internal object OfflineSettingsConstructorFingerprint : Fingerprint(
         "I", // Height of the highest download quality.
         "L",
         "L"
+    ),
+    filters = listOf(
+        // Copies the format types into an immutable list.
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            parameters = listOf("Ljava/util/Collection;")
+        )
+    )
+)
+
+/**
+ * Maps the format types to their heights and to the labels of the quality settings.
+ */
+internal object FormatTypeMapsFingerprint : Fingerprint(
+    name = "<clinit>",
+    filters = listOf(
+        resourceLiteral(ResourceType.STRING, "offline_video_quality_1080p")
+    )
+)
+
+/**
+ * Label of a format type in the quality settings, or -1 if it has none.
+ */
+internal object FormatTypeLabelFingerprint : Fingerprint(
+    classFingerprint = FormatTypeMapsFingerprint,
+    returnType = "I",
+    parameters = listOf("L")
+)
+
+/**
+ * Shows the bottom sheet of a ShowActionSheetCommand. If bit 512 of the command is set,
+ * the field read after it tells the sheet to skip the collapsed state and open fully expanded.
+ */
+internal object ShowActionSheetCommandFingerprint : Fingerprint(
+    returnType = "V",
+    filters = listOf(
+        string("ShowActionSheetCommand needs to provided."),
+        literal(512, opcodes = listOf(Opcode.AND_INT_LIT16)),
+        fieldAccess(opcode = Opcode.IGET_BOOLEAN)
+    )
+)
+
+/**
+ * Creates the ShowActionSheetCommand of the quality picker of a download.
+ */
+internal object DownloadQualityPickerCommandFingerprint : Fingerprint(
+    returnType = "Ljava/lang/Object;",
+    filters = listOf(
+        resourceLiteral(ResourceType.RAW, "download_options_picker_footer_element_android"),
+        // Sets the bit of the footer of the command.
+        fieldAccess(opcode = Opcode.IPUT, type = "I")
     )
 )
 
@@ -484,4 +538,79 @@ internal object NoOpInteractionLoggerFingerprint : Fingerprint(
     name = "getNoOpInteractionLogger",
     returnType = "Ljava/lang/Object;",
     parameters = listOf()
+)
+
+/**
+ * Fetches the content length of a stream, if the server did not give it.
+ */
+internal object FetchContentLengthFingerprint : Fingerprint(
+    returnType = "L",
+    filters = listOf(
+        string("fetchContentLengthIfNecessary failed")
+    )
+)
+
+/**
+ * Picks the stream of a download quality, either the video stream or the audio stream.
+ * Used by the quality picker and when the download starts.
+ */
+internal object DownloadStreamSelectorFingerprint : Fingerprint(
+    classFingerprint = FetchContentLengthFingerprint,
+    returnType = "L",
+    parameters = listOf(
+        "I", // Height of the quality.
+        "I", // Max height.
+        "I", // Audio quality.
+        "L", // Streaming data.
+        "Z", // Audio stream.
+        "L"  // Player config.
+    )
+)
+
+/**
+ * Constructor of the streaming data, which first sets the list of every stream of the video.
+ */
+internal object StreamingDataFormatStreamsFingerprint : Fingerprint(
+    classFingerprint = VideoStreamingDataToStringFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = "Ljava/util/List;"
+        )
+    )
+)
+
+/**
+ * Picks the video and audio streams when a download starts, and pairs them.
+ */
+internal object DownloadTransferStreamsFingerprint : Fingerprint(
+    returnType = "L",
+    parameters = listOf(
+        "I", // Height of the quality.
+        "I", // Audio quality.
+        "Ljava/lang/String;", // Audio track.
+        "Ljava/lang/String;", // Video ID.
+        "L", // Streaming data.
+        "L", // Player config.
+        "L",
+        "Z"
+    ),
+    filters = listOf(
+        // Picks the streams.
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            parameters = listOf("L", "L", "L")
+        ),
+        // Pairs the video stream with the audio stream.
+        methodCall(
+            opcode = Opcode.INVOKE_DIRECT,
+            name = "<init>",
+            parameters = listOf("L", "L"),
+            location = MatchAfterWithin(30)
+        ),
+        string("Stream pair could not be found.")
+    )
 )

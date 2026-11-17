@@ -72,6 +72,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.fix.attributes.themeAttributesPatch
 import app.morphe.patches.youtube.utils.fix.contentprovider.fixContentProviderPatch
+import app.morphe.patches.youtube.utils.fix.mediasession.fixMediaSessionStopPatch
 import app.morphe.patches.youtube.utils.fix.padding.fixPagePaddingPatch
 import app.morphe.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePlayingPatch
 import app.morphe.patches.youtube.utils.fix.preference.addPreferenceScreenHook
@@ -368,6 +369,7 @@ val settingsPatch = resourcePatch(
         // contentProviderNullMapEntryReproPatch,
         fixContentProviderPatch,
         fixPagePaddingPatch,
+        fixMediaSessionStopPatch,
     )
 
     val rvxSettingsLabel = stringOption(

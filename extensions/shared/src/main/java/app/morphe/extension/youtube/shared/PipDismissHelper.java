@@ -21,6 +21,11 @@ public final class PipDismissHelper {
      * and cleans up the observer when the dialog is dismissed for any reason.
      */
     public static void dismissOnPip(SheetBottomDialog.SlideDialog dialog) {
+        dismissOnPip(dialog, () -> {});
+    }
+
+    /** Runs cleanup on every dismissal, including when entering Picture-in-Picture. */
+    public static void dismissOnPip(SheetBottomDialog.SlideDialog dialog, Runnable onDismiss) {
         Function1<PlayerType, Unit> observer = new Function1<>() {
             @Override
             public Unit invoke(PlayerType type) {
@@ -34,6 +39,9 @@ public final class PipDismissHelper {
             }
         };
         PlayerType.getOnChange().addObserver(observer);
-        dialog.setOnDismissListener(d -> PlayerType.getOnChange().removeObserver(observer));
+        dialog.setOnDismissListener(d -> {
+            PlayerType.getOnChange().removeObserver(observer);
+            onDismiss.run();
+        });
     }
 }

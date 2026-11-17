@@ -52,7 +52,7 @@ public final class DeArrowBrandingRequest {
         }
     }
 
-    private static final String API_URL = "https://sponsor.ajay.app";
+    static final String API_URL = "https://sponsor.ajay.app";
 
     /**
      * Videos are requested by the start of the SHA-256 hash of the video id,
@@ -129,11 +129,27 @@ public final class DeArrowBrandingRequest {
             Collections.synchronizedMap(Utils.createSizeRestrictedMap(1000));
 
     /**
+     * Removes the fetched branding of the video, so it is fetched again, such as after voting on its titles.
+     */
+    public static void removeFromCache(String videoId) {
+        cache.remove(videoId);
+    }
+
+    /**
      * DeArrow titles that were fetched. Titles replaced before they are laid out
      * are only known by their text.
      */
     private static final Set<String> fetchedTitles = Collections.newSetFromMap(
             Collections.synchronizedMap(Utils.createSizeRestrictedMap(1000)));
+
+    private static final Map<String, String> titleVideoIds =
+            Collections.synchronizedMap(Utils.createSizeRestrictedMap(1000));
+
+    /** @return The video of a fetched DeArrow title, for refreshing it after a vote. */
+    @Nullable
+    public static String getVideoIdOfTitle(String title) {
+        return titleVideoIds.get(title);
+    }
 
     private DeArrowBrandingRequest() {
     }
@@ -153,7 +169,11 @@ public final class DeArrowBrandingRequest {
      */
     public static DeArrowTitle fetchTitle(String videoId) throws DeArrowException {
         try {
-            return fetch(videoId).get().title();
+            DeArrowTitle title = fetch(videoId).get().title();
+            if (title.title() != null) {
+                titleVideoIds.put(title.title(), videoId);
+            }
+            return title;
         } catch (ExecutionException ex) {
             throw new DeArrowException(ex.getCause());
         } catch (InterruptedException ex) {
@@ -293,9 +313,17 @@ public final class DeArrowBrandingRequest {
             return null;
         }
 
-        // Words that are not auto formatted by the DeArrow extension start with '>'.
-        String text = FORMATTER_OVERRIDE_PATTERN.matcher(title.optString("title")).replaceAll("$1").trim();
+        String text = formatTitle(title.optString("title"));
         return text.isEmpty() ? null : text;
+    }
+
+    /**
+     * Words that are not auto formatted by the DeArrow extension start with '>'.
+     *
+     * @return The title as shown, without the '>' characters.
+     */
+    static String formatTitle(String submittedTitle) {
+        return FORMATTER_OVERRIDE_PATTERN.matcher(submittedTitle).replaceAll("$1").trim();
     }
 
     /**

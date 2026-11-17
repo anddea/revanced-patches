@@ -1,9 +1,4 @@
 /*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Portions of this file are modified by anddea:
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
  *

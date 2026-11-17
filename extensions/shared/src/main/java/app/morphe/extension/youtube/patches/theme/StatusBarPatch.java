@@ -9,13 +9,6 @@
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
-/*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches/pull/3337
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
- */
-
 package app.morphe.extension.youtube.patches.theme;
 
 import android.app.Activity;
@@ -230,7 +223,7 @@ public final class StatusBarPatch {
      * The flag draws the window behind the status bar and gives the top bars the status bar inset.
      * It is read by many classes, and on some devices they do not get the same value. The window
      * is then laid out below the status bar while the top bars still make room for it, or the
-     * other way around (https://github.com/MorpheApp/morphe-patches/issues/2969).
+     * other way around (<a href="https://github.com/MorpheApp/morphe-patches/issues/2969">...</a>).
      * The first value read is used everywhere, so the app keeps its own value but uses it consistently.
      * <p>
      * With the status bar hidden, the edge to edge layout leaves an empty bar of the height of
@@ -273,7 +266,7 @@ public final class StatusBarPatch {
      * <p>
      * The status bar color that follows the scrolling top bar only exists with the edge to edge
      * top bar. Without it the status bar view is never set up, and the first scroll of the
-     * top bar crashes the app (https://github.com/MorpheApp/morphe-patches/issues/3805).
+     * top bar crashes the app (<a href="https://github.com/MorpheApp/morphe-patches/issues/3805">...</a>).
      * This flag can be read before the edge to edge top bar flag, which is then turned off later
      * if the status bar is hidden.
      */
@@ -340,7 +333,7 @@ public final class StatusBarPatch {
      * Some devices keep the window out of the status bar area, for example Samsung devices with
      * the app not allowed to use the camera cutout area. The edge to edge top bar still makes room
      * for the status bar above the top bars, which is then drawn as a second status bar below
-     * the real one and covers the top bars (https://github.com/MorpheApp/morphe-patches/issues/2969).
+     * the real one and covers the top bars (<a href="https://github.com/MorpheApp/morphe-patches/issues/2969">...</a>).
      * <p>
      * The flag is read before the window is laid out, so the position is saved and the flag is
      * turned off from the next app start. Only the full screen window in portrait with the status bar
@@ -397,7 +390,7 @@ public final class StatusBarPatch {
                 // Without the edge to edge top bar the app itself can lay the window out below
                 // the status bar (it uses the default display cutout mode on Android 14 and lower)
                 // and above the system navigation buttons, so only a window that was drawn edge to edge
-                // tells that the device keeps it there. Otherwise the flags would stay off for good
+                // tells that the device keeps it there. Otherwise, the flags would stay off for good
                 // after one app start without them.
                 final boolean edgeToEdge = Boolean.TRUE.equals(edgeToEdgeTopBarUsed);
 
@@ -520,6 +513,25 @@ public final class StatusBarPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "setSystemWindowInsetTop failure", ex);
         }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The player is laid out below the top stable inset. Without the edge to edge top bar, the watch page
+     * is already laid out below the status bar with a top margin, but 21.29 and older targets still give
+     * the player the stable insets of the whole window, which keep the height of the status bar also when
+     * it is hidden. The player is then laid out below the status bar twice, or below an empty bar with
+     * the status bar hidden. Newer targets read the insets of the watch layout, which gets none because
+     * the main view consumes them, but they start with the insets of the whole window if it already has them.
+     */
+    public static Rect getPlayerStableInsets(Rect insets) {
+        if (FIX_STATUS_BAR_LAYOUT && insets.top != 0 && Boolean.FALSE.equals(edgeToEdgeTopBarUsed)) {
+            Rect playerInsets = new Rect(insets);
+            playerInsets.top = 0;
+            return playerInsets;
+        }
+        return insets;
     }
 
     private static int getDisplayCutoutInsetTop(WindowInsets insets) {

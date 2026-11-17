@@ -22,6 +22,7 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -388,36 +389,26 @@ val miniplayerPatch = bytecodePatch(
 
             settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
         } else if (is_19_36_or_greater) {
-            // 21.39: the rounded corners flag is gone. The outline provider is chosen in a method of the
-            // corner applier class, so the non-rounded provider is used when the setting is off.
+            // Skip YouTube's outline provider as upstream does: the glass bar owns its video outline.
+            // Replacing the provider or disabling clipping here overrides the glass's rounded video.
             val roundedMatch = runCatching { MiniplayerRoundedCornersFingerprint.match() }.getOrNull()
             if (roundedMatch == null) {
                 printWarn("\"Enable rounded corners\" is not supported in this version. Use YouTube versions up to 21.39.")
             } else {
-                val outlineIndex = roundedMatch.instructionMatches[1].index
-                // The static non-rounded provider (view background outline) field has an obfuscated name.
-                val defaultOutlineField = roundedMatch.method.let { method ->
-                    method.getInstruction(
-                        method.indexOfFirstInstructionOrThrow {
-                            opcode == Opcode.SGET_OBJECT &&
-                                    getReference<FieldReference>()?.type == "Landroid/view/ViewOutlineProvider;"
-                        }
-                    ).getReference<FieldReference>()!!
+                roundedMatch.method.apply {
+                    val index = roundedMatch.instructionMatches.last().index
+                    val free = findFreeRegister(index)
+
+                    addInstructionsAtControlFlowLabel(
+                        index,
+                        """
+                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getRoundedCorners()Z
+                            move-result v$free
+                            if-nez v$free, :get_rounded_corners
+                        """,
+                        ExternalLabel("get_rounded_corners", getInstruction(index + 1))
+                    )
                 }
-                roundedMatch.method.addInstructionsAtControlFlowLabel(
-                    outlineIndex,
-                    """
-                        const/4 v0, 0x1
-                        invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->getRoundedCorners(Z)Z
-                        move-result v0
-                        if-nez v0, :miniplayer_rounded_corners
-                        const/4 v0, 0x0
-                        invoke-virtual { p1, v0 }, Landroid/view/View;->setClipToOutline(Z)V
-                        sget-object p0, $defaultOutlineField
-                        :miniplayer_rounded_corners
-                        nop
-                    """
-                )
                 settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
             }
         }

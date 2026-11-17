@@ -3,6 +3,7 @@ package app.morphe.extension.shared.patches;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.graphics.Rect;
 import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
@@ -90,12 +91,32 @@ public final class NavigationSwipe {
         return visible;
     }
 
+    /**
+     * Reserve gestures starting on horizontal shelves for their native scroll handler.
+     * Check both directions at touch down so reaching a shelf edge cannot switch tabs.
+     */
+    private static boolean touchesHorizontalScroller(View view, int x, int y) {
+        Rect bounds = new Rect();
+        if (!view.isShown() || !view.getGlobalVisibleRect(bounds) || !bounds.contains(x, y)) {
+            return false;
+        }
+        if (view.canScrollHorizontally(-1) || view.canScrollHorizontally(1)) return true;
+        if (view instanceof ViewGroup group) {
+            for (int i = 0; i < group.getChildCount(); i++) {
+                if (touchesHorizontalScroller(group.getChildAt(i), x, y)) return true;
+            }
+        }
+        return false;
+    }
+
     /** Cancel the original stream before activating a tab, avoiding a second click on release. */
     private boolean onTouch(MotionEvent event, Window.Callback original) {
         int action = event.getActionMasked();
         if (action == MotionEvent.ACTION_DOWN) {
             consumed = false;
-            tracking = visibleTabs().size() > 1;
+            List<View> visible = visibleTabs();
+            tracking = visible.size() > 1 && !touchesHorizontalScroller(
+                    visible.get(0).getRootView(), (int) event.getRawX(), (int) event.getRawY());
             startX = event.getX();
             startY = event.getY();
         } else if (consumed) {

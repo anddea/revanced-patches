@@ -516,6 +516,24 @@ val navigationBarComponentsPatch = bytecodePatch(
         if (is_9_15_or_greater) {
             // The glass navigation bar uses the floating miniplayer of the app.
             if (is_9_39_or_greater) {
+                // Override every read so native margins and the player behavior use the same spacing.
+                val marginFingerprint = FloatingMiniplayerBottomMarginFingerprint
+                val marginField = marginFingerprint.method.getInstruction(
+                    marginFingerprint.instructionMatches.last().index
+                ).getReference<FieldReference>()!!
+                findMutableClassOrThrow(marginField.definingClass).methods.forEach { method ->
+                    val reads = method.implementation?.instructions?.withIndex()?.filter {
+                        it.value.opcode == Opcode.IGET && it.value.getReference<FieldReference>() == marginField
+                    } ?: emptyList()
+                    reads.reversed().forEach { (index, instruction) ->
+                        val register = (instruction as TwoRegisterInstruction).registerA
+                        method.addInstructions(index + 1, """
+                            invoke-static { v$register }, Lapp/morphe/extension/music/patches/MusicGlassMiniplayer;->getBottomSpacing(I)I
+                            move-result v$register
+                        """)
+                    }
+                }
+
                 FloatingMiniplayerFeatureFlagFingerprint.matchAll().forEach {
                     it.method.insertLiteralOverride(
                         it.instructionMatches.first().index,

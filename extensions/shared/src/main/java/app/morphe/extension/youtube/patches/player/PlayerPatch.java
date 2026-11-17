@@ -70,6 +70,7 @@ import app.morphe.extension.youtube.patches.utils.InitializationPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityInterface;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
@@ -127,6 +128,21 @@ public class PlayerPatch {
      * Constant found in: androidx.window.embedding.DividerAttributes
      */
     private static final int DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT = -16777216;
+
+    /**
+     * Enhanced Ambient mode turns its light off in fullscreen too, and ignores "Disable Ambient mode".
+     */
+    public static final class DisableFullscreenAmbientModeAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.ENHANCED_AMBIENT_MODE.get() || !Settings.DISABLE_AMBIENT_MODE.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.ENHANCED_AMBIENT_MODE, Settings.DISABLE_AMBIENT_MODE);
+        }
+    }
 
     public static boolean bypassAmbientModeRestrictions(boolean original) {
         return !Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original;

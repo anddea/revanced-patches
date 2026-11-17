@@ -103,7 +103,8 @@ public class SpoofVideoStreamsPatch {
      * <p>
      * Called off the main thread when native code starts a media request.
      * The app makes the requests of SABR streams itself, and names itself and the device it runs on,
-     * even when the streams are from a TV client. These requests name the TV client instead.
+     * even when the streams are from a TV client. These requests name the TV client instead,
+     * and the requests of the Mobile Web client use the streaming session of the website (see {@link MwebStream}).
      *
      * @param callbacks Native callbacks of the request, which are also given the response.
      * @return The request to start.
@@ -122,13 +123,19 @@ public class SpoofVideoStreamsPatch {
                 return request;
             }
 
+            SabrReadaheadLimit.onRequest(callbacks);
             String urlClient = uri.getQueryParameter("c");
             MediaHttpRequest requestToStart = request;
             byte[] body = request.patch_getBody();
-            // The other TV clients that use SABR are the same client on another device.
-            if (body != null && ClientType.TV_SABR.clientName.equals(urlClient)) {
-                byte[] clientInfo = SabrRequestBody.buildClientInfo(ClientType.TV_SABR, getLocaleOverride());
-                requestToStart = request.patch_withBody(SabrRequestBody.replaceClientInfo(body, clientInfo));
+            if (body != null) {
+                // The other TV clients that use SABR are the same client on another device.
+                if (ClientType.TV_SABR.clientName.equals(urlClient)) {
+                    byte[] clientInfo = SabrRequestBody.buildClientInfo(ClientType.TV_SABR, getLocaleOverride());
+                    requestToStart = request.patch_withBodyAndHeaders(
+                            SabrRequestBody.replaceClientInfo(body, clientInfo), request.patch_getHeaders());
+                } else if (ClientType.MWEB.clientName.equals(urlClient)) {
+                    requestToStart = MwebStream.onMediaRequest(request, uri, body, callbacks, getLocaleOverride());
+                }
             }
 
             if (SabrMediaLogger.isEnabled()) {
@@ -150,6 +157,8 @@ public class SpoofVideoStreamsPatch {
             return;
         }
         try {
+            SabrReadaheadLimit.onResponseChunk(callbacks, chunk);
+            MwebStream.onMediaResponseChunk(callbacks, chunk);
             SabrMediaLogger.onResponseChunk(callbacks, chunk);
         } catch (Exception ex) {
             Logger.printException(() -> "onMediaResponseChunk failure", ex);

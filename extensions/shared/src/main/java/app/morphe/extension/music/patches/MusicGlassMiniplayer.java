@@ -146,6 +146,14 @@ public final class MusicGlassMiniplayer {
     }
 
     /**
+     * Injection point for the native floating miniplayer margin and collapsed player height.
+     * Keeping both in sync reserves space for the whole card, including artwork outside its view.
+     */
+    public static int getBottomSpacing(int original) {
+        return ENABLED ? Dim.dp(SeekBarPreference.clampToRange(Settings.MINIPLAYER_GLASS_BOTTOM_SPACING)) : original;
+    }
+
+    /**
      * @return The corner radius of a card with this height, at most half of it.
      */
     public static float getCornerRadius(float cornerRadius, float height) {
@@ -372,6 +380,16 @@ public final class MusicGlassMiniplayer {
     private static void style(View miniplayer, @Nullable View playerPage) {
         styled = true;
         hideScrim(miniplayer);
+
+        // Apply changes made in settings before the next native player state transition.
+        if (isAtBottom(miniplayer) && miniplayer.getLayoutParams() instanceof ViewGroup.MarginLayoutParams params) {
+            final int spacing = getBottomSpacing(params.bottomMargin);
+            if (params.bottomMargin != spacing) {
+                params.bottomMargin = spacing;
+                miniplayer.setLayoutParams(params);
+                miniplayer.getRootView().requestLayout();
+            }
+        }
 
         final int height = miniplayer.getHeight();
         final float cardRadius = getCornerRadius(cornerRadius, height);

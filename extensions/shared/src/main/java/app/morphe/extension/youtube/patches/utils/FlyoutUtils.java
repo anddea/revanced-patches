@@ -2,7 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * Portions of this file are modified by anddea:
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
+/*
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
  *
@@ -51,6 +54,7 @@ import app.morphe.extension.youtube.patches.FeedVideoActionsPatch;
 import app.morphe.extension.youtube.patches.PictureinPictureButtonPatch;
 import app.morphe.extension.youtube.patches.PostImageDownloadPatch;
 import app.morphe.extension.youtube.videoplayer.PictureinPictureButton;
+import app.morphe.extension.youtube.videoplayer.ShortsDownloadButton;
 import app.morphe.extension.youtube.patches.components.PlayerFlyoutMenuFilter;
 import app.morphe.extension.youtube.patches.general.DownloadActionsPatch;
 import app.morphe.extension.youtube.settings.Settings;
@@ -78,6 +82,19 @@ public final class FlyoutUtils {
      * If the app menu has a save item, also if the item is hidden by a Morphe setting.
      */
     private static boolean flyoutHasAppSaveButton;
+    /**
+     * Icon names of the download items, such as download, resume, or remove from downloads.
+     */
+    private static final String APP_DOWNLOAD_BUTTON_PREFIX = "OFFLINE";
+    /**
+     * If the app menu has a download item, also if the item is hidden by a Morphe setting.
+     */
+    private static boolean flyoutHasAppDownloadButton;
+    /**
+     * Injected download item, removed like the injected save item.
+     */
+    private static WeakReference<View> injectedDownloadButtonRef = new WeakReference<>(null);
+    private static WeakReference<LinearLayout> injectedDownloadContainerRef = new WeakReference<>(null);
     /**
      * Injected save item. The app menu can bind its items after the injected items are added.
      */
@@ -266,8 +283,18 @@ public final class FlyoutUtils {
 
                         dismissFlyout(); // Must dismiss after showing dialog.
                     },
-                    nextButtonIndex
+                    nextButtonIndex,
+                    false
             );
+        }
+
+        if (ShortsDownloadButton.isPatchIncluded()) {
+            boolean isShort = videoMarkedAsShorts
+                    || (PlayerFlyoutMenuFilter.getTopFlyoutMenuVisible()
+                    && app.morphe.extension.youtube.shared.RootView.isShortsActive());
+            nextButtonIndex = ShortsDownloadButton.addFlyoutButton(
+                    flyoutPanel, nextButtonIndex, getSubmittableVideoId(), isShort,
+                    DownloadActionsPatch.getFlyoutBuffer());
         }
 
         if (Settings.AISLIST_SUBMIT_FLYOUT_MENU.get()) {
@@ -453,14 +480,17 @@ public final class FlyoutUtils {
     }
 
     /**
-     * Adds a save item, which is removed if the app menu binds its own save item afterwards.
+     * Adds a save or download item, which is removed if the app menu binds its own item afterward.
+     *
+     * @param isDownload If the item is a download item, otherwise it is a save item.
      */
     public static int addFlyoutSaveButton(
             Object flyoutPanel,
             Drawable icon,
             String text,
             View.OnClickListener clickListener,
-            int index
+            int index,
+            boolean isDownload
     ) {
         final int nextIndex = addFlyoutButton(flyoutPanel, icon, text, clickListener, index);
         if (nextIndex >= 0 && !customItemTextRefs.isEmpty()) {
@@ -471,8 +501,13 @@ public final class FlyoutUtils {
                 while (view != null && view.getParent() instanceof ViewGroup parent && parent != container) {
                     view = parent;
                 }
-                injectedSaveButtonRef = new WeakReference<>(view);
-                injectedSaveContainerRef = new WeakReference<>(container);
+                if (isDownload) {
+                    injectedDownloadButtonRef = new WeakReference<>(view);
+                    injectedDownloadContainerRef = new WeakReference<>(container);
+                } else {
+                    injectedSaveButtonRef = new WeakReference<>(view);
+                    injectedSaveContainerRef = new WeakReference<>(container);
+                }
             }
         }
         return nextIndex;
@@ -488,6 +523,9 @@ public final class FlyoutUtils {
     /** Clears the save-item state when the feed endpoint for a new menu is received. */
     public static void resetSaveButton() {
         flyoutHasAppSaveButton = false;
+        flyoutHasAppDownloadButton = false;
+        injectedDownloadButtonRef = new WeakReference<>(null);
+        injectedDownloadContainerRef = new WeakReference<>(null);
         injectedSaveButtonRef = new WeakReference<>(null);
         injectedSaveContainerRef = new WeakReference<>(null);
     }
@@ -497,31 +535,46 @@ public final class FlyoutUtils {
      * Rows in this fork are direct children of the menu container rather than an InjectedItemsScrollView.
      */
     public static void setCurrentButtonInfo(@Nullable Enum<?> buttonEnum) {
-        // Before the checks below, as a save item hidden by a Morphe setting must not be replaced by the injected one.
-        if (buttonEnum != null && !flyoutHasAppSaveButton) {
+        // Before the checks below, as a save or download item hidden by a Morphe setting
+        // must not be replaced by the injected one.
+        if (buttonEnum != null) {
             String name = buttonEnum.name();
-            if (APP_SAVE_BUTTON_PATTERN.matcher(name).find() && !name.contains("REMOVE")) {
+            if (!flyoutHasAppSaveButton && APP_SAVE_BUTTON_PATTERN.matcher(name).find() && !name.contains("REMOVE")) {
                 flyoutHasAppSaveButton = true;
-
-                View view = injectedSaveButtonRef.get();
-                LinearLayout container = injectedSaveContainerRef.get();
+                removeInjectedItem(injectedSaveButtonRef.get(), injectedSaveContainerRef.get());
                 injectedSaveButtonRef = new WeakReference<>(null);
                 injectedSaveContainerRef = new WeakReference<>(null);
-                if (view != null && container != null && view.getParent() == container) {
-                    customItemTextRefs.removeIf(ref -> ref.get() == null || view.findViewById(ITEM_TEXT_ID) == ref.get());
-                    int index = container.indexOfChild(view);
-                    container.removeView(view);
-                    if (customItemTextRefs.isEmpty()) {
-                        // The divider is right after the injected items.
-                        View divider = container.getChildAt(index);
-                        if (divider instanceof ViewGroup group && group.getChildCount() == 0) {
-                            container.removeView(divider);
-                        }
-                    }
-                    if (flyoutPopupWindow != null && flyoutPopupWindow.isShowing()) {
-                        flyoutPopupWindow.update();
-                    }
+            } else if (!flyoutHasAppDownloadButton && name.startsWith(APP_DOWNLOAD_BUTTON_PREFIX)) {
+                flyoutHasAppDownloadButton = true;
+                removeInjectedItem(injectedDownloadButtonRef.get(), injectedDownloadContainerRef.get());
+                injectedDownloadButtonRef = new WeakReference<>(null);
+                injectedDownloadContainerRef = new WeakReference<>(null);
+            }
+        }
+    }
+
+    /**
+     * @return If the app menu has its own item to download the video, or to manage its download.
+     */
+    public static boolean hasAppDownloadButton() {
+        return flyoutHasAppDownloadButton;
+    }
+
+    /** Removes an injected row from this fork's direct-child menu layout. */
+    private static void removeInjectedItem(@Nullable View view, @Nullable LinearLayout container) {
+        if (view != null && container != null && view.getParent() == container) {
+            customItemTextRefs.removeIf(ref -> ref.get() == null || view.findViewById(ITEM_TEXT_ID) == ref.get());
+            int index = container.indexOfChild(view);
+            container.removeView(view);
+            if (customItemTextRefs.isEmpty()) {
+                // The divider is right after the injected items.
+                View divider = container.getChildAt(index);
+                if (divider instanceof ViewGroup group && group.getChildCount() == 0) {
+                    container.removeView(divider);
                 }
+            }
+            if (flyoutPopupWindow != null && flyoutPopupWindow.isShowing()) {
+                flyoutPopupWindow.update();
             }
         }
     }
