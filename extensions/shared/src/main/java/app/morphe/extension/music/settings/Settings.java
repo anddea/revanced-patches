@@ -207,6 +207,7 @@ public class Settings extends SharedYouTubeSettings {
     // PreferenceScreen: Navigation Bar
     public static final BooleanSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_enable_custom_navigation_bar_color", FALSE, true);
     public static final StringSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE = new StringSetting("revanced_custom_navigation_bar_color_value", "#000000", true);
+    public static final BooleanSetting SWIPE_NAVIGATION = new BooleanSetting("revanced_swipe_navigation", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_HOME_BUTTON = new BooleanSetting("revanced_hide_navigation_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_SAMPLES_BUTTON = new BooleanSetting("revanced_hide_navigation_samples_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_EXPLORE_BUTTON = new BooleanSetting("revanced_hide_navigation_explore_button", FALSE, true);

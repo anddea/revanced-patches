@@ -19,6 +19,7 @@ import java.util.List;
 import app.morphe.extension.music.patches.utils.PatchStatus;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.utils.ExtendedUtils;
+import app.morphe.extension.shared.patches.NavigationSwipe;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
@@ -58,6 +59,9 @@ public class NavigationPatch {
 
     @SuppressLint("ClickableViewAccessibility")
     public static void hideNavigationButton(@NonNull View view) {
+        if (Settings.SWIPE_NAVIGATION.get()) {
+            NavigationSwipe.register(view);
+        }
         if (Settings.HIDE_NAVIGATION_BAR.get() && view.getParent() != null) {
             hideViewUnderCondition(true, (View) view.getParent());
             return;

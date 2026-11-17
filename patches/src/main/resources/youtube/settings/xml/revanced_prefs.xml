@@ -101,6 +101,9 @@
         <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_navigation_bar_title" android:key="revanced_preference_screen_navigation_bar" android:summary="@string/revanced_preference_screen_navigation_bar_summary">SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
+            <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
+            <SwitchPreference android:key="revanced_swipe_navigation" android:title="@string/revanced_swipe_navigation_title" android:summary="@string/revanced_swipe_navigation_summary" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
+
             <!-- SETTINGS: REORDER_NAVIGATION_BAR
             <app.morphe.extension.youtube.settings.preference.NavigationBarOrderPreference android:title="@string/revanced_navigation_bar_order_title" android:key="revanced_navigation_bar_order" android:summary="@string/revanced_navigation_bar_order_summary" />SETTINGS: REORDER_NAVIGATION_BAR -->
 

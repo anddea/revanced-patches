@@ -55,6 +55,7 @@ import java.util.Map;
 import java.util.Set;
 
 import app.morphe.extension.shared.settings.IntegerSetting;
+import app.morphe.extension.shared.patches.NavigationSwipe;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
@@ -1534,6 +1535,9 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static void navigationTabCreated(NavigationButton button, View tabView) {
+        if (Settings.SWIPE_NAVIGATION.get()) {
+            NavigationSwipe.register(tabView);
+        }
         GlassNavigationBar.navigationTabCreated(button, tabView);
 
         if (SHOW_SETTINGS_BUTTON && button == NavigationButton.SETTINGS) {

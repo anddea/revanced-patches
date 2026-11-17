@@ -421,6 +421,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
         }
 
+        addSwitchPreference(CategoryType.NAVIGATION, "revanced_swipe_navigation", "false")
         addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_enable_custom_navigation_bar_color",

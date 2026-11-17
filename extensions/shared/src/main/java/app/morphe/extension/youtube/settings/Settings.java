@@ -440,6 +440,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true,
             "revanced_switch_create_with_notifications_button_user_dialog_message");
     public static final BooleanSetting HIDE_NAVIGATION_CREATE_BUTTON = new BooleanSetting("revanced_hide_navigation_create_button", FALSE, true, parentInverted(SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON));
+    public static final BooleanSetting SWIPE_NAVIGATION = new BooleanSetting("revanced_swipe_navigation", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_HOME_BUTTON = new BooleanSetting("revanced_hide_navigation_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_LIBRARY_BUTTON = new BooleanSetting("revanced_hide_navigation_library_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_hide_navigation_notifications_button", FALSE, true, parent(SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON));
