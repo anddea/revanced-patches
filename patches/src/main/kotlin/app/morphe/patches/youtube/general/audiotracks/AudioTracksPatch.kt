@@ -35,6 +35,7 @@ val audioTracksPatch = audioTracksPatch(
     },
     fixUseLocalizedAudioTrackFlag = { is_20_07_or_greater && !is_21_26_or_greater },
     forcedServerAdaptiveStreaming = { is_21_26_or_greater },
+    shortsQualityMenuController = true,
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     subclassExtensionClassDescriptor = "Lapp/morphe/extension/youtube/patches/ForceOriginalAudioPatch;",
 )

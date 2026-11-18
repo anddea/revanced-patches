@@ -37,9 +37,9 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
             "morphe_music_navigation_bar_glass_size_height",
             "morphe_music_navigation_bar_glass_size_width",
             "morphe_music_navigation_bar_glass_size_button_spacing",
-            "morphe_music_navigation_bar_glass_size_bottom_spacing",
-            "morphe_music_navigation_bar_glass_opacity_title",
-            "morphe_music_navigation_bar_glass_rim_title"
+            "morphe_music_miniplayer_glass_bottom_spacing_title",
+            "morphe_music_miniplayer_glass_opacity_title",
+            "morphe_music_miniplayer_glass_rim_title"
     };
 
     private static final int INDEX_OPACITY = 4;
@@ -108,9 +108,9 @@ public class MusicGlassNavigationBarPreference extends GlassNavigationBarSizePre
 
         // The usual buttons, if no navigation bar with the glass was shown yet.
         buttons.add(str("morphe_music_navigation_bar_glass_preview_home"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_samples"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_explore"));
-        buttons.add(str("morphe_music_navigation_bar_glass_preview_library"));
+        buttons.add(str("revanced_change_start_page_entry_samples"));
+        buttons.add(str("revanced_change_start_page_entry_explore"));
+        buttons.add(str("revanced_change_start_page_entry_library"));
         buttons.setShowLabels(!Settings.HIDE_NAVIGATION_LABEL.get());
         return buttons;
     }

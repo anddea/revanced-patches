@@ -226,6 +226,19 @@ internal object FloatingMiniplayerFeatureFlagFingerprint : Fingerprint(
     )
 )
 
+internal object PlayerPageTouchFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/music/watchpage/ui/PlayerPageBehavior;",
+    returnType = "Z",
+    parameters = listOf(
+        "Landroidx/coordinatorlayout/widget/CoordinatorLayout;",
+        "Landroid/view/View;",
+        "Landroid/view/MotionEvent;"
+    ),
+    custom = { method, _ ->
+        method.name == "onInterceptTouchEvent" || method.name == "onTouchEvent"
+    }
+)
+
 /**
  * The WatchWhileLayout styleable entry 7 is floatingMiniPlayerBottomMargin (9.39+).
  * Follow its dimension read to the field also used for the collapsed player height.

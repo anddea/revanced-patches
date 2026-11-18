@@ -99,16 +99,70 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
     <string name="morphe_dearrow_about_summary">"DeArrow thay thế các tiêu đề và hình thu nhỏ giật gân bằng những cái do cộng đồng đóng góp, chính xác hơn và ít giật gân hơn. Tiêu đề được viết và bình chọn bởi cộng đồng, và hình thu nhỏ là các khung hình lấy từ video
 
 Video được yêu cầu bằng một tiền tố ngắn của ID video đã băm, vì vậy máy chủ không thể biết chính xác bạn đang xem video nào. Nếu video không có hình thu nhỏ DeArrow, sẽ hiển thị bản gốc hoặc khung hình tĩnh"</string>
+    <string name="morphe_dearrow_account_connection_failure">Chi tiết tài khoản tạm thời không khả dụng</string>
+    <string name="morphe_dearrow_account_thumbnails">Bạn đã gửi &lt;b&gt;%s&lt;/b&gt; hình thu nhỏ</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Chạm vào đây để xem các hình thu nhỏ của bạn</string>
+    <string name="morphe_dearrow_account_titles">Bạn đã gửi &lt;b&gt;%s&lt;/b&gt; tiêu đề</string>
+    <string name="morphe_dearrow_account_titles_summary">Chạm vào đây để xem các tiêu đề của bạn</string>
+    <string name="morphe_dearrow_account_username_change">Nhấn vào đây để thay đổi tên người dùng của bạn. Tên người dùng này giống với tên trên SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">Không thay đổi được tên người dùng: Trạng thái: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">Số phiếu bầu thông thường trong một hạng mục, chẳng hạn như hài hước hoặc sáng tạo, cần thiết để hiển thị tiêu đề gốc</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Số phiếu bầu thông thường tối thiểu để hiển thị tiêu đề gốc</string>
     <string name="morphe_dearrow_casual_mode_summary">Hiển thị tiêu đề gốc thay vì tiêu đề DeArrow nếu người dùng DeArrow bình chọn rằng họ thích tiêu đề gốc</string>
     <string name="morphe_dearrow_casual_mode_title">Chế độ thông thường</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">Dọn dẹp tiêu đề của các video không có tiêu đề DeArrow. Các từ viết hoa sẽ được chuyển thành chữ thường, đồng thời các biểu tượng cảm xúc, văn bản cách điệu và các dấu chấm than lặp lại sẽ bị xóa</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Dọn dẹp tiêu đề</string>
     <string name="morphe_dearrow_error">DeArrow tạm thời không khả dụng (mã trạng thái: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow tạm thời không khả dụng</string>
-    <string name="morphe_dearrow_titles_icon_summary">Hiển thị biểu tượng DeArrow trên tiêu đề video được đóng góp bởi cộng đồng. Nhấn vào biểu tượng để hiển thị tiêu đề và hình thu nhỏ gốc</string>
+    <string name="morphe_dearrow_guidelines_summary">Hướng dẫn bao gồm các quy tắc và mẹo để gửi và bình chọn cho tiêu đề và hình thu nhỏ</string>
+    <string name="morphe_dearrow_guidelines_title">Hướng dẫn</string>
+    <string name="morphe_dearrow_private_user_id_invalid">Mã riêng tư phải dài ít nhất 30 ký tự</string>
+    <string name="morphe_dearrow_private_user_id_summary">Cùng ID người dùng với SponsorBlock. Thông tin này nên được giữ bí mật. Nó giống như một mật khẩu và không nên chia sẻ với bất kỳ ai. Nếu ai đó có được mã này, họ có thể mạo danh bạn</string>
+    <string name="morphe_dearrow_private_user_id_title">Mã người dùng riêng tư</string>
+    <string name="morphe_dearrow_submitting_title">Đang gửi tiêu đề và hình thu nhỏ</string>
+    <string name="morphe_dearrow_titles_icon_summary">Hiển thị biểu tượng DeArrow trên tiêu đề của các video có tiêu đề hoặc hình thu nhỏ được đóng góp bởi cộng đồng. Nhấn vào biểu tượng để hiển thị tiêu đề và hình thu nhỏ gốc</string>
     <string name="morphe_dearrow_titles_icon_title">Hiển thị biểu tượng DeArrow</string>
     <string name="morphe_dearrow_titles_summary">Thay thế tiêu đề video bằng các tiêu đề do cộng đồng đóng góp trên DeArrow</string>
     <string name="morphe_dearrow_titles_title">Tiêu đề DeArrow</string>
+    <string name="morphe_dearrow_vote_button_summary">Thêm một nút vào phía trên trình phát video để bình chọn cho tiêu đề và hình thu nhỏ của DeArrow, hoặc gửi những mục mới</string>
+    <string name="morphe_dearrow_vote_button_title">Hiện nút DeArrow</string>
+    <string name="morphe_dearrow_vote_current_frame_content">Gửi khung hình tại %s làm hình thu nhỏ?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">Video đang phát. Để gửi khung hình bạn đang thấy, hãy tạm dừng video trước</string>
+    <string name="morphe_dearrow_vote_downvoted">Đã gửi bình chọn không đồng ý lên DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">Không thể gửi lượt bình chọn (mã trạng thái: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">Không thể gửi lượt bình chọn. Vui lòng kiểm tra kết nối mạng và thử lại</string>
+    <string name="morphe_dearrow_vote_failed_locked">Nội dung này đã bị khóa và chỉ người dùng VIP mới có thể bình chọn không thích</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">Một lượt bình chọn cho video này vẫn đang được xử lý. Vui lòng thử lại sau giây lát</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow không chấp nhận bình chọn: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Không thể tải tiêu đề và hình thu nhỏ của video này</string>
+    <string name="morphe_dearrow_vote_frame_step">%s giây</string>
+    <string name="morphe_dearrow_vote_loading">Đang tải…</string>
+    <string name="morphe_dearrow_vote_locked">Đã khóa</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">Hình thu nhỏ mới</string>
+    <string name="morphe_dearrow_vote_new_title">Tiêu đề mới</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Nhập tiêu đề</string>
+    <string name="morphe_dearrow_vote_no_titles">Chưa có tiêu đề nào. Hãy gửi tiêu đề để trở thành người đầu tiên</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Hình thu nhỏ gốc</string>
+    <string name="morphe_dearrow_vote_original_title">Tiêu đề gốc</string>
+    <string name="morphe_dearrow_vote_score">Điểm: %s</string>
+    <string name="morphe_dearrow_vote_submit">Gửi</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">Khung hình tại %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">Hình thu nhỏ</string>
+    <string name="morphe_dearrow_vote_time_step_summary">Mức tua của các nút điều chỉnh thời gian tinh chỉnh khi gửi hình thu nhỏ (tính bằng mili giây)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Mức tua thời gian</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Tiêu đề</string>
+    <string name="morphe_dearrow_vote_unverified">Chưa xác minh</string>
+    <string name="morphe_dearrow_vote_upvoted">Đã gửi bình chọn lên DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">Lưu các thông báo đẩy nhận được vào một tệp trong dữ liệu ứng dụng. Tệp này có thể bao gồm thông tin riêng tư, chẳng hạn như nội dung thông báo và tên kênh</string>
+    <string name="morphe_debug_save_push_notifications_title">Lưu thông báo đẩy</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Đã xóa các thông báo đẩy đã lưu</string>
+    <string name="morphe_debug_saved_push_notifications_count">Số thông báo đẩy đã lưu: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Xuất thông báo đẩy thất bại</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Đã xuất thông báo đẩy thành công</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">Không tìm thấy thông báo đẩy nào được lưu</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Xuất hoặc xóa các thông báo đẩy đã lưu</string>
+    <string name="morphe_debug_saved_push_notifications_title">Xuất các thông báo đẩy đã lưu</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Ngăn các nguồn cấp dữ liệu tự động làm mới sau khi chúng trở nên lỗi thời</string>
     <string name="morphe_disable_auto_feed_refresh_title">Tắt tự động làm mới nguồn cấp dữ liệu</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Giữ thanh điều hướng hiển thị khi cuộn</string>
@@ -126,13 +180,21 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_disable_system_splash_title">Vô hiệu hóa màn hình khởi động hệ thống</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Hiển thị Mục đăng ký trong thanh điều hướng, nếu YouTube chuyển nó thành một tab ở đầu Trang chủ</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Vô hiệu hóa các tab điều hướng trên thanh công cụ</string>
+    <string name="morphe_download_force_4k_summary">Cung cấp tùy chọn tải xuống 1440p và 4K ngay cả khi YouTube quyết định thiết bị này không thể phát được</string>
+    <string name="morphe_download_force_4k_title">Bắt buộc khả dụng tải xuống 4K</string>
     <string name="morphe_dual_captions_enabled_title">Phụ đề song ngữ</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">Mức độ làm mờ của ánh sáng xung quanh video. Với giá trị 0, ánh sáng sẽ giữ nguyên hình khối của video</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">Làm mờ ánh sáng</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Thời gian đèn giữ trạng thái mờ sau khi ngừng cuộn. Với giá trị 0, chỉ khi cuộn đèn mới mờ đi và sẽ sáng trở lại ngay khi ngừng cuộn</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Thời gian làm mờ</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Làm mờ đèn khi trang được cuộn hoặc chạm vào</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Làm mờ khi cuộn</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Giảm độ sáng của các video sáng để văn bản trên trang vẫn dễ đọc</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Giữ cho văn bản dễ đọc</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">Thời gian ánh sáng phản hồi theo video. Với giá trị 0, ánh sáng sẽ bám sát video</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">Làm mượt ánh sáng</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">Độ mạnh của ánh sáng trên trang đồng hồ và các thanh màu đen</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">Cường độ ánh sáng</string>
     <string name="morphe_enhanced_ambient_mode_summary">Chiếu sáng toàn bộ trang xem và các thanh đen theo video, thay thế cho Chế độ môi trường xung quanh</string>
     <string name="morphe_enhanced_ambient_mode_title">Chế độ môi trường xung quanh nâng cao</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
@@ -143,6 +205,8 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_explore_menu_screen_summary">Chọn các thành phần sẽ hiển thị trong menu Khám phá</string>
     <string name="morphe_explore_menu_screen_title">Menu khám phá</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Nếu nó không hoạt động, hãy thử buộc đóng MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">Thêm mục tải xuống vào menu của các video trong feed chưa có mục này</string>
+    <string name="morphe_feed_download_flyout_button_title">Buộc hiển thị mục tải xuống trong menu flyout</string>
     <string name="morphe_feed_long_press_menu_summary">Chạm và giữ ở bất kỳ đâu trên video nguồn sẽ mở menu của video đó</string>
     <string name="morphe_feed_long_press_menu_title">Chạm và giữ để mở menu video</string>
     <string name="morphe_feed_watch_later_button_summary">Nút Xem sau được hiển thị trên hình thu nhỏ của các video trong nguồn cấp dữ liệu, với dấu kiểm nếu video đã được lưu. Nhấn vào nút này để lưu hoặc xóa video, và nhấn giữ để mở Lưu vào danh sách phát</string>
@@ -214,7 +278,7 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_hide_post_dislike_button_summary">Với bố cục Bắt buộc, khoảng trống của nút sẽ được giữ lại</string>
     <string name="morphe_hide_post_dislike_button_title">Ẩn nút Không thích</string>
     <string name="morphe_hide_post_like_dislike_buttons_title">Ẩn nút Thích và Không thích</string>
-    <string name="morphe_hide_post_share_button_summary">Nút tải xuống hình ảnh của bài viết được vẽ cạnh nút chia sẻ, nên nó cũng bị ẩn theo</string>
+    <string name="morphe_hide_post_share_button_summary">Nút tải xuống hình ảnh của bài viết được vẽ cạnh nút Chia sẻ, vì vậy nó cũng bị ẩn</string>
     <string name="morphe_hide_post_share_button_title">Ẩn nút Chia sẻ</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ẩn chính sách quyền riêng tư và điều khoản dịch vụ</string>
     <string name="morphe_hide_shopping_menu_title">Ẩn menu Mua sắm</string>
@@ -264,10 +328,16 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
 Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Cho phép tua trên mọi buổi phát trực tiếp, kể cả khi bình thường không được phép</string>
     <string name="morphe_livestream_dvr_title">Bật DVR phát trực tiếp</string>
+    <string name="morphe_miniplayer_glass_summary">Hiển thị trình phát thu nhỏ dưới dạng kính mờ với các góc bo tròn, giống như thanh điều hướng kính. Yêu cầu thanh điều hướng kính</string>
+    <string name="morphe_miniplayer_glass_title">Trình phát thu nhỏ dạng kính</string>
     <string name="morphe_music_package_name_summary">Tên gói của ứng dụng nhạc đã cài đặt của bạn</string>
     <string name="morphe_music_package_name_title">Tên gói ứng dụng âm nhạc</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Vẽ cạnh sáng xung quanh thanh điều hướng dạng kính</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Cạnh thanh điều hướng dạng kính</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Điều chỉnh mức độ trong suốt của thanh điều hướng dạng kính (0 là trong suốt, 100 là mờ)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Độ mờ của kính</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Tạo các đầu bo tròn cho thanh điều hướng kính, thay vì các góc như trình phát thu nhỏ dạng kính</string>
+    <string name="morphe_navigation_bar_glass_round_title">Thanh điều hướng kính bo tròn</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Khoảng cách nút</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Số nút hiển thị: %1$s trên %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">Chiều cao</string>
@@ -285,10 +355,11 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Không thể đăng nhập vào VR vì xác thực qua trang web không được chấp thuận</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 tạm thời không khả dụng</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 tạm thời không khả dụng (trạng thái %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Phiên đăng nhập Android VR đã hết hạn, hãy thử đăng nhập lại vào VR</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\'Phiên đăng nhập Android VR đã hết hạn, hãy thử đăng nhập lại vào VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 tạm thời không khả dụng (API đã hết thời gian chờ)</string>
     <string name="morphe_oauth2_toast_invalid">Mã đăng nhập VR không hợp lệ, hãy thử đăng nhập lại vào VR</string>
-    <string name="morphe_oauth2_toast_reset">Đã đăng xuất khỏi Android VR</string>
+    <string name="morphe_oauth2_toast_reset">Đã đăng xuất khỏi \'Android VR\'</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Không mở video phát trực tiếp khi bấm vào ảnh đại diện của kênh</string>
     <string name="morphe_open_channel_of_live_avatar_title">Mở kênh khi bấm vào ảnh đại diện có sự kiện trực tiếp</string>
     <string name="morphe_open_videos_fullscreen_title">Mở video ở chế độ toàn màn hình</string>
@@ -328,10 +399,6 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_post_image_download_started_single">Đang tải hình ảnh…</string>
     <string name="morphe_post_image_download_summary">Một nút tải xuống sẽ hiển thị cạnh nút Chia sẻ của các bài đăng có hình ảnh hoặc GIF, và một mục tải xuống sẽ được thêm vào menu của chúng</string>
     <string name="morphe_post_image_download_title">Tải hình ảnh bài đăng</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">"Token được tích hợp trong phiên bản này của nhà cung cấp PoToken không còn hoạt động nữa
-
-Bật \'Giả lập luồng video\' để khắc phục lỗi phát lại"</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">Nhà cung cấp PoToken không còn hoạt động nữa</string>
     <string name="morphe_potoken_provider_summary">"Khắc phục các sự cố phát lại bằng cách sử dụng trình cung cấp PoToken tích hợp (Thử nghiệm)
 
 Nếu bạn là người dùng YouTube Premium, thì có thể không cần đến cài đặt này"</string>
@@ -348,7 +415,7 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_remember_livestream_position_summary">Đối với các luồng phát trực tiếp đang diễn ra, tính năng này sẽ ghi nhớ vị trí phát của bạn và tiếp tục phát từ đó thay vì tua đến vị trí hiện tại của luồng trực tiếp</string>
     <string name="morphe_remember_livestream_position_title">Ghi nhớ vị trí phát trên luồng phát trực tiếp</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">Tính năng này không hoạt động với các luồng phát trực tiếp 24/7 và các luồng khác ở chế độ \'luôn bật\'</string>
-    <string name="morphe_replace_links_with_shortener_summary">Buộc các video dùng định dạng youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">Buộc các video dùng định dạng URL \'youtu.be\' rút gọn</string>
     <string name="morphe_replace_links_with_shortener_title">Đổi liên kết chia sẻ thành youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
@@ -387,6 +454,7 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_settings_name_title">Tên cài đặt RVX</string>
     <string name="morphe_settings_new_indicator_days_summary">Số ngày hiển thị dấu chấm bên cạnh các cài đặt và tùy chọn được thêm vào thông qua bản cập nhật</string>
     <string name="morphe_settings_new_indicator_days_title">Làm nổi bật các cài đặt mới</string>
+    <string name="morphe_shorts_download_flyout_title">Tải về</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Chỉ những khoảng dừng dài ít nhất khoảng thời gian này mới được rút ngắn. Có hiệu lực khi video tiếp theo bắt đầu</string>
     <string name="morphe_skip_silence_minimum_pause_title">Độ dài khoảng dừng tối thiểu</string>
     <string name="morphe_skip_silence_summary">Tự động bỏ qua các khoảng dừng im lặng trong âm thanh video</string>
@@ -407,24 +475,19 @@ Nếu bạn là người dùng YouTube Premium, thì có thể không cần đ�
     <string name="morphe_spoof_video_streams_av1_summary_on">"Codec video là AVC (H.264), VP9 hoặc AV1
 
 Quá trình phát có thể bị giật hoặc tụt khung hình"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Cho phép \"Android VR\" / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">Cho phép AV1 \'Android VR\' / \'visionOS\'</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm
 
 Phát video bằng AV1 có thể bị giật hoặc tụt khung hình"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s đã không hoạt động vài lần liên tiếp, nhưng %2$s thì hoạt động
-
-Đặt %2$s làm máy khách mặc định?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Chuyển</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Máy khách mặc định không hoạt động</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Biến thể JavaScript của trình phát</string>
     <string name="morphe_spoof_video_streams_screen_summary">Cấu hình giả mạo client nhằm tránh lỗi khi phát</string>
     <string name="morphe_spoof_video_streams_screen_title">Giả mạo luồng phát video</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR yêu cầu đăng nhập riêng. Nhấn vào đây để tiếp tục</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Để dùng tính năng này, thay đổi \"Client mặc định\" thành Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Đã đăng nhập vào Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Đăng nhập Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' yêu cầu đăng nhập riêng. Nhấn vào đây để tiếp tục</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Để sử dụng tính năng này, hãy thay đổi \'Client mặc định\' thành \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Hiện đang đăng nhập vào \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Đăng nhập VR \'Android\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Mã kích hoạt: %s
 
 1. Bấm \"Mở trang web\" dưới đây để mở trang web \"Kết nối thiết bị\"
@@ -433,11 +496,11 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình"</string>
 4. Bấm \"Cho phép\" YouTube VR truy cập
 5. Quay lại ứng dụng sau khi nhận được thông báo \"Kết nối thiết bị thành công\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Hướng dẫn</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Đăng nhập Android VR có thể sửa lỗi phát cho một số người dùng
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Đăng nhập vào 'Android VR' có thể khắc phục sự cố phát cho một số người dùng
 
-Bấm tiếp tục bên dưới để đăng nhập"</string>
+Để đăng nhập, hãy nhấn tiếp tục bên dưới"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Đăng xuất</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Đăng nhập vào Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Đăng nhập vào \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Đã lưu xác thực
 
 • Các cài đặt RVX của bạn sẽ không nhập/xuất xác thực Android VR
@@ -445,6 +508,27 @@ Bấm tiếp tục bên dưới để đăng nhập"</string>
 • Nếu bạn thay đổi mật khẩu Google hoặc xóa bỏ cài đặt thiết bị này khỏi cài đặt Google thì cần đăng nhập lại"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Đã đăng nhập thành công</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Thất bại khi cấp mã kích hoạt</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Tùy chọn: đăng nhập vào trang web YouTube để phát video bằng tài khoản của bạn. Nhấn vào đây để tiếp tục</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Để sử dụng tính năng này, hãy thay đổi \'Client mặc định\' thành \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Hiện đang đăng nhập vào \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Đăng nhập Web di động</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'Web cho di động' phát các video khi chưa đăng nhập hoặc đã đăng nhập vào trang web YouTube
+
+• Khi đã đăng nhập, các video yêu cầu tài khoản có thể được phát, chẳng hạn như các video bị hạn chế độ tuổi
+• Trang đăng nhập Google sẽ mở trong ứng dụng này
+• Việc đăng nhập chỉ được sử dụng để lấy các video bạn phát
+• Việc đăng nhập chỉ được lưu trên thiết bị này
+
+Để đăng nhập, hãy nhấn tiếp tục bên dưới"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Đăng nhập vào \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Đã lưu đăng nhập
+
+• Cài đặt RVX của bạn sẽ không nhập/xuất đăng nhập 'Web cho di động'
+• Nếu Google kết thúc phiên đăng nhập, các video sẽ được phát ở chế độ chưa đăng nhập cho đến khi bạn đăng nhập lại
+• Đăng xuất cũng sẽ đăng xuất thiết bị này khỏi trang web YouTube"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Phiên đăng nhập Web cho di động đã hết hạn, hãy thử đăng nhập lại vào \'Web cho di động\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Đã đăng xuất khỏi \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' không khả dụng. Hãy cài đặt hoặc bật nó để đăng nhập</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Client đã bị ẩn trong Thống kê chi tiết</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Client đã được hiển thị trong Thống kê chi tiết</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Hiện thông tin giả mạo trong \'Thống kê chi tiết\'</string>
@@ -470,6 +554,8 @@ Hạn chế: Nếu tùy chọn \"Khôi phục thanh thao tác video cũ\" bị t
     <string name="morphe_theme_entry_patch_option">Tùy chọn bản vá</string>
     <string name="morphe_theme_entry_white">Trắng</string>
     <string name="morphe_theme_settings_summary">Tùy chỉnh chủ đề, giao diện và nhận diện thương hiệu của ứng dụng</string>
+    <string name="morphe_ungroup_notifications_summary">Hiển thị mọi video trong các bản tải lên được nhóm của một kênh thành một thông báo riêng biệt</string>
+    <string name="morphe_ungroup_notifications_title">Hủy nhóm thông báo</string>
     <string name="morphe_video_action_bar_layout_entry_2">Một hàng Cổ điển</string>
     <string name="morphe_video_action_bar_layout_entry_4">Hai hàng cổ điển</string>
     <string name="morphe_video_action_bar_layout_title">Bố cục thanh thao tác video</string>
@@ -787,17 +873,17 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_disable_layout_updates_summary_off">Giao diện sẽ được máy chủ cập nhật</string>
     <string name="revanced_disable_layout_updates_summary_on">Giao diện sẽ không còn được máy chủ cập nhật</string>
     <string name="revanced_disable_layout_updates_title">Tắt cập nhật giao diện</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Bố cục ứng dụng sẽ quay lại bố cục được sử dụng khi lần đầu tiên cài đặt
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Giao diện ứng dụng sẽ trở về như lúc mới cài đặt
 
-Một số bố cục phía máy chủ có thể không được quay lại
+Một số bố cục phía máy chủ có thể không được hoàn tác
 
 Các thay đổi bao gồm:
-• Các thành phần trong menu bay ra của trình phát (hoặc cài đặt liên quan) có thể không hoạt động
-• Số cuộn không được hoạt hình hóa
-• Thẻ Thư viện được hiển thị
+• Gợi ý video toàn màn hình có thể bị lỗi
+• Các thành phần trong menu tùy chọn của trình phát (hoặc các cài đặt liên quan) có thể không hoạt động
 • Phần âm nhạc trong mô tả video có thể không hoạt động
-• Các mục trong menu bay ra của trình phát không thể bị ẩn
-• Nút chuyển đổi tài khoản có thể không xuất hiện trên thẻ Thư viện"</string>
+• Không thể ẩn các mục trong menu tùy chọn của trình phát
+• Không có hiệu ứng số cuộn
+• Nút chuyển đổi tài khoản có thể không xuất hiện trong thẻ Thư viện"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Các nút Thích và Không thích sẽ sáng lên khi nhấn vào</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Các nút Thích và Không thích sẽ không sáng lên khi nhấn vào</string>
     <string name="revanced_disable_like_dislike_glow_title">Tắt hoạt ảnh các nút Thích và Không thích</string>

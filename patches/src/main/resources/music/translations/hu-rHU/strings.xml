@@ -87,9 +87,7 @@ A crossfade szüneteltetése a zenei videó megtekintéséhez néhány videót f
     <string name="morphe_music_crossfade_about_quirks_title">Korlátok</string>
     <string name="morphe_music_crossfade_about_summary">A hangolás működése – és mikor nem működik</string>
     <string name="morphe_music_crossfade_about_title">Névjegy</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting vagy hangtükrözés (Chromecast, képernyő- vagy hangtükrözés)
-
-SABR lejátszás (a videostreamek spoofolása kikapcsolva)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Audio casting vagy tükrözés (Chromecast, képernyő- vagy audio tükrözés)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Nem támogatott</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">A crossfade ki van kapcsolva casting közben</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Enyhe kitartás</string>
@@ -100,6 +98,7 @@ SABR lejátszás (a videostreamek spoofolása kikapcsolva)"</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Kimenő</string>
     <string name="morphe_music_crossfade_curve_title">Áttűnési görbe</string>
     <string name="morphe_music_crossfade_duration_title">Áttűnés időtartama</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">A crossfade használatához változtasd a „Spoof video streams” „Default client” beállítást „TV Simply” vagy „visionOS” értékre</string>
     <string name="morphe_music_crossfade_enabled_title">Áttűnés engedélyezése</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Alkalmazza az áttűnés effektust, amikor egy szám magától véget ér</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Áttűnés automatikus léptetéskor</string>
@@ -176,6 +175,8 @@ A dalszövegek harmadik fél szolgáltatásaitól származnak, amelyekkel a RVX 
     <string name="morphe_music_lyrics_ai_section_no_text">Nincs olyan dalszöveg, amelyhez szakzolatok detektálhatók wären</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Engedélyezi a nem Latin ábécés írásjelekkel való kiejtések megjelenítését; kikapcsoláskor csak a Latin betűket, az ékezetes betűket és a hangjegy számokat tartja meg</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Átirat engedélyezése</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Enyhén elmosítja azokat a sorokat, amelyeket éppen nem éneklik, távolabb egyre erősebben (Android 12 és újabb). Android 12 előtt az inaktív sorok élesek maradnak</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Inaktív sorok elmosítása</string>
     <string name="morphe_music_lyrics_clear_cache_done">Törölve: %s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Törlje a(z) ezen eszközön tárolt %s MB méretű dalszövegeket</string>
     <string name="morphe_music_lyrics_clear_cache_title">Tárolt dalszövegek törlése</string>
@@ -190,6 +191,8 @@ A dalszövegek harmadik fél szolgáltatásaitól származnak, amelyekkel a RVX 
     <string name="morphe_music_lyrics_display_artist_first_summary">Váltja az előadó és a cím sorrendjét a minilejátszóban és a MediaSessionben. BE: \"Előadó - Cím\", KI: \"Cím - Előadó\". Nem befolyásolja a dalszövegkeresést</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Előadó és cím megjelenítési sorrendje</string>
     <string name="morphe_music_lyrics_dual_only">Kettős mód</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Duett daloknál a második énekeset az ellenkező szélre helyezi. Kapcsolja ki, ha mindkét énekest ugyanazon az oldalon szeretné látni</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Ellentétes oldalas duett igazítás</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Mozgassa a hátteret lejátszás közben, és ha a YouTube Musicnak van mikrofon-engedélye, a zenéhez igazodva pulzáljon. Kapcsolja ki a kevésbé akkumulátort fogyasztó, álló háttérhez</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Dinamikus háttér animálása</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Mutasson egy az albumborítóból készített homályos hátteret a dalszöveg mögött</string>
@@ -257,6 +260,8 @@ Mindkét limitre vonatkozik. 1,75 esetén négy teljes szélességű karakter 7-
     <string name="morphe_music_lyrics_providers_keep_one">Legalább egy szolgáltatónak aktívnak kell maradnia</string>
     <string name="morphe_music_lyrics_refreshed">Frissítve</string>
     <string name="morphe_music_lyrics_refreshing">Frissítés</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Lelassítja a dalszöveg görgetési animációját, és az inaktív sorokat teljes méretben tartja</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Lax görgetés</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Kantoni karakterek</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Nincs karakterolvasás</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Hagyományos mandarin karakterek</string>
@@ -382,9 +387,31 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_lyrics_use_ai_section_summary">Csak akkor használatos, ha a szolgáltató nem ad részcímkéket, például Refrént vagy Versszakot; ezeket az OpenAI-kompatibilis modell észleli. A sor szerkesztésekor a prompt is megnyílik</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Részek detektálása AI segítségével</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (%2$s-rel)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Lágy átmenettel, ragyogással és egy kisebb megemelkedéssel emeli ki each szót az éneklés közben. Kapcsolja ki az akkumulátor kímélése érdekében, vagy a lassabb eszközökön a határozottabb megjelenítéshez</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">A szinkronizált szavak sima animálása</string>
     <string name="morphe_music_lyrics_word_sync_summary">Előnyben részesíti a szavankénti dalszövegeket, ha elérhetők. Ha a dalszöveg szószintű időzítést tartalmaz, a zene ütemére emeli ki az egyes szavakat vagy szótagokat</string>
     <string name="morphe_music_lyrics_word_sync_title">Szinkronizált szavak vagy szótagok kiemelése</string>
     <string name="morphe_music_lyrics_written_by">Szerző: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Az üveg minilejáts sót a lejárzó dal albumborítójának színével árnyalja</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Albumborító árnyalása</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Borítók paddingje</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Mennyire legyen elmosódva az üveg minilejátszó mögött lévő oldal (Android 14 és újabb verziók). 0 esetén az oldal élesen látszik, Android 14 előtt az oldal takarva marad</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Üveg elmosódás</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Sarkok gömölése</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Elrejti az üveg minilejátszó alján található haladási sávot</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Haladási sáv elrejtése</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Az üveg minilejátsót fehérre árnyalja a sötétszín helyett, egy világosabb és tisztább üveghatás érdekében</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Világos üveg</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Áttetszőség</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Szegély fényerője</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Az üveg minilejátszó borítóját körre teszi, és egy lemez처럼 forgatja a dal lejátszása közben</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Forgó albumborító</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Állítsa be az üveg minilejátszó sarkainak gömöléset, a borítók paddingjét, a szegély fényerőjét és az átlátszóságot, előnézettel</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Üveg minilejátszó stílusa</string>
+    <string name="morphe_music_miniplayer_glass_summary">A lebeglő minilejátszó egy kerekletű, áttetsző üvegkártyaként jelenik meg</string>
+    <string name="morphe_music_miniplayer_glass_title">Üvegeffekt engedélyezése</string>
+    <string name="morphe_music_miniplayer_screen_summary">A minilejátszó stílusának, gombjainak és gesztusainak módosítása</string>
+    <string name="morphe_music_miniplayer_screen_title">Minilejátszó</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">felhasználói token</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Csak akkor adj meg tokent, ha a saját fiókodat szeretnéd használni. A tokennek a Musixmatch Android alkalmazásból kell származnia: a musixmatch.com-ról kimásolt tokenek a megszűnt asztali klienshez tartoznak, és az API elutasítja azokat</string>
     <string name="morphe_music_musixmatch_token_optional_hint">A Musixmatch token nélkül is működik, így ez a mező üresen hagyható</string>
@@ -392,9 +419,11 @@ Az első oszlop a szó, a második a hangzása; a további oszlopok és a tabul�
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: felhasználói token törölve</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: érvénytelen felhasználói token – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: felhasználói token elmentve</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Az üveg navigációs sávot a lejárzó dal albumborítójának színével árnyalja</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Mennyire legyen elmosódva az üveg navigációs sáv mögött lévő oldal (Android 14 és újabb verziók). 0 esetén az oldal élesen látszik, Android 14 előtt az oldal takarva marad</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Elrejti a kerekletű kiemelést az üveg navigációs sáv kijelölt gombja mögött</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Kijelölt gomb indikátoránakrejtése</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Fehérre színezi az üveg navigációs sávot a sötét helyett, egy világosabb és tisztább üvegérzet érdekében</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Világos üveg</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Áttetszőség</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Főoldal</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Gombok közötti távolság</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Megjelenített gombok: %1$s a %2$s-ből</string>
@@ -432,10 +461,10 @@ Szükséges cookie-k: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAP
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehet bejelentkezni a VR-ba, mert a webhely hitelesítését nem hagyták jóvá</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
     <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem érhető el (státusz: %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Az Android VR-bejelentkezés lejárt, próbáld meg újra bejelentkezni a VR-ba</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\"Az Android VR-bejelentkezés lejárt, próbáld meg újra bejelentkezni a VR-ba\"</string>
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
-    <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
+    <string name="morphe_oauth2_toast_reset">Kijelentkezve az \"Android VR\" alkalmazásból</string>
     <string name="morphe_playback_in_feeds_entry_off">Ki</string>
     <string name="morphe_replace_music_with_youtube_summary">A megosztott linkekben lecseréli a music.youtube.com-ot a youtube.com-ra</string>
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
@@ -465,18 +494,13 @@ Szükséges cookie-k: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAP
     <string name="morphe_skip_silence_minimum_pause_title">Minimális szünet hossza</string>
     <string name="morphe_skip_silence_summary">Automatikusan kihagyja a néma szüneteket a videó hangjában</string>
     <string name="morphe_skip_silence_title">Csend kihagyása</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s egymás után többször nem működött, de %2$s igen
-
-Legyen %2$s az alapértelmezett kliens?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Váltás</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Az alapértelmezett kliens nem működik</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem sikerült ügyfélfolyamokat lekérni</string>
     <string name="morphe_spoof_video_streams_screen_summary">Kliens-videófolyamok hamisítása a lejátszási problémák megelőzése érdekében</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Az Android VR külön bejelentkezést igényel. Koppintson ide a folytatáshoz</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \"Alapértelmezett kliens\" beállítást Android VR-re</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Jelenleg bejelentkezve az Android VR-ben</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR bejelentkezés</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Az \'Android VR\' külön bejelentkezést igényel. Koppints ide a folytatáshoz</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \'Alapértelmezett kliens\' beállítást \'Android VR\'-re</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Jelenleg az \'Android VR\' fiókba van bejelentkezve</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR bejelentkezés</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Engedélykód: %s
 
 1. Koppintson a lenti \"Weboldal megnyitása\" gombra, hogy megnyissa a \"Connect a device\" (Eszköz csatlakoztatása) weboldalt
@@ -485,11 +509,11 @@ Legyen %2$s az alapértelmezett kliens?"</string>
 4. Koppintson az \"Allow YouTube VR\" (YouTube VR engedélyezése) gombra
 5. A \"Device connected\" (Eszköz csatlakoztatva) üzenet megjelenése után térjen vissza erre az alkalmazásra"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Utasítások</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Az Android VR-be való bejelentkezés egyes felhasználóknál megoldhatja a lejátszási problémákat
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Az 'Android VR'-be való bejelentkezés egyes felhasználóknál megoldhatja a lejátszási problémákat
 
 A bejelentkezéshez nyomd meg lent a folytatást"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Kijelentkezés</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bejelentkezés az Android VR-ba</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bejelentkezés az \'Android VR\'-be</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Hitelesítés elmentve
 
 • A RVX-beállítások exportálása és importálása nem tartalmazza az Android VR-hitelesítést
@@ -497,6 +521,27 @@ A bejelentkezéshez nyomd meg lent a folytatást"</string>
 • Újra be kell jelentkeznie, ha megváltoztatja a Google-jelszavát, vagy eltávolítja ezt az eszközt a Google-beállításaiból"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sikeresen bejelentkezett</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Az engedélykód kiállítása sikertelen</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Opcionális: jelentkezz be a YouTube weboldalára, hogy a fiókoddal játszass videókat. Koppints ide a folytatáshoz</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \'Alapértelmezett kliens\' beállítást \'Mobil web\'-re</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Jelenleg a \'Mobil web\'-be van bejelentkezve</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Bejelentkezés mobilweben</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"A \"Mobil web\" ki nem jelentkezett állapotban, vagy a YouTube weboldalára bejelentkezve játszítja le a videókat
+
+• Bejelentkezés esetén lejátszhatók azok a videók is, amelyekhez fiók szükséges, például a korlátozott korú videók
+• A Google bejelentkezési oldala ebben az alkalmazásban nyílik meg
+• A bejelentkezést csak a lejátszott videók lekérézésekéhez használjuk
+• A bejelentkezés csak ezen a készüléken zostanie mentve
+
+A bejelentkezéshez nyomd meg alul a folytatás gombot"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Jelentkezz be a \'Mobil web\'-be</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Bejelentkezés mentve
+
+• A RVX beállításai nem importálják/exportálják a \"Mobil web\" bejelentkezését
+• Ha a Google befejezi a bejelentkezést, a videók ki nem jelentkezett állapotban lesznek lejátszva, amíg újra be nem jelentkezesz
+• A kijelentkezés egyben kijelentkezteti a készüléket a YouTube weboldaláról is"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">A mobil web bejelentkezése lejárt, próbáld meg újra bejelentkezni a \"Mobil web\"be</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Kijelentkezve a \"Mobile Web\" alkalmazásból</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Az \"Android System WebView\" nem érhető el. Telepítsd vagy engedélyezd a bejelentkezéshez</string>
     <string name="morphe_spoof_video_streams_summary">"Javítja a lejátszási problémákat a legtöbb felhasználó számára azáltal, hogy kompatibilis videostreamet kér
 
 Ha YouTube Premium-felhasználó vagy, ez a beállítás nem feltétlenül szükséges"</string>

@@ -714,6 +714,30 @@ val navigationBarComponentsPatch = bytecodePatch(
                 }
             }
 
+            // Create the optional buttons from the icon-only Home renderer too.
+            // The factory has already been modified above, so resolve its constructor again.
+            PivotBarIconOnlyRendererFingerprint.clearMatch()
+            PivotBarIconOnlyRendererFingerprint.let {
+                it.method.apply {
+                    val constructorIndex = it.instructionMatches.last().index
+                    val constructorReference =
+                        getInstruction<ReferenceInstruction>(constructorIndex).reference as MethodReference
+                    val constructorStartRegister =
+                        getInstruction<RegisterRangeInstruction>(constructorIndex).startRegister
+                    val messageLiteIndex = constructorReference.parameterTypes.indexOfFirst { parameterType ->
+                        parameterType == "Lcom/google/protobuf/MessageLite;"
+                    }
+                    val messageLiteRegister = constructorStartRegister + messageLiteIndex + 1
+
+                    // The return of the button without a label is shared with other kinds of buttons.
+                    addInstruction(
+                        constructorIndex + 1,
+                        "invoke-static/range { v$messageLiteRegister .. v$messageLiteRegister }, " +
+                                "$EXTENSION_CLASS_DESCRIPTOR->createIconOnlyPivotBarItems(Lcom/google/protobuf/MessageLite;)V"
+                    )
+                }
+            }
+
             implementPivotBarItemBuilder(WatchLaterPivotBarItemBuilderFingerprint)
 
             PivotBarRendererListFingerprint.let {

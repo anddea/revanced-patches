@@ -120,5 +120,11 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
             "app.morphe.extension.music.settings.preference.SpoofVideoStreamsSignInPreference",
             "morphe_spoof_video_streams"
         )
+        addCustomPreference(
+            CategoryType.MISC,
+            "morphe_spoof_video_streams_sign_in_mweb_about",
+            "app.morphe.extension.music.settings.preference.SpoofVideoStreamsMwebSignInPreference",
+            "morphe_spoof_video_streams"
+        )
     },
 )

@@ -26,8 +26,8 @@ import app.morphe.extension.shared.ui.CustomDialog;
  * turned on, it shows a popup that asks to read the submission guidelines of the service.
  * After the popup is closed the toggle behaves like a normal SwitchPreference.
  * <p>
- * The popup strings are named after {@link #getPopupStringPrefix()}, with the suffixes
- * {@code _title}, {@code _content}, {@code _open} and {@code _already_read}.
+ * The popup body and action strings are named after {@link #getPopupStringPrefix()}, with the suffixes
+ * {@code _content}, {@code _open} and {@code _already_read}.
  */
 @SuppressWarnings("deprecation")
 public abstract class GuidelinesSwitchPreference extends SwitchPreference {
@@ -76,7 +76,7 @@ public abstract class GuidelinesSwitchPreference extends SwitchPreference {
             String prefix = getPopupStringPrefix();
             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
-                    str(prefix + "_title"),
+                    str("revanced_sb_guidelines_popup_title"),
                     str(prefix + "_content"),
                     null,
                     str(prefix + "_open"),

@@ -14,6 +14,8 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_21_40_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -57,11 +59,16 @@ val ungroupNotificationsPatch = bytecodePatch(
             NetworkResponseBuffersConstructorLegacyFingerprint
         }
 
-        // The body is the second parameter of both constructors.
-        listOf(
+        // The body is the second parameter of every supported constructor.
+        val constructors = if (is_20_21_or_greater) listOf(
             NetworkResponseBytesConstructorFingerprint to "[B",
             buffersConstructorFingerprint to "Ljava/lang/Iterable;",
-        ).forEach { (fingerprint, bodyType) ->
+        ) else listOf(
+            (if (is_20_05_or_greater) NetworkResponseBytesConstructorOldFingerprint
+            else NetworkResponseBytesConstructorV1928Fingerprint) to "[B"
+        )
+
+        constructors.forEach { (fingerprint, bodyType) ->
             fingerprint.method.addInstructions(
                 0,
                 """

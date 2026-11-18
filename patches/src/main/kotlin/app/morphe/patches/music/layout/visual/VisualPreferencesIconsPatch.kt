@@ -368,6 +368,7 @@ private val emptyTitles = setOf(
     "morphe_spoof_video_streams_client_type",
     "morphe_spoof_video_streams_player_js_hash_value",
     "morphe_spoof_video_streams_sign_in_android_vr_about",
+    "morphe_spoof_video_streams_sign_in_mweb_about",
     "revanced_custom_filter_strings",
     "revanced_custom_playback_speeds",
     "revanced_debug_protobuffer",

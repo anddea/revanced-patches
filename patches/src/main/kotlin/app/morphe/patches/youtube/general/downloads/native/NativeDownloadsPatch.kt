@@ -12,6 +12,10 @@
 
 package app.morphe.patches.youtube.general.downloads.native
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patches.youtube.video.playback.DeviceDimensionsModelConstructorFingerprint
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.util.numberOfParameterRegistersLogical
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
@@ -56,6 +60,9 @@ internal const val EXTENSION_IN_APP_DOWNLOADS_CLASS = "Lapp/morphe/extension/you
 
 private const val EXTENSION_STREAM_SELECTOR_INTERFACE =
     "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$DownloadStreamSelector;"
+
+private const val EXTENSION_OFFLINE_STREAM_SELECTOR_INTERFACE =
+    "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$OfflineStreamSelector;"
 
 private const val EXTENSION_STREAMING_DATA_INTERFACE =
     "Lapp/morphe/extension/youtube/patches/InAppDownloadsPatch\$StreamingDataInterface;"
@@ -118,9 +125,17 @@ internal val nativeDownloadsPatch = bytecodePatch(
             val bridge = findMutableClassOrThrow(interfaceType).methods.first { it.name == name }
             val targetMethod = methods.first { it.name == target.name && it.parameterTypes == target.parameterTypes }
             val static = AccessFlags.STATIC.isSet(targetMethod.accessFlags)
-            val opcode = if (static) "invoke-static" else if (AccessFlags.PRIVATE.isSet(targetMethod.accessFlags)) "invoke-direct" else "invoke-virtual"
+            // Interface selectors need a non-final default bridge and interface dispatch.
+            val isInterface = AccessFlags.INTERFACE.isSet(accessFlags)
+            val opcode = when {
+                static -> "invoke-static"
+                AccessFlags.PRIVATE.isSet(targetMethod.accessFlags) -> "invoke-direct"
+                isInterface -> "invoke-interface"
+                else -> "invoke-virtual"
+            }
+            val bridgeFlags = AccessFlags.PUBLIC.value or if (isInterface) 0 else AccessFlags.FINAL.value
             methods.add(ImmutableMethod(type, name, bridge.parameters, bridge.returnType,
-                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                bridgeFlags, null, null,
                 MutableMethodImplementation(bridge.parameterTypes.size + 2)).toMutable().apply {
                 val casts = target.parameterTypes.mapIndexedNotNull { index, parameter ->
                     if (parameter.startsWith("L") && parameter != bridge.parameterTypes[index])
@@ -486,7 +501,7 @@ internal val nativeDownloadsPatch = bytecodePatch(
         DownloadTransferStreamsFingerprint.let {
             // The method has no free registers. Its parameters stay in the p registers.
             it.method.cloneParameters().apply {
-                val pairIndex = it.instructionMatches[1].index + numberOfParameterRegistersLogical
+                val pairIndex = it.instructionMatches[2].index + numberOfParameterRegistersLogical
                 val pairInstruction = getInstruction(pairIndex)
                 val videoStreamRegister = pairInstruction.registersUsed[1]
                 val videoStreamType = pairInstruction.getReference<MethodReference>()!!.parameterTypes.first()
@@ -502,8 +517,43 @@ internal val nativeDownloadsPatch = bytecodePatch(
                         check-cast v$videoStreamRegister, $videoStreamType
                     """
                 )
+
+                // Pick the streams through the extension, which raises the video decoder sizes
+                // the stream selection checks while it picks them.
+                val selectorIndex = it.instructionMatches.first().index + numberOfParameterRegistersLogical
+                val selectorInstruction = getInstruction(selectorIndex)
+                val selectorMethod = selectorInstruction.getReference<MethodReference>()!!
+                val resultRegister = getInstruction<OneRegisterInstruction>(selectorIndex + 1).registerA
+
+                // The selector is an interface, which gets a default method that calls the selection.
+                findMutableClassOrThrow(selectorMethod.definingClass).addPatchInterface(
+                    EXTENSION_OFFLINE_STREAM_SELECTOR_INTERFACE,
+                    "patch_selectStreams",
+                    selectorMethod
+                )
+
+                replaceInstruction(
+                    selectorIndex,
+                    "invoke-static { ${selectorInstruction.registersUsed.joinToString { register -> "v$register" }} }, " +
+                        "$EXTENSION_IN_APP_DOWNLOADS_CLASS->selectDownloadStreams(${EXTENSION_OFFLINE_STREAM_SELECTOR_INTERFACE}Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+                )
+                addInstruction(selectorIndex + 2, "check-cast v$resultRegister, ${selectorMethod.returnType}")
             }
         }
+
+        // Keep the streams up to 1080p in the stream selection of a download,
+        // even if the hardware video decoder lists a smaller size.
+        // Spoof device dimensions hooks the same constructor at the same index,
+        // so the hooks stay whole in either patch order.
+        DeviceDimensionsModelConstructorFingerprint.method.addInstructions(
+            1, // Add after super call.
+            """
+                invoke-static { p2 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->getVideoDecoderMaxSize(I)I
+                move-result p2
+                invoke-static { p4 }, $EXTENSION_IN_APP_DOWNLOADS_CLASS->getVideoDecoderMaxSize(I)I
+                move-result p4
+            """
+        )
 
         // Commands run by the extension have no interaction logger, which saving a video
         // can use without checking it is set. The logger interface has a logger that logs nothing.

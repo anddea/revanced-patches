@@ -72,53 +72,52 @@
     <string name="morphe_music_apple_token_optional_hint">Токен Apple Music необов\'язковий. Без нього як резервний варіант буде використано Lyrically</string>
     <string name="morphe_music_crossfade_about_best_summary">Звичайне відтворення треку за треком та автоперехід, повтор одного треку (трек плавно переходить сам у себе) і локальний звук - динамік телефону, дротові навушники, Bluetooth або USB</string>
     <string name="morphe_music_crossfade_about_best_title">Найкраще працює з</string>
-    <string name="morphe_music_crossfade_about_credit_summary">Функцію кросфейду створив VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Функцію плавного переходу створив VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Автор</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Кросфейд накладає кінець однієї пісні на початок наступної, використовуючи вашу тривалість і криву
+    <string name="morphe_music_crossfade_about_how_summary">"Плавний перехід накладає кінець однієї пісні на початок наступної, використовуючи вашу тривалість і криву
 
-Він працює під час автоматичного переходу й ручного пропуску, і для кожного є окремий перемикач. Під час автоматичного переходу змішування починається за кілька секунд до завершення пісні"</string>
+Він працює під час автоматичного перемикання й ручного пропуску, і для кожного є окремий перемикач. Під час автоматичного перемикання змішування починається за кілька секунд до завершення пісні"</string>
     <string name="morphe_music_crossfade_about_how_title">Як це працює</string>
     <string name="morphe_music_crossfade_about_known_summary">"Музичне відео, встановлене першим треком - або запущене не з поточної черги - може на короткий час показуватися як відео, перш ніж увімкнеться режим лише аудіо
 
 Призупинення плавного переходу для перегляду музичного відео може залишити деякі відео чорними (ті, чий звук надходить із самого відео). Призупинення плавного переходу перед вибором треку допомагає уникнути цього"</string>
     <string name="morphe_music_crossfade_about_known_title">Відомі проблеми</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Музичні відео відтворюються лише як аудіо, поки кросфейд увімкнено. Натисніть і утримуйте перемішування, щоб призупинити кросфейд і дивитися відео
+    <string name="morphe_music_crossfade_about_quirks_summary">"Музичні відео відтворюються лише як аудіо, поки плавний перехід увімкнено. Натисніть і утримуйте перемішування, щоб призупинити плавний перехід і дивитися відео
 
 Музичне відео, яким починається відтворення, залишається в режимі відео до наступної пісні
 
-Пісні, коротші за тривалість затухання, не кросфейдяться
+До пісень, коротших за тривалість згасання, плавний перехід не застосовується
 
 Екран блокування або сповіщення можуть ненадовго показувати застарілий стан під час переходу
 
-Призупинення кросфейду для перегляду музичного відео може залишити частину відео чорними. Щоб цього уникнути, призупиніть кросфейд до вибору пісні"</string>
+Призупинення плавного переходу для перегляду музичного відео може залишити частину відео чорними. Щоб цього уникнути, призупиніть плавний перехід до вибору пісні"</string>
     <string name="morphe_music_crossfade_about_quirks_title">Обмеження</string>
     <string name="morphe_music_crossfade_about_summary">Як працює плавний перехід - і коли він не працює</string>
     <string name="morphe_music_crossfade_about_title">Інформація</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дзеркалення аудіо (Chromecast, дзеркалення екрана чи аудіо)
-
-Відтворення SABR (функцію \"Підміна відеопотоків\" вимкнено)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Трансляція або дзеркалення аудіо (Chromecast, дзеркалення екрана або аудіо)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Не підтримується</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Кросфейд вимкнено під час трансляції</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Плавний перехід вимкнено під час трансляції</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Незначна затримка</string>
-    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">М’яке згладжування</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">М\'яке згладжування</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Рівномірна потужність</string>
     <string name="morphe_music_crossfade_curve_entry_smoothstep">Плавна S-крива</string>
     <string name="morphe_music_crossfade_curve_preview_incoming">Вхідний</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Вихідний</string>
     <string name="morphe_music_crossfade_curve_title">Крива згасання</string>
-    <string name="morphe_music_crossfade_duration_title">Тривалість кросфейду</string>
-    <string name="morphe_music_crossfade_enabled_title">Увімкнути кросфейд</string>
-    <string name="morphe_music_crossfade_on_auto_advance_summary">Застосовує ефект кросфейду, коли трек завершується природним чином</string>
-    <string name="morphe_music_crossfade_on_auto_advance_title">Кросфейд під час автоматичного переходу</string>
-    <string name="morphe_music_crossfade_on_skip_summary">Застосовує ефект кросфейду, коли ви вручну пропускаєте до наступного треку</string>
-    <string name="morphe_music_crossfade_on_skip_title">Кросфейд під час ручного пропуску</string>
-    <string name="morphe_music_crossfade_paused_toast">Кросфейд призупинено для цього сеансу</string>
-    <string name="morphe_music_crossfade_resumed_toast">Кросфейд відновлено</string>
+    <string name="morphe_music_crossfade_duration_title">Тривалість плавного переходу</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">Щоб використовувати плавний перехід, змініть \"Типовий клієнт\" у \"Підміні відеопотоків\" на \"TV Simply\" або \"visionOS\"</string>
+    <string name="morphe_music_crossfade_enabled_title">Увімкнути плавний перехід</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Застосовує ефект плавного переходу, коли трек завершується природним чином</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Плавний перехід під час автоматичного перемикання</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Застосовує ефект плавного переходу, коли ви вручну переходите до наступного треку</string>
+    <string name="morphe_music_crossfade_on_skip_title">Плавний перехід під час ручного пропуску</string>
+    <string name="morphe_music_crossfade_paused_toast">Плавний перехід призупинено для цього сеансу</string>
+    <string name="morphe_music_crossfade_resumed_toast">Плавний перехід відновлено</string>
     <string name="morphe_music_crossfade_screen_summary">Плавно змішує треки між собою</string>
-    <string name="morphe_music_crossfade_screen_title">Кросфейд</string>
-    <string name="morphe_music_crossfade_session_control_summary">Натисніть і утримуйте кнопку перемішування, щоб призупинити або відновити кросфейд</string>
+    <string name="morphe_music_crossfade_screen_title">Плавний перехід</string>
+    <string name="morphe_music_crossfade_session_control_summary">Натисніть і утримуйте кнопку перемішування, щоб призупинити або відновити плавний перехід</string>
     <string name="morphe_music_crossfade_session_control_title">Керування сесією</string>
-    <string name="morphe_music_crossfade_video_mode_disabled_toast">Режим відео недоступний, поки кросфейд увімкнено</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Режим відео недоступний, поки плавний перехід увімкнено</string>
     <string name="morphe_music_deezer_arl_dialog_instruction">"Вставте cookie arl із Deezer
 
 Кроки:
@@ -141,7 +140,7 @@
     <string name="morphe_music_downloads_started">Завантаження розпочато</string>
     <string name="morphe_music_downloads_starting">Розпочато завантаження…</string>
     <string name="morphe_music_downloads_unknown_track">Не вдалося визначити трек для завантаження</string>
-    <string name="morphe_music_hide_you_may_also_like_section_title">Приховати секцію \"Вам також може сподобатися\"</string>
+    <string name="morphe_music_hide_you_may_also_like_section_title">Приховати розділ \"Вам також може сподобатися\"</string>
     <string name="morphe_music_hide_your_downloads_shelf_title">Приховати полицю \"Ваші завантаження\"</string>
     <string name="morphe_music_in_app_downloads_summary">Завантажує аудіо всередині YouTube Music замість відкриття зовнішнього застосунку завантажувача</string>
     <string name="morphe_music_in_app_downloads_title">Завантажити в застосунку</string>
@@ -165,7 +164,7 @@
     <string name="morphe_music_lyrics_ai_config_fetching_models">Отримання моделей…</string>
     <string name="morphe_music_lyrics_ai_config_model_label">Модель</string>
     <string name="morphe_music_lyrics_ai_config_prompt_label">Запит</string>
-    <string name="morphe_music_lyrics_ai_config_reasoning_effort">Зусилля з міркування</string>
+    <string name="morphe_music_lyrics_ai_config_reasoning_effort">Рівень міркування</string>
     <string name="morphe_music_lyrics_ai_config_ruby_prompt_label">Запит Ruby (кана)</string>
     <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: підключено! (%2$s)</string>
     <string name="morphe_music_lyrics_ai_config_status_failed">%s: не вдалося підключитися. Перевірте налаштування</string>
@@ -176,13 +175,15 @@
     <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування збережено</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Заповнювачі: {task}, {language}, {title}, {artist}, {count}, {lines}. Невідомі залишаються як введено</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон запиту</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Налаштування збережено, але кінцева точка AI ще недоступна</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Налаштування збережено, але кінцева точка ШІ ще не придатна до використання</string>
     <string name="morphe_music_lyrics_ai_section_apply">Застосувати розділи</string>
-    <string name="morphe_music_lyrics_ai_section_detecting">Визначення...</string>
-    <string name="morphe_music_lyrics_ai_section_failed">AI не зміг визначити розділи для цього треку</string>
+    <string name="morphe_music_lyrics_ai_section_detecting">Визначення…</string>
+    <string name="morphe_music_lyrics_ai_section_failed">ШІ не зміг визначити розділи для цього треку</string>
     <string name="morphe_music_lyrics_ai_section_no_text">Немає тексту пісні для визначення розділів</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Дозволити нелатинські читання з джерела тексту пісні; якщо вимкнено, залишати лише латинські літери, літери з діакритикою та цифри тонів</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Увімкнути транслітерацію</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">М\'яко розмиває кожен рядок, який зараз не співається, і чим далі рядок, тим сильніше розмиття (Android 12 і новіше). До Android 12 неактивні рядки залишаються чіткими</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Розмиття неактивних рядків</string>
     <string name="morphe_music_lyrics_clear_cache_done">Очищено %s МБ</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Видалити тексти пісень (%s МБ), збережені на цьому пристрої</string>
     <string name="morphe_music_lyrics_clear_cache_title">Очистити збережені тексти пісень</string>
@@ -193,23 +194,25 @@
     <string name="morphe_music_lyrics_current">Поточне</string>
     <string name="morphe_music_lyrics_custom_regex_summary">Регулярний вираз, застосований до назв, виконавців та альбомів перед пошуком тексту пісні та при оцінці відповідності двох назв. Залиште порожнім, щоб вимкнути обидва. Типове значення видаляє типове сміття, наприклад \"Official Video\", \"Remaster\", \"【插曲】\" та \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Регулярний вираз для метаданих</string>
-    <string name="morphe_music_lyrics_device_unavailable">Тексти пісень недоступні для цього файлу пристрою</string>
+    <string name="morphe_music_lyrics_device_unavailable">Тексти пісень недоступні для цього файлу на пристрої</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Перемикнути порядок показу виконавця та назви в мініплеєрі та MediaSession. Увімкнено - \"Виконавець - Назва\", вимкнено - \"Назва - Виконавець\". Не впливає на пошук текстів пісень</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Порядок відображення виконавця та назви</string>
     <string name="morphe_music_lyrics_dual_only">Подвійний режим</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Розміщує другого виконавця на протилежному краї в піснях-дуетах. Вимкніть, щоб обидва виконавці були з одного боку</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Вирівнювання дуету з протилежних боків</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Рухати фон під час відтворення та пульсувати в такт музиці, якщо YouTube Music має дозвіл на мікрофон. Вимкніть для статичного фону, який менше споживає заряд батареї</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Анімувати динамічний фон</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Показувати розмитий фон з обкладинки альбому за текстом пісні</string>
     <string name="morphe_music_lyrics_dynamic_background_title">Динамічний фон</string>
     <string name="morphe_music_lyrics_enabled_summary">Показує текст пісні зі стороннього сервісу, повертаючись до вбудованого тексту, якщо нічого не знайдено</string>
     <string name="morphe_music_lyrics_enabled_title">Використовувати сторонні тексти пісень</string>
-    <string name="morphe_music_lyrics_focus_spotlight_summary">Сильніше затемнює кожен неактивний рядок, чим далі він знаходиться від рядка, що виконується. Якщо функція вимкнена, всі неактивні рядки затемнюються однаково</string>
-    <string name="morphe_music_lyrics_focus_spotlight_title">Сильніше затемнити віддалені рядки</string>
+    <string name="morphe_music_lyrics_focus_spotlight_summary">Затемнює кожен неактивний рядок тим сильніше, чим далі він від рядка, що виконується. Якщо вимкнено, усі неактивні рядки затемнюються однаково</string>
+    <string name="morphe_music_lyrics_focus_spotlight_title">Сильніше затемнювати віддалені рядки</string>
     <string name="morphe_music_lyrics_force_capitalize_summary">Робить першу літеру кожного рядка тексту пісні великою</string>
     <string name="morphe_music_lyrics_force_capitalize_title">Починати з великої літери</string>
     <string name="morphe_music_lyrics_force_center_summary">Увімкнено: кожен рядок розташовується посередині, а вирівнювання з джерела ігнорується, зокрема сторони дуету; вимкнено: зберігається вирівнювання, яке задає текст пісні</string>
     <string name="morphe_music_lyrics_force_center_title">Завжди центрувати текст пісні</string>
-    <string name="morphe_music_lyrics_gap_dots_summary">Відображає три крапки між рядками під час тривалої інструментальної перерви, які заповнюються в міру завершення перерви</string>
+    <string name="morphe_music_lyrics_gap_dots_summary">Показує три крапки між рядками під час тривалої інструментальної перерви, які заповнюються в міру завершення перерви</string>
     <string name="morphe_music_lyrics_gap_dots_title">Показувати крапки інструментальної перерви</string>
     <string name="morphe_music_lyrics_han_form_summary">Якщо ввімкнено, відповідно до цільової мови перекладу перетворює текст пісні між спрощеним і традиційним письмом</string>
     <string name="morphe_music_lyrics_han_form_title">Перетворення китайського письма</string>
@@ -255,7 +258,7 @@
 Застосовується до обох лімітів. При 1.75 чотири повноширинні символи враховуються як 7"</string>
     <string name="morphe_music_lyrics_mini_next_offset_ms_summary">Зсуває момент показу наступного рядка в мініплеєрі та MediaSession. Використовуйте від\'ємне значення, якщо рядки з\'являються із запізненням, наприклад на екрані блокування</string>
     <string name="morphe_music_lyrics_mini_next_offset_ms_title">Зсув синхронізації мініплеєра та MediaSession</string>
-    <string name="morphe_music_lyrics_mini_track_format_summary">Формат треку, що показується разом із текстом пісні в міні-плеєрі та MediaSession. {t} це назва, {a} виконавець, а {v} версія, наприклад Acoustic, якщо джерело тексту її надає. Текст між двома двокрапками показується лише тоді, коли кожна змінна всередині має значення; для звичайної двокрапки пишіть \\:. Кожен рядок показується по черзі, змінюючись щоразу, коли змінюється рядок тексту</string>
+    <string name="morphe_music_lyrics_mini_track_format_summary">Формат треку, що показується разом із текстом пісні в мініплеєрі та MediaSession. {t} це назва, {a} виконавець, а {v} версія, наприклад Acoustic, якщо джерело тексту її надає. Текст між двома двокрапками показується лише тоді, коли кожна змінна всередині має значення; для звичайної двокрапки пишіть \\:. Кожен рядок показується по черзі, змінюючись щоразу, коли змінюється рядок тексту</string>
     <string name="morphe_music_lyrics_mini_track_format_title">Формат назви пісні/виконавця</string>
     <string name="morphe_music_lyrics_miniplayer_summary">Показує поточний рядок у мініплеєрі, а трек переноситься в підзаголовок</string>
     <string name="morphe_music_lyrics_miniplayer_title">Показувати текст пісні в мініплеєрі</string>
@@ -264,11 +267,13 @@
     <string name="morphe_music_lyrics_providers_keep_one">Принаймні один постачальник має залишатися увімкненим</string>
     <string name="morphe_music_lyrics_refreshed">Оновлено</string>
     <string name="morphe_music_lyrics_refreshing">Оновлення</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Уповільнює анімацію прокрутки тексту й залишає неактивні рядки повного розміру</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Спокійна прокрутка</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Кантонські ієрогліфи</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Без читання ієрогліфів</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Мандаринські ієрогліфи</string>
     <string name="morphe_music_lyrics_rime_dict_add">Додати</string>
-    <string name="morphe_music_lyrics_rime_dict_add_hint">Файл .dict.yaml або zip-архів із ним, з рядками на кшталт 字 ham і 典 din2. Список завантажується, коли ви позначаєте його та натискаєте \"Зберегти\", а перевірка його ліцензії лежить на вас</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">Файл .dict.yaml або ZIP-архів із ним, з рядками на кшталт 字 ham і 典 din2. Список завантажується, коли ви позначите його та натиснете \"Зберегти\"; перевірити його ліцензію маєте ви самі</string>
     <string name="morphe_music_lyrics_rime_dict_add_title">Додати список слів Rime</string>
     <string name="morphe_music_lyrics_rime_dict_added">Додано %s - позначте його та натисніть \"Зберегти\", щоб завантажити</string>
     <string name="morphe_music_lyrics_rime_dict_bad_code">Код має складатися з двох або трьох літер, наприклад hak</string>
@@ -321,7 +326,7 @@
     <string name="morphe_music_lyrics_search_artist_hint">Виконавець</string>
     <string name="morphe_music_lyrics_search_dialog_title">Шукати текст пісні</string>
     <string name="morphe_music_lyrics_search_empty">Введіть назву пісні та виконавця</string>
-    <string name="morphe_music_lyrics_search_google">Пошук через Google</string>
+    <string name="morphe_music_lyrics_search_google">Пошук у Google</string>
     <string name="morphe_music_lyrics_search_no_providers">Жоден з увімкнених постачальників не може шукати інші пісні</string>
     <string name="morphe_music_lyrics_search_title_hint">Назва пісні</string>
     <string name="morphe_music_lyrics_section_display_title">Відображення</string>
@@ -329,7 +334,7 @@
     <string name="morphe_music_lyrics_section_sync_title">Синхронізація</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Натисніть, щоб скопіювати оригінальний текст пісні як звичайний текст; натисніть і утримуйте, щоб зберегти вихідний файл тексту пісні та конвертований файл TTML у теку \"Завантаження\"</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Показувати кнопку \"Копіювати\"</string>
-    <string name="morphe_music_lyrics_show_current_button_summary">Під час прокручування тексту пісні вручну відображає кнопку, яка повертає до рядка, що виконується в цей момент</string>
+    <string name="morphe_music_lyrics_show_current_button_summary">Під час ручного прокручування тексту пісні показує кнопку, що повертає до рядка, який зараз виконується</string>
     <string name="morphe_music_lyrics_show_current_button_title">Показувати кнопку \"Поточне\"</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">Натисніть, щоб перейти до наступного варіанта тексту пісні; натисніть і утримуйте, щоб шукати текст пісні за назвою пісні та виконавцем</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Показувати кнопку \"Оновити\"</string>
@@ -347,7 +352,7 @@
     <string name="morphe_music_lyrics_source_title">Сервіс текстів пісень</string>
     <string name="morphe_music_lyrics_split_background_summary">Відокремлює бек-вокал і гармонію від основного рядка. Виносить бек-вокал, записаний у дужках, наприклад \"(Oh) I want you\", із рядка основного вокалу в окремий, тьмяніший рядок</string>
     <string name="morphe_music_lyrics_split_background_title">Показувати бек-вокал окремо</string>
-    <string name="morphe_music_lyrics_spring_scroll_summary">Прокручує текст пісні з фізикою пружини та зміщує кожен рядок трохи після попереднього. Вимкніть цю функцію, щоб заощадити заряд батареї на повільних пристроях</string>
+    <string name="morphe_music_lyrics_spring_scroll_summary">Прокручує текст пісні з фізикою пружини та зміщує кожен рядок трохи пізніше за попередній. Вимкніть, щоб заощадити заряд батареї на повільних пристроях</string>
     <string name="morphe_music_lyrics_spring_scroll_title">Використовувати пружинну прокрутку</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Прибирає крапки, коми, двокрапки та крапки з комою в кінці рядків тексту пісні. Знаки питання, знаки оклику, трикрапки, лапки та дужки залишаються</string>
     <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Прибирати кінцеву пунктуацію</string>
@@ -389,9 +394,31 @@
     <string name="morphe_music_lyrics_use_ai_section_summary">Використовується лише тоді, коли постачальник не надає позначок розділів, таких як \"Приспів\" або \"Куплет\", які тоді визначає ваша модель, сумісна з OpenAI. Редагування цього рядка також відкриває його запит</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Визначати розділи за допомогою ШІ</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (з %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Виділяє кожне слово м\'яким переливом, сяйвом і легким підйомом, поки воно співається. Вимкніть, щоб заощадити заряд або для чіткого заповнення на повільних пристроях</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Плавно анімувати синхронізовані слова</string>
     <string name="morphe_music_lyrics_word_sync_summary">Надавати пріоритет тексту пісні по словах, коли доступно. Якщо текст пісні містить синхронізацію по словах, підсвічує кожне слово або склад у такт музиці</string>
     <string name="morphe_music_lyrics_word_sync_title">Підсвічувати синхронізовані слова або склади</string>
     <string name="morphe_music_lyrics_written_by">Автор: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Підфарбовує скляний мініплеєр кольором обкладинки альбому пісні, що відтворюється</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Відтінок обкладинки альбому</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Відступи обкладинки</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Наскільки розмивається сторінка за скляним мініплеєром (Android 14 і новіше). За значення 0 сторінка проглядає чітко, а до Android 14 сторінку закрито</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Розмиття скла</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Радіус кутів</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Приховує смугу прогресу внизу скляного мініплеєра</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Приховати смугу прогресу</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Робить скляний мініплеєр білим замість темного, щоб скло було світлішим і прозорішим</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Світле скло</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Непрозорість</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Яскравість краю</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Робить обкладинку скляного мініплеєра круглою та обертає її, як платівку, під час відтворення пісні</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Обертова обкладинка</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Налаштуйте радіус кутів, відступи обкладинки, яскравість краю та непрозорість скляного мініплеєра з попереднім переглядом</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Стиль скляного мініплеєра</string>
+    <string name="morphe_music_miniplayer_glass_summary">Показує плаваючий мініплеєр як закруглену напівпрозору скляну картку</string>
+    <string name="morphe_music_miniplayer_glass_title">Увімкнути ефект скла</string>
+    <string name="morphe_music_miniplayer_screen_summary">Змініть стиль, кнопки та жести мініплеєра</string>
+    <string name="morphe_music_miniplayer_screen_title">Мініплеєр</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">токен користувача</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Додавайте токен лише для використання власного облікового запису. Він має бути отриманий з застосунку Musixmatch для Android: токени, скопійовані з musixmatch.com, належать до застарілого десктопного клієнта, і API їх відхиляє</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch працює без токена, тому це поле можна залишити порожнім</string>
@@ -399,9 +426,11 @@
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: токен користувача очищено</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: недійсний токен користувача - перевірте і спробуйте ще раз</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: токен користувача збережено</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Підфарбовує скляну панель навігації кольором обкладинки альбому пісні, що відтворюється</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Наскільки розмивається сторінка за скляною панеллю навігації (Android 14 і новіше). За значення 0 сторінка проглядає чітко, а до Android 14 сторінку закрито</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Приховує закруглене підсвічування за вибраною кнопкою скляної панелі навігації</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Приховати індикатор вибраної кнопки</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Робить скляну панель навігації білою замість темної, щоб скло було світлішим і прозорішим</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Світле скло</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Непрозорість</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Головна</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Відступ між кнопками</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Показано кнопок: %1$s із %2$s</string>
@@ -441,10 +470,10 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в Android VR закінчився. Спробуйте ввійти у VR ще раз</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в \"Android VR\" закінчився, спробуйте ввійти у VR ще раз</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
     <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
-    <string name="morphe_oauth2_toast_reset">Ви вийшли з Android VR</string>
+    <string name="morphe_oauth2_toast_reset">Ви вийшли з \"Android VR\"</string>
     <string name="morphe_playback_in_feeds_entry_off">Вимк</string>
     <string name="morphe_potoken_provider_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
 Якщо ви є користувачем YouTube Premium, це налаштування може не знадобитися"</string>
@@ -479,18 +508,13 @@
     <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>
     <string name="morphe_skip_silence_summary">Автоматично пропускає тихі паузи у звуку відео</string>
     <string name="morphe_skip_silence_title">Пропускати тишу</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s кілька разів поспіль не спрацював, а %2$s спрацював
-
-Зробити %2$s типовим клієнтом?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Перемкнути</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Типовий клієнт не працює</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR потребує окремого входу. Натисніть тут, щоб продовжити</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR з входом</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' потребує окремого входу. Натисніть тут, щоб продовжити</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Вхід у \'Android\' VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активації: %s
 
 1. Натисніть \"Відкрити вебсайт\" нижче, щоб відкрити вебсайт \"Підключити пристрій\"
@@ -499,11 +523,11 @@
 4. Натисніть \"Дозволити доступ до YouTube VR\"
 5. Поверніться до застосунку після того, як побачите повідомлення \"Пристрій підключено\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Інструкції</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в Android VR може виправити проблеми з відтворенням для деяких користувачів
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в \"Android VR\" може виправити проблеми з відтворенням для деяких користувачів
 
 Щоб увійти, натисніть \"Продовжити\" нижче"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Вийти</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в \"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентифікацію збережено
 
 • Налаштування RVX не імпортують/експортують автентифікацію Android VR
@@ -511,6 +535,27 @@
 • Вам потрібно буде увійти знову, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вхід виконано успішно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не вдалося створити код активації</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Необов\'язково: увійдіть на вебсайт YouTube, щоб відтворювати відео зі своїм обліковим записом. Натисніть тут, щоб продовжити</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Наразі ви ввійшли в \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Вхід у Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"Mobile Web\" відтворює відео без входу в обліковий запис або після входу на вебсайт YouTube
+
+• Після входу можна відтворювати відео, що потребують облікового запису, наприклад відео з віковими обмеженнями
+• Сторінка входу Google відкривається в цьому застосунку
+• Вхід використовується лише для отримання відео, які ви відтворюєте
+• Вхід зберігається лише на цьому пристрої
+
+Щоб увійти, натисніть \"Продовжити\" нижче"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Вхід у \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Вхід збережено
+
+• Налаштування RVX не імпортують і не експортують вхід у Mobile Web
+• Якщо Google завершить вхід, відео відтворюватимуться без входу, доки ви не увійдете знову
+• Вихід з облікового запису також виконає вихід із вебсайту YouTube на цьому пристрої"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Термін дії входу в \"Mobile Web\" минув, спробуйте ввійти в \"Mobile Web\" знову</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Вихід із \"Mobile Web\" виконано</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\"Android System WebView\" недоступний. Встановіть або увімкніть його, щоб увійти</string>
     <string name="morphe_spoof_video_streams_summary">"Виправляє проблеми з відтворенням для більшості користувачів, запитуючи сумісний відеопотік
 
 Якщо ви є користувачем YouTube Premium, це налаштування може не знадобитися"</string>
@@ -843,7 +888,7 @@
     <string name="revanced_remember_video_quality_auto_mobile">За замовчуванням якість при моб. мережі змінено на \"Авто\"</string>
     <string name="revanced_remember_video_quality_auto_wifi">За замовчуванням якість при Wi-Fi змінено на \"Авто\"</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Застосовує вибраний рівень якості до всіх наступних відео</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Запам’ятовувати якість відео</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати якість відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Показує сповіщення при збереженні нової типової якості</string>
     <string name="revanced_remember_video_quality_mobile">Зміна типової якості відео в мобільній мережі на %s</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити обрану якість</string>

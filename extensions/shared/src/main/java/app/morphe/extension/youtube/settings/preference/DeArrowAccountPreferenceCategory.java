@@ -70,7 +70,7 @@ public class DeArrowAccountPreferenceCategory extends PreferenceCategory {
             }
 
             Preference loadingPreference = createPreference(getContext());
-            loadingPreference.setTitle(str("morphe_dearrow_account_loading"));
+            loadingPreference.setTitle(str("morphe_dearrow_vote_loading"));
             loadingPreference.setSelectable(false);
             addAccountPreference(loadingPreference);
 
@@ -109,7 +109,7 @@ public class DeArrowAccountPreferenceCategory extends PreferenceCategory {
     private static ResettableEditTextPreference createUserNamePreference(Context context, String userName) {
         ResettableEditTextPreference preference = new ResettableEditTextPreference(context);
         preference.setSingleLineTitle(false);
-        preference.setTitle(Html.fromHtml(str("morphe_dearrow_account_username", userName),
+        preference.setTitle(Html.fromHtml(str("revanced_sb_stats_username", userName),
                 Html.FROM_HTML_MODE_COMPACT));
         preference.setSummary(str("morphe_dearrow_account_username_change"));
         preference.setText(userName);
@@ -120,9 +120,9 @@ public class DeArrowAccountPreferenceCategory extends PreferenceCategory {
                 Utils.runOnMainThread(() -> {
                     try {
                         if (errorMessage == null) {
-                            preference.setTitle(Html.fromHtml(str("morphe_dearrow_account_username", newUserName),
+                            preference.setTitle(Html.fromHtml(str("revanced_sb_stats_username", newUserName),
                                     Html.FROM_HTML_MODE_COMPACT));
-                            Utils.showToastLong(str("morphe_dearrow_account_username_changed"));
+                            Utils.showToastLong(str("revanced_sb_stats_username_changed"));
                         } else {
                             preference.setText(userName);
                             showErrorDialog(context, errorMessage);

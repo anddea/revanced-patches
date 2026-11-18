@@ -99,16 +99,70 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_dearrow_about_summary">"DeArrow는 클릭을 유도하는 자극적인 제목과 썸네일을 보다 정확하고 덜 선정적인 크라우드소싱 콘텐츠로 대체합니다. 제목은 커뮤니티 사용자들이 작성하고 투표를 통해 선정하며, 썸네일은 동영상에서 추출한 프레임을 사용합니다
 
 동영상은 해시 처리된 동영상 ID의 앞부분을 이용해 요청되므로, 서버는 사용자가 정확히 어떤 동영상을 보고 있는지 알 수 없습니다. DeArrow 썸네일이 없는 동영상에는 원본 썸네일 또는 동영상에서 캡처한 정지 화면이 표시됩니다"</string>
+    <string name="morphe_dearrow_account_connection_failure">계정 세부 정보를 일시적으로 사용할 수 없습니다</string>
+    <string name="morphe_dearrow_account_thumbnails">썸네일 &lt;b&gt;%s&lt;/b&gt;개를 제출했습니다</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">썸네일을 보려면 여기를 탭하세요</string>
+    <string name="morphe_dearrow_account_titles">제목 &lt;b&gt;%s&lt;/b&gt;개를 제출했습니다</string>
+    <string name="morphe_dearrow_account_titles_summary">제목을 보려면 여기를 탭하세요</string>
+    <string name="morphe_dearrow_account_username_change">여기를 탭하여 사용자 이름을 변경하세요. 사용자 이름은 SponsorBlock과 동일합니다</string>
+    <string name="morphe_dearrow_account_username_change_error">사용자 이름을 변경할 수 없습니다. 상태 코드: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">원본 제목을 표시하는 데 필요한 캐주얼 투표 수입니다. 여기서 투표 수는 \'Funny\' 또는 \'Creative\'과 같은 단일 카테고리에 대한 투표를 의미합니다</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">원본 제목을 표시하기 위한 최소 캐주얼 투표 수</string>
     <string name="morphe_dearrow_casual_mode_summary">DeArrow 사용자들이 원본 제목을 더 좋아한다고 투표한 경우, DeArrow 제목 대신 원본 제목을 표시합니다</string>
     <string name="morphe_dearrow_casual_mode_title">캐주얼 모드</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">DeArrow 제목이 없는 동영상의 제목을 정리합니다. 대문자로 된 단어는 일반 대소문자로 변경되며, 이모지, 화려한 텍스트 및 반복되는 느낌표가 제거됩니다</string>
+    <string name="morphe_dearrow_clean_up_titles_title">제목 정리</string>
     <string name="morphe_dearrow_error">DeArrow를 일시적으로 사용할 수 없습니다 (상태 코드: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다</string>
-    <string name="morphe_dearrow_titles_icon_summary">크라우드소싱된 동영상 제목에 DeArrow 아이콘을 표시합니다. 아이콘을 탭하면 원본 제목과 썸네일을 표시합니다</string>
+    <string name="morphe_dearrow_guidelines_summary">가이드라인에는 제목 및 썸네일 제출과 투표에 관한 규칙 및 팁이 포함되어 있습니다</string>
+    <string name="morphe_dearrow_guidelines_title">가이드라인</string>
+    <string name="morphe_dearrow_private_user_id_invalid">비공개 사용자 아이디는 30자 이상이어야 합니다</string>
+    <string name="morphe_dearrow_private_user_id_summary">SponsorBlock과 동일한 사용자 ID입니다. 이 정보는 비공개로 유지해야 합니다. 비밀번호와 같은 것이므로 누구와도 공유해서는 안 됩니다. 다른 사람이 이 정보를 가지고 있으면 사용자를 사칭할 수 있습니다</string>
+    <string name="morphe_dearrow_private_user_id_title">비공개 사용자 아이디</string>
+    <string name="morphe_dearrow_submitting_title">제목 및 썸네일 제출 중</string>
+    <string name="morphe_dearrow_titles_icon_summary">크라우드소싱된 제목이나 썸네일이 있는 동영상의 제목에 DeArrow 아이콘을 표시합니다. 아이콘을 누르면 원래 제목과 썸네일이 표시됩니다</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow 아이콘 표시하기</string>
     <string name="morphe_dearrow_titles_summary">동영상 제목을 DeArrow에 제출된 크라우드소싱 제목으로 변경합니다</string>
     <string name="morphe_dearrow_titles_title">DeArrow 제목</string>
+    <string name="morphe_dearrow_vote_button_summary">동영상 플레이어 상단에 DeArrow 제목 및 썸네일에 투표하거나 새로운 항목을 제출할 수 있는 버튼을 추가합니다</string>
+    <string name="morphe_dearrow_vote_button_title">DeArrow 버튼 표시하기</string>
+    <string name="morphe_dearrow_vote_current_frame_content">%s 프레임을 썸네일로 제출하시겠습니까?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">동영상이 재생 중입니다. 보이는 프레임을 제출하려면 먼저 동영상을 일시중지하세요</string>
+    <string name="morphe_dearrow_vote_downvoted">DeArrow에 비추천 표가 제출되었습니다</string>
+    <string name="morphe_dearrow_vote_failed_code">투표를 제출할 수 없습니다 (상태 코드: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">투표를 제출할 수 없습니다. 연결 상태를 확인하고 다시 시도하세요</string>
+    <string name="morphe_dearrow_vote_failed_locked">이 항목은 잠겨 있으며, VIP 사용자만 비추천할 수 있습니다</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">이 동영상에 대한 투표가 아직 진행 중입니다. 잠시 후 다시 시도하세요</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow에서 추천 표를 수락하지 않았습니다: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">이 동영상의 제목과 썸네일을 불러올 수 없습니다</string>
+    <string name="morphe_dearrow_vote_frame_step">%s초</string>
+    <string name="morphe_dearrow_vote_loading">불러오는 중…</string>
+    <string name="morphe_dearrow_vote_locked">잠금</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">새 썸네일</string>
+    <string name="morphe_dearrow_vote_new_title">새 제목</string>
+    <string name="morphe_dearrow_vote_new_title_hint">제목을 입력하세요</string>
+    <string name="morphe_dearrow_vote_no_titles">아직 제목이 없습니다. 첫 번째로 제목을 제출해 보세요</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">원본 썸네일</string>
+    <string name="morphe_dearrow_vote_original_title">원본 제목</string>
+    <string name="morphe_dearrow_vote_score">점수: %s</string>
+    <string name="morphe_dearrow_vote_submit">제출</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">%s의 프레임</string>
+    <string name="morphe_dearrow_vote_thumbnails">썸네일</string>
+    <string name="morphe_dearrow_vote_time_step_summary">썸네일 제출 시 미세 시간 조정 버튼의 탐색 이동량을 설정할 수 있습니다 (밀리초)</string>
+    <string name="morphe_dearrow_vote_time_step_title">시간 조정 단계</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">제목</string>
+    <string name="morphe_dearrow_vote_unverified">검증되지 않음</string>
+    <string name="morphe_dearrow_vote_upvoted">DeArrow에 추천 표가 제출되었습니다</string>
+    <string name="morphe_debug_save_push_notifications_summary">수신된 푸시 알림을 앱 데이터의 파일로 저장합니다. 파일에는 알림 텍스트 및 채널 이름과 같은 개인 정보가 포함될 수 있습니다</string>
+    <string name="morphe_debug_save_push_notifications_title">푸시 알림 저장</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">저장된 푸시 알림이 삭제되었습니다</string>
+    <string name="morphe_debug_saved_push_notifications_count">저장된 푸시 알림: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">푸시 알림 내보내기에 실패했습니다</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">푸시 알림을 성공적으로 내보냈습니다</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">저장된 푸시 알림을 찾을 수 없습니다</string>
+    <string name="morphe_debug_saved_push_notifications_summary">저장된 푸시 알림을 내보내거나 삭제합니다</string>
+    <string name="morphe_debug_saved_push_notifications_title">저장된 푸시 알림 내보내기</string>
     <string name="morphe_disable_auto_feed_refresh_summary">피드가 만료된 후 자동으로 새로 고쳐지지 않도록 합니다</string>
     <string name="morphe_disable_auto_feed_refresh_title">자동 피드 새로고침 비활성화하기</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">피드에서 스크롤하는 경우에 하단바를 숨기지 않습니다</string>
@@ -126,13 +180,21 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_system_splash_title">시스템 스플래시 비활성화하기</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube에서 구독 탭이 홈 화면 상단으로 이동한 경우, 구독 탭을 하단바에 표시합니다</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">툴바 탐색 탭 비활성화하기</string>
+    <string name="morphe_download_force_4k_summary">YouTube에서 이 기기가 재생할 수 없다고 판단하더라도 1440p 및 4K 다운로드를 제공합니다</string>
+    <string name="morphe_download_force_4k_title">4K 다운로드 강제 활성화</string>
     <string name="morphe_dual_captions_enabled_title">이중 언어 자막</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">비디오 주변 조명의 흐림 정도입니다. 0으로 설정하면 비디오의 형태가 유지됩니다</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">조명 흐림 처리</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">스크롤이 멈춘 후 조명이 어두운 상태로 유지되는 시간입니다. 0으로 설정하면 스크롤하는 동안에만 조명이 어두워지며, 스크롤이 멈추는 즉시 원래 상태로 돌아옵니다</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">어둡게 유지 시간</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">페이지를 스크롤하거나 터치하는 동안 조명을 어둡게 합니다</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">스크롤 중 어둡게 하기</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">밝은 동영상의 조명을 낮춰 페이지의 텍스트 가독성을 유지합니다</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">텍스트 가독성 유지</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">조명이 비디오를 따라가는 데 걸리는 시간입니다. 0으로 설정하면 비디오를 밀접하게 따라갑니다</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">조명 부드럽게 하기</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">워치 페이지와 검은색 바의 빛 세기</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">빛 세기</string>
     <string name="morphe_enhanced_ambient_mode_summary">앰비언트 모드 대신 동영상에 맞춰 시청 페이지 전체와 검은색 바에 조명을 비춥니다</string>
     <string name="morphe_enhanced_ambient_mode_title">향상된 앰비언트 모드</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
@@ -143,6 +205,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_explore_menu_screen_summary">탐색 메뉴에 표시할 구성 요소를 선택하세요</string>
     <string name="morphe_explore_menu_screen_title">탐색 메뉴</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">이 기능이 작동하지 않는다면, MicroG를 강제로 종료하세요</string>
+    <string name="morphe_feed_download_flyout_button_summary">다운로드 항목이 없는 피드 동영상 메뉴에 \'오프라인 저장\' 항목을 추가합니다</string>
+    <string name="morphe_feed_download_flyout_button_title">플라이아웃 다운로드 메뉴 항목 강제 적용</string>
     <string name="morphe_feed_long_press_menu_summary">피드 동영상에서 아무 곳이나 길게 탭하면 해당 동영상 메뉴가 열립니다</string>
     <string name="morphe_feed_long_press_menu_title">길게 탭하여 동영상 메뉴 열기</string>
     <string name="morphe_feed_watch_later_button_summary">피드 동영상의 썸네일에 \'나중에 보기\' 버튼이 표시되며, 동영상이 저장된 경우 체크 표시가 나타납니다. 이 버튼을 탭하면 동영상을 저장하거나 제거하며, 길게 누르면 \'재생목록에 저장\' 메뉴가 열립니다</string>
@@ -265,10 +329,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
     <string name="morphe_livestream_dvr_summary">재생바 탐색이 제한된 실시간 스트림에서도 탐색할 수 있도록 허용합니다</string>
     <string name="morphe_livestream_dvr_title">실시간 스트림 DVR 활성화하기</string>
+    <string name="morphe_miniplayer_glass_summary">글래스 하단바와 같이 미니 플레이어를 모서리가 둥근 반투명 글래스 형태로 표시합니다. 글래스 하단바 설정이 필요합니다</string>
+    <string name="morphe_miniplayer_glass_title">글래스 미니 플레이어</string>
     <string name="morphe_music_package_name_summary">사용자가 사용하고 싶은 Music 앱 패키지명을 설정하세요</string>
     <string name="morphe_music_package_name_title">Music 앱 패키지명</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">글래스 내비게이션 바 주변에 빛나는 테두리를 그립니다</string>
+    <string name="morphe_navigation_bar_glass_edge_title">글래스 내비게이션 바 테두리</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">글래스 하단바의 투명도를 설정할 수 있습니다 (0: 완전 투명, 100: 완전 불투명)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">글래스 불투명도</string>
+    <string name="morphe_navigation_bar_glass_round_summary">글래스 미니 플레이어처럼 모서리가 있는 대신, 글래스 하단바의 양 끝을 둥글게 만듭니다</string>
+    <string name="morphe_navigation_bar_glass_round_title">라운드 글래스 하단바</string>
     <string name="morphe_navigation_bar_glass_size_bottom_spacing">하단 간격</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">버튼 간격</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">표시된 버튼: %2$s개 중 %1$s개</string>
@@ -287,10 +357,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2을 일시적으로 사용할 수 없습니다 (상태 코드: %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR 로그인이 만료되었습니다. VR에 다시 로그인하세요</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\'Android VR\' 로그인이 만료되었습니다. VR에 다시 로그인하세요</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
-    <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
+    <string name="morphe_oauth2_toast_reset">\'Android VR\'에서 로그아웃되었습니다</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">채널 아바타를 탭했을 경우에 실시간 스트림이 재생되지 않도록 합니다</string>
     <string name="morphe_open_channel_of_live_avatar_title">라이브 아바타 채널 열기</string>
     <string name="morphe_open_videos_fullscreen_title">전체 화면 모드로 동영상 열기</string>
@@ -330,11 +401,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_post_image_download_started_single">이미지를 다운로드하는 중…</string>
     <string name="morphe_post_image_download_summary">이미지 또는 GIF가 포함된 게시물의 공유 버튼 옆에 다운로드 버튼이 표시되며, 해당 게시물의 메뉴에도 다운로드 항목이 추가됩니다</string>
     <string name="morphe_post_image_download_title">게시물 이미지 다운로드하기</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">이 버전에 내장된 PotHelper 토큰이 더 이상 작동하지 않습니다
-
-재생 문제를 해결하려면 \'동영상 스트림 속이기\' 설정을 활성화하세요</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">PotHelper가 더 이상 작동하지 않음</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">활성화</string>
     <string name="morphe_potoken_provider_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
@@ -352,7 +418,7 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_remember_livestream_position_summary">진행 중인 실시간 스트림의 경우, 현재 실시간 위치로 이동하는 대신 재생 위치를 저장하고 다시 시작합니다</string>
     <string name="morphe_remember_livestream_position_title">실시간 스트림 재생 위치 저장하기</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">이 기능은 24/7 실시간 스트림 및 \'항상 켜짐\' 상태인 기타 스트림에서는 작동하지 않습니다</string>
-    <string name="morphe_replace_links_with_shortener_summary">동영상이 단축된 youtu.be URL 형식을 사용하도록 강제합니다</string>
+    <string name="morphe_replace_links_with_shortener_summary">동영상이 단축된 \'youtu.be\' URL 형식을 사용하도록 강제합니다</string>
     <string name="morphe_replace_links_with_shortener_title">공유 링크를 youtu.be로 변경하기</string>
     <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
@@ -391,6 +457,7 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_settings_name_title">RVX 설정 이름</string>
     <string name="morphe_settings_new_indicator_days_summary">업데이트로 추가된 설정 및 옵션 옆에 점이 표시되는 기간을 지정할 수 있습니다 (일수)</string>
     <string name="morphe_settings_new_indicator_days_title">새 설정 강조 표시하기</string>
+    <string name="morphe_shorts_download_flyout_title">오프라인 저장</string>
     <string name="morphe_skip_silence_minimum_pause_summary">최소 이 시간 이상 일시 정지하는 경우에만 단축됩니다. 다음 동영상이 시작될 때 적용됩니다</string>
     <string name="morphe_skip_silence_minimum_pause_title">최소 일시 정지 길이</string>
     <string name="morphe_skip_silence_summary">동영상 오디오에서 무음 구간을 자동으로 건너뜁니다</string>
@@ -415,20 +482,15 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면, 소프트웨어 AV1 디코딩이 사용될 수 있습니다
 
 AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s는 연속으로 여러 번 작동하지 않았지만, %2$s는 작동하였습니다 
-
-%2$s를 기본 클라이언트로 설정하시겠습니까?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">전환</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">기본 클라이언트가 작동하지 않습니다</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">플레이어 자바스크립트 변형</string>
     <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
     <string name="morphe_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR은 별도의 로그인이 필요합니다. 계속하려면 여기를 탭하세요</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android VR\'로 변경하세요</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">현재 Android VR에 로그인되어 있습니다</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR에 로그인하기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\'은 별도의 로그인이 필요합니다. 계속하려면 여기를 탭하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면 \'기본 클라이언트\'를 \'Android VR\'로 변경하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">현재 \'Android VR\'에 로그인되어 있습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR 로그인</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"활성화 코드: %s
 
 1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다
@@ -441,7 +503,7 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
 
 로그인하려면 아래에 있는 '계속' 버튼을 탭하세요"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">로그아웃</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">\'Android VR\'에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
 
 • RVX 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다
@@ -449,6 +511,27 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
 • Google 암호를 변경하거나 Google 설정에서 이 기기 등록을 해제하면 다시 로그인해야 합니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">로그인 성공</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">선택 사항: 계정으로 동영상을 재생하려면 YouTube 웹사이트에 로그인하세요. 여기를 탭하여 계속하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">이 기능을 사용하려면 \'기본 클라이언트\'를 \'모바일 웹\'으로 변경하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">현재 \'모바일 웹\'에 로그인되어 있습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">모바일 웹 로그인</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'모바일 웹'은 로그아웃 상태 또는 YouTube 웹사이트에 로그인한 상태로 동영상을 재생합니다
+
+• 로그인하면 연령 제한 동영상과 같이 계정이 필요한 동영상을 재생할 수 있습니다
+• 이 앱에서 Google 로그인 페이지가 열립니다
+• 로그인은 재생할 동영상을 가져오는 용도로만 사용됩니다
+• 로그인 정보는 이 기기에만 저장됩니다
+
+로그인하려면 아래의 계속을 누르세요"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">\'모바일 웹\'에 로그인</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"로그인이 저장되었습니다
+
+• RVX 설정에서 '모바일 웹' 로그인은 가져오기/내보내기를 지원하지 않습니다
+• Google 로그인이 종료되면 다시 로그인할 때까지 로그아웃 상태로 동영상이 재생됩니다
+• 로그아웃하면 이 기기의 YouTube 웹사이트에서도 로그아웃됩니다"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">모바일 웹 로그인이 만료되었습니다. \'모바일 웹\'에 다시 로그인하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">\'모바일 웹\'에서 로그아웃되었습니다</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\'를 사용할 수 없습니다. 로그인하려면 설치하거나 활성화하세요</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시하지 않습니다</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시합니다</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">전문 통계에 속이기 정보 표시하기</string>
@@ -497,6 +580,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="morphe_theme_entry_white">하얀색</string>
     <string name="morphe_theme_settings_summary">앱 테마, 디자인 및 브랜딩을 꾸며볼 수 있습니다</string>
     <string name="morphe_theme_settings_title">테마 설정</string>
+    <string name="morphe_ungroup_notifications_summary">채널의 그룹화된 업로드 영상 각각을 개별 알림으로 표시합니다</string>
+    <string name="morphe_ungroup_notifications_title">알림 그룹 해제</string>
     <string name="morphe_unlock_queue_summary">YouTube 동영상 현재 재생목록 잠금 해제</string>
     <string name="morphe_unlock_queue_title">현재 재생목록 잠금 해제</string>
     <string name="morphe_video_action_bar_layout_entry_2">클래식 한 줄</string>
@@ -822,11 +907,11 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
 일부 서버 측 레이아웃은 원래대로 되돌아가지 않을 수 있습니다
 
 변경 사항:
+• 전체 화면 동영상 추천이 작동하지 않을 수 있습니다
 • 플레이어 메뉴 구성 요소(또는 관련 설정)가 작동하지 않을 수 있습니다
-• 롤링 넘버 애니메이션이 표시되지 않습니다
-• 보관함 탭이 표시됩니다
 • 동영상 설명에서 음악 섹션이 작동하지 않을 수 있습니다
 • 플레이어 메뉴 구성요소 항목을 숨길 수 없습니다
+• 롤링 넘버 애니메이션이 표시되지 않습니다
 • 보관함 탭에 계정 전환 버튼이 표시되지 않을 수 있습니다"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>

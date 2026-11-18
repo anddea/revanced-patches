@@ -50,6 +50,7 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.BooleanUtils;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -133,6 +134,14 @@ public class PlaybackSpeedPatch {
 
         if (isWhitelisted || isIgnored || isMusic) {
             defaultPlaybackSpeed = 1.0f;
+        } else if (defaultPlaybackSpeed > 0 && defaultPlaybackSpeed != 1.0f
+                && DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC && !videoId.isEmpty()
+                && !VideoInformation.lastPlayerResponseIsShort()
+                && MusicRequest.getRequestForVideoId(videoId) == null) {
+            // A downloaded video plays without a player request, so it was not prefetched.
+            // MusicRequest applies a successful result through musicRequestCompleted.
+            MusicRequest.fetchRequestIfNeeded(
+                    videoId, DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE, Collections.emptyMap());
         }
 
         if (defaultPlaybackSpeed > 0) {

@@ -90,15 +90,69 @@ A jelentések nyilvánosak, és felülvizsgálják őket, mielőtt egy csatorna 
     <string name="morphe_dearrow_about_summary">"A DeArrow a kattintásvadász címeket és miniatűröket közösségi forrásból származó, pontosabb és kevésbé szenzációhajhász tartalmakra cseréli. A címeket a közösség írja és szavazza meg, a miniatűrök pedig a videóból készült képkockák
 
 A videókat a hash-elt videóazonosító rövid előtagjával kérik le, így a szerver nem tudja pontosan, hogy melyik videót nézed. Ha egy videóhoz nincs DeArrow miniatűr, akkor az eredeti vagy egy állókép jelenik meg"</string>
+    <string name="morphe_dearrow_account_connection_failure">A fiókadatok átmenetileg nem érhetők el</string>
+    <string name="morphe_dearrow_account_thumbnails">Ön &lt;b&gt;%s&lt;/b&gt; bélyegképet küldött be</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Koppintson ide a bélyegképek megtekintéséhez</string>
+    <string name="morphe_dearrow_account_titles">Ön &lt;b&gt;%s&lt;/b&gt; címet küldött be</string>
+    <string name="morphe_dearrow_account_titles_summary">Koppintson ide a címek megtekintéséhez</string>
+    <string name="morphe_dearrow_account_username_change">Koppintson ide a felhasználónév módosításához. A felhasználónév megegyezik a SponsorBlock-on használt névvel</string>
+    <string name="morphe_dearrow_account_username_change_error">A felhasználónév nem módosítható: állapot: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">Az eredeti cím megjelenítéséhez szükséges alkalmi szavazatok száma egy kategóriában, például vicces vagy kreatív</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Minimális alkalmi szavazatszám az eredeti cím megjelenítéséhez</string>
     <string name="morphe_dearrow_casual_mode_summary">Az eredeti címet mutatja a DeArrow-cím helyett, ha a DeArrow-felhasználók arra szavaztak, hogy az eredeti cím tetszik nekik</string>
     <string name="morphe_dearrow_casual_mode_title">Alkalmi mód</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">Tisztítja azokat a videók címeit, amelyeknek nincs DeArrow címe. A nagybetűs szavak normál kisbetűs formátumra változnak, az emojikat, a díszes szövegeket és az ismételt felkiáltójeleket eltávolítja</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Címek tisztítása</string>
     <string name="morphe_dearrow_error">A DeArrow átmenetileg nem érhető el (állapotkód: %s)</string>
     <string name="morphe_dearrow_error_generic">A DeArrow átmenetileg nem érhető el</string>
-    <string name="morphe_dearrow_titles_icon_summary">Megjeleníti a DeArrow ikont a közösségi videocímeknél. Koppintson az ikonra az eredeti cím és a bélyegkép megjelenítéséhez</string>
+    <string name="morphe_dearrow_guidelines_summary">Az irányelvek szabályokat és tippeket tartalmaznak a címek és borítóképek benyújtásához és szavazásához</string>
+    <string name="morphe_dearrow_guidelines_title">Irányelvek</string>
+    <string name="morphe_dearrow_private_user_id_invalid">A privát felhasználói azonosítónak legalább 30 karakter hosszúnak kell lennie</string>
+    <string name="morphe_dearrow_private_user_id_summary">Ugyanaz a felhasználói azonosító, mint a SponsorBlock esetében. Ezt bizalmasan kell kezelni. Olyan, mint a jelszó, ezért senkivel sem szabad megosztani. Ha valaki megszerzi, az Ön nevében járhat el</string>
+    <string name="morphe_dearrow_private_user_id_title">Az Ön privát felhasználói azonosítója</string>
+    <string name="morphe_dearrow_submitting_title">Címek és bélyegképek beküldése</string>
+    <string name="morphe_dearrow_titles_icon_summary">Megjeleníti a DeArrow ikont azon videók cimlerinde, amelyek crowdsourced címmal vagy bélyegképpel rendelkeznek. Koppints az ikonra az eredeti cím és bélyegkép megjelenítéséhez</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow ikon megjelenítése</string>
     <string name="morphe_dearrow_titles_title">DeArrow-címek</string>
+    <string name="morphe_dearrow_vote_button_summary">Gombot ad hozzá a videolejátszó tetejéhez a DeArrow címekre és borítóképekre való szavazáshoz, vagy új proposals benyújtásához</string>
+    <string name="morphe_dearrow_vote_button_title">DeArrow gomb megjelenítése</string>
+    <string name="morphe_dearrow_vote_current_frame_content">Beküldjük a %s időpontjánki képkockát bélyegképként?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">A videó lejátszása berlangsung. A látható képkocka beküldéséhez először állítsa meg a videót</string>
+    <string name="morphe_dearrow_vote_downvoted">Negatív szavazat beküldve a DeArrow-nak</string>
+    <string name="morphe_dearrow_vote_failed_code">A szavazás nem küldhető el (állapítókód: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">A szavazás nem küldhető el. Ellenőrizze a kapcsolatát, majd próbálja újra</string>
+    <string name="morphe_dearrow_vote_failed_locked">Ez zárolva van, és csak VIP felhasználók szavazhatnak ellene</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">A videóra leadott szavazás még folyamatban van. Próbálja újra egy pillanattal később</string>
+    <string name="morphe_dearrow_vote_failed_reason">A DeArrow nem fogadta el a szavazást: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Nem sikerült betölteni a videó címeit és bélyegképeit</string>
+    <string name="morphe_dearrow_vote_frame_step">%s mp</string>
+    <string name="morphe_dearrow_vote_loading">Betöltés…</string>
+    <string name="morphe_dearrow_vote_locked">Zárolva</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">Új bélyegkép</string>
+    <string name="morphe_dearrow_vote_new_title">Új cím</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Írjon egy címet</string>
+    <string name="morphe_dearrow_vote_no_titles">Még nincsenek címek. Küldj be egy címet, hogy legyél az első</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Eredeti indexkép</string>
+    <string name="morphe_dearrow_vote_original_title">Eredeti cím</string>
+    <string name="morphe_dearrow_vote_score">Pontszám: %s</string>
+    <string name="morphe_dearrow_vote_submit">Beküldés</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">Kép a %s időpontban</string>
+    <string name="morphe_dearrow_vote_thumbnails">Bélyegképek</string>
+    <string name="morphe_dearrow_vote_time_step_summary">A finom időbeállítási gombok keresési értéke bélyegkép beküldésekor (millimásodpercben)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Időbeállítási lépés</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Címek</string>
+    <string name="morphe_dearrow_vote_unverified">Nem ellenőrzött</string>
+    <string name="morphe_dearrow_vote_upvoted">Szavazat beküldve a DeArrow-nak</string>
+    <string name="morphe_debug_save_push_notifications_summary">Menti a kapott push értesítéseket egy fájlba az alkalmazás adatain belül. A fájl olyan privát információkat tartalmazhat, mint például értesítési szövegek és csatornanévvel</string>
+    <string name="morphe_debug_save_push_notifications_title">Push értesítések mentése</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Mentett push értesítések törölve</string>
+    <string name="morphe_debug_saved_push_notifications_count">Mentett push értesítések: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Sikertelen push értesítések exportálása</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Push értesítések sikeresen exportálva</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">Nem található mentett push értesítés</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Exportálja vagy törölje a mentett push értesítéseket</string>
+    <string name="morphe_debug_saved_push_notifications_title">Mentett push értesítések exportálása</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Megakadályozza, hogy a hírcsatornák automatikusan frissüljenek, miután elavulttá válnak</string>
     <string name="morphe_disable_auto_feed_refresh_title">Automatikus hírcsatorna-frissítés letiltása</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">A navigációs sáv látható marad a görgetés közben</string>
@@ -114,13 +168,21 @@ A videókat a hash-elt videóazonosító rövid előtagjával kérik le, így a 
     <string name="morphe_disable_scrolling_speed_limit_title">Görgetési sebességkorlát letiltása</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Megjeleníti az Előfizetéseket a navigációs sávban, ha a YouTube a Kezdőlap tetejére helyezi át</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Toolbar navigációs lapok kikapcsolása</string>
+    <string name="morphe_download_force_4k_summary">Lehetővé teszi a 1440p és 4K felbontású letöltéseket, még akkor is, ha a YouTube úgy dönti, hogy ez az eszköz nem képes lejátszani őket</string>
+    <string name="morphe_download_force_4k_title">4K letöltés kényszerítése</string>
     <string name="morphe_dual_captions_enabled_title">Kétnyelvű feliratok</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">Mennyire legyen elmosódva a videk melletti fény. 0 esetén megmaradnak a videó formái</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">Fény elmosódása</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Meddig marad sötétebb a fény a görgetés leállása után. A 0 értékkel csak a görgetés sötkíti a fényt, és amint a görgetés megáll, a fény visszatér a korábbi állapotába</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Sötkitési időtartam</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Sötkíti a fényt, amíg az oldal görgetve vagy érintve van</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Sötkítse görgetés közben</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Csökkenti a fényt a világos videóknál, hogy az oldalon lévő szöveg olvasható maradjon</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">A szöveg olvashatósága megőrzése</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">Mennyi idő alatt követi a fény a videót. 0 esetén szorosan követi a videót</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">Fény simítása</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">A fény erőssége az óra lapján és a fekete sávokon</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">Fényerő</string>
     <string name="morphe_enhanced_ambient_mode_summary">A Mozifilmes világítás helyett a videó színei világítják meg az egész megtekintési oldalt és a fekete sávokat</string>
     <string name="morphe_enhanced_ambient_mode_title">Fejlesztett Mozifilmes világítás</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR-időtartamának bővítése' nem érhető el
@@ -131,6 +193,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_explore_menu_screen_summary">Válaszd ki, mely elemek jelenjenek meg a felfedezés menüben</string>
     <string name="morphe_explore_menu_screen_title">Felfedezés menü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Ha nem működik, próbálja meg kényszerűen leállítani a MicroG-t</string>
+    <string name="morphe_feed_download_flyout_button_summary">Letöltési elemet ad hozzá az olyan feed videók menüjéhez, amelyeknél ez alapértelmezetten hiányzik</string>
+    <string name="morphe_feed_download_flyout_button_title">Kényszerített letöltési menüpont a felugró menüben</string>
     <string name="morphe_feed_long_press_menu_summary">A hírfolyam videóján bárhol koppintás és hosszú nyomás nyitja meg a menüjét</string>
     <string name="morphe_feed_long_press_menu_title">Koppints és nyomd meg hosszan a videómenü megnyitásához</string>
     <string name="morphe_feed_watch_later_button_summary">A hírfolyam videóinak bélyegképein megjelenik egy Később megnézem gomb, pipával, ha a videó mentve van. A rákoppintás menti vagy eltávolítja a videót, a hosszú nyomás pedig megnyitja a Lejátszási listába mentés lehetőséget</string>
@@ -251,10 +315,16 @@ Az 'Audio Track' menü megjelenítéséhez állítsa a 'Videóstream-ek megtéve
 A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Lehetővé teszi a keresést minden élő streamen, még azoknál is, amelyek normál esetben korlátozzák azt</string>
     <string name="morphe_livestream_dvr_title">Engedélyezze az élsőségi DVR-t</string>
+    <string name="morphe_miniplayer_glass_summary">Átlátszó üvegként, lekerekített sarkokkal jeleníti meg a miniplayert, hasonlóan az üveg navigációs sávhoz. Ehhez szükség van az üveg navigációs sávra</string>
+    <string name="morphe_miniplayer_glass_title">Üveg miniplayer</string>
     <string name="morphe_music_package_name_summary">A telepített zenelejátszó csomag neve</string>
     <string name="morphe_music_package_name_title">A zenelejátszó csomag neve</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Fényes szélt rajzol az üveges navigációs sáv körül</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Üveges navigációs sáv szél</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Állítsa be az üveg navigációs sáv átlátszósági szintjét (0 átlátszó, 100 átlátszatlan)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Üveg átlátszósága</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Kerek végeket ad az üveg navigációs sávnak a miniplayer üveg sarkai helyett</string>
+    <string name="morphe_navigation_bar_glass_round_title">Kerek üveg navigációs sáv</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Gombtávolság</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Megjelenített gombok: %1$s a %2$s-ből</string>
     <string name="morphe_navigation_bar_glass_size_height">Magasság</string>
@@ -270,10 +340,11 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehet bejelentkezni a VR-ba, mert a webhely hitelesítését nem hagyták jóvá</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
     <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem érhető el (státusz: %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Az Android VR-bejelentkezés lejárt, próbáld meg újra bejelentkezni a VR-ba</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\"Az Android VR-bejelentkezés lejárt, próbáld meg újra bejelentkezni a VR-ba\"</string>
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
-    <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
+    <string name="morphe_oauth2_toast_reset">Kijelentkezve az \"Android VR\" alkalmazásból</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Megakadályozza, hogy az élő közvetítés megnyíljon a csatorna avatarjára koppintva</string>
     <string name="morphe_open_channel_of_live_avatar_title">Csatorna megnyitása az élő avatarból</string>
     <string name="morphe_open_videos_fullscreen_title">Videók megnyitása teljes képernyős módban</string>
@@ -323,7 +394,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_remember_livestream_position_summary">A folyamatban lévő élő közvetítéseknél megjegyzi a lejátszási pozíciót, és onnan folytatja a lejátszást ahelyett, hogy a jelenlegi élő pozícióra ugrana</string>
     <string name="morphe_remember_livestream_position_title">Élő stream lejátszási pozíciójának megjegyzése</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">Ez a funkció nem működik a 24/7-es élő közvetítésekkel és más, „mindig bekapcsolt” közvetítésekkel</string>
-    <string name="morphe_replace_links_with_shortener_summary">Arra kényszeríti a videókat, hogy a rövidített youtu.be URL-formátumot használják</string>
+    <string name="morphe_replace_links_with_shortener_summary">Arra kényszeríti a videókat, hogy a rövidített \"youtu.be\" URL-formátumot használják</string>
     <string name="morphe_replace_links_with_shortener_title">Módosítsa a megosztási linkeket youtu.be-ra</string>
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
@@ -362,6 +433,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_settings_name_title">RVX-beállításnév</string>
     <string name="morphe_settings_new_indicator_days_summary">Napok száma, amelyek alatt egy pont jelenik meg a frissítéssel hozzáadott beállítások és opciók mellett</string>
     <string name="morphe_settings_new_indicator_days_title">Új beállítások kiemelése</string>
+    <string name="morphe_shorts_download_flyout_title">Letöltés</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Csak a legalább ilyen hosszú szünetek rövidülnek le. A következő videó indításakor lép érvénybe</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimális szünet hossza</string>
     <string name="morphe_skip_silence_summary">Automatikusan kihagyja a néma szüneteket a videó hangjában</string>
@@ -382,24 +454,19 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_spoof_video_streams_av1_summary_on">"A videó kodek AVC (H.264), VP9 vagy AV1
 
 A lejátszás akadozhat vagy képkockákat ejthet"</string>
-    <string name="morphe_spoof_video_streams_av1_title">„Android VR” / visionOS AV1 engedélyezése</string>
+    <string name="morphe_spoof_video_streams_av1_title">Engedélyezze az \"Android VR\" / \"visionOS\" AV1-et</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást használhat
 
 Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s egymás után többször nem működött, de %2$s igen
-
-Legyen %2$s az alapértelmezett kliens?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Váltás</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Az alapértelmezett kliens nem működik</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem sikerült ügyfélfolyamokat lekérni</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Lejátszó JavaScript változata</string>
     <string name="morphe_spoof_video_streams_screen_summary">Kliens-videófolyamok hamisítása a lejátszási problémák megelőzése érdekében</string>
     <string name="morphe_spoof_video_streams_screen_title">Videófolyamok hamisítása</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Az Android VR külön bejelentkezést igényel. Koppintson ide a folytatáshoz</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \"Alapértelmezett kliens\" beállítást Android VR-re</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Jelenleg bejelentkezve az Android VR-ben</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR bejelentkezés</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Az \'Android VR\' külön bejelentkezést igényel. Koppints ide a folytatáshoz</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \'Alapértelmezett kliens\' beállítást \'Android VR\'-re</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Jelenleg az \'Android VR\' fiókba van bejelentkezve</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR bejelentkezés</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Engedélykód: %s
 
 1. Koppintson a lenti \"Weboldal megnyitása\" gombra, hogy megnyissa a \"Connect a device\" (Eszköz csatlakoztatása) weboldalt
@@ -408,11 +475,11 @@ Legyen %2$s az alapértelmezett kliens?"</string>
 4. Koppintson az \"Allow YouTube VR\" (YouTube VR engedélyezése) gombra
 5. A \"Device connected\" (Eszköz csatlakoztatva) üzenet megjelenése után térjen vissza erre az alkalmazásra"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Utasítások</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Az Android VR-be való bejelentkezés egyes felhasználóknál megoldhatja a lejátszási problémákat
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Az 'Android VR'-be való bejelentkezés egyes felhasználóknál megoldhatja a lejátszási problémákat
 
 A bejelentkezéshez nyomd meg lent a folytatást"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Kijelentkezés</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bejelentkezés az Android VR-ba</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bejelentkezés az \'Android VR\'-be</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Hitelesítés elmentve
 
 • A RVX-beállítások exportálása és importálása nem tartalmazza az Android VR-hitelesítést
@@ -420,6 +487,27 @@ A bejelentkezéshez nyomd meg lent a folytatást"</string>
 • Újra be kell jelentkeznie, ha megváltoztatja a Google-jelszavát, vagy eltávolítja ezt az eszközt a Google-beállításaiból"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sikeresen bejelentkezett</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Az engedélykód kiállítása sikertelen</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Opcionális: jelentkezz be a YouTube weboldalára, hogy a fiókoddal játszass videókat. Koppints ide a folytatáshoz</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Ennek a funkciónak a használatához állítsa az \'Alapértelmezett kliens\' beállítást \'Mobil web\'-re</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Jelenleg a \'Mobil web\'-be van bejelentkezve</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Bejelentkezés mobilweben</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"A \"Mobil web\" ki nem jelentkezett állapotban, vagy a YouTube weboldalára bejelentkezve játszítja le a videókat
+
+• Bejelentkezés esetén lejátszhatók azok a videók is, amelyekhez fiók szükséges, például a korlátozott korú videók
+• A Google bejelentkezési oldala ebben az alkalmazásban nyílik meg
+• A bejelentkezést csak a lejátszott videók lekérézésekéhez használjuk
+• A bejelentkezés csak ezen a készüléken zostanie mentve
+
+A bejelentkezéshez nyomd meg alul a folytatás gombot"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Jelentkezz be a \'Mobil web\'-be</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Bejelentkezés mentve
+
+• A RVX beállításai nem importálják/exportálják a \"Mobil web\" bejelentkezését
+• Ha a Google befejezi a bejelentkezést, a videók ki nem jelentkezett állapotban lesznek lejátszva, amíg újra be nem jelentkezesz
+• A kijelentkezés egyben kijelentkezteti a készüléket a YouTube weboldaláról is"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">A mobil web bejelentkezése lejárt, próbáld meg újra bejelentkezni a \"Mobil web\"be</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Kijelentkezve a \"Mobile Web\" alkalmazásból</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Az \"Android System WebView\" nem érhető el. Telepítsd vagy engedélyezd a bejelentkezéshez</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Hamisítás megjelenítése a „Stats for nerds” részben</string>
@@ -440,6 +528,8 @@ Korlátozás: Ha a „Régi videós eszköztár visszaállítása” ki van kapc
     <string name="morphe_tablet_layout_in_player_title">Tablet elrendezés engedélyezése a lejátszóban</string>
     <string name="morphe_theme_color_change_foreground_summary">Használja a téma színét a szöveghez és az ikonokhoz</string>
     <string name="morphe_theme_color_change_foreground_title">Előtérszín megváltoztatása</string>
+    <string name="morphe_ungroup_notifications_summary">A csatorna csoportosított feltöltéseinek minden egyes videóját külön értesítésként jeleníti meg</string>
+    <string name="morphe_ungroup_notifications_title">Értesítések csoportjának bontása</string>
     <string name="morphe_video_action_bar_layout_entry_2">Klasszikus egysoros</string>
     <string name="morphe_video_action_bar_layout_entry_4">Klasszikus kétsoros</string>
     <string name="morphe_video_action_bar_layout_title">Videóműveletsáv elrendezése</string>
@@ -747,11 +837,11 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
 Néhány szerveroldali elrendezés esetében előfordulhat, hogy a visszaállítás nem történik meg
 
 A változások ezeket tartalmazzák:
+• A teljes képernyős videójavaslatok nem működhetnek
 • A lejátszó felugró menüjének elemei (vagy a kapcsolódó beállítások) nem működhetnek
-• A pörgő számok animációja megszűnik
-• Megjelenik a Könyvtár lap
 • A videóleírások zenei szekciója nem működhet
 • A lejátszó felugró menüjének elemeit nem lehet elrejteni
+• A pörgő számok animációja megszűnik
 • A fiókváltó gomb nem jelenhet meg a Könyvtár lapon"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">A tetszik és nem tetszik gombok ragyognak megnyomáskor</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">A tetszik és nem tetszik gombok nem ragyognak megnyomáskor</string>

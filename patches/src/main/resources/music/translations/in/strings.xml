@@ -94,9 +94,7 @@ Menjeda crossfade untuk menonton video musik dapat membuat beberapa video menjad
     <string name="morphe_music_crossfade_about_quirks_title">Keterbatasan</string>
     <string name="morphe_music_crossfade_about_summary">Cara kerja pudar silang — dan kapan pudar silang tidak berfungsi</string>
     <string name="morphe_music_crossfade_about_title">Tentang</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting atau mirroring audio (Chromecast, mirroring layar atau audio)
-
-Pemutaran SABR (Spoof aliran video dimatikan)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Mencasting atau mirroring audio (Chromecast, mirroring layar atau audio)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Tidak didukung</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Crossfade nonaktif saat casting</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Genggaman yang halus</string>
@@ -107,6 +105,7 @@ Pemutaran SABR (Spoof aliran video dimatikan)"</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Keluar</string>
     <string name="morphe_music_crossfade_curve_title">Kurva pemudaran</string>
     <string name="morphe_music_crossfade_duration_title">Durasi pudar silang</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">Untuk menggunakan crossfade, ubah \'Klien default\' \'Spoof video streams\' menjadi \'TV Simply\' atau \'visionOS\'</string>
     <string name="morphe_music_crossfade_enabled_title">Aktifkan pudar silang</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Menerapkan efek pudar silang saat sebuah trek berakhir secara alami</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Fade silang saat otomatis maju</string>
@@ -189,6 +188,8 @@ Lirik berasal dari layanan pihak ketiga yang tidak berafiliasi, disponsori, atau
     <string name="morphe_music_lyrics_ai_section_no_text">Tidak ada lirik untuk dideteksi bagiannya</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Izinkan bacaan non-Latin dari sumber lirik; saat dinonaktifkan, hanya pertahankan huruf Latin, huruf beraksen, dan digit nada</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Aktifkan transliterasi</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Memburamkan setiap baris yang tidak sedang dinyanyikan secara halus, semakin jauh semakin buram (Android 12 dan yang lebih baru). Sebelum Android 12, baris tidak aktif tetap tajam</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Buramkan baris tidak aktif</string>
     <string name="morphe_music_lyrics_clear_cache_done">Dibersihkan %s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Hapus %s MB lirik yang tersimpan di perangkat ini</string>
     <string name="morphe_music_lyrics_clear_cache_title">Hapus lirik tersimpan</string>
@@ -203,6 +204,8 @@ Lirik berasal dari layanan pihak ketiga yang tidak berafiliasi, disponsori, atau
     <string name="morphe_music_lyrics_display_artist_first_summary">Ubah urutan tampilan Artis dan Judul di Pemutar mini dan MediaSession. ON \"Artis - Judul\" dan OFF \"Judul - Artis\". Tidak memengaruhi pencarian lirik</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Urutan tampilan Artis dan Judul</string>
     <string name="morphe_music_lyrics_dual_only">Mode ganda</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Menempatkan penyanyi kedua di tepi berlawanan pada lagu duet. Matikan untuk menjaga kedua penyanyi tetap di sisi yang sama</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Perataan duet sisi berlawanan</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Gerakkan latar belakang saat diputar, dan buat berdenyut mengikuti musik jika YouTube Music memiliki izin mikrofon. Matikan untuk latar belakang statis yang lebih hemat baterai</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Animasikan latar belakang dinamis</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Tampilkan latar belakang blur yang dibuat dari sampul album di belakang lirik</string>
@@ -270,6 +273,8 @@ Berlaku untuk kedua batas. Pada 1,75, empat karakter lebar penuh dihitung sebaga
     <string name="morphe_music_lyrics_providers_keep_one">Setidaknya satu penyedia harus tetap aktif</string>
     <string name="morphe_music_lyrics_refreshed">Segarkan</string>
     <string name="morphe_music_lyrics_refreshing">Menyegarkan</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Memperlambat animasi gulir lirik dan menjaga baris tidak aktif tetap dalam ukuran penuh</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Penggulungan santai</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Karakter Kantonis</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Tanpa bacaan karakter</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Karakter Mandarin</string>
@@ -395,9 +400,31 @@ Kolom pertama adalah kata, kolom kedua adalah bacanya; kolom ekstra dan baris ta
     <string name="morphe_music_lyrics_use_ai_section_summary">Hanya digunakan ketika penyedia tidak menyertakan label bagian seperti Refrain atau Strofa, yang kemudian dideteksi oleh model kompatibel OpenAI Anda. Mengedit baris juga membuka prompt-nya</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Deteksi bagian dengan AI</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (dengan %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Menyoroti setiap kata dengan sapuan lembut, cahaya, dan sedikit pengangkatan saat dinyanyikan. Matikan untuk menghemat baterai atau untuk pengisian tajam pada perangkat yang lebih lambat</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Animasikan kata yang tersinkronisasi dengan mulus</string>
     <string name="morphe_music_lyrics_word_sync_summary">Utamakan lirik kata per kata jika tersedia. Setiap kata atau suku kata akan disorot sesuai irama musik</string>
     <string name="morphe_music_lyrics_word_sync_title">Sorot kata atau suku kata yang disinkronkan</string>
     <string name="morphe_music_lyrics_written_by">Ditulis oleh: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Memberi warna pada pemutar mini kaca dengan warna sampul album dari lagu yang sedang diputar</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Warna sampul album</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Padding karya seni</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Seberapa banyak halaman di belakang pemutar mini kaca dikaburkan (Android 14 dan versi terbaru). Pada angka 0 halaman terlihat tajam, dan sebelum Android 14 halaman akan tertutup</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Blur kaca</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Radius sudut</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Menyembunyikan bilah kemajuan di bagian bawah pemutar mini kaca</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Sembunyikan bilah kemajuan</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Memberi warna putih pada pemutar mini kaca alih-alih gelap, untuk kaca yang lebih terang dan jernih</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Kaca terang</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Opasitas</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Kecerahan tepi</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Membuat karya seni pada pemutar mini kaca menjadi bulat, dan memutarnya seperti piringan hitam saat lagu diputar</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Karya seni berputar</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Sesuaikan radius sudut, padding karya seni, kecerahan tepi, dan opasitas pemutar mini kaca, dengan pratinjau</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Gaya pemutar mini kaca</string>
+    <string name="morphe_music_miniplayer_glass_summary">Menampilkan pemutar mini mengambang sebagai kartu kaca transparan yang bulat</string>
+    <string name="morphe_music_miniplayer_glass_title">Aktifkan efek kaca</string>
+    <string name="morphe_music_miniplayer_screen_summary">Ubah gaya, tombol, dan gestur pemutar mini</string>
+    <string name="morphe_music_miniplayer_screen_title">Pemutar mini</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">user token</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Tambahkan token hanya untuk menggunakan akun Anda sendiri. Token harus berasal dari aplikasi Musixmatch Android: token yang disalin dari musixmatch.com milik klien desktop yang sudah pensiun dan API menolaknya</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch berfungsi tanpa token, jadi kolom ini bisa tetap kosong</string>
@@ -405,9 +432,11 @@ Kolom pertama adalah kata, kolom kedua adalah bacanya; kolom ekstra dan baris ta
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token pengguna dihapus</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token pengguna tidak valid - silakan periksa dan coba lagi</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token pengguna disimpan</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Memberi warna pada bilah navigasi kaca dengan warna sampul album dari lagu yang sedang diputar</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Seberapa banyak halaman di belakang bilah navigasi kaca dikaburkan (Android 14 dan versi terbaru). Pada angka 0 halaman terlihat tajam, dan sebelum Android 14 halaman akan tertutup</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Menyembunyikan sorotan bulat di belakang tombol terpilih pada bilah navigasi kaca</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Sembunyikan indikator tombol terpilih</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Memberi warna putih pada bilah navigasi kaca, bukan gelap, untuk kaca yang lebih terang dan jernih</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Kaca terang</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Opasitas</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Beranda</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Jarak antar tombol</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Tombol yang ditampilkan: %1$s dari %2$s</string>
@@ -452,16 +481,11 @@ Cookie yang diperlukan: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1P
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Tidak dapat masuk ke VR, autentikasi situs web tidak disetujui</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 sementara tidak tersedia</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 untuk sementara tidak tersedia (status %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Masuk ke Android VR telah kadaluwarsa, coba masuk ke VR lagi</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Masuk ke \'Android VR\' telah kadaluwarsa, coba masuk ke VR lagi</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 sementara tidak tersedia (API kehabisan waktu)</string>
     <string name="morphe_oauth2_toast_invalid">Token masuk VR tidak sah, coba masuk ke VR lagi</string>
-    <string name="morphe_oauth2_toast_reset">Keluar dari Android VR</string>
+    <string name="morphe_oauth2_toast_reset">Keluar dari \'Android VR\'</string>
     <string name="morphe_playback_in_feeds_entry_off">Nonaktif</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">"Token yang terintegrasi dalam versi penyedia PoToken ini tidak lagi berfungsi
-
-Aktifkan 'Palsukan aliran video' untuk memperbaiki pemutaran"</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">Penyedia PoToken tidak lagi berfungsi</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">Aktifkan</string>
     <string name="morphe_potoken_provider_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Eksperimental)
 
 Jika anda pengguna YouTube Premium , pengaturan ini mungkin tidak diperlukan"</string>
@@ -497,18 +521,13 @@ Untuk menggunakan fitur ini, Matikan \'Spoof video streams\'"</string>
     <string name="morphe_skip_silence_minimum_pause_title">Durasi jeda minimum</string>
     <string name="morphe_skip_silence_summary">Secara otomatis melewati jeda hening di audio video</string>
     <string name="morphe_skip_silence_title">Lewati keheningan</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s tidak berfungsi beberapa kali berturut-turut, tetapi %2$s berfungsi
-
-Jadikan %2$s sebagai klien bawaan?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Ganti</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Klien bawaan tidak berfungsi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_screen_summary">Konfigurasikan pemalsuan klien untuk mencegah masalah pemutaran</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR memerlukan login terpisah. Ketuk di sini untuk melanjutkan</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Untuk menggunakan fitur ini, ubah \'Klien bawaan\' ke Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Saat ini sedang masuk ke Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Masuk Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' memerlukan masuk secara terpisah. Ketuk di sini untuk melanjutkan</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Untuk menggunakan fitur ini, ubah \'Klien bawaan\' menjadi \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Saat ini sedang masuk ke \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Masuk VR \'Android\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Kode aktivasi: %s
 
 1. Ketuk 'Buka situs web' di bawah ini untuk membuka situs web 'Hubungkan perangkat'
@@ -517,11 +536,11 @@ Jadikan %2$s sebagai klien bawaan?"</string>
 4. Ketuk 'Izinkan akses YouTube VR'
 5. Kembali ke aplikasi ini setelah muncul pesan 'Perangkat terhubung'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Petunjuk</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Masuk ke Android VR dapat memperbaiki masalah pemutaran untuk beberapa pengguna
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Masuk ke 'Android VR' dapat memperbaiki masalah pemutaran untuk beberapa pengguna
 
 Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Keluar</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Masuk ke Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Masuk ke \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autentikasi disimpan
 
 • Setelan RVX Anda tidak akan mengimpor/mengekspor autentikasi Android VR
@@ -529,6 +548,27 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
 • Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari setelan Google Anda"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Berhasil masuk</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Gagal dalam menghasilkan kode aktivasi</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Opsional: masuk ke situs web YouTube untuk memutar video dengan akun Anda. Ketuk di sini untuk melanjutkan</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Untuk menggunakan fitur ini, ubah \'Klien bawaan\' menjadi \'Web Seluler\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Saat ini sedang masuk ke \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Login Web Seluler</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'Web Seluler' memutar video tanpa login, atau login ke situs web YouTube
+
+• Saat login, video yang memerlukan akun dapat diputar, seperti video yang dibatasi usia
+• Halaman login Google terbuka di aplikasi ini
+• Login hanya digunakan untuk mendapatkan video yang Anda putar
+• Login hanya disimpan di perangkat ini
+
+Untuk login, tekan lanjutkan di bawah"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Login ke \'Web Seluler\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Masuk tersimpan
+
+• Pengaturan RVX Anda tidak akan mengimpor/mengekspor masuk 'Web Seluler'
+• Jika Google mengakhiri sesi masuk, video akan diputar tanpa masuk sampai Anda masuk kembali
+• Keluar juga akan mengeluarkan perangkat ini dari situs web YouTube"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Masuk Web Seluler telah kadaluwarsa, coba masuk ke \'Web Seluler\' lagi</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Keluar dari \'Web Seluler\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' tidak tersedia. Instal atau aktifkan untuk masuk</string>
     <string name="morphe_spoof_video_streams_summary">"Memperbaiki masalah pemutaran untuk sebagian besar pengguna dengan meminta aliran video yang kompatibel
 
 Jika Anda pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>

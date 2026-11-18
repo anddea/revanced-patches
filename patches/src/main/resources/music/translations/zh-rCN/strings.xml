@@ -87,9 +87,7 @@
     <string name="morphe_music_crossfade_about_quirks_title">限制</string>
     <string name="morphe_music_crossfade_about_summary">交叉淡入淡出的工作原理及其不适用的情况</string>
     <string name="morphe_music_crossfade_about_title">关于</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"投射或镜像音频（Chromecast、屏幕或音频镜像）
-
-SABR 播放（模拟视频流已关闭）"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">投放或镜像音频（Chromecast、屏幕或音频镜像）</string>
     <string name="morphe_music_crossfade_about_unsupported_title">不支持</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">投射时交叉淡化已关闭</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">微妙的延迟</string>
@@ -100,6 +98,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">流出</string>
     <string name="morphe_music_crossfade_curve_title">淡入曲线</string>
     <string name="morphe_music_crossfade_duration_title">淡入时长</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">要使用淡入淡出，请将“模拟视频流”的“默认客户端”更改为“TV Simply”或“visionOS”</string>
     <string name="morphe_music_crossfade_enabled_title">启用淡入淡出</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">曲目自然结束时应用淡入淡出效果</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">自动播放时启用淡入</string>
@@ -176,6 +175,8 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_ai_section_no_text">没有可检测段落的歌词</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">允许来自歌词源的非拉丁读音；关闭时，仅保留拉丁字母、带重音的字母和声调数字</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">启用意译</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">轻微模糊当前未在演唱的每一行，距离越远模糊程度越高（Android 12 及更高版本）。在 Android 12 之前，未激活行保持清晰</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">模糊未激活行</string>
     <string name="morphe_music_lyrics_clear_cache_done">已清除 %s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">删除保存在此设备上的 %s MB 歌词</string>
     <string name="morphe_music_lyrics_clear_cache_title">清除缓存歌词</string>
@@ -190,6 +191,8 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">在迷你播放器和媒体通知卡片中切换艺术家和标题的显示顺序。ON“艺术家-标题”和OFF“标题-艺术家”不影响歌词搜索</string>
     <string name="morphe_music_lyrics_display_artist_first_title">艺术家和标题显示顺序</string>
     <string name="morphe_music_lyrics_dual_only">双模式</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">在对唱歌曲中将第二位歌手放置在相反的一侧。关闭此项可让两位歌手保持在同一侧</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">对唱反向对齐</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">在播放时移动背景；如果 YouTube Music 拥有麦克风权限，背景将随音乐律动。关闭此项可使用静态背景以节省电量</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">动态背景动画</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">在歌词下方显示由专辑封面生成的模糊背景</string>
@@ -257,6 +260,8 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_providers_keep_one">必须至少保留一个提供商开启</string>
     <string name="morphe_music_lyrics_refreshed">已刷新</string>
     <string name="morphe_music_lyrics_refreshing">正在刷新</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">降低歌词滚动动画的速度，并保持非活动行的大小不变</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">轻松滚动</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">粤语字</string>
     <string name="morphe_music_lyrics_rime_char_source_none">无字符读音</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">普通话字</string>
@@ -382,9 +387,31 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_use_ai_section_summary">仅在提供商未提供诸如副歌或主歌等段落标签时使用，然后由你的兼容OpenAI模型进行检测。编辑该行也会打开其提示词</string>
     <string name="morphe_music_lyrics_use_ai_section_title">使用AI检测段落</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s（含 %2$s）</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">在演唱时，通过柔和的扫掠、发光和轻微提升来突出显示每个单词。关闭此项以节省电量，或在低端设备上使用清晰的填充效果</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">平滑地动画同步词汇</string>
     <string name="morphe_music_lyrics_word_sync_summary">优先考虑可用逐字歌词。当歌词带有时间标志，随着音乐及时高亮每个单词或音节</string>
     <string name="morphe_music_lyrics_word_sync_title">高亮显示同步的单词或音节</string>
     <string name="morphe_music_lyrics_written_by">作者：%s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">使用当前播放歌曲的专辑封面颜色为玻璃迷你播放器着色</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">专辑封面着色</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">封面内边距</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">玻璃迷你播放器后方页面的模糊程度（Android 14 及更高版本）。设置为 0 时页面清晰可见，Android 14 之前则页面被遮盖</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">玻璃模糊</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">圆角半径</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">隐藏玻璃迷你播放器底部的进度条</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">隐藏进度条</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">将玻璃迷你播放器着色为白色而非深色，使玻璃效果更轻盈、更清晰</string>
+    <string name="morphe_music_miniplayer_glass_light_title">浅色玻璃</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">不透明度</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">边缘亮度</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">将玻璃迷你播放器的封面变为圆形，并在播放歌曲时像唱片一样旋转</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">旋转封面</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">调整玻璃迷你播放器的圆角半径、封面内边距、边缘亮度和不透明度，并可实时预览</string>
+    <string name="morphe_music_miniplayer_glass_style_title">玻璃迷你播放器样式</string>
+    <string name="morphe_music_miniplayer_glass_summary">将浮动迷你播放器显示为圆角半透明玻璃卡片</string>
+    <string name="morphe_music_miniplayer_glass_title">启用玻璃效果</string>
+    <string name="morphe_music_miniplayer_screen_summary">更改迷你播放器的样式、按钮和手势</string>
+    <string name="morphe_music_miniplayer_screen_title">小型播放器</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">用户令牌</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">仅当使用您自己的帐户时才添加令牌。它必须来自 Musixmatch Android 应用：从 musixmatch.com 复制的令牌属于已停用的桌面客户端，API 会拒绝它们</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch 无需令牌即可使用，因此此字段可以留空</string>
@@ -392,9 +419,11 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch：用户 token 已清除</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：无效用户令牌 - 请检查并重试</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch：用户 token 已保存</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">使用当前播放歌曲的专辑封面颜色为玻璃导航栏着色</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">玻璃导航栏后方页面的模糊程度（Android 14 及更高版本）。设置为 0 时页面清晰可见，Android 14 之前则页面被遮盖</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">隐藏玻璃导航栏选中按钮背后的圆角高亮</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">隐藏选中按钮指示器</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">将玻璃导航栏染成白色而非深色，以获得更轻盈、更清晰的玻璃效果</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">浅色玻璃</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">不透明度</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">首页</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">按钮间距</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">显示按钮：%1$s / %2$s</string>
@@ -432,10 +461,10 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用 (状态 %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR登录已过期，请重新登录VR</string>
+    <string name="morphe_oauth2_connection_failure_status_400">“Android VR”登录已过期，请尝试重新登录 VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
-    <string name="morphe_oauth2_toast_reset">已从 Android VR 登出</string>
+    <string name="morphe_oauth2_toast_reset">已从“Android VR”登出</string>
     <string name="morphe_playback_in_feeds_entry_off">关闭</string>
     <string name="morphe_replace_music_with_youtube_summary">将共享链接中的music.youtube.com替换为youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
@@ -448,7 +477,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
     <string name="morphe_sb_new_segment_choose_category">选择片段的类别</string>
     <string name="morphe_sb_new_segment_confirm_submit">提交</string>
-    <string name="morphe_sb_new_segment_start_is_before_end">起始位置须在结束位置前</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">起始点必须在结束点前</string>
     <string name="morphe_sb_new_segment_title">新的 SponsorBlock 片段</string>
     <string name="morphe_settings_menu_copy_path">已复制：%s</string>
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
@@ -465,18 +494,13 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_skip_silence_minimum_pause_title">最短暂停时长</string>
     <string name="morphe_skip_silence_summary">自动跳过视频音频中的静音停顿</string>
     <string name="morphe_skip_silence_title">跳过静音</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 连续多次无法使用，但 %2$s 可以。
-
-要将 %2$s 设为默认客户端吗？"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切换</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">默认客户端无法使用</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR 需要单独登录。点击此处继续</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将“默认客户端”更改为Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">当前已登录 Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' 需要单独登录。点击此处继续</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将“默认客户端”更改为 \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">当前已登录 \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR 登录</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"激活码：%s
 
 1. 点击'打开网站'访问'连接设备'页面
@@ -485,11 +509,11 @@ SABR 播放（模拟视频流已关闭）"</string>
 4. 允许 YouTube VR 访问权限
 5. 等待显示'设备已连接'后返回应用"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">说明</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登录Android VR可以解决一些用户的播放问题
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登录“Android VR”可以解决部分用户的播放问题
 
-要登录，请按下面的“继续”按钮"</string>
+要登录，请点击下方继续"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登录 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登录“Android VR”</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"身份验证保存成功
 
 • 您的 RVX 设置将无法导出/导入 Android VR 认证
@@ -497,6 +521,27 @@ SABR 播放（模拟视频流已关闭）"</string>
 • 更改 Google 密码或在 Google 设置中注销本设备后，需重新登录"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登录成功</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">可选：登录 YouTube 网站以使用您的账号播放视频。点击此处继续</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">要使用此功能，请将“默认客户端”更改为“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">当前已登录“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">移动版网页登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"移动版网页\"在退出登录或登录 YouTube 网站时播放视频
+
+• 登录后可播放需要账号的视频，例如年龄限制视频
+• Google 登录页面将在本应用中打开
+• 登录仅用于获取您播放的视频
+• 登录信息仅保存在此设备上
+
+要登录，请点击下方继续"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">登录“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"登录信息已保存
+
+• 您的 RVX 设置将不会导入/导出\"移动版网页\"的登录信息
+• 如果 Google 终止登录，在您重新登录之前，视频将以退出登录状态播放
+• 退出登录同时也会使此设备退出 YouTube 网站的登录状态"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">移动版网页登录已过期，请尝试重新登录\"移动版网页\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">已退出\"移动版网页\"登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">无法使用“Android System WebView”。请安装或启用它以进行登录</string>
     <string name="morphe_spoof_video_streams_summary">"通过请求兼容的视频流来修复大多数用户播放问题。
 
 如果您是YouTube Premium用户，则可能不需要此设置。"</string>
@@ -873,7 +918,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_sb_segments_intro_sum">没有实际内容的间隔。可以是暂停、静态帧或重复动画。不包括包含信息的过渡。</string>
     <string name="revanced_sb_segments_nomusic">音乐：非音乐部分</string>
     <string name="revanced_sb_segments_nomusic_sum">仅用于音乐视频。音乐视频中没有音乐的部分，尚未被其他类别涵盖。</string>
-    <string name="revanced_sb_segments_outro">结束画面/贡献表</string>
+    <string name="revanced_sb_segments_outro">片尾/贡献表</string>
     <string name="revanced_sb_segments_outro_sum">致谢或 YouTube 片尾出现时。不适用于包含信息的结尾。</string>
     <string name="revanced_sb_segments_preview">预览 / 回顾</string>
     <string name="revanced_sb_segments_preview_sum">剪辑集合，展示即将发生的事或视频中或系列中其他视频中发生的事情，其中​​所有信息都在其他地方重复出现。</string>

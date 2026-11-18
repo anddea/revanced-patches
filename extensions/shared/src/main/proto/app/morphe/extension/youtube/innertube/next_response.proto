@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package app.morphe.extension.youtube.innertube;
 
+import "app/morphe/extension/youtube/innertube/feed_card_layout.proto";
+
 option optimize_for = LITE_RUNTIME;
 option java_package = "app.morphe.extension.youtube.innertube";
 
@@ -189,6 +191,8 @@ message AddToPlaylistButtonViewModel {
 message SecondaryButtonViewModel {
     string iconName = 2;
     optional string accessibilityId = 17;
+    // Share the upstream numeric icon model with the local watch-next action-button parser.
+    feedcards.ButtonImage image = 51;
 }
 
 message ClipButtonViewModel {

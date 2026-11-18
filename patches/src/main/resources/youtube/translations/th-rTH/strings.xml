@@ -89,16 +89,70 @@
     <string name="morphe_dark_theme_custom_color_title">ปรับแต่งโหมดมืด</string>
     <string name="morphe_dearrow_about_summary">"DeArrow จะแทนที่ชื่อและภาพขนาดย่อที่คลิกเบตด้วยที่มาจาก crowdsource ซึ่งแม่นยำกว่าและไม่เร้าอารมณ์มากเกินไป ชื่อเขียนและโหวตโดยชุมชน และภาพขนาดย่อคือเฟรมจากวิดีโอ
 
-วิดีโอถูกขอโดยใช้คำนำหน้าสั้นๆ ของ ID วิดีโอที่แฮช ดังนั้นเซิร์ฟเวอร์ไม่สามารถบอกได้ว่าคุณกำลังดูวิดีโอใดกันแน่ หากวิดีโอไม่มีภาพขนาดย่อของ DeArrow จะแสดงภาพต้นฉบับหรือภาพนิ่ง"</string>
+วิดีโอถูกขอโดยใช้คำนำหน้าสั้นๆ ของรหัสวิดีโอที่แฮช ดังนั้นเซิร์ฟเวอร์ไม่สามารถบอกได้ว่าคุณกำลังดูวิดีโอใดกันแน่ หากวิดีโอไม่มีภาพขนาดย่อของ DeArrow จะแสดงภาพต้นฉบับหรือภาพนิ่ง"</string>
+    <string name="morphe_dearrow_account_connection_failure">รายละเอียดบัญชีไม่สามารถใช้งานได้ชั่วคราว</string>
+    <string name="morphe_dearrow_account_thumbnails">คุณส่งภาพขนาดย่อไป &lt;b&gt;%s&lt;/b&gt; ภาพแล้ว</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">แตะที่นี่เพื่อดูภาพขนาดย่อของคุณ</string>
+    <string name="morphe_dearrow_account_titles">คุณได้ส่งชื่อเรื่องไปแล้ว &lt;b&gt;%s&lt;/b&gt; รายการ</string>
+    <string name="morphe_dearrow_account_titles_summary">แตะที่นี่เพื่อดูชื่อเรื่องของคุณ</string>
+    <string name="morphe_dearrow_account_username_change">แตะที่นี่เพื่อเปลี่ยนชื่อผู้ใช้ของคุณ ชื่อผู้ใช้จะเป็นชื่อเดียวกับใน SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">ไม่สามารถเปลี่ยนชื่อได้: สถานะ: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">จำนวนโหวตแบบทั่วไปในหมวดหมู่เดียว เช่น ตลกหรือสร้างสรรค์ ที่จำเป็นเพื่อแสดงชื่อเรื่องต้นฉบับ</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">จำนวนโหวตแบบทั่วไปขั้นต่ำเพื่อแสดงชื่อเรื่องต้นฉบับ</string>
     <string name="morphe_dearrow_casual_mode_summary">แสดงชื่อเรื่องต้นฉบับแทนชื่อเรื่อง DeArrow หากผู้ใช้ DeArrow โหวตว่าพวกเขาชอบชื่อเรื่องต้นฉบับ</string>
     <string name="morphe_dearrow_casual_mode_title">โหมดทั่วไป</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">ล้างหัวข้อของวิดีโอที่ไม่มีหัวข้อ DeArrow โดยคำที่เป็นตัวพิมพ์ใหญ่จะถูกเปลี่ยนเป็นตัวพิมพ์ปกติ และจะลบอีโมจิ ข้อความแฟนซี และเครื่องหมายตกใจที่ซ้ำกันออก</string>
+    <string name="morphe_dearrow_clean_up_titles_title">ล้างหัวข้อ</string>
     <string name="morphe_dearrow_error">DeArrow ไม่พร้อมใช้งานชั่วคราว (รหัสสถานะ: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow ไม่พร้อมใช้งานชั่วคราว</string>
-    <string name="morphe_dearrow_titles_icon_summary">แสดงไอคอน DeArrow บนชื่อวิดีโอที่ใช้ข้อมูลจาก crowdsource แตะที่ไอคอนเพื่อแสดงชื่อและภาพตัวอย่างต้นฉบับ</string>
+    <string name="morphe_dearrow_guidelines_summary">หลักเกณฑ์ประกอบด้วยกฎและเคล็ดลับสำหรับการส่งและลงคะแนนให้ชื่อเรื่องและภาพย่อ</string>
+    <string name="morphe_dearrow_guidelines_title">หลักเกณฑ์</string>
+    <string name="morphe_dearrow_private_user_id_invalid">รหัสผู้ใช้ส่วนตัวต้องมีความยาวอย่างน้อย 30 อักขระ</string>
+    <string name="morphe_dearrow_private_user_id_summary">รหัสผู้ใช้เดียวกับ SponsorBlock สิ่งนี้ควรเก็บเป็นส่วนตัว เช่นเดียวกับรหัสผ่าน และไม่ควรให้คนอื่นมองเห็น หากเปิดเผยออกไปคนอื่นสามารถสวมรอยเป็นคุณได้</string>
+    <string name="morphe_dearrow_private_user_id_title">รหัสผู้ใช้ส่วนตัวของคุณ</string>
+    <string name="morphe_dearrow_submitting_title">กำลังส่งชื่อเรื่องและภาพหน้าปก</string>
+    <string name="morphe_dearrow_titles_icon_summary">แสดงไอคอน DeArrow บนชื่อของวิดีโอที่มีชื่อหรือภาพขนาดย่อจากการระดมความคิดจากชุมชน แตะที่ไอคอนเพื่อแสดงชื่อและภาพขนาดย่อต้นฉบับ</string>
     <string name="morphe_dearrow_titles_icon_title">แสดงไอคอน DeArrow</string>
     <string name="morphe_dearrow_titles_title">ชื่อวิดีโอจาก DeArrow</string>
+    <string name="morphe_dearrow_vote_button_summary">เพิ่มปุ่มที่ด้านบนของเครื่องเล่นวิดีโอเพื่อลงคะแนนให้ชื่อเรื่องและภาพย่อของ DeArrow หรือส่งข้อมูลใหม่</string>
+    <string name="morphe_dearrow_vote_button_title">แสดงปุ่ม DeArrow</string>
+    <string name="morphe_dearrow_vote_current_frame_content">ส่งเฟรมที่ %s เป็นภาพตัวอย่างหรือไม่?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">วิดีโอกำลังเล่นอยู่ หากต้องการส่งเฟรมที่คุณเห็น ให้หยุดวิดีโอก่อน</string>
+    <string name="morphe_dearrow_vote_downvoted">ส่งการโหวตไม่เห็นด้วยไปยัง DeArrow แล้ว</string>
+    <string name="morphe_dearrow_vote_failed_code">ไม่สามารถส่งผลการลงคะแนนได้ (รหัสสถานะ: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">ไม่สามารถส่งผลการลงคะแนนได้ โปรดตรวจสอบการเชื่อมต่อของคุณแล้วลองอีกครั้ง</string>
+    <string name="morphe_dearrow_vote_failed_locked">รายการนี้ถูกล็อก และสามารถลงคะแนนไม่เห็นด้วยได้โดยผู้ใช้ VIP เท่านั้น</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">การลงคะแนนสำหรับวิดีโอนี้ยังคงดำเนินการอยู่ โปรดลองอีกครั้งในสักครู่</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow ไม่ยอมรับการโหวต: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">ไม่สามารถโหลดชื่อเรื่องและรูปภาพตัวอย่างของวิดีโอนี้ได้</string>
+    <string name="morphe_dearrow_vote_frame_step">%s วินาที</string>
+    <string name="morphe_dearrow_vote_loading">กำลังโหลด…</string>
+    <string name="morphe_dearrow_vote_locked">ล็อกแล้ว</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">รูปขนาดย่อใหม่</string>
+    <string name="morphe_dearrow_vote_new_title">ชื่อเรื่องใหม่</string>
+    <string name="morphe_dearrow_vote_new_title_hint">พิมพ์ชื่อเรื่อง</string>
+    <string name="morphe_dearrow_vote_no_titles">ยังไม่มีชื่อเรื่อง ส่งชื่อเรื่องเพื่อเป็นคนแรก</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">รูปขนาดย่อดั้งเดิม</string>
+    <string name="morphe_dearrow_vote_original_title">ชื่อเรื่องต้นฉบับ</string>
+    <string name="morphe_dearrow_vote_score">คะแนน: %s</string>
+    <string name="morphe_dearrow_vote_submit">ส่ง</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">เฟรมที่ %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">รูปภาพตัวอย่าง</string>
+    <string name="morphe_dearrow_vote_time_step_summary">จำนวนการเลื่อนของปุ่มปรับเวลาแบบละเอียดเมื่อส่งภาพหน้าปก (หน่วยเป็นมิลลิวินาที)</string>
+    <string name="morphe_dearrow_vote_time_step_title">ขั้นตอนการปรับเวลา</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">ชื่อเรื่อง</string>
+    <string name="morphe_dearrow_vote_unverified">ไม่ได้รับการยืนยัน</string>
+    <string name="morphe_dearrow_vote_upvoted">ส่งการโหวตไปยัง DeArrow แล้ว</string>
+    <string name="morphe_debug_save_push_notifications_summary">บันทึกการแจ้งเตือนแบบพุชที่ได้รับลงในไฟล์ในข้อมูลแอป ไฟล์นี้อาจมีข้อมูลส่วนตัว เช่น ข้อความแจ้งเตือนและชื่อช่องทาง</string>
+    <string name="morphe_debug_save_push_notifications_title">บันทึกการแจ้งเตือนแบบพุช</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">ล้างการแจ้งเตือนแบบพุชที่บันทึกไว้แล้ว</string>
+    <string name="morphe_debug_saved_push_notifications_count">การแจ้งเตือนแบบพุชที่บันทึกไว้: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">ส่งออกการแจ้งเตือนแบบพุชไม่สำเร็จ</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">ส่งออกการแจ้งเตือนแบบพุชสำเร็จแล้ว</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">ไม่พบการแจ้งเตือนแบบพุชที่บันทึกไว้</string>
+    <string name="morphe_debug_saved_push_notifications_summary">ส่งออกหรือล้างการแจ้งเตือนแบบพุชที่บันทึกไว้</string>
+    <string name="morphe_debug_saved_push_notifications_title">ส่งออกการแจ้งเตือนแบบพุชที่บันทึกไว้</string>
     <string name="morphe_disable_auto_feed_refresh_summary">ป้องกันไม่ให้ฟีดรีเฟรชโดยอัตโนมัติหลังจากที่ล้าสมัย</string>
     <string name="morphe_disable_auto_feed_refresh_title">ปิดการรีเฟรชฟีดอัตโนมัติ</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">ทำให้แถบนำทางมองเห็นได้ในขณะที่เลื่อน</string>
@@ -114,13 +168,21 @@
     <string name="morphe_disable_scrolling_speed_limit_title">ปิดใช้งานการจำกัดความเร็วในการเลื่อน</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">แสดงการติดตามในแถบนำทาง หาก YouTube ย้ายไปไว้ในแท็บที่ด้านบนของหน้าหลัก</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">ปิดใช้งานแท็บการนำทางบนแถบเครื่องมือ</string>
+    <string name="morphe_download_force_4k_summary">ให้ดาวน์โหลดแบบ 1440p และ 4K ได้ แม้ว่า YouTube จะตัดสินว่าอุปกรณ์นี้ไม่สามารถเล่นได้</string>
+    <string name="morphe_download_force_4k_title">บังคับให้ดาวน์โหลด 4K ได้</string>
     <string name="morphe_dual_captions_enabled_title">คำบรรยายสองภาษา</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">ระดับความเบลอของแสงที่อยู่ข้างวิดีโอ หากตั้งค่าเป็น 0 จะคงรูปร่างของวิดีโอไว้</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">ความเบลอของแสง</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">ระยะเวลาที่แสงไฟจะยังคงหรี่อยู่หลังจากหยุดเลื่อน หากตั้งค่าเป็น 0 แสงไฟจะหรี่เฉพาะตอนเลื่อน และจะกลับมาสว่างทันทีที่หยุดเลื่อน</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">ระยะเวลาการหรี่ไฟ</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">หรี่แสงไฟในขณะที่เลื่อนหน้าหรือสัมผัสหน้าจอ</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">หรี่ไฟขณะเลื่อน</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">ลดแสงสว่างในวิดีโอที่สว่างเกินไปเพื่อให้ข้อความบนหน้ายังคงอ่านออก</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">รักษาข้อความให้อ่านออก</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">ระยะเวลาที่แสงใช้ในการปรับตามวิดีโอ หากตั้งค่าเป็น 0 แสงจะปรับตามวิดีโออย่างใกล้ชิด</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">ความนุ่มนวลของแสง</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">ความแรงของแสงบนหน้าปัดนาฬิกาและแถบสีดำ</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">ความแรงของแสง</string>
     <string name="morphe_enhanced_ambient_mode_summary">ทำให้หน้าการรับชมและแถบสีดำทั้งหมดสว่างขึ้นตามวิดีโอ แทนที่โหมดแอมเบียนท์</string>
     <string name="morphe_enhanced_ambient_mode_title">โหมดแอมเบียนท์แบบปรับปรุง</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
@@ -131,6 +193,8 @@
     <string name="morphe_explore_menu_screen_summary">เลือกส่วนประกอบที่จะปรากฏในเมนูสำรวจ</string>
     <string name="morphe_explore_menu_screen_title">เมนูสำรวจ</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">หากไม่ได้ผล ให้ลองบังคับปิด MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">เพิ่มรายการดาวน์โหลดลงในเมนูของวิดีโอในฟีดที่ไม่มีรายการนี้</string>
+    <string name="morphe_feed_download_flyout_button_title">บังคับให้แสดงรายการเมนูดาวน์โหลดใน flyout</string>
     <string name="morphe_feed_long_press_menu_summary">การแตะและค้างไว้ที่ใดก็ได้บนวิดีโอฟีดจะเปิดเมนูของวิดีโอนั้น</string>
     <string name="morphe_feed_long_press_menu_title">แตะค้างไว้เพื่อเปิดเมนูวิดีโอ</string>
     <string name="morphe_feed_watch_later_button_summary">ปุ่ม \"ดูภายหลัง\" จะแสดงบนภาพตัวอย่างของวิดีโอในฟีด โดยจะมีเครื่องหมายถูกหากวิดีโอถูกบันทึกไว้ การแตะจะบันทึกหรือลบวิดีโอ และการแตะค้างไว้จะเปิด \"บันทึกไปยังเพลย์ลิสต์\"</string>
@@ -252,10 +316,16 @@
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">ช่วยให้สามารถข้ามไปยังส่วนต่างๆ ของการถ่ายทอดสดได้ทั้งหมด แม้แต่การถ่ายทอดสดที่ปกติแล้วจะจำกัดการทำงานนี้ไว้</string>
     <string name="morphe_livestream_dvr_title">เปิดใช้งาน DVR ไลฟ์สตรีม</string>
+    <string name="morphe_miniplayer_glass_summary">แสดงมินิเพลเยอร์เป็นกระจกโปร่งแสงพร้อมมุมมน เช่นเดียวกับแถบนำทางแบบกระจก จำเป็นต้องใช้แถบนำทางแบบกระจก</string>
+    <string name="morphe_miniplayer_glass_title">มินิเพลเยอร์แบบกระจก</string>
     <string name="morphe_music_package_name_summary">ชื่อแพ็กเกจของแอปเพลงที่ติดตั้งไว้ของคุณ</string>
     <string name="morphe_music_package_name_title">ชื่อแพ็กเกจแอปเพลง</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">วาดขอบแสงรอบแถบนำทางแบบกระจก</string>
+    <string name="morphe_navigation_bar_glass_edge_title">ขอบแถบนำทางแบบกระจก</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">ปรับระดับความโปร่งใสของแถบนำทางแบบกระจก (0 คือโปร่งใส, 100 คือทึบแสง)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">ความทึบแสงของกระจก</string>
+    <string name="morphe_navigation_bar_glass_round_summary">ทำให้แถบนำทางแบบกระจกมีปลายมน แทนที่จะเป็นมุมเหมือนกับมินิเพลเยอร์แบบกระจก</string>
+    <string name="morphe_navigation_bar_glass_round_title">แถบนำทางแบบกระจกขอบมน</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">ระยะห่างระหว่างปุ่ม</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">ปุ่มที่แสดง: %1$s จาก %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">ความสูง</string>
@@ -271,10 +341,11 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ไม่สามารถลงชื่อเข้าใช้ VR ได้ เว็บไซต์ยังไม่ได้อนุมัติการรับรอง</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว (รหัสสถานะ %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">การลงชื่อเข้าใช้ Android VR หมดอายุแล้ว กรุณาลงชื่อเข้าใช้ VR อีกครั้ง</string>
+    <string name="morphe_oauth2_connection_failure_status_400">การลงชื่อเข้าใช้ \'Android VR\' หมดอายุ โปรดลองลงชื่อเข้าใช้ VR อีกครั้ง</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว (API หมดเวลา)</string>
     <string name="morphe_oauth2_toast_invalid">โทเค็นเข้าสู่ระบบ VR ไม่ถูกต้อง กรุณาลองเข้าสู่ระบบ VR อีกครั้ง</string>
-    <string name="morphe_oauth2_toast_reset">ออกจากระบบ VR แล้ว</string>
+    <string name="morphe_oauth2_toast_reset">ออกจากระบบ \'Android VR\' แล้ว</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">ป้องกันไม่ให้การถ่ายทอดสดเปิดเมื่อแตะที่อวาตาร์ของช่อง</string>
     <string name="morphe_open_channel_of_live_avatar_title">เปิดช่องจากอวาตาร์สด</string>
     <string name="morphe_open_videos_fullscreen_title">เปิดวิดีโอในโหมดเต็มหน้าจอ</string>
@@ -317,14 +388,14 @@
     <string name="morphe_preferred_caption_language_summary">เลือกภาษาคำบรรยายโดยอัตโนมัติสำหรับแต่ละวิดีโอ</string>
     <string name="morphe_preferred_caption_language_title">ภาษาคำบรรยายที่ต้องการ</string>
     <string name="morphe_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
-    <string name="morphe_queue_manager_check_failed_video_id">ไม่มี ID วิดีโอ</string>
+    <string name="morphe_queue_manager_check_failed_video_id">ไม่มีรหัสวิดีโอ</string>
     <string name="morphe_reload_video_summary_off">ปุ่มโหลดวิดีโอไม่แสดง</string>
     <string name="morphe_reload_video_summary_on">ปุ่มโหลดวิดีโอแสดง</string>
     <string name="morphe_reload_video_title">แสดงปุ่มโหลดวิดีโอ</string>
     <string name="morphe_remember_livestream_position_summary">สำหรับไลฟ์สตรีมที่กำลังดำเนินอยู่ จะจดจำและเล่นต่อจากตำแหน่งที่ค้างไว้ แทนที่จะข้ามไปยังตำแหน่งสดปัจจุบัน</string>
     <string name="morphe_remember_livestream_position_title">จดจำตำแหน่งการเล่นของไลฟ์สตรีม</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">ฟีเจอร์นี้ไม่ทำงานกับไลฟ์สตรีม 24/7 และสตรีมอื่น ๆ ที่ \'เปิดตลอดเวลา\'</string>
-    <string name="morphe_replace_links_with_shortener_summary">บังคับให้วิดีโอใช้รูปแบบ URL แบบสั้น youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">บังคับให้วิดีโอใช้รูปแบบ URL แบบย่อ \'youtu.be\'</string>
     <string name="morphe_replace_links_with_shortener_title">เปลี่ยนลิงก์การแชร์เป็น youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
@@ -338,7 +409,7 @@
     <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
     <string name="morphe_save_to_watch_later_already_exists_toast">วิดีโอนี้ถูกบันทึกในรายการดูภายหลังแล้ว</string>
-    <string name="morphe_save_to_watch_later_button_summary">แตะเพื่อบันทึกไปยังดูภายหลัง แตะค้างไว้สำหรับตัวเลือกในคิว</string>
+    <string name="morphe_save_to_watch_later_button_summary">แตะเพื่อบันทึกไปยังดูภายหลัง แตะค้างไว้สำหรับตัวเลือกคิว</string>
     <string name="morphe_save_to_watch_later_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\'</string>
     <string name="morphe_save_to_watch_later_error_toast">ไม่สามารถบันทึกวิดีโอนี้ลงในรายการดูภายหลังได้</string>
     <string name="morphe_save_to_watch_later_flyout_title">บันทึกไปยังดูภายหลัง</string>
@@ -363,6 +434,7 @@
     <string name="morphe_settings_name_title">ชื่อการตั้งค่า RVX</string>
     <string name="morphe_settings_new_indicator_days_summary">จำนวนวันที่จุดจะปรากฏข้างการตั้งค่าและตัวเลือกที่เพิ่มเข้ามาจากการอัปเดต</string>
     <string name="morphe_settings_new_indicator_days_title">ไฮไลต์การตั้งค่าใหม่</string>
+    <string name="morphe_shorts_download_flyout_title">ดาวน์โหลด</string>
     <string name="morphe_skip_silence_minimum_pause_summary">เฉพาะช่วงหยุดที่ยาวอย่างน้อยเท่านี้เท่านั้นที่จะถูกย่อให้สั้นลง จะมีผลเมื่อเริ่มวิดีโอถัดไป</string>
     <string name="morphe_skip_silence_minimum_pause_title">ระยะเวลาหยุดขั้นต่ำ</string>
     <string name="morphe_skip_silence_summary">ข้ามช่วงความเงียบในเสียงวิดีโอโดยอัตโนมัติ</string>
@@ -383,24 +455,19 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264), VP9 หรือ AV1
 
 การเล่นอาจกระตุกหรือเฟรมตก"</string>
-    <string name="morphe_spoof_video_streams_av1_title">อนุญาต \'Android VR\' / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">อนุญาต AV1 สำหรับ \'Android VR\' / \'visionOS\'</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้อาจใช้ซอฟต์แวร์ถอดรหัส AV1
 
 การเล่นวิดีโอด้วย AV1 อาจกระตุกหรือเฟรมตก"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s ไม่ทำงานหลายครั้งติดต่อกัน แต่ %2$s ทำงานได้
-
-กำหนดให้ %2$s เป็นไคลเอ็นต์เริ่มต้นหรือไม่"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">สลับ</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">ไคลเอ็นต์เริ่มต้นไม่ทำงาน</string>
     <string name="morphe_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">ไม่สามารถดึงข้อมูลไคลเอ็นต์ทั้งหมดได้</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">รูปแบบ JavaScript ของเครื่องเล่น</string>
     <string name="morphe_spoof_video_streams_screen_summary">ปลอมแปลงสตรีมวิดีโอของไคลเอนต์เพื่อป้องกันปัญหาการเล่น</string>
     <string name="morphe_spoof_video_streams_screen_title">ปลอมแปลงสตรีมวิดีโอ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR ต้องมีการลงชื่อเข้าใช้แยกต่างหาก แตะที่นี่เพื่อดำเนินการต่อ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">เปลี่ยน \'ไคลเอ็นต์เริ่มต้น\' เป็น Android VR เพื่อใช้งานคุณสมบัติ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">ลงชื่อเข้าใช้ Android VR อยู่ในขณะนี้</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">เข้าสู่ระบบ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' ต้องมีการลงชื่อเข้าใช้แยกต่างหาก แตะที่นี่เพื่อดำเนินการต่อ</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">เปลี่ยน \'ไคลเอ็นต์เริ่มต้น\' เป็น \'Android VR\' เพื่อใช้งานคุณสมบัตินี้</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">ลงชื่อเข้าใช้ \'Android VR\' อยู่ในขณะนี้</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">การลงชื่อเข้าใช้ VR ของ \'Android\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"รหัสเปิดใช้งาน: %s
 
 1. กด 'เปิดเว็บไซต์' ด้านล่างเพื่อเปิดเว็บไซต์ 'เชื่อมต่ออุปกรณ์'
@@ -409,11 +476,11 @@
 4. กด 'อนุญาตการเข้าถึง YouTube VR'
 5. กลับมาที่แอปนี้หลังจากเห็นข้อความ 'อุปกรณ์ได้เชื่อมต่อแล้ว'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">คำแนะนำ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"กดต่อไปเพื่อลงชื่อเข้าใช้ใน Android VR เพื่อแก้ปัญหาการเล่นกลับบางครั้ง
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"การลงชื่อเข้าใช้ 'Android VR' สามารถช่วยแก้ปัญหาการเล่นกลับสำหรับผู้ใช้บางรายได้
 
-กดดำเนินการต่อเพื่อลงชื่อเข้าใช้"</string>
+หากต้องการลงชื่อเข้าใช้ ให้กดดำเนินการต่อด้านล่าง"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">ออกจากระบบ</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">เข้าสู่ระบบ Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">ลงชื่อเข้าใช้ \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"บันทึกการตรวจสอบสิทธิ์แล้ว
 
 • การตั้งค่า RVX ของคุณจะไม่นำเข้า/ส่งออกการตรวจสอบสิทธิ์ Android VR
@@ -421,6 +488,27 @@
 • คุณจะต้องลงชื่อเข้าใช้อีกครั้งหากคุณเปลี่ยนรหัสผ่าน Google หรือยกเลิกการลงทะเบียนอุปกรณ์นี้จากการตั้งค่า Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">เข้าสู่ระบบสำเร็จ</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">ไม่สามารถออกรหัสเปิดใช้งานได้</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">ไม่บังคับ: ลงชื่อเข้าใช้เว็บไซต์ YouTube เพื่อเล่นวิดีโอด้วยบัญชีของคุณ แตะที่นี่เพื่อดำเนินการต่อ</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">เปลี่ยน \'ไคลเอ็นต์เริ่มต้น\' เป็น \'Mobile Web\' เพื่อใช้งานคุณสมบัตินี้</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">ขณะนี้ลงชื่อเข้าใช้ \'Mobile Web\' อยู่</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">ลงชื่อเข้าใช้ผ่านเว็บบนมือถือ</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'Mobile Web' จะเล่นวิดีโอโดยไม่ได้ลงชื่อเข้าใช้ หรือลงชื่อเข้าใช้เว็บไซต์ YouTube
+
+• เมื่อลงชื่อเข้าใช้ จะสามารถเล่นวิดีโอที่ต้องมีบัญชีได้ เช่น วิดีโอที่มีการจำกัดอายุ
+• หน้าลงชื่อเข้าใช้ Google จะเปิดขึ้นในแอปนี้
+• การลงชื่อเข้าใช้จะถูกนำมาใช้เพื่อรับวิดีโอที่คุณเล่นเท่านั้น
+• การลงชื่อเข้าใช้จะถูกบันทึกไว้ในอุปกรณ์นี้เท่านั้น
+
+หากต้องการลงชื่อเข้าใช้ ให้กดดำเนินการต่อด้านล่าง"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">ลงชื่อเข้าใช้ \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"บันทึกการลงชื่อเข้าใช้แล้ว
+
+• การตั้งค่า RVX ของคุณจะไม่นำเข้า/ส่งออกการลงชื่อเข้าใช้ 'Mobile Web'
+• หาก Google ยุติการลงชื่อเข้าใช้ วิดีโอจะถูกเล่นในสถานะไม่ได้ลงชื่อเข้าใช้จนกว่าคุณจะลงชื่อเข้าใช้อีกครั้ง
+• การลงชื่อออกจะทำให้อุปกรณ์นี้ลงชื่อออกจากเว็บไซต์ YouTube ด้วยเช่นกัน"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">การลงชื่อเข้าใช้ Mobile Web หมดอายุ โปรดลองลงชื่อเข้าใช้ \'Mobile Web\' อีกครั้ง</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">ลงชื่อออกจาก \'Mobile Web\' แล้ว</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">ไม่พบ \'Android System WebView\' โปรดติดตั้งหรือเปิดใช้งานเพื่อลงชื่อเข้าใช้</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">แสดงการปลอมแปลงใน \'สถิติสำหรับพวกเนิร์ด\'</string>
@@ -433,7 +521,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="morphe_stable_caption_blocks_summary">รวมคำบรรยายอัตโนมัติภาษาเดียวให้เป็นบล็อกที่คงที่และอ่านง่าย คำบรรยายสองภาษาจะใช้บล็อกเสมอ คำบางคำอาจปรากฏก่อนที่จะมีการพูด</string>
     <string name="morphe_stable_caption_blocks_title">บล็อกคำบรรยายแบบเสถียร</string>
-    <string name="morphe_swap_save_and_queue_actions_summary">แตะเพื่อดูตัวเลือกในคิว แตะค้างไว้เพื่อบันทึกไปยังดูภายหลัง</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">แตะเพื่อดูตัวเลือกคิว แตะค้างไว้เพื่อบันทึกไปยังดูภายหลัง</string>
     <string name="morphe_swap_save_and_queue_actions_title">สลับการดำเนินการบันทึกและคิว</string>
     <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบเครื่องเล่นแบบเก่า
 
@@ -441,6 +529,8 @@
     <string name="morphe_tablet_layout_in_player_title">เปิดใช้งานรูปแบบแท็บเล็ตในเครื่องเล่น</string>
     <string name="morphe_theme_color_change_foreground_summary">ใช้สีธีมสำหรับข้อความและไอคอน</string>
     <string name="morphe_theme_color_change_foreground_title">เปลี่ยนสีพื้นหน้า</string>
+    <string name="morphe_ungroup_notifications_summary">แสดงทุกวิดีโอที่อัปโหลดแบบจัดกลุ่มของช่องเป็นการแจ้งเตือนแยกกัน</string>
+    <string name="morphe_ungroup_notifications_title">ยกเลิกการจัดกลุ่มการแจ้งเตือน</string>
     <string name="morphe_video_action_bar_layout_entry_2">แบบคลาสสิกแถวเดียว</string>
     <string name="morphe_video_action_bar_layout_entry_4">แบบคลาสสิกสองแถว</string>
     <string name="morphe_video_action_bar_layout_title">รูปแบบแถบการทำงานของวิดีโอ</string>
@@ -637,17 +727,17 @@
     <string name="revanced_disable_layout_updates_summary_off">รูปแบบจะได้รับการอัปเดตจากเซิร์ฟเวอร์</string>
     <string name="revanced_disable_layout_updates_summary_on">รูปแบบจะไม่ได้รับการอัปเดตจากเซิร์ฟเวอร์</string>
     <string name="revanced_disable_layout_updates_title">ปิดการอัปเดตรูปแบบ</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"เลย์เอาต์ของแอปกลับไปใช้เลย์เอาต์ที่ใช้เมื่อติดตั้งครั้งแรก
+    <string name="revanced_disable_layout_updates_user_dialog_message">"เลย์เอาต์ของแอปจะกลับไปเป็นเลย์เอาต์ที่ใช้เมื่อติดตั้งครั้งแรก
 
-เลย์เอาต์ด้านเซิร์ฟเวอร์บางส่วนอาจไม่กลับคืน
+เลย์เอาต์บางส่วนในฝั่งเซิร์ฟเวอร์อาจไม่คืนค่า
 
-การเปลี่ยนแปลง ได้แก่:
-• ส่วนประกอบในเมนูแบบเลื่อนออกของเครื่องเล่น (หรือการตั้งค่าที่เกี่ยวข้อง) อาจไม่ทำงาน
-• ตัวเลขหมุนไม่มีการเคลื่อนไหว
-• แท็บคลังจะแสดง
+การเปลี่ยนแปลงรวมถึง:
+• คำแนะนำวิดีโอแบบเต็มหน้าจออาจทำงานผิดพลาด
+• ส่วนประกอบในเมนู flyout ของเครื่องเล่น (หรือการตั้งค่าที่เกี่ยวข้อง) อาจไม่ทำงาน
 • ส่วนเพลงของคำอธิบายวิดีโออาจไม่ทำงาน
-• รายการเมนูแบบเลื่อนออกของเครื่องเล่นไม่สามารถซ่อนได้
-• ปุ่มสลับบัญชีอาจไม่ปรากฏบนแท็บคลัง"</string>
+• ไม่สามารถซ่อนรายการเมนู flyout ของเครื่องเล่นได้
+• ตัวเลขที่เลื่อนจะไม่แสดงแอนิเมชัน
+• ปุ่มสลับบัญชีอาจไม่ปรากฏในแท็บคลังวิดีโอ"</string>
     <string name="revanced_disable_playlist_autoplay_title">ปิดการเล่นอัตโนมัติของเพลย์ลิสต์</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">เครื่องเล่น Shorts จะกลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">เครื่องเล่น Shorts จะไม่กลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
@@ -658,7 +748,7 @@
     <string name="revanced_disable_signin_to_tv_popup_summary_off">เปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
     <string name="revanced_disable_signin_to_tv_popup_summary_on">ปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
     <string name="revanced_disable_signin_to_tv_popup_title">ปิดใช้งานป๊อปอัป \"ลงชื่อเข้าใช้ทีวี\"</string>
-    <string name="revanced_dismiss_player_not_available_toast">ไม่สามารถใช้ Video ID ได้ โปรดรีโหลดวิดีโอด้วยตนเอง</string>
+    <string name="revanced_dismiss_player_not_available_toast">ไม่สามารถใช้รหัสวิดีโอได้ โปรดโหลดวิดีโอใหม่ด้วยตนเอง</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">เปิดใช้งานการควบคุมระดับเสียง</string>
     <string name="revanced_enable_shorts_time_stamp_title">gms_core_dialog_dismiss_text</string>
     <string name="revanced_exit_fullscreen_entry_1">ปิดใช้งาน</string>
@@ -1047,27 +1137,27 @@
     <string name="revanced_overlay_button_vot_title">Voice Over Translation Thailan</string>
     <string name="revanced_playback_audio_time_stretching_summary">อนุญาตให้ตั้งค่าความเร็วและระดับเสียงโดยอิสระ อาจทำให้เกิดข้อผิดพลาดด้านเสียง</string>
     <string name="revanced_playback_audio_time_stretching_title">การยืดเวลาของเสียง</string>
-    <string name="revanced_queue_manager_add_to_queue">เพิ่มไปยังคิว</string>
-    <string name="revanced_queue_manager_add_to_queue_and_open_queue">เพิ่มไปยังคิวและเปิด</string>
-    <string name="revanced_queue_manager_add_to_queue_and_play_video">เพิ่มไปยังคิวและเล่น</string>
-    <string name="revanced_queue_manager_add_to_queue_and_reload_video">เพิ่มและรีโหลดวิดีโอ</string>
+    <string name="revanced_queue_manager_add_to_queue">เพิ่มลงในคิว</string>
+    <string name="revanced_queue_manager_add_to_queue_and_open_queue">เพิ่มลงในคิวและเปิด</string>
+    <string name="revanced_queue_manager_add_to_queue_and_play_video">เพิ่มลงในคิวและเล่น</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">เพิ่มและโหลดวิดีโอใหม่</string>
     <string name="revanced_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
     <string name="revanced_queue_manager_check_failed_generic">ล้มเหลว: %s</string>
-    <string name="revanced_queue_manager_check_failed_playlist_id">ไม่มี ID เพลย์ลิสต์</string>
+    <string name="revanced_queue_manager_check_failed_playlist_id">ไม่มีรหัสเพลย์ลิสต์</string>
     <string name="revanced_queue_manager_check_failed_queue">คิวว่างเปล่า</string>
-    <string name="revanced_queue_manager_check_failed_video_id">ไม่มี ID วิดีโอ</string>
-    <string name="revanced_queue_manager_fetch_failed_add">เพิ่มไปยังคิวไม่ได้</string>
-    <string name="revanced_queue_manager_fetch_failed_create">สร้างคิวไม่ได้</string>
-    <string name="revanced_queue_manager_fetch_failed_remove">ลบคิวไม่ได้</string>
-    <string name="revanced_queue_manager_fetch_failed_save">บันทึกคิวไม่ได้</string>
-    <string name="revanced_queue_manager_fetch_succeeded_add">เพิ่มไปยังคิวแล้ว</string>
+    <string name="revanced_queue_manager_check_failed_video_id">ไม่มีรหัสวิดีโอ</string>
+    <string name="revanced_queue_manager_fetch_failed_add">ไม่สามารถเพิ่มลงในคิวได้</string>
+    <string name="revanced_queue_manager_fetch_failed_create">ไม่สามารถสร้างคิวได้</string>
+    <string name="revanced_queue_manager_fetch_failed_remove">ไม่สามารถนำออกจากคิวได้</string>
+    <string name="revanced_queue_manager_fetch_failed_save">ไม่สามารถบันทึกคิวได้</string>
+    <string name="revanced_queue_manager_fetch_succeeded_add">เพิ่มลงในคิวแล้ว</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">สร้างคิวแล้ว</string>
-    <string name="revanced_queue_manager_fetch_succeeded_remove">ลบออกจากคิวแล้ว</string>
+    <string name="revanced_queue_manager_fetch_succeeded_remove">นำออกจากคิวแล้ว</string>
     <string name="revanced_queue_manager_fetch_succeeded_save">บันทึกคิวไปยัง %s</string>
     <string name="revanced_queue_manager_open_queue">เปิดคิว</string>
-    <string name="revanced_queue_manager_remove_from_queue">ลบออกจากคิว</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">ลบและเปิดคิว</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">ลบและรีโหลดวิดีโอ</string>
+    <string name="revanced_queue_manager_remove_from_queue">นำออกจากคิว</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">นำออกและเปิดคิว</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">นำออกและโหลดวิดีโอใหม่</string>
     <string name="revanced_queue_manager_save_queue">บันทึกคิวไปยังเพลย์ลิสต์</string>
     <string name="revanced_quick_actions_top_margin_summary">ตั้งค่าระยะขอบด้านบนของแถบการดำเนินการอย่างรวดเร็ว (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">ระยะขอบด้านบนของการดำเนินการอย่างรวดเร็ว</string>
@@ -1098,7 +1188,7 @@
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
     <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike คืนค่าการไม่ชอบที่ YouTube ซ่อนไว้ในปี 2021 จำนวนเหล่านี้มาจากข้อมูลที่เก็บถาวรก่อนการนำออก และประมาณการสำหรับวิดีโอใหม่จากการโหวตของผู้ใช้ ดังนั้นจึงเป็นค่าโดยประมาณและอัปเดตทุกสองสามวัน
 
-ID ของวิดีโอที่คุณรับชมจะถูกส่งไปยัง API ของ Return YouTube Dislike และความชอบและไม่ชอบของคุณจะถูกส่งโดยไม่เปิดเผยตัวตนเพื่อปรับปรุงการประมาณการ"</string>
+รหัสของวิดีโอที่คุณรับชมจะถูกส่งไปยัง API ของ Return YouTube Dislike และความชอบและไม่ชอบของคุณจะถูกส่งโดยไม่เปิดเผยตัวตนเพื่อปรับปรุงการประมาณการ"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
     <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>

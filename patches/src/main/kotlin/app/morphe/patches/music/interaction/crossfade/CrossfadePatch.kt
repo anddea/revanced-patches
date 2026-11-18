@@ -237,8 +237,9 @@ val crossfadePatch = bytecodePatch(
             key: String,
             defaultValue: String,
             setSummary: Boolean = false,
+            tag: String = ResourceUtils.SWITCH_PREFERENCE_TAG_NAME,
         ) {
-            adoptChild(ResourceUtils.SWITCH_PREFERENCE_TAG_NAME) {
+            adoptChild(tag) {
                 setAttribute("android:key", key)
                 setAttribute("android:title", "@string/${key}_title")
                 setAttribute("android:defaultValue", defaultValue)
@@ -280,7 +281,11 @@ val crossfadePatch = bytecodePatch(
                 setAttribute("android:title", "@string/morphe_music_crossfade_screen_title")
                 setAttribute("android:summary", "@string/morphe_music_crossfade_screen_summary")
 
-                addCrossfadeSwitch("morphe_music_crossfade_enabled", "false")
+                addCrossfadeSwitch(
+                    "morphe_music_crossfade_enabled",
+                    "false",
+                    tag = "app.morphe.extension.music.settings.preference.CrossfadeEnabledPreference",
+                )
                 addCrossfadeListPreference("morphe_music_crossfade_curve")
                 addCrossfadeStaticPreference(
                     key = "morphe_music_crossfade_curve_preview",

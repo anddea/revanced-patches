@@ -30,6 +30,7 @@ import java.util.Locale;
 
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.settings.preference.ColorPickerPreference;
 import app.morphe.extension.shared.utils.Logger;
 
 /**
@@ -99,6 +100,7 @@ public final class CrossfadeCurvePreference extends Preference
         layout.setPadding(padH, padV, padH, padV);
 
         curveView = new CurveView(getContext());
+        updateCurveAlpha();
         layout.addView(curveView, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, dp(getContext(), 160f)));
 
@@ -130,10 +132,21 @@ public final class CrossfadeCurvePreference extends Preference
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
+        // Crossfade and Spoof video streams settings both change the availability.
+        updateCurveAlpha();
         if (key != null && key.startsWith("morphe_music_crossfade")) {
             if (curveView != null) {
                 curveView.postInvalidate();
             }
+        }
+    }
+
+    /**
+     * Dims the preview like the other crossfade settings while the curve setting is unavailable.
+     */
+    private void updateCurveAlpha() {
+        if (curveView != null) {
+            curveView.setAlpha(Settings.CROSSFADE_CURVE.isAvailable() ? 1f : ColorPickerPreference.DISABLED_ALPHA);
         }
     }
 

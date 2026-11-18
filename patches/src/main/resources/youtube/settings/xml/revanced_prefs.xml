@@ -116,6 +116,7 @@
             <SwitchPreference android:key="morphe_navigation_bar_glass" android:title="@string/morphe_navigation_bar_glass_title" android:summary="@string/morphe_navigation_bar_glass_summary" />
             <app.morphe.extension.shared.settings.preference.SeekBarPreference android:key="morphe_navigation_bar_glass_opacity" android:title="@string/morphe_navigation_bar_glass_opacity_title" android:summary="@string/morphe_navigation_bar_glass_opacity_summary" />
             <SwitchPreference android:key="morphe_navigation_bar_glass_round" android:title="@string/morphe_navigation_bar_glass_round_title" android:summary="@string/morphe_navigation_bar_glass_round_summary" />
+            <SwitchPreference android:key="morphe_navigation_bar_glass_edge" android:title="@string/morphe_navigation_bar_glass_edge_title" android:summary="@string/morphe_navigation_bar_glass_edge_summary" />
             <app.morphe.extension.youtube.settings.preference.GlassNavigationBarPreference android:key="morphe_navigation_bar_glass_height" android:title="@string/morphe_navigation_bar_glass_size_title" android:summary="@string/morphe_navigation_bar_glass_size_summary" />SETTINGS: NAVIGATION_BAR_GLASS -->
 
             <!-- SETTINGS: ANIMATED_NAVIGATION_BAR
@@ -310,12 +311,13 @@
 
 
     <!-- PREFERENCE_SCREEN: DEARROW
-    <PreferenceScreen android:title="@string/morphe_dearrow_screen_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: DEARROW -->
+    <PreferenceScreen android:title="@string/morphe_dearrow_vote_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: DEARROW -->
 
         <!-- SETTINGS: DEARROW
         <app.morphe.extension.youtube.settings.preference.DeArrowVoteButtonSwitchPreference android:title="@string/morphe_dearrow_vote_button_title" android:key="morphe_dearrow_vote_button" android:summary="@string/morphe_dearrow_vote_button_summary" />
         <SwitchPreference android:title="@string/morphe_dearrow_titles_title" android:key="morphe_dearrow_titles" android:summary="@string/morphe_dearrow_titles_summary" />
         <SwitchPreference android:title="@string/morphe_dearrow_titles_icon_title" android:key="morphe_dearrow_titles_icon" android:summary="@string/morphe_dearrow_titles_icon_summary" android:dependency="morphe_dearrow_titles" />
+        <SwitchPreference android:key="morphe_dearrow_clean_up_titles" android:title="@string/morphe_dearrow_clean_up_titles_title" android:summary="@string/morphe_dearrow_clean_up_titles_summary" />
         <SwitchPreference android:title="@string/morphe_dearrow_casual_mode_title" android:key="morphe_dearrow_casual_mode" android:summary="@string/morphe_dearrow_casual_mode_summary" android:dependency="morphe_dearrow_titles" />
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/morphe_dearrow_casual_mode_min_votes_title" android:key="morphe_dearrow_casual_mode_min_votes" android:summary="@string/morphe_dearrow_casual_mode_min_votes_summary" android:dependency="morphe_dearrow_casual_mode" android:defaultValue="2" android:inputType="number" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_home_title" android:key="revanced_alt_thumbnail_home" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
@@ -328,7 +330,7 @@
             <app.morphe.extension.youtube.settings.preference.DeArrowTimeStepPreference android:key="morphe_dearrow_vote_time_step" android:title="@string/morphe_dearrow_vote_time_step_title" android:summary="@string/morphe_dearrow_vote_time_step_summary" android:defaultValue="100" android:inputType="number" android:dependency="morphe_dearrow_vote_button" />
             <app.morphe.extension.youtube.settings.preference.DeArrowPrivateUserIdPreference android:key="sb_private_user_id_Do_Not_Share" android:title="@string/morphe_dearrow_private_user_id_title" android:summary="@string/morphe_dearrow_private_user_id_summary" android:inputType="text" />
         </app.morphe.extension.youtube.settings.preference.DeArrowAccountPreferenceCategory>
-        <app.morphe.extension.youtube.settings.preference.DeArrowAboutPreference android:title="@string/morphe_dearrow_screen_title" android:selectable="true" android:summary="@string/morphe_dearrow_about_summary" />
+        <app.morphe.extension.youtube.settings.preference.DeArrowAboutPreference android:title="@string/morphe_dearrow_vote_title" android:selectable="true" android:summary="@string/morphe_dearrow_about_summary" />
         <SwitchPreference android:title="@string/revanced_sb_toast_on_connection_error" android:key="revanced_alt_thumbnail_dearrow_connection_toast" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_off" />
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
         <Preference android:title="@string/revanced_alt_thumbnail_stills" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills_about_summary" />
@@ -1375,7 +1377,7 @@
                 <Preference android:title="Hide ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 
-            <PreferenceCategory android:title="@string/morphe_dearrow_screen_title" android:layout="@layout/revanced_settings_preferences_category">
+            <PreferenceCategory android:title="@string/morphe_dearrow_vote_title" android:layout="@layout/revanced_settings_preferences_category">
                 <Preference android:title="DeArrow" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Bypass image region restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>

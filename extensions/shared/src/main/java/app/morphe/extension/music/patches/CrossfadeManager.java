@@ -48,6 +48,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.utils.Utils;
 
 /**
@@ -79,6 +81,24 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class CrossfadeManager {
+
+    /**
+     * The outgoing song of a SABR stream falls silent on the track change, so crossfade needs
+     * a spoofed client without SABR.
+     */
+    public static final class CrossfadeAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return SpoofVideoStreamsPatch.isPatchIncluded()
+                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.isAvailable()
+                    && !Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get().requireSABR;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SPOOF_VIDEO_STREAMS, Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE);
+        }
+    }
 
     public enum CrossFadeDuration {
         MILLISECONDS_250(250),
@@ -459,10 +479,11 @@ public class CrossfadeManager {
     /**
      * Read once at class init.  Pairs with {@code rebootApp=true} on
      * {@link Settings#CROSSFADE_ENABLED}: toggling the setting requires
-     * an app restart, so the value is frozen for the process lifetime.
+     * an app restart, as does changing the spoofed client.
      * When false, the JIT can dead-code-eliminate every hook body.
      */
-    private static final boolean CROSSFADE_ENABLED = Settings.CROSSFADE_ENABLED.get();
+    private static final boolean CROSSFADE_ENABLED = Settings.CROSSFADE_ENABLED.get()
+            && Settings.CROSSFADE_ENABLED.isAvailable();
 
     /**
      * True when we have set up crossfade state but deliberately NOT swapped
@@ -3191,7 +3212,7 @@ public class CrossfadeManager {
     }
 
     private static boolean isEnabled() {
-        return Settings.CROSSFADE_ENABLED.get();
+        return CROSSFADE_ENABLED;
     }
 
     private static boolean isSessionControlEnabled() {

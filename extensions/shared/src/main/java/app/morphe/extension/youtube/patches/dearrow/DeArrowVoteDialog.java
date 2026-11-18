@@ -498,10 +498,10 @@ final class DeArrowVoteDialog {
             textLayout.addView(detailsView);
         }
 
-        row.addView(createVoteButton(context, UPVOTE_ICON, str("morphe_dearrow_vote_upvote"), foregroundColor,
+        row.addView(createVoteButton(context, UPVOTE_ICON, str("revanced_sb_vote_upvote"), foregroundColor,
                 () -> voteAction.vote(false)));
         if (canDownvote) {
-            row.addView(createVoteButton(context, DOWNVOTE_ICON, str("morphe_dearrow_vote_downvote"), foregroundColor,
+            row.addView(createVoteButton(context, DOWNVOTE_ICON, str("revanced_sb_vote_downvote"), foregroundColor,
                     () -> voteAction.vote(true)));
         }
         return row;

@@ -104,6 +104,7 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
     <string name="morphe_music_crossfade_curve_preview_title" translatable="false"> </string>
     <string name="morphe_music_crossfade_curve_title">Fade curve</string>
     <string name="morphe_music_crossfade_duration_title">Crossfade duration</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">To use crossfade, change the Spoof video streams \'Default client\' to TV Simply or visionOS</string>
     <string name="morphe_music_crossfade_enabled_title">Enable crossfade</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Applies the crossfade effect when a track ends naturally</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Crossfade on auto-advance</string>
@@ -181,6 +182,8 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_ai_section_no_text">No lyrics to detect sections for</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Allow non-Latin readings from the lyrics source; when off, keep only Latin letters, accented letters and tone digits</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Enable transliteration</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Softly blurs every line that is not currently being sung, more so further away (Android 12 and later). Before Android 12, inactive lines stay sharp</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Blur inactive lines</string>
     <string name="morphe_music_lyrics_clear_cache_done">Cleared %1$s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Delete the %1$s MB of lyrics kept on this device</string>
     <string name="morphe_music_lyrics_clear_cache_title">Clear stored lyrics</string>
@@ -195,6 +198,8 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_display_artist_first_summary">Toggle the display order of Artist and Title in the Miniplayer and MediaSession. ON \"Artist - Title\" and OFF \"Title - Artist\" Does not affect lyrics search</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Artist and Title display order</string>
     <string name="morphe_music_lyrics_dual_only">Dual mode</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Places the second singer on the opposite edge on duet songs. Turn off to keep both singers on the same side</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Opposite-side duet alignment</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Move the background while playing, and pulse it with the music if YouTube Music has the microphone permission. Turn off for a still background that uses less battery</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Animate dynamic background</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Show a blurred background made from the album art behind the lyrics</string>
@@ -263,6 +268,8 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_lyrics_providers_keep_one">At least one provider must stay on</string>
     <string name="morphe_music_lyrics_refreshed">Refreshed</string>
     <string name="morphe_music_lyrics_refreshing">Refreshing</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Slows down the lyric scroll animation and keeps inactive lines full size</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Relaxed scrolling</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Cantonese characters</string>
     <string name="morphe_music_lyrics_rime_char_source_none">No character reading</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Mandarin characters</string>
@@ -384,9 +391,32 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_lyrics_use_ai_section_summary">Only used when the provider ships no section labels such as Chorus or Verse, which your OpenAI-compatible model then detects. Editing the row also opens its prompt</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Detect sections with AI</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (with %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Highlights each word with a soft sweep, glow, and slight lift as it is sung. Turn off to save battery or for a sharp fill on slower devices</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Animate synced words smoothly</string>
     <string name="morphe_music_lyrics_word_sync_summary">Prioritize word-by-word lyrics when available. When lyrics carry word timing, highlights each word or syllable in time with the music</string>
     <string name="morphe_music_lyrics_word_sync_title">Highlight synced words or syllables</string>
     <string name="morphe_music_lyrics_written_by">Written by: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Tints the glass miniplayer with the color of the album art of the song that plays</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Album art tint</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Artwork padding</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">How much the page behind the glass miniplayer is blurred (Android 14 and later). At 0 the page shows through sharp, and before Android 14 the page is covered</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Glass blur</string>
+    <string name="morphe_music_miniplayer_glass_bottom_spacing_title">Bottom spacing</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Corner radius</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Hides the progress bar at the bottom of the glass miniplayer</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Hide progress bar</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Tints the glass miniplayer white instead of dark, for a lighter and clearer glass</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Light glass</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Opacity</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Rim brightness</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Makes the artwork of the glass miniplayer round, and spins it like a record while a song plays</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Spinning artwork</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Adjust the corner radius, the artwork padding, the rim brightness, the opacity and the bottom spacing of the glass miniplayer, with a preview</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Glass miniplayer style</string>
+    <string name="morphe_music_miniplayer_glass_summary">Shows the floating miniplayer as a rounded, translucent glass card</string>
+    <string name="morphe_music_miniplayer_glass_title">Enable glass miniplayer</string>
+    <string name="morphe_music_miniplayer_screen_summary">Change the style, the buttons and the gestures of the miniplayer</string>
+    <string name="morphe_music_miniplayer_screen_title">Miniplayer</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">user token</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Add a token only to use your own account. It has to come from the Musixmatch Android app: tokens copied from musixmatch.com belong to the retired desktop client and the API refuses them</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch works without a token, so this field can stay empty</string>
@@ -396,12 +426,13 @@ Applies to both limits. At 1.75, four full-width characters count as 7"</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: user token saved</string>
     <string name="morphe_music_native_downloads_summary">Use native downloads on YouTube Music 7.25 or later, older versions use the configured downloader</string>
     <string name="morphe_music_native_downloads_title">Native downloads</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Tints the glass navigation bar with the color of the album art of the song that plays</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">How much the page behind the glass navigation bar is blurred (Android 14 and later). At 0 the page shows through sharp, and before Android 14 the page is covered</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Hides the rounded highlight behind the selected button of the glass navigation bar</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Hide selected button indicator</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Tints the glass navigation bar white instead of dark, for a lighter and clearer glass</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Light glass</string>
     <string name="morphe_music_navigation_bar_glass_opacity_summary">Adjust the transparency level of the glass navigation bar (0 is transparent, 100 is opaque)</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Opacity</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Home</string>
-    <string name="morphe_music_navigation_bar_glass_size_bottom_spacing">Bottom spacing</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Button spacing</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Buttons shown: %1$s of %2$s</string>
     <string name="morphe_music_navigation_bar_glass_size_height">Height</string>
@@ -506,6 +537,27 @@ To sign in, press continue below"</string>
 • You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Failed to issue an activation code</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Optional: sign in to the YouTube website to play videos with your account. Tap here to continue</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">To use this feature, change \'Default client\' to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Currently signed into Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobile Web sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"Mobile Web plays videos signed out, or signed in to the YouTube website
+
+• Signed in, videos that need an account can be played, such as age-restricted videos
+• The Google sign-in page opens in this app
+• The sign-in is used only to get the videos you play
+• The sign-in is saved only on this device
+
+To sign in, press continue below"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Sign in to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Sign-in saved
+
+• Your RVX settings will not import/export the Mobile Web sign-in
+• If Google ends the sign-in, videos are played signed out until you sign in again
+• Signing out also signs this device out of the YouTube website"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web sign in expired, try signing in to Mobile Web again</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Signed out of Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Android System WebView is not available. Install or enable it to sign in</string>
     <string name="morphe_spoof_video_streams_summary">"Fixes playback issues for most users by requesting a compatible video stream
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -1074,6 +1126,8 @@ Side effect (Block request):
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)"</string>
+    <string name="revanced_swipe_navigation_summary">Swipe left or right anywhere on the screen to switch between visible navigation items, including custom tabs</string>
+    <string name="revanced_swipe_navigation_title">Swipe to switch navigation tabs</string>
     <string name="revanced_translations_title">Translations</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
@@ -1089,37 +1143,4 @@ Side effect (Block request):
     <string name="revanced_webview_toast_no_network">Please check your network connection</string>
     <string name="revanced_webview_toast_unavailable">WebView is not available</string>
     <string name="revanced_webview_visitor_data" translatable="false">Visitor Data</string>
-    <string name="revanced_swipe_navigation_title">Swipe to switch navigation tabs</string>
-    <string name="revanced_swipe_navigation_summary">Swipe left or right anywhere on the screen to switch between visible navigation items, including custom tabs</string>
-    <string name="morphe_music_navigation_bar_glass_rim_title">Rim brightness</string>
-    <string name="morphe_music_navigation_bar_glass_blur_title">Glass blur</string>
-    <string name="morphe_music_navigation_bar_glass_blur_summary">How much the page behind the glass navigation bar is blurred (Android 14 and later). At 0 the page shows through sharp, and before Android 14 the page is covered</string>
-    <string name="morphe_music_navigation_bar_glass_album_tint_title">Album art tint</string>
-    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Tints the glass navigation bar with the color of the album art of the song that plays</string>
-    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Hide selected button indicator</string>
-    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Hides the rounded highlight behind the selected button of the glass navigation bar</string>
-    <string name="morphe_music_miniplayer_screen_title">Miniplayer</string>
-    <string name="morphe_music_miniplayer_screen_summary">Change the style, the buttons and the gestures of the miniplayer</string>
-    <string name="morphe_music_miniplayer_glass_title">Enable glass miniplayer</string>
-    <string name="morphe_music_miniplayer_glass_summary">Shows the floating miniplayer as a rounded, translucent glass card</string>
-    <string name="morphe_music_miniplayer_glass_style_title">Glass miniplayer style</string>
-    <string name="morphe_music_miniplayer_glass_style_summary">Adjust the corner radius, the artwork padding, the rim brightness, the opacity and the bottom spacing of the glass miniplayer, with a preview</string>
-    <string name="morphe_music_miniplayer_glass_corner_radius_title">Corner radius</string>
-    <string name="morphe_music_miniplayer_glass_bottom_spacing_title">Bottom spacing</string>
-    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Artwork padding</string>
-    <string name="morphe_music_miniplayer_glass_rim_title">Rim brightness</string>
-    <string name="morphe_music_miniplayer_glass_opacity_title">Opacity</string>
-    <string name="morphe_music_miniplayer_glass_blur_title">Glass blur</string>
-    <string name="morphe_music_miniplayer_glass_blur_summary">How much the page behind the glass miniplayer is blurred (Android 14 and later). At 0 the page shows through sharp, and before Android 14 the page is covered</string>
-    <string name="morphe_music_miniplayer_glass_light_title">Light glass</string>
-    <string name="morphe_music_miniplayer_glass_light_summary">Tints the glass miniplayer white instead of dark, for a lighter and clearer glass</string>
-    <string name="morphe_music_miniplayer_glass_album_tint_title">Album art tint</string>
-    <string name="morphe_music_miniplayer_glass_album_tint_summary">Tints the glass miniplayer with the color of the album art of the song that plays</string>
-    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Spinning artwork</string>
-    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Makes the artwork of the glass miniplayer round, and spins it like a record while a song plays</string>
-    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Hide progress bar</string>
-    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Hides the progress bar at the bottom of the glass miniplayer</string>
-    <string name="morphe_music_navigation_bar_glass_preview_samples">Samples</string>
-    <string name="morphe_music_navigation_bar_glass_preview_explore">Explore</string>
-    <string name="morphe_music_navigation_bar_glass_preview_library">Library</string>
 </resources>

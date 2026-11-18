@@ -89,9 +89,7 @@
     <string name="morphe_music_crossfade_about_quirks_title">القيود</string>
     <string name="morphe_music_crossfade_about_summary">كيف يعمل التشغيل التدريجي — ومتى لا يعمل</string>
     <string name="morphe_music_crossfade_about_title">لمحة</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"بث الصوت أو عكسه (Chromecast، أو عكس الشاشة أو الصوت)
-
-تشغيل SABR (عند إيقاف محاكاة بث الفيديو)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">بث أو عكس الصوت (Chromecast، أو عكس الشاشة أو الصوت)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">غير مدعوم</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">التلاشي المتقاطع متوقف أثناء الإرسال</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">تأخير لطيف</string>
@@ -102,6 +100,7 @@
     <string name="morphe_music_crossfade_curve_preview_outgoing">صادر</string>
     <string name="morphe_music_crossfade_curve_title">منحنى التلاشي</string>
     <string name="morphe_music_crossfade_duration_title">مدة التلاشي</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">لاستخدام التلاشي المتداخل، قم بتغيير \'العميل الافتراضي\' في \'تزييف تدفقات الفيديو\' إلى \'TV Simply\' أو \'visionOS\'</string>
     <string name="morphe_music_crossfade_enabled_title">تفعيل التلاشي</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">يطبّق تأثير التلاشي التدريجي عند انتهاء مسار بشكل طبيعي</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">التلاشي أثناء التقدم التلقائي</string>
@@ -178,6 +177,8 @@
     <string name="morphe_music_lyrics_ai_section_no_text">لا توجد كلمات أغاني لاكتشاف المقاطع لها</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">السماح بالقراءات غير اللاتينية من مصدر كلمات الأغنية؛ عند تعطيله، احتفظ فقط بالحروف اللاتينية والحروف المشدّدة وأرقام النغمة</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">تمكين النقل الحرفي</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">يقوم بتضبيب كل سطر لا يتم غناؤه حالياً بشكل خفيف، ويزداد التضبيب كلما ابتعد السطر (Android 12 والإصدارات الأحدث). قبل Android 12، تظل الأسطر غير النشطة واضحة</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">تضبيب الأسطر غير النشطة</string>
     <string name="morphe_music_lyrics_clear_cache_done">تم حذف %s ميغابايت</string>
     <string name="morphe_music_lyrics_clear_cache_summary">حذف %s ميغابايت من كلمات الأغاني المخزّنة على هذا الجهاز</string>
     <string name="morphe_music_lyrics_clear_cache_title">مسح كلمات الأغاني المخزنة</string>
@@ -192,6 +193,8 @@
     <string name="morphe_music_lyrics_display_artist_first_summary">تبديل ترتيب الفنان والعنوان في المشغل المصغر وواجهة \"MediaSession\". تشغيل يعني \"الفنان - العنوان\" وإطفاء يعني \"العنوان - الفنان\". لا يؤثر هذا الإجراء على البحث عن كلمات الأغاني</string>
     <string name="morphe_music_lyrics_display_artist_first_title">عند التشغيل: تكون الرومنة أسفل الكلمات والترجمة أعلاها. عند الإيقاف: تبقى الرومنة أعلى الكلمات والترجمة أسفلها</string>
     <string name="morphe_music_lyrics_dual_only">النمط المزدوج</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">يضع المغني الثاني على الحافة المقابلة في أغاني الدويتو. قم بإيقاف التشغيل لإبقاء كلا المغنيين على نفس الجانب</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">محاذاة الدويتو على الجانب المقابل</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">تحريك الخلفية أثناء التشغيل، وجعلها تنبض مع الموسيقى إذا كان لدى YouTube Music إذن الوصول إلى الميكروفون. قم بإيقاف التشغيل للحصول على خلفية ثابتة تستهلك طاقة أقل من البطارية</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">تحريك الخلفية الديناميكية</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">إظهار خلفية ضبابية مكونة من غلاف الألبوم خلف كلمات الأغاني</string>
@@ -259,6 +262,8 @@
     <string name="morphe_music_lyrics_providers_keep_one">يجب أن يبقى مقدم خدمة واحد على الأقل مفعّلًا</string>
     <string name="morphe_music_lyrics_refreshed">تم التحديث</string>
     <string name="morphe_music_lyrics_refreshing">جارٍ التحديث</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">يبطئ حركة تمرير كلمات الأغاني ويحافظ على الأسطر غير النشطة بحجمها الكامل</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">التمرير المريح</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">أحرف كانتونية</string>
     <string name="morphe_music_lyrics_rime_char_source_none">لا توجد قراءة للحرف</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">أحرف ماندرين</string>
@@ -384,9 +389,31 @@
     <string name="morphe_music_lyrics_use_ai_section_summary">يُستخدم فقط عندما لا يوفر المزوّد تسميات للأقسام مثل اللازمة أو المقطع، فيكتشفها نموذجك المتوافق مع OpenAI. تعديل الصف يفتح أيضًا تعليماته</string>
     <string name="morphe_music_lyrics_use_ai_section_title">اكتشاف الأقسام باستخدام الذكاء الاصطناعي</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (مع %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">يبرز كل كلمة بمسحة ناعمة وتوهج ورفع طفيف أثناء غنائها. قم بإيقاف التشغيل لتوفير البطارية أو للحصول على تعبئة حادة على الأجهزة الأبطأ</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">تحريك الكلمات المتزامنة بسلاسة</string>
     <string name="morphe_music_lyrics_word_sync_summary">أعطِ الأولوية للكلمات المتزامنة كلمةً بكلمة عند توفرها. وعندما تحمل الكلمات توقيتًا للكلمات، يتم تمييز كل كلمة أو مقطع في توقيت مع الموسيقى</string>
     <string name="morphe_music_lyrics_word_sync_title">قم بتمييز الكلمات والمقاطع اللفظية المتزامنة</string>
     <string name="morphe_music_lyrics_written_by">تأليف: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">يلون المشغل المصغر الزجاجي بلون غلاف الألبوم للأغنية التي يتم تشغيلها</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">تلوين غلاف الألبوم</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">هوامش غلاف العمل الفني</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">مدى تغبيش الصفحة خلف المشغل المصغر الزجاجي (Android 14 والإصدارات الأحدث). عند القيمة 0 تظهر الصفحة بوضوح، وقبل Android 14 تكون الصفحة مغطاة</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">تغبيش الزجاج</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">تقوس زاوية الأركان</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">يخفي شريط التقدم الموجود في أسفل المشغل المصغر الزجاجي</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">إخفاء شريط التقدم</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">يلون المشغل المصغر الزجاجي باللون الأبيض بدلاً من الداكن، للحصول على زجاج أكثر إشراقاً ووضوحاً</string>
+    <string name="morphe_music_miniplayer_glass_light_title">زجاج فاتح</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">الشفافية</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">سطوع الحافة</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">يجعل غلاف العمل الفني للمشغل المصغر الزجاجي مستديراً، ويدوره مثل الأسطوانة أثناء تشغيل الأغنية</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">تدوير غلاف العمل الفني</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">ضبط نصف قطر الزاوية، وهوامش غلاف العمل الفني، وسطوع الحافة، وشفافية المشغل المصغر الزجاجي، مع معاينة</string>
+    <string name="morphe_music_miniplayer_glass_style_title">نمط المشغل المصغر الزجاجي</string>
+    <string name="morphe_music_miniplayer_glass_summary">يظهر المشغل المصغر العائم كبطاقة زجاجية شفافة ومستديرة الحواف</string>
+    <string name="morphe_music_miniplayer_glass_title">تمكين تأثير الزجاج</string>
+    <string name="morphe_music_miniplayer_screen_summary">تغيير النمط، والأزرار، وإيماءات المشغل المصغر</string>
+    <string name="morphe_music_miniplayer_screen_title">المشغل المصغر</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">رمز المستخدم</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">أضف رمزًا فقط لاستخدام حسابك الخاص. يجب أن يكون من تطبيق Musixmatch لنظام Android: الرموز المنسوخة من musixmatch.com تخص عميل سطح المكتب المتوقف عن العمل وترفضها واجهة API</string>
     <string name="morphe_music_musixmatch_token_optional_hint">يعمل Musixmatch بدون رمز، لذلك يمكن ترك هذا الحقل فارغًا</string>
@@ -394,9 +421,11 @@
     <string name="morphe_music_musixmatch_token_toast_cleared">ميوزكسماج: تم مسح توكين المستخدم</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: رمز المستخدم غير صالح - يرجى التحقق والمحاولة مرة أخرى</string>
     <string name="morphe_music_musixmatch_token_toast_saved">ميوزكسماج: تم حفظ توكين المستخدم</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">يلون شريط التنقل الزجاجي بلون غلاف الألبوم للأغنية التي يتم تشغيلها</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">مدى تغبيش الصفحة خلف شريط التنقل الزجاجي (Android 14 والإصدارات الأحدث). عند القيمة 0 تظهر الصفحة بوضوح، وقبل Android 14 تكون الصفحة مغطاة</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">يخفي التمييز المستدير خلف الزر المحدد في شريط التنقل الزجاجي</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">إخفاء مؤشر الزر المحدد</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">يصبغ شريط التنقل الزجاجي باللون الأبيض بدلاً من الداكن، للحصول على زجاج أكثر فاتحاً وصفاءً</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">زجاج فاتح</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">الشفافية</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">الصفحة الرئيسية</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">تباعد الزر</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">الأزرار المعروضة: %1$s من %2$s</string>
@@ -434,10 +463,10 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">لا يمكن تسجيل الدخول إلى VR، لم تتم الموافقة على مصادقة الموقع الإلكتروني</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 غير متاح مؤقتًا</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 غير متاح مؤقتًا (الحالة %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">انتهت صلاحية تسجيل الدخول إلى Android VR، حاول تسجيل الدخول إلى VR مرة أخرى</string>
+    <string name="morphe_oauth2_connection_failure_status_400">انتهت صلاحية تسجيل الدخول إلى \'Android VR\'، حاول تسجيل الدخول إلى VR مرة أخرى</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
-    <string name="morphe_oauth2_toast_reset">تم تسجيل الخروج من Android VR</string>
+    <string name="morphe_oauth2_toast_reset">تم تسجيل الخروج من \'Android VR\'</string>
     <string name="morphe_playback_in_feeds_entry_off">متوقف</string>
     <string name="morphe_replace_music_with_youtube_summary">يستبدل music.youtube.com بـ youtube.com في الروابط المُشاركة</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
@@ -467,18 +496,13 @@
     <string name="morphe_skip_silence_minimum_pause_title">الحد الأدنى لمدة التوقف</string>
     <string name="morphe_skip_silence_summary">يتخطى تلقائيًا فترات الصمت في صوت الفيديو</string>
     <string name="morphe_skip_silence_title">تخطي الصمت</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"فشل %1$s في العمل عدة مرات متتالية، بينما نجح %2$s في ذلك
-
-هل ترغب في جعل %2$s هو العميل الافتراضي؟"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">تبديل</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">العميل الافتراضي لا يعمل</string>
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_screen_summary">ضبط خاصية تمويه هوية العميل لمنع مشاكل التشغيل</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">يتطلب Android VR تسجيل دخول منفصل. انقر هنا للمتابعة</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">للحصول على هذه الميزة، غيّر \'العميل الافتراضي\' إلى Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">مسجل حاليًا في Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">تسجيل الدخول إلى Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">يتطلب \'Android VR\' تسجيل دخول منفصل. انقر هنا للمتابعة</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">لاستخدام هذه الميزة، غيّر \'العميل الافتراضي\' إلى \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">مسجّل حاليًا في \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">تسجيل الدخول إلى \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"رمز التفعيل: %s
 
 1. انقر على 'فتح الموقع' أدناه لفتح موقع 'ربط جهاز'
@@ -487,11 +511,11 @@
 4.انقر على 'السماح بالوصول إلى YouTube VR'
 5. ارجع إلى هذا التطبيق بعد الوصول إلى رسالة 'تم توصيل الجهاز'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">تعليمات</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"تسجيل الدخول إلى Android VR يمكنه إصلاح مشكلات التشغيل لبعض المستخدمين
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"تسجيل الدخول إلى 'Android VR' يمكنه إصلاح مشكلات التشغيل لبعض المستخدمين
 
-لتسجيل الدخول، اضغط على 'متابعة' بالأسفل"</string>
+لتسجيل الدخول، اضغط على متابعة بالأسفل"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">تسجيل خروج</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">تسجيل الدخول إلى Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">تسجيل الدخول إلى \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"تم حفظ بيانات المصادقة
 
 • لن يتم استيراد/تصدير بيانات مصادقة Android VR من إعدادات RVX الخاصة بك
@@ -499,6 +523,27 @@
 • ستحتاج إلى تسجيل الدخول مرة أخرى إذا قمت بتغيير كلمة مرور Google أو إلغاء تسجيل هذا الجهاز من إعدادات Google الخاصة بك"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">تم تسجيل الدخول بنجاح</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">فشل في إصدار رمز التفعيل</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">اختياري: سجل الدخول إلى موقع YouTube الإلكتروني لتشغيل الفيديوهات باستخدام حسابك. انقر هنا للمتابعة</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">لاستخدام هذه الميزة، غيّر \'العميل الافتراضي\' إلى \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">تم تسجيل الدخول حاليًا في \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">تسجيل الدخول إلى ويب الجوّال</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"يقوم 'Mobile Web' بتشغيل الفيديوهات عند تسجيل الخروج، أو عند تسجيل الدخول إلى موقع YouTube الإلكتروني
+
+• عند تسجيل الدخول، يمكن تشغيل الفيديوهات التي تتطلب حسابًا، مثل الفيديوهات المقيدة بفئة عمرية
+• تفتح صفحة تسجيل الدخول إلى Google في هذا التطبيق
+• يُستخدم تسجيل الدخول فقط للحصول على الفيديوهات التي تشغلها
+• يتم حفظ تسجيل الدخول على هذا الجهاز فقط
+
+لتسجيل الدخول، انقر على متابعة أدناه"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">تسجيل الدخول إلى \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"تم حفظ تسجيل الدخول
+
+• لن تقوم إعدادات RVX باستيراد/تصدير تسجيل الدخول إلى الويب على الجوّال
+• إذا أنهى Google تسجيل الدخول، فسيتم تشغيل الفيديوهات دون تسجيل الدخول حتى تقوم بتسجيل الدخول مرة أخرى
+• يؤدي تسجيل الخروج أيضًا إلى تسجيل خروج هذا الجهاز من موقع YouTube الإلكتروني"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">انتهت صلاحية تسجيل الدخول إلى الويب على الجوّال، حاول تسجيل الدخول إلى \'Mobile Web\' مرة أخرى</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">تم تسجيل الخروج من \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' غير متاح. يرجى تثبيته أو تمكينه لتسجيل الدخول</string>
     <string name="morphe_spoof_video_streams_summary">"يُصلح مشاكل التشغيل لدى معظم المستخدمين عبر طلب تدفق فيديو متوافق
 
 إذا كنت من مستخدمي YouTube Premium، فقد لا تحتاج إلى هذا الإعداد"</string>
@@ -826,7 +871,7 @@
     <string name="revanced_remember_shuffle_state_title">تذكر حالة الترتيب العشوائي</string>
     <string name="revanced_remember_video_quality_auto_mobile">تغيير جودة بيانات الجوال الافتراضية إلى تلقائي</string>
     <string name="revanced_remember_video_quality_auto_wifi">تغيير جودة "واي فاي" الافتراضية إلى تلقائي</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">يطبق تحديد الجودة اليدوي على جميع الفيديوهات المستقبلية</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">يطبق تحديد الجودة اليدوي على كل الفيديوهات المستقبلية</string>
     <string name="revanced_remember_video_quality_last_selected_title">تذكر جودة الفيديو</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">يعرض إشعارًا عند حفظ جودة افتراضية جديدة</string>
     <string name="revanced_remember_video_quality_mobile">تغيير جودة بيانات الجوال الافتراضية إلى %s</string>

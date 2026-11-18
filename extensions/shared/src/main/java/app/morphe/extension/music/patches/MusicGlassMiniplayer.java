@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -15,6 +19,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.media.session.PlaybackState;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -82,6 +87,7 @@ public final class MusicGlassMiniplayer {
      */
     private static final int BUTTONS_END_ROOM = Dim.dp8;
     private static final int MIN_ARTWORK_RADIUS = Dim.dp(6);
+    private static final float COLLAPSED_ALPHA = 0.85f;
     private static final long SPIN_MILLISECONDS = 10_000;
 
     /**
@@ -121,10 +127,39 @@ public final class MusicGlassMiniplayer {
     private static final Map<Drawable, Integer> fadedBackgrounds = new WeakHashMap<>();
     private static WeakReference<View> clippedTimeBar = new WeakReference<>(null);
     private static final Map<View, Boolean> movedArtworks = new WeakHashMap<>();
+    private static final Map<ViewGroup, boolean[]> artworkContainerClips = new WeakHashMap<>();
     private static WeakReference<View> currentPlayerPage = new WeakReference<>(null);
     private static final Rect playerClip = new Rect();
     private static final int[] location = new int[2];
     private static final int[] miniplayerLocation = new int[2];
+    private static final Map<View, Boolean> ignoredPlayerGestures = new WeakHashMap<>();
+    private static final Rect touchBounds = new Rect();
+
+    /**
+     * Injection point for both touch handlers of PlayerPageBehavior. Drawing clips do not limit
+     * BottomSheetBehavior's interception area. Decide on DOWN and keep the decision through UP or
+     * CANCEL, including when a playlist swipe crosses the card or the player starts moving.
+     * Expanded players and the separate queue sheet retain their native touch handling.
+     */
+    public static boolean ignorePlayerTouch(View playerPage, MotionEvent event) {
+        if (!ENABLED) return false;
+        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            View miniplayer = currentMiniplayer.get();
+            boolean ignore = false;
+            if (miniplayer != null && playerPage == getPlayerPage(miniplayer)
+                    && isCollapsed(miniplayer) && isAtBottom(miniplayer)) {
+                if (miniplayer.getGlobalVisibleRect(touchBounds)) {
+                    final int inset = getHorizontalInset(miniplayer);
+                    touchBounds.inset(inset, 0);
+                    ignore = !touchBounds.contains((int) event.getRawX(), (int) event.getRawY());
+                } else {
+                    ignore = true;
+                }
+            }
+            ignoredPlayerGestures.put(playerPage, ignore);
+        }
+        return Boolean.TRUE.equals(ignoredPlayerGestures.get(playerPage));
+    }
 
     private MusicGlassMiniplayer() {
     }
@@ -234,6 +269,7 @@ public final class MusicGlassMiniplayer {
     private static void apply(View miniplayer) {
         if (miniplayer == currentMiniplayer.get()) return;
         restore();
+        restoreArtwork();
         currentMiniplayer = new WeakReference<>(miniplayer);
 
         CardHost host = new CardHost(miniplayer);
@@ -279,6 +315,13 @@ public final class MusicGlassMiniplayer {
                     restore();
                 }
 
+                // Artwork follows the whole native expansion, independently of the card styling.
+                if (miniplayer.isShown() && miniplayer.getAlpha() > 0 && miniplayer.getHeight() > 0) {
+                    styleArtwork(miniplayer, playerPage);
+                } else {
+                    restoreArtwork();
+                }
+
                 fadePlayerBackground(miniplayer, playerPage);
 
                 // The blurred page is drawn again while the player moves.
@@ -317,7 +360,7 @@ public final class MusicGlassMiniplayer {
      *         reverting to its unscaled square layout and overflowing the top glass capsule.
      */
     private static boolean isCollapsed(View miniplayer) {
-        return miniplayer.isShown() && miniplayer.getAlpha() >= 0.85f && miniplayer.getHeight() > 0;
+        return miniplayer.isShown() && miniplayer.getAlpha() >= COLLAPSED_ALPHA && miniplayer.getHeight() > 0;
     }
 
     /**
@@ -396,17 +439,6 @@ public final class MusicGlassMiniplayer {
         final int horizontalInset = getHorizontalInset(miniplayer);
         final boolean rtl = isRtl(miniplayer);
 
-        View root = playerPage != null ? playerPage : miniplayer.getRootView();
-        for (int id : ARTWORKS) {
-            View artwork = id == 0 ? null : root.findViewById(id);
-            if (artwork != null && artwork.getWidth() > 0) {
-                fitArtwork(miniplayer, artwork, horizontalInset, rtl);
-                roundArtwork(artwork, getArtworkRadius(cardRadius, artworkPadding));
-            }
-        }
-
-        updateSpinning();
-
         // The buttons stay away from the rounded end of the card (right in LTR, left in RTL).
         final float shift = (rtl ? 1f : -1f) * (horizontalInset + BUTTONS_END_ROOM);
         for (int id : BUTTONS) {
@@ -420,6 +452,36 @@ public final class MusicGlassMiniplayer {
         if (timeBar != null) {
             clipTimeBar(miniplayer, timeBar, horizontalInset + cardRadius);
         }
+    }
+
+    /**
+     * Transforms the contents, leaving the native container's setX()/setY() animation untouched.
+     * Keep the adjustment until the miniplayer has completely faded, including reversed drags.
+     */
+    private static void styleArtwork(View miniplayer, @Nullable View playerPage) {
+        final float fraction = Math.max(0, Math.min(1, miniplayer.getAlpha()));
+        final float cardRadius = getCornerRadius(cornerRadius, miniplayer.getHeight());
+        final int horizontalInset = getHorizontalInset(miniplayer);
+        final boolean rtl = isRtl(miniplayer);
+        View root = playerPage != null ? playerPage : miniplayer.getRootView();
+        for (int id : ARTWORKS) {
+            View container = id == 0 ? null : root.findViewById(id);
+            if (container instanceof ViewGroup group && group.getChildCount() > 0) {
+                View artwork = group.getChildAt(0);
+                if (artwork.getWidth() <= 0 || artwork.getHeight() <= 0) continue;
+                if (!artworkContainerClips.containsKey(group)) {
+                    // The glass inset can move the contents beyond the native thumbnail bounds.
+                    artworkContainerClips.put(group, new boolean[]{
+                            group.getClipChildren(), group.getClipToPadding(), group.getClipToOutline()});
+                    group.setClipChildren(false);
+                    group.setClipToPadding(false);
+                    group.setClipToOutline(false);
+                }
+                fitArtwork(miniplayer, artwork, horizontalInset, rtl);
+                roundArtwork(artwork, getArtworkRadius(cardRadius, artworkPadding) * fraction);
+            }
+        }
+        updateSpinning();
     }
 
     /**
@@ -445,32 +507,47 @@ public final class MusicGlassMiniplayer {
     /**
      * The artwork is made as tall as the card without the padding, and is moved to the padding from the start
      * of the card (left in LTR, right in RTL). It is scaled around its middle, which it also spins around.
+     * The native miniplayer fade blends these adjustments back to the native bounds over the whole
+     * transition. The parent carries the native position, including its translation, so expansion
+     * grows toward the native artwork rather than toward a fixed point at the edge of the card.
+     * Both axes must follow the card: scaling around the growing container's center without a
+     * vertical correction lets the thumbnail drift below the card during an upward drag.
      */
     private static void fitArtwork(View miniplayer, View artwork, int horizontalInset, boolean rtl) {
         final int width = artwork.getWidth();
-        final float scale = Math.min(1, Math.max(Dim.dp(24), miniplayer.getHeight() - 2f * artworkPadding)
-                / artwork.getHeight());
+        final int height = artwork.getHeight();
+        final float collapsedScale = Math.min(1, Math.max(Dim.dp(24), miniplayer.getHeight() - 2f * artworkPadding)
+                / height);
+        final float collapsedFraction = Math.max(0, Math.min(1, miniplayer.getAlpha()));
+        final float scale = 1 + (collapsedScale - 1) * collapsedFraction;
 
         // Where the start of the artwork is without the move, the scale and the spin.
         if (!(artwork.getParent() instanceof View parent)) return;
         parent.getLocationInWindow(location);
         final float unscaledLeft = location[0] + artwork.getLeft();
+        final float unscaledTop = location[1] + artwork.getTop();
         miniplayer.getLocationInWindow(miniplayerLocation);
 
         final float targetScaledLeft = rtl
-                ? miniplayerLocation[0] + miniplayer.getWidth() - horizontalInset - artworkPadding - width * scale
+                ? miniplayerLocation[0] + miniplayer.getWidth() - horizontalInset - artworkPadding - width * collapsedScale
                 : miniplayerLocation[0] + horizontalInset + artworkPadding;
-        final float currentScaledLeftWithoutTranslation = unscaledLeft + width * (1 - scale) / 2f;
-        final float translation = targetScaledLeft - currentScaledLeftWithoutTranslation;
+        final float currentScaledLeftWithoutTranslation = unscaledLeft + width * (1 - collapsedScale) / 2f;
+        final float translation = (targetScaledLeft - currentScaledLeftWithoutTranslation) * collapsedFraction;
+        final float targetScaledTop = miniplayerLocation[1]
+                + (miniplayer.getHeight() - height * collapsedScale) / 2f;
+        final float currentScaledTopWithoutTranslation = unscaledTop + height * (1 - collapsedScale) / 2f;
+        final float translationY = (targetScaledTop - currentScaledTopWithoutTranslation) * collapsedFraction;
 
-        if (artwork.getScaleX() == scale && Math.abs(artwork.getTranslationX() - translation) < 0.5f) return;
+        if (artwork.getScaleX() == scale && Math.abs(artwork.getTranslationX() - translation) < 0.5f
+                && Math.abs(artwork.getTranslationY() - translationY) < 0.5f) return;
 
         movedArtworks.put(artwork, true);
         artwork.setPivotX(width / 2f);
-        artwork.setPivotY(artwork.getHeight() / 2f);
+        artwork.setPivotY(height / 2f);
         artwork.setScaleX(scale);
         artwork.setScaleY(scale);
         artwork.setTranslationX(translation);
+        artwork.setTranslationY(translationY);
     }
 
     private static void roundArtwork(View artwork, float radius) {
@@ -487,8 +564,10 @@ public final class MusicGlassMiniplayer {
 
     private static void updateSpinning() {
         View miniplayer = currentMiniplayer.get();
-        View artwork = miniplayer == null || ARTWORKS[0] == 0 ? null : miniplayer.getRootView().findViewById(ARTWORKS[0]);
-        if (artwork == null) return;
+        View container = miniplayer == null || ARTWORKS[0] == 0 ? null
+                : miniplayer.getRootView().findViewById(ARTWORKS[0]);
+        if (!(container instanceof ViewGroup group) || group.getChildCount() == 0) return;
+        View artwork = group.getChildAt(0);
 
         ObjectAnimator animator = spinAnimators.get(artwork);
         if (styled && spinningArtwork && playing) {
@@ -537,12 +616,27 @@ public final class MusicGlassMiniplayer {
     }
 
     /**
-     * Puts back the artwork, the buttons and the progress bar, such as when the player opens.
+     * Puts back the buttons and the progress bar, such as when the player opens.
+     * Artwork is restored separately after the native miniplayer fade finishes.
      */
     private static void restore() {
         if (!styled) return;
         styled = false;
 
+        View miniplayer = currentMiniplayer.get();
+        if (miniplayer != null) {
+            for (int id : BUTTONS) {
+                View button = id == 0 ? null : miniplayer.findViewById(id);
+                if (button != null) button.setTranslationX(0);
+            }
+        }
+
+        View timeBar = clippedTimeBar.get();
+        if (timeBar != null) timeBar.setClipBounds(null);
+    }
+
+    /** Restores content transforms and native container clipping after the miniplayer fades out. */
+    private static void restoreArtwork() {
         for (Map.Entry<View, ViewOutlineProvider> entry : artworkOutlines.entrySet()) {
             View artwork = entry.getKey();
             artwork.setOutlineProvider(entry.getValue());
@@ -555,21 +649,20 @@ public final class MusicGlassMiniplayer {
             artwork.setScaleX(1);
             artwork.setScaleY(1);
             artwork.setTranslationX(0);
+            artwork.setTranslationY(0);
         }
         movedArtworks.clear();
 
         updateSpinning();
 
-        View miniplayer = currentMiniplayer.get();
-        if (miniplayer != null) {
-            for (int id : BUTTONS) {
-                View button = id == 0 ? null : miniplayer.findViewById(id);
-                if (button != null) button.setTranslationX(0);
-            }
+        for (Map.Entry<ViewGroup, boolean[]> entry : artworkContainerClips.entrySet()) {
+            ViewGroup group = entry.getKey();
+            boolean[] clips = entry.getValue();
+            group.setClipChildren(clips[0]);
+            group.setClipToPadding(clips[1]);
+            group.setClipToOutline(clips[2]);
         }
-
-        View timeBar = clippedTimeBar.get();
-        if (timeBar != null) timeBar.setClipBounds(null);
+        artworkContainerClips.clear();
     }
 
     private static void hideScrim(View miniplayer) {

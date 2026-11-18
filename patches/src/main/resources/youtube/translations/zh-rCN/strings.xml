@@ -90,15 +90,69 @@
     <string name="morphe_dearrow_about_summary">"DeArrow 会用更准确、更不耸人听闻的众包标题和缩略图来替换点击诱饵标题和缩略图。标题由社区撰写并投票决定，缩略图则是从视频中截取的帧
 
 视频通过视频 ID 哈希值的一小段前缀来请求，因此服务器无法确切知道您正在观看的是哪个视频。如果某个视频没有 DeArrow 缩略图，则会显示原始缩略图或静态帧"</string>
+    <string name="morphe_dearrow_account_connection_failure">账户详情暂时不可用</string>
+    <string name="morphe_dearrow_account_thumbnails">您已提交 &lt;b&gt;%s&lt;/b&gt; 个缩略图</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">点击这里查看您的缩略图</string>
+    <string name="morphe_dearrow_account_titles">您已提交 &lt;b&gt;%s&lt;/b&gt; 个标题</string>
+    <string name="morphe_dearrow_account_titles_summary">点击这里查看您的标题</string>
+    <string name="morphe_dearrow_account_username_change">点击此处更改您的用户名。该用户名与 SponsorBlock 上的用户名相同</string>
+    <string name="morphe_dearrow_account_username_change_error">无法更改用户名：状态：%1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">在单个类别中，例如有趣或创意，显示原标题所需的休闲票数</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">显示原标题所需的最低休闲票数</string>
     <string name="morphe_dearrow_casual_mode_summary">如果DeArrow用户投票赞成原标题，则显示原标题而不是DeArrow标题</string>
     <string name="morphe_dearrow_casual_mode_title">休闲模式</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">清理没有 DeArrow 标题的视频标题。大写单词将更改为正常大小写，并删除表情符号、花体文本和重复的感叹号</string>
+    <string name="morphe_dearrow_clean_up_titles_title">清理标题</string>
     <string name="morphe_dearrow_error">DeArrow 暂时不可用（状态码：%s）</string>
     <string name="morphe_dearrow_error_generic">DeArrow 暂时不可用</string>
-    <string name="morphe_dearrow_titles_icon_summary">在众包视频标题上显示 DeArrow 图标。点击该图标可显示原始标题和缩略图</string>
+    <string name="morphe_dearrow_guidelines_summary">准则包含提交和投票标题及缩略图的规则和技巧</string>
+    <string name="morphe_dearrow_guidelines_title">准则</string>
+    <string name="morphe_dearrow_private_user_id_invalid">私人用户 ID 必须至少 30 个字符长</string>
+    <string name="morphe_dearrow_private_user_id_summary">与 SponsorBlock 相同的用户 ID。此 ID 应保持私密。它就像密码一样，不应与任何人共享。如果有人获得此 ID，他们就可以冒充您</string>
+    <string name="morphe_dearrow_private_user_id_title">您的私人用户 ID</string>
+    <string name="morphe_dearrow_submitting_title">正在提交标题和缩略图</string>
+    <string name="morphe_dearrow_titles_icon_summary">在具有众包标题或缩略图的视频标题上显示 DeArrow 图标。点击该图标可显示原始标题和缩略图</string>
     <string name="morphe_dearrow_titles_icon_title">显示DeArrow图标</string>
     <string name="morphe_dearrow_titles_title">DeArrow 标题</string>
+    <string name="morphe_dearrow_vote_button_summary">在视频播放器顶部添加一个按钮，用于对 DeArrow 标题和缩略图进行投票，或提交新的内容</string>
+    <string name="morphe_dearrow_vote_button_title">显示 DeArrow 按钮</string>
+    <string name="morphe_dearrow_vote_current_frame_content">将 %s 处的帧提交为缩略图？</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">视频正在播放。要提交当前看到的帧，请先暂停视频</string>
+    <string name="morphe_dearrow_vote_downvoted">反对票已提交至 DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">无法提交投票 (状态码: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">无法提交投票。请检查您的网络连接并重试</string>
+    <string name="morphe_dearrow_vote_failed_locked">此项已锁定，仅限 VIP 用户投反对票</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">该视频的投票仍在进行中。请稍后再试</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow 未接受该投票：%s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">无法加载此视频的标题和缩略图</string>
+    <string name="morphe_dearrow_vote_frame_step">%s 秒</string>
+    <string name="morphe_dearrow_vote_loading">正在加载…</string>
+    <string name="morphe_dearrow_vote_locked">已锁定</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">新缩略图</string>
+    <string name="morphe_dearrow_vote_new_title">新标题</string>
+    <string name="morphe_dearrow_vote_new_title_hint">输入标题</string>
+    <string name="morphe_dearrow_vote_no_titles">暂无标题。提交一个标题成为第一个</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">原始缩略图</string>
+    <string name="morphe_dearrow_vote_original_title">原始标题</string>
+    <string name="morphe_dearrow_vote_score">分数：%s</string>
+    <string name="morphe_dearrow_vote_submit">提交</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">帧位于 %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">缩略图</string>
+    <string name="morphe_dearrow_vote_time_step_summary">提交缩略图时，精细时间调整按钮的跳转量 (以毫秒为单位)</string>
+    <string name="morphe_dearrow_vote_time_step_title">时间调整步长</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">标题</string>
+    <string name="morphe_dearrow_vote_unverified">未验证</string>
+    <string name="morphe_dearrow_vote_upvoted">投票已提交至 DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">将接收到的推送通知保存到应用数据文件中。该文件可能包含私密信息，例如通知文本和频道名称</string>
+    <string name="morphe_debug_save_push_notifications_title">保存推送通知</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">已清除保存的推送通知</string>
+    <string name="morphe_debug_saved_push_notifications_count">已保存的推送通知：%s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">导出推送通知失败</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">推送通知导出成功</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">未找到已保存的推送通知</string>
+    <string name="morphe_debug_saved_push_notifications_summary">导出或清除已保存的推送通知</string>
+    <string name="morphe_debug_saved_push_notifications_title">导出已保存的推送通知</string>
     <string name="morphe_disable_auto_feed_refresh_summary">防止信息流在过期后自动刷新</string>
     <string name="morphe_disable_auto_feed_refresh_title">关闭信息流自动刷新</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">保持导航栏在滚动时可见</string>
@@ -114,13 +168,21 @@
     <string name="morphe_disable_scrolling_speed_limit_title">禁用滚动速度限制</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 将“订阅”移至主页顶部的标签页，则在导航栏中显示“订阅”</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">禁用工具栏导航标签</string>
+    <string name="morphe_download_force_4k_summary">即使 YouTube 认为此设备无法播放，仍提供 1440p 和 4K 下载</string>
+    <string name="morphe_download_force_4k_title">强制 4K 下载可用性</string>
     <string name="morphe_dual_captions_enabled_title">双语字幕</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">视频旁灯光的模糊程度。设置为 0 时将保留视频形状</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">灯光模糊</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">滚动停止后灯光保持调暗状态的时间。设置为 0 时，仅在滚动时调暗灯光，滚动停止后立即恢复</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">调暗时长</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">在滚动或触摸页面时调暗灯光</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">滚动时调暗</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">调暗亮色视频的光照，使页面上的文本保持可读</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">保持文本可读</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">灯光跟随视频的时间。设置为 0 时将紧随视频</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">灯光平滑</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">设置表盘页面和黑色边栏的光线强度</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">光线强度</string>
     <string name="morphe_enhanced_ambient_mode_summary">用视频颜色照亮整个观看页面和黑边，以替代氛围模式</string>
     <string name="morphe_enhanced_ambient_mode_title">增强型氛围模式</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
@@ -131,6 +193,8 @@
     <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
     <string name="morphe_explore_menu_screen_title">探索菜单</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">为没有下载项的 feed 视频菜单添加下载项</string>
+    <string name="morphe_feed_download_flyout_button_title">强制显示弹出下载菜单项</string>
     <string name="morphe_feed_long_press_menu_summary">在信息流视频中任意位置长按可打开其菜单</string>
     <string name="morphe_feed_long_press_menu_title">长按打开视频菜单</string>
     <string name="morphe_feed_watch_later_button_summary">在 Feed 视频的缩略图上显示“稍后观看”按钮，如果视频已保存则显示勾选标记。点击可保存或移除视频，长按可打开“保存到播放列表”</string>
@@ -202,7 +266,7 @@
     <string name="morphe_hide_post_dislike_button_summary">在强制布局下，按钮的空间将被留空</string>
     <string name="morphe_hide_post_dislike_button_title">隐藏点踩按钮</string>
     <string name="morphe_hide_post_like_dislike_buttons_title">隐藏「顶」和「踩」按钮</string>
-    <string name="morphe_hide_post_share_button_summary">帖图的下载按钮绘制在分享按钮旁边，因此它也会被隐藏</string>
+    <string name="morphe_hide_post_share_button_summary">帖子图片的下载按钮绘制在分享按钮旁边，因此它也会被隐藏</string>
     <string name="morphe_hide_post_share_button_title">隐藏分享按钮</string>
     <string name="morphe_hide_privacy_tos_footer_title">隐藏法律和隐私页脚</string>
     <string name="morphe_hide_shopping_menu_title">隐藏购物菜单</string>
@@ -251,10 +315,16 @@
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
     <string name="morphe_livestream_dvr_summary">允许在所有直播中寻求，即使那些通常限制它的直播</string>
     <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
+    <string name="morphe_miniplayer_glass_summary">将迷你播放器显示为带有圆角的半透明玻璃效果，类似于玻璃导航栏。需要开启玻璃导航栏</string>
+    <string name="morphe_miniplayer_glass_title">玻璃迷你播放器</string>
     <string name="morphe_music_package_name_summary">您已安装的音乐应用的包名</string>
     <string name="morphe_music_package_name_title">音乐应用包名</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">在玻璃导航栏周围绘制光边</string>
+    <string name="morphe_navigation_bar_glass_edge_title">玻璃导航栏边缘</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">调整玻璃导航栏的透明度级别（0 为透明，100 为不透明）</string>
     <string name="morphe_navigation_bar_glass_opacity_title">玻璃不透明度</string>
+    <string name="morphe_navigation_bar_glass_round_summary">使玻璃导航栏的两端呈圆弧形，而非像玻璃迷你播放器那样呈圆角</string>
+    <string name="morphe_navigation_bar_glass_round_title">圆角玻璃导航栏</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">按钮间距</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">显示按钮：%1$s / %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">高度</string>
@@ -270,10 +340,11 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用 (状态 %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR登录已过期，请重新登录VR</string>
+    <string name="morphe_oauth2_connection_failure_status_400">“Android VR”登录已过期，请尝试重新登录 VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
-    <string name="morphe_oauth2_toast_reset">已从 Android VR 登出</string>
+    <string name="morphe_oauth2_toast_reset">已从“Android VR”登出</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">防止点击频道头像时打开直播</string>
     <string name="morphe_open_channel_of_live_avatar_title">从直播头像打开频道</string>
     <string name="morphe_open_videos_fullscreen_title">以全屏模式打开视频</string>
@@ -323,7 +394,7 @@
     <string name="morphe_remember_livestream_position_summary">对于正在进行的直播，会记住并恢复您的播放位置，而不是跳转到当前的直播位置。</string>
     <string name="morphe_remember_livestream_position_title">记住直播播放位置</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">此功能不适用于 24/7 全天候直播以及其他“始终开启”的直播流。</string>
-    <string name="morphe_replace_links_with_shortener_summary">强制视频使用缩短的 youtu.be URL 格式</string>
+    <string name="morphe_replace_links_with_shortener_summary">强制视频使用简短的“youtu.be”URL 格式</string>
     <string name="morphe_replace_links_with_shortener_title">将分享链接更改为 youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
@@ -362,6 +433,7 @@
     <string name="morphe_settings_name_title">RVX 设置名称</string>
     <string name="morphe_settings_new_indicator_days_summary">在更新添加的设置和选项旁边显示圆点的天数</string>
     <string name="morphe_settings_new_indicator_days_title">高亮显示新设置</string>
+    <string name="morphe_shorts_download_flyout_title">下载</string>
     <string name="morphe_skip_silence_minimum_pause_summary">只有至少达到此长度的暂停才会被缩短。在下一个视频开始时生效</string>
     <string name="morphe_skip_silence_minimum_pause_title">最短暂停时长</string>
     <string name="morphe_skip_silence_summary">自动跳过视频音频中的静音停顿</string>
@@ -382,24 +454,19 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"视频编解码器为 AVC (H.264)、VP9 或 AV1
 
 播放可能会卡顿或掉帧"</string>
-    <string name="morphe_spoof_video_streams_av1_title">允许“Android VR”/ visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">允许“Android VR”/“visionOS”AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
 
 使用 AV1 播放视频可能会卡顿或丢帧"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 连续多次无法使用，但 %2$s 可以。
-
-要将 %2$s 设为默认客户端吗？"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切换</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">默认客户端无法使用</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器JavaScript变种</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
     <string name="morphe_spoof_video_streams_screen_title">欺骗视频流</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR 需要单独登录。点击此处继续</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将“默认客户端”更改为Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">当前已登录 Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' 需要单独登录。点击此处继续</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">要使用此功能，请将“默认客户端”更改为 \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">当前已登录 \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR 登录</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"激活码：%s
 
 1. 点击'打开网站'访问'连接设备'页面
@@ -408,11 +475,11 @@
 4. 允许 YouTube VR 访问权限
 5. 等待显示'设备已连接'后返回应用"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">说明</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登录Android VR可以解决一些用户的播放问题
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登录“Android VR”可以解决部分用户的播放问题
 
-要登录，请按下面的“继续”按钮"</string>
+要登录，请点击下方继续"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登录 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登录“Android VR”</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"身份验证保存成功
 
 • 您的 RVX 设置将无法导出/导入 Android VR 认证
@@ -420,6 +487,27 @@
 • 更改 Google 密码或在 Google 设置中注销本设备后，需重新登录"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登录成功</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">可选：登录 YouTube 网站以使用您的账号播放视频。点击此处继续</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">要使用此功能，请将“默认客户端”更改为“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">当前已登录“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">移动版网页登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"移动版网页\"在退出登录或登录 YouTube 网站时播放视频
+
+• 登录后可播放需要账号的视频，例如年龄限制视频
+• Google 登录页面将在本应用中打开
+• 登录仅用于获取您播放的视频
+• 登录信息仅保存在此设备上
+
+要登录，请点击下方继续"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">登录“Mobile Web”</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"登录信息已保存
+
+• 您的 RVX 设置将不会导入/导出\"移动版网页\"的登录信息
+• 如果 Google 终止登录，在您重新登录之前，视频将以退出登录状态播放
+• 退出登录同时也会使此设备退出 YouTube 网站的登录状态"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">移动版网页登录已过期，请尝试重新登录\"移动版网页\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">已退出\"移动版网页\"登录</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">无法使用“Android System WebView”。请安装或启用它以进行登录</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">在“高级统计信息”中显示伪造信息</string>
@@ -440,6 +528,8 @@
     <string name="morphe_tablet_layout_in_player_title">在播放器中启用平板电脑布局</string>
     <string name="morphe_theme_color_change_foreground_summary">使用主题颜色用于文本和图标</string>
     <string name="morphe_theme_color_change_foreground_title">更改前景颜色</string>
+    <string name="morphe_ungroup_notifications_summary">将频道的分组上传视频中的每个视频都显示为单独的通知</string>
+    <string name="morphe_ungroup_notifications_title">取消通知分组</string>
     <string name="morphe_video_action_bar_layout_entry_2">经典单行</string>
     <string name="morphe_video_action_bar_layout_entry_4">经典双行</string>
     <string name="morphe_video_action_bar_layout_title">视频操作栏布局</string>
@@ -740,17 +830,17 @@
     <string name="revanced_disable_layout_updates_summary_off">服务器会更新布局</string>
     <string name="revanced_disable_layout_updates_summary_on">服务器不会更新布局</string>
     <string name="revanced_disable_layout_updates_title">禁用布局更新</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局恢复为首次安装时使用的布局。
+    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局将还原为首次安装时使用的布局。
 
-某些服务器端布局可能不会恢复。
+某些服务器端布局可能无法还原。
 
 更改包括：
-• 播放器弹出菜单（或相关设置）中的组件可能无法正常工作
-• 滚动数字不显示动画
-• 显示库标签页
-• 视频描述的音乐部分可能无法正常工作
+• 全屏视频推荐可能会失效
+• 播放器弹出菜单中的组件（或相关设置）可能无法工作
+• 视频描述中的音乐部分可能无法工作
 • 播放器弹出菜单项无法隐藏
-• 账户切换按钮可能不会出现在库标签页上"</string>
+• 滚动数字不再有动画效果
+• 库选项卡上可能不会出现账户切换按钮"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">点赞和点踩按钮点击时有动效</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">点赞和点踩按钮点击时无动效</string>
     <string name="revanced_disable_like_dislike_glow_title">禁用点赞和点踩按钮动效</string>
@@ -2243,29 +2333,29 @@ AI生成的回复可能包含不准确的信息。
 准备好提交了吗？"</string>
     <string name="revanced_sb_new_segment_confirm_contents">该片段从\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n准备好提交了吗？</string>
     <string name="revanced_sb_new_segment_confirm_title">时间是否正确？</string>
-    <string name="revanced_sb_new_segment_disabled_category">类别在设置中已禁用。启用类别以提交</string>
+    <string name="revanced_sb_new_segment_disabled_category">此类别在设置中被禁用。启用此类别以继续提交</string>
     <string name="revanced_sb_new_segment_edit">编辑片段</string>
-    <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段开始或结束的时间吗？</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段起始或结束点吗？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">给定的时间无效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑片段时间</string>
     <string name="revanced_sb_new_segment_forward">前进指定时间（默认：150ms）</string>
-    <string name="revanced_sb_new_segment_highlight_content">"高亮显示的时间是否正确？
+    <string name="revanced_sb_new_segment_highlight_content">"重点所在的时间是否正确？
 
 %s
 
-如果您没有提交高亮显示，请点击“取消”并标记第二个位置。"</string>
-    <string name="revanced_sb_new_segment_highlight_submit">提交高亮显示</string>
+如果您不是要提交重点，请点击“取消”，并标记第二个时间点。"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">提交重点</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">将 %s 设为新片段的开头或结尾？</string>
     <string name="revanced_sb_new_segment_mark_end">结束</string>
-    <string name="revanced_sb_new_segment_mark_locations_first">首先在时间线上标记一个位置</string>
+    <string name="revanced_sb_new_segment_mark_locations_first">首先在进度条上标记一个时间点</string>
     <string name="revanced_sb_new_segment_mark_start">开始</string>
     <string name="revanced_sb_new_segment_now">现在</string>
-    <string name="revanced_sb_new_segment_preview_segment_first">预览片段，并确保它可以顺利跳过</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">请先预览片段，以确保片段跳过时过渡自然</string>
     <string name="revanced_sb_new_segment_publish">发布已创建的片段</string>
     <string name="revanced_sb_new_segment_rewind">后退指定时间（默认：150ms）</string>
-    <string name="revanced_sb_new_segment_start_is_before_end">起始位置须在结束位置前</string>
-    <string name="revanced_sb_new_segment_time_end">片段结束时间</string>
-    <string name="revanced_sb_new_segment_time_start">片段开始时间</string>
+    <string name="revanced_sb_new_segment_start_is_before_end">起始点必须在结束点前</string>
+    <string name="revanced_sb_new_segment_time_end">片段结束于</string>
+    <string name="revanced_sb_new_segment_time_start">片段起始于</string>
     <string name="revanced_sb_new_segment_title">新的 SponsorBlock 片段</string>
     <string name="revanced_sb_segments_filler">离题 / 笑话</string>
     <string name="revanced_sb_segments_filler_sum">视频中非必需的切题场景或笑话，不包括提供上下文或背景细节的部分</string>
@@ -2279,7 +2369,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_segments_intro_sum">没有实际内容的间隔。可以是暂停、静态帧或重复动画。不包括包含信息的过渡</string>
     <string name="revanced_sb_segments_nomusic">音乐：非音乐部分</string>
     <string name="revanced_sb_segments_nomusic_sum">仅供音乐视频使用。音乐视频中没有音乐的部分，这些部分未被其他类别涵盖</string>
-    <string name="revanced_sb_segments_outro">结束画面/贡献表</string>
+    <string name="revanced_sb_segments_outro">片尾/贡献表</string>
     <string name="revanced_sb_segments_outro_sum">片尾字幕或 YouTube 结尾卡出现时。不适用于包含信息的结论</string>
     <string name="revanced_sb_segments_preview">预览 / 回顾</string>
     <string name="revanced_sb_segments_preview_sum">一系列剪辑，展示视频或系列中其他视频即将发生的事情或已发生的事情，所有信息在其他地方都有重复</string>
@@ -2302,7 +2392,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_skip_automatically_once">自动跳过一次</string>
     <string name="revanced_sb_skip_button_compact">跳过</string>
     <string name="revanced_sb_skip_button_filler">跳过切题内容</string>
-    <string name="revanced_sb_skip_button_highlight">跳过重点</string>
+    <string name="revanced_sb_skip_button_highlight">跳转到重点</string>
     <string name="revanced_sb_skip_button_hook">跳过开头</string>
     <string name="revanced_sb_skip_button_interaction">跳过互动</string>
     <string name="revanced_sb_skip_button_intro_beginning">跳过开头</string>
@@ -2338,7 +2428,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_square_layout_sum_off">按钮和控件已使用圆角样式</string>
     <string name="revanced_sb_square_layout_sum_on">按钮和控件已使用方形样式</string>
     <string name="revanced_sb_stats">统计信息</string>
-    <string name="revanced_sb_stats_connection_failure">统计信息暂时不可用（API 已关闭）</string>
+    <string name="revanced_sb_stats_connection_failure">统计信息暂时不可用（API 不可用）</string>
     <string name="revanced_sb_stats_reputation">您的信誉为 &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">您已帮助人们跳过 &lt;b&gt;%s&lt;/b&gt; 个片段</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s 小时 %2$s 分钟</string>
@@ -2354,14 +2444,14 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_stats_submissions">您已创建 &lt;b&gt;%s&lt;/b&gt; 个片段</string>
     <string name="revanced_sb_stats_submissions_sum">点击这里查看您的片段</string>
     <string name="revanced_sb_stats_username">您的用户名: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">点击这里更改您的用户名</string>
+    <string name="revanced_sb_stats_username_change">点击这里修改您的用户名</string>
     <string name="revanced_sb_stats_username_change_unknown_error">无法更改用户名：状态：%1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">用户名称修改成功</string>
     <string name="revanced_sb_submit_failed_duplicate">"无法提交片段。
-已存在"</string>
+片段已存在"</string>
     <string name="revanced_sb_submit_failed_forbidden">无法提交片段: %s</string>
     <string name="revanced_sb_submit_failed_invalid">无法提交片段: %s</string>
-    <string name="revanced_sb_submit_failed_rate_limit">无法提交片段。速率限制（来自同一用户或 IP 的太多）</string>
+    <string name="revanced_sb_submit_failed_rate_limit">无法提交片段。请求过于频繁（来自同一用户或 IP 的太多）</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暂时无法使用</string>
     <string name="revanced_sb_submit_failed_unknown_error">无法提交片段 (状态: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">成功提交新片段</string>
@@ -2373,7 +2463,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_vote_category">变更类别</string>
     <string name="revanced_sb_vote_downvote">反对票</string>
     <string name="revanced_sb_vote_failed_forbidden">无法为片段投票: %s</string>
-    <string name="revanced_sb_vote_failed_timeout">无法为片段投票 (API 超时)</string>
+    <string name="revanced_sb_vote_failed_timeout">无法为片段投票 (API 超时未响应)</string>
     <string name="revanced_sb_vote_failed_unknown_error">无法为片段投票 (状态: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">没有要投票的片段</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s 到 %2$s</string>

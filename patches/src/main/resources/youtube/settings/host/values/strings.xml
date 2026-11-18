@@ -101,17 +101,70 @@ Reports are public and are reviewed before a channel is added to a list. Removal
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
 
 Tap here to open DeArrow.ajay.app"</string>
+    <string name="morphe_dearrow_account_connection_failure">Account details are temporarily not available</string>
+    <string name="morphe_dearrow_account_thumbnails">You\'ve submitted &lt;b&gt;%s&lt;/b&gt; thumbnails</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Tap here to view your thumbnails</string>
+    <string name="morphe_dearrow_account_titles">You\'ve submitted &lt;b&gt;%s&lt;/b&gt; titles</string>
+    <string name="morphe_dearrow_account_titles_summary">Tap here to view your titles</string>
+    <string name="morphe_dearrow_account_username_change">Tap here to change your username. The username is the same as on SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">Unable to change username: Status: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">The number of casual votes in a single category, such as funny or creative, needed to show the original title</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Minimum casual votes to show original title</string>
     <string name="morphe_dearrow_casual_mode_summary">Shows the original title instead of the DeArrow title if DeArrow users voted they like the original title</string>
     <string name="morphe_dearrow_casual_mode_title">Casual mode</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">Cleans up the titles of videos without a DeArrow title. Words in capitals are changed to normal case, and emojis, fancy text and repeated exclamation marks are removed</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Clean up titles</string>
     <string name="morphe_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow is temporarily not available</string>
-    <string name="morphe_dearrow_screen_title" translatable="false">DeArrow</string>
+    <string name="morphe_dearrow_guidelines_summary">Guidelines contain rules and tips for submitting and voting on titles and thumbnails</string>
+    <string name="morphe_dearrow_guidelines_title">Guidelines</string>
+    <string name="morphe_dearrow_private_user_id_invalid">Private user ID must be at least 30 characters long</string>
+    <string name="morphe_dearrow_private_user_id_summary">The same user ID as SponsorBlock. This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+    <string name="morphe_dearrow_private_user_id_title">Your private user ID</string>
+    <string name="morphe_dearrow_submitting_title">Submitting titles and thumbnails</string>
     <string name="morphe_dearrow_titles_icon_summary">Shows the DeArrow icon on crowdsourced video titles</string>
     <string name="morphe_dearrow_titles_icon_title">Show DeArrow icon</string>
     <string name="morphe_dearrow_titles_summary">Replaces video titles with the crowdsourced titles submitted to DeArrow</string>
     <string name="morphe_dearrow_titles_title">DeArrow titles</string>
+    <string name="morphe_dearrow_vote_button_summary">Adds a button to the top of the video player to vote on DeArrow titles and thumbnails, or submit new ones</string>
+    <string name="morphe_dearrow_vote_button_title">Show DeArrow button</string>
+    <string name="morphe_dearrow_vote_current_frame_content">Submit the frame at %s as a thumbnail?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">The video is playing. To submit the frame you see, pause the video first</string>
+    <string name="morphe_dearrow_vote_downvoted">Downvote submitted to DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">Could not submit the vote (status code: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">Could not submit the vote. Check your connection and try again</string>
+    <string name="morphe_dearrow_vote_failed_locked">This is locked, and can only be downvoted by VIP users</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">A vote for this video is still in progress. Try again in a moment</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow did not accept the vote: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Could not load the titles and thumbnails of this video</string>
+    <string name="morphe_dearrow_vote_frame_step">%s s</string>
+    <string name="morphe_dearrow_vote_loading">Loading…</string>
+    <string name="morphe_dearrow_vote_locked">Locked</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">New thumbnail</string>
+    <string name="morphe_dearrow_vote_new_title">New title</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Type a title</string>
+    <string name="morphe_dearrow_vote_no_titles">No titles yet. Submit a title to be the first</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Original thumbnail</string>
+    <string name="morphe_dearrow_vote_original_title">Original title</string>
+    <string name="morphe_dearrow_vote_score">Score: %s</string>
+    <string name="morphe_dearrow_vote_submit">Submit</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">Frame at %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">Thumbnails</string>
+    <string name="morphe_dearrow_vote_time_step_summary">Seek amount of the fine time adjustment buttons when submitting a thumbnail (in milliseconds)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Time adjustment step</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Titles</string>
+    <string name="morphe_dearrow_vote_unverified">Unverified</string>
+    <string name="morphe_dearrow_vote_upvoted">Vote submitted to DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">Saves received push notifications to a file in the app data. The file can include private information, such as notification texts and channel names</string>
+    <string name="morphe_debug_save_push_notifications_title">Save push notifications</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Saved push notifications cleared</string>
+    <string name="morphe_debug_saved_push_notifications_count">Saved push notifications: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Failed to export push notifications</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Push notifications exported successfully</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">No saved push notifications found</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Export or clear the saved push notifications</string>
+    <string name="morphe_debug_saved_push_notifications_title">Export saved push notifications</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Prevents feeds from refreshing automatically after they become outdated</string>
     <string name="morphe_disable_auto_feed_refresh_title">Disable auto feed refresh</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
@@ -129,13 +182,21 @@ Tap here to open DeArrow.ajay.app"</string>
     <string name="morphe_disable_system_splash_title">Disable system splash</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Shows Subscriptions in the navigation bar, if YouTube moves it to a tab at the top of Home</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Disable toolbar navigation tabs</string>
+    <string name="morphe_download_force_4k_summary">Offers 1440p and 4K downloads even if YouTube decides this device cannot play them. Such videos may play without video inside YouTube, but can be exported to your device</string>
+    <string name="morphe_download_force_4k_title">Force 4K download availability</string>
     <string name="morphe_dual_captions_enabled_title">Bilingual captions</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">How much the light next to the video is blurred. With 0 it keeps the shapes of the video</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">Light blur</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">How long the light stays dim after scrolling stops. With 0 only scrolling dims the light, and it comes back as soon as scrolling stops</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dim duration</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dims the light while the page is scrolled or touched</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Dim while scrolling</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dims the light on bright videos so the text on the page stays readable</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Keep text readable</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">How long the light takes to follow the video. With 0 it follows the video closely</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">Light smoothing</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">How strong the light is on the watch page and the black bars</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">Light strength</string>
     <string name="morphe_enhanced_ambient_mode_summary">Lights the whole watch page and black bars with the video, in place of Ambient mode</string>
     <string name="morphe_enhanced_ambient_mode_title">Enhanced Ambient mode</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
@@ -146,6 +207,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_explore_menu_screen_summary">Choose which components appear in the explore menu</string>
     <string name="morphe_explore_menu_screen_title">Explore menu</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">Adds a download item to the menus of videos in the feed that have none, such as videos that YouTube only lets Premium members download</string>
+    <string name="morphe_feed_download_flyout_button_title">Show download in video menus</string>
     <string name="morphe_feed_long_press_menu_summary">Tapping and holding anywhere on a feed video opens its menu</string>
     <string name="morphe_feed_long_press_menu_title">Tap and hold to open video menu</string>
     <string name="morphe_feed_watch_later_button_summary">A Watch later button is shown on the thumbnails of feed videos. Tapping and holding it opens Save to playlist</string>
@@ -269,12 +332,20 @@ To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client e
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
     <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
+    <string name="morphe_miniplayer_glass_bottom_spacing_summary">Sets the gap below the glass miniplayer</string>
+    <string name="morphe_miniplayer_glass_bottom_spacing_title">Glass miniplayer bottom spacing</string>
+    <string name="morphe_miniplayer_glass_summary">Shows the miniplayer as translucent glass with rounded corners, like the glass navigation bar. Requires the glass navigation bar</string>
+    <string name="morphe_miniplayer_glass_title">Glass miniplayer</string>
     <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
     <string name="morphe_music_package_name_title">Music app package name</string>
     <string name="morphe_native_downloads_summary">Save videos and playlists using YouTube downloads. Disable to use the configured downloader</string>
     <string name="morphe_native_downloads_title">Native downloads</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Draws the light edge around the glass navigation bar</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Glass navigation bar edge</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Adjust the transparency level of the glass navigation bar (0 is transparent, 100 is opaque)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Glass opacity</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Gives the glass navigation bar round ends, instead of corners like the glass miniplayer</string>
+    <string name="morphe_navigation_bar_glass_round_title">Round glass navigation bar</string>
     <string name="morphe_navigation_bar_glass_size_bottom_spacing">Bottom spacing</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Button spacing</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Buttons shown: %1$d of %2$d</string>
@@ -297,6 +368,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
+    <string name="morphe_offline_video_quality_2160p">4K (2160p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Prevents the live stream from opening when tapping the channel\'s avatar</string>
     <string name="morphe_open_channel_of_live_avatar_title">Open channel from live avatar</string>
     <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
@@ -396,6 +469,7 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
     <string name="morphe_settings_new_indicator_days_summary">Maximum number of days new settings and options are highlighted. Dots fade after viewing</string>
     <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
+    <string name="morphe_shorts_download_flyout_title">Download</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
     <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
@@ -449,6 +523,27 @@ To sign in, press continue below"</string>
 • You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Failed to issue an activation code</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Optional: sign in to the YouTube website to play videos with your account. Tap here to continue</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">To use this feature, change \'Default client\' to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Currently signed into Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobile Web sign in</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"Mobile Web plays videos signed out, or signed in to the YouTube website
+
+• Signed in, videos that need an account can be played, such as age-restricted videos
+• The Google sign-in page opens in this app
+• The sign-in is used only to get the videos you play
+• The sign-in is saved only on this device
+
+To sign in, press continue below"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Sign in to Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Sign-in saved
+
+• Your RVX settings will not import/export the Mobile Web sign-in
+• If Google ends the sign-in, videos are played signed out until you sign in again
+• Signing out also signs this device out of the YouTube website"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web sign in expired, try signing in to Mobile Web again</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Signed out of Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Android System WebView is not available. Install or enable it to sign in</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Show in Stats for nerds</string>
@@ -497,6 +592,8 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_theme_entry_white">White</string>
     <string name="morphe_theme_settings_summary">Customize the app theme, appearance, and branding</string>
     <string name="morphe_theme_settings_title">Theme settings</string>
+    <string name="morphe_ungroup_notifications_summary">Shows every video of a channel\'s grouped uploads as its own notification</string>
+    <string name="morphe_ungroup_notifications_title">Ungroup notifications</string>
     <string name="morphe_unlock_queue_summary">Unlocks YouTube’s video queue</string>
     <string name="morphe_unlock_queue_title">Unlock queue</string>
     <string name="morphe_video_action_bar_layout_entry_2">Classic One-Row</string>
@@ -2898,6 +2995,8 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Lowest value of the brightness gesture activates auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
+    <string name="revanced_swipe_navigation_summary">Swipe left or right anywhere on the screen to switch between visible navigation items, including custom tabs</string>
+    <string name="revanced_swipe_navigation_title">Swipe to switch navigation tabs</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">The color of the progress bar for brightness controls</string>
@@ -3138,110 +3237,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
     <string name="sb_offline_segments_summary">Save SponsorBlock segments for downloaded videos</string>
     <string name="sb_offline_segments_title">Offline segments</string>
-    <string name="revanced_swipe_navigation_title">Swipe to switch navigation tabs</string>
-    <string name="revanced_swipe_navigation_summary">Swipe left or right anywhere on the screen to switch between visible navigation items, including custom tabs</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobile Web sign in</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Optional: sign in to the YouTube website to play videos with your account. Tap here to continue</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Currently signed into Mobile Web</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">To use this feature, change \'Default client\' to Mobile Web</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Sign in to Mobile Web</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"Mobile Web plays videos signed out, or signed in to the YouTube website
-
-• Signed in, videos that need an account can be played, such as age-restricted videos
-• The Google sign-in page opens in this app
-• The sign-in is used only to get the videos you play
-• The sign-in is saved only on this device
-
-To sign in, press continue below"</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Sign-in saved
-
-• Your Morphe settings will not import/export the Mobile Web sign-in
-• If Google ends the sign-in, videos are played signed out until you sign in again
-• Signing out also signs this device out of the YouTube website"</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web sign in expired, try signing in to Mobile Web again</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Signed out of Mobile Web</string>
-    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Android System WebView is not available. Install or enable it to sign in</string>
-    <string name="morphe_navigation_bar_glass_round_title">Round glass navigation bar</string>
-    <string name="morphe_navigation_bar_glass_round_summary">Gives the glass navigation bar round ends, instead of corners like the glass miniplayer</string>
-    <string name="morphe_miniplayer_glass_title">Glass miniplayer</string>
-    <string name="morphe_miniplayer_glass_summary">Shows the miniplayer as translucent glass with rounded corners, like the glass navigation bar. Requires the glass navigation bar</string>
-    <string name="morphe_enhanced_ambient_mode_strength_title">Light strength</string>
-    <string name="morphe_enhanced_ambient_mode_strength_summary">How strong the light is on the watch page and the black bars</string>
-    <string name="morphe_enhanced_ambient_mode_smoothing_title">Light smoothing</string>
-    <string name="morphe_enhanced_ambient_mode_smoothing_summary">How long the light takes to follow the video. With 0 it follows the video closely</string>
-    <string name="morphe_enhanced_ambient_mode_blur_title">Light blur</string>
-    <string name="morphe_enhanced_ambient_mode_blur_summary">How much the light next to the video is blurred. With 0 it keeps the shapes of the video</string>
-    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
-    <string name="morphe_offline_video_quality_2160p">4K (2160p)</string>
-    <string name="morphe_dearrow_vote_button_title">Show DeArrow button</string>
-    <string name="morphe_dearrow_vote_button_summary">Adds a button to the top of the video player to vote on DeArrow titles and thumbnails, or submit new ones</string>
-    <string name="morphe_dearrow_guidelines_title">Guidelines</string>
-    <string name="morphe_dearrow_guidelines_summary">Guidelines contain rules and tips for submitting and voting on titles and thumbnails</string>
-    <string name="morphe_dearrow_guidelines_popup_title">Follow the guidelines</string>
-    <string name="morphe_dearrow_guidelines_popup_content">Read the DeArrow guidelines before submitting or voting on titles and thumbnails</string>
-    <string name="morphe_dearrow_guidelines_popup_already_read">Already read</string>
-    <string name="morphe_dearrow_guidelines_popup_open">Show me</string>
-    <string name="morphe_dearrow_vote_title">DeArrow</string>
-    <string name="morphe_dearrow_vote_loading">Loading…</string>
-    <string name="morphe_dearrow_vote_fetch_failed">Could not load the titles and thumbnails of this video</string>
-    <string name="morphe_dearrow_vote_titles">Titles</string>
-    <string name="morphe_dearrow_vote_thumbnails">Thumbnails</string>
-    <string name="morphe_dearrow_vote_no_titles">No titles yet. Submit a title to be the first</string>
-    <string name="morphe_dearrow_vote_original_title">Original title</string>
-    <string name="morphe_dearrow_vote_original_thumbnail">Original thumbnail</string>
-    <string name="morphe_dearrow_vote_thumbnail_time">Frame at %s</string>
-    <string name="morphe_dearrow_vote_score">Score: %s</string>
-    <string name="morphe_dearrow_vote_unverified">Unverified</string>
-    <string name="morphe_dearrow_vote_locked">Locked</string>
-    <string name="morphe_dearrow_vote_upvote">Upvote</string>
-    <string name="morphe_dearrow_vote_downvote">Downvote</string>
-    <string name="morphe_dearrow_vote_new_title">New title</string>
-    <string name="morphe_dearrow_vote_new_title_hint">Type a title</string>
-    <string name="morphe_dearrow_vote_submit">Submit</string>
-    <string name="morphe_dearrow_vote_new_thumbnail">New thumbnail</string>
-    <string name="morphe_dearrow_vote_frame_step">%s s</string>
-    <string name="morphe_dearrow_vote_current_frame_content">Submit the frame at %s as a thumbnail?</string>
-    <string name="morphe_dearrow_vote_current_frame_playing">The video is playing. To submit the frame you see, pause the video first</string>
-    <string name="morphe_dearrow_vote_upvoted">Vote submitted to DeArrow</string>
-    <string name="morphe_dearrow_vote_downvoted">Downvote submitted to DeArrow</string>
-    <string name="morphe_dearrow_vote_failed_reason">DeArrow did not accept the vote: %s</string>
-    <string name="morphe_dearrow_vote_failed_locked">This is locked, and can only be downvoted by VIP users</string>
-    <string name="morphe_dearrow_vote_failed_rate_limit">A vote for this video is still in progress. Try again in a moment</string>
-    <string name="morphe_dearrow_vote_failed_code">Could not submit the vote (status code: %s)</string>
-    <string name="morphe_dearrow_vote_failed_connection">Could not submit the vote. Check your connection and try again</string>
-    <string name="morphe_dearrow_submitting_title">Submitting titles and thumbnails</string>
-    <string name="morphe_dearrow_vote_time_step_title">Time adjustment step</string>
-    <string name="morphe_dearrow_vote_time_step_summary">Seek amount of the fine time adjustment buttons when submitting a thumbnail (in milliseconds)</string>
-    <string name="morphe_dearrow_vote_time_step_invalid">Value must be a positive number</string>
-    <string name="morphe_dearrow_private_user_id_title">Your private user ID</string>
-    <string name="morphe_dearrow_private_user_id_summary">The same user ID as SponsorBlock. This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-    <string name="morphe_dearrow_private_user_id_invalid">Private user ID must be at least 30 characters long</string>
-    <string name="morphe_dearrow_account_loading">Loading…</string>
-    <string name="morphe_dearrow_account_connection_failure">Account details are temporarily not available</string>
-    <string name="morphe_dearrow_account_username">Your username: &lt;b>%s&lt;/b></string>
-    <string name="morphe_dearrow_account_username_change">Tap here to change your username. The username is the same as on SponsorBlock</string>
-    <string name="morphe_dearrow_account_username_changed">Username successfully changed</string>
-    <string name="morphe_dearrow_account_username_change_error">Unable to change username: Status: %1$s %2$s</string>
-    <string name="morphe_dearrow_account_titles">You\'ve submitted &lt;b>%s&lt;/b> titles</string>
-    <string name="morphe_dearrow_account_titles_summary">Tap here to view your titles</string>
-    <string name="morphe_dearrow_account_thumbnails">You\'ve submitted &lt;b>%s&lt;/b> thumbnails</string>
-    <string name="morphe_dearrow_account_thumbnails_summary">Tap here to view your thumbnails</string>
-    <string name="morphe_shorts_download_flyout_title">Download</string>
-    <string name="morphe_feed_download_flyout_button_title">Show download in video menus</string>
-    <string name="morphe_feed_download_flyout_button_summary">Adds a download item to the menus of videos in the feed that have none, such as videos that YouTube only lets Premium members download</string>
-    <string name="morphe_debug_save_push_notifications_title">Save push notifications</string>
-    <string name="morphe_debug_save_push_notifications_summary">Saves received push notifications to a file in the app data. The file can include private information, such as notification texts and channel names</string>
-    <string name="morphe_debug_saved_push_notifications_title">Export saved push notifications</string>
-    <string name="morphe_debug_saved_push_notifications_summary">Export or clear the saved push notifications</string>
-    <string name="morphe_debug_saved_push_notifications_count">Saved push notifications: %s</string>
-    <string name="morphe_debug_saved_push_notifications_none_found">No saved push notifications found</string>
-    <string name="morphe_debug_saved_push_notifications_export_success">Push notifications exported successfully</string>
-    <string name="morphe_debug_saved_push_notifications_export_failed">Failed to export push notifications</string>
-    <string name="morphe_debug_saved_push_notifications_cleared">Saved push notifications cleared</string>
-    <string name="morphe_download_force_4k_title">Force 4K download availability</string>
-    <string name="morphe_download_force_4k_summary">Offers 1440p and 4K downloads even if YouTube decides this device cannot play them. Such videos may play without video inside YouTube, but can be exported to your device</string>
-    <string name="morphe_miniplayer_glass_bottom_spacing_title">Glass miniplayer bottom spacing</string>
-    <string name="morphe_miniplayer_glass_bottom_spacing_summary">Sets the gap below the glass miniplayer.</string>
-    <string name="morphe_ungroup_notifications_title">Ungroup notifications</string>
-    <string name="morphe_ungroup_notifications_summary">Shows every video of a channel\'s grouped uploads as its own notification</string>
 </resources>

@@ -90,15 +90,69 @@ Meldungen sind öffentlich und werden überprüft, bevor ein Kanal zu einer List
     <string name="morphe_dearrow_about_summary">"DeArrow ersetzt Clickbait-Titel und -Thumbnails durch von der Community erstellte, die genauer und weniger sensationell sind. Titel werden von der Community geschrieben und abgestimmt, und Thumbnails sind Einzelbilder aus dem Video
 
 Videos werden über ein kurzes Präfix der gehashten Video-ID angefordert, sodass der Server nicht genau wissen kann, welches Video du gerade ansiehst. Wenn ein Video kein DeArrow-Thumbnail hat, wird das Original oder ein Standbild angezeigt"</string>
+    <string name="morphe_dearrow_account_connection_failure">Kontodetails sind vorübergehend nicht verfügbar</string>
+    <string name="morphe_dearrow_account_thumbnails">Du hast &lt;b&gt;%s&lt;/b&gt; Thumbnails eingereicht</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Tippe hier, um deine Thumbnails anzuzeigen</string>
+    <string name="morphe_dearrow_account_titles">Du hast &lt;b&gt;%s&lt;/b&gt; Titel eingereicht</string>
+    <string name="morphe_dearrow_account_titles_summary">Tippe hier, um deine Titel anzuzeigen</string>
+    <string name="morphe_dearrow_account_username_change">Tippe hier, um deinen Benutzernamen zu ändern. Der Benutzername ist derselbe wie bei SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">Benutzername konnte nicht geändert werden; Status: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">Die Anzahl der Gelegenheitsstimmen in einer einzelnen Kategorie, wie zum Beispiel lustig oder kreativ, die erforderlich ist, um den Originaltitel anzuzeigen</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Mindestanzahl an Gelegenheitsstimmen, um den Originaltitel anzuzeigen</string>
     <string name="morphe_dearrow_casual_mode_summary">Zeigt den ursprünglichen Titel anstelle des DeArrow-Titels, wenn DeArrow-Benutzer abgestimmt haben, dass ihnen der ursprüngliche Titel gefällt</string>
     <string name="morphe_dearrow_casual_mode_title">Gelegenheitsmodus</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">Bereinigt die Titel von Videos ohne DeArrow-Titel. Großgeschriebene Wörter werden in normale Groß-/Kleinschreibung geändert, und Emojis, ausgefallener Text sowie wiederholte Ausrufezeichen werden entfernt</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Titel bereinigen</string>
     <string name="morphe_dearrow_error">DeArrow ist vorübergehend nicht verfügbar (Statuscode: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow ist vorübergehend nicht verfügbar</string>
-    <string name="morphe_dearrow_titles_icon_summary">Zeigt das DeArrow-Symbol bei Crowdsourcing-Videotiteln an. Tippen Sie auf das Symbol, um den Originaltitel und das Vorschaubild anzuzeigen</string>
+    <string name="morphe_dearrow_guidelines_summary">Die Richtlinien enthalten Regeln und Tipps zum Einreichen und Abstimmen von Titeln und Vorschaubildern</string>
+    <string name="morphe_dearrow_guidelines_title">Richtlinien</string>
+    <string name="morphe_dearrow_private_user_id_invalid">Private Benutzer-ID muss mindestens 30 Zeichen lang sein</string>
+    <string name="morphe_dearrow_private_user_id_summary">Die gleiche Benutzer-ID wie bei SponsorBlock. Diese sollte vertraulich behandelt werden. Das ist wie ein Passwort und sollte mit niemandem geteilt werden. Wenn jemand das hat, kann er sich für dich ausgeben</string>
+    <string name="morphe_dearrow_private_user_id_title">Deine private Benutzer-ID</string>
+    <string name="morphe_dearrow_submitting_title">Titel und Thumbnails werden übermittelt</string>
+    <string name="morphe_dearrow_titles_icon_summary">Zeigt das DeArrow-Symbol bei Titeln von Videos mit einem Crowdsourcing-Titel oder -Vorschaubild an. Tippe auf das Symbol, um den ursprünglichen Titel und das Vorschaubild anzuzeigen</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow-Symbol anzeigen</string>
     <string name="morphe_dearrow_titles_title">DeArrow-Titel</string>
+    <string name="morphe_dearrow_vote_button_summary">Fügt oben im Videoplayer eine Schaltfläche hinzu, um über DeArrow-Titel und -Vorschaubilder abzustimmen oder neue einzureichen</string>
+    <string name="morphe_dearrow_vote_button_title">Schaltfläche „DeArrow“ anzeigen</string>
+    <string name="morphe_dearrow_vote_current_frame_content">Das Frame bei %s als Vorschaubild einreichen?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">Das Video wird gerade abgespielt. Um das aktuelle Frame einzureichen, pausieren Sie bitte zuerst das Video</string>
+    <string name="morphe_dearrow_vote_downvoted">Negative Stimme an DeArrow übermittelt</string>
+    <string name="morphe_dearrow_vote_failed_code">Die Abstimmung konnte nicht übermittelt werden (Statuscode: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">Die Abstimmung konnte nicht übermittelt werden. Überprüfe deine Verbindung und versuche es erneut</string>
+    <string name="morphe_dearrow_vote_failed_locked">Dies ist gesperrt und kann nur von VIP-Benutzern mit einer negativen Stimme bewertet werden</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">Eine Abstimmung für dieses Video ist noch im Gange. Versuche es in einem Moment erneut</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow hat die Stimme nicht akzeptiert: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Die Titel und Thumbnails dieses Videos konnten nicht geladen werden</string>
+    <string name="morphe_dearrow_vote_frame_step">%s s</string>
+    <string name="morphe_dearrow_vote_loading">Lädt…</string>
+    <string name="morphe_dearrow_vote_locked">Gesperrt</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">Neues Vorschaubild</string>
+    <string name="morphe_dearrow_vote_new_title">Neuer Titel</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Titel eingeben</string>
+    <string name="morphe_dearrow_vote_no_titles">Noch keine Titel vorhanden. Reiche einen Titel ein, um der Erste zu sein</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Original-Vorschaubild</string>
+    <string name="morphe_dearrow_vote_original_title">Originaltitel</string>
+    <string name="morphe_dearrow_vote_score">Punktzahl: %s</string>
+    <string name="morphe_dearrow_vote_submit">Absenden</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">Frame bei %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">Vorschaubilder</string>
+    <string name="morphe_dearrow_vote_time_step_summary">Spulbetrag der Schaltflächen zur Feinabstimmung der Zeit beim Übermitteln eines Thumbnails (in Millisekunden)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Zeitschrittweite</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Titel</string>
+    <string name="morphe_dearrow_vote_unverified">Unbestätigt</string>
+    <string name="morphe_dearrow_vote_upvoted">Stimme an DeArrow übermittelt</string>
+    <string name="morphe_debug_save_push_notifications_summary">Speichert empfangene Push-Benachrichtigungen in einer Datei in den App-Daten. Die Datei kann private Informationen enthalten, wie z. B. Benachrichtigungstexte und Kanalnamen</string>
+    <string name="morphe_debug_save_push_notifications_title">Push-Benachrichtigungen speichern</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Gespeicherte Push-Benachrichtigungen gelöscht</string>
+    <string name="morphe_debug_saved_push_notifications_count">Gespeicherte Push-Benachrichtigungen: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Export der Push-Benachrichtigungen fehlgeschlagen</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Push-Benachrichtigungen erfolgreich exportiert</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">Keine gespeicherten Push-Benachrichtigungen gefunden</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Exportieren oder Löschen der gespeicherten Push-Benachrichtigungen</string>
+    <string name="morphe_debug_saved_push_notifications_title">Gespeicherte Push-Benachrichtigungen exportieren</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Verhindert, dass Feeds automatisch aktualisiert werden, nachdem sie veraltet sind</string>
     <string name="morphe_disable_auto_feed_refresh_title">Automatische Feed-Aktualisierung deaktivieren</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Hält die Navigationsleiste beim Scrollen sichtbar</string>
@@ -114,13 +168,21 @@ Videos werden über ein kurzes Präfix der gehashten Video-ID angefordert, sodas
     <string name="morphe_disable_scrolling_speed_limit_title">Scrollgeschwindigkeitslimit deaktivieren</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Zeigt Abonnements in der Navigationsleiste an, falls YouTube diese in einen Tab oben auf der Startseite verschiebt</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Navigations-Tabs in der Symbolleiste deaktivieren</string>
+    <string name="morphe_download_force_4k_summary">Bietet 1440p- und 4K-Downloads an, selbst wenn YouTube entscheidet, dass dieses Gerät sie nicht abspielen kann</string>
+    <string name="morphe_download_force_4k_title">Verfügbarkeit von 4K-Downloads erzwingen</string>
     <string name="morphe_dual_captions_enabled_title">Zweisprachige Untertitel</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">Wie stark das Licht neben dem Video weichgezeichnet wird. Bei 0 bleiben die Formen des Videos erhalten</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">Lichtunschärfe</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Wie lange das Licht nach dem Scrollstopp gedimmt bleibt. Bei 0 wird das Licht nur während des Scrollens gedimmt und kehrt sofort zurück, sobald das Scrollen stoppt</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Dimm-Dauer</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Dimmt das Licht, während die Seite gescrollt oder berührt wird</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Beim Scrollen dimmen</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Dimmt das Licht bei hellen Videos, damit der Text auf der Seite lesbar bleibt</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Text lesbar halten</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">Wie lange das Licht braucht, um dem Video zu folgen. Bei 0 folgt es dem Video eng</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">Lichtglättung</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">Wie stark das Licht auf der Watchface-Seite und den schwarzen Balken ist</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">Lichtstärke</string>
     <string name="morphe_enhanced_ambient_mode_summary">Beleuchtet die gesamte Wiedergabeseite und die schwarzen Balken mit dem Video anstelle des Ambient-Modus</string>
     <string name="morphe_enhanced_ambient_mode_title">Erweiterter Ambient-Modus</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Livestream-DVR-Dauer erweitern' ist möglicherweise nicht verfügbar
@@ -131,6 +193,8 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
     <string name="morphe_explore_menu_screen_title">Entdecken-Menü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Wenn es nicht funktioniert, versuche, MicroG zwangsweise zu beenden</string>
+    <string name="morphe_feed_download_flyout_button_summary">Fügt den Menüs von Feed-Videos, die keinen haben, einen Download-Eintrag hinzu</string>
+    <string name="morphe_feed_download_flyout_button_title">Flyout-Download-Menüeintrag erzwingen</string>
     <string name="morphe_feed_long_press_menu_summary">Das Tippen und Gedrückthalten irgendwo auf einem Feed-Video öffnet dessen Menü</string>
     <string name="morphe_feed_long_press_menu_title">Tippen und gedrückt halten, um das Videomenü zu öffnen</string>
     <string name="morphe_feed_watch_later_button_summary">Eine „Später ansehen“-Schaltfläche wird auf den Thumbnails von Feed-Videos angezeigt, mit einem Häkchen, wenn das Video gespeichert ist. Durch Tippen wird das Video gespeichert oder entfernt, und durch Tippen und Halten wird „Zur Playlist hinzufügen“ geöffnet</string>
@@ -201,7 +265,7 @@ Um das Menü anzuzeigen, ändere \"Video-Streams vortäuschen\" in einen beliebi
     <string name="morphe_hide_post_comments_preview_title">Kommentarvorschau ausblenden</string>
     <string name="morphe_hide_post_dislike_button_summary">Beim erzwungenen Layout bleibt der Platz der Schaltfläche frei</string>
     <string name="morphe_hide_post_dislike_button_title">Schaltfläche „Dislike“ ausblenden</string>
-    <string name="morphe_hide_post_like_dislike_buttons_title">Like- und Dislike-Schaltflächen ausblenden</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Schaltflächen „Gefällt mir“ und „Gefällt mir nicht“ ausblenden</string>
     <string name="morphe_hide_post_share_button_summary">Die Download-Schaltfläche der Beitragsbilder wird neben der Teilen-Schaltfläche gezeichnet, daher wird sie ebenfalls ausgeblendet</string>
     <string name="morphe_hide_post_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
@@ -251,10 +315,16 @@ Um das Menü anzuzeigen, ändere \"Video-Streams vortäuschen\" in einen beliebi
 Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
     <string name="morphe_livestream_dvr_summary">Ermöglicht das Vorspulen bei allen Livestreams, auch bei solchen, die dies normalerweise nicht zulassen</string>
     <string name="morphe_livestream_dvr_title">Livestream-DVR aktivieren</string>
+    <string name="morphe_miniplayer_glass_summary">Zeigt den Miniplayer als halbtransparentes Glas mit abgerundeten Ecken an, ähnlich der Glas-Navigationsleiste. Erfordert die Glas-Navigationsleiste</string>
+    <string name="morphe_miniplayer_glass_title">Glas-Miniplayer</string>
     <string name="morphe_music_package_name_summary">Paketname Ihrer installierten Musik-App</string>
     <string name="morphe_music_package_name_title">Paketname der Musik-App</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Zeichnet die Lichtkante um die Glas-Navigationsleiste</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Glaskante der Navigationsleiste</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Passt die Deckkraft der Glas-Navigationsleiste an (0 ist transparent, 100 ist undurchsichtig)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Deckkraft des Glases</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Verleiht der Glas-Navigationsleiste abgerundete Enden anstelle von Ecken wie beim Glas-Miniplayer</string>
+    <string name="morphe_navigation_bar_glass_round_title">Abgerundete Glas-Navigationsleiste</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Schaltflächenabstand</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Angezeigte Schaltflächen: %1$s von %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">Höhe</string>
@@ -270,10 +340,11 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\'Android VR\'-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
-    <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
+    <string name="morphe_oauth2_toast_reset">Von \'Android VR\' abgemeldet</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Verhindert, dass der Livestream geöffnet wird, wenn du auf den Avatar des Kanals tippst</string>
     <string name="morphe_open_channel_of_live_avatar_title">Kanal vom Live-Avatar aus öffnen</string>
     <string name="morphe_open_videos_fullscreen_title">Videos im Vollbildmodus öffnen</string>
@@ -313,7 +384,6 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_post_image_download_started_single">Bild wird heruntergeladen…</string>
     <string name="morphe_post_image_download_summary">Neben der Teilen-Schaltfläche von Beiträgen mit Bildern oder GIFs wird eine Download-Schaltfläche angezeigt und dem Menü wird ein Download-Eintrag hinzugefügt</string>
     <string name="morphe_post_image_download_title">Beitragsbilder herunterladen</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">Anschalten</string>
     <string name="morphe_preferred_caption_language_summary">Wählt automatisch eine Untertitel-Sprache für jedes Video aus</string>
     <string name="morphe_preferred_caption_language_title">Bevorzugte Untertitelsprache</string>
     <string name="morphe_queue_manager_check_failed_auth">Nicht angemeldet</string>
@@ -324,7 +394,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_remember_livestream_position_summary">Für laufende Live-Streams wird die Wiedergabeposition gemerkt und wiederhergestellt, anstatt zur aktuellen Live-Position zu springen</string>
     <string name="morphe_remember_livestream_position_title">Live-Stream-Wiedergabeposition merken</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">Diese Funktion funktioniert nicht bei 24/7-Live-Streams und anderen Streams, die \'ständig aktiv\' sind</string>
-    <string name="morphe_replace_links_with_shortener_summary">Sorgt dafür, dass geteilte Links das kürzere youtu.be URL-Format nutzen</string>
+    <string name="morphe_replace_links_with_shortener_summary">Sorgt dafür, dass Videos das kürzere \'youtu.be\' URL-Format nutzen</string>
     <string name="morphe_replace_links_with_shortener_title">Freigabe-Links zu youtu.be ändern</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Freigabe-Links verwenden youtube.com</string>
@@ -363,6 +433,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
     <string name="morphe_settings_new_indicator_days_summary">Anzahl der Tage, an denen ein Punkt neben den durch ein Update hinzugefügten Einstellungen und Optionen angezeigt wird</string>
     <string name="morphe_settings_new_indicator_days_title">Neue Einstellungen hervorheben</string>
+    <string name="morphe_shorts_download_flyout_title">Herunterladen</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Nur Pausen, die mindestens so lang sind, werden verkürzt. Wirkt sich erst aus, wenn das nächste Video startet</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimale Pausenlänge</string>
     <string name="morphe_skip_silence_summary">Überspringt automatisch stille Pausen im Video-Audio</string>
@@ -383,24 +454,19 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video-Codec ist AVC (H.264), VP9 oder AV1
 
 Die Wiedergabe kann stottern oder Frames verlieren"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Erlaube AV1 bei „Android VR“ / visionOS</string>
+    <string name="morphe_spoof_video_streams_av1_title">\"Android VR\" / \"visionOS\" AV1 erlauben</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Durch Aktivierung dieser Einstellung kann Software-AV1-Decodierung verwendet werden
 
 Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s hat mehrmals hintereinander nicht funktioniert, aber %2$s schon
-
-Soll %2$s als Standard-Client festgelegt werden?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Wechseln</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Standard-Client funktioniert nicht</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player-JavaScript-Variante</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
     <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Für Android VR ist eine separate Anmeldung erforderlich. Tippen Sie hier, um fortzufahren</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' erfordert eine separate Anmeldung. Tippen Sie hier, um fortzufahren</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie den \'Standard-Client\' zu \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei \'Android VR\' angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR-Anmeldung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
 
 1. Drücken Sie unten auf \"Website öffnen\", um die \"Ein Gerät verbinden\"-Website zu öffnen
@@ -409,11 +475,11 @@ Soll %2$s als Standard-Client festgelegt werden?"</string>
 4. Tippen Sie auf \"YouTube VR erlauben\" Zugriff
 5. Nach der \"Gerät verbunden\"-Nachricht, kehren Sie in diese App zurück"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Anleitung</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Die Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Die Anmeldung bei \"Android VR\" kann Wiedergabeprobleme für einige Benutzer beheben
 
 Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Abmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei Android VR anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei \'Android VR\' anmelden</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung gespeichert
 
 • Ihre RVX-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
@@ -421,6 +487,27 @@ Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
 • Wenn Sie Ihr Google-Kennwort ändern oder dieses Gerät von Ihren Google-Einstellungen deregistrieren, müssen Sie sich erneut anmelden"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Ausgabe eines Aktivierungscodes fehlgeschlagen</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Optional: Melden Sie sich auf der YouTube-Website an, um Videos mit Ihrem Konto abzuspielen. Tippen Sie hier, um fortzufahren</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie den \"Standard-Client\" auf \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Derzeit bei \"Mobile Web\" angemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Anmeldung über mobiles Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"Mobile Web\" spielt Videos ohne Anmeldung oder bei Anmeldung an der YouTube-Website ab
+
+• Bei Anmeldung können Videos abgespielt werden, für die ein Konto erforderlich ist, z. B. altersbeschränkte Videos
+• Die Google-Anmeldeseite öffnet sich in dieser App
+• Die Anmeldung wird nur verwendet, um die von Ihnen abgespielten Videos abzurufen
+• Die Anmeldung wird nur auf diesem Gerät gespeichert
+
+Um sich anzumelden, drücken Sie unten auf Weiter"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Bei \"Mobile Web\" anmelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Anmeldung gespeichert
+
+• Ihre RVX-Einstellungen importieren/exportieren nicht die \"Mobile Web\"-Anmeldung
+• Wenn Google die Anmeldung beendet, werden Videos nicht angemeldet abgespielt, bis Sie sich erneut anmelden
+• Das Abmelden meldet dieses Gerät auch von der YouTube-Website ab"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web-Anmeldung abgelaufen, versuchen Sie erneut, sich bei \"Mobile Web\" anzumelden</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Von \'Mobile Web\' abgemeldet</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' ist nicht verfügbar. Installieren oder aktivieren Sie es, um sich anzumelden</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Spoofing in „Statistiken für Nerds“ anzeigen</string>
@@ -458,6 +545,8 @@ Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert i
     <string name="morphe_theme_entry_material_you_primary">Material You - Primär</string>
     <string name="morphe_theme_entry_material_you_secondary">Material You - Sekundär</string>
     <string name="morphe_theme_entry_modern_youtube">Modernes YouTube</string>
+    <string name="morphe_ungroup_notifications_summary">Zeigt jedes Video der gruppierten Uploads eines Kanals als eigene Benachrichtigung an</string>
+    <string name="morphe_ungroup_notifications_title">Benachrichtigungen gruppieren aufheben</string>
     <string name="morphe_video_action_bar_layout_entry_2">Klassisch (einzeilig)</string>
     <string name="morphe_video_action_bar_layout_entry_4">Klassisch (zweizeilig)</string>
     <string name="morphe_video_action_bar_layout_title">Video-Aktionsleisten-Layout</string>
@@ -757,17 +846,17 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_layout_updates_summary_off">Der Server aktualisiert das Layout</string>
     <string name="revanced_disable_layout_updates_summary_on">Der Server aktualisiert das Layout nicht</string>
     <string name="revanced_disable_layout_updates_title">Layoutaktualisierungen deaktivieren</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout kehrt zum Layout zurück, das bei der Erstinstallation verwendet wurde
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout wird auf das bei der Erstinstallation verwendete Layout zurückgesetzt
 
 Einige serverseitige Layouts werden möglicherweise nicht zurückgesetzt
 
-Folgende Änderungen sind enthalten:
-• Komponenten im Flyout-Menü des Players (oder verwandte Einstellungen) funktionieren eventuell nicht
-• Laufende Zahlen sind nicht animiert
-• Tab „Mediathek“ wird angezeigt
-• Der Musikabschnitt der Videobeschreibung funktioniert eventuell nicht
-• Elemente im Flyout-Menü des Players können nicht ausgeblendet werden
-• Die Schaltfläche zum Kontowechsel wird eventuell nicht im Tab „Mediathek“ angezeigt"</string>
+Folgende Änderungen werden vorgenommen:
+• Vollbild-Videovorschläge funktionieren eventuell nicht
+• Komponenten im Aufklappmenü des Players (oder in verwandten Einstellungen) funktionieren eventuell nicht
+• Der Abschnitt „Musik“ in der Videobeschreibung funktioniert möglicherweise nicht
+• Elemente im Aufklappmenü des Players können nicht ausgeblendet werden
+• Sich aktualisierende Zahlen werden nicht animiert
+• Die Schaltfläche zum Kontowechsel im Tab „Mediathek“ wird eventuell nicht angezeigt"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchtet, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>

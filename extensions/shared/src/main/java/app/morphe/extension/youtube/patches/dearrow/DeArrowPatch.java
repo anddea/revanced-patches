@@ -21,6 +21,7 @@ import org.chromium.net.UrlResponseInfo;
 import org.chromium.net.impl.CronetUrlRequest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -106,6 +107,24 @@ public final class DeArrowPatch {
                     Settings.DEARROW_THUMBNAIL_PLAYER,
                     Settings.DEARROW_THUMBNAIL_SEARCH
             );
+        }
+    }
+
+    /**
+     * Available if titles that are not DeArrow titles are replaced: in the navigations
+     * with DeArrow titles, or everywhere if the original titles are restored.
+     */
+    public static final class DeArrowTitleCleanupAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.DEARROW_TITLES.get() || Settings.RESTORE_ORIGINAL_TITLES.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            List<Setting<?>> settings = new ArrayList<>(List.of(Settings.DEARROW_TITLES));
+            settings.add(Settings.RESTORE_ORIGINAL_TITLES);
+            return settings;
         }
     }
 

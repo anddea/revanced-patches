@@ -87,15 +87,69 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_dearrow_about_summary">"DeArrow diqqətçəkən başlıqları və miniatürləri daha dəqiq və daha az sensasiyalı olan ictimai variantlarla əvəzləyir. Başlıqlar icma tərəfindən yazılır və səsverməyə qoyulur, miniatürlər isə videodan götürülmüş kadrlar olur
 
 ​Videolar parçalanmış video ID-sinin qısa prefiksi vasitəsilə sorğulanır, beləliklə server tam olaraq hansı videoya baxdığınızı bilə bilmir. Əgər videonun DeArrow miniatürü yoxdursa, orijinal və ya kadr çəkilişi göstərilir"</string>
+    <string name="morphe_dearrow_account_connection_failure">Hesab təfərrüatları müvəqqəti əlçatan deyil</string>
+    <string name="morphe_dearrow_account_thumbnails">Siz &lt;b&gt;%s&lt;/b&gt; miniatür təqdim etmisiniz</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Miniatürlərinizə baxmaq üçün bura toxunun</string>
+    <string name="morphe_dearrow_account_titles">Siz &lt;b&gt;%s&lt;/b&gt; başlıq təqdim etmisiniz</string>
+    <string name="morphe_dearrow_account_titles_summary">Başlıqlarınıza baxmaq üçün bura toxunun</string>
+    <string name="morphe_dearrow_account_username_change">İstifadəçi adınızı dəyişmək üçün bura toxunun. İstifadəçi adı SponsorBlock-dakı ilə eynidir</string>
+    <string name="morphe_dearrow_account_username_change_error">İstifadəçi adını dəyişdirmək olmur: Status: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">Orijinal başlığı göstərmək üçün \'gülməli\' və ya \'yaradıcı\' kimi tək kateqoriyada adi səs sayı</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Orijinal başlığı göstərmək üçün ən az adi səslər</string>
     <string name="morphe_dearrow_casual_mode_summary">DeArrow istifadəçiləri orijinal başlığı bəyəndikləri təqdirdə DeArrow başlığı əvəzinə orijinal başlığı göstərir</string>
     <string name="morphe_dearrow_casual_mode_title">Təsadüfi rejim</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">DeArrow başlığı olmayan videoların adlarını təmizləyir. Baş hərflərlə olan sözlər normal formaya salınır, emojilər, bəzəkli mətn və təkrarlanan nida işarələri silinir</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Başlıqları təmizlə</string>
     <string name="morphe_dearrow_error">DeArrow müvəqqəti mövcud deyil (status kodu: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow müvəqqəti olaraq mövcud deyil</string>
-    <string name="morphe_dearrow_titles_icon_summary">İcma mənbəli video başlıqlarında DeArrow nişanını göstərir. Orijinal başlığı və miniatürü görmək üçün simvola toxunun</string>
+    <string name="morphe_dearrow_guidelines_summary">Təlimatlar başlıq və miniatürlərin təqdim edilməsi və səs verilməsi üçün qaydalar və tövsiyələr ehtiva edir</string>
+    <string name="morphe_dearrow_guidelines_title">Təlimatlar</string>
+    <string name="morphe_dearrow_private_user_id_invalid">Şəxsi istifadəçi ID-si ən azı 30 simvol uzunluğunda olmalıdır</string>
+    <string name="morphe_dearrow_private_user_id_summary">SponsorBlock kimi eyni istifadəçi ID-si. Bu gizli saxlanılmalıdır. Bu, parol kimidir və heç kimlə paylaşılmamalıdır. Kimsə bunu bilsə, onlar sizi təqlid edə bilər</string>
+    <string name="morphe_dearrow_private_user_id_title">Şəxsi istifadəçi ID-niz</string>
+    <string name="morphe_dearrow_submitting_title">Başlıqlar və miniatürlər təqdim olunur</string>
+    <string name="morphe_dearrow_titles_icon_summary">İcma mənbəli başlıq və ya miniatürü olan videoların başlığında DeArrow simvolunu göstərir. Orijinal başlıq və miniatürü görmək üçün simvola toxun</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow işarəsini göstər</string>
     <string name="morphe_dearrow_titles_title">DeArrow başlıqları</string>
+    <string name="morphe_dearrow_vote_button_summary">DeArrow başlıqlarına və miniatürlərinə səs vermək və ya yenilərini təqdim etmək üçün video oynadıcının yuxarısına düymə əlavə edir</string>
+    <string name="morphe_dearrow_vote_button_title">DeArrow düyməsini göstər</string>
+    <string name="morphe_dearrow_vote_current_frame_content">%s \'dəki kadrı miniatür kimi təqdim etsin?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">Video oynadılır. Gördüyünüz kadrı göndərmək üçün əvvəlcə videonu dayandırın</string>
+    <string name="morphe_dearrow_vote_downvoted">Mənfi səs DeArrow-a göndərildi</string>
+    <string name="morphe_dearrow_vote_failed_code">Səsi təqdim edə bilmədi (status kodu: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">Səsi təqdim etmək olmadı. Bağlantınızı yoxlayın və yenidən cəhd edin</string>
+    <string name="morphe_dearrow_vote_failed_locked">Bu kilidlənib və yalnız VIP istifadəçilər mənfi səs verə bilər</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">Bu video üçün səsvermə hələ davam edir. Bir az sonra yenidən cəhd et</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow səsi qəbul etmədi: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Bu videonun başlıqlarını və miniatürlərini yükləmək olmadı</string>
+    <string name="morphe_dearrow_vote_frame_step">%s s</string>
+    <string name="morphe_dearrow_vote_loading">Yüklənir…</string>
+    <string name="morphe_dearrow_vote_locked">Kilidlənib</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">Yeni miniatür</string>
+    <string name="morphe_dearrow_vote_new_title">Yeni başlıq</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Başlıq yaz</string>
+    <string name="morphe_dearrow_vote_no_titles">Hələlik başlıq yoxdur. Birinci olmaq üçün başlıq təqdim et</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Orijinal miniatür</string>
+    <string name="morphe_dearrow_vote_original_title">Orijinal başlıq</string>
+    <string name="morphe_dearrow_vote_score">Hesab: %s</string>
+    <string name="morphe_dearrow_vote_submit">Təqdim et</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">%s \'də kadr</string>
+    <string name="morphe_dearrow_vote_thumbnails">Miniatürlər</string>
+    <string name="morphe_dearrow_vote_time_step_summary">Miniatürü təqdim edərkən dəqiq vaxt tənzimləmə düymələrinin irəli-geri çəkmə sayı (millisaniyə ilə)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Vaxt tənzimləmə aralığı</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Başlıqlar</string>
+    <string name="morphe_dearrow_vote_unverified">Təsdiqlənməmiş</string>
+    <string name="morphe_dearrow_vote_upvoted">Səs DeArrow-a təqdim edildi</string>
+    <string name="morphe_debug_save_push_notifications_summary">Alınan təkan bildirişlərini tətbiq məlumatlarındakı bir faylda saxlayır. Fayl bildiriş mətnləri və kanal adları kimi şəxsi məlumatı ehtiva edə bilər</string>
+    <string name="morphe_debug_save_push_notifications_title">Təkan bildirişlərini saxla</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Saxlanılan təkan bildirişləri silindi</string>
+    <string name="morphe_debug_saved_push_notifications_count">Saxlanılan təkan bildirişləri: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Təkan bildirişlərini ixrac etmək olmadı</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Təkan bildirişləri uğurla ixrac edildi</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">Saxlanılmış təkan bildirişləri tapılmadı</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Saxlanılan təkan bildirişlərini ixrac et və ya sil</string>
+    <string name="morphe_debug_saved_push_notifications_title">Saxlanılan təkan bildirişlərini ixrac et</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Axınların köhnəldikdən sonra avtomatik yenilənməsinin qarşısını alır</string>
     <string name="morphe_disable_auto_feed_refresh_title">Avtomatik axın yeniləməsini qapat</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Sürüşdürərkən fəaliyyət zolağın görünən saxlayır</string>
@@ -111,13 +165,21 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_disable_scrolling_speed_limit_title">Sürüşdürmə sürət həddini qapat</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube onu Əsas Səhifənin yuxarısındakı vərəqə köçürərsə, fəaliyyət cərgəsində Abunəlikləri göstərir</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Alət cərgəsi fəaliyyət səhifələrini qapat</string>
+    <string name="morphe_download_force_4k_summary">YouTube bu cihazın oynatmadığını bildirsə belə, 1440p və 4K yükləmələri təklif edir</string>
+    <string name="morphe_download_force_4k_title">4K yükləmə əlçatanlığını məcbur et</string>
     <string name="morphe_dual_captions_enabled_title">İkidilli titrlər</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">Videonun yanındakı işıq nə qədər bulanıq olsun. 0 olduqda videonun formalarını qoruyur</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">İşıq bulanıqlığı</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Sürüşdürmə dayandıqdan sonra işığın nə qədər müddət zəif qalacağı. 0 olduqda yalnız sürüşdürərkən işıq zəifləyir və sürüşdürmə dayanan kimi dərhal standarta qayıdır</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Zəifləmə müddəti</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Səhifə sürüşdürülərkən və ya toxunularkən işığı zəiflədir</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Sürüşdürərkən solğunlaşdır</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Səhifədəki mətnin oxunaqlı qalması üçün parlaq videolarda işığı azaldır</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Mətni oxunaqlı saxla</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">İşığın videoya uyğunlaşması nə qədər çəkir. 0 təyin edildikdə videonu anında izləyir</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">İşığın hamarlanması</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">Baxış səhifəsində və qara zolaqlarda işığın nə qədər güclü olması</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">İşıq gücü</string>
     <string name="morphe_enhanced_ambient_mode_summary">Ambient rejimini əvəzləyərək bütün baxış səhifəsini və qara zolaqları video ilə işıqlandırır</string>
     <string name="morphe_enhanced_ambient_mode_title">Təkmilləşdirilmiş Ambient rejimi</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayım DVR müddətini genişləndir' əlçatan olmaya bilər
@@ -128,6 +190,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_explore_menu_screen_summary">Kəşf et menyusunda hansı elementlər görünür seç</string>
     <string name="morphe_explore_menu_screen_title">Kəşf edin menyusu</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Əgər bu işləmirsə, MicroG-ni məcburi qapatmağa çalışın</string>
+    <string name="morphe_feed_download_flyout_button_summary">Yükləmə seçimi olmayan axın videolarının menyularına yükləmə elementi əlavə edir</string>
+    <string name="morphe_feed_download_flyout_button_title">Açılan yükləmə menyu elementini məcbur et</string>
     <string name="morphe_feed_long_press_menu_summary">Axında videonun istənilən yerinə toxunub saxlamaq onun menyusunu açır</string>
     <string name="morphe_feed_long_press_menu_title">Video menyusunu açmaq üçün toxunub saxla</string>
     <string name="morphe_feed_watch_later_button_summary">Sonra izləyin düyməsi axın videolarının miniatürlərində göstərilir, əgər video saxlanılıbsa işarələnir. Ona toxunmaq videonu saxlayır və ya silir, basıb saxlamaq isə Pleylistdə saxlayını açır</string>
@@ -193,13 +257,13 @@ Məhdudiyyətlər:
 'Audio Trek' menyusunu göstərmək üçün 'Video yayımların saxtalaşdırı' 'Android Studio' və 'Android VR Downgraded' istisna olmaqla istənilən qəbulediciyə dəyişdir"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">\"Yolüstü\" menyusunu gizlət</string>
     <string name="morphe_hide_podcasts_menu_title">Podkastlar menyusunu gizlət</string>
-    <string name="morphe_hide_post_comment_button_title">Şərhlər düyməsini gizlət</string>
+    <string name="morphe_hide_post_comment_button_title">Şərh düyməsin gizlət</string>
     <string name="morphe_hide_post_comments_preview_summary">Postların altındakı şərhlərin önizləməsini gizlədir</string>
     <string name="morphe_hide_post_comments_preview_title">Şərhlərin önizləməsini gizlət</string>
     <string name="morphe_hide_post_dislike_button_summary">Məcburi tərtibat ilə düymənin boşluğu qalır</string>
     <string name="morphe_hide_post_dislike_button_title">Bəyənməmə düyməsini gizlət</string>
-    <string name="morphe_hide_post_like_dislike_buttons_title">Bəyənmə və bəyənməmə düymələrini gizlət</string>
-    <string name="morphe_hide_post_share_button_summary">Post şəkillərinin yükləmə düyməsi paylaş düyməsi ilə yanaşı olduğu üçün o da gizlədilir</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">Bəyənmə və Bəyənməmə düymələrini gizlət</string>
+    <string name="morphe_hide_post_share_button_summary">Post şəkillərinin yükləmə düyməsi Paylaş düyməsi ilə yanaşı olduğu üçün o da gizlədilir</string>
     <string name="morphe_hide_post_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hüquqi və məxfilik alt yazıların gizlət</string>
     <string name="morphe_hide_shopping_menu_title">Alış-veriş menyusunu gizlət</string>
@@ -248,10 +312,16 @@ Məhdudiyyətlər:
 Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
     <string name="morphe_livestream_dvr_summary">Bütün canlı yayımlarda, hətta adətən məhdudiyyət qoyulanları belə irəli-geri çəkməyə icazə verir</string>
     <string name="morphe_livestream_dvr_title">Canlı yayım DVR-ni aktivləşdir</string>
+    <string name="morphe_miniplayer_glass_summary">Kiçik oynadıcını şüşə fəaliyyət zolağı kimi dairəvi künclü yarımşəffaf şüşə olaraq göstərir. Şüşə fəaliyyət zolağını tələb edir</string>
+    <string name="morphe_miniplayer_glass_title">Şüşə kiçik oynadıcı</string>
     <string name="morphe_music_package_name_summary">Quraşdırdığınız musiqi tətbiqinin paket adı</string>
     <string name="morphe_music_package_name_title">Musiqi tətbiqi paketinin adı</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Şüşə fəaliyyət zolağı ətrafında işıqlı kənar çəkir</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Şüşə fəaliyyət zolağının kənarı</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Şüşə fəaliyyət cərgəsinin şəffaflıq dərəcəsini tənzimlə (0 şəffaf, 100 qeyri-şəffaf)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Şüşə tutqunluğu</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Şüşə fəaliyyət zolağına şüşə kiçik oynadıcıdakı kimi künclər əvəzinə dairəvi kənarlar verir</string>
+    <string name="morphe_navigation_bar_glass_round_title">Dəyirmi şüşə fəaliyyət zolağı</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Düymə boşluğu</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Göstərilən düymələr: %1$s / %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">Hündürlük</string>
@@ -267,10 +337,11 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 keçici olaraq əlçatan deyil (vəziyyət %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR girişi sonlandı, VR-a təkrar daxil olmağa cəhd et</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\'Android VR\' girişi sonlandı, VR-a təkrar daxil olmağa cəhd et</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
     <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
-    <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
+    <string name="morphe_oauth2_toast_reset">\'Android VR\'-dan Çıxıldı</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Kanalın profilinə toxunduqda canlı yayımın açılmasın əngəlləyir</string>
     <string name="morphe_open_channel_of_live_avatar_title">Canlı profildən kanalı aç</string>
     <string name="morphe_open_videos_fullscreen_title">Videoları tam ekran rejimində aç</string>
@@ -320,7 +391,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_remember_livestream_position_summary">Cari canlı mövqeyə keçmək əvəzinə, davam edən canlı yayımlar üçün oynatma mövqeyinizi xatırlayır və davam etdirir</string>
     <string name="morphe_remember_livestream_position_title">Canlı yayımın oynatma mövqeyini xatırla</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">Bu xüsusiyyət 24/7 canlı yayımlar və \"həmişə aktiv\" olan digər yayımlarla işləmir</string>
-    <string name="morphe_replace_links_with_shortener_summary">Videoları qısaldılan youtu.be URL formatın istifadə etməyə zorlayır</string>
+    <string name="morphe_replace_links_with_shortener_summary">Videoları qısaldılan \'youtu.be\' URL formatın istifadə etməyə zorlayır</string>
     <string name="morphe_replace_links_with_shortener_title">Paylaşma keçidlərini youtu.be-yə dəyişdir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
@@ -359,6 +430,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_settings_name_title">RVX tənzimləmələrinin adı</string>
     <string name="morphe_settings_new_indicator_days_summary">Yeniləmə ilə əlavə edilən tənzimləmələr və seçimlər ilə yanaşı nöqtənin göstərildiyi günlərin sayı</string>
     <string name="morphe_settings_new_indicator_days_title">Yeni tənzimləmələri vurğula</string>
+    <string name="morphe_shorts_download_flyout_title">Yüklə</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Yalnız ən azı bu uzunluqda olan fasilələr qısaldılır. Növbəti video başlayanda qüvvədə olur</string>
     <string name="morphe_skip_silence_minimum_pause_title">Ən qısa fasilə uzunluğu</string>
     <string name="morphe_skip_silence_summary">Video səsindəki səssiz fasilələri avtomatik ötürür</string>
@@ -379,24 +451,19 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodlayıcı AVC (H.264), VP9 və ya AV1-dir
 
 Oynatma ilişə bilər və ya kadrlar buraxıla bilər"</string>
-    <string name="morphe_spoof_video_streams_av1_title">\'Android VR\' / visionOS AV1-ə icazə ver</string>
+    <string name="morphe_spoof_video_streams_av1_title">\'Android VR\' / \'visionOS\' AV1-ə icazə ver</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bu tənzimləməni aktivləşdirmək proqram təminatlı AV1 kodlayıcı istifadə edə bilər
 
 Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s ardıcıl bir neçə dəfə işləmədi, amma %2$s işlədi
-
- %2$s ilkin qəbuledici təyin edilsin?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Keçid</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">İlkin qəbuledici işləmir</string>
     <string name="morphe_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hər hansı qəbuledici yayımları əldə etmək olmadı</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Oynadıcı JavaScript seçimi</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici saxtakarlığını tənzimlə</string>
     <string name="morphe_spoof_video_streams_screen_title">Video yayımların saxtalaşdır</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR ayrıca giriş tələb edir. Davam etmək üçün buraya toxun</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu xüsusiyyəti istifadə etmək üçün, \"İlkin qəbuledici\"-ni Android VR-a dəyişdir</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Hazırda Android VR-a daxil olunub</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR girişi</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' ayrıca giriş tələb edir. Davam etmək üçün buraya toxun</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu xüsusiyyəti istifadə etmək üçün, \"İlkin qəbuledici\"-ni \'Android VR\'-a dəyişdir</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Hazırda \'Android VR\'-a daxil olunub</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android VR\' girişi</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivləşdirmə kodu: %s
 
 1. \"Cihazı əlaqələndir\" veb saytını açmaq üçün aşağıda \"Veb saytı aç\"-a toxun
@@ -405,11 +472,11 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər"</string>
 4. \"YouTube VR-a Giriş-ə\" icazə ver-ə toxun
 5. \"Cihaz qoşuldu\" məlumatına çatandan sonra bu tətbiqə qayıdın"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Təlimatlar</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR-a daxil olmaq bəzi istifadəçilər üçün oynatma problemlərini düzəldə bilər
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"'Android VR'-a daxil olmaq bəzi istifadəçilər üçün oynatma problemlərini düzəldə bilər
 
 Daxil olmaq üçün aşağıda davam et-i vurun"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Çıxış et</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR-a Giriş Et</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">\'Android VR\'-a Giriş Et</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Təsdiqlənmə saxlanıldı
 
 • RVX tənzimləmələriniz Android VR təsdiqlənməsini idxal/ixrac etməyəcək
@@ -417,6 +484,27 @@ Daxil olmaq üçün aşağıda davam et-i vurun"</string>
 • Google parolunuzu dəyişdirsəniz və ya bu cihazı Google tənzimləmələrinizdən çıxarsanız, təkrar daxil olmalı olacaqsınız"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Uğurla daxil olundu</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivləşdirmə şifrəsi buraxılışı alınmadı</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Könüllü: Hesabınızla videoları oynatmaq üçün YouTube veb saytına daxil olun. Davam etmək üçün bura toxun</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Bu xüsusiyyəti istifadə etmək üçün, \"İlkin qəbuledici\"-ni \'Mobil Web\'-ə dəyişdir</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Hazırda \'Mobil Web\'-ə daxil olunub</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobil Web Girişi</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"​'Mobile Web' videoları hesabdan çıxmış və ya YouTube veb saytına daxil olmuş vəziyyətdə oynadır
+
+​• Daxil olduqda hesab tələb edən videolar, məsələn, yaş məhdudiyyətli videolar oynadıla bilər
+• Google giriş səhifəsi bu tətbiqdə açılır
+• Giriş yalnız oynatdığınız videoları əldə etmək üçün istifadə olunur
+• Giriş yalnız bu cihazda saxlanılır
+
+​Daxil olmaq üçün aşağıdakı davam edinə toxun"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">\'Mobil Web\'-ə Daxil Ol</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Giriş saxlanıldı
+
+​• RVX tənzimləmələriniz 'Mobile Web' girişini idxal/ixrac etməyəcək
+• Google girişi sonlandırarsa, siz təkrar daxil olana qədər videolar hesabdan çıxmış kimi oynadılır
+• Çıxmaq bu cihazı həm də YouTube veb saytından çıxarır"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobile Web girişinin vaxtı bitdi, \'Mobile Web\'-ə təkrar daxil olmağa cəhd et</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">\'Mobile Web\'-dən Çıxıldı</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' mövcud deyil. Daxil olmaq üçün quraşdır və ya aktivləşdir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">\'İstək üçün Statistikada\' saxtalaşdırmanı göstər</string>
@@ -437,6 +525,8 @@ Məhdudiyyət: 'Köhnə video fəaliyyət cizgisini bərpa et' qapadılıbsa, 'D
     <string name="morphe_tablet_layout_in_player_title">Oynadıcıda planşet tərtibatın aktivləşdir</string>
     <string name="morphe_theme_color_change_foreground_summary">Mətn və simvollar üçün kolorit rəngini istifadə et</string>
     <string name="morphe_theme_color_change_foreground_title">Ön plan rəngini dəyişdir</string>
+    <string name="morphe_ungroup_notifications_summary">Kanalın qruplaşdırılmış yükləmələrinin hər bir videosunu ayrı bildiriş kimi göstərir</string>
+    <string name="morphe_ungroup_notifications_title">Bildirişləri qrupdan çıxar</string>
     <string name="morphe_video_action_bar_layout_entry_2">Klassik Tək Cərgə</string>
     <string name="morphe_video_action_bar_layout_entry_4">Klassik İki Cərgə</string>
     <string name="morphe_video_action_bar_layout_title">Video fəaliyyət cərgəsi tərtibatı</string>
@@ -629,17 +719,17 @@ Avtomobil tərtibatı
     <string name="revanced_disable_layout_updates_summary_off">Tərtibat server tərəfindən yenilənəcək</string>
     <string name="revanced_disable_layout_updates_summary_on">Tərtibat server tərəfindən yenilənməyəcək</string>
     <string name="revanced_disable_layout_updates_title">Tərtibat yenilənmələrini qapat</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Tətbiq tərtibatı ilk quraşdırılanda istifadə olunan tərtibata qayıdır
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Tətbiq tərtibatı ilk quraşdırıldığı tərtibata qayıdır
 
-Bəzi server əsaslı tərtibatlar qayıtmaya bilər
+Bəzi server tərəfli tərtibatlar qayıtmaya bilər
 
-Dəyişikliklər ehtiva edir:
-• Oynadıcı açılan menyusundakı elementlər (və ya əlaqəli tənzimləmələr) işləməyə bilər
-• Diyirlənən nömrələr animasiya olunmur
-• Kitabxana tabeli görünür
-• Video təsvirinin Musiqi bölməsi işləməyə bilər
-• Oynadıcı açılan menyu elementləri gizlədilə bilməz
-• Hesab keçirmə düyməsi Kitabxana tabelində görünməyə bilər"</string>
+Dəyişikliklərə aşağıdakılar daxildir:
+• Tam ekran video təklifləri pozula bilər
+• Oynadıcının açılan menyusundakı (və ya əlaqədar tənzimləmələr) elementlər işləməyə bilər
+• Video təsvirindəki Musiqi bölməsi işləməyə bilər
+• Oynadıcının açılan menyusu elementləri gizlədilə bilməz
+• Fırlanan rəqəmlər animasiya olunmur
+• Hesab dəyişdirmə düyməsi Kitabxana səhifəsində görünməyə bilər"</string>
     <string name="revanced_disable_playlist_autoplay_title">Pleylist avtomatik oynatmasını qapat</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>

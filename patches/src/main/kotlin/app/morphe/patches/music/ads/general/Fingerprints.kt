@@ -1,24 +1,29 @@
 package app.morphe.patches.music.ads.general
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.string
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.util.getReference
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
+import app.morphe.util.containsLiteralInstruction
 import app.morphe.patches.music.utils.resourceid.buttonContainer
 import app.morphe.patches.music.utils.resourceid.floatingLayout
 import app.morphe.patches.music.utils.resourceid.modernDialogBackground
 import app.morphe.patches.music.utils.resourceid.musicNotifierShelf
 import app.morphe.patches.music.utils.resourceid.privacyTosFooter
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val accountMenuFooterFingerprint = legacyFingerprint(
-    name = "accountMenuFooterFingerprint",
+internal object accountMenuFooterFingerprint : Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    filters = opcodesToFilters(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -26,31 +31,29 @@ internal val accountMenuFooterFingerprint = legacyFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT
     ),
-    literals = listOf(privacyTosFooter)
+    custom = { method, _ -> method.containsLiteralInstruction(privacyTosFooter) }
 )
 
-internal val floatingLayoutFingerprint = legacyFingerprint(
-    name = "floatingLayoutFingerprint",
+internal object floatingLayoutFingerprint : Fingerprint(
     returnType = "Landroid/view/View;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    literals = listOf(floatingLayout)
+    custom = { method, _ -> method.containsLiteralInstruction(floatingLayout) }
 )
 
-internal val getPremiumDialogParentFingerprint = legacyFingerprint(
-    name = "getPremiumDialogParentFingerprint",
+internal object getPremiumDialogParentFingerprint : Fingerprint(
     returnType = "Landroid/graphics/drawable/Drawable;",
-    accessFlags = AccessFlags.PROTECTED.value,
+    accessFlags = listOf(AccessFlags.PROTECTED),
     parameters = listOf("Landroid/content/Context;"),
-    literals = listOf(modernDialogBackground)
+    custom = { method, _ -> method.containsLiteralInstruction(modernDialogBackground) }
 )
 
-internal val getPremiumDialogFingerprint = legacyFingerprint(
-    name = "getPremiumDialogFingerprint",
+internal object getPremiumDialogFingerprint : Fingerprint(
     returnType = "Landroid/app/Dialog;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/os/Bundle;"),
-    customFingerprint = { method, _ ->
+    classFingerprint = getPremiumDialogParentFingerprint,
+    custom = { method, _ ->
         indexOfSetContentViewInstruction(method) >= 0
     }
 )
@@ -60,12 +63,11 @@ internal fun indexOfSetContentViewInstruction(method: Method) =
         getReference<MethodReference>()?.toString() == "Landroid/app/Dialog;->setContentView(Landroid/view/View;)V"
     }
 
-internal val getPremiumTextViewFingerprint = legacyFingerprint(
-    name = "getPremiumTextViewFingerprint",
+internal object getPremiumTextViewFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    opcodes = listOf(
+    filters = opcodesToFilters(
         Opcode.IGET_BOOLEAN,
         Opcode.CONST_4,
         Opcode.IF_EQZ,
@@ -74,16 +76,15 @@ internal val getPremiumTextViewFingerprint = legacyFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    strings = listOf("FEmusic_history")
+    strings = listOf(string("FEmusic_history", StringComparisonType.CONTAINS))
 )
 
 // 9.40: the visibility constant after the "get premium" flag is `const/16` instead of `const/4`.
-internal val getPremiumTextViewV940Fingerprint = legacyFingerprint(
-    name = "getPremiumTextViewV940Fingerprint",
+internal object getPremiumTextViewV940Fingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    opcodes = listOf(
+    filters = opcodesToFilters(
         Opcode.IGET_BOOLEAN,
         Opcode.CONST_16,
         Opcode.IF_EQZ,
@@ -92,12 +93,34 @@ internal val getPremiumTextViewV940Fingerprint = legacyFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     ),
-    strings = listOf("FEmusic_history")
+    strings = listOf(string("FEmusic_history", StringComparisonType.CONTAINS))
 )
 
-internal val notifierShelfFingerprint = legacyFingerprint(
-    name = "notifierShelfFingerprint",
+internal object notifierShelfFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(musicNotifierShelf, buttonContainer)
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(musicNotifierShelf) && method.containsLiteralInstruction(buttonContainer)
+    }
+)
+
+/**
+ * Lazily builds the in-player ad overlay (ad title, ad progress text, skip ad button).
+ * Matches the findViewById call for skip_ad_button, whose receiver is the overlay root.
+ *
+ * Older app versions build the overlay in a separate method that returns the root view,
+ * newer versions inline it into a method with no parameters. The method signature is not
+ * declared so both match.
+ */
+internal object AdOverlayInflateFingerprint : Fingerprint(
+    filters = listOf(
+        resourceLiteral(ResourceType.LAYOUT, "default_ad_overlay"),
+        methodCall(name = "inflate"),
+        resourceLiteral(ResourceType.ID, "skip_ad_button"),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "findViewById",
+            returnType = "Landroid/view/View;"
+        )
+    )
 )

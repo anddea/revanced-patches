@@ -49,6 +49,7 @@ import app.morphe.patches.shared.misc.media.MediaSessionSetPlaybackStateFingerpr
 import app.morphe.patches.shared.misc.media.hookMediaSessionArgument
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
@@ -492,6 +493,21 @@ val navigationBarComponentsPatch = bytecodePatch(
             MediaSessionSetPlaybackStateFingerprint.hookMediaSessionArgument(
                 "Lapp/morphe/extension/music/patches/MusicGlassMiniplayer;->onSetPlaybackState(Landroid/media/session/PlaybackState;)V"
             )
+            val playerTouchMatches = PlayerPageTouchFingerprint.matchAll()
+            if (playerTouchMatches.size != 2) {
+                throw PatchException("Expected both PlayerPageBehavior touch handlers")
+            }
+            playerTouchMatches.forEach {
+                it.method.addInstructionsWithLabels(0, """
+                    invoke-static { p2, p3 }, Lapp/morphe/extension/music/patches/MusicGlassMiniplayer;->ignorePlayerTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+                    move-result v0
+                    if-eqz v0, :native_touch
+                    const/4 v0, 0x0
+                    return v0
+                    :native_touch
+                    nop
+                """)
+            }
             // The time bars of the player and of the miniplayer share an obfuscated class. The time bar
             // of the miniplayer has no id, so the class is marked for the glass miniplayer to find it.
             val timeBarClass = classDefBy(
@@ -562,10 +578,13 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass", "false")
-            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_light", "false")
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_light", "false",
+                dependencyKey = "", setSummary = true, titleKey = "morphe_music_miniplayer_glass_light_title")
             addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_blur",
-                "app.morphe.extension.shared.settings.preference.SeekBarPreference")
-            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_album_tint", "false")
+                "app.morphe.extension.shared.settings.preference.SeekBarPreference",
+                titleKey = "morphe_music_miniplayer_glass_blur_title")
+            addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_album_tint", "false",
+                dependencyKey = "", setSummary = true, titleKey = "morphe_music_miniplayer_glass_album_tint_title")
             addSwitchPreference(CategoryType.NAVIGATION, "morphe_music_navigation_bar_glass_hide_indicator", "false")
             addCustomPreference(CategoryType.NAVIGATION.value, "morphe_music_navigation_bar_glass_height",
                 "app.morphe.extension.music.settings.preference.MusicGlassNavigationBarPreference",

@@ -113,6 +113,15 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     /**
+     * Injection point.
+     *
+     * @return If the HaTS survey of the bottom UI container should not be shown.
+     */
+    public static boolean hideHatsSurvey() {
+        return Settings.HIDE_SURVEYS.get();
+    }
+
+    /**
      * Hides a search term thumbnail and prevents the image loader from populating it.
      *
      * @param view The thumbnail view supplied to the image loader.

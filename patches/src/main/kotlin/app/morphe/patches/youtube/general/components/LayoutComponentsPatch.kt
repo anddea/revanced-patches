@@ -36,7 +36,6 @@ import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -302,6 +301,23 @@ val layoutComponentsPatch = bytecodePatch(
                 )
             }
         }
+
+        // endregion
+
+        // region hide HaTS surveys
+
+        // Older targets may lack the HaTS bottom-container display method.
+        HatsSurveyDisplayFingerprint.methodOrNull?.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideHatsSurvey()Z
+                move-result v0
+                if-eqz v0, :show
+                return-void
+                :show
+                nop
+            """
+        )
 
         // endregion
 

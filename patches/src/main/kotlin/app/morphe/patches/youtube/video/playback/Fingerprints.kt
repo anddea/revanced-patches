@@ -31,9 +31,27 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+/**
+ * The sizes the hardware video decoder supports. The stream selection drops the streams outside of them.
+ */
 internal object DeviceDimensionsModelToStringFingerprint : Fingerprint(
     returnType = "L",
-    strings = listOf("minh.", ";maxh.")
+    filters = listOf(
+        string("minh."),
+        string(";maxh.")
+    )
+)
+
+internal object DeviceDimensionsModelConstructorFingerprint : Fingerprint(
+    classFingerprint = DeviceDimensionsModelToStringFingerprint,
+    name = "<init>",
+    returnType = "V",
+    parameters = listOf(
+        "I", // Min height.
+        "I", // Max height.
+        "I", // Min width.
+        "I"  // Max width.
+    )
 )
 
 internal object PlaybackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(

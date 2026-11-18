@@ -250,6 +250,7 @@ public class Settings extends SharedYouTubeSettings {
     // Keep existing thumbnail keys so saved thumbnail choices survive the DeArrow rename.
     public static final BooleanSetting DEARROW_TITLES = new BooleanSetting("morphe_dearrow_titles", FALSE, true);
     public static final BooleanSetting DEARROW_TITLES_ICON = new BooleanSetting("morphe_dearrow_titles_icon", TRUE, true, parent(DEARROW_TITLES));
+    public static final BooleanSetting DEARROW_CLEAN_UP_TITLES = new BooleanSetting("morphe_dearrow_clean_up_titles", FALSE, true, new app.morphe.extension.youtube.patches.dearrow.DeArrowPatch.DeArrowTitleCleanupAvailability());
     public static final BooleanSetting DEARROW_CASUAL_MODE = new BooleanSetting("morphe_dearrow_casual_mode", FALSE, true, parent(DEARROW_TITLES));
     public static final BooleanSetting DEARROW_VOTE_BUTTON = new BooleanSetting("morphe_dearrow_vote_button", FALSE, true);
     public static final IntegerSetting DEARROW_VOTE_TIME_STEP = new IntegerSetting("morphe_dearrow_vote_time_step", 100, parent(DEARROW_VOTE_BUTTON));
@@ -731,6 +732,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting MINIPLAYER_GLASS = new BooleanSetting("morphe_miniplayer_glass", TRUE, true, new MiniplayerPatch.MiniplayerGlassAvailability());
     public static final IntegerSetting MINIPLAYER_GLASS_BOTTOM_SPACING = new IntegerSetting("morphe_miniplayer_glass_bottom_spacing", 2, true, new SliderConfig(0, 96, 1, "dp"), parentsAll(parent(MINIPLAYER_GLASS), new MiniplayerPatch.MiniplayerGlassAvailability()));
     public static final BooleanSetting NAVIGATION_BAR_GLASS_ROUND = new BooleanSetting("morphe_navigation_bar_glass_round", TRUE, true, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR), new GlassNavigationBar.GlassAvailability()));
+    public static final BooleanSetting NAVIGATION_BAR_GLASS_EDGE = new BooleanSetting("morphe_navigation_bar_glass_edge", TRUE, true, parentsAll(parent(NAVIGATION_BAR_GLASS), parentInverted(HIDE_NAVIGATION_BAR), new GlassNavigationBar.GlassAvailability()));
     public static final BooleanSetting MINIPLAYER_HIDE_TITLE = new BooleanSetting("revanced_miniplayer_hide_title", FALSE, true, new MiniplayerPatch.MiniplayerMinimalBar2Availability());
     public static final BooleanSetting MINIPLAYER_HIDE_REWIND_FORWARD = new BooleanSetting("revanced_miniplayer_hide_rewind_forward", TRUE, true, new MiniplayerPatch.MiniplayerHideRewindOrOverlayOpacityAvailability());
     public static final BooleanSetting MINIPLAYER_ROUNDED_CORNERS = new BooleanSetting("revanced_miniplayer_rounded_corners", TRUE, true, new MiniplayerPatch.MiniplayerAnyModernAvailability());

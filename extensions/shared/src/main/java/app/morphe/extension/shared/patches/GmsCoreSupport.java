@@ -285,6 +285,7 @@ public class GmsCoreSupport {
         return switch (vendorGroupId) {
             case "app.revanced" -> "https://github.com/revanced/gmscore/releases/latest";
             case "com.mgoogle" -> "https://github.com/inotia00/VancedMicroG/releases/latest";
+            case "app.reseam" -> "https://reseam.app/download/#gmscore";
             default -> vendorGroupId + ".android.gms";
         };
     }

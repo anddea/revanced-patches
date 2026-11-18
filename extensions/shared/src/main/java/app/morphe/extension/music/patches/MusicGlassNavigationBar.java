@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/4542
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -405,6 +409,20 @@ public final class MusicGlassNavigationBar {
             }
         };
         content.getViewTreeObserver().addOnGlobalLayoutListener(listener);
+
+        // The player can reset a floating button's margin during a touch. Restoring the extra
+        // room above requests another layout. Do not capture its old position into the glass
+        // backdrop before that layout completes, or the button briefly appears twice.
+        content.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                if (currentContent.get() != content) {
+                    content.getViewTreeObserver().removeOnPreDrawListener(this);
+                    return true;
+                }
+                return !content.isLayoutRequested();
+            }
+        });
     }
 
     private static boolean isList(View view) {

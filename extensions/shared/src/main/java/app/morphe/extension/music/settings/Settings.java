@@ -22,6 +22,7 @@ import java.util.List;
 import app.morphe.extension.music.patches.lyrics.AiProviders;
 import app.morphe.extension.music.patches.lyrics.OpenAIClient;
 import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
+import app.morphe.extension.music.patches.CrossfadeManager.CrossfadeAvailability;
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
@@ -248,12 +249,13 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", FALSE, true, parentInverted(MINIPLAYER_GLASS));
     public static final BooleanSetting CHANGE_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_music_change_navigation_bar_color", FALSE, true, parentsAll(parent(CHANGE_MINIPLAYER_COLOR), parentInverted(NAVIGATION_BAR_GLASS)));
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
-    public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true);
-    public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER);
-    public static final EnumSetting<CrossFadeDuration> CROSSFADE_DURATION = new EnumSetting<>("morphe_music_crossfade_duration", CrossFadeDuration.MILLISECONDS_3000);
-    public static final BooleanSetting CROSSFADE_ON_SKIP = new BooleanSetting("morphe_music_crossfade_on_skip", TRUE);
-    public static final BooleanSetting CROSSFADE_ON_AUTO_ADVANCE = new BooleanSetting("morphe_music_crossfade_on_auto_advance", TRUE);
-    public static final BooleanSetting CROSSFADE_SESSION_CONTROL = new BooleanSetting("morphe_music_crossfade_session_control", TRUE);
+    private static final Setting.Availability CROSSFADE_AVAILABILITY = new CrossfadeAvailability();
+    public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true, CROSSFADE_AVAILABILITY);
+    public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER, parentsAll(CROSSFADE_AVAILABILITY, parent(CROSSFADE_ENABLED)));
+    public static final EnumSetting<CrossFadeDuration> CROSSFADE_DURATION = new EnumSetting<>("morphe_music_crossfade_duration", CrossFadeDuration.MILLISECONDS_3000, parentsAll(CROSSFADE_AVAILABILITY, parent(CROSSFADE_ENABLED)));
+    public static final BooleanSetting CROSSFADE_ON_SKIP = new BooleanSetting("morphe_music_crossfade_on_skip", TRUE, parentsAll(CROSSFADE_AVAILABILITY, parent(CROSSFADE_ENABLED)));
+    public static final BooleanSetting CROSSFADE_ON_AUTO_ADVANCE = new BooleanSetting("morphe_music_crossfade_on_auto_advance", TRUE, parentsAll(CROSSFADE_AVAILABILITY, parent(CROSSFADE_ENABLED)));
+    public static final BooleanSetting CROSSFADE_SESSION_CONTROL = new BooleanSetting("morphe_music_crossfade_session_control", TRUE, parentsAll(CROSSFADE_AVAILABILITY, parent(CROSSFADE_ENABLED)));
     public static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY = new StringSetting("revanced_custom_player_background_color_primary", "#000000", true);
     public static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY = new StringSetting("revanced_custom_player_background_color_secondary", "#000000", true);
     public static final BooleanSetting CHANGE_SEEK_BAR_POSITION = new BooleanSetting("revanced_change_seekbar_position", FALSE, true);
@@ -350,18 +352,36 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting LYRICS_SWAP_TRANS_ROMA = new BooleanSetting("morphe_music_lyrics_swap_trans_roma", FALSE, false, parentsAll(parent(LYRICS_ENABLED), parentsAny(LYRICS_SHOW_TRANSLATE_BUTTON, LYRICS_SHOW_ROMANIZE_BUTTON)));
     /** Puts every line in the middle, whatever the format and its duet sides ask for. */
     public static final BooleanSetting LYRICS_FORCE_CENTER = new BooleanSetting("morphe_music_lyrics_force_center", FALSE, false, parent(LYRICS_ENABLED));
+    /** Places the second singer of a duet on the opposite edge, disabled when Always center lyrics is active. */
+    public static final BooleanSetting LYRICS_DUET_OPPOSITE_SIDE = new BooleanSetting("morphe_music_lyrics_duet_opposite_side", TRUE, false, parentsAll(parent(LYRICS_ENABLED), parentInverted(LYRICS_FORCE_CENTER)));
     public static final BooleanSetting LYRICS_ROMANIZE = new BooleanSetting("morphe_music_lyrics_romanize", FALSE, false, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_ROMANIZE_ONLY = new BooleanSetting("morphe_music_lyrics_romanize_only", FALSE, false, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_CURRENT_BUTTON = new BooleanSetting("morphe_music_lyrics_show_current_button", TRUE, false, parent(LYRICS_ENABLED));
     /** Uses spring physics and staggered FLIP cascading for scrolling lyric lines. */
     public static final BooleanSetting LYRICS_SPRING_SCROLL = new BooleanSetting("morphe_music_lyrics_spring_scroll", TRUE, false, parent(LYRICS_ENABLED));
+    /** Slower scrolling animation and keeps inactive lines full size. */
+    public static final BooleanSetting LYRICS_RELAX_SCROLL = new BooleanSetting("morphe_music_lyrics_relax_scroll", FALSE, false, parentsAll(parent(LYRICS_ENABLED), parent(LYRICS_SPRING_SCROLL)));
     /** Shows animated three-dot instrumental gap indicators between lyric lines. */
     public static final BooleanSetting LYRICS_GAP_DOTS = new BooleanSetting("morphe_music_lyrics_gap_dots", TRUE, false, parent(LYRICS_ENABLED));
     /** Progressively dims inactive lines for a focused spotlight effect. */
     public static final BooleanSetting LYRICS_FOCUS_SPOTLIGHT = new BooleanSetting("morphe_music_lyrics_focus_spotlight", TRUE, false, parent(LYRICS_ENABLED));
+    /** Blurs inactive lyric lines progressively by distance on Android 12 and later. */
+    public static final BooleanSetting LYRICS_BLUR_INACTIVE = new BooleanSetting("morphe_music_lyrics_blur_inactive", FALSE, false, parentsAll(parent(LYRICS_ENABLED), () -> Build.VERSION.SDK_INT >= Build.VERSION_CODES.S));
     public static final BooleanSetting LYRICS_WORD_SYNC = new BooleanSetting("morphe_music_lyrics_word_sync", TRUE, false, parent(LYRICS_ENABLED));
-    /** Shrinks every line that is not the one being sung. */
-    public static final BooleanSetting LYRICS_LINE_SCALE = new BooleanSetting("morphe_music_lyrics_line_scale", TRUE, false, parent(LYRICS_ENABLED));
+    /** Animates synced words with a soft sweep, glow, and slight lift instead of a hard fill. */
+    public static final BooleanSetting LYRICS_WORD_SMOOTH_SWEEP = new BooleanSetting("morphe_music_lyrics_word_smooth_sweep", TRUE, false, parentsAll(parent(LYRICS_ENABLED), parent(LYRICS_WORD_SYNC)));
+    /** Shrinks every line that is not the one being sung. Disabled when Relaxed scrolling is active. */
+    public static final BooleanSetting LYRICS_LINE_SCALE = new BooleanSetting("morphe_music_lyrics_line_scale", TRUE, false, new Setting.Availability() {
+        @Override
+        public boolean isAvailable() {
+            return LYRICS_ENABLED.get() && !(LYRICS_SPRING_SCROLL.get() && LYRICS_RELAX_SCROLL.get());
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(LYRICS_ENABLED, LYRICS_SPRING_SCROLL, LYRICS_RELAX_SCROLL);
+        }
+    });
     public static final BooleanSetting LYRICS_HIDE_PLAYED = new BooleanSetting("morphe_music_lyrics_hide_played", FALSE, false, parent(LYRICS_ENABLED));
     /** Master switch for separating background vocals and harmony from the lead line. */
     public static final BooleanSetting LYRICS_SPLIT_BACKGROUND = new BooleanSetting("morphe_music_lyrics_split_background", TRUE, false, parent(LYRICS_ENABLED));

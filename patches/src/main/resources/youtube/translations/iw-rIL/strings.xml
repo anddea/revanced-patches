@@ -90,15 +90,69 @@
     <string name="morphe_dearrow_about_summary">"DeArrow מחליף כותרות ומיניאטורות קליקבייט בכאלה שמגיעות מהקהל, שהן מדויקות יותר ופחות סנסציוניות. הכותרות נכתבות ומוצבעות על ידי הקהילה, והמיניאטורות הן פריימים שנלקחו מהסרטון
 
 הסרטונים מתבקשים באמצעות קידומת קצרה של מזהה הווידאו המגובב, כך שהשרת לא יכול לדעת בדיוק איזה סרטון אתה מסתכל. אם לסרטון אין מיניאטורה של DeArrow, מוצגת התמונה המקורית או תמונת סטילס"</string>
+    <string name="morphe_dearrow_account_connection_failure">פרטי החשבון אינם זמינים באופן זמני</string>
+    <string name="morphe_dearrow_account_thumbnails">שלחת &lt;b&gt;%s&lt;/b&gt; תמונות ממוזערות</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">הקש כאן כדי להציג את התמונות הממוזערות שלך</string>
+    <string name="morphe_dearrow_account_titles">שלחת &lt;b&gt;%s&lt;/b&gt; כותרות</string>
+    <string name="morphe_dearrow_account_titles_summary">הקש כאן כדי להציג את הכותרות שלך</string>
+    <string name="morphe_dearrow_account_username_change">הקש כאן כדי לשנות את שם המשתמש שלך. שם המשתמש הוא זהה לזה שב-SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">לא ניתן לשנות את שם המשתמש: סטטוס: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">מספר הצבעות הקז\'ואל בקטגוריה אחת, כמו מצחיק או יצירתי, שנדרש כדי להציג את הכותרת המקורית</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">מינימום הצבעות קז\'ואל להצגת הכותרת המקורית</string>
     <string name="morphe_dearrow_casual_mode_summary">מציג את הכותרת המקורית במקום כותרת DeArrow אם משתמשי DeArrow הצביעו שהם אוהבים את הכותרת המקורית</string>
     <string name="morphe_dearrow_casual_mode_title">מצב קז\'ואל</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">מנקה את כותרות הסרטונים שאין להם כותרת DeArrow. מילים באותיות גדולות שונו למקרה רגיל, ואימוג\'ים, טקסט מעוצב וסימני קריאה חוזרים הוסרו</string>
+    <string name="morphe_dearrow_clean_up_titles_title">ניקוי כותרות</string>
     <string name="morphe_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
     <string name="morphe_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
-    <string name="morphe_dearrow_titles_icon_summary">מציג את סמל DeArrow בכותרות של סרטונים מבית הקהילה. הקש על הסמל כדי להציג את הכותרת והתמונה המקורית</string>
+    <string name="morphe_dearrow_guidelines_summary">ההנחיות כוללות כללים וטיפים להגשה והצבעה על כותרות ותמונות ממוזערות</string>
+    <string name="morphe_dearrow_guidelines_title">הנחיות</string>
+    <string name="morphe_dearrow_private_user_id_invalid">מזהה משתמש פרטי חייב להיות באורך של לפחות 30 תווים</string>
+    <string name="morphe_dearrow_private_user_id_summary">אותו מזהה משתמש כמו ב-SponsorBlock. יש לשמור אותו בסוד. זהו מעין סיסמה ואין לשתף אותו עם אף אחד. אם למישהו יהיה את המזהה הזה, הוא יוכל להתחזות אליך</string>
+    <string name="morphe_dearrow_private_user_id_title">מזהה המשתמש הפרטי שלך</string>
+    <string name="morphe_dearrow_submitting_title">שולח כותרות ותמונות ממוזערות</string>
+    <string name="morphe_dearrow_titles_icon_summary">מציג את סמל ה-DeArrow בכותרות של סרטונים עם כותרת או תמונה ממוזמנת על ידי הקהילה. הקש על הסמל כדי להציג את הכותרת והתמונה המקוריות</string>
     <string name="morphe_dearrow_titles_icon_title">הצג סמל DeArrow</string>
     <string name="morphe_dearrow_titles_title">כותרות DeArrow</string>
+    <string name="morphe_dearrow_vote_button_summary">מוסיף לחצן לחלק העליון של נגן הווידאו להצבעה על כותרות ותמונות ממוזערות של DeArrow, או להגשה של כותרות ותמונות חדשות</string>
+    <string name="morphe_dearrow_vote_button_title">הצג לחצן DeArrow</string>
+    <string name="morphe_dearrow_vote_current_frame_content">האם לשלוח את הפריים ב-%s כתמונה ממוזערת?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">הסרטון פועל. כדי לשלוח את הפריים שאתה רואה, השהה תחילה את הסרטון</string>
+    <string name="morphe_dearrow_vote_downvoted">הורדת הדירוג נשלחה ל-DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">לא ניתן היה לשלוח את ההצבעה (קוד סטטוס: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">לא ניתן היה לשלוח את ההצבעה. בדוק את החיבור שלך ונסה שוב</string>
+    <string name="morphe_dearrow_vote_failed_locked">זה נעול, וניתן להצביע נגד רק על ידי משתמשי VIP</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">הצבעה עבור סרטון זה עדיין בתהליך. נסה שוב בעוד רגע</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow לא קיבלה את ההצבעה: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">לא ניתן היה לטעון את הכותרות והתמונות הממוזערות של סרטון זה</string>
+    <string name="morphe_dearrow_vote_frame_step">%s שניות</string>
+    <string name="morphe_dearrow_vote_loading">טוען…</string>
+    <string name="morphe_dearrow_vote_locked">נעול</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">תמונה ממוזערת חדשה</string>
+    <string name="morphe_dearrow_vote_new_title">כותרת חדשה</string>
+    <string name="morphe_dearrow_vote_new_title_hint">הקלד כותרת</string>
+    <string name="morphe_dearrow_vote_no_titles">אין עדיין כותרות. הגש כותרת כדי להיות הראשון</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">תמונה ממוזערת מקורית</string>
+    <string name="morphe_dearrow_vote_original_title">כותרת מקורית</string>
+    <string name="morphe_dearrow_vote_score">ניקוד: %s</string>
+    <string name="morphe_dearrow_vote_submit">שלח</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">פריים ב-%s</string>
+    <string name="morphe_dearrow_vote_thumbnails">תמונות ממוזערות</string>
+    <string name="morphe_dearrow_vote_time_step_summary">סכום הדילוג של כפתורי התאמת הזמן המדויקת בעת שליחת תמונה ממוזערת (במילישניות)</string>
+    <string name="morphe_dearrow_vote_time_step_title">שלב התאמת זמן</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">כותרות</string>
+    <string name="morphe_dearrow_vote_unverified">לא מאומת</string>
+    <string name="morphe_dearrow_vote_upvoted">ההצבעה נשלחה ל-DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">שומר הודעות פוש שהתקבלו לקובץ בנתוני האפליקציה. הקובץ עשוי לכלול מידע פרטי, כגון טקסטים של הודעות ושמות ערוצים</string>
+    <string name="morphe_debug_save_push_notifications_title">שמירת הודעות פוש</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">הודעות הפוש שנשמרו נמחקו</string>
+    <string name="morphe_debug_saved_push_notifications_count">הודעות פוש שנשמרו: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">ייצוא הודעות הפוש נכשל</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">הודעות הפוש יוצאו בהצלחה</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">לא נמצאו הודעות פוש שנשמרו</string>
+    <string name="morphe_debug_saved_push_notifications_summary">ייצוא או ניקוי של הודעות הפוש שנשמרו</string>
+    <string name="morphe_debug_saved_push_notifications_title">ייצוא הודעות פוש שנשמרו</string>
     <string name="morphe_disable_auto_feed_refresh_summary">מונע מהפידים להתרענן אוטומטית לאחר שהם מתיישנים</string>
     <string name="morphe_disable_auto_feed_refresh_title">השבת רענון אוטומטי של פידים</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">שומר את סרגל הניווט גלוי בזמן גלילה</string>
@@ -114,13 +168,21 @@
     <string name="morphe_disable_scrolling_speed_limit_title">השבת מגבלת מהירות גלילה</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">מציג את \"מנויים\" בסרגל הניווט, אם YouTube מעביר זאת ללשונית בחלק העליון של דף הבית</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">השבת לשוניות ניווט בסרגל הכלים</string>
+    <string name="morphe_download_force_4k_summary">מציע הורדות ב-1440p וב-4K גם אם YouTube מחליט שמכשיר זה אינו יכול להריץ אותן</string>
+    <string name="morphe_download_force_4k_title">כפה זמינות הורדה ב-4K</string>
     <string name="morphe_dual_captions_enabled_title">כתוביות דו-לשוניות</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">עד כמה התאורה לצד הווידאו תהיה מטושטשת. בערך 0 היא תשמור על הצורות של הווידאו</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">טשטוש תאורה</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">כמה זמן התאורה תישאר חשוכה לאחר הפסקת הגלילה. כאשר הערך הוא 0, רק הגלילה תחשיך את התאורה, והיא תחזור מיד עם הפסקת הגלילה</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">משך ההחשכה</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">מחשיך את התאורה כאשר הדף נגלל או ננגע</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">החשכה בזמן גלילה</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">מעמעם את התאורה בסרטונים בהירים כדי שהטקסט בדף יישאר קריא</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">שמירה על קריאות הטקסט</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">כמה זמן ייקח לתאורה לעקוב אחרי הווידאו. בערך 0 היא תעקוב אחרי הווידאו מקרוב</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">החלקה קלה של התאורה</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">מידת עוצמת התאורה בדף השעון ובפסים השחורים</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">עוצמת תאורה</string>
     <string name="morphe_enhanced_ambient_mode_summary">מאיר את כל דף הצפייה ואת הפסים השחורים באמצעות הסרטון, במקום מצב תאורת אווירה</string>
     <string name="morphe_enhanced_ambient_mode_title">מצב תאורת אווירה משופר</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך ה-DVR לשידורים חיים' אולי לא תהיה זמינה
@@ -131,6 +193,8 @@
     <string name="morphe_explore_menu_screen_summary">בחר אילו רכיבים יופיעו בתפריט החקירה</string>
     <string name="morphe_explore_menu_screen_title">תפריט חקירה</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">נסה לסגור את MicroG בכפייה</string>
+    <string name="morphe_feed_download_flyout_button_summary">מוסיף פריט הורדה לתפריטים של סרטוני פיד שאין להם כזה</string>
+    <string name="morphe_feed_download_flyout_button_title">כפה פריט תפריט הורדה בתפריט הצף</string>
     <string name="morphe_feed_long_press_menu_summary">הקשה והחזקה בכל מקום על סרטון בפיד פותחת את התפריט שלו</string>
     <string name="morphe_feed_long_press_menu_title">הקש והחזק כדי לפתוח תפריט וידאו</string>
     <string name="morphe_feed_watch_later_button_summary">לחצן \"צפייה מאוחר יותר\" מופיע על התמונות הממוזערות של סרטוני הפיד, עם סימן וי אם הסרטון נשמר. לחיצה עליו שומרת או מסירה את הסרטון, ולחיצה ארוכה פותחת את \"שמירה לרשימת השמעה\"</string>
@@ -201,8 +265,8 @@
     <string name="morphe_hide_post_comments_preview_title">הסתר תצוגה מקדימה של תגובות</string>
     <string name="morphe_hide_post_dislike_button_summary">בפריסת כפייה, המקום של הכפתור נשאר ריק</string>
     <string name="morphe_hide_post_dislike_button_title">הסתר לחצן דיסלייק</string>
-    <string name="morphe_hide_post_like_dislike_buttons_title">הסתר כפתורי לייק ודיסלייק</string>
-    <string name="morphe_hide_post_share_button_summary">לחצן ההורדה של תמונות הפוסט מופיע לצד לחצן השיתוף, ולכן גם הוא מוסתר</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">הסתר לחצני אהבתי ודיסלייק</string>
+    <string name="morphe_hide_post_share_button_summary">לחצן ההורדה של תמונות הפוסט מופיע לצד לחצן השיתוף, לכן גם הוא מוסתר</string>
     <string name="morphe_hide_post_share_button_title">הסתר לחצן שיתוף</string>
     <string name="morphe_hide_privacy_tos_footer_title">הסתר כותרות תחתונות משפטיות ופרטיות</string>
     <string name="morphe_hide_shopping_menu_title">הסתר תפריט קניות</string>
@@ -251,10 +315,16 @@
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">מאפשר חיפוש בכל הזרמות החיות, גם באלו שמגבילות זאת בדרך כלל</string>
     <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
+    <string name="morphe_miniplayer_glass_summary">מציג את המינינגן כזכוכית שקופה עם פינות מעוגלות, בדומה לסרגל ניווט הזכוכית. דורש סרגל ניווט זכוכית</string>
+    <string name="morphe_miniplayer_glass_title">מינינגן זכוכית</string>
     <string name="morphe_music_package_name_summary">שם החבילה של אפליקציית המוזיקה המותקנת שלך</string>
     <string name="morphe_music_package_name_title">שם החבילה של אפליקציית המוזיקה</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">מצייר קצה מואר סביב סרגל הניווט מזכוכית</string>
+    <string name="morphe_navigation_bar_glass_edge_title">קצה זכוכית של סרגל הניווט</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">כוונן את רמת השקיפות של שורת הניווט מזכוכית (0 הוא שקוף, 100 הוא אטום)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">אטימות הזכוכית</string>
+    <string name="morphe_navigation_bar_glass_round_summary">מעניק לסרגל ניווט הזכוכית קצוות מעוגלים, במקום פינות כמו במינינגן הזכוכית</string>
+    <string name="morphe_navigation_bar_glass_round_title">סרגל ניווט זכוכית מעוגל</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">מרווח כפתורים</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">כפתורים מוצגים: %1$s מתוך %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">גובה</string>
@@ -270,10 +340,11 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אימות האתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 אינו זמין כרגע</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 אינו זמין זמנית (מצב %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">ההתחברות ל-Android VR פגה, נסה להתחבר ל-VR שוב</string>
+    <string name="morphe_oauth2_connection_failure_status_400">ההתחברות ל- \'Android VR\' פגה, נסה להתחבר ל-VR שוב</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 אינו זמין כרגע (תם הזמן של ה-API)</string>
     <string name="morphe_oauth2_toast_invalid">אסימון ההתחברות ל-VR אינו תקין, נסה להתחבר ל-VR שוב</string>
-    <string name="morphe_oauth2_toast_reset">בוצעה יציאה מ-Android VR</string>
+    <string name="morphe_oauth2_toast_reset">בוצעה יציאה מ- \'Android VR\'</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">מונע את פתיחת השידור החי בעת הקשה על האווטאר של הערוץ</string>
     <string name="morphe_open_channel_of_live_avatar_title">פתח ערוץ מאווטאר חי</string>
     <string name="morphe_open_videos_fullscreen_title">פתח סרטונים במצב מסך מלא</string>
@@ -323,7 +394,7 @@
     <string name="morphe_remember_livestream_position_summary">עבור שידורים חיים פעילים, זוכרת וממשיכה את מיקום ההשמעה שלך במקום לקפוץ למיקום החי הנוכחי</string>
     <string name="morphe_remember_livestream_position_title">זכור את מיקום ההשמעה בשידור חי</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">תכונה זו אינה פועלת עם שידורים חיים 24/7 ושידורים אחרים שהם \'תמיד פעילים\'</string>
-    <string name="morphe_replace_links_with_shortener_summary">כופה על סרטונים להשתמש בפורמט הקיצור youtu.be</string>
+    <string name="morphe_replace_links_with_shortener_summary">מכריח סרטונים להשתמש בפורמט ה-URL המקוצר \'youtu.be\'</string>
     <string name="morphe_replace_links_with_shortener_title">שנה קישורי שיתוף ל-youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
@@ -362,6 +433,7 @@
     <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
     <string name="morphe_settings_new_indicator_days_summary">מספר הימים שבהם נקודה תוצג לצד הגדרות ואפשרויות שנוספו בעדכון</string>
     <string name="morphe_settings_new_indicator_days_title">הדגשת הגדרות חדשות</string>
+    <string name="morphe_shorts_download_flyout_title">הורד</string>
     <string name="morphe_skip_silence_minimum_pause_summary">רק הפסקות שאורכן לפחות משך זה יתקצרו. ההגדרה תיכנס לתוקף כשהסרטון הבא מתחיל</string>
     <string name="morphe_skip_silence_minimum_pause_title">אורך הפסקה מינימלי</string>
     <string name="morphe_skip_silence_summary">מדלג אוטומטית על הפסקות שקט באודיו של וידאו</string>
@@ -382,24 +454,19 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"מקודד וידאו הוא AVC (H.264), VP9, או AV1
 
 ההפעלה עשויה לגמגם או לדלג על פריימים"</string>
-    <string name="morphe_spoof_video_streams_av1_title">אפשר \'Android VR\' / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">אפשר AV1 עבור \'Android VR\' / \'visionOS\'</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"הפעלת הגדרה זו עשויה להשתמש בפענוח תוכנה של AV1
 
 הפעלת וידאו עם AV1 עלולה לגרום לגמגום או לדלוג על פריימים"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s לא עבד כמה פעמים ברציפות, אבל %2$s עבד
-
-להפוך את %2$s ללקוח ברירת המחדל?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">החלף</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">לקוח ברירת המחדל לא עובד</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">לא ניתן לקבל זרמים מאף לקוח</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">גרסת JavaScript של הנגן</string>
     <string name="morphe_spoof_video_streams_screen_summary">הגדר זיוף לקוח כדי למנוע בעיות השמעה</string>
     <string name="morphe_spoof_video_streams_screen_title">זיוף זרמי וידאו</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR דורש התחברות נפרדת. הקש כאן כדי להמשיך</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">כדי להשתמש בתכונה זו, שנה את \'לקוח ברירת מחדל\' ל-Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">כרגע מחובר ל-Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">כניסה ל-Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\"Android VR\" דורש כניסה נפרדת. הקש כאן כדי להמשיך</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">כדי להשתמש בתכונה זו, שנה את \"לקוח ברירת מחדל\" ל-\"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">כרגע מחובר ל-\"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">כניסה ל-\"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"קוד הפעלה: %s
 
 1. הקש על 'פתח אתר' למטה כדי לפתוח את האתר 'חבר מכשיר'
@@ -408,11 +475,11 @@
 4. הקש על 'אפשר גישה ל-YouTube VR'
 5. חזור לאפליקציה זו לאחר שתגיע להודעה 'המכשיר מחובר'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">הוראות</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"התחברות ל-Android VR יכולה לתקן בעיות השמעה עבור חלק מהמשתמשים
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"התחברות ל- 'Android VR' יכולה לתקן בעיות השמעה עבור חלק מהמשתמשים
 
 להתחברות, הקש על 'המשך' למטה"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">התנתק</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">התחברות ל-Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">התחברות ל- \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"האימות נשמר
 
 • הגדרות RVX לא ייובאו או ייוצאו עם אימות Android VR
@@ -420,6 +487,27 @@
 • יהיה עליך להתחבר שוב אם תשנה את סיסמת Google שלך או תבטל את רישום המכשיר בהגדרות Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">ההתחברות בוצעה בהצלחה</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">לא ניתן היה להנפיק קוד הפעלה</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">אופציונלי: התחבר לאתר YouTube כדי להפעיל סרטונים עם החשבון שלך. הקש כאן כדי להמשיך</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">כדי להשתמש בתכונה זו, שנה את \'לקוח ברירת מחדל\' ל-\'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">כרגע מחובר ל- \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">התחברות דרך דפדפן בנייד</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'Mobile Web' מפעיל סרטונים ללא התחברות, או לאחר התחברות לאתר YouTube
+
+• לאחר התחברות, ניתן להפעיל סרטונים הדורשים חשבון, כגון סרטונים עם הגבלת גיל
+• דף ההתחברות של Google נפתח באפליקציה זו
+• ההתחברות משמשת רק כדי לקבל את הסרטונים שאתה מפעיל
+• ההתחברות נשמרת רק במכשיר זה
+
+כדי להתחבר, לחץ על המשך למטה"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">התחבר ל-\'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"ההתחברות נשמרה
+
+• הגדרות ה-RVX שלך לא יבצעו ייבוא/ייצוא של ההתחברות ל-‘Mobile Web’
+• אם Google יסיים את ההתחברות, סרטונים יופעלו ללא התחברות עד שתתחבר שוב
+• התנתקות תנתק גם את המכשיר הזה מאתר YouTube"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">ההתחברות ל-Mobile Web פגה, נסה להתחבר ל-‘Mobile Web’ שוב</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">התנתקת מ-‘Mobile Web’</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">‘Android System WebView’ אינו זמין. התקן או הפעל אותו כדי להתחבר</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">הצג זיוף בנתונים לגיקים</string>
@@ -440,6 +528,8 @@
     <string name="morphe_tablet_layout_in_player_title">הפעל פריסת טאבלט בנגן</string>
     <string name="morphe_theme_color_change_foreground_summary">השתמש בצבע הנושא לטקסט ואייקונים</string>
     <string name="morphe_theme_color_change_foreground_title">שינוי צבע קדמה</string>
+    <string name="morphe_ungroup_notifications_summary">מציג כל סרטון מהעלאות מקובצות של ערוץ כהתראה נפרדת</string>
+    <string name="morphe_ungroup_notifications_title">ביטול קיבוץ התראות</string>
     <string name="morphe_video_action_bar_layout_entry_2">שורת קלאסיק אחת</string>
     <string name="morphe_video_action_bar_layout_entry_4">שתי שורות קלאסיק</string>
     <string name="morphe_video_action_bar_layout_title">פריסת סרגל פעולות של סרטון</string>
@@ -689,17 +779,17 @@
     <string name="revanced_disable_layout_updates_summary_off">השליטה תעדכן את השayout על ידי השרת</string>
     <string name="revanced_disable_layout_updates_summary_on">השליטה לא תעדכן את השayout על ידי השרת</string>
     <string name="revanced_disable_layout_updates_title">השבת עדכוני פריסה</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"פריסת האפליקציה חוזרת לפריסה שהיא הייתה בעת ההתקנה הראשונה
+    <string name="revanced_disable_layout_updates_user_dialog_message">"פריסת האפליקציה חוזרת לפריסה שהייתה בשימוש בעת ההתקנה הראשונה
 
-חלק מפריסות בצד השרת לא יוחזרו
+ייתכן שחלק מהפריסות בצד השרת לא יחזרו
 
-שינויים כוללים:
-• רכיבים בתפריט קפיצה של הנגן (או הגדרות רלוונטיות) לא יכולים לעבוד
-• מספרים מתגלגלים לא מונפשים
-• כרטיסיית ספרייה מוצגת
-• אזור המוזיקה של תיאור וידאו לא יכול לעבוד
-• פריטים בתפריט קפיצה של הנגן לא יכולים להיות מוסתרים
-• כפתור החלפת חשבון לא מופיע בכרטיסיית הספרייה"</string>
+השינויים כוללים:
+• ייתכן שהצעות לסרטונים במסך מלא ישתבשו
+• רכיבים בתפריט הצף של הנגן (או הגדרות קשורות) עלולים שלא לעבוד
+• ייתכן שסעיף המוזיקה בתיאור הסרטון לא יעבוד
+• לא ניתן להסתיר פריטים בתפריט הצף של הנגן
+• מספרים רצים אינם מונפשים
+• כפתור החלפת החשבון עלול שלא להופיע בלשונית הספרייה"</string>
     <string name="revanced_disable_playlist_autoplay_title">השבת הפעלה אוטומטית של רשימת השמעה</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">נגן Shorts יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">נגן Shorts לא יתחדש בעת הפעלת היישום</string>

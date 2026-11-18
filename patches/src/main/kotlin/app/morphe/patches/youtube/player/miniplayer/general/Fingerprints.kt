@@ -13,6 +13,8 @@
 package app.morphe.patches.youtube.player.miniplayer.general
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.anyInstruction
@@ -33,44 +35,40 @@ import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerOverlayAction
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerRewindButton
 import app.morphe.patches.youtube.utils.resourceid.scrimOverlay
 import app.morphe.patches.youtube.utils.resourceid.ytOutlinePictureInPictureWhite
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // region legacy miniplayer
 
-internal val miniplayerDimensionsCalculatorParentFingerprint = legacyFingerprint(
-    name = "miniplayerDimensionsCalculatorParentFingerprint",
+internal val miniplayerDimensionsCalculatorParentFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(floatyBarTopMargin),
+    filters = listOf(literal(floatyBarTopMargin)),
 )
 
 /**
  * Matches using the class found in [miniplayerDimensionsCalculatorParentFingerprint].
  */
-internal val miniplayerOverrideNoContextFingerprint = legacyFingerprint(
-    name = "miniplayerOverrideNoContextFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+internal val miniplayerOverrideNoContextFingerprint = Fingerprint(
+    classFingerprint = miniplayerDimensionsCalculatorParentFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "Z",
-    opcodes = listOf(Opcode.IGET_BOOLEAN), // anchor to insert the instruction
+    filters = OpcodesFilter.opcodesToFilters(Opcode.IGET_BOOLEAN), // anchor to insert the instruction
 )
 
-internal val miniplayerOverrideFingerprint = legacyFingerprint(
-    name = "miniplayerOverrideFingerprint",
+internal val miniplayerOverrideFingerprint = Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("appName")
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    filters = listOf(string("appName", StringComparisonType.CONTAINS))
 )
 
-internal val miniplayerResponseModelSizeCheckFingerprint = legacyFingerprint(
-    name = "miniplayerResponseModelSizeCheckFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val miniplayerResponseModelSizeCheckFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "L",
     parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
@@ -94,16 +92,16 @@ internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
 internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
 internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
+internal const val MINIPLAYER_DISABLED_SEARCH_FEATURE_KEY = 45649493L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
 // If the value of this flag is FALSE, dismissing the miniplayer via swipe down is allowed.
 // Currently, only YouTube 19.16.39 requires overriding this flag.
 internal const val MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY = 45622882L
 
-internal val miniplayerModernConstructorFingerprint = legacyFingerprint(
-    name = "miniplayerModernConstructorFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(45623000L),
+internal val miniplayerModernConstructorFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = listOf(literal(45623000L)),
 )
 
 /**
@@ -255,20 +253,19 @@ internal object MiniplayerModernActionButtonFingerprint : Fingerprint(
     )
 )
 
-internal val miniplayerModernViewParentFingerprint = legacyFingerprint(
-    name = "miniplayerModernViewParentFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val miniplayerModernViewParentFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Ljava/lang/String;",
     parameters = emptyList(),
-    strings = listOf("player_overlay_modern_mini_player_controls")
+    filters = listOf(string("player_overlay_modern_mini_player_controls", StringComparisonType.CONTAINS))
 )
 
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernAddViewListenerFingerprint = legacyFingerprint(
-    name = "miniplayerModernAddViewListenerFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val miniplayerModernAddViewListenerFingerprint = Fingerprint(
+    classFingerprint = miniplayerModernViewParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("Landroid/view/View;")
 )
@@ -276,40 +273,47 @@ internal val miniplayerModernAddViewListenerFingerprint = legacyFingerprint(
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernExpandCloseDrawablesFingerprint = legacyFingerprint(
-    name = "miniplayerModernExpandCloseDrawablesFingerprint",
+internal val miniplayerModernExpandCloseDrawablesFingerprint = Fingerprint(
+    classFingerprint = miniplayerModernViewParentFingerprint,
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(ytOutlinePictureInPictureWhite),
+    filters = listOf(literal(ytOutlinePictureInPictureWhite)),
 )
 
-internal val miniplayerMinimumSizeFingerprint = legacyFingerprint(
-    name = "miniplayerMinimumSizeFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(192L, 128L, miniplayerMaxSize),
+internal val miniplayerMinimumSizeFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    // These literals may appear in any order, as in the legacy fingerprint.
+    custom = { method, _ ->
+        listOf(192L, 128L, miniplayerMaxSize).all { method.containsLiteralInstruction(it) }
+    },
 )
 
-internal val miniplayerOnCloseHandlerFingerprint = legacyFingerprint(
-    name = "miniplayerOnCloseHandlerFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val miniplayerOnCloseHandlerFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
-    literals = listOf(MINIPLAYER_DISABLED_FEATURE_KEY),
+    filters = listOf(literal(MINIPLAYER_DISABLED_FEATURE_KEY)),
 )
 
-internal val miniplayerModernSwipeToDismissFingerprint = legacyFingerprint(
-    name = "miniplayerModernSwipeToDismissFingerprint",
-    literals = listOf(MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY),
+internal val miniplayerModernSwipeToDismissFingerprint = Fingerprint(
+    filters = listOf(literal(MINIPLAYER_SWIPE_TO_DISMISS_FEATURE_KEY)),
 )
 
 internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
-internal val youTubePlayerOverlaysLayoutFingerprint = legacyFingerprint(
-    name = "youTubePlayerOverlaysLayoutFingerprint",
-    customFingerprint = { _, classDef ->
-        classDef.type == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
-    }
+internal val youTubePlayerOverlaysLayoutFingerprint = Fingerprint(
+    definingClass = YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
+)
+
+/**
+ * The search results page does not use [MINIPLAYER_DISABLED_FEATURE_KEY], and minimizes
+ * the player when going back to the page unless this flag is on.
+ */
+internal object SearchMiniplayerOnCloseHandlerFingerprint : Fingerprint(
+    filters = listOf(
+        literal(MINIPLAYER_DISABLED_SEARCH_FEATURE_KEY)
+    )
 )
 
 // 21.17+

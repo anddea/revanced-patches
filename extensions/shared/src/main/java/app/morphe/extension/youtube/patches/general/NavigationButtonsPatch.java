@@ -74,6 +74,7 @@ import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationMo
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesSwitcherRendererHolder;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.BrowseEndpoint;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.NavigationType;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarIconOnlyItemRendererBytes;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemBytes;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRendererBytes;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Runs;
@@ -179,6 +180,8 @@ public final class NavigationButtonsPatch {
     private static final boolean SHOW_SETTINGS_BUTTON = Settings.SHOW_SETTINGS_BUTTON.get();
     private static final boolean SHOW_SETTINGS_BUTTON_TYPE = Settings.SHOW_SETTINGS_BUTTON_TYPE.get();
     private static final boolean SHOW_WATCH_LATER_BUTTON = Settings.SHOW_WATCH_LATER_BUTTON.get();
+    private static final String SEARCH_PIVOT_IDENTIFIER = "morphe_search";
+    private static final String SETTINGS_PIVOT_IDENTIFIER = "morphe_settings";
     private static final String WATCH_LATER_PIVOT_IDENTIFIER = "morphe_watch_later";
     private static final String WATCH_LATER_BROWSE_ID = "VLWL";
 
@@ -502,8 +505,16 @@ public final class NavigationButtonsPatch {
                     if (navigationBarCoversSystemButtons && navigationBar instanceof PivotBarAccess access) {
                         final int room = systemButtonsRoom;
                         view.post(() -> {
+                            final int slimStatusBarRoom = setSlimStatusBarRoom(navigationBar, room);
+                            // Without room for the system navigation buttons, such as with the gesture handle
+                            // hidden, no room is moved. The room the app gives the bar is then kept as it is,
+                            // or the floating room of the glass navigation bar would be taken as room the app
+                            // added to the height, and the bar would lose it for as long as the app runs
+                            // (https://github.com/MorpheApp/morphe-patches/issues/4907).
+                            if (room <= 0) return;
+
                             final int navigationBarRoom = GlassNavigationBar.getFloatingRoom(
-                                    navigationBar, setSlimStatusBarRoom(navigationBar, room));
+                                    navigationBar, slimStatusBarRoom);
                             access.patch_setSystemButtonsRoom(navigationBarRoom);
                             GlassNavigationBar.setAppRoom(navigationBarRoom);
                             navigationBar.setPadding(navigationBar.getPaddingLeft(), navigationBar.getPaddingTop(),
@@ -985,6 +996,71 @@ public final class NavigationButtonsPatch {
                     .build().toByteArray());
         } catch (Exception ex) {
             Logger.printException(() -> "setPivotBarWatchLaterRenderer failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Creates the Search, Settings and Watch later buttons from the home button of the A/B layout without labels,
+     * if its buttons are not converted to buttons with labels, so the buttons have no label either.
+     *
+     * @param messageLite MessageLite class of PivotBarIconOnlyItemRenderer.
+     */
+    public static void createIconOnlyPivotBarItems(MessageLite messageLite) {
+        if (!SHOW_SEARCH_BUTTON && !SHOW_SETTINGS_BUTTON && !SHOW_WATCH_LATER_BUTTON) return;
+
+        try {
+            var renderer = PivotBarIconOnlyItemRendererBytes.parseFrom(messageLite.toByteArray());
+            var iconName = Icon.parseFrom(renderer.getIcon()).getYtIconType().name();
+            if (!NavigationBar.NavigationButton.HOME.ytEnumNames.contains(iconName)) return;
+
+            if (SHOW_SEARCH_BUTTON) {
+                pivotBarSearchRenderer = buildWatchLaterPivotBarItem(PivotBarItemBytes.newBuilder()
+                        .setPivotBarIconOnlyItemRenderer(renderer.toBuilder()
+                                .setPivotIdentifier(SEARCH_PIVOT_IDENTIFIER)
+                                .setAccessibility(Title.newBuilder()
+                                        .setRuns(Runs.newBuilder().setText(str("menu_search"))))
+                                .setIcon(Icon.newBuilder().setYtIconType(Utils.appIsUsingBoldIcons()
+                                        ? YTIconType.SEARCH_BOLD
+                                        : YTIconType.SEARCH_CAIRO).build().toByteString())
+                                .build().toByteString())
+                        .build().toByteArray());
+            }
+
+            if (SHOW_SETTINGS_BUTTON) {
+                pivotBarSettingsRenderer = buildWatchLaterPivotBarItem(PivotBarItemBytes.newBuilder()
+                        .setPivotBarIconOnlyItemRenderer(renderer.toBuilder()
+                                .setPivotIdentifier(SETTINGS_PIVOT_IDENTIFIER)
+                                .setAccessibility(Title.newBuilder()
+                                        .setRuns(Runs.newBuilder().setText(str("menu_settings"))))
+                                .setIcon(Icon.newBuilder().setYtIconType(YTIconType.SETTINGS_CAIRO)
+                                        .build().toByteString())
+                                .build().toByteString())
+                        .build().toByteArray());
+            }
+
+            if (SHOW_WATCH_LATER_BUTTON) {
+                // The tracking params and thumbnail belong to the home button.
+                pivotBarWatchLaterRenderer = buildWatchLaterPivotBarItem(PivotBarItemBytes.newBuilder()
+                        .setPivotBarIconOnlyItemRenderer(renderer.toBuilder()
+                                .setPivotIdentifier(WATCH_LATER_PIVOT_IDENTIFIER)
+                                .setNavigationEndpoint(NavigationEndpoint.newBuilder()
+                                        .setBrowseEndpoint(BrowseEndpoint.newBuilder().setBrowseId(WATCH_LATER_BROWSE_ID))
+                                        .build().toByteString())
+                                .setAccessibility(Title.newBuilder()
+                                        .setRuns(Runs.newBuilder().setText(str("revanced_change_start_page_entry_watch_later"))))
+                                // The Cairo icon has no drawable in some app versions.
+                                .setIcon(Icon.newBuilder().setYtIconType(YTIconType.WATCH_LATER)
+                                        .build().toByteString())
+                                .clearTargetId()
+                                .clearTrackingParams()
+                                .clearThumbnail()
+                                .setNavigationType(NavigationType.PIVOT_BAR_NAVIGATION_TYPE_SELECT_TAB_VALUE)
+                                .build().toByteString())
+                        .build().toByteArray());
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "createIconOnlyPivotBarItems failure", ex);
         }
     }
 

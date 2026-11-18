@@ -8,6 +8,8 @@
 
 package app.morphe.patches.music.layout.lyrics
 
+import app.morphe.patches.music.interaction.crossfade.PauseVideoFingerprint
+import app.morphe.patches.music.interaction.crossfade.PlayVideoFingerprint
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -139,6 +141,30 @@ val lyricsPatch = bytecodePatch(
             CategoryType.LYRICS,
             "morphe_music_lyrics_text_size",
             "app.morphe.extension.shared.settings.preference.SliderPreference",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_word_smooth_sweep",
+            "true",
+            "morphe_music_lyrics_word_sync"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_relax_scroll",
+            "false",
+            "morphe_music_lyrics_spring_scroll"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_blur_inactive",
+            "false",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_duet_opposite_side",
+            "true",
             "morphe_music_lyrics_enabled"
         )
         addSwitchPreference(
@@ -700,5 +726,13 @@ private fun organizeLyricsPreferences() {
                 "about"
             ).forEach { key -> preferences[key]?.let { appendChild(it) } }
         }
+        PauseVideoFingerprint.method.addInstruction(
+            0,
+            "invoke-static {}, $EXTENSION_CLASS->onPauseVideo()V",
+        )
+        PlayVideoFingerprint.method.addInstruction(
+            0,
+            "invoke-static {}, $EXTENSION_CLASS->onPlayVideo()V",
+        )
     }
 }

@@ -149,6 +149,21 @@ internal fun spoofVideoStreamsPatch(
         )
 
 
+        // The Onesie response of the app cannot be used with replaced SABR streams,
+        // and its native check reports an error for each video. YouTube Music may not have it.
+        OnesieResponseCompatibilityFingerprint.methodOrNull?.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { p1 }, $EXTENSION_CLASS->skipOnesieCompatibilityCheck(Ljava/lang/String;)Z
+                move-result v0
+                if-eqz v0, :check
+                const/4 v0, 0x0
+                return v0
+                :check
+                nop
+            """
+        )
+
         // Make the media requests of the streams of TV clients name the TV client.
         hookMediaRequest("$EXTENSION_CLASS->onMediaRequest", replacesRequest = true)
         hookMediaResponseChunk("$EXTENSION_CLASS->onMediaResponseChunk")

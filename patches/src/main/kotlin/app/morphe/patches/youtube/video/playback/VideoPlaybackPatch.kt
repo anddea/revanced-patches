@@ -683,9 +683,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for spoof device dimensions
 
-        findMethodOrThrow(
-            DeviceDimensionsModelToStringFingerprint.classDef.type
-        ).addInstructions(
+        DeviceDimensionsModelConstructorFingerprint.method.addInstructions(
             1, // Add after super call.
             mapOf(
                 1 to "MinHeightOrWidth", // p1 = min height

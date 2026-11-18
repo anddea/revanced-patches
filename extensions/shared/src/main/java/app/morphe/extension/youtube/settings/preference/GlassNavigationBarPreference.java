@@ -90,7 +90,12 @@ public class GlassNavigationBarPreference extends Preference {
         for (WeakReference<View> reference : GlassNavigationBar.lastButtons) {
             if (!(reference.get() instanceof ViewGroup button)) continue;
 
-            View icon = GlassNavigationBar.BUTTON_ICON == 0 ? null : button.findViewById(GlassNavigationBar.BUTTON_ICON);
+            View icon = null;
+            for (int iconId : GlassNavigationBar.BUTTON_ICONS) {
+                if (icon == null && iconId != 0) {
+                    icon = button.findViewById(iconId);
+                }
+            }
             Picture picture = null;
             if (icon != null && icon.getWidth() > 0 && icon.getHeight() > 0) {
                 // Recorded, not drawn to a bitmap, so the hardware bitmaps of the icons (the account avatar) work.
@@ -317,11 +322,14 @@ public class GlassNavigationBarPreference extends Preference {
 
             paint.setColor(dark ? 0x99383838 : 0x99F7F7F7);
             canvas.drawRoundRect(rect, radius, radius, paint);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(Dim.dp1);
-            paint.setColor(dark ? 0x80FFFFFF : 0xF2FFFFFF);
-            canvas.drawRoundRect(rect, radius, radius, paint);
-            paint.setStyle(Paint.Style.FILL);
+            // The preview uses the same edge setting as the navigation bar.
+            if (GlassNavigationBar.getRimScale() > 0) {
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setStrokeWidth(Dim.dp1);
+                paint.setColor(dark ? 0x80FFFFFF : 0xF2FFFFFF);
+                canvas.drawRoundRect(rect, radius, radius, paint);
+                paint.setStyle(Paint.Style.FILL);
+            }
 
             // The buttons that do not fit are hidden from the end, but never the selected one.
             final int selectedButton = Math.min(selected, buttons - 1);

@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -32,7 +31,6 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
@@ -48,6 +46,7 @@ import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.preference.SeekBarPreference;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 import app.morphe.extension.shared.ui.Dim;
+import app.morphe.extension.shared.ui.glass.GlassNavigationBarLayout;
 import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch.NavigationBarStyle;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.patches.player.MinimalMiniplayerPatch;
@@ -129,6 +128,14 @@ public final class GlassNavigationBar {
     private static final float CORNER_RADIUS_FRACTION = getCornerRadiusFraction();
 
     /**
+     * How bright the edge of the capsule is: 1 draws its light edge, 0 draws none.
+     * Also used by the preview in the settings.
+     */
+    public static float getRimScale() {
+        return Settings.NAVIGATION_BAR_GLASS_EDGE.get() ? 1 : 0;
+    }
+
+    /**
      * The least room between the bottom of the capsule and the bottom of the bar,
      * so the capsule floats above the bottom of the screen. System navigation space is preserved
      * when it is larger than the configured spacing.
@@ -182,8 +189,12 @@ public final class GlassNavigationBar {
     /**
      * Views of a button that hold its content, the icon and the label. Other views of the button,
      * such as the badge of the new content count, are left out. Also used by the preview in the settings.
+     * The buttons without a label hold their icon in an image view, except the You button.
      */
-    public static final int BUTTON_ICON = ResourceUtils.getIdentifier(ResourceType.ID, "thumbnail_layout");
+    public static final int[] BUTTON_ICONS = {
+            ResourceUtils.getIdentifier(ResourceType.ID, "thumbnail_layout"),
+            ResourceUtils.getIdentifier(ResourceType.ID, "image")
+    };
     public static final int BUTTON_LABEL = ResourceUtils.getIdentifier(ResourceType.ID, "text");
 
     /**
@@ -570,41 +581,12 @@ public final class GlassNavigationBar {
                             && bar.getChildAt(0) instanceof ViewGroup tabs) {
                         // The content of every button, also of the buttons hidden because they do not fit,
                         // so hiding them does not change how many buttons fit.
-                        List<View> buttons = new ArrayList<>(tabs.getChildCount());
-                        int[] contentWidths = new int[tabs.getChildCount()];
-                        int contentTop = Integer.MAX_VALUE;
-                        int contentBottom = 0;
-                        for (int i = 0, count = tabs.getChildCount(); i < count; i++) {
-                            View button = tabs.getChildAt(i);
-                            if (button.getVisibility() == View.GONE && !hiddenButtons.contains(button)) continue;
-                            if (!(button instanceof ViewGroup content)) continue;
-
-                            final boolean laidOut = button.getVisibility() == View.VISIBLE;
-                            int buttonContentWidth = 0;
-                            for (int j = 0, contentCount = content.getChildCount(); j < contentCount; j++) {
-                                View child = content.getChildAt(j);
-                                final int id = child.getId();
-                                if (child.getVisibility() != View.VISIBLE
-                                        || (BUTTON_ICON != 0 && BUTTON_LABEL != 0 && id != BUTTON_ICON && id != BUTTON_LABEL)) {
-                                    continue;
-                                }
-                                // The whole label, also if the button is narrower and the label is cut.
-                                buttonContentWidth = Math.max(buttonContentWidth, child instanceof TextView label
-                                        ? (int) Math.ceil(label.getPaint().measureText(label.getText().toString()))
-                                                + label.getPaddingLeft() + label.getPaddingRight()
-                                        : child.getWidth());
-                                if (laidOut && child.getHeight() > 0) {
-                                    contentTop = Math.min(contentTop, child.getTop());
-                                    contentBottom = Math.max(contentBottom, child.getBottom());
-                                }
-                            }
-                            contentWidths[buttons.size()] = buttonContentWidth;
-                            buttons.add(button);
-                        }
-
-                        // A long label, which the app cuts, does not make every button wider.
-                        Arrays.sort(contentWidths, 0, buttons.size());
-                        final int contentWidth = buttons.isEmpty() ? 0 : contentWidths[buttons.size() / 2];
+                        GlassNavigationBarLayout.Buttons measuredButtons = GlassNavigationBarLayout.measureButtons(
+                                tabs, BUTTON_ICONS, BUTTON_LABEL, hiddenButtons);
+                        List<View> buttons = measuredButtons.views;
+                        final int contentWidth = measuredButtons.contentWidth;
+                        final int contentTop = measuredButtons.contentTop;
+                        final int contentBottom = measuredButtons.contentBottom;
 
                         if (contentWidth > 0 && contentBottom > contentTop) {
                             // The buttons are never narrower than the app allows, or they are wider than
@@ -1127,6 +1109,9 @@ public final class GlassNavigationBar {
                 canvas.drawRoundRect(capsule, radius, radius, sheenPaint);
 
                 drawIndicator(canvas);
+
+                // Match the upstream zero rim scale without changing the local capsule layout.
+                if (getRimScale() <= 0) return;
 
                 // The dark line inside the rim.
                 scratch.set(capsule);

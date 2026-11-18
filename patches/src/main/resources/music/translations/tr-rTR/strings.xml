@@ -94,9 +94,7 @@ Müzik videosu izlemek için çapraz geçişi duraklatmak bazı videoların siya
     <string name="morphe_music_crossfade_about_quirks_title">Sınırlamalar</string>
     <string name="morphe_music_crossfade_about_summary">Geçişin nasıl çalıştığı — ve ne zaman çalışmadığı</string>
     <string name="morphe_music_crossfade_about_title">Hakkında</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Ses yayınlama veya yansıtma (Chromecast, ekran veya ses yansıtma)
-
-SABR oynatma (video akışlarını taklit etme kapalı)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Ses yansıtma veya aynalama (Chromecast, ekran veya ses aynalama)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Desteklenmiyor</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Yayınlama sırasında çapraz geçiş kapalı</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Hafif tutma</string>
@@ -107,6 +105,7 @@ SABR oynatma (video akışlarını taklit etme kapalı)"</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Giden</string>
     <string name="morphe_music_crossfade_curve_title">Solma eğrisi</string>
     <string name="morphe_music_crossfade_duration_title">Geçiş süresi</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">Çapraz geçişi kullanmak için \'Video akışlarını taklit et\' \'Varsayılan istemci\' ayarını \'TV Simply\' veya \'visionOS\' olarak değiştirin</string>
     <string name="morphe_music_crossfade_enabled_title">Geçişi etkinleştir</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Bir parça doğal olarak sona erdiğinde geçiş efekti uygular</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Otomatik ilerlemede geçiş</string>
@@ -183,6 +182,8 @@ Adımlar:
     <string name="morphe_music_lyrics_ai_section_no_text">Bölümleri tespit edecek şarkı sözü yok</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Şarkı sözü kaynağından Latin olmayan okumalara izin ver; kapalıyken yalnızca Latin harflerini, aksanlı harfleri ve ses tonu rakamlarını koru</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Transliterasyonu etkinleştir</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Şu anda söylenmeyen her satırı hafifçe bulanıklaştırır, uzaklaştıkça bu etki artar (Android 12 ve sonrası). Android 12 öncesinde aktif olmayan satırlar net kalır</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Aktif olmayan satırları bulanıklaştır</string>
     <string name="morphe_music_lyrics_clear_cache_done">%s MB temizlendi</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Bu cihazda saklanan %s MB şarkı sözlerini sil</string>
     <string name="morphe_music_lyrics_clear_cache_title">Saklanan şarkı sözlerini temizle</string>
@@ -197,6 +198,8 @@ Adımlar:
     <string name="morphe_music_lyrics_display_artist_first_summary">Mini oynatıcı ve MediaSession\'daki Sanatçı ve Başlık görüntüleme sırasını değiştirir. AÇIK: \"Sanatçı - Başlık\" ve KAPALI: \"Başlık - Sanatçı\" Şarkı sözü aramasını etkilemez</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Sanatçı ve Başlık görüntüleme sırası</string>
     <string name="morphe_music_lyrics_dual_only">Çift mod</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Düet şarkılarda ikinci şarkıcıyı karşı kenara yerleştirir. Her iki şarkıcıyı da aynı tarafta tutmak için kapatın</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Karşı taraf düet hizalaması</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Oynatma sırasında arka planı hareket ettir ve YouTube Music\'in mikrofon izni varsa müziğe göre daraltıp genişlet. Daha az pil tüketen sabit bir arka plan için kapatın</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Dinamik arka planı hareketlendir</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Şarkı sözlerinin arkasında albüm kapağından oluşturulmuş bulanık bir arka plan göster</string>
@@ -264,6 +267,8 @@ Her iki sınır için de geçerlidir. 1,75 değerinde, dört tam genişlikteki k
     <string name="morphe_music_lyrics_providers_keep_one">En az bir sağlayıcı açık kalmalıdır</string>
     <string name="morphe_music_lyrics_refreshed">Yenilendi</string>
     <string name="morphe_music_lyrics_refreshing">Yenileniyor</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Şarkı sözü kaydırma animasyonunu yavaşlatır ve aktif olmayan satırları tam boyutlu tutar</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Rahatlatılmış kaydırma</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Kantonca karakterler</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Karakter okuma yok</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Mandarin karakterleri</string>
@@ -389,9 +394,31 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_lyrics_use_ai_section_summary">Yalnızca sağlayıcı Nakarat veya Verse gibi bölüm etiketleri göndermediğinde kullanılır; bu durumda bunları OpenAI-uyumlu modeliniz tespit eder. Satırı düzenlemek onun istemini de açar</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Bölümleri yapay zeka ile tespit et</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (%2$s ile)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Söylendiği sırada her kelimeyi yumuşak bir geçiş, parlama ve hafif bir yükselme ile vurgular. Pil tasarrufu yapmak veya daha yavaş cihazlarda keskin bir dolgu sağlamak için kapatın</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Senkronize edilen kelimeleri pürüzsüzce hareketlendir</string>
     <string name="morphe_music_lyrics_word_sync_summary">Mümkün olduğunda kelime kelime şarkı sözlerine öncelik ver. Şarkı sözleri kelime zamanlaması içeriyorsa, her kelimeyi veya heceyi müzikle eş zamanlı olarak vurgular</string>
     <string name="morphe_music_lyrics_word_sync_title">Senkronize kelimeleri veya heceleri vurgula</string>
     <string name="morphe_music_lyrics_written_by">Yazan: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Cam mini oynatıcıyı, çalan şarkının albüm kapağı rengiyle renklendirir</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Albüm kapağı rengi</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Kapak resmi boşluğu</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Cam mini oynatıcının arkasındaki sayfanın ne kadar bulanık olacağı (Android 14 ve sonrası). 0 değerinde sayfa net görünür ve Android 14 öncesinde sayfa örtülür</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Cam bulanıklığı</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Köşe yarıçapı</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Cam mini oynatıcının altındaki ilerleme çubuğunu gizler</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">İlerleme çubuğunu gizle</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Daha hafif ve daha net bir cam için, cam mini oynatıcıyı koyu renk yerine beyaza boyar</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Açık renkli cam</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Opaklık</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Kenar parlaklığı</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Cam mini oynatıcının kapak resmini yuvarlak yapar ve bir şarkı çalarken bir plak gibi döndürür</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Dönen kapak resmi</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Cam mini oynatıcının köşe yarıçapını, kapak resmi boşluğunu, kenar parlaklığını ve opaklığını önizleme ile ayarlayın</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Cam mini oynatıcı stili</string>
+    <string name="morphe_music_miniplayer_glass_summary">Yüzer mini oynatıcıyı yuvarlak, yarı saydam bir cam kart olarak gösterir</string>
+    <string name="morphe_music_miniplayer_glass_title">Cam efektini etkinleştir</string>
+    <string name="morphe_music_miniplayer_screen_summary">Mini oynatıcının stilini, düğmelerini ve hareketlerini değiştirin</string>
+    <string name="morphe_music_miniplayer_screen_title">Mini oynatıcı</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">kullanıcı tokeni</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Yalnızca kendi hesabınızı kullanmak için bir token ekleyin. Bu token, Musixmatch Android uygulamasından gelmelidir: musixmatch.com\'dan kopyalanan tokenler, kullanımdan kaldırılmış masaüstü istemcisine aittir ve API bunları reddeder</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch bir token olmadan çalışır, bu yüzden bu alan boş bırakılabilir</string>
@@ -399,9 +426,11 @@ Her liste sizin kelime-okuma tablonuz olan ve aşağıdaki gibi satırları içe
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: kullanıcı belirteci temizlendi</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: geçersiz kullanıcı belirteci - lütfen kontrol edip tekrar deneyin</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: kullanıcı belirteci kaydedildi</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Cam navigasyon çubuğunu, çalan şarkının albüm kapağı rengiyle renklendirir</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Cam navigasyon çubuğunun arkasındaki sayfanın ne kadar bulanık olacağı (Android 14 ve sonrası). 0 değerinde sayfa net görünür ve Android 14 öncesinde sayfa örtülür</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Cam navigasyon çubuğunun seçili düğmesinin arkasındaki yuvarlak vurguyu gizler</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Seçili düğme göstergesini gizle</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Daha açık ve net bir cam için, cam gezinme çubuğunu koyu yerine beyaza boyar</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Açık renkli cam</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Opaklık</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Ana Sayfa</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Düğme aralığı</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Gösterilen düğmeler: %2$s düğmeden %1$s tanesi</string>
@@ -439,10 +468,10 @@ Gerekli çerezler: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISI
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR oturumu açılamadı, web sitesi kimlik doğrulaması onaylanmadı</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 geçici olarak kullanılamıyor</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 geçici olarak kullanılamıyor (durum %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR oturum süresi doldu, VR\'da tekrar oturum açmayı deneyin</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\'Android VR\' oturum süresi doldu, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
-    <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_oauth2_toast_reset">\'Android VR\' oturumu kapatıldı</string>
     <string name="morphe_playback_in_feeds_entry_off">Kapalı</string>
     <string name="morphe_replace_music_with_youtube_summary">Paylaşılan bağlantılarda music.youtube.com adresini youtube.com ile değiştirir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
@@ -472,18 +501,13 @@ Gerekli çerezler: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISI
     <string name="morphe_skip_silence_minimum_pause_title">Minimum duraklama süresi</string>
     <string name="morphe_skip_silence_summary">Video sesindeki sessiz duraklamaları otomatik olarak atlar</string>
     <string name="morphe_skip_silence_title">Sessizliği atla</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s art arda birkaç kez çalışmadı, ancak %2$s çalıştı
-
-%2$s varsayılan istemci yapılsın mı?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Değiştir</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Varsayılan istemci çalışmıyor</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR ayrı bir oturum açma işlemi gerektirir. Devam etmek için buraya dokunun</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi Android VR olarak değiştirin</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda Android VR oturumu açık</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR oturum açma</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' ayrı bir oturum açma işlemi gerektirir. Devam etmek için buraya dokunun</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi \'Android VR\' olarak değiştirin</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Şu anda \'Android VR\' oturumu açık</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\'Android\' VR oturum açma</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Etkinleştirme kodu: %s
 
 1. 'Bir cihaz bağlayın' web sitesini açmak için aşağıdaki 'Web sitesini aç'a dokunun 
@@ -492,11 +516,11 @@ Gerekli çerezler: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISI
 4. 'YouTube VR erişimine izin ver' seçeneğine dokunun 
 5. 'Cihaz bağlandı' mesajını gördükten sonra bu uygulamaya dönün"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Talimatlar</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR'de oturum açmak, bazı kullanıcılar için oynatma sorunlarını çözebilir
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"'Android VR'da oturum açmak, bazı kullanıcılar için oynatma sorunlarını çözebilir
 
-Oturum açmak için, devam et butonuna basın"</string>
+Oturum açmak için aşağıdan devam'a basın"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Çıkış yap</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR\'da oturum aç</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">\'Android VR\'da oturum açın</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Kimlik doğrulama kaydedildi
 
 • RVX ayarlarınız, Android VR kimlik doğrulamasını içe/dışa aktarmaz 
@@ -504,6 +528,27 @@ Oturum açmak için, devam et butonuna basın"</string>
 • Google şifrenizi değiştirirseniz veya bu cihazı Google ayarlarınızdan kaldırırsanız tekrar oturum açmanız gerekir"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Başarıyla oturum açıldı</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">İsteğe bağlı: Videoları hesabınızla oynatmak için YouTube web sitesinde oturum açın. Devam etmek için buraya dokunun</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Bu özelliği kullanmak için \'Varsayılan istemci\'yi \'Mobil Web\' olarak değiştirin</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Şu anda \'Mobil Web\' oturumu açık</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Mobil Web oturum açma</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"'Mobil Web', videoları oturum açmadan veya YouTube web sitesinde oturum açmış şekilde oynatır
+
+• Oturum açıldığında, yaş kısıtlamalı videolar gibi hesap gerektiren videolar oynatılabilir
+• Google oturum açma sayfası bu uygulamada açılır
+• Oturum açma işlemi yalnızca oynattığınız videoları almak için kullanılır
+• Oturum açma bilgileri yalnızca bu cihazda kaydedilir
+
+Oturum açmak için aşağıdan devam'a basın"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">\'Mobil Web\' ile oturum açın</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Oturum açma kaydedildi
+
+• RVX ayarlarınız 'Mobil Web' oturum açma işlemini içe/dışa aktarmayacaktır
+• Google oturumu sonlandırırsa, tekrar oturum açana kadar videolar oturum açılmamış olarak oynatılır
+• Oturumu kapatmak, bu cihazın YouTube web sitesindeki oturumunu da kapatır"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Mobil Web oturum süresi doldu, \'Mobil Web\' ile tekrar oturum açmayı deneyin</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">\'Mobil Web\' oturumu kapatıldı</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\'Android System WebView\' mevcut değil. Oturum açmak için yükleyin veya etkinleştirin</string>
     <string name="morphe_spoof_video_streams_summary">"Çoğu kullanıcı için oynatma sorunlarını uyumlu bir video akışı isteyerek düzeltir
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>

@@ -80,7 +80,7 @@
     <string name="morphe_custom_branding_icon_title">應用程式圖示</string>
     <string name="morphe_custom_seekbar_thumb_file_invalid">選取的檔案不是支援的圖片</string>
     <string name="morphe_custom_seekbar_thumb_file_not_found">找不到自訂跳轉列滑桿圖片</string>
-    <string name="morphe_custom_seekbar_thumb_file_summary">從裝置儲存空間選擇圖片或動畫 GIF</string>
+    <string name="morphe_custom_seekbar_thumb_file_summary">從裝置儲存空間選取圖片或動畫 GIF</string>
     <string name="morphe_custom_seekbar_thumb_file_title">滑桿圖片</string>
     <string name="morphe_custom_seekbar_thumb_scale_type_entry_fit_seekbar">適配跳轉列</string>
     <string name="morphe_custom_seekbar_thumb_scale_type_entry_original">原始大小</string>
@@ -90,15 +90,69 @@
     <string name="morphe_dearrow_about_summary">"DeArrow 以更準確且不那麼誇大的社群提交內容取代點擊誘餌標題和縮圖。標題由社群撰寫和投票，縮圖則取自影片的畫面
 
 影片是透過雜湊影片 ID 的短前綴來請求，因此伺服器無法確切知道您正在查看哪部影片。如果影片沒有 DeArrow 縮圖，則會顯示原始影片或靜態擷取畫面"</string>
+    <string name="morphe_dearrow_account_connection_failure">帳戶詳細資訊暫時無法使用</string>
+    <string name="morphe_dearrow_account_thumbnails">你已提交 &lt;b&gt;%s&lt;/b&gt; 個縮圖</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">輕觸這裡查看你的縮圖</string>
+    <string name="morphe_dearrow_account_titles">你已提交 &lt;b&gt;%s&lt;/b&gt; 個標題</string>
+    <string name="morphe_dearrow_account_titles_summary">輕觸這裡查看你的標題</string>
+    <string name="morphe_dearrow_account_username_change">點擊此處以更改您的使用者名稱。使用者名稱與 SponsorBlock 上的相同</string>
+    <string name="morphe_dearrow_account_username_change_error">無法變更使用者名稱：狀態：%1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">在單一類別中，例如搞笑或創意，顯示原始標題所需的休閒票數</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">顯示原始標題所需的最低休閒票數</string>
     <string name="morphe_dearrow_casual_mode_summary">如果 DeArrow 使用者投票表示喜歡原始標題，則顯示原始標題而非 DeArrow 標題</string>
     <string name="morphe_dearrow_casual_mode_title">休閒模式</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">清理沒有 DeArrow 標題的影片標題。大寫單詞將更改為正常大小寫，並移除表情符號、花俏文字和重複的感嘆號</string>
+    <string name="morphe_dearrow_clean_up_titles_title">清理標題</string>
     <string name="morphe_dearrow_error">DeArrow 暫時無法使用（狀態碼：%s）</string>
     <string name="morphe_dearrow_error_generic">DeArrow 暫時無法使用</string>
-    <string name="morphe_dearrow_titles_icon_summary">在群眾外包的影片標題上顯示 DeArrow 圖示。點擊圖示可顯示原始標題和縮圖</string>
+    <string name="morphe_dearrow_guidelines_summary">規範包含提交和投票標題與縮圖的規則和技巧</string>
+    <string name="morphe_dearrow_guidelines_title">規範</string>
+    <string name="morphe_dearrow_private_user_id_invalid">私人使用者 ID 長度必須至少為 30 個字元</string>
+    <string name="morphe_dearrow_private_user_id_summary">與 SponsorBlock 相同的使用者 ID。這應該被保密。這就像一個密碼，不應該與他人分享。如果有人擁有它，他們就可以冒充您</string>
+    <string name="morphe_dearrow_private_user_id_title">您的個人使用者 ID</string>
+    <string name="morphe_dearrow_submitting_title">正在提交標題和縮圖</string>
+    <string name="morphe_dearrow_titles_icon_summary">在具有群眾外包標題或縮圖的影片標題上顯示 DeArrow 圖示。點擊圖示以顯示原始標題和縮圖</string>
     <string name="morphe_dearrow_titles_icon_title">顯示 DeArrow 圖示</string>
     <string name="morphe_dearrow_titles_title">DeArrow 標題</string>
+    <string name="morphe_dearrow_vote_button_summary">在影片播放器頂部新增一個按鈕，用於對 DeArrow 標題和縮圖進行投票或提交新內容</string>
+    <string name="morphe_dearrow_vote_button_title">顯示 DeArrow 按鈕</string>
+    <string name="morphe_dearrow_vote_current_frame_content">將 %s 的畫面提交為縮圖？</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">影片正在播放中。若要提交您看到的畫面，請先暫停影片</string>
+    <string name="morphe_dearrow_vote_downvoted">反對票已提交至 DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">無法提交投票 (狀態碼：%s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">無法提交投票。請檢查您的連線後再試一次</string>
+    <string name="morphe_dearrow_vote_failed_locked">此項目已鎖定，僅限 VIP 用戶進行反對投票</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">此影片的投票仍在進行中，請稍後再試一次</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow 未接受該投票：%s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">無法載入此影片的標題和縮圖</string>
+    <string name="morphe_dearrow_vote_frame_step">%s 秒</string>
+    <string name="morphe_dearrow_vote_loading">正在載入……</string>
+    <string name="morphe_dearrow_vote_locked">已鎖定</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">新縮圖</string>
+    <string name="morphe_dearrow_vote_new_title">新標題</string>
+    <string name="morphe_dearrow_vote_new_title_hint">輸入標題</string>
+    <string name="morphe_dearrow_vote_no_titles">尚無標題。提交一個標題成為第一個</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">原版縮圖</string>
+    <string name="morphe_dearrow_vote_original_title">原版標題</string>
+    <string name="morphe_dearrow_vote_score">得分：%s</string>
+    <string name="morphe_dearrow_vote_submit">提交</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">影格於 %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">縮圖</string>
+    <string name="morphe_dearrow_vote_time_step_summary">提交縮圖時，精細時間調整按鈕的尋找量 (以毫秒為單位)</string>
+    <string name="morphe_dearrow_vote_time_step_title">時間調整步進</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">標題</string>
+    <string name="morphe_dearrow_vote_unverified">未驗證</string>
+    <string name="morphe_dearrow_vote_upvoted">投票已提交至 DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">將接收到的推播通知儲存至應用程式資料中的檔案。該檔案可能包含私密資訊，例如通知文字和頻道名稱</string>
+    <string name="morphe_debug_save_push_notifications_title">儲存推播通知</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">已清除已儲存的推播通知</string>
+    <string name="morphe_debug_saved_push_notifications_count">已儲存的推播通知：%s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">無法匯出推播通知</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">推播通知匯出成功</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">找不到已儲存的推播通知</string>
+    <string name="morphe_debug_saved_push_notifications_summary">匯出或清除已儲存的推播通知</string>
+    <string name="morphe_debug_saved_push_notifications_title">匯出已儲存的推播通知</string>
     <string name="morphe_disable_auto_feed_refresh_summary">防止動態消息在過時後自動重新整理</string>
     <string name="morphe_disable_auto_feed_refresh_title">停用動態消息自動重新整理</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">在捲動時，保持導覽列可見</string>
@@ -114,13 +168,21 @@
     <string name="morphe_disable_scrolling_speed_limit_title">停用捲動速度限制</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 將「訂閱」移至首頁頂端的分頁，則在導覽列中顯示訂閱</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">停用工具列導覽分頁</string>
+    <string name="morphe_download_force_4k_summary">即使 YouTube 判定此裝置無法播放，仍提供 1440p 和 4K 下載</string>
+    <string name="morphe_download_force_4k_title">強制 4K 下載可用性</string>
     <string name="morphe_dual_captions_enabled_title">雙語字幕</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">影片旁燈光的模糊程度。設定為 0 時，將保持影片的形狀</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">燈光模糊</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_summary">停止捲動後燈光保持調暗的時間。設定為 0 則僅在捲動時調暗燈光，停止捲動後立即恢復</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">調暗持續時間</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">在捲動或觸碰頁面時調暗燈光</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">捲動時調暗</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">調低明亮影片的亮度，使頁面上的文字保持可讀</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">保持文字可讀性</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">燈光追隨影片所需的時間。設定為 0 時，將緊隨影片變化</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">燈光平滑度</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">設定手錶頁面和黑色區塊的光線強度</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">光線強度</string>
     <string name="morphe_enhanced_ambient_mode_summary">使用影片色彩照亮整個觀看頁面及黑邊，以取代微光效果</string>
     <string name="morphe_enhanced_ambient_mode_title">增強型微光效果</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"「延長直播 DVR 時長」可能無法使用
@@ -131,6 +193,8 @@
     <string name="morphe_explore_menu_screen_summary">選擇要在探索選單中顯示哪些元件</string>
     <string name="morphe_explore_menu_screen_title">探索選單</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">如果無法運作，請嘗試強制關閉 MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">為原本沒有下載項目的 feed 影片選單添加下載項目</string>
+    <string name="morphe_feed_download_flyout_button_title">強制顯示彈出式下載選單項目</string>
     <string name="morphe_feed_long_press_menu_summary">在資訊流影片的任意位置輕觸並按住，即可開啟其選單</string>
     <string name="morphe_feed_long_press_menu_title">輕觸並按住以開啟影片選單</string>
     <string name="morphe_feed_watch_later_button_summary">在饋送影片的縮圖上會顯示「稍後觀看」按鈕，若影片已儲存則會顯示勾選標記。輕觸按鈕可儲存或移除影片，長按則可開啟「儲存至播放清單」</string>
@@ -201,8 +265,8 @@
     <string name="morphe_hide_post_comments_preview_title">隱藏評論預覽</string>
     <string name="morphe_hide_post_dislike_button_summary">在「強制執行」佈局中，按鈕的空間將被保留</string>
     <string name="morphe_hide_post_dislike_button_title">隱藏「不喜歡」按鈕</string>
-    <string name="morphe_hide_post_like_dislike_buttons_title">隱藏喜歡和不喜歡按鈕</string>
-    <string name="morphe_hide_post_share_button_summary">貼文圖片的下載按鈕位於「分享」按鈕旁邊，因此也會隨之隱藏</string>
+    <string name="morphe_hide_post_like_dislike_buttons_title">隱藏喜歡與不喜歡按鈕</string>
+    <string name="morphe_hide_post_share_button_summary">貼文圖片的下載按鈕繪製在「分享」按鈕旁邊，因此也會被隱藏</string>
     <string name="morphe_hide_post_share_button_title">隱藏「分享」按鈕</string>
     <string name="morphe_hide_privacy_tos_footer_title">隱藏法律和隱私權頁尾</string>
     <string name="morphe_hide_shopping_menu_title">隱藏「購物」選單</string>
@@ -251,10 +315,16 @@
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
     <string name="morphe_livestream_dvr_summary">允許在所有直播上尋找，即使那些通常限制此功能的直播也能尋找</string>
     <string name="morphe_livestream_dvr_title">啟用直播 DVR</string>
+    <string name="morphe_miniplayer_glass_summary">將迷你播放器顯示為帶有圓角的半透明玻璃效果，如同玻璃效果導覽列。需要先啟用玻璃效果導覽列</string>
+    <string name="morphe_miniplayer_glass_title">玻璃效果迷你播放器</string>
     <string name="morphe_music_package_name_summary">您已安裝音樂應用程式的套件名稱</string>
     <string name="morphe_music_package_name_title">音樂應用程式套件名稱</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">在玻璃導覽列周圍繪製光邊</string>
+    <string name="morphe_navigation_bar_glass_edge_title">玻璃導覽列邊緣</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">調整玻璃效果導覽列的透明程度 (0 為完全透明，100 為完全不透明)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">玻璃效果的不透明度</string>
+    <string name="morphe_navigation_bar_glass_round_summary">使玻璃效果導覽列的末端呈圓形，而非像玻璃效果迷你播放器那樣呈圓角</string>
+    <string name="morphe_navigation_bar_glass_round_title">圓角玻璃效果導覽列</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">按鈕間距</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">顯示按鈕：%1$s / %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">高度</string>
@@ -270,10 +340,11 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時無法使用（狀態 %s）</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Android VR 登入逾期，請再次登入 VR</string>
+    <string name="morphe_oauth2_connection_failure_status_400">\"Android VR\" 登入逾期，請再次登入 VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
     <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
-    <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
+    <string name="morphe_oauth2_toast_reset">已登出 \"Android VR\"</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">防止點擊頻道形象時開啟直播</string>
     <string name="morphe_open_channel_of_live_avatar_title">從直播形象開啟頻道</string>
     <string name="morphe_open_videos_fullscreen_title">以全螢幕模式開啟影片</string>
@@ -323,7 +394,7 @@
     <string name="morphe_remember_livestream_position_summary">對於進行中的直播，記住並恢復您的播放位置，而不是跳到目前直播位置。</string>
     <string name="morphe_remember_livestream_position_title">記住直播播放位置</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">此功能不適用於 24/7 全天候直播和其他「持續開啟」的直播。</string>
-    <string name="morphe_replace_links_with_shortener_summary">強制影片使用縮短的 youtu.be URL 格式</string>
+    <string name="morphe_replace_links_with_shortener_summary">強制影片使用縮短的 \"youtu.be\" URL 格式</string>
     <string name="morphe_replace_links_with_shortener_title">將分享連結更改為 youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
@@ -362,6 +433,7 @@
     <string name="morphe_settings_name_title">RVX 設定名稱</string>
     <string name="morphe_settings_new_indicator_days_summary">更新後，設定和選項旁的圓點顯示天數</string>
     <string name="morphe_settings_new_indicator_days_title">高亮顯示新設定</string>
+    <string name="morphe_shorts_download_flyout_title">下載</string>
     <string name="morphe_skip_silence_minimum_pause_summary">無聲停頓至少要足夠這個時間長度才會被縮短。會在下一段影片開始時生效。</string>
     <string name="morphe_skip_silence_minimum_pause_title">最短無聲停頓長度</string>
     <string name="morphe_skip_silence_summary">自動跳過影片音訊中的無聲停頓</string>
@@ -382,24 +454,19 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"視訊轉碼器為 AVC (H.264)、VP9 或 AV1
 
 播放可能會卡頓或丟格"</string>
-    <string name="morphe_spoof_video_streams_av1_title">允許「Android VR」/ visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">允許「Android VR」/「visionOS」AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
 
 AV1 影片播放可能會卡頓或丟格"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 已多次無法執行，但 %2$s 可以執行。
-
-將 %2$s 設定為預設客戶端嗎？"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切換</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">預設客戶端無法執行</string>
     <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器 JavaScript 變種</string>
     <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
     <string name="morphe_spoof_video_streams_screen_title">偽裝影片串流</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR 需要獨立登入。請點擊此處繼續</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">已登入 Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR 登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\"Android VR\" 需要單獨登入。請點擊此處繼續</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">目前已登入 \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">\"Android\" VR 登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"啟動碼：%s
 
 1. 輕觸下方「開啟網站」以開啟「連線裝置」網站
@@ -408,11 +475,11 @@ AV1 影片播放可能會卡頓或丟格"</string>
 4. 輕觸「允許 YouTube VR」存取權
 5. 看到「裝置已連結」訊息後，請返回這個應用程式"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">說明</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部份使用者的播放問題
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 'Android VR' 可解決部份使用者的播放問題
 
 如要登入，請按下下方的「繼續」按鈕"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登入 Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">登入 \"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"驗證已儲存
 
 • 你的 RVX 設定不會匯入/匯出 Android VR 驗證資訊。
@@ -420,6 +487,27 @@ AV1 影片播放可能會卡頓或丟格"</string>
 • 如果你變更 Google 密碼，或在 Google 設定中取消註冊這個裝置，則需要重新登入。"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">成功登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">無法發出啟動碼</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">選填：登入 YouTube 網站以使用您的帳戶播放影片。點擊此處繼續</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">目前已登入 \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">行動裝置網頁登入</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"行動版網頁\" 在登出狀態或登入 YouTube 網站時播放影片
+
+• 登入後可播放需要帳戶的影片，例如有年齡限制的影片
+• Google 登入頁面將在此應用程式中開啟
+• 登入僅用於獲取您播放的影片
+• 登入資訊僅儲存在此裝置上
+
+如要登入，請按下方繼續"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">登入 \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"已儲存登入資訊
+
+• 您的 RVX 設定將不會匯入/匯出 \"行動版網頁\" 的登入資訊
+• 如果 Google 終止登入，在您再次登入前，影片將在登出狀態下播放
+• 登出也會將此裝置從 YouTube 網站登出"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">行動版網頁登入逾期，請嘗試再次登入 \"行動版網頁\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">已從 \"行動版網頁\" 登出</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">無法使用 \"Android System WebView\"。請安裝或啟用它以進行登入</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">已在統計資料中隱藏用戶端類型</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">已在統計資料中顯示用戶端類型</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">在「Stats for nerds」中顯示偽造狀態</string>
@@ -440,6 +528,8 @@ AV1 影片播放可能會卡頓或丟格"</string>
     <string name="morphe_tablet_layout_in_player_title">在播放器中啟用平板版面配置</string>
     <string name="morphe_theme_color_change_foreground_summary">為文字和圖示使用主題顏色</string>
     <string name="morphe_theme_color_change_foreground_title">變更前景顏色</string>
+    <string name="morphe_ungroup_notifications_summary">將頻道分組上傳的每個影片都顯示為獨立通知</string>
+    <string name="morphe_ungroup_notifications_title">取消分組通知</string>
     <string name="morphe_video_action_bar_layout_entry_2">經典單列</string>
     <string name="morphe_video_action_bar_layout_entry_4">經典雙列</string>
     <string name="morphe_video_action_bar_layout_title">影片操作列版面組態</string>
@@ -751,12 +841,12 @@ AV1 影片播放可能會卡頓或丟格"</string>
 部份伺服器端的版面可能不會回復。
 
 變更內容包括：
-• 播放器彈出式選單中的元件（或相關設定）可能無法運作。
-• 滾動數字動畫消失（未顯示動畫效果）。
-• 顯示「媒體庫」分頁。
-• 影片說明的「音樂」區塊可能無法運作。
-• 播放器彈出式選單中的選項無法隱藏。
-• 「媒體庫」分頁中可能不會出現帳戶切換按鈕。"</string>
+• 全螢幕影片建議可能失效
+• 播放器彈出式選單中的元件（或相關設定）可能無法運作
+• 影片說明的「音樂」區塊可能無法運作
+• 播放器彈出式選單中的選項無法隱藏
+• 滾動數字沒有動畫效果
+• 「媒體庫」分頁中可能不會出現帳戶切換按鈕"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">讚和不喜歡按鈕在提及時會高亮顯示。</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">讚和不喜歡按鈕在提及時不會高亮顯示。</string>
     <string name="revanced_disable_like_dislike_glow_title">停用讚和不喜歡按鈕高亮顯示</string>
@@ -2282,7 +2372,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_new_segment_disabled_category">設定中已停用分類。啟用分類以提交。</string>
     <string name="revanced_sb_new_segment_edit">編輯片段</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">您想編輯片段開始或結束的時間嗎？</string>
-    <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
     <string name="revanced_sb_new_segment_forward">按指定時間向前跳轉（預設：150毫秒）</string>
     <string name="revanced_sb_new_segment_highlight_content">"高光時段是否正確？

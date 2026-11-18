@@ -94,9 +94,7 @@
     <string name="morphe_music_crossfade_about_quirks_title">Ограничения</string>
     <string name="morphe_music_crossfade_about_summary">Как работает плавный переход между треками — и в каких случаях он не работает</string>
     <string name="morphe_music_crossfade_about_title">Информация</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляция или зеркалирование аудио (Chromecast, зеркалирование экрана или аудио)
-
-SABR-воспроизведение (подмена видеопотоков отключена)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Трансляция или дублирование аудио (Chromecast, дублирование экрана или аудио)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Не поддерживается</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Плавный переход отключён во время трансляции</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Плавное удержание</string>
@@ -107,6 +105,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_crossfade_curve_preview_outgoing">Исходящий</string>
     <string name="morphe_music_crossfade_curve_title">Кривая плавного затухания</string>
     <string name="morphe_music_crossfade_duration_title">Длительность плавного перехода</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">Чтобы использовать кроссфейд, измените «Клиент по умолчанию» в параметре «Подмена видеопотоков» на «TV Simply» или «visionOS»</string>
     <string name="morphe_music_crossfade_enabled_title">Включить плавный переход</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Применяет эффект плавного перехода при автопереходе к следующему треку</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Плавный переход при автоматическом переходе</string>
@@ -190,6 +189,8 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_ai_section_no_text">Нет текста песни для определения разделов</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Разрешить не латинские варианты произношения из источника текста песни; если отключено, оставляются только латинские буквы, буквы с диакритическими знаками и цифры тонов</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Включить транслитерацию</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Мягко размывает каждую строку, которая не исполняется в данный момент, причем чем дальше строка, тем сильнее размытие (Android 12 и выше). В версиях до Android 12 неактивные строки остаются четкими</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Размытие неактивных строк</string>
     <string name="morphe_music_lyrics_clear_cache_done">Очищено %s МБ</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Удалить %s МБ текстов песен, сохраненных на этом устройстве</string>
     <string name="morphe_music_lyrics_clear_cache_title">Очистить сохраненные тексты песен</string>
@@ -204,6 +205,8 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_display_artist_first_summary">Переключить порядок отображения исполнителя и названия в мини-плеере и MediaSession. Включено: «Исполнитель — Название», выключено: «Название — Исполнитель»</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Порядок отображения исполнителя и названия</string>
     <string name="morphe_music_lyrics_dual_only">Двойной режим</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Размещает второго исполнителя у противоположного края в песнях-дуэтах. Отключите, чтобы оба исполнителя оставались с одной стороны</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Выравнивание дуэта по противоположным сторонам</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Двигать фон во время воспроизведения и пульсировать в такт музыке, если у YouTube Music есть разрешение на использование микрофона. Выключите для статичного фона, чтобы сэкономить заряд батареи</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Анимировать динамический фон</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Показывать размытый фон из обложки альбома за текстом песни</string>
@@ -271,6 +274,8 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_providers_keep_one">Хотя бы один провайдер должен быть включен</string>
     <string name="morphe_music_lyrics_refreshed">Обновлено</string>
     <string name="morphe_music_lyrics_refreshing">Обновление</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Замедляет анимацию прокрутки текста песни и оставляет неактивные строки в полном размере</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Размеренный скроллинг</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Кантонийские символы</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Нет символов для чтения</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Мандаринские символы</string>
@@ -399,9 +404,32 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_lyrics_use_ai_section_summary">Используется только когда у провайдера нет меток секций, таких как Припев или Куплет, которые тогда обнаруживает ваша модель, совместимая с OpenAI. Редактирование строки также открывает её подсказку</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Обнаруживать секции с помощью ИИ</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (с %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Подсвечивает каждое слово мягким переливом, сиянием и небольшим подъемом в момент исполнения. Выключите для экономии заряда батареи или для более резкого заполнения на медленных устройствах</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Плавная анимация синхронизированных слов</string>
     <string name="morphe_music_lyrics_word_sync_summary">Отдавать приоритет пословному тексту, когда он доступен. Когда в тексте есть тайминги слов, подсвечивать каждое слово или слог в такт музыке</string>
     <string name="morphe_music_lyrics_word_sync_title">Подсвечивать синхронизированные слова или слоги</string>
     <string name="morphe_music_lyrics_written_by">Автор: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Окрашивает стеклянный миниплеер в цвет обложки альбома воспроизводимой песни</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Оттенок обложки альбома</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Отступы обложки</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Степень размытия страницы за стеклянным миниплеером (Android 14 и новее). При значении 0 страница видна четко, а в версиях до Android 14 страница перекрыта</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Размытие стекла</string>
+    <string name="morphe_music_miniplayer_glass_bottom_spacing_title">Нижний отступ</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Радиус углов</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Скрывает полосу прогресса в нижней части стеклянного миниплеера</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Скрыть полосу прогресса</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Окрашивает стеклянный миниплеер в белый цвет вместо темного для создания более легкого и прозрачного эффекта стекла</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Светлое стекло</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Непрозрачность</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Яркость кромки</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Делает обложку стеклянного миниплеера круглой и вращает её, как пластинку, во время воспроизведения песни</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Вращающаяся обложка</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Настройте радиус углов, отступы обложки, яркость кромки и прозрачность стеклянного миниплеера с предварительным просмотром</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Стиль стеклянного миниплеера</string>
+    <string name="morphe_music_miniplayer_glass_summary">Отображает плавающий миниплеер в виде скругленной полупрозрачной стеклянной карточки</string>
+    <string name="morphe_music_miniplayer_glass_title">Включить эффект стекла</string>
+    <string name="morphe_music_miniplayer_screen_summary">Изменить стиль, кнопки и жесты миниплеера</string>
+    <string name="morphe_music_miniplayer_screen_title">Миниплеер</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">Токен пользователя</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Добавьте токен только для использования собственной учётной записи. Он должен быть получен из приложения Musixmatch для Android: токены, скопированные с musixmatch.com, относятся к снятому с поддержки десктопному клиенту, и API их отклоняет</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch работает без токена, поэтому это поле можно оставить пустым</string>
@@ -409,9 +437,14 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: токен пользователя очищен</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: недействительный токен пользователя - пожалуйста проверьте и повторите попытку</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: токен пользователя сохранён</string>
+    <string name="morphe_music_native_downloads_summary">Нативные загрузки доступны в YouTube Music 7.25 и выше; на более старых версиях используется выбранный загрузчик</string>
+    <string name="morphe_music_native_downloads_title">Нативные загрузки</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Окрашивает стеклянную панель навигации в цвет обложки альбома воспроизводимой песни</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Степень размытия страницы за стеклянной панелью навигации (Android 14 и новее). При значении 0 страница видна четко, а в версиях до Android 14 страница перекрыта</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Скрывает скругленное выделение за выбранной кнопкой стеклянной панели навигации</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Скрыть индикатор выбранной кнопки</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Придает стеклянной панели навигации белый оттенок вместо темного для более светлого и чистого вида</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Светлое стекло</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Непрозрачность</string>
+    <string name="morphe_music_navigation_bar_glass_opacity_summary">Настройте уровень прозрачности стеклянной панели навигации (0 — прозрачная, 100 — непрозрачная)</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Главная</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Расстояние между кнопками</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Показанные кнопки: %1$s из %2$s</string>
@@ -456,16 +489,11 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Невозможно войти в VR, веб-авторизация не была одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно недоступна</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступен (статус %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Срок действия входа в Android VR истек. Попробуйте войти в VR снова</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Срок действия входа в \"Android VR\" истек, попробуйте войти в VR снова</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 временно недоступен (время ожидания API истекло)</string>
     <string name="morphe_oauth2_toast_invalid">Недействительный токен входа в VR, попробуйте войти в VR еще раз</string>
-    <string name="morphe_oauth2_toast_reset">Выход из Android VR выполнен</string>
+    <string name="morphe_oauth2_toast_reset">Выход из \"Android VR\" выполнен</string>
     <string name="morphe_playback_in_feeds_entry_off">Выключено</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">Токен, встроенный в эту версию поставщика PoToken, больше не работает
-
-Включите "Spoof video streams", чтобы исправить воспроизведение</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">Поставщик PoToken больше не работает</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">Включить</string>
     <string name="morphe_potoken_provider_summary">Исправляет проблемы с воспроизведением с помощью встроенного поставщика PoToken (экспериментально)
 
 Если вы пользователь YouTube Premium, эта настройка может не понадобиться</string>
@@ -501,18 +529,13 @@ Downloads (в разделе Библиотека или в меню аккау�
     <string name="morphe_skip_silence_minimum_pause_title">Минимальная длительность паузы</string>
     <string name="morphe_skip_silence_summary">Автоматически пропускает паузы тишины в аудиодорожке видео</string>
     <string name="morphe_skip_silence_title">Пропускать тишину</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s не сработал несколько раз подряд, а %2$s сработал
-
-Сделать %2$s клиентом по умолчанию?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Переключить</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Клиент по умолчанию не работает</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_screen_summary">Настройте подмену клиента, чтобы предотвратить проблемы с воспроизведением</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Для Android VR требуется отдельный вход в систему. Нажмите здесь, чтобы продолжить</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, измените «Клиент по умолчанию» на Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Теперь вы вошли в Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Войти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Для \"Android VR\" требуется отдельный вход. Нажмите здесь, чтобы продолжить</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, измените \"Клиент по умолчанию\" на \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">В данный момент выполнен вход в \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Вход в \"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активации: %s
 
 1. Нажмите \"Открыть вебсайт\" ниже, чтобы открыть вебсайт \"Подключить устройство\"
@@ -521,11 +544,11 @@ Downloads (в разделе Библиотека или в меню аккау�
 4. Нажмите \"Разрешить доступ к YouTube VR\"
 5. Вернитесь в приложение после того, как вы увидите сообщение \"Устройство подключено\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вход в Android VR может решать проблемы с воспроизведением для некоторых пользователей
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вход в \"Android VR\" может решить проблемы с воспроизведением для некоторых пользователей
 
 Чтобы войти, нажмите кнопку \"Продолжить\" ниже"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Выйти</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Войти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Войти в \"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Аутентификация сохранена
 
 • В настройках RVX не будет импортироваться/экспортироваться аутентификация Android VR
@@ -533,6 +556,27 @@ Downloads (в разделе Библиотека или в меню аккау�
 • Вам нужно будет снова войти, если вы измените пароль Google или отмените регистрацию этого устройства в настройках Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вход выполнен успешно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не удалось выдать код активации</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Необязательно: войдите в свою учетную запись на сайте YouTube, чтобы воспроизводить видео. Нажмите здесь, чтобы продолжить</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Чтобы использовать эту функцию, измените «Клиент по умолчанию» на «Mobile Web»</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">В данный момент выполнен вход в \"Мобильную версию веб-сайта\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Вход через мобильную версию сайта</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"«Mobile Web» воспроизводит видео без авторизации или с авторизацией на сайте YouTube
+
+• При авторизации можно смотреть видео, требующие наличия аккаунта, например, видео с возрастными ограничениями
+• Страница входа в Google открывается в этом приложении
+• Авторизация используется только для получения воспроизводимых видео
+• Данные авторизации сохраняются только на этом устройстве
+
+Чтобы войти, нажмите «Продолжить» ниже"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Войти в «Mobile Web»</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Вход сохранен
+
+• Настройки RVX не будут импортировать/экспортировать данные входа в «Мобильную веб-версию»
+• Если сессия Google завершится, видео будут воспроизводиться без авторизации, пока вы не войдете снова
+• Выход из системы также приведет к выходу из учетной записи на сайте YouTube на этом устройстве"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Срок действия входа в «Мобильную веб-версию» истек. Попробуйте войти в «Мобильную веб-версию» снова</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Выход из «Мобильной веб-версии» выполнен</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">«Android System WebView» недоступен. Установите или включите его, чтобы войти в систему</string>
     <string name="morphe_spoof_video_streams_summary">"Устраняет проблемы с воспроизведением для большинства пользователей, запрашивая совместимый видеопоток
 
 Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>

@@ -42,6 +42,8 @@
 
 package app.morphe.patches.music.player.components
 
+import app.morphe.patches.music.video.information.videoInformationPatch
+import app.morphe.patches.music.video.information.videoIdHook
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
@@ -147,6 +149,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
+
+private const val MINIPLAYER_COLOR_INTERFACE =
+    "Lapp/morphe/extension/music/patches/ChangeMiniplayerColorPatch\$MiniplayerAccess;"
 
 private const val IMAGE_VIEW_TAG_NAME =
     "com.google.android.libraries.youtube.common.ui.TouchImageView"
@@ -319,6 +324,7 @@ val playerComponentsPatch = bytecodePatch(
         mainActivityResolvePatch,
         videoTypeHookPatch,
         commentsPanelPatch,
+        videoInformationPatch,
     )
 
     val swipeToDismissMiniPlayer by booleanOption(
@@ -593,7 +599,7 @@ val playerComponentsPatch = bytecodePatch(
             val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
                 val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
                 val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
-                addInstruction(iPutIndex, "invoke-static {v${getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V")
+                addInstruction(iPutIndex, "invoke-static {v${getInstruction<TwoRegisterInstruction>(iPutIndex).registerB}, v${getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(${MINIPLAYER_COLOR_INTERFACE}I)V")
                 getInstruction<ReferenceInstruction>(iPutIndex + 1).reference
             }
 
@@ -661,7 +667,7 @@ val playerComponentsPatch = bytecodePatch(
                 toggleMethodParameters = legacyToggleMatch.originalMethod.parameters.map { it.type }
                 colorMathPlayerIPutReference =
                     constructor.getInstruction<ReferenceInstruction>(iPutIndex).reference
-                constructor.addInstruction(iPutIndex, "invoke-static {v${constructor.getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V")
+                constructor.addInstruction(iPutIndex, "invoke-static {v${constructor.getInstruction<TwoRegisterInstruction>(iPutIndex).registerB}, v${constructor.getInstruction<TwoRegisterInstruction>(iPutIndex).registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(${MINIPLAYER_COLOR_INTERFACE}I)V")
                 readColorSmali = { register ->
                     """
                         invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
@@ -688,7 +694,7 @@ val playerComponentsPatch = bytecodePatch(
                     ModernMiniPlayerDefaultColorFieldFingerprint.method.indexOfFirstInstructionOrThrow {
                         opcode == Opcode.IPUT && getReference<FieldReference>() == colorMathPlayerIPutReference
                     },
-                    "invoke-static {v${defaultColorInstruction.getInstruction<TwoRegisterInstruction>().registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(I)V"
+                    "invoke-static {v${defaultColorInstruction.getInstruction<TwoRegisterInstruction>().registerB}, v${defaultColorInstruction.getInstruction<TwoRegisterInstruction>().registerA}}, $COLOR_CLASS_DESCRIPTOR->setDefaultMiniplayerColor(${MINIPLAYER_COLOR_INTERFACE}I)V"
                 )
                 readColorSmali = { register ->
                     """
@@ -767,6 +773,32 @@ val playerComponentsPatch = bytecodePatch(
                 )
             }
         }
+
+        // The upstream extension restores the theme color through bridges on the miniplayer.
+        // This patcher lacks addPatchInterface, so use the established ImmutableMethod bridges.
+        val miniplayerClass = if (is_8_51_or_greater) ModernMiniPlayerConstructorFingerprint.classDef
+            else miniPlayerConstructorFingerprint.mutableClassOrThrow()
+        val resetMatch = miniplayerResetColorsFingerprint(miniplayerClass.type).match()
+        val colorField = resetMatch.instructionMatches[1].fieldReference
+        miniplayerClass.apply {
+            interfaces.add(MINIPLAYER_COLOR_INTERFACE)
+            methods.add(ImmutableMethod(type, "patch_setColor",
+                listOf(ImmutableMethodParameter("I", null, null)), "V",
+                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                MutableMethodImplementation(2)).toMutable().apply {
+                addInstructions(0, "iput p1, p0, $colorField\nreturn-void")
+            })
+            val resetOpcode = if (AccessFlags.PRIVATE.isSet(resetMatch.method.accessFlags)) "invoke-direct" else "invoke-virtual"
+            methods.add(ImmutableMethod(type, "patch_resetColors", emptyList(), "V",
+                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                MutableMethodImplementation(1)).toMutable().apply {
+                addInstructions(0, "$resetOpcode { p0 }, ${resetMatch.method}\nreturn-void")
+            })
+        }
+        // Newer versions expose the empty-state method directly; older targets use the legacy handler.
+        val miniplayerEmptyTextMethod =
+            MiniplayerEmptyTextFingerprint.methodOrNull ?: miniPlayerDefaultTextFingerprint.methodOrThrow()
+        videoIdHook("$COLOR_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         // Clear the cached tint when the queue/miniplayer is dismissed.
         val musicActivityWidgetMethod = musicActivityWidgetFingerprint.methodOrThrow()
@@ -1773,6 +1805,13 @@ val playerComponentsPatch = bytecodePatch(
         }
 
         // endregion
+
+        // Insert last: older versions reuse this method for the cold-start swipe hook,
+        // whose fingerprint instruction offsets must still refer to the original body.
+        miniplayerEmptyTextMethod.addInstruction(
+            0,
+            "invoke-static { }, $COLOR_CLASS_DESCRIPTOR->onMiniplayerEmpty()V"
+        )
 
         updatePatchStatus(PLAYER_COMPONENTS)
 

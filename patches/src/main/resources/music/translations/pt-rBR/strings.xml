@@ -94,9 +94,7 @@ Pausar o crossfade para assistir a um videoclipe pode deixar alguns vídeos pret
     <string name="morphe_music_crossfade_about_quirks_title">Limitações</string>
     <string name="morphe_music_crossfade_about_summary">Como o crossfade funciona — e quando não funciona</string>
     <string name="morphe_music_crossfade_about_title">Sobre</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmissão ou espelhamento de áudio (Chromecast, espelhamento de tela ou de áudio)
-
-Reprodução SABR (spoof de streams de vídeo desativado)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">Transmitindo ou espelhando áudio (Chromecast, espelhamento de tela ou de áudio)</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Não suportado</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">O crossfade fica desativado durante a transmissão</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Pausa sutil</string>
@@ -107,6 +105,7 @@ Reprodução SABR (spoof de streams de vídeo desativado)"</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Saída</string>
     <string name="morphe_music_crossfade_curve_title">Curva de desvanecimento</string>
     <string name="morphe_music_crossfade_duration_title">Duração do desvanecimento</string>
+    <string name="morphe_music_crossfade_enabled_summary_unavailable">Para usar o crossfade, altere o \"Cliente padrão\" de \"Simular fluxos de vídeo\" para \"TV Simply\" ou \"visionOS\"</string>
     <string name="morphe_music_crossfade_enabled_title">Ativar crossfade</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica o efeito de crossfade quando uma faixa termina naturalmente</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Crossfade em avanço automático</string>
@@ -183,6 +182,8 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_ai_section_no_text">Nenhuma letra para detectar seções</string>
     <string name="morphe_music_lyrics_allow_transliteration_summary">Permitir leituras não latinas da fonte das letras; quando desativado, mantenha apenas letras latinas, letras acentuadas e dígitos de tom</string>
     <string name="morphe_music_lyrics_allow_transliteration_title">Habilitar transliteração</string>
+    <string name="morphe_music_lyrics_blur_inactive_summary">Desfoca suavemente cada linha que não está sendo cantada no momento, intensificando o efeito quanto mais distante (Android 12 e posterior). Antes do Android 12, as linhas inativas permanecem nítidas</string>
+    <string name="morphe_music_lyrics_blur_inactive_title">Desfocar linhas inativas</string>
     <string name="morphe_music_lyrics_clear_cache_done">Limpos %s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Excluir os %s MB de letras mantidos neste dispositivo</string>
     <string name="morphe_music_lyrics_clear_cache_title">Limpar letras armazenadas</string>
@@ -197,6 +198,8 @@ As letras vêm de serviços de terceiros que não estão afiliados, patrocinados
     <string name="morphe_music_lyrics_display_artist_first_summary">Alternar a ordem de exibição de Artista e Título no Miniplayer e no MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca de letras</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Exibição de artista e título na MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca por letras</string>
     <string name="morphe_music_lyrics_dual_only">Modo duplo</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_summary">Posiciona o segundo cantor na extremidade oposta em músicas de dueto. Desative para manter ambos os cantores no mesmo lado</string>
+    <string name="morphe_music_lyrics_duet_opposite_side_title">Alinhamento de dueto em lados opostos</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_summary">Move o plano de fundo durante a reprodução e o faz pulsar com a música se o YouTube Music tiver a permissão do microfone. Desative para um plano de fundo estático que consome menos bateria</string>
     <string name="morphe_music_lyrics_dynamic_background_animated_title">Animar plano de fundo dinâmico</string>
     <string name="morphe_music_lyrics_dynamic_background_summary">Mostra um plano de fundo desfocado criado a partir da arte do álbum atrás das letras</string>
@@ -264,6 +267,8 @@ Aplica-se a ambos os limites. Em 1,75, quatro caracteres de largura total contam
     <string name="morphe_music_lyrics_providers_keep_one">Pelo menos um provedor deve permanecer ligado</string>
     <string name="morphe_music_lyrics_refreshed">Atualizado</string>
     <string name="morphe_music_lyrics_refreshing">Atualizando</string>
+    <string name="morphe_music_lyrics_relax_scroll_summary">Diminui a velocidade da animação de rolagem da letra e mantém as linhas inativas em tamanho total</string>
+    <string name="morphe_music_lyrics_relax_scroll_title">Rolagem relaxada</string>
     <string name="morphe_music_lyrics_rime_char_source_cantonese">Caracteres cantoneses</string>
     <string name="morphe_music_lyrics_rime_char_source_none">Sem leitura de caractere</string>
     <string name="morphe_music_lyrics_rime_char_source_pinyin">Caracteres mandarim</string>
@@ -389,9 +394,31 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_lyrics_use_ai_section_summary">Usado apenas quando o provedor não envia rótulos de seção como Refrão ou Verso, que seu modelo compatível com OpenAI detecta. Editar a linha também abre seu prompt</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Detectar seções com IA</string>
     <string name="morphe_music_lyrics_with_ruby_provider">%1$s (com %2$s)</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_summary">Destaca cada palavra com um deslize suave, brilho e leve elevação enquanto é cantada. Desative para economizar bateria ou para um preenchimento nítido em dispositivos mais lentos</string>
+    <string name="morphe_music_lyrics_word_smooth_sweep_title">Animar palavras sincronizadas suavemente</string>
     <string name="morphe_music_lyrics_word_sync_summary">Priorizar letras palavra por palavra quando disponíveis. Quando as letras têm sincronização por palavra, destaca cada palavra ou sílaba no tempo da música</string>
     <string name="morphe_music_lyrics_word_sync_title">Realçar palavras ou sílabas sincronizadas</string>
     <string name="morphe_music_lyrics_written_by">Escrito por: %s</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_summary">Aplica ao miniplayer de vidro a cor da capa do álbum da música que está tocando</string>
+    <string name="morphe_music_miniplayer_glass_album_tint_title">Tonalidade da capa do álbum</string>
+    <string name="morphe_music_miniplayer_glass_artwork_padding_title">Preenchimento da arte</string>
+    <string name="morphe_music_miniplayer_glass_blur_summary">Quanto a página atrás do miniplayer de vidro é desfocada (Android 14 ou posterior). Em 0, a página aparece nítida e, em versões anteriores ao Android 14, a página fica coberta</string>
+    <string name="morphe_music_miniplayer_glass_blur_title">Desfoque do vidro</string>
+    <string name="morphe_music_miniplayer_glass_corner_radius_title">Raio do canto</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_summary">Oculta a barra de progresso na parte inferior do miniplayer de vidro</string>
+    <string name="morphe_music_miniplayer_glass_hide_progress_bar_title">Ocultar barra de progresso</string>
+    <string name="morphe_music_miniplayer_glass_light_summary">Aplica ao miniplayer de vidro a cor branca em vez de escura, para um vidro mais leve e límpido</string>
+    <string name="morphe_music_miniplayer_glass_light_title">Vidro claro</string>
+    <string name="morphe_music_miniplayer_glass_opacity_title">Opacidade</string>
+    <string name="morphe_music_miniplayer_glass_rim_title">Brilho da borda</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_summary">Torna a arte do miniplayer de vidro redonda e a faz girar como um disco enquanto a música toca</string>
+    <string name="morphe_music_miniplayer_glass_spinning_artwork_title">Arte giratória</string>
+    <string name="morphe_music_miniplayer_glass_style_summary">Ajuste o raio do canto, o preenchimento da arte, o brilho da borda e a opacidade do miniplayer de vidro, com uma prévia</string>
+    <string name="morphe_music_miniplayer_glass_style_title">Estilo do miniplayer de vidro</string>
+    <string name="morphe_music_miniplayer_glass_summary">Exibe o miniplayer flutuante como um cartão de vidro translúcido e arredondado</string>
+    <string name="morphe_music_miniplayer_glass_title">Ativar efeito de vidro</string>
+    <string name="morphe_music_miniplayer_screen_summary">Alterar o estilo, os botões e os gestos do miniplayer</string>
+    <string name="morphe_music_miniplayer_screen_title">Miniplayer</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">token de usuário</string>
     <string name="morphe_music_musixmatch_token_dialog_instruction">Adicione um token apenas para usar sua própria conta. Ele deve vir do aplicativo Musixmatch para Android: tokens copiados de musixmatch.com pertencem ao cliente de desktop descontinuado e a API os recusa</string>
     <string name="morphe_music_musixmatch_token_optional_hint">O Musixmatch funciona sem token, então este campo pode ficar vazio</string>
@@ -399,9 +426,11 @@ A primeira coluna é a palavra, a segunda sua leitura; colunas extras e linhas s
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token do usuário limpo</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuário inválido — verifique e tente novamente</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token do usuário salvo</string>
+    <string name="morphe_music_navigation_bar_glass_album_tint_summary">Aplica à barra de navegação de vidro a cor da capa do álbum da música que está tocando</string>
+    <string name="morphe_music_navigation_bar_glass_blur_summary">Quanto a página atrás da barra de navegação de vidro é desfocada (Android 14 ou posterior). Em 0, a página aparece nítida e, em versões anteriores ao Android 14, a página fica coberta</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_summary">Oculta o destaque arredondado atrás do botão selecionado na barra de navegação de vidro</string>
+    <string name="morphe_music_navigation_bar_glass_hide_indicator_title">Ocultar indicador de botão selecionado</string>
     <string name="morphe_music_navigation_bar_glass_light_summary">Tinge a barra de navegação de vidro de branco em vez de escuro, para um vidro mais leve e claro</string>
-    <string name="morphe_music_navigation_bar_glass_light_title">Vidro claro</string>
-    <string name="morphe_music_navigation_bar_glass_opacity_title">Opacidade</string>
     <string name="morphe_music_navigation_bar_glass_preview_home">Início</string>
     <string name="morphe_music_navigation_bar_glass_size_button_spacing">Espaçamento dos botões</string>
     <string name="morphe_music_navigation_bar_glass_size_buttons_shown">Botões exibidos: %1$s de %2$s</string>
@@ -436,10 +465,10 @@ Cookies necessários: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAP
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 está temporariamente indisponível (status %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">O login do Android VR expirou, tente fazer login no VR novamente</string>
+    <string name="morphe_oauth2_connection_failure_status_400">O login do \'Android VR\' expirou, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 está temporariamente indisponível (API expirou)</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
-    <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
+    <string name="morphe_oauth2_toast_reset">Deslogado do \'Android VR\'</string>
     <string name="morphe_playback_in_feeds_entry_off">Desativado</string>
     <string name="morphe_potoken_provider_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
 
@@ -476,18 +505,13 @@ Para usar este recurso, desative-o \'Transmissões de vídeo falsas\"</string>
     <string name="morphe_skip_silence_minimum_pause_title">Duração mínima da pausa</string>
     <string name="morphe_skip_silence_summary">Pula automaticamente pausas silenciosas no áudio do vídeo</string>
     <string name="morphe_skip_silence_title">Pular silêncio</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s não funcionou várias vezes seguidas, mas %2$s funcionou
-
-Definir %2$s como cliente padrão?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Mudar</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Cliente padrão não funciona</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Não foi possível obter nenhum stream de cliente</string>
     <string name="morphe_spoof_video_streams_screen_summary">Configure a simulação de cliente para evitar problemas de reprodução</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">O Android VR requer um login separado. Toque aqui para continuar</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \"Cliente padrão\" para Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' requer um login separado. Toque aqui para continuar</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \"Cliente padrão\" para Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Atualmente conectado ao Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Login do Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Logar-se no Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de ativação: %s
 
 1. Toque em \"Abrir site\" abaixo para abrir o site \"Conectar um dispositivo\"
@@ -496,11 +520,11 @@ Definir %2$s como cliente padrão?"</string>
 4. Toque em \"Permitir acesso ao YouTube VR\"
 5. Retorne a este aplicativo após chegar à mensagem \"Dispositivo conectado\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instruções</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Fazer login no Android VR pode corrigir problemas de reprodução para alguns usuários
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Fazer login no 'Android VR' pode corrigir problemas de reprodução para alguns usuários
 
 Para fazer login, pressione continuar abaixo"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Sair</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Fazer login no Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Fazer login no \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticação salva
 
 • Suas configurações do RVX não vão importar/exportar a autenticação do Android VR
@@ -508,6 +532,27 @@ Para fazer login, pressione continuar abaixo"</string>
 • Você precisará fazer o login novamente se alterar sua senha do Google ou desregistrar este dispositivo das configurações do Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Login realizado com sucesso</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Falha ao emitir código de ativação</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Opcional: faça o login através do site do YouTube para reproduzir vídeos com sua conta. Toque aqui para continuar</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Para usar essa função, altere \"Cliente padrão\" para Web Mobile\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Atualmente logado via Web Mobile\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Login via Web Mobile</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"Web Mobile reproduz vídeos enquanto não logado, ou faça o login através do site do YouTube 
+
+• Logado, vídeos que precisam de uma conta podem ser reproduzidos, como vídeos com restrição de idade
+• A página de login so YouTube irá abrir no app
+• O login é usado apenas para obter os vídeos a reproduzir 
+• O login é salvo apenas neste dispositivo 
+
+Para logar-se, toque em continuar abaixo"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Logar ao Web Mobile</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Login salvo
+
+• Suas opções do RVX não serão importadas/exportadas com o login Web Mobile 
+• Se o Google terminar o login, os vídeos serão reproduzidos de forma não logada até o próximo login
+• Terminar o login também desloga este dispositivo do site do YouTube "</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Login Web Mobile expirou, tente logar-se via Web Mobile novamente</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Deslogado do \'Mobile Web\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">Android System WebView não disponível. Instale-o ou habilite-o para logar-se</string>
     <string name="morphe_spoof_video_streams_summary">"Corrige problemas de reprodução para a maioria dos usuários solicitando um stream de vídeo compatível
 
 Se você for um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>

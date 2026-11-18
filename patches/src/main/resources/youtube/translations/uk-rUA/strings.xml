@@ -99,16 +99,70 @@
     <string name="morphe_dearrow_about_summary">"DeArrow замінює клікбейтні назви та мініатюри на ті, що надані спільнотою, точніші й менш сенсаційні. Назви пишуть і оцінюють голосуванням користувачі, а мініатюри - це кадри з відео
 
 Відео запитуються за коротким префіксом хешованого ідентифікатора відео, тому сервер не може точно визначити, яке саме відео ви переглядаєте. Якщо для відео немає мініатюри DeArrow, показується оригінальна мініатюра або знімок кадру"</string>
+    <string name="morphe_dearrow_account_connection_failure">Дані облікового запису тимчасово недоступні</string>
+    <string name="morphe_dearrow_account_thumbnails">Ви надіслали &lt;b&gt;%s&lt;/b&gt; мініатюр</string>
+    <string name="morphe_dearrow_account_thumbnails_summary">Натисніть тут, щоб переглянути свої мініатюри</string>
+    <string name="morphe_dearrow_account_titles">Ви надіслали &lt;b&gt;%s&lt;/b&gt; назв</string>
+    <string name="morphe_dearrow_account_titles_summary">Натисніть тут, щоб переглянути свої назви</string>
+    <string name="morphe_dearrow_account_username_change">Натисніть тут, щоб змінити ім\'я користувача. Ім\'я користувача таке саме, як у SponsorBlock</string>
+    <string name="morphe_dearrow_account_username_change_error">Не вдалося змінити ім\'я користувача: Статус: %1$s %2$s</string>
     <string name="morphe_dearrow_casual_mode_min_votes_summary">Кількість голосів у звичайному режимі в одній категорії, наприклад \"смішно\" або \"креативно\", необхідна для показу оригінальної назви</string>
     <string name="morphe_dearrow_casual_mode_min_votes_title">Мінімальна кількість голосів у звичайному режимі для показу оригінальної назви</string>
     <string name="morphe_dearrow_casual_mode_summary">Показує оригінальну назву замість назви DeArrow, якщо користувачі DeArrow проголосували за оригінальну назву</string>
     <string name="morphe_dearrow_casual_mode_title">Звичайний режим</string>
+    <string name="morphe_dearrow_clean_up_titles_summary">Очищає назви відео, які не мають назви DeArrow. Слова великими літерами змінюються на звичайний регістр, а емодзі, декоративний текст і повторювані знаки оклику видаляються</string>
+    <string name="morphe_dearrow_clean_up_titles_title">Очищення назв</string>
     <string name="morphe_dearrow_error">DeArrow тимчасово недоступний (код статусу: %s)</string>
     <string name="morphe_dearrow_error_generic">DeArrow тимчасово недоступний</string>
-    <string name="morphe_dearrow_titles_icon_summary">Відображає іконку DeArrow у назвах відео з краудсорсингу. Натисніть на іконку, щоб показати оригінальну назву та мініатюру</string>
+    <string name="morphe_dearrow_guidelines_summary">Настанови містять правила та поради щодо надсилання назв і мініатюр та голосування за них</string>
+    <string name="morphe_dearrow_guidelines_title">Настанови</string>
+    <string name="morphe_dearrow_private_user_id_invalid">Особистий ID користувача повинен мати довжину не менше 30 символів</string>
+    <string name="morphe_dearrow_private_user_id_summary">Той самий ID користувача, що й у SponsorBlock. Його слід зберігати в таємниці. Він схожий на пароль, тому ним не можна ні з ким ділитися. Якщо він є в когось, цей хтось може видавати себе за вас</string>
+    <string name="morphe_dearrow_private_user_id_title">Ваш особистий ID користувача</string>
+    <string name="morphe_dearrow_submitting_title">Надсилання назв і мініатюр</string>
+    <string name="morphe_dearrow_titles_icon_summary">Показує значок DeArrow на назвах відео, що мають назву або мініатюру від спільноти. Натисніть на значок, щоб показати оригінальну назву та мініатюру</string>
     <string name="morphe_dearrow_titles_icon_title">Показувати іконку DeArrow</string>
     <string name="morphe_dearrow_titles_summary">Замінює назви відео на назви, зібрані з краудсорсингу, надіслані до DeArrow</string>
     <string name="morphe_dearrow_titles_title">Назви DeArrow</string>
+    <string name="morphe_dearrow_vote_button_summary">Додає кнопку у верхню частину відеоплеєра для голосування за назви й мініатюри DeArrow або надсилання нових</string>
+    <string name="morphe_dearrow_vote_button_title">Показувати кнопку DeArrow</string>
+    <string name="morphe_dearrow_vote_current_frame_content">Надіслати кадр на %s як мініатюру?</string>
+    <string name="morphe_dearrow_vote_current_frame_playing">Відео відтворюється. Щоб надіслати кадр, який ви бачите, спочатку поставте відео на паузу</string>
+    <string name="morphe_dearrow_vote_downvoted">Голос проти надіслано до DeArrow</string>
+    <string name="morphe_dearrow_vote_failed_code">Не вдалося надіслати голос (код стану: %s)</string>
+    <string name="morphe_dearrow_vote_failed_connection">Не вдалося надіслати голос. Перевірте з\'єднання та спробуйте ще раз</string>
+    <string name="morphe_dearrow_vote_failed_locked">Це заблоковано, і проти цього можуть голосувати лише VIP-користувачі</string>
+    <string name="morphe_dearrow_vote_failed_rate_limit">Голос за це відео ще обробляється. Спробуйте за мить</string>
+    <string name="morphe_dearrow_vote_failed_reason">DeArrow не прийняв голос: %s</string>
+    <string name="morphe_dearrow_vote_fetch_failed">Не вдалося завантажити назви та мініатюри цього відео</string>
+    <string name="morphe_dearrow_vote_frame_step">%s с</string>
+    <string name="morphe_dearrow_vote_loading">Завантаження…</string>
+    <string name="morphe_dearrow_vote_locked">Заблоковано</string>
+    <string name="morphe_dearrow_vote_new_thumbnail">Нова мініатюра</string>
+    <string name="morphe_dearrow_vote_new_title">Нова назва</string>
+    <string name="morphe_dearrow_vote_new_title_hint">Введіть назву</string>
+    <string name="morphe_dearrow_vote_no_titles">Назв ще немає. Надішліть назву, щоб бути першим</string>
+    <string name="morphe_dearrow_vote_original_thumbnail">Оригінальна мініатюра</string>
+    <string name="morphe_dearrow_vote_original_title">Оригінальна назва</string>
+    <string name="morphe_dearrow_vote_score">Рахунок: %s</string>
+    <string name="morphe_dearrow_vote_submit">Надіслати</string>
+    <string name="morphe_dearrow_vote_thumbnail_time">Кадр на %s</string>
+    <string name="morphe_dearrow_vote_thumbnails">Мініатюри</string>
+    <string name="morphe_dearrow_vote_time_step_summary">Крок перемотування кнопок точного регулювання часу під час надсилання мініатюри (у мілісекундах)</string>
+    <string name="morphe_dearrow_vote_time_step_title">Крок регулювання часу</string>
+    <string name="morphe_dearrow_vote_title">DeArrow</string>
+    <string name="morphe_dearrow_vote_titles">Назви</string>
+    <string name="morphe_dearrow_vote_unverified">Не підтверджено</string>
+    <string name="morphe_dearrow_vote_upvoted">Голос надіслано до DeArrow</string>
+    <string name="morphe_debug_save_push_notifications_summary">Зберігає отримані push-сповіщення у файл у даних застосунку. Файл може містити приватну інформацію, як-от тексти сповіщень і назви каналів</string>
+    <string name="morphe_debug_save_push_notifications_title">Зберігати push-сповіщення</string>
+    <string name="morphe_debug_saved_push_notifications_cleared">Збережені push-сповіщення очищено</string>
+    <string name="morphe_debug_saved_push_notifications_count">Збережено push-сповіщень: %s</string>
+    <string name="morphe_debug_saved_push_notifications_export_failed">Не вдалося експортувати push-сповіщення</string>
+    <string name="morphe_debug_saved_push_notifications_export_success">Push-сповіщення успішно експортовано</string>
+    <string name="morphe_debug_saved_push_notifications_none_found">Збережених push-сповіщень не знайдено</string>
+    <string name="morphe_debug_saved_push_notifications_summary">Експортувати або очистити збережені push-сповіщення</string>
+    <string name="morphe_debug_saved_push_notifications_title">Експортувати збережені push-сповіщення</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Запобігає автоматичному оновленню стрічок після того, як вони застарівають</string>
     <string name="morphe_disable_auto_feed_refresh_title">Вимкнути автоматичне оновлення стрічки</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Залишає панель навігації видимою під час прокручування</string>
@@ -126,13 +180,21 @@
     <string name="morphe_disable_system_splash_title">Вимкнути системну заставку</string>
     <string name="morphe_disable_toolbar_navigation_tabs_summary">Показує \"Підписки\" на панелі навігації, якщо YouTube переносить їх на вкладку вгорі \"Головної\"</string>
     <string name="morphe_disable_toolbar_navigation_tabs_title">Вимкнути вкладки навігації на панелі інструментів</string>
+    <string name="morphe_download_force_4k_summary">Пропонує завантаження у 1440p та 4K, навіть якщо YouTube вирішить, що цей пристрій не може їх відтворити</string>
+    <string name="morphe_download_force_4k_title">Примусова доступність завантаження 4K</string>
     <string name="morphe_dual_captions_enabled_title">Двомовні субтитри</string>
-    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Як довго світло залишатиметься приглушеним після припинення прокручування. Якщо встановити 0, світло приглушуватиметься лише під час прокручування й повертатиметься одразу після його припинення</string>
+    <string name="morphe_enhanced_ambient_mode_blur_summary">Наскільки розмите світло поруч із відео. При значенні 0 зберігаються форми відео</string>
+    <string name="morphe_enhanced_ambient_mode_blur_title">Розмиття світла</string>
+    <string name="morphe_enhanced_ambient_mode_dim_duration_summary">Як довго підсвічування залишається приглушеним після припинення прокручування. За значення 0 підсвічування приглушується лише під час прокручування й повертається, щойно прокручування припиняється</string>
     <string name="morphe_enhanced_ambient_mode_dim_duration_title">Тривалість приглушення</string>
-    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Приглушує світло, коли сторінка прокручується або торкається</string>
+    <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_summary">Приглушує підсвічування, поки сторінку прокручують або на неї натискають</string>
     <string name="morphe_enhanced_ambient_mode_dim_while_scrolling_title">Приглушувати під час прокручування</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_summary">Приглушує підсвічування на яскравих відео, щоб текст на сторінці залишався читабельним</string>
     <string name="morphe_enhanced_ambient_mode_readable_text_title">Зберігати читабельність тексту</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_summary">Як довго світло слідує за відео. При значенні 0 воно точно слідує за відео</string>
+    <string name="morphe_enhanced_ambient_mode_smoothing_title">Згладжування світла</string>
+    <string name="morphe_enhanced_ambient_mode_strength_summary">Наскільки інтенсивне світло на сторінці перегляду та на чорних смугах</string>
+    <string name="morphe_enhanced_ambient_mode_strength_title">Інтенсивність світла</string>
     <string name="morphe_enhanced_ambient_mode_summary">Підсвічує всю сторінку перегляду та чорні смуги кольорами відео замість кінематографічного освітлення</string>
     <string name="morphe_enhanced_ambient_mode_title">Покращене кінематографічне освітлення</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
@@ -143,6 +205,8 @@
     <string name="morphe_explore_menu_screen_summary">Виберіть, які компоненти будуть показуватися у меню \"Навігація\"</string>
     <string name="morphe_explore_menu_screen_title">Меню \"Навігація\"</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Якщо це не працює, спробуйте примусово закрити MicroG</string>
+    <string name="morphe_feed_download_flyout_button_summary">Додає пункт завантаження до меню відео в стрічці, які його не мають</string>
+    <string name="morphe_feed_download_flyout_button_title">Примусово додати пункт завантаження в спливне меню</string>
     <string name="morphe_feed_long_press_menu_summary">Натискання та утримування будь-де на відео в стрічці відкриває його меню</string>
     <string name="morphe_feed_long_press_menu_title">Натисніть та утримуйте, щоб відкрити меню відео</string>
     <string name="morphe_feed_watch_later_button_summary">Кнопка \"Дивитися пізніше\" показується на мініатюрах відео в стрічці, із галочкою, якщо відео збережено. Натискання зберігає або видаляє відео, а натискання та утримування відкриває \"Зберегти в список відтворення\"</string>
@@ -214,7 +278,7 @@
     <string name="morphe_hide_post_dislike_button_summary">У примусовому макеті місце кнопки залишається</string>
     <string name="morphe_hide_post_dislike_button_title">Приховати кнопку \"Дизлайк\"</string>
     <string name="morphe_hide_post_like_dislike_buttons_title">Приховати кнопки \"Лайк\" та \"Дизлайк\"</string>
-    <string name="morphe_hide_post_share_button_summary">Кнопка завантаження зображень допису розташована поруч із кнопкою \"Поділитися\", тому вона також прихована</string>
+    <string name="morphe_hide_post_share_button_summary">Кнопка завантаження зображень допису показується поруч із кнопкою \"Поділитися\", тому її також приховано</string>
     <string name="morphe_hide_post_share_button_title">Приховати кнопку \"Поділитися\"</string>
     <string name="morphe_hide_privacy_tos_footer_title">Приховати нижні колонтитули з юридичною інформацією та конфіденційністю</string>
     <string name="morphe_hide_shopping_menu_title">Приховати меню \"Покупки\"</string>
@@ -265,10 +329,16 @@
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
     <string name="morphe_livestream_dvr_summary">Дозволяє перемотування у всіх прямих трансляціях, навіть тих, що зазвичай його обмежують</string>
     <string name="morphe_livestream_dvr_title">Увімкнути DVR для прямої трансляції</string>
+    <string name="morphe_miniplayer_glass_summary">Відображає мініплеєр як напівпрозоре скло із закругленими кутами, як скляна панель навігації. Потребує скляної панелі навігації</string>
+    <string name="morphe_miniplayer_glass_title">Скляний мініплеєр</string>
     <string name="morphe_music_package_name_summary">Назва пакету встановленого музичного застосунку</string>
     <string name="morphe_music_package_name_title">Назва пакету музичного застосунку</string>
+    <string name="morphe_navigation_bar_glass_edge_summary">Малює світлий край навколо скляної панелі навігації</string>
+    <string name="morphe_navigation_bar_glass_edge_title">Край скляної панелі навігації</string>
     <string name="morphe_navigation_bar_glass_opacity_summary">Налаштовує рівень прозорості скляної панелі навігації (0 - прозора, 100 - непрозора)</string>
     <string name="morphe_navigation_bar_glass_opacity_title">Непрозорість скла</string>
+    <string name="morphe_navigation_bar_glass_round_summary">Надає скляній панелі навігації закруглені краї замість кутів, як у скляного мініплеєра</string>
+    <string name="morphe_navigation_bar_glass_round_title">Закруглена скляна панель навігації</string>
     <string name="morphe_navigation_bar_glass_size_button_spacing">Відступ між кнопками</string>
     <string name="morphe_navigation_bar_glass_size_buttons_shown">Показано кнопок: %1$s із %2$s</string>
     <string name="morphe_navigation_bar_glass_size_height">Висота</string>
@@ -286,10 +356,11 @@
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %s)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в Android VR закінчився. Спробуйте ввійти у VR ще раз</string>
+    <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в \"Android VR\" закінчився, спробуйте ввійти у VR ще раз</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
     <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
-    <string name="morphe_oauth2_toast_reset">Ви вийшли з Android VR</string>
+    <string name="morphe_oauth2_toast_reset">Ви вийшли з \"Android VR\"</string>
+    <string name="morphe_offline_video_quality_1440p">Quad HD (1440p)</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Запобігає відкриттю трансляції при натисканні на аватар каналу</string>
     <string name="morphe_open_channel_of_live_avatar_title">Відкривати канал через аватар трансляції</string>
     <string name="morphe_open_videos_fullscreen_title">Відкривати відео у повноекранному режимі</string>
@@ -308,12 +379,12 @@
     <string name="morphe_playback_in_feeds_title">Відтворення в стрічках</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Налаштуйте прозорість фону за кнопками керування плеєром та панеллю часу (0 - невидиме, 100 - суцільне)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозорість фону кнопок керування</string>
-    <string name="morphe_playlist_hide_removal_snackbar_summary">Підтвердження не показується після видалення відео з плейлиста</string>
-    <string name="morphe_playlist_hide_removal_snackbar_title">Приховати повідомлення про видалення з плейлиста</string>
-    <string name="morphe_playlist_long_press_drag_summary">Натисніть і утримуйте відео у вашому плейлисті, щоб перетягнути його на нову позицію</string>
-    <string name="morphe_playlist_long_press_drag_title">Довго натискайте, щоб змінити порядок відео у плейлисті</string>
-    <string name="morphe_playlist_wide_drag_handles_summary">Маркери перетягування в плейлистах стало легше захвачувати</string>
-    <string name="morphe_playlist_wide_drag_handles_title">Розширити маркери перетягування в плейлистах</string>
+    <string name="morphe_playlist_hide_removal_snackbar_summary">Підтвердження не показується після видалення відео зі списку відтворення</string>
+    <string name="morphe_playlist_hide_removal_snackbar_title">Приховати повідомлення про видалення зі списку відтворення</string>
+    <string name="morphe_playlist_long_press_drag_summary">Натисніть і утримуйте відео у вашому списку відтворення, щоб перетягнути його на нову позицію</string>
+    <string name="morphe_playlist_long_press_drag_title">Натисніть і утримуйте, щоб змінити порядок відео в списку відтворення</string>
+    <string name="morphe_playlist_wide_drag_handles_summary">За маркери перетягування в списках відтворення легше вхопитися</string>
+    <string name="morphe_playlist_wide_drag_handles_title">Розширити маркери перетягування в списках відтворення</string>
     <string name="morphe_post_buttons_layout_entry_1">Сервер</string>
     <string name="morphe_post_buttons_layout_entry_2">Примусовий</string>
     <string name="morphe_post_buttons_layout_title">Макет кнопок допису</string>
@@ -329,11 +400,6 @@
     <string name="morphe_post_image_download_started_single">Завантаження зображення…</string>
     <string name="morphe_post_image_download_summary">Кнопка завантаження показується поруч із кнопкою \"Поділитися\" для дописів із зображеннями або GIF, а до їхнього меню додається пункт завантаження</string>
     <string name="morphe_post_image_download_title">Завантажити зображення з допису</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">"Токен, вбудований у цю версію провайдера PoToken, більше не працює
-
-Увімкніть опцію \'Імітувати відеопотоки\', щоб виправити проблему з відтворенням"</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">Провайдер PoToken більше не працює</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">Ввімкнути</string>
     <string name="morphe_potoken_provider_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально) / Якщо ви користувач YouTube Premium, це налаштування може не знадобитися"</string>
     <string name="morphe_potoken_provider_title">Провайдер PoToken</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
@@ -348,7 +414,7 @@
     <string name="morphe_remember_livestream_position_summary">Для активних прямих трансляцій запам\'ятовує та відновлює позицію відтворення замість переходу до поточного моменту трансляції</string>
     <string name="morphe_remember_livestream_position_title">Запам\'ятовувати позицію відтворення прямої трансляції</string>
     <string name="morphe_remember_livestream_position_user_dialog_message">Ця функція не працює з цілодобовими прямими трансляціями та іншими трансляціями, що завжди активні</string>
-    <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL youtu.be для відео</string>
+    <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL \"youtu.be\" для відео</string>
     <string name="morphe_replace_links_with_shortener_title">Змінити посилання для поширення на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
@@ -387,6 +453,7 @@
     <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
     <string name="morphe_settings_new_indicator_days_summary">Кількість днів, протягом яких біля налаштувань і параметрів, доданих оновленням, показується крапка</string>
     <string name="morphe_settings_new_indicator_days_title">Підсвічувати нові налаштування</string>
+    <string name="morphe_shorts_download_flyout_title">Завантажити</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Скорочуються лише паузи, не коротші за це значення. Набуває чинності при запуску наступного відео</string>
     <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>
     <string name="morphe_skip_silence_summary">Автоматично пропускає тихі паузи у звуку відео</string>
@@ -407,24 +474,19 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"Відеокодек AVC (H.264), VP9 або AV1
 
 Відтворення може заїкатися або пропускати кадри"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Дозволити AV1 для \"Android VR\" / visionOS</string>
+    <string name="morphe_spoof_video_streams_av1_title">Дозволити AV1 для \"Android VR\" / \"visionOS\"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Увімкнення цього налаштування може призвести до використання програмного декодування AV1
 
 Відтворення відео з AV1 може заїкатися або мати пропуски кадрів"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s кілька разів поспіль не спрацював, а %2$s спрацював
-
-Зробити %2$s типовим клієнтом?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Перемкнути</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Типовий клієнт не працює</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Варіант JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
     <string name="morphe_spoof_video_streams_screen_title">Підміна відеопотоків</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR потребує окремого входу. Натисніть тут, щоб продовжити</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR з входом</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">\'Android VR\' потребує окремого входу. Натисніть тут, щоб продовжити</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на \"Android VR\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в \'Android VR\'</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Вхід у \'Android\' VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Код активації: %s
 
 1. Натисніть \"Відкрити вебсайт\" нижче, щоб відкрити вебсайт \"Підключити пристрій\"
@@ -433,11 +495,11 @@
 4. Натисніть \"Дозволити доступ до YouTube VR\"
 5. Поверніться до застосунку після того, як побачите повідомлення \"Пристрій підключено\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Інструкції</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в Android VR може виправити проблеми з відтворенням для деяких користувачів
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в \"Android VR\" може виправити проблеми з відтворенням для деяких користувачів
 
 Щоб увійти, натисніть \"Продовжити\" нижче"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Вийти</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в \"Android VR\"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентифікацію збережено
 
 • Налаштування RVX не імпортують/експортують автентифікацію Android VR
@@ -445,6 +507,27 @@
 • Вам потрібно буде увійти знову, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вхід виконано успішно</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не вдалося створити код активації</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary">Необов\'язково: увійдіть на вебсайт YouTube, щоб відтворювати відео зі своїм обліковим записом. Натисніть тут, щоб продовжити</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_summary_signed_in">Наразі ви ввійшли в \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_about_title">Вхід у Mobile Web</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_not_signed_in_message">"\"Mobile Web\" відтворює відео без входу в обліковий запис або після входу на вебсайт YouTube
+
+• Після входу можна відтворювати відео, що потребують облікового запису, наприклад відео з віковими обмеженнями
+• Сторінка входу Google відкривається в цьому застосунку
+• Вхід використовується лише для отримання відео, які ви відтворюєте
+• Вхід зберігається лише на цьому пристрої
+
+Щоб увійти, натисніть \"Продовжити\" нижче"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_dialog_title">Вхід у \"Mobile Web\"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_success_dialog_message">"Вхід збережено
+
+• Налаштування RVX не імпортують і не експортують вхід у Mobile Web
+• Якщо Google завершить вхід, відео відтворюватимуться без входу, доки ви не увійдете знову
+• Вихід з облікового запису також виконає вихід із вебсайту YouTube на цьому пристрої"</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_expired">Термін дії входу в \"Mobile Web\" минув, спробуйте ввійти в \"Mobile Web\" знову</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_signed_out">Вихід із \"Mobile Web\" виконано</string>
+    <string name="morphe_spoof_video_streams_sign_in_mweb_toast_webview_missing">\"Android System WebView\" недоступний. Встановіть або увімкніть його, щоб увійти</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Тип клієнта показується у вікні \"Статистика для сисадмінів\"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Показувати підміну в \"Статистиці для сисадмінів\"</string>
@@ -493,6 +576,8 @@
     <string name="morphe_theme_entry_white">Білий</string>
     <string name="morphe_theme_settings_summary">Налаштування теми, зовнішнього вигляду та брендування додатка</string>
     <string name="morphe_theme_settings_title">Налаштування теми</string>
+    <string name="morphe_ungroup_notifications_summary">Показує кожне відео зі згрупованих завантажень каналу як окреме сповіщення</string>
+    <string name="morphe_ungroup_notifications_title">Розгрупувати сповіщення</string>
     <string name="morphe_unlock_queue_summary">Розблоковує чергу відео на YouTube</string>
     <string name="morphe_unlock_queue_title">Розблокувати чергу</string>
     <string name="morphe_video_action_bar_layout_entry_2">Класичний однорядковий</string>
@@ -814,17 +899,17 @@
     <string name="revanced_disable_layout_updates_summary_off">Макет буде оновлено сервером</string>
     <string name="revanced_disable_layout_updates_summary_on">Макет не буде оновлено сервером</string>
     <string name="revanced_disable_layout_updates_title">Вимкнути оновлення макета</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Макет застосунку повертається до макета, який використовувався під час першої інсталяції
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Макет застосунку повертається до того, який використовувався під час першого встановлення
 
-Деякі серверні макети можуть не повертатися
+Деякі макети на стороні сервера можуть не повернутися
 
 Зміни включають:
-• Компоненти у висувному меню плеєра (або пов’язаних налаштуваннях) можуть не працювати
-• Анімовані лічильники не анімуються
-• Відображається вкладка \"Бібліотека\"
-• Секція \"Музика\" в описі відео може не працювати
-• Елементи висувного меню плеєра не можна приховати
-• Кнопка перемикання облікового запису може не відображатися на вкладці \"Бібліотека\""</string>
+• Повноекранні рекомендації відео можуть працювати некоректно
+• Компоненти в спливному меню плеєра (або пов'язані налаштування) можуть не працювати
+• Музичний розділ в описі відео може не працювати
+• Пункти спливного меню плеєра не можна приховати
+• Цифри, що прокручуються, не анімуються
+• Кнопка перемикання облікового запису може не з'являтися на вкладці \"Бібліотека\""</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки Подобається та Не подобається не відблискуватимуть при згадуванні</string>
     <string name="revanced_disable_like_dislike_glow_title">Вимкнути відблиск кнопки Подобається та Не подобається</string>
@@ -1365,7 +1450,7 @@
     <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Введіть ключові слова та фрази для приховування, розділяючи їх новими рядками
 
-Ключовими словами може бути будь-який текст, що показується в назвах відео. Ключове слово @UserName приховує весь контент конкретних авторів"</string>
+Ключовими словами може бути будь-який текст, що показується в назвах відео. Ключове слово @UserName приховує весь вміст конкретних авторів"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Ключові слова, які потрібно приховати</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Результати пошуку не фільтруються за ключовими словами</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Результати пошуку фільтруються за ключовими словами</string>
@@ -2236,7 +2321,7 @@
     <string name="revanced_remember_playback_speed_toast_shorts">Типову швидкість відтворення Shorts змінено на: %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Запам’ятовувати якість відео</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати якість відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Тост не показується, коли змінюється стандартна якість відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Тост показується, коли змінюється стандартна якість відео</string>
     <string name="revanced_remember_video_quality_mobile">в мобільній мережі</string>
