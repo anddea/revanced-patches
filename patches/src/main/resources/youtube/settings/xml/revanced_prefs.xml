@@ -438,6 +438,9 @@
         <!-- SETTINGS: PLAYBACK_IN_FEEDS
         <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
 
+        <!-- SETTINGS: UNGROUP_NOTIFICATIONS
+        <SwitchPreference android:title="@string/morphe_ungroup_notifications_title" android:key="morphe_ungroup_notifications" android:summary="@string/morphe_ungroup_notifications_summary" />SETTINGS: UNGROUP_NOTIFICATIONS -->
+
         <!-- SETTINGS: DISABLE_AUTO_FEED_REFRESH
         <SwitchPreference android:title="@string/morphe_disable_auto_feed_refresh_title" android:key="morphe_disable_auto_feed_refresh" android:summary="@string/morphe_disable_auto_feed_refresh_summary" />SETTINGS: DISABLE_AUTO_FEED_REFRESH -->
 

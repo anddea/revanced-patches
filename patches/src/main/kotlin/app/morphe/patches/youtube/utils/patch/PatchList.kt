@@ -347,6 +347,10 @@ internal enum class PatchList(
         "Translations for YouTube",
         "Add translations or remove string resources."
     ),
+    UNGROUP_NOTIFICATIONS(
+        "Ungroup notifications",
+        "Adds an option to show every video of the notifications that YouTube groups by channel as its own notification."
+    ),
     UNLOCK_QUEUE(
         "Unlock queue",
         "Adds an option to unlock YouTube’s video queue."
