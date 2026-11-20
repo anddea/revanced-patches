@@ -139,6 +139,67 @@ public class SBRequester {
         return connection;
     }
 
+    public enum SegmentSubmitAction {
+        SKIP("skip"),
+        MUTE("mute"),
+        FULL_VIDEO("full");
+
+        public final String type;
+
+        SegmentSubmitAction(String type) {
+            this.type = type;
+        }
+    }
+
+    public static boolean submitSegments(String videoId, SegmentCategory category, SegmentSubmitAction action,
+                                         long startTime, long endTime, long videoLength) {
+        Utils.verifyOffMainThread();
+
+        try {
+            Logger.printDebug(() -> "Submitting videoId: " + videoId + " category: " + category
+                    + " action: " + action.type + " start: " + startTime + " end: " + endTime
+                    + " length: " + videoLength);
+
+            String privateUserID = SponsorBlockSettings.getSBPrivateUserID();
+            String start = String.format(java.util.Locale.US, "%.3f", startTime / 1000f);
+            String end = String.format(java.util.Locale.US, "%.3f", endTime / 1000f);
+            String duration = String.format(java.util.Locale.US, "%.3f", videoLength / 1000f);
+
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS,
+                    privateUserID, videoId, category.keyValue, start, end, duration, action.type,
+                    "Morphe/" + Utils.getAppVersionName());
+            final int responseCode = connection.getResponseCode();
+
+            if (responseCode == Requester.HTTP_STATUS_CODE_SUCCESS) {
+                Utils.showToastLong(str("revanced_sb_submit_succeeded"));
+                return true;
+            }
+
+            String userErrorMessage = switch (responseCode) {
+                case Requester.HTTP_STATUS_CODE_CONFLICT -> str("revanced_sb_submit_failed_duplicate");
+                case Requester.HTTP_STATUS_CODE_FORBIDDEN -> str("revanced_sb_submit_failed_forbidden",
+                        Requester.parseErrorStringAndDisconnect(connection));
+                case Requester.HTTP_STATUS_CODE_TOO_MANY_REQUESTS -> str("revanced_sb_submit_failed_rate_limit");
+                case Requester.HTTP_STATUS_CODE_BAD_REQUEST -> str("revanced_sb_submit_failed_invalid",
+                        Requester.parseErrorStringAndDisconnect(connection));
+                default -> str("revanced_sb_submit_failed_unknown_error",
+                        responseCode, connection.getResponseMessage());
+            };
+
+            Utils.showToastLong(userErrorMessage);
+            return responseCode == Requester.HTTP_STATUS_CODE_CONFLICT;
+        } catch (SocketTimeoutException ex) {
+            Logger.printDebug(() -> "Timeout", ex);
+            Utils.showToastLong(str("revanced_sb_submit_failed_timeout"));
+        } catch (IOException ex) {
+            Logger.printDebug(() -> "IOException", ex);
+            Utils.showToastLong(str("revanced_sb_submit_failed_unknown_error", 0, ex.getMessage()));
+        } catch (Exception ex) {
+            Logger.printException(() -> "failed to submit segments", ex);
+        }
+        return false;
+    }
+
     private static JSONObject getJSONObject(String... params) throws IOException, JSONException {
         return Requester.parseJSONObject(getConnectionFromRoute(SBRoutes.IS_USER_VIP, params));
     }

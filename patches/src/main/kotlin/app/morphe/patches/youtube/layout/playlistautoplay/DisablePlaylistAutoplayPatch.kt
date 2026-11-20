@@ -3,6 +3,8 @@
  * https://github.com/MorpheApp/morphe-patches/pull/2628
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.layout.playlistautoplay
@@ -10,12 +12,12 @@ package app.morphe.patches.youtube.layout.playlistautoplay
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_PLAYLIST_AUTOPLAY
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.findFreeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
 
 private const val EXTENSION_CLASS =
@@ -63,7 +65,10 @@ val disablePlaylistAutoplayPatch = bytecodePatch(
             }
         ).matchAll().forEach { match ->
             val method = match.method
-            val freeRegister = method.findFreeRegister(0)
+            // 21.39 adds a match that only delegates to another matched handler (p0 and p1 both live, no free register).
+            // The delegate target is patched itself, so skip this one.
+            val freeRegister = runCatching { method.findFreeRegister(0) }.getOrNull()
+                ?: return@forEach
 
             method.addInstructionsWithLabels(
                 0,

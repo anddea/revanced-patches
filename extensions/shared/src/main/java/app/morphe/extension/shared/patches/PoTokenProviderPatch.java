@@ -36,7 +36,6 @@ public class PoTokenProviderPatch {
     public static final String LOCAL_PO_TOKEN_PROVIDER_AUTHORITY_SUFFIX = ".morphe.potoken.chimera";
 
     private static volatile Uri cachedLocalAuthority;
-
     /**
      * Injection point.
      */
@@ -95,4 +94,5 @@ public class PoTokenProviderPatch {
         // To minimize confusion, it works only when 'Spoof video streams' is turned off.
         return !SpoofVideoStreamsPatch.isPatchIncluded() || !SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.get();
     }
+
 }

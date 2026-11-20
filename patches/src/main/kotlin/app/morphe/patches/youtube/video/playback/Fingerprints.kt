@@ -19,10 +19,11 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType.STRING
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.video.information.VideoQualityChangedFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -30,9 +31,27 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+/**
+ * The sizes the hardware video decoder supports. The stream selection drops the streams outside of them.
+ */
 internal object DeviceDimensionsModelToStringFingerprint : Fingerprint(
     returnType = "L",
-    strings = listOf("minh.", ";maxh.")
+    filters = listOf(
+        string("minh."),
+        string(";maxh.")
+    )
+)
+
+internal object DeviceDimensionsModelConstructorFingerprint : Fingerprint(
+    classFingerprint = DeviceDimensionsModelToStringFingerprint,
+    name = "<init>",
+    returnType = "V",
+    parameters = listOf(
+        "I", // Min height.
+        "I", // Max height.
+        "I", // Min width.
+        "I"  // Max width.
+    )
 )
 
 internal object PlaybackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
@@ -223,4 +242,71 @@ internal object ModernLoadPlaybackSpeedFingerprint : Fingerprint(
     strings = listOf(
         "null cannot be cast to non-null type com.google.android.libraries.youtube.player.settings.control.models.PlayerSettingModel.PlaybackRateSettingModel"
     ),
+)
+
+/**
+ * Checks if the audio offload supports changing the playback speed.
+ */
+internal object AudioOffloadVariableRateSupportedFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        string("offloadVariableRateSupported")
+    )
+)
+
+/**
+ * Checks if the audio offload is enabled.
+ */
+internal object AudioOffloadEnabledFingerprint : Fingerprint(
+    classFingerprint = AudioOffloadVariableRateSupportedFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.RETURN,
+        Opcode.RETURN,
+        Opcode.RETURN
+    )
+)
+
+/**
+ * Older audio offload checks merge the false result before returning instead of using three returns.
+ */
+internal object LegacyAudioOffloadEnabledFingerprint : Fingerprint(
+    classFingerprint = AudioOffloadVariableRateSupportedFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.GOTO,
+        Opcode.RETURN,
+        Opcode.MOVE,
+        Opcode.RETURN
+    )
 )

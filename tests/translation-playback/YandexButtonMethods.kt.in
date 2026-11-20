@@ -1,0 +1,30 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation
+
+class View {
+    var isActivated = false
+    var accessibilityDelegate: AccessibilityDelegate? = null
+    open class AccessibilityDelegate {
+        open fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) { info.initialized = true }
+    }
+}
+class AccessibilityNodeInfo {
+    var initialized = false
+    var className = ""
+    var isCheckable = false
+    var isChecked = false
+}
+class ToggleButton
+class PlayerControlButton(var view: View? = View()) { fun imageView() = view }
+object YandexButtonMethods {
+    var instance: PlayerControlButton? = PlayerControlButton()
+    var menus = 0
+    fun showMenu(view: View): Boolean { menus++; return true }
+    fun click() = onClick(instance?.imageView() ?: View())
+    fun accessibility(): AccessibilityNodeInfo {
+        val view = instance!!.imageView()!!
+        setToggleAccessibilityDelegate(view)
+        return AccessibilityNodeInfo().also { view.accessibilityDelegate!!.onInitializeAccessibilityNodeInfo(view, it) }
+    }
+    fun refresh() { instance?.setActivated() }
+    // PRODUCTION_METHODS
+}

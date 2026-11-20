@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.feed;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
@@ -5,6 +15,7 @@ import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_10_OR_GREATER;
 
 import android.view.View;
+import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -328,6 +339,68 @@ public class FeedPatch {
         for (String filter : blockList) {
             if (menuTitleString.equals(filter) && !filter.isEmpty())
                 Utils.hideViewByLayoutParams(parentView);
+        }
+    }
+
+    /**
+     * Item of a menu, such as the items of the popup menus.
+     */
+    public interface FlyoutMenuItem {
+        @Nullable
+        CharSequence patch_getFlyoutMenuItemTitle();
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Leaves the filtered items out of the items of a popup menu, as the list popup menu
+     * ignores the zero height of a hidden item and only keeps its text hidden.
+     *
+     * @param menuItems resolved items of one item of the menu
+     */
+    public static Iterable<?> hideFlyoutMenuItems(Iterable<?> menuItems) {
+        if (!Settings.HIDE_FEED_FLYOUT_MENU.get() || Settings.HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS.get().isEmpty()) {
+            return menuItems;
+        }
+
+        List<Object> shownMenuItems = new ArrayList<>();
+        for (Object menuItem : menuItems) {
+            if (menuItem instanceof FlyoutMenuItem flyoutMenuItem) {
+                CharSequence menuTitleCharSequence = flyoutMenuItem.patch_getFlyoutMenuItemTitle();
+                if (menuTitleCharSequence != null) {
+                    String menuTitleString = menuTitleCharSequence.toString();
+                    if (hideFlyoutMenu(menuTitleCharSequence) == null) {
+                        Logger.printDebug(() -> "Hiding popup menu item: " + menuTitleString);
+                        continue;
+                    }
+                }
+            }
+            shownMenuItems.add(menuItem);
+        }
+
+        return shownMenuItems;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Hide the items of the toolbar menu, such as the overflow menu of a playlist page.
+     *
+     * @param menu                  toolbar menu
+     * @param menuItemId            id of the item just added to the menu
+     * @param menuTitleCharSequence title of the item
+     */
+    public static void hideFlyoutMenu(Menu menu, int menuItemId, @Nullable CharSequence menuTitleCharSequence) {
+        if (menuTitleCharSequence == null || !Settings.HIDE_FEED_FLYOUT_MENU.get()
+                || Settings.HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS.get().isEmpty()) {
+            return;
+        }
+
+        String menuTitleString = menuTitleCharSequence.toString();
+
+        if (hideFlyoutMenu(menuTitleCharSequence) == null) {
+            Logger.printDebug(() -> "Hiding toolbar menu item: " + menuTitleString);
+            menu.removeItem(menuItemId);
         }
     }
 

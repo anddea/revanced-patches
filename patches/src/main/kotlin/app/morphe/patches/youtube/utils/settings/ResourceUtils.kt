@@ -5,6 +5,7 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_
 import app.morphe.patches.youtube.utils.patch.PatchList
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValueOrThrow
+import app.morphe.util.inputStreamFromBundledResourceOrThrow
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import java.io.File
@@ -24,6 +25,39 @@ internal object ResourceUtils {
     }
 
     fun getContext() = context
+
+    /**
+     * Records UI settings omitted by version gates or excluded patches. Comparing with the
+     * template preserves internal settings that intentionally never had a preference.
+     */
+    fun writeUnsupportedSettings() {
+        val template = inputStreamFromBundledResourceOrThrow(
+            "youtube/settings", "xml/revanced_prefs.xml"
+        ).bufferedReader().use { it.readText() }
+        val templateKeys = Regex("android:key=\"([^\"]+)\"")
+            .findAll(template).map { it.groupValues[1] }.toSet()
+        val activeKeys = mutableSetOf<String>()
+        context.document(RVX_PREFERENCE_PATH).use { document ->
+            document.doRecursively {
+                if (it is Element) activeKeys += it.getAttribute("android:key")
+            }
+        }
+        // Use the existing values document so the resource encoder registers the array entry.
+        context.document("res/values/arrays.xml").use { document ->
+            val unsupportedSettings = document.createElement("string-array").apply {
+                setAttribute("name", "revanced_unsupported_settings")
+                (templateKeys - activeKeys).sorted().forEach { key ->
+                    // Resource references identify navigation entries, not extension settings.
+                    if (!key.startsWith("@")) {
+                        appendChild(document.createElement("item").apply {
+                            textContent = key
+                        })
+                    }
+                }
+            }
+            document.documentElement.appendChild(unsupportedSettings)
+        }
+    }
 
     fun updatePackageName(newPackageName: String) {
         listOf(

@@ -38,17 +38,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches/pull/2524
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.extension.youtube.patches.theme;
 
 import android.annotation.SuppressLint;
@@ -182,6 +171,22 @@ public final class ThemePatch {
     }
 
     /**
+     * Restores the synthetic resource qualifiers after Android replaces the Activity configuration.
+     * Select the existing overlay on Android 11+ instead of rebuilding its resource table.
+     */
+    public static void onConfigurationChanged(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+                PrecompiledResourcePalette.install(context);
+            } else {
+                RuntimeResourceOverlay.select(context);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to restore YouTube theme after configuration change", ex);
+        }
+    }
+
+    /**
      * Applies the selected palette to the separate Activity used by RVX settings. Runtime resource
      * loaders belong to a Resources instance, so a settings Activity created after YouTube's main
      * Activity must receive the loader before its theme and views are inflated.
@@ -267,8 +272,8 @@ public final class ThemePatch {
                     ? Settings.DARK_THEME.get()
                     : Settings.LIGHT_THEME.get();
             final boolean hideSplashIcon = Settings.DISABLE_SYSTEM_SPLASH.get()
-                    || (!"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
-                            && !isSplashAnimationDisabled());
+                    || isSplashAnimationDisabled()
+                    || !"original".equals(Settings.CUSTOM_BRANDING_ICON.get());
             final String splashIconSuffix = hideSplashIcon
                     ? SPLASH_THEME_NO_ICON_SUFFIX
                     : "";

@@ -41,17 +41,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.extension.youtube.shared;
 
 import static app.morphe.extension.shared.utils.Utils.getFormattedTimeStamp;
@@ -119,6 +108,11 @@ public final class VideoInformation {
     private static String channelName = "";
     @NonNull
     private static String videoId = "";
+    private static String playlistId = "";
+    /**
+     * If the video ID of the video started by the player controller has been set.
+     */
+    private static boolean videoIdSet;
     @NonNull
     private static String videoTitle = "";
     private static long videoLength = 0;
@@ -234,6 +228,8 @@ public final class VideoInformation {
      * Injection point.
      */
     public static void initialize() {
+        playlistId = "";
+        videoIdSet = false;
         videoTime = -1;
         videoLength = 0;
         playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
@@ -443,6 +439,12 @@ public final class VideoInformation {
      * @param newlyLoadedVideoId id of the current video
      */
     public static void setVideoId(@NonNull String newlyLoadedVideoId) {
+        videoIdSet = true;
+        // The playlist ID hook is called after the video ID hook of the same player response,
+        // and is skipped for Shorts.
+        if (!playerResponseVideoIdIsShort && newlyLoadedVideoId.equals(playerResponseVideoId)) {
+            playlistId = playerResponsePlaylistId;
+        }
         if (videoId.equals(newlyLoadedVideoId))
             return;
 
@@ -487,13 +489,32 @@ public final class VideoInformation {
     }
 
     /**
-     * This is the playlistId of the player response, but since Shorts does not support playlists, it is the same as the current playlistId.
+     * The player response video ID changes with any video loaded in the background,
+     * such as the feed videos loaded while scrolling with the miniplayer open,
+     * so it is used only while the video of the player in front has not started yet.
      *
-     * @return The playlist id of the video.
+     * @return The ID of the video of the player in front, or the ID of the last
+     *         player response if that video is still starting.
+     */
+    @NonNull
+    public static String getStartingOrPlayingVideoId() {
+        return videoIdSet || playerResponseVideoIdIsShort
+                ? videoId // Player response may be a Short in the feed.
+                : playerResponseVideoId;
+    }
+
+    /**
+     * Like {@link #getStartingOrPlayingVideoId()}, the playlist ID of the player response is used
+     * only while the video of the player in front has not started yet.
+     *
+     * @return The playlist ID of the video of the player in front, or the playlist ID of the last
+     *         player response if that video is still starting.
      */
     @NonNull
     public static String getPlaylistId() {
-        return playerResponsePlaylistId;
+        return videoIdSet || playerResponseVideoIdIsShort
+                ? playlistId
+                : playerResponsePlaylistId;
     }
 
     /**
@@ -742,7 +763,7 @@ public final class VideoInformation {
             try { return player.patch_isPlaying(); }
             catch (Exception ex) { Logger.printDebug(() -> "Cannot read playback state: " + ex); }
         }
-        return VideoState.getCurrent() == VideoState.PLAYING;
+        return false;
     }
 
     /**
@@ -871,8 +892,11 @@ public final class VideoInformation {
      *
      * @return The title of the video.
      */
+    /**
+     * @return The title of the video, or the title restored by {@link app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch} if enabled.
+     */
     public static String getVideoTitle() {
-        return videoTitle;
+        return app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch.getTitle(getVideoId(), videoTitle);
     }
 
     /**

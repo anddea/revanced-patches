@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -108,13 +109,17 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     )
 )
 
+// 9.40: getRoot() is now (String, int, Bundle) instead of (String, Bundle); both shapes are accepted.
 internal object MusicBrowserServiceFingerprint : Fingerprint(
     returnType = "L",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    parameters = listOf("Ljava/lang/String;", "Landroid/os/Bundle;"),
     strings = listOf("android.service.media.extra.RECENT"),
     custom = { method, _ ->
-        method.definingClass.endsWith("/MusicBrowserService;")
+        method.definingClass.endsWith("/MusicBrowserService;") &&
+                method.parameterTypes.map { it.toString() }.let { params ->
+                    params == listOf("Ljava/lang/String;", "Landroid/os/Bundle;") ||
+                            params == listOf("Ljava/lang/String;", "I", "Landroid/os/Bundle;")
+                }
     },
 )
 

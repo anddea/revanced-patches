@@ -1,7 +1,7 @@
 package app.morphe.patches.music.utils.dismiss
 
+import app.morphe.patcher.util.getReference
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method

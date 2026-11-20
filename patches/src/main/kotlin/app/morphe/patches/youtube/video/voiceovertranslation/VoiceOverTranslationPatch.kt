@@ -45,6 +45,7 @@ package app.morphe.patches.youtube.video.voiceovertranslation
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.misc.spoof.CreateStreamingDataFingerprint
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
@@ -53,10 +54,8 @@ import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
 import app.morphe.patches.youtube.misc.debugging.currentWatchNextResponseParentFingerprint
 import app.morphe.patches.youtube.utils.auth.authHookPatch
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.fingerprint.originalMethodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -118,7 +117,7 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
         // independently of the UI. Do not use response construction (which also preloads).
         if (is_21_04_or_greater) {
             val detailsField = CreateStreamingDataFingerprint.instructionMatches[2]
-                .instruction.getReference<FieldReference>()!!
+                .fieldReference
             val matches = ModernChannelInformationFingerprint.matchAll(2..3)
             val responseType = matches.first().method.parameterTypes.first().toString()
             val responseGetter = classDefBy(responseType).methods.single {
@@ -155,7 +154,7 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
         // The watch page normally waits for playback or a timeout. A translation hold
         // must not leave details/comments blank. Override the consumed delay, after
         // any debugging override in PlaybackStartParameters' constructor.
-        val watchNextDelayField = playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+        val watchNextDelayField = playbackStartParametersToStringFingerprint.originalMethod
             .findFieldFromToString(WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING)
         currentWatchNextResponseParentFingerprint.mutableClassOrThrow().methods.single { method ->
             method.implementation?.instructions?.any {

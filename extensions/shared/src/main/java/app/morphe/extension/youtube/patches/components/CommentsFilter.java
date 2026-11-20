@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import android.view.View;
@@ -11,6 +21,7 @@ import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
+import app.morphe.extension.youtube.innertube.NextResponseOuterClass.ChannelGuidelinesStateEntityPayload;
 import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
@@ -18,6 +29,10 @@ import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
 public final class CommentsFilter extends Filter {
+    /**
+     * Type of the entity that tells if the channel guidelines must be acknowledged before commenting.
+     */
+    private static final int CHANNEL_GUIDELINES_STATE_ENTITY_TYPE = 263;
     private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.e";
     private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
     private static final String COMMENT_ENTRY_POINT_TEASER_PATH = "comments_entry_point_teaser";
@@ -33,10 +48,8 @@ public final class CommentsFilter extends Filter {
     private final StringFilterGroup commentComposerButtons;
     private final ByteArrayFilterGroupList commentComposerButtonsGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup commentsPreviewDots;
-    private final StringFilterGroup createAShort;
     private final StringFilterGroup emojiButton;
     private final StringFilterGroup previewCommentText;
-    private final StringFilterGroup thanks;
     private final StringFilterGroup timestampButton;
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
@@ -92,23 +105,23 @@ public final class CommentsFilter extends Filter {
         commentComposerButtons = new StringFilterGroup(
                 null,
                 "|ContainerType|ContainerType|ContainerType|ContainerType|",
-                "composer_main_action_button"
+                "composer_main_action_button.e"
         );
 
         commentComposerButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
-                        "composer_short_creation_button"
+                        "composer_short_creation_button.e"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_COMMENTS_THANKS_BUTTON,
-                        "super_thanks_button"
+                        "super_thanks_button.e"
                 )
         );
 
-        createAShort = new StringFilterGroup(
+        var createAShortButton = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
-                "composer_short_creation_button"
+                "composer_short_creation_button.e"
         );
 
         emojiButton = new StringFilterGroup(
@@ -135,7 +148,7 @@ public final class CommentsFilter extends Filter {
 
         commentsPreviewDots = new StringFilterGroup(
                 Settings.HIDE_PREVIEW_COMMENT_OLD_METHOD,
-                "|ContainerType|ContainerType|ContainerType|"
+                VIDEO_METADATA_CAROUSEL_PATH
         );
 
         previewCommentText = new StringFilterGroup(
@@ -143,9 +156,9 @@ public final class CommentsFilter extends Filter {
                 COMMENT_ENTRY_POINT_TEASER_PATH
         );
 
-        thanks = new StringFilterGroup(
+        var thanksButton = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_THANKS_BUTTON,
-                "|super_thanks_button."
+                "super_thanks_button.e"
         );
 
         addIdentifierCallbacks(channelGuidelines);
@@ -159,12 +172,12 @@ public final class CommentsFilter extends Filter {
                 commentComposer,
                 commentComposerButtons,
                 commentsPreviewDots,
-                createAShort,
+                createAShortButton,
                 emojiButton,
                 liveChatMessages,
                 previewComment,
                 previewCommentText,
-                thanks,
+                thanksButton,
                 timestampButton
         );
     }
@@ -186,7 +199,7 @@ public final class CommentsFilter extends Filter {
             return commentComposerButtonsGroupList.check(buffer).isFiltered();
         }
 
-        if (matchedGroup == createAShort || matchedGroup == thanks || matchedGroup == timestampButton) {
+        if (matchedGroup == timestampButton) {
             return path.startsWith(COMMENT_COMPOSER_PATH);
         } else if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.
@@ -200,7 +213,11 @@ public final class CommentsFilter extends Filter {
                 return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();
             } else return Settings.HIDE_COMMENTS_SECTION.get();
         } else if (matchedGroup == commentsPreviewDots) {
-            return path.startsWith(VIDEO_METADATA_CAROUSEL_PATH);
+            return path.contains("carousel_header") &&
+                            // Old action buttons layout.
+                            (path.endsWith("|ContainerType|ContainerType|ContainerType|")
+                            // New action buttons layout.
+                            || path.contains("|dot_indicator.e"));
         } else if (matchedGroup == previewCommentText) {
             return COMMENT_PREVIEW_TEXT_PATTERN.matcher(path).find();
         }
@@ -228,6 +245,37 @@ public final class CommentsFilter extends Filter {
 
     /**
      * Injection point.
+     * <p>
+     * The channel guidelines and the Community Guidelines are shown in a sheet that must be
+     * acknowledged before the comment composer opens, as long as the state entity of the channel
+     * requires it. The state is changed as if they are acknowledged already, so the composer and
+     * the reply buttons open at once.
+     *
+     * @param entityType Field number of the payload in its mutation, the type of the entity.
+     */
+    public static byte[] hideGuidelinesSheet(int entityType, byte[] payload) {
+        if (entityType != CHANNEL_GUIDELINES_STATE_ENTITY_TYPE
+                || !Settings.HIDE_CHANNEL_GUIDELINES.get()) {
+            return payload;
+        }
+
+        try {
+            var state = ChannelGuidelinesStateEntityPayload.parseFrom(payload);
+            if (state.getShouldRequireViewerAck()) {
+                Logger.printDebug(() -> "Hiding guidelines sheet of: " + state.getKey());
+                return state.toBuilder().setShouldRequireViewerAck(false).build().toByteArray();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideGuidelinesSheet failure", ex);
+        }
+
+        return payload;
+    }
+
+    /**
+     * Injection point.
+     * Matches carousel titles exactly or by substring, like the account and feed flyout filters.
+     * Substring matching remains the default so existing filter lists keep their behavior.
      */
     public static byte[] onCommentsLoaded(byte[] bytes) {
         if (!Settings.HIDE_COMMENTS_CAROUSEL.get()) {
@@ -240,6 +288,7 @@ public final class CommentsFilter extends Filter {
         }
 
         String[] commentsCarouselFilterStrings = rawFilterText.split("\\n");
+        boolean matchContains = Settings.HIDE_COMMENTS_CAROUSEL_FILTER_TYPE.get();
 
         try {
             var newElement = NewElement.parseFrom(bytes).toBuilder();
@@ -261,7 +310,7 @@ public final class CommentsFilter extends Filter {
                 Logger.printDebug(() -> "comments title: " + title);
 
                 for (String filter : commentsCarouselFilterStrings) {
-                    if (!filter.isEmpty() && title.contains(filter)) {
+                    if (!filter.isEmpty() && (matchContains ? title.contains(filter) : title.equals(filter))) {
                         data.removeCarouselItemDatas(i);
                         data.removeCarouselTitleDatas(i);
                         modified = true;

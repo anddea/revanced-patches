@@ -420,7 +420,8 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(LAYOUT, "youtube_controls_overlay_subtitle_button")
         youTubeLogo = getResourceId(ID, "youtube_logo")
         ytCallToAction = getResourceId(ATTR, "ytCallToAction")
-        ytFillBell = getResourceId(DRAWABLE, "yt_fill_bell_black_24")
+        ytFillBell = getResourceId(DRAWABLE, "yt_fill_bell_black_24").takeIf { it != -1L }
+            ?: getResourceId(DRAWABLE, "yt_fill_experimental_bell_vd_theme_24")
         ytOutlineLibrary = getResourceId(DRAWABLE, "yt_outline_library_black_24")
         ytOutlineMoonZ = getResourceId(DRAWABLE, "yt_outline_moon_z_vd_theme_24")
         ytOutlinePictureInPictureWhite =

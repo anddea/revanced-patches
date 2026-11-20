@@ -1,0 +1,189 @@
+{
+  "patch_bundle": "patches/build/libs/patches-4.4.0-dev.6.mpp",
+  "patch_bundle_sha256": "c0d32af1c25a4ad250535bbb331b7c4c242e16efead5fbf2d4d5c4c3dc18d9f4",
+  "cli": "Morphe Desktop 2.1.1",
+  "mode": "default patches; no --force, --exclusive, --continue-on-error; complete unsigned APK rebuild",
+  "build": "./gradlew buildAndroid: passed",
+  "runs": [
+    {
+      "target": "music-6.20.51",
+      "applied_patch_count": 44,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/music-6.20.51.apk",
+      "report": "/tmp/full-native-final/music-6.20.51.json"
+    },
+    {
+      "target": "music-7.25.53",
+      "applied_patch_count": 44,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/music-7.25.53.apk",
+      "report": "/tmp/full-native-final/music-7.25.53.json"
+    },
+    {
+      "target": "music-8.30.54",
+      "applied_patch_count": 43,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/music-8.30.54.apk",
+      "report": "/tmp/full-native-final/music-8.30.54.json"
+    },
+    {
+      "target": "music-9.15.51",
+      "applied_patch_count": 44,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/music-9.15.51.apk",
+      "report": "/tmp/full-native-final/music-9.15.51.json"
+    },
+    {
+      "target": "music-9.40.51",
+      "applied_patch_count": 44,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/music-9.40.51.apk",
+      "report": "/tmp/full-native-final/music-9.40.51.json"
+    },
+    {
+      "target": "youtube-19.28.42",
+      "applied_patch_count": 88,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/youtube-19.28.42.apk",
+      "report": "/tmp/full-native-final/youtube-19.28.42.json"
+    },
+    {
+      "target": "youtube-20.05.46",
+      "applied_patch_count": 88,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/youtube-20.05.46.apk",
+      "report": "/tmp/full-native-final/youtube-20.05.46.json"
+    },
+    {
+      "target": "youtube-20.21.37",
+      "applied_patch_count": 88,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/youtube-20.21.37.apk",
+      "report": "/tmp/full-native-final/youtube-20.21.37.json"
+    },
+    {
+      "target": "youtube-21.13.164",
+      "applied_patch_count": 88,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/youtube-21.13.164.apk",
+      "report": "/tmp/full-native-final/youtube-21.13.164.json"
+    },
+    {
+      "target": "youtube-21.39.525",
+      "applied_patch_count": 88,
+      "failed_patches": [],
+      "steps": [
+        {
+          "step": "PATCHING",
+          "success": true
+        },
+        {
+          "step": "REBUILDING",
+          "success": true
+        }
+      ],
+      "archive_crc": "passed",
+      "output": "/tmp/full-native-final/youtube-21.39.525.apk",
+      "report": "/tmp/full-native-final/youtube-21.39.525.json"
+    }
+  ]
+}

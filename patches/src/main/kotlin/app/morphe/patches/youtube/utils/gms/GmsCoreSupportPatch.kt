@@ -1,5 +1,16 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.utils.gms
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.Option
 import app.morphe.patches.shared.gms.gmsCoreSupportPatch
 import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
@@ -21,6 +32,24 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
+    executeBlock = {
+        // GmsCore allows the capabilities it can not look up, which makes every account a supervised account.
+        AccountHasCapabilitiesFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static/range { p2 .. p2 }, Lapp/morphe/extension/shared/patches/GmsCoreSupport;->denySupervisedAccountCapability([Ljava/lang/String;)Z
+                move-result v0
+                if-eqz v0, :ask_gms_core
+                # Same result as Google Play services for accounts without the capability.
+                const/4 v0, 0x2
+                invoke-static { v0 }, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+                move-result-object v0
+                return-object v0
+                :ask_gms_core
+                nop
+            """
+        )
+    },
 ) {
     dependsOn(deviceComplianceCheckPatch)
 

@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -42,34 +43,32 @@
 package app.morphe.patches.music.video.information
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.parametersMatch
 import app.morphe.patcher.string
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val playerControllerSetTimeReferenceFingerprint = legacyFingerprint(
-    name = "playerControllerSetTimeReferenceFingerprint",
+internal val playerControllerSetTimeReferenceFingerprint = "playerControllerSetTimeReferenceFingerprint" to Fingerprint(
     returnType = "V",
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("Media progress reported outside media playback: ")
+    strings = listOf(string("Media progress reported outside media playback: ", StringComparisonType.STARTS_WITH))
 )
 
-internal val videoEndFingerprint = legacyFingerprint(
-    name = "videoEndFingerprint",
-    strings = listOf("Attempting to seek during an ad")
+internal val videoEndFingerprint = "videoEndFingerprint" to Fingerprint(
+    strings = listOf(string("Attempting to seek during an ad", StringComparisonType.CONTAINS))
 )
 
-internal val videoIdFingerprint = legacyFingerprint(
-    name = "videoIdFingerprint",
+internal val videoIdFingerprint = "videoIdFingerprint" to Fingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/String;"),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     strings = listOf("Null initialPlayabilityStatus")
 )
 
@@ -83,12 +82,16 @@ internal object ModernVideoEndFingerprint : Fingerprint(
 )
 
 /** Modern track-load callback, including the extra boolean introduced after 9.15. */
+// YouTube Music 9.40 made the method private and it returns an object (`acdn.M(Lwei;String)Lacdm;`),
+// so any final instance method with the string and parameters is accepted.
 internal object ModernVideoIdFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     filters = listOf(string("Null initialPlayabilityStatus")),
     custom = { method, _ ->
-        parametersMatch(method.parameters, listOf("L", "Ljava/lang/String;")) ||
-                parametersMatch(method.parameters, listOf("L", "Ljava/lang/String;", "Z"))
+        AccessFlags.FINAL.isSet(method.accessFlags) &&
+                !AccessFlags.STATIC.isSet(method.accessFlags) && (
+                parametersMatch(method.parameters, listOf("L", "Ljava/lang/String;")) ||
+                        parametersMatch(method.parameters, listOf("L", "Ljava/lang/String;", "Z"))
+                )
     }
 )
 
@@ -97,5 +100,32 @@ internal object ModernPlayerControllerSetTimeReferenceFingerprint : Fingerprint(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("Media progress reported outside media playback: ")
+    strings = listOf(string("Media progress reported outside media playback: ", StringComparisonType.STARTS_WITH))
+)
+
+/**
+ * Playback speed setter, searched inside the class of [app.morphe.patches.music.utils.playbackSpeedParentFingerprint].
+ */
+// YouTube Music 9.40 hoisted `const/high16 1.0f` to the top of `huy.t()V`, so it no longer sits
+// between the check-cast and the `Labrl;->I(F)V` call. Match on the call instead.
+internal object ModernPlaybackSpeedFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.CHECK_CAST,
+        Opcode.INVOKE_VIRTUAL
+    ),
+    custom = { method, _ ->
+        method.implementation?.instructions?.any {
+            it.opcode == Opcode.CONST_HIGH16
+        } == true && method.implementation!!.instructions.any {
+            it.opcode == Opcode.INVOKE_VIRTUAL &&
+                    (it as? ReferenceInstruction)?.reference.let { reference ->
+                        reference is MethodReference &&
+                                reference.returnType == "V" &&
+                                reference.parameterTypes.map(CharSequence::toString) == listOf("F")
+                    }
+        }
+    }
 )

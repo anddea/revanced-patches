@@ -9,6 +9,8 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.widget.TextView;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.view.Gravity;
@@ -143,6 +145,63 @@ public class SheetBottomDialog {
 
         return mainLayout;
     }
+
+    /**
+     * Share of the screen height a scrollable dialog content takes up at most.
+     */
+    public static final int DEFAULT_MAX_HEIGHT_PERCENT = 75;
+
+    /**
+     * @see #createCappedScrollView(Context, int)
+     */
+    public static ScrollView createCappedScrollView(@NonNull Context context) {
+        return createCappedScrollView(context, DEFAULT_MAX_HEIGHT_PERCENT);
+    }
+
+    /**
+     * Creates a {@link ScrollView} that never grows past a share of the screen, so that a long
+     * list still leaves the dialog usable, including in landscape.
+     *
+     * @param context          The context used to create the view.
+     * @param maxHeightPercent Share of the screen height the content may take up. Pass one only
+     *                         when this dialog has a reason to differ from the default.
+     */
+    public static ScrollView createCappedScrollView(@NonNull Context context, int maxHeightPercent) {
+        ScrollView scrollView = new ScrollView(context) {
+            @Override
+            protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+                final int maxHeight = Dim.getScreenHeight() * maxHeightPercent / 100;
+                // A smaller height of the parent is kept, so a layout weight can shrink the scroll view
+                // to leave room for the views below it.
+                if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.UNSPECIFIED
+                        || MeasureSpec.getSize(heightMeasureSpec) > maxHeight) {
+                    heightMeasureSpec = MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST);
+                }
+                super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            }
+        };
+        scrollView.setVerticalScrollBarEnabled(false);
+
+        return scrollView;
+    }
+
+    /**
+     * Creates a centered bold title for a sheet.
+     */
+    public static TextView createTitle(Context context, String text, int fgColor) {
+        TextView tv = new TextView(context);
+        tv.setText(text);
+        tv.setTextSize(18);
+        tv.setTypeface(Typeface.DEFAULT_BOLD);
+        tv.setTextColor(fgColor);
+        tv.setGravity(Gravity.CENTER_HORIZONTAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(0, Dim.dp8, 0, Dim.dp16);
+        tv.setLayoutParams(params);
+        return tv;
+    }
+
 
     /**
      * A custom {@link LinearLayout} that provides drag-to-dismiss functionality for a {@link SlideDialog}.

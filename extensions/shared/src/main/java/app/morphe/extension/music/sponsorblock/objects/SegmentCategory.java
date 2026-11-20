@@ -92,6 +92,11 @@ public enum SegmentCategory {
         return categoriesWithoutUnsubmitted;
     }
 
+    @NonNull
+    public static SegmentCategory[] categoriesWithoutHighlights() {
+        return categoriesWithoutUnsubmitted;
+    }
+
     @Nullable
     public static SegmentCategory byCategoryKey(@NonNull String key) {
         return mValuesMap.get(key);

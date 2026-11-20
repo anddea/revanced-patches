@@ -1,0 +1,86 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.youtube.settings.Settings;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+
+class YandexAudioBoundaries {
+    static AtomicReference<MediaPlayer> mediaPlayer = new AtomicReference<>();
+    static boolean isPaused, shortsPlaybackPaused;
+    static float lastAppliedPlaybackSpeed = 1;
+    static long lastVideoTimeMs = -1;
+    static final long SEEK_DRIFT_THRESHOLD_MS = 20000, USER_SEEK_JUMP_MS = 3000;
+    static final long PAUSE_DETECTION_TIMEOUT_MS = 1500;
+    static Handler mainHandler = new Handler();
+    static Runnable pauseCheckRunnable = () -> {};
+    static int deleted;
+    static void deleteTempProxyFile() { deleted++; }
+
+    static class Handler {
+        int removed;
+        List<Runnable> queue = new ArrayList<>();
+        Map<Runnable, Long> delayed = new LinkedHashMap<>();
+        void post(Runnable r) { queue.add(r); }
+        void postDelayed(Runnable r, long delay) { delayed.put(r, delay); }
+        void removeCallbacks(Runnable r) { removed++; delayed.remove(r); }
+        void drain() {
+            var pending = new ArrayList<>(queue);
+            queue.clear();
+            pending.forEach(Runnable::run);
+        }
+    }
+    static class RootView {
+        static boolean shorts;
+        static boolean isShortsActive() { return shorts; }
+    }
+    static class VideoInformation {
+        static boolean playing = true;
+        static long time, length = 100000;
+        static float speed = 1, cachedSpeed = 1;
+        static boolean isPlayerPlaying() { return playing; }
+        static boolean isAtEndOfVideo() { return length > 0 && time >= length; }
+        static long getVideoTime() { return time; }
+        static float getPlaybackSpeedFromPlayer() { return speed; }
+        static float getPlaybackSpeed() { return cachedSpeed; }
+        static void setPlaybackSpeed(float value) { cachedSpeed = value; }
+    }
+    static class PlaybackParams {
+        float speed;
+        void setSpeed(float value) { speed = value; }
+    }
+    static class MediaPlayer {
+        java.util.function.Consumer<MediaPlayer> completed;
+        void setOnCompletionListener(java.util.function.Consumer<MediaPlayer> listener) { completed = listener; }
+        boolean playing = true, complete, fail, finishBeforeRateChange, finishAfterRead, failRate, failPosition;
+        int starts, pauses, seeks, rateChanges, position, duration = 100000;
+        float speed = 1;
+        boolean isPlaying() {
+            if (fail) throw new IllegalStateException();
+            boolean result = playing;
+            if (finishAfterRead) playing = false;
+            return result;
+        }
+        int getDuration() { return duration; }
+        int getCurrentPosition() { if (failPosition) throw new IllegalStateException(); return position; }
+        void seekTo(int value) { seeks++; position = value; complete = false; }
+        void start() {
+            starts++;
+            if (complete) position = 0;
+            complete = false;
+            playing = true;
+        }
+        void pause() { pauses++; playing = false; }
+        void setPlaybackParams(PlaybackParams params) {
+            if (failRate) throw new IllegalStateException();
+            rateChanges++;
+            if (finishBeforeRateChange) { complete = true; playing = false; }
+            speed = params.speed;
+            // Android treats a nonzero speed as start(), including after completion.
+            start();
+        }
+    }
+}
+
+public class YandexAudioMethods extends YandexAudioBoundaries {
+    // PRODUCTION_METHODS
+}

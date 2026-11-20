@@ -123,6 +123,10 @@ public class ResourceUtils extends Utils {
         return getIdentifier(str, ResourceType.STRING);
     }
 
+    public static int getSystemStringIdentifier(@NonNull String str) {
+        return android.content.res.Resources.getSystem().getIdentifier(str, "string", "android");
+    }
+
     public static int getStyleIdentifier(@NonNull String str) {
         return getIdentifier(str, ResourceType.STYLE);
     }

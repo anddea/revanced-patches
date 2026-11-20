@@ -38,26 +38,18 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.youtube.general.navigation
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.string
+import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType.COLOR
 import app.morphe.patches.shared.mapping.getResourceId
@@ -139,6 +131,26 @@ internal object PivotBarRendererFingerprint : Fingerprint(
         opcode(Opcode.RETURN_OBJECT)
     )
 )
+
+internal object PivotBarIconOnlyRendererFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    parameters = listOf("L"),
+    returnType = "Lj$/util/Optional;",
+    filters = listOf(
+        literal(117501096L),
+        literal(318370163L),
+        opcode(Opcode.IF_NE, location = MatchAfterWithin(3)),
+        opcode(Opcode.CHECK_CAST, location = MatchAfterWithin(6)),
+        // The button without a label.
+        methodCall(
+            opcode = Opcode.INVOKE_DIRECT_RANGE,
+            definingClass = "this",
+            name = "<init>",
+            returnType = "V"
+        )
+    )
+)
+
 
 internal object PivotBarRendererListFingerprint : Fingerprint(
     parameters = listOf("L"),
@@ -230,9 +242,11 @@ internal object TopBarRendererPrimaryFilterFingerprint : Fingerprint(
 )
 
 internal object SetEnumMapFingerprint : Fingerprint(
-    custom = { method, _ ->
-        method.containsLiteralInstruction(ytFillBell)
-    }
+    filters = listOf(
+        literal(ytFillBell),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
+        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", location = MatchAfterWithin(10))
+    )
 )
 
 internal object SetEnumMapSecondaryFingerprint : Fingerprint(
@@ -274,13 +288,16 @@ internal object TranslucentNavigationButtonsFeatureFlagFingerprint : Fingerprint
 )
 
 /**
- * Device on screen back/home/recent buttons.
+ * Applies the system navigation bar color of the app theme to the window.
  */
-internal object TranslucentNavigationButtonsSystemFeatureFlagFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
+internal object SystemNavigationBarColorFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Landroid/content/res/TypedArray;"),
     filters = listOf(
-        literal(45632194L) // Translucent system buttons feature flag.
+        methodCall(smali = "Landroid/content/res/TypedArray;->getColor(II)I"),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        methodCall(smali = "Landroid/view/Window;->getNavigationBarColor()I"),
+        methodCall(smali = "Landroid/view/Window;->setNavigationBarColor(I)V")
     )
 )
 
@@ -292,4 +309,19 @@ internal object AutoHideNavigationBarFingerprint : Fingerprint(
         methodCall("Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;"),
         methodCall("Landroid/view/ViewConfiguration;->getScaledTouchSlop()I", location = MatchAfterWithin(5))
     )
+)
+
+internal object WatchLaterIconEnumFingerprint : Fingerprint(
+    classFingerprint = ImageEnumConstructorFingerprint,
+    filters = listOf(
+        string("WATCH_LATER"),
+        opcode(Opcode.SPUT_OBJECT, location = MatchAfterWithin(5))
+    )
+)
+
+internal object WatchLaterPivotBarItemBuilderFingerprint : Fingerprint(
+    definingClass = "$GENERAL_PATH/NavigationButtonsPatch;",
+    name = "buildWatchLaterPivotBarItem",
+    returnType = "Ljava/lang/Object;",
+    parameters = listOf("[B")
 )

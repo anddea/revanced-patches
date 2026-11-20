@@ -41,7 +41,6 @@
  */
 
 /*
- * Portions of this file are adapted from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
@@ -83,6 +82,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -100,6 +101,8 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
+    public static WeakReference<AbstractPreferenceFragment> instance = new WeakReference<>(null);
+
 
     public static boolean settingExportInProgress;
 
@@ -167,7 +170,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     showSettingUserDialogConfirmation(pref, setting);
                     return;
                 } else if (setting.rebootApp) {
-                    showRestartDialog(getActivity());
+                    setRestartNeeded();
                 }
             }
 
@@ -276,7 +279,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     updateUIAvailability();
 
                     if (setting.rebootApp) {
-                        showRestartDialog(context);
+                        setRestartNeeded();
                     }
                 },
                 // Cancel button action.
@@ -365,10 +368,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
                 if (setting != null) {
                     updatePreference(pref, setting, syncSettingValue, applySettingToPreference);
-                } else if (BaseSettings.DEBUG.get() && (pref instanceof SwitchPreference
-                        || pref instanceof EditTextPreference || pref instanceof ListPreference)) {
-                    // Probably a typo in the patches preference declaration.
-                    Logger.printException(() -> "Preference key has no setting: " + key);
                 }
             }
         }
@@ -429,6 +428,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
+        } else if (pref instanceof SeekBarPreference) {
+            // The dialog reads and saves its Setting directly, so there is no UI value to sync.
         } else if (pref.getClass().equals(Preference.class)) {
             updatePreferenceSummary(pref, setting);
         } else {
@@ -491,23 +492,57 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         } catch (Exception ignored) {}
     }
 
-    public static void showRestartDialog(@NonNull Context context) {
-        showRestartDialog(context, null);
+    private static boolean restartNeeded;
+
+    /**
+     * Marks that a changed setting requires an app restart.
+     * The restart dialog is shown when the settings are closed.
+     */
+    public static void setRestartNeeded() {
+        restartNeeded = true;
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message) {
-        showRestartDialog(context, message, 0);
+    /**
+     * Shows the restart dialog if a changed setting requires an app restart.
+     * Must be called when the user closes the settings.
+     *
+     * @return If the dialog is shown, and the settings must not close yet.
+     */
+    public static boolean showRestartDialogIfNeeded(Context context) {
+        if (!restartNeeded) {
+            return false;
+        }
+        restartNeeded = false;
+
+        Dialog dialog = showRestartDialog(context);
+        if (dialog == null) {
+            restartNeeded = true;
+            return true;
+        }
+        return true;
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message, long delay) {
-        showRestartDialog(context, message, delay, true);
+    /**
+     * Shows a dialog that restarts the app when it is closed in any way,
+     * including the back button.
+     */
+    public static Dialog showRestartDialog(@NonNull Context context) {
+        return showRestartDialog(context, null);
     }
 
-    public static void showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
+    public static Dialog showRestartDialog(@NonNull Context context, String message) {
+        return showRestartDialog(context, message, 0);
+    }
+
+    public static Dialog showRestartDialog(@NonNull Context context, String message, long delay) {
+        return showRestartDialog(context, message, delay, true);
+    }
+
+    public static Dialog showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
         Utils.verifyOnMainThread();
         if (showingRestartDialog) {
             Logger.printDebug(() -> "Ignoring show restart dialog as restart dialog is already shown");
-            return;
+            return null;
         }
         if (restartDialogTitle == null) {
             restartDialogTitle = str("revanced_restart_title");
@@ -532,11 +567,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     null,
                     // OK button text.
                     restartDialogButtonText,
-                    // OK button action.
-                    () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
-                    // Cancel button action.
-                    cancelable ? () -> {
-                    } : null,
+                    // OK button action (dismiss restarts).
+                    () -> {},
+                    // No Cancel button.
+                    null,
                     // Neutral button text.
                     null,
                     // Neutral button action.
@@ -545,7 +579,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     true
             );
 
-            dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
+            dialogPair.first.setOnDismissListener(d -> {
+                showingRestartDialog = false;
+                Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay);
+            });
             if (!cancelable) {
                 dialogPair.first.setCancelable(false);
                 dialogPair.first.setCanceledOnTouchOutside(false);
@@ -553,19 +590,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
             // Show the dialog.
             dialogPair.first.show();
+            return dialogPair.first;
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(restartDialogTitle)
                     .setMessage(message == null ? restartDialogMessage : message)
-                    .setPositiveButton(android.R.string.ok, (dialog, id)
-                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay));
-            if (cancelable) {
-                builder.setNegativeButton(android.R.string.cancel, null);
-            } else {
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {});
+            if (!cancelable) {
                 builder.setCancelable(false);
             }
-            builder.setOnDismissListener(d -> showingRestartDialog = false)
-                    .show();
+            return builder.setOnDismissListener(d -> {
+                showingRestartDialog = false;
+                Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay);
+            }).show();
         }
     }
 
@@ -573,6 +610,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = new WeakReference<>(this);
         try {
             PreferenceManager preferenceManager = getPreferenceManager();
             preferenceManager.setSharedPreferencesName(Setting.preferences.name);
@@ -604,6 +642,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     private void attachPreferenceLongClickListener(@Nullable Dialog dialog) {
         if (dialog == null) return;
         ListView listView = dialog.findViewById(android.R.id.list);
+        if (listView != null) NewSettingsIndicator.watchVisiblePreferences(listView);
         if (listView != null && listView.getOnItemLongClickListener() == null) {
             listView.setOnItemLongClickListener(this::onPreferenceLongClick);
         }
@@ -643,7 +682,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             Preference p = group.getPreference(i);
             // NoTitlePreferenceCategory reports its first child title so it can be sorted,
             // but that title is never shown to the user and must not appear in the path.
-            CharSequence title = (p instanceof NoTitlePreferenceCategory) ? null : p.getTitle();
+            CharSequence title = (p instanceof NoTitlePreferenceCategory) ? null : NewIndicatorSpan.removeFrom(p.getTitle());
             if (p == target) {
                 if (!TextUtils.isEmpty(title)) path.add(title);
                 return true;
@@ -678,6 +717,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (rootView == null) return;
         ListView listView = getView().findViewById(android.R.id.list);
         if (listView == null) return;
+        NewSettingsIndicator.watchVisiblePreferences(listView);
         listView.setDivider(null);
         listView.setDividerHeight(0);
         if (listView.getOnItemLongClickListener() == null) {
@@ -687,7 +727,87 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
     @Override
     public void onDestroy() {
+        if (instance.get() == this) {
+            instance = new WeakReference<>(null);
+        }
         getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(listener);
         super.onDestroy();
     }
+    private static final int WRITE_TEXT_REQUEST_CODE = 45;
+    private java.util.Collection<String> pendingLinesToExport;
+    private java.util.function.Consumer<Boolean> pendingTextExportResult;
+
+    /**
+     * Opens the file picker to save arbitrary text, for preferences that have
+     * their own import and export dialog.
+     *
+     * @param fileName Name suggested to the user.
+     * @param text     Text to write.
+     * @param onResult Called with the result, or not called if the user picks no file.
+     */
+    public void exportTextActivity(String fileName, String text, java.util.function.Consumer<Boolean> onResult) {
+        exportLinesActivity(fileName, java.util.List.of(text), onResult);
+    }
+
+    /**
+     * Opens the file picker to stream a collection of lines directly to a file
+     * without concatenating them into a single String in memory first.
+     *
+     * @param fileName Name suggested to the user.
+     * @param lines    Lines to write.
+     * @param onResult Called with the result, or not called if the user picks no file.
+     */
+    public void exportLinesActivity(String fileName, java.util.Collection<String> lines, java.util.function.Consumer<Boolean> onResult) {
+        try {
+            pendingLinesToExport = lines;
+            pendingTextExportResult = onResult;
+
+            android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_CREATE_DOCUMENT);
+            intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
+            intent.setType("text/plain");
+            intent.putExtra(android.content.Intent.EXTRA_TITLE, fileName);
+            startActivityForResult(intent, WRITE_TEXT_REQUEST_CODE);
+        } catch (Exception ex) {
+            Logger.printException(() -> "exportLinesActivity failure", ex);
+        }
+    }
+
+    private void saveTextToUri(android.net.Uri uri) {
+        if (pendingTextExportResult == null || pendingLinesToExport == null) return;
+
+        boolean success = false;
+        try (java.io.OutputStream out = getContext().getContentResolver().openOutputStream(uri, "rwt");
+             java.io.BufferedWriter writer = out != null
+                     ? new java.io.BufferedWriter(new java.io.OutputStreamWriter(out, java.nio.charset.StandardCharsets.UTF_8))
+                     : null) {
+            if (writer != null) {
+                boolean first = true;
+                for (String line : pendingLinesToExport) {
+                    if (!first) {
+                        writer.newLine();
+                    }
+                    writer.write(line);
+                    first = false;
+                }
+                writer.flush();
+                success = true;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "saveTextToUri failure", ex);
+        }
+
+        pendingTextExportResult.accept(success);
+        pendingLinesToExport = null;
+        pendingTextExportResult = null;
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, android.content.Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == WRITE_TEXT_REQUEST_CODE && resultCode == android.app.Activity.RESULT_OK && data != null) {
+            saveTextToUri(data.getData());
+        }
+    }
+
 }

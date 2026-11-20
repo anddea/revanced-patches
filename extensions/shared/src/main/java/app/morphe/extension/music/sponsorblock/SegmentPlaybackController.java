@@ -77,6 +77,16 @@ public class SegmentPlaybackController {
         segments = videoSegments;
     }
 
+    @Nullable
+    public static SponsorSegment[] getSegments() {
+        return segments;
+    }
+
+    @Nullable
+    public static String getCurrentVideoId() {
+        return currentVideoId;
+    }
+
     /**
      * Clears all downloaded data.
      */

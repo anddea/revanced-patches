@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ */
+
 package app.morphe.extension.youtube.sponsorblock.ui;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getDimension;
@@ -21,6 +28,8 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.player.PlayerPatch;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.RootView;
+import app.morphe.extension.youtube.sponsorblock.ShortsSponsorBlockController;
 import app.morphe.extension.youtube.sponsorblock.objects.SponsorSegment;
 import kotlin.Unit;
 
@@ -143,6 +152,10 @@ public class SponsorBlockViewController {
 
     public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {
         skipHighlight = Objects.requireNonNull(segment);
+        if (RootView.isShortsActive()) {
+            ShortsSponsorBlockController.showHighlightButton(segment);
+            return;
+        }
         NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
         // don't show highlight button if create new segment is visible
         final boolean buttonVisibility = newSegmentLayout == null || newSegmentLayout.getVisibility() != View.VISIBLE;
@@ -151,15 +164,21 @@ public class SponsorBlockViewController {
 
     public static void showSkipSegmentButton(@NonNull SponsorSegment segment) {
         skipSegment = Objects.requireNonNull(segment);
+        if (RootView.isShortsActive()) {
+            ShortsSponsorBlockController.showSkipButton(segment);
+            return;
+        }
         updateSkipButton(skipSponsorButtonRef.get(), segment, true);
     }
 
     public static void hideSkipHighlightButton() {
+        ShortsSponsorBlockController.showHighlightButton(null);
         skipHighlight = null;
         updateSkipButton(skipHighlightButtonRef.get(), null, false);
     }
 
     public static void hideSkipSegmentButton() {
+        ShortsSponsorBlockController.showSkipButton(null);
         skipSegment = null;
         updateSkipButton(skipSponsorButtonRef.get(), null, false);
     }

@@ -129,6 +129,20 @@ class FreeRegisterProvider internal constructor(
     }
 
     /**
+     * Returns a 4-bit free register (<= 15) and removes it from the available list.
+     *
+     * @return A free register number <= 15
+     * @throws IllegalStateException if no 4-bit free registers are available
+     */
+    fun getFreeRegister4Bit(): Int {
+        val register = freeRegisters.firstOrNull { it <= 15 }
+            ?: throw IllegalStateException("No 4-bit free registers available")
+        freeRegisters.remove(register)
+        allocatedFreeRegisters.add(register)
+        return register
+    }
+
+    /**
      * Returns all registers that have been allocated via [getFreeRegister].
      * This does not include the originally excluded registers.
      *

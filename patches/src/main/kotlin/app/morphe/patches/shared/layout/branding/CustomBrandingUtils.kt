@@ -39,17 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Inspired by Morphe.
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.shared.layout.branding
 
 import app.morphe.patcher.patch.PatchException
@@ -340,7 +329,6 @@ internal fun ResourcePatchContext.applyCustomBranding(
             // Android-owned surfaces read manifest icons and cannot follow runtime alias changes.
             val iconReference = "@mipmap/${iconResourceName(config, defaultBrandingIcon)}"
             application.setAttribute("android:icon", iconReference)
-            application.setAttribute("android:roundIcon", iconReference)
             listOf("activity", "activity-alias").forEach { tag ->
                 val components = application.getElementsByTagName(tag)
                 for (index in 0 until components.length) {
@@ -351,6 +339,12 @@ internal fun ResourcePatchContext.applyCustomBranding(
                 }
             }
         }
+
+        // The launch aliases only declare 'android:icon', so a launcher that prefers the
+        // round icon of the app keeps showing the unpatched icon. Adaptive icons replaced
+        // round icons in Android 8 and the target apps require Android 8 or later, so the
+        // declaration is removed instead of adding an obsolete icon to every alias.
+        application.removeAttribute("android:roundIcon")
 
         val source = document.childNodes.findElementByAttributeValueOrThrow(
             "android:name",

@@ -1,38 +1,23 @@
 /*
- * Copyright (C) 2025-2026 anddea
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
  *
- * This file is part of the revanced-patches project:
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
  *
- * Licensed under the GNU General Public License v3.0.
+ * Original first edition code:
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/584b00fd87f83504b8886e4f3f674f8c3943cd91
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/2e9d6959c94df7588b9e34b18770e9f437e91926
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/ece8076f7cefd752b97515014bc50fe4fd80171e
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/2b62fc2224c42da024fd64602346ff30613517c0
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/a426e2af5086367a2a1fee83abbbd2ea230bda06
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/584b00fd87f83504b8886e4f3f674f8c3943cd91
+ * https://gitlab.com/ReVanced/revanced-patches/-/commit/14a8f4fb96f5e2a4bc264a54115e0870b1a1ffa8
+ * https://github.com/MorpheApp/morphe-patches/commit/f5371ca998c019609c2b5558b3408ab1fec065c8
+ * https://github.com/MorpheApp/morphe-patches/pull/2638
  *
- * ------------------------------------------------------------------------
- * GPLv3 Section 7 – Additional Terms & Attribution Requirements
- * ------------------------------------------------------------------------
- *
- * This file contains substantial original work by the author(s) listed above.
- *
- * In accordance with Section 7 of the GNU General Public License v3.0,
- * the following additional terms apply to this file:
- *
- * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
- *    and the list of original authors above must be preserved in any copy
- *    or derivative work. You may add your own copyright notice below it,
- *    but you may not remove the original one.
- *
- * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
- *    clearly marked as such (e.g., by adding a "Modified by" line or a new
- *    copyright notice) and must not be misrepresented as the original work.
- *
- * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
- *    modifications must retain historical authorship credit in version control
- *    systems (e.g., Git), listing original author(s) appropriately and
- *    modifiers as committers or co-authors.
- *
- * 4. User Interface Attribution (Section 7(b)): Any works containing or
- *    derived from this material must maintain a visible credit or
- *    acknowledgment to the original author(s) within the application's
- *    user interface (e.g., in an "About" or "Credits" section).
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
 package app.morphe.extension.shared.ui;
@@ -638,5 +623,34 @@ public class CustomDialog {
                 Dim.roundedCorners(radiusDp), null, null));
         background.getPaint().setColor(color);
         return background;
+    }
+    /**
+     * Creates a row of two equally sized buttons, to add to a dialog layout
+     * in addition to the dialog buttons.
+     *
+     * @param context Context used to create the row.
+     * @param first   Button shown on the left.
+     * @param second  Button shown on the right.
+     * @return The created row.
+     */
+    public static LinearLayout createButtonRow(Context context, Button first, Button second) {
+        LinearLayout.LayoutParams firstParams = new LinearLayout.LayoutParams(0, Dim.dp36, 1.0f);
+        firstParams.setMargins(0, 0, Dim.dp4, 0);
+        first.setLayoutParams(firstParams);
+
+        LinearLayout.LayoutParams secondParams = new LinearLayout.LayoutParams(0, Dim.dp36, 1.0f);
+        secondParams.setMargins(Dim.dp4, 0, 0, 0);
+        second.setLayoutParams(secondParams);
+
+        LinearLayout row = new LinearLayout(context);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        rowParams.setMargins(0, Dim.dp16, 0, 0);
+        row.setLayoutParams(rowParams);
+        row.addView(first);
+        row.addView(second);
+
+        return row;
     }
 }

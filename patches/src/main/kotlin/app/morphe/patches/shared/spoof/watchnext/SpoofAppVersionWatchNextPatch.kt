@@ -7,6 +7,7 @@ import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.clientTypeFingerprint
@@ -15,7 +16,6 @@ import app.morphe.patches.shared.indexOfClientInfoInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
@@ -55,10 +55,10 @@ fun spoofAppVersionWatchNextPatch(
                 getReference(index) as FieldReference
 
             val (clientInfoClass, clientInfoReference, clientVersionReference) =
-                clientTypeFingerprint.matchOrThrow().let {
+                clientTypeFingerprint.match().let {
                     with(it.method) {
                         val clientInfoIndex = indexOfClientInfoInstruction(this)
-                        val dummyClientVersionIndex = it.stringMatches!!.first().index
+                        val dummyClientVersionIndex = it.stringMatches.first().index
                         val dummyClientVersionRegister =
                             getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
                         val clientVersionIndex =
@@ -96,7 +96,7 @@ fun spoofAppVersionWatchNextPatch(
 
             // region patch for spoof client body for the '/get_watch' endpoint
 
-            createPlayerRequestBodyFingerprint.matchOrThrow().let {
+            createPlayerRequestBodyFingerprint.match().let {
                 it.method.apply {
                     val helperMethodName = "setClientInfo"
                     val checkCastIndex = it.instructionMatches.first().index

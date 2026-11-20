@@ -39,17 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.youtube.general.toolbar
 
 import app.morphe.patcher.Fingerprint
@@ -57,6 +46,7 @@ import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingo
@@ -67,7 +57,6 @@ import app.morphe.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.morphe.patches.youtube.utils.resourceid.voiceSearch
 import app.morphe.patches.youtube.utils.resourceid.youTubeLogo
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or

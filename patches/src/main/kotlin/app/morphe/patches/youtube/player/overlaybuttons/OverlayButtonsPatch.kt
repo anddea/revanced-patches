@@ -1,14 +1,4 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
-/*
  * Copyright (C) 2022-2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -19,6 +9,7 @@
  * - Francesco Marastoni (https://github.com/Francesco146)
  * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
  * - inotia00 (https://github.com/inotia00)
+ * - lavinhoque33 (https://github.com/lavinhoque33)
  * - MondayNitro (https://github.com/MondayNitro)
  * - rufusin (https://github.com/rufusin)
  *
@@ -63,6 +54,8 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -93,12 +86,9 @@ import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
-import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValue
-import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -168,7 +158,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         // Mark the active loop segment on the seekbar.
         val seekbarOnDrawMethod = seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint)
-        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.methodOrThrow(seekbarFingerprint)
+        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.match(seekbarFingerprint.second.classDef).method
         val invalidateIndex = rectangleFieldMethod.indexOfFirstInstructionReversed {
             getReference<MethodReference>()?.name == "invalidate"
         }
@@ -421,17 +411,25 @@ val overlayButtonsPatch = resourcePatch(
         )
 
         bottomControlsLayoutFileNames.forEach { xmlFile ->
-            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            val targetXml = get("res/layout/$xmlFile")
             if (targetXml.exists()) {
-                "android.support.constraint.ConstraintLayout".copyXmlNode(
-                    document(
-                        inputStreamFromBundledResourceOrThrow(
-                            "youtube/overlaybuttons/shared/host",
-                            overlayButtonsHostLayoutFileName,
-                        )
-                    ),
-                    document("res/layout/$xmlFile"),
-                ).close()
+                // YouTube 21.39 migrated these layouts to androidx.constraintlayout.widget.ConstraintLayout,
+                // so merge into the target's root element whatever its tag is.
+                document(
+                    inputStreamFromBundledResourceOrThrow(
+                        "youtube/overlaybuttons/shared/host",
+                        overlayButtonsHostLayoutFileName,
+                    )
+                ).use { hostDocument ->
+                    document("res/layout/$xmlFile").use { targetDocument ->
+                        val hostNodes = hostDocument.documentElement.childNodes
+                        for (index in 0 until hostNodes.length) {
+                            val node = hostNodes.item(index).cloneNode(true)
+                            targetDocument.adoptNode(node)
+                            targetDocument.documentElement.appendChild(node)
+                        }
+                    }
+                }
             }
         }
 
@@ -446,7 +444,7 @@ val overlayButtonsPatch = resourcePatch(
         }
 
         (bottomControlsLayoutFileNames.toList() + legacyFullscreenLayouts.values).forEach { xmlFile ->
-            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            val targetXml = get("res/layout/$xmlFile")
             if (targetXml.exists()) {
                 document("res/layout/$xmlFile").use { document ->
                     document.doRecursively loop@{ node ->
@@ -478,10 +476,17 @@ val overlayButtonsPatch = resourcePatch(
                                 }
                             }
 
+                        // YouTube 21.x re-anchors the bottom controls (time bar reference, timestamps,
+                        // fullscreen button) to the top of metapanel_container_holder at runtime.
+                        // Moving the holder onto the bottom margin view, which itself sits on the time
+                        // bar reference, forms a constraint cycle and the whole row floats above the seekbar.
+                        val isMetapanelHolder = id == "@id/metapanel_container_holder" ||
+                            id == "@+id/metapanel_container_holder"
                         node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/quick_actions_container" &&
-                                    (!isNativeFullscreenButton || isLegacyLayout)) {
+                                    (!isNativeFullscreenButton || isLegacyLayout) &&
+                                    !isMetapanelHolder) {
                                     attribute.textContent =
                                         "@+id/revanced_overlay_buttons_bottom_margin"
                                 }
@@ -525,6 +530,7 @@ val overlayButtonsPatch = resourcePatch(
                         // the scroll container also preserves portrait/landscape button limits.
                         if (!isExploderLayout && id == "@+id/revanced_overlay_buttons_scroll_view") {
                             node.setAttribute("android:layout_height", layoutHeightWidth)
+                            node.setAttribute("android:tag", "morphe_legacy_overlay")
                         }
 
                         if (isButton) {

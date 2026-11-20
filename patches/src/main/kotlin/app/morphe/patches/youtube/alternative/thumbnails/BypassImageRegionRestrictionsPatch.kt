@@ -27,7 +27,7 @@ val bypassImageRegionRestrictionsPatch = bytecodePatch(
 
         addPreference(
             arrayOf(
-                "PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS",
+                "PREFERENCE_SCREEN: DEARROW",
                 "SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS"
             ),
             BYPASS_IMAGE_REGION_RESTRICTIONS

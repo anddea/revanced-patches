@@ -7,6 +7,7 @@
 
 package app.morphe.patches.youtube.utils.auth
 
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchFirst
@@ -27,8 +28,8 @@ internal object AccountIdentityToStringFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
     strings = listOf(
-        GET_PAGE_ID_STRING,
-        IS_INCOGNITO_STRING
+        string(GET_PAGE_ID_STRING, StringComparisonType.CONTAINS),
+        string(IS_INCOGNITO_STRING, StringComparisonType.CONTAINS)
     )
 )
 

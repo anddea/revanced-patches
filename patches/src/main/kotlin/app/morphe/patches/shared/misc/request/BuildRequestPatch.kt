@@ -9,15 +9,16 @@ package app.morphe.patches.shared.misc.request
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
-import app.morphe.util.findFreeRegister
-import app.morphe.util.registersUsed
+import app.morphe.patcher.util.registersUsed
 import java.lang.ref.WeakReference
 
 private lateinit var buildRequestMethod: WeakReference<MutableMethod>
 private var builderIndex = -1
 private var urlRegister = -1
 private var mapRegister = -1
+private var bodyRegister = -1
 private var freeRegister = -1
 
 internal val buildRequestPatch = bytecodePatch(
@@ -29,8 +30,9 @@ internal val buildRequestPatch = bytecodePatch(
                 val builderMatch = it.instructionMatches.first()
                 builderIndex = builderMatch.index
                 urlRegister = builderMatch.instruction.registersUsed[1]
-                mapRegister = it.instructionMatches[1].instruction.registersUsed[0]
-                freeRegister = findFreeRegister(builderIndex, urlRegister, mapRegister)
+                bodyRegister = it.instructionMatches[1].instruction.registersUsed[0]
+                mapRegister = it.instructionMatches[2].instruction.registersUsed[0]
+                freeRegister = findFreeRegister(builderIndex, urlRegister, mapRegister, bodyRegister)
                 buildRequestMethod = WeakReference(this)
             }
         }
@@ -46,6 +48,7 @@ internal val buildRequestPatch = bytecodePatch(
 internal fun hookBuildRequest(
     descriptor: String,
     hookHeader: Boolean = false,
+    includeBody: Boolean = false,
 ) {
     buildRequestMethod.get()!!.apply {
         if (hookHeader) {
@@ -57,6 +60,11 @@ internal fun hookBuildRequest(
                 """
             )
             builderIndex += 2
+        } else if (includeBody) {
+            addInstructions(
+                builderIndex++,
+                "invoke-static { v$urlRegister, v$mapRegister, v$bodyRegister }, $descriptor"
+            )
         } else {
             addInstructions(
                 builderIndex++,

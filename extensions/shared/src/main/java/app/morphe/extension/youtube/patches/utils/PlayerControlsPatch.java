@@ -4,6 +4,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ *
+ * Modified by lavinhoque33, 2026-10-13.
  */
 
 package app.morphe.extension.youtube.patches.utils;
@@ -70,8 +72,26 @@ public class PlayerControlsPatch {
     }
 
     /**
+     * YouTube can re-anchor the legacy fullscreen control after inflation when spoofing an
+     * older version. Keep its icon centered on the configured overlay row after each layout.
+     */
+    private static void centerLegacyFullscreenButton(View fullscreenButton) {
+        if (!(fullscreenButton.getParent() instanceof ViewGroup container)) return;
+
+        View row = container.findViewById(ResourceUtils.getIdIdentifier("revanced_overlay_buttons_scroll_view"));
+        if (row == null || !"morphe_legacy_overlay".equals(row.getTag())) return;
+
+        float rowCenter = row.getY() + row.getHeight() / 2f;
+        float iconCenter = fullscreenButton.getTop() + (fullscreenButton.getHeight()
+                + fullscreenButton.getPaddingTop() - fullscreenButton.getPaddingBottom()) / 2f;
+        fullscreenButton.setTranslationY(rowCenter - iconCenter);
+    }
+
+    /**
      * Use one custom-button slot between icon centers, including the wider native fullscreen
      * slot. Translate the row as a unit so scrolling and internal button spacing stay intact.
+     * When fullscreen is hidden, reclaim its slot even if the button remains offscreen for
+     * draw callbacks, and align the row with the container's right content edge instead.
      */
     private static void spaceOverlayButtons(View fullscreenButton) {
         if (!(fullscreenButton.getParent() instanceof ViewGroup container)) return;
@@ -79,6 +99,10 @@ public class PlayerControlsPatch {
         float fullscreenCenter = fullscreenButton.getX() + (fullscreenButton.getWidth()
                 + fullscreenButton.getPaddingLeft() - fullscreenButton.getPaddingRight()) / 2f;
         View row = container.findViewById(ResourceUtils.getIdIdentifier("revanced_overlay_buttons_scroll_view"));
+        if (row != null && Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get()) {
+            row.setTranslationX(container.getWidth() - container.getPaddingRight() - row.getRight());
+            return;
+        }
         if (row instanceof ViewGroup scroll && scroll.getChildCount() > 0
                 && scroll.getChildAt(0) instanceof ViewGroup buttons) {
             for (int i = buttons.getChildCount() - 1; i >= 0; i--) {
@@ -109,6 +133,7 @@ public class PlayerControlsPatch {
             try {
                 styleSourceButtonBackground(imageButton);
                 centerModernOverlay(imageButton);
+                centerLegacyFullscreenButton(imageButton);
                 spaceOverlayButtons(imageButton);
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not update fullscreen button styling", ex);
@@ -165,6 +190,28 @@ public class PlayerControlsPatch {
             Logger.printDebug(() -> "Player seekbar feature flag is off");
         }
         return true;
+    }
+
+    // Ported from Morphe c3431a3 (#3649).
+    /**
+     * The value the app has for the new player overlays flag, before it is forced off.
+     */
+    private static volatile boolean newPlayerOverlaysOriginal;
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableNewPlayerOverlays(boolean original) {
+        newPlayerOverlaysOriginal = original;
+        return false;
+    }
+
+    /**
+     * Injection point.
+     * Called right after the flag is read, so the value is the one just stored.
+     */
+    public static boolean getOriginalNewPlayerOverlays(boolean overridden) {
+        return newPlayerOverlaysOriginal;
     }
 
     /**

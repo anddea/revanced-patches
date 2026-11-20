@@ -6,6 +6,15 @@ extension {
     name = "extensions/shared.mpe"
 }
 
+// The plugin renames every DEX to shared.mpe. Preserve secondary DEX files separately
+// so the patcher can merge each one using its existing single-DEX extension API.
+tasks.named<Sync>("syncExtension") {
+    eachFile {
+        val suffix = file.name.removePrefix("classes").removeSuffix(".dex")
+        path = "shared$suffix.mpe"
+    }
+}
+
 android {
     namespace = "app.morphe.extension"
     compileSdk = 35
@@ -22,6 +31,8 @@ android {
 
 dependencies {
     testImplementation("junit:junit:4.13.2")
+    testImplementation("net.sf.kxml:kxml2:2.3.0")
+    testImplementation("org.json:json:20240303")
     compileOnly(libs.annotation)
     compileOnly(libs.preference)
 

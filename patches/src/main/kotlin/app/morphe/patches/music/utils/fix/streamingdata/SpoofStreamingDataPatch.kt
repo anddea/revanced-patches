@@ -42,6 +42,7 @@ package app.morphe.patches.music.utils.fix.streamingdata
 
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.extension.hooks.applicationInitHook
 import app.morphe.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.music.utils.playservice.is_6_27_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_16_or_greater
@@ -68,13 +69,8 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     // Updated parameter name: extensionClassDescriptor -> extensionClass
     extensionClass = "Lapp/morphe/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
-    fixMediaFetchHotConfig = {
-        is_7_16_or_greater
-    },
-    fixMediaFetchHotConfigAlternative = {
-        // In 8.15 the flag was merged with 7.33 start playback flag.
-        is_8_12_or_greater && !is_8_15_or_greater
-    },
+    // Also set the client order on Application init (Morphe a60a3b6).
+    applicationInitFingerprint = applicationInitHook.fingerprint,
     fixParsePlaybackResponseFeatureFlag = {
         is_7_33_or_greater
     },
@@ -103,14 +99,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
         )
     },
     executeBlock = {
-        if (!is_6_27_or_greater) {
-            addPlayerResponseMethodHook(
-                Hook.VideoId(
-                    "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;->setPendingLegacyVideoId(Ljava/lang/String;)V"
-                )
-            )
-        }
-
         addSwitchPreference(
             CategoryType.MISC,
             "morphe_spoof_video_streams",
@@ -130,6 +118,12 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
             CategoryType.MISC,
             "morphe_spoof_video_streams_sign_in_android_vr_about",
             "app.morphe.extension.music.settings.preference.SpoofVideoStreamsSignInPreference",
+            "morphe_spoof_video_streams"
+        )
+        addCustomPreference(
+            CategoryType.MISC,
+            "morphe_spoof_video_streams_sign_in_mweb_about",
+            "app.morphe.extension.music.settings.preference.SpoofVideoStreamsMwebSignInPreference",
             "morphe_spoof_video_streams"
         )
     },

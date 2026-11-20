@@ -38,21 +38,11 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Inspired by Morphe.
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.music.layout.branding
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.folderOption
 import app.morphe.patcher.patch.resourcePatch
@@ -84,6 +74,7 @@ import app.morphe.patches.shared.layout.branding.addCustomBrandingSystemSplashTh
 import app.morphe.patches.shared.layout.branding.applyCustomBranding
 import app.morphe.patches.shared.layout.branding.customBrandingIconOptionDescription
 import app.morphe.patches.shared.layout.branding.installDynamicRvxSettingsIcon
+import app.morphe.patches.shared.layout.branding.prepareMountedBranding
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.misc.settings.SETTINGS_NAME_PREFERENCE_KEY
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -232,6 +223,8 @@ val customBrandingPatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
+    var mountedBranding: (ResourcePatchContext.() -> Unit)? = null
+
     val customNameOption = stringOption(
         key = "customName",
         title = "App name",
@@ -245,7 +238,7 @@ val customBrandingPatch = resourcePatch(
         title = "App icon",
         description = "Icon used by Android and selected by default in the app. " +
             "Choose Custom to use the Custom icon folder, or enter a resource folder path. " +
-            "All icons remain available in the app settings.",
+            "Mounted (root) installs require patching again to change the launcher icon.",
         required = true,
     )
     val customIconOption = folderOption(
@@ -262,6 +255,10 @@ val customBrandingPatch = resourcePatch(
     )
 
     execute {
+        mountedBranding = prepareMountedBranding(
+            brandingConfig.originalLauncherIconName,
+            "music_push_notification_white",
+        )
         val hasRvxSettingsPreference = applyCustomBranding(
             brandingConfig,
             customNameOption.value?.trim()?.takeIf { it.isNotEmpty() },
@@ -317,6 +314,7 @@ val customBrandingPatch = resourcePatch(
     }
 
     finalize {
+        mountedBranding?.invoke(this)
         addCustomBrandingSystemSplashThemeStyles()
     }
 }

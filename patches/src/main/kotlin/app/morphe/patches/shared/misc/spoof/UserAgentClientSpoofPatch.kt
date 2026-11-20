@@ -2,10 +2,10 @@ package app.morphe.patches.shared.misc.spoof
 
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.all.misc.transformation.IMethodCall
 import app.morphe.patches.all.misc.transformation.filterMapInstruction35c
 import app.morphe.patches.all.misc.transformation.transformInstructionsPatch
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

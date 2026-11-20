@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -41,6 +42,8 @@
 
 package app.morphe.extension.music.settings;
 
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -54,7 +57,6 @@ import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 
-import app.morphe.extension.music.patches.downloads.LocalDownloadsFragment;
 import app.morphe.extension.music.settings.preference.ReVancedPreferenceFragment;
 import app.morphe.extension.music.settings.preference.YouTubeMusicPreferenceFragment;
 import app.morphe.extension.music.settings.search.YouTubeMusicSearchViewController;
@@ -79,19 +81,19 @@ public class ActivityHook {
 
     @SuppressLint("StaticFieldLeak")
     public static YouTubeMusicSearchViewController searchViewController;
-    private static boolean downloadsMode;
 
     public static Activity getActivity() {
         return activityRef.get();
     }
 
     public static boolean isSearchableSettingsIntent(String dataString) {
-        return REVANCED_SETTINGS_INTENT.equals(dataString)
-                || BaseActivityHook.MORPHE_DOWNLOADS_INTENT.equals(dataString);
+        return REVANCED_SETTINGS_INTENT.equals(dataString);
     }
 
-    public static boolean handleFinish() {
-        return searchViewController != null && YouTubeMusicSearchViewController.handleFinish(searchViewController);
+    public static boolean handleFinish(Activity activity) {
+        return (searchViewController != null && YouTubeMusicSearchViewController.handleFinish(searchViewController))
+                || AbstractPreferenceFragment
+                .showRestartDialogIfNeeded(activity);
     }
 
     /**
@@ -129,7 +131,6 @@ public class ActivityHook {
             if (baseActivityIntent == null) return false;
 
             String dataString = baseActivityIntent.getDataString();
-            downloadsMode = BaseActivityHook.MORPHE_DOWNLOADS_INTENT.equals(dataString);
             if (isSearchableSettingsIntent(dataString)) {
                 BaseActivityHook.initialize(new SearchableSettingsActivityHook(), baseActivity);
                 return true;
@@ -190,16 +191,15 @@ public class ActivityHook {
                 if (searchViewController != null && searchViewController.isSearchActive()) {
                     searchViewController.closeSearch();
                 } else {
-                    activity.finish();
+                    BaseActivityHook.closeSettings(activity);
                 }
             };
         }
 
         @Override
         protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
-            if (fragment instanceof LocalDownloadsFragment) {
-                toolbar.setTitle(ResourceUtils.getString("morphe_music_downloads_screen_title"));
-            } else if (fragment instanceof YouTubeMusicPreferenceFragment preferenceFragment) {
+            // native Library owns downloaded music; this activity hosts settings only.
+            if (fragment instanceof YouTubeMusicPreferenceFragment preferenceFragment) {
                 searchViewController = YouTubeMusicSearchViewController.addSearchViewComponents(
                         activity, toolbar, preferenceFragment);
             }
@@ -207,7 +207,7 @@ public class ActivityHook {
 
         @Override
         protected PreferenceFragment createPreferenceFragment() {
-            return downloadsMode ? new LocalDownloadsFragment() : new YouTubeMusicPreferenceFragment();
+            return new YouTubeMusicPreferenceFragment();
         }
 
         private int getSettingsBackgroundColor() {

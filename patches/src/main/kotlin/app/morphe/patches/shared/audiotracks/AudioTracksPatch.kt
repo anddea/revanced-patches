@@ -39,17 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.shared.audiotracks
 
 import app.morphe.patcher.Fingerprint
@@ -61,13 +50,13 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatchBuilder
 import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.cloneMutable
 import app.morphe.util.findMethodFromToString
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -76,7 +65,6 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -94,6 +82,7 @@ internal fun audioTracksPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
     fixUseLocalizedAudioTrackFlag: BytecodePatchContext.() -> Boolean,
     forcedServerAdaptiveStreaming: BytecodePatchContext.() -> Boolean,
+    shortsQualityMenuController: Boolean = false,
     mainActivityOnCreateFingerprint: Fingerprint,
     subclassExtensionClassDescriptor: String,
 ) = bytecodePatch(
@@ -234,13 +223,13 @@ internal fun audioTracksPatch(
 
             val setAudioTrackMethod =
                 getAudioTrackItemOnClickFingerprint(audioTrackRecordClass)
-                    .instructionMatches.last().instruction.getReference<MethodReference>()!!
+                    .instructionMatches.last().methodReference
 
             val playerControllerClass = setAudioTrackMethod.definingClass
 
             val audioTrackRecordArrayField =
                 getCurrentAudioFormatConstructorFingerprint(audioTrackRecordClass)
-                    .instructionMatches.last().instruction.getReference<FieldReference>()!!
+                    .instructionMatches.last().fieldReference
 
             getSetVideoQualityListFingerprint(
                 audioVideoFormatClass = audioTrackRecordArrayField.definingClass,
@@ -258,7 +247,8 @@ internal fun audioTracksPatch(
                             )
                         ),
                         "V",
-                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                        // Public and not final, so a subclass can override it.
+                        AccessFlags.PUBLIC.value,
                         null,
                         null,
                         MutableMethodImplementation(3),
@@ -285,6 +275,59 @@ internal fun audioTracksPatch(
 
                     it.classDef.methods.add(helperMethod)
 
+                    if (shortsQualityMenuController) {
+                        // The quality menu controller is a subclass that sends the changes to the
+                        // player controller of the Shorts player while a Short is playing.
+                        // The player controller of the superclass has no player while a Short
+                        // is playing and ignores the audio track, so do the same as the subclass.
+                        val shortsQualityMenuControllerClass = getShortsQualityMenuControllerFingerprint(
+                            qualityMenuControllerClass = definingClass,
+                            playerControllerClass = playerControllerClass
+                        ).classDef
+
+                        val isShortsPlayerMethod = getShortsQualityMenuControllerIsShortsPlayerFingerprint(
+                            shortsQualityMenuControllerClass.type
+                        ).method
+
+                        val shortsPlayerControllerField = shortsQualityMenuControllerClass.fields.single { field ->
+                            field.type == playerControllerClass
+                        }
+
+                        shortsQualityMenuControllerClass.methods.add(
+                            ImmutableMethod(
+                                shortsQualityMenuControllerClass.type,
+                                helperMethod.name,
+                                helperMethod.parameters,
+                                helperMethod.returnType,
+                                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                                null,
+                                null,
+                                MutableMethodImplementation(3),
+                            ).toMutable().apply {
+                                addInstructionsWithLabels(
+                                    0,
+                                    """
+                                        invoke-virtual { p0 }, $isShortsPlayerMethod
+                                        move-result v0
+                                        if-eqz v0, :regular_player
+
+                                        # Check if the audio track id is null.
+                                        if-eqz p1, :ignore
+                                        iget-object v0, p0, $shortsPlayerControllerField
+                                        invoke-virtual { v0, p1 }, $setAudioTrackMethod
+
+                                        :ignore
+                                        return-void
+
+                                        :regular_player
+                                        invoke-super { p0, p1 }, $helperMethod
+                                        return-void
+                                    """
+                                )
+                            }
+                        )
+                    }
+
                     val index = it.instructionMatches.first().index
                     val instruction = getInstruction<TwoRegisterInstruction>(index)
                     val freeRegister = instruction.registerA
@@ -296,7 +339,7 @@ internal fun audioTracksPatch(
                             iget-object v$freeRegister, v$audioVideoFormatRegister, $audioTrackRecordArrayField
                             invoke-static { v$freeRegister }, $EXTENSION_CLASS->getDefaultAudioTrackId([$EXTENSION_AUDIO_TRACK_INTERFACE)Ljava/lang/String;
                             move-result-object v$freeRegister
-                            invoke-direct { p0, v$freeRegister }, $helperMethod
+                            invoke-virtual { p0, v$freeRegister }, $helperMethod
                         """
                     )
                 }

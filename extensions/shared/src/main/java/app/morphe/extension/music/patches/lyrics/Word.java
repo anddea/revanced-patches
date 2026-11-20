@@ -9,13 +9,14 @@ package app.morphe.extension.music.patches.lyrics;
 
 import androidx.annotation.Nullable;
 
-public record Word(long startMs, long endMs, String text, @Nullable String romaji, boolean endsWithSpace) {
+public record Word(long startMs, long endMs, String text, @Nullable String romaji,
+                   boolean endsWithSpace, @Nullable String ruby) {
 
-    public Word(long startMs, long endMs, String text) {
-        this(startMs, endMs, text, null, false);
+    public Word(long startMs, long endMs, String text, @Nullable String romaji, boolean endsWithSpace) {
+        this(startMs, endMs, text, romaji, endsWithSpace, null);
     }
 
-    public Word(long startMs, long endMs, String text, @Nullable String romaji) {
-        this(startMs, endMs, text, romaji, false);
+    public Word(long startMs, long endMs, String text) {
+        this(startMs, endMs, text, null, false, null);
     }
 }

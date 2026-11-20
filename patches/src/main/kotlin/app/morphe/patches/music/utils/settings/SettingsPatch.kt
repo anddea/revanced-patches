@@ -48,6 +48,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.layout.hide.settingsmenu.SettingsHeadersOnCreatePreferencesFingerprint
@@ -74,6 +76,7 @@ import app.morphe.patches.shared.misc.settings.SETTINGS_NAME_PREFERENCE_KEY
 import app.morphe.patches.shared.misc.settings.customSettingsNameInstructions
 import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.shared.settings.baseSettingsPatch
+import app.morphe.util.adoptChild
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printInfo
 import app.morphe.util.copyResources
@@ -81,8 +84,6 @@ import app.morphe.util.copyXmlNode
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
@@ -181,7 +182,7 @@ private val settingsBytecodePatch = bytecodePatch(
                         addInstructions(
                             0,
                             """
-                                invoke-static {}, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->handleFinish()Z
+                                invoke-static { p0 }, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->handleFinish(Landroid/app/Activity;)Z
                                 move-result v0
                                 if-nez v0, :search_handled
                                 invoke-super { p0 }, $superclass->finish()V
@@ -436,6 +437,12 @@ val settingsPatch = resourcePatch(
             "revanced_settings_import_export"
         )
 
+        addCustomPreference(
+            category = CategoryType.MISC,
+            key = "morphe_settings_new_indicator_days",
+            tag = "app.morphe.extension.shared.settings.preference.SeekBarPreference",
+        )
+
         addSwitchPreference(
             category = CategoryType.MISC,
             key = "revanced_settings_show_slider_summaries",
@@ -501,6 +508,29 @@ val settingsPatch = resourcePatch(
             CategoryType.MISC,
             "revanced_app_info"
         )
+
+        // Morphe's dedicated Miniplayer screen is assembled after all patches add their controls.
+        ResourceUtils.editPreferenceCategory(CategoryType.PLAYER.value) {
+            val miniplayerKeys = setOf(
+                "revanced_enable_forced_miniplayer", "revanced_enable_swipe_to_dismiss_miniplayer",
+                "revanced_add_miniplayer_next_button", "revanced_add_miniplayer_previous_button",
+                "revanced_change_miniplayer_color", "revanced_music_change_navigation_bar_color"
+            )
+            val preferences = List(childNodes.length) { childNodes.item(it) }
+                .filterIsInstance<Element>()
+                .filter {
+                    val key = it.getAttribute("android:key")
+                    key in miniplayerKeys || key.startsWith("morphe_music_miniplayer_glass")
+                }
+            if (preferences.isNotEmpty()) {
+                adoptChild("PreferenceScreen") {
+                    setAttribute("android:key", "morphe_music_miniplayer_screen")
+                    setAttribute("android:title", "@string/morphe_music_miniplayer_screen_title")
+                    setAttribute("android:summary", "@string/morphe_music_miniplayer_screen_summary")
+                    preferences.forEach { appendChild(it) }
+                }
+            }
+        }
 
         ResourceUtils.movePreferencesToTop(
             CategoryType.GENERAL.value,
@@ -583,10 +613,11 @@ internal fun addCustomPreference(
     dependencyKey: String = "",
     setSummary: Boolean = true,
     insertBeforeKey: String = "",
+    titleKey: String? = "${key}_title",
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary, insertBeforeKey)
+    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary, insertBeforeKey, titleKey = titleKey)
 }
 
 /** Adds a dialog list preference that is handled by the current settings fragment. */
