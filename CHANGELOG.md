@@ -1,3 +1,12 @@
+# [4.4.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.7...v4.4.0-dev.8) (2026-11-20)
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Swipe to switch navigation tabs` setting ([8a8fd7e](https://github.com/anddea/revanced-patches/commit/8a8fd7ef57b07582f2dba6310a8a466119f368c9))
+* **YouTube & YouTube Music - Miniplayer:** Add `Glass miniplayer` setting ([3490171](https://github.com/anddea/revanced-patches/commit/34901711e6cfd5ce99441c0be4f555fa75b8785c))
+* **YouTube:** Add `Ungroup notifications` patch ([39fdaf8](https://github.com/anddea/revanced-patches/commit/39fdaf8365021c20b36df0564f95a63a3a34b071))
+
 # [4.4.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.6...v4.4.0-dev.7) (2026-11-13)
 
 

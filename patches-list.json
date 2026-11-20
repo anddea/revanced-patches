@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-dev.7",
+  "version": "4.4.0-dev.8",
   "patches": [
     {
       "name": "Ambient mode control",
@@ -553,6 +553,9 @@
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -712,6 +715,7 @@
       "description": "Adds an option to disable captions from being automatically enabled.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -1161,7 +1165,8 @@
           "values": {
             "ReVanced MicroG": "app.revanced",
             "Original MicroG": "com.google",
-            "Vanced MicroG": "com.mgoogle"
+            "Vanced MicroG": "com.mgoogle",
+            "Reseam GmsCore": "app.reseam"
           }
         },
         {
@@ -1244,7 +1249,8 @@
           "values": {
             "ReVanced MicroG": "app.revanced",
             "Original MicroG": "com.google",
-            "Vanced MicroG": "com.mgoogle"
+            "Vanced MicroG": "com.mgoogle",
+            "Reseam GmsCore": "app.reseam"
           }
         },
         {
@@ -1410,6 +1416,7 @@
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
+        "ResourcePatch",
         "BytecodePatch",
         "ResourcePatch"
       ],
@@ -1430,6 +1437,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
@@ -1693,7 +1701,7 @@
       "description": "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos.",
       "use": true,
       "dependencies": [
-        "Patch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
@@ -1733,6 +1741,7 @@
       "description": "Adds options to hide or change components related to the navigation bar.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
@@ -1970,6 +1979,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -2052,8 +2062,7 @@
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
-        "ResourcePatch",
-        "BytecodePatch"
+        "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
@@ -2073,8 +2082,7 @@
       "dependencies": [
         "BytecodePatch",
         "ResourcePatch",
-        "ResourcePatch",
-        "BytecodePatch"
+        "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2467,7 +2475,8 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
-        "BytecodePatch"
+        "BytecodePatch",
+        "Patch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -3296,6 +3305,27 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Ungroup notifications",
+      "description": "Adds an option to show every video of the notifications that YouTube groups by channel as its own notification.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.39.525",
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Unlock queue",

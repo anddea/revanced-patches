@@ -100,6 +100,7 @@
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 21.39.525 ~ 20.05.46 |
 | `Translate live chat` | Adds an option to translate live chat and live chat replay messages. | 21.39.525 ~ 20.05.46 |
 | `Translations for YouTube` | Add translations or remove string resources. | 21.39.525 ~ 20.05.46 |
+| `Ungroup notifications` | Adds an option to show every video of the notifications that YouTube groups by channel as its own notification. | 21.39.525 ~ 20.05.46 |
 | `Unlock queue` | Adds an option to unlock YouTube’s video queue. | 21.39.525 ~ 20.05.46 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 21.39.525 ~ 20.05.46 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 21.39.525 ~ 20.05.46 |
