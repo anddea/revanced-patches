@@ -107,22 +107,38 @@ public class ExtendedUtils extends PackageUtils {
         Settings.HIDE_PREVIEW_COMMENT_NEW_METHOD.save(enabled && newMethod);
     }
 
-    private static final Setting<?>[] additionalSettings = {
-            Settings.HIDE_PLAYER_FLYOUT_MENU_AMBIENT,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_HELP,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_LOOP,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_PIP,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_PREMIUM_CONTROLS,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_STABLE_VOLUME,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_STATS_FOR_NERDS,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_WATCH_IN_VR,
-            Settings.HIDE_PLAYER_FLYOUT_MENU_YT_MUSIC,
-            Settings.SPOOF_APP_VERSION,
-            Settings.SPOOF_APP_VERSION_TARGET
-    };
+    /**
+     * Built lazily (initialization-on-demand holder) so that initializing this class never
+     * touches {@link Settings}.
+     *
+     * <p>{@code Settings}' own static initializer reads version constants from this class
+     * (e.g. {@code IS_19_34_OR_GREATER}). If this array were a static field of
+     * {@code ExtendedUtils}, the two classes would depend on each other's static
+     * initialization. That is harmless on one thread, but YouTube initializes patch classes
+     * from several threads at startup: one thread entering {@code Settings.<clinit>} and
+     * another entering {@code ExtendedUtils.<clinit>} at the same time each hold their own
+     * class-init lock while waiting for the other, and every later user of either class
+     * (including the main thread in {@code MainActivity.onCreate}) blocks behind them.
+     * Observed as a permanent blank screen and an ANR on YouTube 21.07.247.</p>
+     */
+    private static final class AdditionalSettingsHolder {
+        static final Setting<?>[] SETTINGS = {
+                Settings.HIDE_PLAYER_FLYOUT_MENU_AMBIENT,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_HELP,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_LOOP,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_PIP,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_PREMIUM_CONTROLS,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_STABLE_VOLUME,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_STATS_FOR_NERDS,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_WATCH_IN_VR,
+                Settings.HIDE_PLAYER_FLYOUT_MENU_YT_MUSIC,
+                Settings.SPOOF_APP_VERSION,
+                Settings.SPOOF_APP_VERSION_TARGET
+        };
+    }
 
     public static boolean anyMatchSetting(Setting<?> setting) {
-        for (Setting<?> s : additionalSettings) {
+        for (Setting<?> s : AdditionalSettingsHolder.SETTINGS) {
             if (setting == s) return true;
         }
         return false;
