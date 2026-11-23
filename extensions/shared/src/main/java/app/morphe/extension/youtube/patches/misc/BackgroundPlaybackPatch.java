@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2719
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.misc;
 
 import android.content.BroadcastReceiver;
@@ -9,6 +19,8 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.view.KeyEvent;
+
+import androidx.annotation.Nullable;
 
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
@@ -30,7 +42,18 @@ public class BackgroundPlaybackPatch {
     private static final BooleanSetting DISABLE_SHORTS_BACKGROUND_PLAYBACK =
             Settings.DISABLE_SHORTS_BACKGROUND_PLAYBACK;
 
+    public interface BackgroundPlaybackSetting {
+        /**
+         * @return If the background playback setting of YouTube allows background playback now.
+         */
+        boolean patch_isBackgroundPlaybackAllowed();
+    }
+
     private static boolean receiverRegistered;
+
+    @Nullable
+    private static volatile BackgroundPlaybackSetting backgroundPlaybackSetting;
+
 
     /**
      * Injection point. Called during app initialization via onCreateHook.
@@ -125,8 +148,26 @@ public class BackgroundPlaybackPatch {
     /**
      * Injection point.
      */
+    public static void setBackgroundPlaybackSetting(BackgroundPlaybackSetting setting) {
+        backgroundPlaybackSetting = setting;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isAutomaticForegroundPlaybackAllowed(boolean original) {
-        return false;
+        if (!original) return original;
+
+        // When the background playback setting of YouTube does not allow background playback,
+        // the app pauses the video when it goes to the background, and the original value
+        // resumes the video if it was playing when the app returns to the foreground.
+        BackgroundPlaybackSetting setting = backgroundPlaybackSetting;
+        try {
+            return setting != null && !setting.patch_isBackgroundPlaybackAllowed();
+        } catch (Exception ex) {
+            Logger.printException(() -> "isAutomaticForegroundPlaybackAllowed failure", ex);
+            return false;
+        }
     }
 
     /**

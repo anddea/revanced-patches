@@ -1,10 +1,10 @@
 package app.morphe.patches.music.flyoutmenu.components
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.endButtonsContainer
 import app.morphe.patches.music.utils.resourceid.touchOutside
 import app.morphe.patches.music.utils.resourceid.trimSilenceSwitch
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

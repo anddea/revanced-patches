@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.settings;
 
+import app.morphe.extension.shared.settings.BaseActivityHook;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -30,7 +32,7 @@ public class YouTubeHostActivity extends BaseHostActivity {
     @Override
     public void onBackPressed() {
         if (handleBackPress()) {
-            super.onBackPressed();
+            BaseActivityHook.closeSettings(this);
         }
     }
 

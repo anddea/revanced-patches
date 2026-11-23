@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+    <style>
+        html, body { margin: 0; background: transparent; overflow-wrap: anywhere; }
+        body { box-sizing: border-box; font-family: sans-serif; line-height: 1.4; }
+        p { margin: 0 0 .5em; }
+        p:last-child { margin-bottom: 0; }
+        ul { margin: .4em 0; padding-left: 1.5em; }
+        a { color: inherit; text-decoration: none; }
+        tt, a { background: #88888833; border-radius: 4px; padding: 1px 4px; }
+        [data-math] { display: inline-block; max-width: 100%; vertical-align: middle; overflow-x: auto; }
+        [data-math].block { display: block; text-align: center; }
+        mjx-container { margin: 0 !important; }
+        /* tex2svg().outerHTML does not include MathJax's document stylesheet.
+           Keep its screen-reader MathML accessible without displaying a second formula. */
+        mjx-assistive-mml {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; border: 0;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap;
+        }
+    </style>
+    <script src="renderer.js"></script>
+    <script defer src="tex-svg-full.js"></script>
+</head>
+<body></body>
+</html>

@@ -295,4 +295,12 @@ public class CustomPlaybackSpeedPatch {
 
         VideoUtils.showPlaybackSpeedDialog(context, Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE);
     }
+
+    /**
+     * Injection point.
+     * With audio offload the device hardware decodes the audio, and usually does not support changing the pitch.
+     */
+    public static boolean disableAudioOffload(boolean original) {
+        return original && !Settings.ENABLE_PLAYBACK_AUDIO_PITCH.get();
+    }
 }

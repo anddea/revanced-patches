@@ -9,8 +9,9 @@ interface SwipeControlsOverlay {
      *
      * @param newVolume the new volume level
      * @param maximumVolume the maximum volume index
+     * @param boostStep The volume boost above the maximum volume, in steps.
      */
-    fun onVolumeChanged(newVolume: Int, maximumVolume: Int)
+    fun onVolumeChanged(newVolume: Int, maximumVolume: Int, boostStep: Int = 0)
 
     /**
      * called when the currently set screen brightness was changed

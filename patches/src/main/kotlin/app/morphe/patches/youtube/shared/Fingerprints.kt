@@ -5,6 +5,7 @@
 
 package app.morphe.patches.youtube.shared
 
+import app.morphe.patcher.string
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
@@ -44,5 +45,16 @@ internal object WatchNextResponseParserFingerprint : Fingerprint(
             location = MatchAfterImmediately()
         ),
         literal(46659098L),
+    )
+)
+
+/**
+ * Handles a received push notification. The second parameter is the PushNotificationSupportedRenderers proto.
+ */
+internal object PushNotificationReceivedFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;", "L"),
+    filters = listOf(
+        string("Exception processing push notif renderer.")
     )
 )

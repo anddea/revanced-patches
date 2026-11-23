@@ -39,14 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.extension.youtube.patches.general;
 
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
@@ -367,11 +359,8 @@ public class GeneralPatch {
 
     private static final boolean DISABLE_LAYOUT_UPDATES =
             Settings.DISABLE_LAYOUT_UPDATES.get();
-    private static final boolean FIX_VIDEO_ACTION_BAR = Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()
-            // If "Disable layout updates" is enabled, this narrower override is not required.
-            && !DISABLE_LAYOUT_UPDATES
-            // Tablets already have a non-collapsed video action bar.
-            && !PackageUtils.isTablet();
+    private static final boolean FIX_VIDEO_ACTION_BAR =
+            app.morphe.extension.youtube.patches.RestoreOldVideoActionBarPatch.usesClassicLayout();
     private static volatile boolean needFetch = true;
 
     /**

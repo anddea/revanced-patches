@@ -3,6 +3,7 @@ package app.morphe.patches.music.ads.general
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.navigation.components.navigationBarComponentsPatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ADS_PATH
@@ -20,14 +21,14 @@ import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.hasResourceId
+import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.shared.ads.adsPatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.onStartMethod
 import app.morphe.patches.shared.mainactivity.onStopMethod
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -40,6 +41,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val ADS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/AdsFilter;"
+
+private const val MUSIC_ADS_CLASS_DESCRIPTOR =
+    "$ADS_PATH/MusicAdsPatch;"
 
 private const val PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR =
     "$ADS_PATH/PremiumPromotionPatch;"
@@ -58,17 +62,35 @@ val adsPatch = adsPatch(
             navigationBarComponentsPatch, // for 'Hide upgrade button' setting
             navigationBarHookPatch,
             sharedResourceIdPatch,
+            resourceMappingPatch,
             versionCheckPatch,
             mainActivityResolvePatch,
         )
     },
-    classDescriptor = "$ADS_PATH/MusicAdsPatch;",
+    classDescriptor = MUSIC_ADS_CLASS_DESCRIPTOR,
     methodDescriptor = "hideMusicAds",
     executeBlock = {
+        // Hide the ad overlay drawn over the player while an ad plays on a cast device.
+        if (hasResourceId(ResourceType.LAYOUT, "default_ad_overlay")
+            && hasResourceId(ResourceType.ID, "skip_ad_button")
+        ) {
+            AdOverlayInflateFingerprint.matchOrNull()?.let {
+                val findViewByIdIndex = it.instructionMatches.last().index
+                val overlayRootRegister =
+                    it.method.getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
+
+                it.method.addInstruction(
+                    findViewByIdIndex,
+                    "invoke-static { v$overlayRootRegister }, $MUSIC_ADS_CLASS_DESCRIPTOR->" +
+                            "hideAdOverlay(Landroid/view/ViewGroup;)V"
+                )
+            }
+        }
+
         // region patch for hide premium promotion popup
 
         // get premium bottom sheet
-        floatingLayoutFingerprint.methodOrThrow().apply {
+        floatingLayoutFingerprint.method.apply {
             val targetIndex = indexOfFirstLiteralInstructionOrThrow(floatingLayout) + 2
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -90,8 +112,7 @@ val adsPatch = adsPatch(
                 )
             }
 
-            getPremiumDialogFingerprint
-                .methodOrThrow(getPremiumDialogParentFingerprint)
+            getPremiumDialogFingerprint.method
                 .apply {
                     val setContentViewIndex = indexOfSetContentViewInstruction(this)
                     val dialogInstruction =
@@ -111,7 +132,7 @@ val adsPatch = adsPatch(
 
         // region patch for hide premium renewal banner
 
-        notifierShelfFingerprint.methodOrThrow().apply {
+        notifierShelfFingerprint.method.apply {
             val linearLayoutIndex =
                 indexOfFirstLiteralInstructionOrThrow(buttonContainer) + 3
             val linearLayoutRegister =
@@ -128,7 +149,8 @@ val adsPatch = adsPatch(
         // region patch for hide get premium
 
         // get premium button at the top of the account switching menu
-        getPremiumTextViewFingerprint.matchOrThrow().let {
+        // 9.40: `const/16` instead of `const/4` in the matched sequence; same hook point (the iget-boolean).
+        (getPremiumTextViewFingerprint.matchOrNull() ?: getPremiumTextViewV940Fingerprint.match()).let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.first().index
                 val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -141,7 +163,7 @@ val adsPatch = adsPatch(
         }
 
         // get premium button at the bottom of the account switching menu
-        accountMenuFooterFingerprint.methodOrThrow().apply {
+        accountMenuFooterFingerprint.method.apply {
             val constIndex =
                 indexOfFirstLiteralInstructionOrThrow(privacyTosFooter)
             val walkerIndex =

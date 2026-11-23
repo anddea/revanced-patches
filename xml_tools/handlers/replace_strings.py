@@ -66,7 +66,7 @@ def replace_morphe_brand_text_in_file(path: Path) -> None:
 
 
 def _find_source_translation_files(source_base_path: Path, lang_code: str, app: str) -> list[Path]:
-    """Find source translation files for the app, shared, and shared-youtube directories.
+    """Find source translations for the app, shared directories, and SponsorBlock.
 
     Matches 'ar' to 'values-ar-rSA', 'in' to 'values-in', etc.
 
@@ -100,6 +100,11 @@ def _find_source_translation_files(source_base_path: Path, lang_code: str, app: 
         shared_yt_file = matching_dir / "shared-youtube/strings.xml"
         if shared_yt_file.exists():
             found_paths.append(shared_yt_file)
+
+        # SponsorBlock translations are stored separately from the app strings.
+        sponsorblock_file = matching_dir / "sponsorblock/strings.xml"
+        if sponsorblock_file.exists():
+            found_paths.append(sponsorblock_file)
 
     return found_paths
 
@@ -236,7 +241,7 @@ def update_translations_with_keys(
 
         target_path = lang_dir / "strings.xml"
 
-        # Find the corresponding source files (app-specific + shared)
+        # Find the corresponding source files (app-specific + shared + SponsorBlock)
         rvx_lang_paths = _find_source_translation_files(source_base_path, lang_dir.name, app)
 
         if rvx_lang_paths:

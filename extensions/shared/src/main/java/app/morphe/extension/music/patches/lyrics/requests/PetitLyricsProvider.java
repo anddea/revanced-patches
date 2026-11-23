@@ -9,7 +9,6 @@ package app.morphe.extension.music.patches.lyrics.requests;
 
 import android.util.Base64;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -22,13 +21,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.atomic.AtomicLong;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.patches.lyrics.Word;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
+import app.morphe.extension.music.patches.lyrics.romanizers.ScriptDetector;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
@@ -55,244 +55,43 @@ public final class PetitLyricsProvider implements LyricsProvider {
     private static final int LSY_MAX_LINES = 10_000;
     private static final int LSY_WRAP_CS = 65_536;
 
-    @Override
-    public String name() {
-        return "PetitLyrics";
-    }
-
-    @Nullable
-    @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
-        Stash stash = new Stash();
-
-        collectTier(track, TIER_WORD_SYNC, stash);
-        Lyrics result = tryWordSync(stash);
-        if (result != null) {
-            return result;
-        }
-
-        collectTier(track, TIER_LINE_SYNC, stash);
-        result = tryWordSync(stash);
-        if (result != null) {
-            return result;
-        }
-        result = tryLineSync(track, stash);
-        if (result != null) {
-            return result;
-        }
-
-        if (stash.plainText == null && !stash.plainRequested) {
-            collectTier(track, TIER_UNSYNCED, stash);
-        }
-        if (stash.plainText == null && stash.zipText != null) {
-            stash.plainText = stash.zipText;
-            if (stash.sourceLyricsId == null) {
-                stash.sourceLyricsId = stash.zipLyricsId;
-            }
-        }
-        result = tryText(stash);
-        return result;
-    }
-
-    private void collectTier(TrackInfo track, int lyricsType, Stash stash) {
-        if (lyricsType == TIER_UNSYNCED) {
-            if (stash.plainRequested) {
-                return;
-            }
-            stash.plainRequested = true;
-        }
-        try {
-            Response response = request(track, lyricsType);
-            collect(response, track, stash);
-        } catch (Exception ex) {
-            Logger.printDebug(
-                    () -> "PetitLyrics request failed for type " + lyricsType, ex);
-        }
-    }
-
-    private void collect(@Nullable Response response, TrackInfo track, Stash stash) {
-        if (response == null || response.songs.isEmpty()) {
-            return;
-        }
-        List<Song> sorted = new ArrayList<>(response.songs);
-        sorted.sort((a, b) -> Integer.compare(scoreOf(b, track), scoreOf(a, track)));
-
-        if (stash.creditLines == null) {
-            for (Song song : sorted) {
-                List<String> credits = creditLinesOf(song);
-                if (!credits.isEmpty()) {
-                    stash.creditLines = credits;
-                    if (stash.sourceLyricsId == null) {
-                        stash.sourceLyricsId = song.lyricsId;
-                    }
-                    break;
-                }
-            }
-        }
-
-        if (stash.lsyLyricsId != null && stash.zipText == null) {
-            Song idMatch = null;
-            for (Song song : sorted) {
-                if (song.lyricsData == null || song.lyricsData.isEmpty()) {
-                    continue;
-                }
-                if (stash.lsyLyricsId.equals(song.lyricsId)) {
-                    idMatch = song;
-                    break;
-                }
-            }
-            if (idMatch == null && response.songs.size() == 1) {
-                idMatch = response.songs.get(0);
-            }
-            if (idMatch != null && idMatch.lyricsData != null
-                    && !idMatch.lyricsData.isEmpty()) {
-                try {
-                    byte[] payload = Base64.decode(idMatch.lyricsData, Base64.DEFAULT);
-                    if (payload != null && payload.length > 0
-                            && classifyPayload(payload) == TIER_UNSYNCED) {
-                        String text = toUtf8Raw(payload);
-                        if (!text.trim().isEmpty()) {
-                            stash.zipText = text;
-                            stash.zipLyricsId = idMatch.lyricsId;
-                            if (stash.sourceLyricsId == null) {
-                                stash.sourceLyricsId = idMatch.lyricsId;
-                            }
-                        }
-                    }
-                } catch (Exception ex) {
-                    Logger.printDebug(() -> "PetitLyrics zip text decode failed", ex);
-                }
-            }
-        }
-
-        for (Song song : sorted) {
-            if (song.lyricsData == null || song.lyricsData.isEmpty()) {
-                continue;
-            }
-            byte[] payload;
-            try {
-                payload = Base64.decode(song.lyricsData, Base64.DEFAULT);
-            } catch (Exception ex) {
-                Logger.printDebug(() -> "PetitLyrics base64 decode failed", ex);
-                continue;
-            }
-            if (payload == null || payload.length == 0) {
-                continue;
-            }
-            int tier = classifyPayload(payload);
-            switch (tier) {
-                case TIER_WORD_SYNC -> {
-                    if (stash.wordLines == null) {
-                        List<LyricsLine> lines = parseWsy(payload);
-                        if (!lines.isEmpty()) {
-                            stash.wordLines = lines;
-                            stash.wsyRaw = toUtf8(payload);
-                            stash.sourceLyricsId = song.lyricsId;
-                        }
-                    }
-                }
-                case TIER_LINE_SYNC -> {
-                    if (stash.lsyTimings == null) {
-                        List<Long> timings = decodeLsyTimings(payload);
-                        if (!timings.isEmpty()) {
-                            stash.lsyTimings = timings;
-                            stash.lsyLyricsId = song.lyricsId;
-                            stash.sourceLyricsId = song.lyricsId;
-                        }
-                    }
-                }
-                default -> {
-                    if (stash.plainText == null) {
-                        String text = toUtf8Raw(payload);
-                        if (!text.trim().isEmpty()) {
-                            stash.plainText = text;
-                            stash.sourceLyricsId = song.lyricsId;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private static int scoreOf(Song song, TrackInfo track) {
+    static int scoreOf(Song song, TrackInfo track) {
         return LyricsRequests.scoreTrackCandidate(
                 song.title, song.artist, song.durationMs / 1000, track);
     }
 
     @Nullable
-    private Lyrics tryWordSync(Stash stash) {
-        if (stash.wordLines == null || stash.wordLines.isEmpty()) {
-            return null;
-        }
-        String wsyRaw = stash.wsyRaw != null && !stash.wsyRaw.isEmpty()
-                ? stash.wsyRaw
-                : null;
-        return new Lyrics(stash.wordLines, name(), true, null, null, null,
-                stash.creditLines,
-                wsyRaw, wsyRaw != null ? "wsy" : null, sourceUrl(stash.sourceLyricsId));
-    }
-
-    @Nullable
-    private Lyrics tryLineSync(TrackInfo track, Stash stash) {
-        if (stash.lsyTimings == null || stash.lsyTimings.isEmpty()) {
-            return null;
-        }
-        if (stash.zipText == null) {
-            collectTier(track, TIER_UNSYNCED, stash);
-            if (stash.zipText == null) {
-                return null;
-            }
-        }
-        List<LyricsLine> lines = zipLineSync(stash.lsyTimings, stash.zipText);
-        if (lines.isEmpty()) {
-            return null;
-        }
-        String lrc = buildLrc(lines);
-        return new Lyrics(lines, name(), true, null, null, null, stash.creditLines,
-                lrc, "lrc", sourceUrl(stash.sourceLyricsId));
-    }
-
-    @Nullable
-    private Lyrics tryText(Stash stash) {
-        if (stash.plainText == null || stash.plainText.isEmpty()) {
-            return null;
-        }
-        String text = stash.plainText;
-        LrcParser.LrcParseResult lrc = LrcParser.parseSyncedWithCreditLines(text);
-        if (!lrc.lines.isEmpty()) {
-            List<String> credits = mergeCredits(stash.creditLines, lrc.creditLines);
-            assert credits != null;
-            return new Lyrics(lrc.lines, name(), true, null, null, null,
-                    credits.isEmpty() ? null : credits,
-                    text, "lrc", sourceUrl(stash.sourceLyricsId));
-        }
-        List<LyricsLine> plain = LrcParser.parsePlain(text);
-        if (plain.isEmpty()) {
-            return null;
-        }
-        return new Lyrics(plain, name(), false, null, null, null, stash.creditLines,
-                text, "txt", sourceUrl(stash.sourceLyricsId));
-    }
-
-    @Nullable
-    private static String sourceUrl(@Nullable String lyricsId) {
+    static String sourceUrl(@Nullable String lyricsId) {
         if (lyricsId == null || lyricsId.trim().isEmpty()) {
             return null;
         }
         return SOURCE_URL_PREFIX + lyricsId.trim();
     }
 
-    @NonNull
-    private static List<String> creditLinesOf(Song song) {
-        List<String> credits = new ArrayList<>(4);
-        addCredit(credits, "Artist", song.artist);
-        addCredit(credits, "Album", song.album);
-        addCredit(credits, "Writer", song.writer);
+    /** Composer is a credit line, not a songwriter name. */
+    static List<String> creditsOf(Song song) {
+        List<String> credits = new ArrayList<>(1);
         addCredit(credits, "Composer", song.composer);
         return credits;
     }
 
-    private static void addCredit(List<String> credits, String label, @Nullable String value) {
+    /** Writer names from the API are actual songwriters, not credit lines. */
+    @Nullable
+    static List<String> songwritersOf(Song song) {
+        if (song.writer == null) {
+            return null;
+        }
+        List<String> names = new ArrayList<>();
+        for (String name : song.writer.split("\\s*,\\s*")) {
+            String trimmed = name.trim();
+            if (!trimmed.isEmpty()) {
+                names.add(trimmed);
+            }
+        }
+        return names.isEmpty() ? null : names;
+    }
+
+    static void addCredit(List<String> credits, String label, @Nullable String value) {
         if (value == null) {
             return;
         }
@@ -304,8 +103,8 @@ public final class PetitLyricsProvider implements LyricsProvider {
     }
 
     @Nullable
-    private static List<String> mergeCredits(@Nullable List<String> primary,
-            @Nullable List<String> secondary) {
+    static List<String> mergeCredits(@Nullable List<String> primary,
+                                     @Nullable List<String> secondary) {
         if (primary == null || primary.isEmpty()) {
             return secondary == null || secondary.isEmpty() ? null : secondary;
         }
@@ -323,37 +122,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
     }
 
     @Nullable
-    private Response request(TrackInfo track, int lyricsType) throws Exception {
-        LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
-
-        String form =
-                "clientAppId=" + LyricsRequests.encode(CLIENT_APP_ID) +
-                "&terminalType=" + LyricsRequests.encode(TERMINAL_TYPE) +
-                "&lyricsType=" + lyricsType +
-                "&key_title=" + LyricsRequests.encode(track.title()) +
-                "&key_artist=" + LyricsRequests.encode(track.artist()) +
-                "&key_album=" + LyricsRequests.encode(track.album());
-
-        var connection = LyricsRequests.postForm(API_URL, form);
-        int httpCode = connection.getResponseCode();
-        if (httpCode != Requester.HTTP_STATUS_CODE_SUCCESS) {
-            LyricsRequests.logFailure(name(), connection);
-            return null;
-        }
-
-        String xml;
-        try {
-            xml = LyricsRequests.parseGzipString(connection);
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "PetitLyrics response read failed", ex);
-            connection.disconnect();
-            return null;
-        }
-        return parseResponse(xml);
-    }
-
-    @Nullable
-    private static Response parseResponse(String xml) {
+    static Response parseResponse(String xml) {
         try {
             XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
             parser.setInput(new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8)),
@@ -405,22 +174,17 @@ public final class PetitLyricsProvider implements LyricsProvider {
                                         current.durationMs = 0;
                                     }
                                 }
-                                case "lyricsType" -> {
-                                    try {
-                                        current.lyricsType = Integer.parseInt(value.trim());
-                                    } catch (NumberFormatException ignored) {
-                                        current.lyricsType = 0;
-                                    }
-                                }
                                 case "lyricsData" -> current.lyricsData = value.trim();
-                                default -> { }
+                                default -> {
+                                }
                             }
                         } else if ("status".equals(tag)) {
                             response.status = text.toString();
                         }
                         field = null;
                     }
-                    default -> { }
+                    default -> {
+                    }
                 }
                 event = parser.next();
             }
@@ -434,7 +198,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
     }
 
-    private static int classifyPayload(byte[] raw) {
+    static int classifyPayload(byte[] raw) {
         byte[] root = xmlRootPrefix(raw);
         if (root.length >= 4 && root[0] == '<' && root[1] == 'w' && root[2] == 's'
                 && root[3] == 'y') {
@@ -446,7 +210,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return TIER_UNSYNCED;
     }
 
-    private static byte[] xmlRootPrefix(byte[] raw) {
+    static byte[] xmlRootPrefix(byte[] raw) {
         int i = 0;
         if (raw.length >= 3 && (raw[0] & 0xFF) == 0xEF && (raw[1] & 0xFF) == 0xBB
                 && (raw[2] & 0xFF) == 0xBF) {
@@ -482,7 +246,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return rest;
     }
 
-    private static int indexOf(byte[] haystack, byte[] needle, int from) {
+    static int indexOf(byte[] haystack, byte[] needle, int from) {
         outer:
         for (int i = from; i <= haystack.length - needle.length; i++) {
             for (int j = 0; j < needle.length; j++) {
@@ -495,7 +259,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return -1;
     }
 
-    private static boolean containsNul(byte[] raw) {
+    static boolean containsNul(byte[] raw) {
         for (byte b : raw) {
             if (b == 0) {
                 return true;
@@ -504,7 +268,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return false;
     }
 
-    private static boolean isValidUtf8(byte[] raw) {
+    static boolean isValidUtf8(byte[] raw) {
         try {
             StandardCharsets.UTF_8.decode(java.nio.ByteBuffer.wrap(raw));
             return true;
@@ -513,13 +277,89 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
     }
 
-    private static List<LyricsLine> parseWsy(byte[] payload) {
+    static boolean isWhitespaceToken(@Nullable String s) {
+        if (s == null || s.isEmpty()) return true;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!Character.isWhitespace(c) && c != 0x2005 && c != 0x3000 && c != 0xA0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static boolean hasOpen(@Nullable String s) {
+        return s != null && (s.contains("(") || s.contains("（") || s.contains("["));
+    }
+
+    static boolean hasClose(@Nullable String s) {
+        return s != null && (s.contains(")") || s.contains("）") || s.contains("]"));
+    }
+
+    static int indexOfAny(@Nullable String s, String chars) {
+        if (s == null) return -1;
+        for (int i = 0; i < s.length(); i++) {
+            if (chars.indexOf(s.charAt(i)) >= 0) return i;
+        }
+        return -1;
+    }
+
+    static int lastIndexOfAny(@Nullable String s, String chars) {
+        if (s == null) return -1;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (chars.indexOf(s.charAt(i)) >= 0) return i;
+        }
+        return -1;
+    }
+
+    static void addSanitizedLine(List<LyricsLine> lines, String text, List<Word> words, boolean isBg) {
+        if (text.isEmpty() || words.isEmpty()) {
+            return;
+        }
+        if (isBg) {
+            while ((text.startsWith("(") && text.endsWith(")"))
+                    || (text.startsWith("（") && text.endsWith("）"))
+                    || (text.startsWith("[") && text.endsWith("]"))) {
+                text = text.substring(1, text.length() - 1).trim();
+            }
+            if (!words.isEmpty()) {
+                Word first = words.get(0);
+                String ft = first.text().trim();
+                if ("(".equals(ft) || "（".equals(ft) || "[".equals(ft)) {
+                    words.remove(0);
+                } else if (ft.startsWith("(") || ft.startsWith("（") || ft.startsWith("[")) {
+                    words.set(0, new Word(first.startMs(), first.endMs(), ft.substring(1).trim(), first.romaji(), first.endsWithSpace(), first.ruby()));
+                }
+            }
+            if (!words.isEmpty()) {
+                int lastIdx = words.size() - 1;
+                Word last = words.get(lastIdx);
+                String lt = last.text().trim();
+                if (")".equals(lt) || "）".equals(lt) || "]".equals(lt)) {
+                    words.remove(lastIdx);
+                } else if (lt.endsWith(")") || lt.endsWith("）") || lt.endsWith("]")) {
+                    words.set(lastIdx, new Word(last.startMs(), last.endMs(), lt.substring(0, lt.length() - 1).trim(), last.romaji(), last.endsWithSpace(), last.ruby()));
+                }
+            }
+        }
+        if (text.isEmpty() || words.isEmpty()) {
+            return;
+        }
+        long start = words.get(0).startMs();
+        long endMs = words.get(words.size() - 1).endMs();
+        if (endMs <= start) {
+            endMs = start + Math.max(2500L, text.length() * 200L);
+        }
+        lines.add(new LyricsLine(start, endMs, text, new ArrayList<>(words), null, false, isBg, null));
+    }
+
+    static List<LyricsLine> parseWsy(byte[] payload) {
         try {
             XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
             parser.setInput(new ByteArrayInputStream(payload), "UTF-8");
 
-            List<LyricsLine> lines = new ArrayList<>();
-            List<Word> words = new ArrayList<>();
+            List<RawWsyLine> rawLines = new ArrayList<>();
+            List<RawToken> rawTokens = new ArrayList<>();
             StringBuilder lineText = new StringBuilder();
             StringBuilder wordText = new StringBuilder();
             long wordStart = 0;
@@ -535,7 +375,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
                         tag = parser.getName();
                         if ("line".equals(tag)) {
                             inLine = true;
-                            words.clear();
+                            rawTokens.clear();
                             lineText.setLength(0);
                         } else if (inLine && "word".equals(tag)) {
                             inWord = true;
@@ -553,7 +393,8 @@ public final class PetitLyricsProvider implements LyricsProvider {
                                 case "wordstring" -> wordText.append(parser.getText());
                                 case "starttime" -> wordStart = parseLong(parser.getText());
                                 case "endtime" -> wordEnd = parseLong(parser.getText());
-                                default -> { }
+                                default -> {
+                                }
                             }
                         } else if (inLine && "linestring".equals(tag)) {
                             lineText.append(parser.getText());
@@ -567,35 +408,179 @@ public final class PetitLyricsProvider implements LyricsProvider {
                             if (!text.isEmpty()) {
                                 long start = Math.max(0, wordStart);
                                 long endMs = Math.max(start, wordEnd);
-                                words.add(new Word(start, endMs, text));
+                                rawTokens.add(new RawToken(text, start, endMs));
                             }
                         } else if (inLine && "line".equals(end)) {
                             inLine = false;
-                            if (words.isEmpty()) {
+                            if (rawTokens.isEmpty()) {
                                 break;
                             }
-                            String text = lineText.toString().trim();
-                            if (text.isEmpty()) {
-                                StringBuilder joined = new StringBuilder();
-                                for (Word w : words) {
-                                    joined.append(w.text());
+                            String lineStr = lineText.toString()
+                                    .replace('\u2005', ' ')
+                                    .replace('\u3000', ' ')
+                                    .replace('\u00A0', ' ')
+                                    .trim();
+
+                            List<Word> mergedWords = new ArrayList<>();
+                            for (RawToken tok : rawTokens) {
+                                String s = tok.text();
+                                if (isWhitespaceToken(s)) {
+                                    if (!mergedWords.isEmpty()) {
+                                        Word prev = mergedWords.get(mergedWords.size() - 1);
+                                        mergedWords.set(mergedWords.size() - 1, new Word(
+                                                prev.startMs(), prev.endMs(), prev.text(), prev.romaji(), true, prev.ruby()));
+                                    }
+                                    continue;
                                 }
-                                text = joined.toString().trim();
+
+                                boolean canMerge = false;
+                                if (!mergedWords.isEmpty()) {
+                                    Word prev = mergedWords.get(mergedWords.size() - 1);
+                                    if (!prev.endsWithSpace() && !ScriptDetector.containsUnspaced(s) && !ScriptDetector.containsUnspaced(prev.text())) {
+                                        canMerge = true;
+                                    }
+                                }
+
+                                if (canMerge) {
+                                    Word prev = mergedWords.get(mergedWords.size() - 1);
+                                    mergedWords.set(mergedWords.size() - 1, new Word(
+                                            prev.startMs(), Math.max(prev.endMs(), tok.endMs()),
+                                            prev.text() + s, null, false));
+                                } else {
+                                    mergedWords.add(new Word(tok.startMs(), tok.endMs(), s, null, false));
+                                }
                             }
-                            if (text.isEmpty()) {
+
+                            if (mergedWords.isEmpty()) {
                                 break;
                             }
-                            long start = words.get(0).startMs();
-                            long endMs = words.get(words.size() - 1).endMs();
-                            lines.add(new LyricsLine(start, endMs, text, new ArrayList<>(words)));
+
+                            if (lineStr.isEmpty()) {
+                                StringBuilder joined = new StringBuilder();
+                                for (Word w : mergedWords) {
+                                    joined.append(w.text());
+                                    if (w.endsWithSpace()) {
+                                        joined.append(' ');
+                                    }
+                                }
+                                lineStr = joined.toString().trim();
+                            }
+
+                            rawLines.add(new RawWsyLine(lineStr, mergedWords));
                         }
                         tag = null;
                     }
-                    default -> { }
+                    default -> {
+                    }
                 }
                 event = parser.next();
             }
+
+            List<LyricsLine> lines = new ArrayList<>();
+            int i = 0;
+            final int rawCount = rawLines.size();
+            while (i < rawCount) {
+                RawWsyLine cur = rawLines.get(i);
+                List<Word> words = new ArrayList<>(cur.words);
+                String text = cur.text;
+                if (text.isEmpty() || words.isEmpty()) {
+                    i++;
+                    continue;
+                }
+
+                // A bracket opened on one line and closed on the next is one background vocal.
+                if (hasOpen(text) && !hasClose(text) && i + 1 < rawCount) {
+                    RawWsyLine nxt = rawLines.get(i + 1);
+                    List<Word> nxtWords = new ArrayList<>(nxt.words);
+                    if (hasClose(nxt.text) && !hasOpen(nxt.text)) {
+                        int pPos = indexOfAny(text, "(（[");
+                        if (pPos == 0) {
+                            List<Word> combWords = new ArrayList<>(words);
+                            combWords.addAll(nxtWords);
+                            String combText = (text + " " + nxt.text).trim();
+                            addSanitizedLine(lines, combText, combWords, true);
+                            i += 2;
+                            continue;
+                        } else {
+                            int splitWi = -1;
+                            for (int wi = 0; wi < words.size(); wi++) {
+                                if (hasOpen(words.get(wi).text())) {
+                                    splitWi = wi;
+                                    break;
+                                }
+                            }
+                            if (splitWi > 0) {
+                                List<Word> mainWords = new ArrayList<>(words.subList(0, splitWi));
+                                Word lastMain = mainWords.get(mainWords.size() - 1);
+                                mainWords.set(mainWords.size() - 1, new Word(
+                                        lastMain.startMs(), lastMain.endMs(), lastMain.text(), lastMain.romaji(), false, lastMain.ruby()));
+                                List<Word> secWords = new ArrayList<>(words.subList(splitWi, words.size()));
+                                secWords.addAll(nxtWords);
+                                String mainText = (pPos > 0 ? text.substring(0, pPos) : text).trim();
+                                String secText = ((pPos >= 0 ? text.substring(pPos) : "") + " " + nxt.text).trim();
+                                addSanitizedLine(lines, mainText, mainWords, false);
+                                addSanitizedLine(lines, secText, secWords, true);
+                                i += 2;
+                                continue;
+                            }
+                        }
+                    }
+                }
+
+                // A bracketed part at the start or the end of a line is a second vocal.
+                int pOpen = indexOfAny(text, "(（[");
+                int pClose = lastIndexOfAny(text, ")）]");
+                if (pOpen > 0 && pClose > pOpen && pClose >= text.length() - 2) {
+                    int splitWi = -1;
+                    for (int wi = 0; wi < words.size(); wi++) {
+                        if (hasOpen(words.get(wi).text())) {
+                            splitWi = wi;
+                            break;
+                        }
+                    }
+                    if (splitWi > 0) {
+                        List<Word> mainWords = new ArrayList<>(words.subList(0, splitWi));
+                        Word lastMain = mainWords.get(mainWords.size() - 1);
+                        mainWords.set(mainWords.size() - 1, new Word(
+                                lastMain.startMs(), lastMain.endMs(), lastMain.text(), lastMain.romaji(), false, lastMain.ruby()));
+                        List<Word> secWords = new ArrayList<>(words.subList(splitWi, words.size()));
+                        String mainText = text.substring(0, pOpen).trim();
+                        String secText = text.substring(pOpen).trim();
+                        addSanitizedLine(lines, mainText, mainWords, false);
+                        addSanitizedLine(lines, secText, secWords, true);
+                        i++;
+                        continue;
+                    }
+                } else if (pOpen == 0 && 0 < pClose && pClose < text.length() - 2) {
+                    int splitWi = -1;
+                    for (int wi = 0; wi < words.size(); wi++) {
+                        if (hasClose(words.get(wi).text())) {
+                            splitWi = wi + 1;
+                            break;
+                        }
+                    }
+                    if (splitWi > 0 && splitWi < words.size()) {
+                        List<Word> secWords = new ArrayList<>(words.subList(0, splitWi));
+                        Word lastSec = secWords.get(secWords.size() - 1);
+                        secWords.set(secWords.size() - 1, new Word(
+                                lastSec.startMs(), lastSec.endMs(), lastSec.text(), lastSec.romaji(), false, lastSec.ruby()));
+                        List<Word> mainWords = new ArrayList<>(words.subList(splitWi, words.size()));
+                        String secText = text.substring(0, pClose + 1).trim();
+                        String mainText = text.substring(pClose + 1).trim();
+                        addSanitizedLine(lines, secText, secWords, true);
+                        addSanitizedLine(lines, mainText, mainWords, false);
+                        i++;
+                        continue;
+                    }
+                }
+
+                boolean isBg = LrcParser.hasOuterParentheses(text);
+                addSanitizedLine(lines, text, words, isBg);
+                i++;
+            }
+
             lines.sort(Comparator.comparingLong(LyricsLine::startTimeMs));
+            LrcParser.markEchoesAsBackground(lines);
             return lines;
         } catch (Exception ex) {
             Logger.printDebug(() -> "PetitLyrics WSY parse failed", ex);
@@ -603,7 +588,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
     }
 
-    private static long parseLong(String value) {
+    static long parseLong(String value) {
         try {
             return Long.parseLong(value.trim());
         } catch (Exception ex) {
@@ -611,7 +596,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
     }
 
-    private static List<Long> decodeLsyTimings(byte[] raw) {
+    static List<Long> decodeLsyTimings(byte[] raw) {
         if (raw.length < LSY_MIN_HEADER_LEN) {
             return List.of();
         }
@@ -649,21 +634,22 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return out;
     }
 
-    private static int deriveLsyKey(int protectionId, boolean switchFlag) {
+    static int deriveLsyKey(int protectionId, boolean switchFlag) {
         if (!switchFlag) {
             return protectionId;
         }
-        return (protectionId & 0x0003)
-                | ((protectionId & 0x000c) << 2)
-                | ((protectionId & 0x0030) >> 2)
-                | ((protectionId & 0x00c0) << 2)
-                | ((protectionId & 0x0300) >> 2)
-                | ((protectionId & 0x0c00) << 2)
-                | ((protectionId & 0x3000) >> 2)
-                | (protectionId & 0xc000);
+        int k = protectionId;
+        return (k & 0x0003)
+                | ((k & 0x000c) << 2)
+                | ((k & 0x0030) >> 2)
+                | ((k & 0x00c0) << 2)
+                | ((k & 0x0300) >> 2)
+                | ((k & 0x0c00) << 2)
+                | ((k & 0x3000) >> 2)
+                | (k & 0xc000);
     }
 
-    private static List<LyricsLine> zipLineSync(List<Long> timingsCs, String text) {
+    static List<LyricsLine> zipLineSync(List<Long> timingsCs, String text) {
         String normalized = text.replace("\r\n", "\n");
         String[] rows = normalized.split("\n", -1);
         int count = rows.length;
@@ -680,7 +666,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
         List<LyricsLine> lines = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-            String row = rows[i].trim();
+            String row = rows[i].replace('\u2005', ' ').replace('\u3000', ' ').replace('\u00A0', ' ').trim();
             if (row.isEmpty()) {
                 continue;
             }
@@ -689,28 +675,29 @@ public final class PetitLyricsProvider implements LyricsProvider {
             if (endMs <= startMs) {
                 endMs = startMs + 3000;
             }
-            lines.add(new LyricsLine(startMs, endMs, row, List.of()));
+            boolean isBg = LrcParser.hasOuterParentheses(row);
+            String lineText = row;
+            if (isBg && ((row.startsWith("(") && row.endsWith(")"))
+                    || (row.startsWith("（") && row.endsWith("）"))
+                    || (row.startsWith("[") && row.endsWith("]")))) {
+                lineText = row.substring(1, row.length() - 1).trim();
+            }
+            lines.add(new LyricsLine(startMs, endMs, lineText, List.of(), null, false, isBg, null));
         }
+        LrcParser.markEchoesAsBackground(lines);
         return lines;
     }
 
-    private static String buildLrc(List<LyricsLine> lines) {
+    static String buildLrc(List<LyricsLine> lines) {
         StringBuilder sb = new StringBuilder(50 * lines.size());
         for (LyricsLine line : lines) {
-            final long totalMs = Math.max(0, line.startTimeMs());
-            final long min = totalMs / 60000;
-            final long sec = (totalMs % 60000) / 1000;
-            final long ms = totalMs % 1000;
-            sb.append('[')
-              .append(String.format(Locale.US, "%02d:%02d.%02d", min, sec, ms / 10))
-              .append(']')
-              .append(line.text())
-              .append('\n');
+            sb.append(LrcParser.formatLine(line))
+                    .append('\n');
         }
         return sb.toString();
     }
 
-    private static String toUtf8(byte[] payload) {
+    static String toUtf8(byte[] payload) {
         try {
             return new String(payload, StandardCharsets.UTF_8).trim();
         } catch (Exception ex) {
@@ -718,12 +705,293 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
     }
 
-    private static String toUtf8Raw(byte[] payload) {
+    static String toUtf8Raw(byte[] payload) {
         try {
             return new String(payload, StandardCharsets.UTF_8);
         } catch (Exception ex) {
             return "";
         }
+    }
+
+    @Override
+    public String name() {
+        return "PetitLyrics";
+    }
+
+    @Nullable
+    @Override
+    public FetchResult fetch(TrackInfo track) throws Exception {
+        Stash stash = new Stash();
+
+        collectTier(track, TIER_WORD_SYNC, stash);
+        Lyrics result = tryWordSync(stash);
+        if (result != null) {
+            return FetchResult.of(result, stash.sourceTitle, stash.sourceArtist, stash.sourceDurationSec, track);
+        }
+
+        collectTier(track, TIER_LINE_SYNC, stash);
+        result = tryWordSync(stash);
+        if (result != null) {
+            return FetchResult.of(result, stash.sourceTitle, stash.sourceArtist, stash.sourceDurationSec, track);
+        }
+        result = tryLineSync(track, stash);
+        if (result != null) {
+            return FetchResult.of(result, stash.sourceTitle, stash.sourceArtist, stash.sourceDurationSec, track);
+        }
+
+        if (stash.plainText == null && !stash.plainRequested) {
+            collectTier(track, TIER_UNSYNCED, stash);
+        }
+        if (stash.plainText == null && stash.zipText != null) {
+            stash.plainText = stash.zipText;
+            if (stash.sourceLyricsId == null) {
+                stash.sourceLyricsId = stash.zipLyricsId;
+            }
+        }
+        result = tryText(stash);
+        if (result != null) {
+            return FetchResult.of(result, stash.sourceTitle, stash.sourceArtist, stash.sourceDurationSec, track);
+        }
+        return null;
+    }
+
+    private void collectTier(TrackInfo track, int lyricsType, Stash stash) {
+        if (lyricsType == TIER_UNSYNCED) {
+            if (stash.plainRequested) {
+                return;
+            }
+            stash.plainRequested = true;
+        }
+        try {
+            Response response = request(track, lyricsType);
+            collect(response, track, stash);
+        } catch (Exception ex) {
+            Logger.printDebug(
+                    () -> "PetitLyrics request failed for type " + lyricsType, ex);
+        }
+    }
+
+    private void collect(@Nullable Response response, TrackInfo track, Stash stash) {
+        if (response == null || response.songs.isEmpty()) {
+            return;
+        }
+        List<Song> sorted = new ArrayList<>(response.songs);
+        sorted.sort((a, b) -> Integer.compare(scoreOf(b, track), scoreOf(a, track)));
+        List<Song> gated = new ArrayList<>();
+        for (Song song : sorted) {
+            if (scoreOf(song, track) >= LyricsRequests.SOFT_MIN) {
+                gated.add(song);
+            }
+        }
+        if (gated.isEmpty() && !sorted.isEmpty()) {
+            gated.add(sorted.get(0));
+        }
+        sorted = gated;
+
+        if (stash.creditLines == null || stash.songwriters == null) {
+            for (Song song : sorted) {
+                if (stash.creditLines == null) {
+                    List<String> credits = creditsOf(song);
+                    if (!credits.isEmpty()) {
+                        stash.creditLines = credits;
+                        if (stash.sourceLyricsId == null) {
+                            stash.sourceLyricsId = song.lyricsId;
+                        }
+                    }
+                }
+                if (stash.songwriters == null) {
+                    stash.songwriters = songwritersOf(song);
+                }
+                if (stash.creditLines != null && stash.songwriters != null) {
+                    break;
+                }
+            }
+        }
+
+        if (stash.lsyLyricsId != null && stash.zipText == null) {
+            Song idMatch = null;
+            for (Song song : sorted) {
+                if (song.lyricsData == null || song.lyricsData.isEmpty()) {
+                    continue;
+                }
+                if (stash.lsyLyricsId.equals(song.lyricsId)) {
+                    idMatch = song;
+                    break;
+                }
+            }
+            if (idMatch == null && response.songs.size() == 1) {
+                idMatch = response.songs.get(0);
+            }
+            if (idMatch != null && idMatch.lyricsData != null
+                    && !idMatch.lyricsData.isEmpty()) {
+                try {
+                    byte[] payload = Base64.decode(idMatch.lyricsData, Base64.DEFAULT);
+                    if (payload != null && payload.length > 0
+                            && classifyPayload(payload) == TIER_UNSYNCED) {
+                        String text = toUtf8Raw(payload);
+                        if (!text.trim().isEmpty()) {
+                            stash.zipText = text;
+                            stash.zipLyricsId = idMatch.lyricsId;
+                            stash.sourceTitle = idMatch.title;
+                            stash.sourceArtist = idMatch.artist;
+                            stash.sourceDurationSec = idMatch.durationMs / 1000;
+                            if (stash.sourceLyricsId == null) {
+                                stash.sourceLyricsId = idMatch.lyricsId;
+                            }
+                        }
+                    }
+                } catch (Exception ex) {
+                    Logger.printDebug(() -> "PetitLyrics zip text decode failed", ex);
+                }
+            }
+        }
+
+        for (Song song : sorted) {
+            if (song.lyricsData == null || song.lyricsData.isEmpty()) {
+                continue;
+            }
+            byte[] payload;
+            try {
+                payload = Base64.decode(song.lyricsData, Base64.DEFAULT);
+            } catch (Exception ex) {
+                Logger.printDebug(() -> "PetitLyrics base64 decode failed", ex);
+                continue;
+            }
+            if (payload == null || payload.length == 0) {
+                continue;
+            }
+            int tier = classifyPayload(payload);
+            switch (tier) {
+                case TIER_WORD_SYNC -> {
+                    if (stash.wordLines == null) {
+                        List<LyricsLine> lines = parseWsy(payload);
+                        if (!lines.isEmpty()) {
+                            stash.wordLines = lines;
+                            stash.wsyRaw = toUtf8(payload);
+                            stash.sourceLyricsId = song.lyricsId;
+                            stash.sourceTitle = song.title;
+                            stash.sourceArtist = song.artist;
+                            stash.sourceDurationSec = song.durationMs / 1000;
+                        }
+                    }
+                }
+                case TIER_LINE_SYNC -> {
+                    if (stash.lsyTimings == null) {
+                        List<Long> timings = decodeLsyTimings(payload);
+                        if (!timings.isEmpty()) {
+                            stash.lsyTimings = timings;
+                            stash.lsyLyricsId = song.lyricsId;
+                            stash.sourceLyricsId = song.lyricsId;
+                            stash.sourceTitle = song.title;
+                            stash.sourceArtist = song.artist;
+                            stash.sourceDurationSec = song.durationMs / 1000;
+                        }
+                    }
+                }
+                default -> {
+                    if (stash.plainText == null) {
+                        String text = toUtf8Raw(payload);
+                        if (!text.trim().isEmpty()) {
+                            stash.plainText = text;
+                            stash.sourceLyricsId = song.lyricsId;
+                            stash.sourceTitle = song.title;
+                            stash.sourceArtist = song.artist;
+                            stash.sourceDurationSec = song.durationMs / 1000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Nullable
+    private Lyrics tryWordSync(Stash stash) {
+        if (stash.wordLines == null || stash.wordLines.isEmpty()) {
+            return null;
+        }
+        String wsyRaw = stash.wsyRaw != null && !stash.wsyRaw.isEmpty()
+                ? stash.wsyRaw
+                : null;
+        return new Lyrics(stash.wordLines, name(), true, null, null, null,
+                stash.songwriters, stash.creditLines,
+                wsyRaw, wsyRaw != null ? "wsy" : null, sourceUrl(stash.sourceLyricsId), null, null);
+    }
+
+    @Nullable
+    private Lyrics tryLineSync(TrackInfo track, Stash stash) {
+        if (stash.lsyTimings == null || stash.lsyTimings.isEmpty()) {
+            return null;
+        }
+        if (stash.zipText == null) {
+            collectTier(track, TIER_UNSYNCED, stash);
+            if (stash.zipText == null) {
+                return null;
+            }
+        }
+        List<LyricsLine> lines = zipLineSync(stash.lsyTimings, stash.zipText);
+        if (lines.isEmpty()) {
+            return null;
+        }
+        String lrc = buildLrc(lines);
+        return new Lyrics(lines, name(), true, null, null, null, stash.songwriters, stash.creditLines,
+                lrc, "lrc", sourceUrl(stash.sourceLyricsId), null, null);
+    }
+
+    @Nullable
+    private Lyrics tryText(Stash stash) {
+        if (stash.plainText == null || stash.plainText.isEmpty()) {
+            return null;
+        }
+        String text = stash.plainText;
+        LrcParser.LrcParseResult lrc = LrcParser.parseSyncedWithCreditLines(text);
+        if (!lrc.lines.isEmpty()) {
+            List<String> credits = mergeCredits(stash.creditLines, lrc.creditLines);
+            assert credits != null;
+            return new Lyrics(lrc.lines, name(), true, null, null, null,
+                    stash.songwriters, credits.isEmpty() ? null : credits,
+                    text, "lrc", sourceUrl(stash.sourceLyricsId), null, null);
+        }
+        List<LyricsLine> plain = LrcParser.parsePlain(text);
+        if (plain.isEmpty()) {
+            return null;
+        }
+        return new Lyrics(plain, name(), false, null, null, null, stash.songwriters, stash.creditLines,
+                text, "txt", sourceUrl(stash.sourceLyricsId), null, null);
+    }
+
+    @Nullable
+    private Response request(TrackInfo track, int lyricsType) throws Exception {
+        LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
+
+        String form = "clientAppId=" + LyricsRequests.encode(CLIENT_APP_ID) +
+                "&terminalType=" + LyricsRequests.encode(TERMINAL_TYPE) +
+                "&lyricsType=" + lyricsType +
+                "&key_title=" + LyricsRequests.encode(track.title()) +
+                "&key_artist=" + LyricsRequests.encode(track.artist()) +
+                "&key_album=" + LyricsRequests.encode(track.album());
+
+        var connection = LyricsRequests.postForm(API_URL, form);
+        int httpCode = connection.getResponseCode();
+        if (httpCode != Requester.HTTP_STATUS_CODE_SUCCESS) {
+            LyricsRequests.logFailure(name(), connection);
+            return null;
+        }
+
+        String xml;
+        try {
+            xml = LyricsRequests.parseGzipString(connection);
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "PetitLyrics response read failed", ex);
+            connection.disconnect();
+            return null;
+        }
+        return parseResponse(xml);
+    }
+
+    private record RawToken(String text, long startMs, long endMs) {
+    }
+
+    private record RawWsyLine(String text, List<Word> words) {
     }
 
     private static final class Stash {
@@ -745,12 +1013,19 @@ public final class PetitLyricsProvider implements LyricsProvider {
         @Nullable
         List<String> creditLines;
         @Nullable
+        List<String> songwriters;
+        @Nullable
         String sourceLyricsId;
+        @Nullable
+        String sourceTitle;
+        @Nullable
+        String sourceArtist;
+        long sourceDurationSec;
     }
 
     private static final class Response {
-        String status;
         final List<Song> songs = new ArrayList<>();
+        String status;
     }
 
     private static final class Song {
@@ -761,7 +1036,6 @@ public final class PetitLyricsProvider implements LyricsProvider {
         String writer;
         String composer;
         long durationMs;
-        int lyricsType;
         String lyricsData;
     }
 }

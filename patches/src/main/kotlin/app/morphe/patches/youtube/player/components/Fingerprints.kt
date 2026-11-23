@@ -18,6 +18,7 @@ import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.resourceid.componentLongClickListener
 import app.morphe.patches.youtube.utils.resourceid.darkBackground
@@ -36,7 +37,6 @@ import app.morphe.patches.youtube.utils.resourceid.verticalTouchOffsetToStartFin
 import app.morphe.patches.youtube.utils.resourceid.videoZoomSnapIndicator
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

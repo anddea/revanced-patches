@@ -47,6 +47,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.ACCOUNT_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACCOUNT_COMPONENTS
@@ -61,7 +62,6 @@ import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode

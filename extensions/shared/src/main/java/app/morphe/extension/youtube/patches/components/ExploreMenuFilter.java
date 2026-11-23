@@ -12,15 +12,20 @@ import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.ClassicSubscriptionsLayoutPatch;
+import app.morphe.extension.youtube.shared.RootView;
 
 @SuppressWarnings("unused")
 public final class ExploreMenuFilter extends Filter {
 
     private final StringFilterGroup divider;
     private final StringFilterGroup exploreMenu;
+    private final StringFilterGroup moreTabItem;
     private final ByteArrayFilterGroupList exploreMenuGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup incognitoExploreButton;
     private final ByteArrayFilterGroup incognitoExploreButtonBuffer;
+    private final StringFilterGroup searchBarMicrophoneButton;
+    private final ByteArrayFilterGroup searchBarMicrophoneButtonBuffer;
 
     public ExploreMenuFilter() {
         divider = new StringFilterGroup(
@@ -52,7 +57,9 @@ public final class ExploreMenuFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_HYPE_MENU,
                         "yt_outline_star_shooting",
-                        "yt_outline_experimental_hype"
+                        "yt_outline_experimental_hype",
+                        // "Charts" of the "More" tab of Home, which has no icon name.
+                        "FEhype_leaderboard"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_LEARNING_MENU,
@@ -118,7 +125,9 @@ public final class ExploreMenuFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_YOUTUBE_PREMIUM_MENU,
-                        "product_logo_youtube"
+                        // Not the logos of the other apps, such as product_logo_youtube_studio_color_24.
+                        "product_logo_youtube_2024",
+                        "product_logo_youtube_color"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_YOUTUBE_STUDIO_MENU,
@@ -131,15 +140,36 @@ public final class ExploreMenuFilter extends Filter {
                 )
         );
 
+        // The A/B layout with tabs at the top of Home has the items of the explore menu in its "More" tab.
+        // Each item is an element of its own, with the icon and the destination of the item.
+        moreTabItem = new StringFilterGroup(
+                null,
+                "list_item.e"
+        );
+
         incognitoExploreButton = new StringFilterGroup(
                 Settings.HIDE_EXPLORE_BUTTON,
                 "|CellType|ContainerType|ContainerType|ContainerType|"
         );
 
+        // Match the drawer action in incognito mode, where compass icon names can differ.
         incognitoExploreButtonBuffer = new ByteArrayFilterGroup(
                 null,
-                "yt_outline_compass",
-                "yt_outline_experimental_compass"
+                "more_drawer"
+        );
+
+        // Search bar at the top of the Home feed in incognito mode and for some accounts.
+        searchBarMicrophoneButton = new StringFilterGroup(
+                Settings.HIDE_VOICE_SEARCH_BUTTON,
+                "|CellType|ContainerType|ContainerType|ContainerType|"
+        );
+
+        // The voice search button runs a search endpoint (field 48687709) with field 11 set.
+        // The search box runs the same endpoint without it. The label is localized and the icon
+        // is not always a name in the buffer, so the button is found by its command.
+        searchBarMicrophoneButtonBuffer = new ByteArrayFilterGroup(
+                null,
+                new byte[]{(byte) 0xEA, (byte) 0xA5, (byte) 0xDD, (byte) 0xB9, 0x01, 0x02, 0x58, 0x01}
         );
 
         final var moreDrawerButton = new StringFilterGroup(
@@ -156,8 +186,10 @@ public final class ExploreMenuFilter extends Filter {
         addPathCallbacks(
                 divider,
                 exploreMenu,
+                moreTabItem,
                 legalDisclosureAndPrivacyToS,
                 incognitoExploreButton,
+                searchBarMicrophoneButton,
                 moreDrawerButton
         );
     }
@@ -174,8 +206,18 @@ public final class ExploreMenuFilter extends Filter {
             return path.startsWith("more_drawer.e") && exploreMenuGroupList.check(buffer).isFiltered();
         }
 
+        if (matchedGroup == moreTabItem) {
+            return path.startsWith("list_item.e")
+                    && ClassicSubscriptionsLayoutPatch.HOME_BROWSE_ID.equals(RootView.getBrowseId())
+                    && exploreMenuGroupList.check(buffer).isFiltered();
+        }
+
         if (matchedGroup == incognitoExploreButton) {
             return path.startsWith("search_bar_entry_point.e") && incognitoExploreButtonBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == searchBarMicrophoneButton) {
+            return path.startsWith("search_bar_entry_point.e") && searchBarMicrophoneButtonBuffer.check(buffer).isFiltered();
         }
 
         return true;

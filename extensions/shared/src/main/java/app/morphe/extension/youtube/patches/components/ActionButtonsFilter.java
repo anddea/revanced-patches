@@ -39,15 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- */
-
 package app.morphe.extension.youtube.patches.components;
 
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
@@ -59,9 +50,10 @@ import com.google.protobuf.MessageLite;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.lang.ref.WeakReference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -81,6 +73,16 @@ import app.morphe.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public final class ActionButtonsFilter extends Filter {
+    /**
+     * The last watch next responses that were read, compared by identity. The app parses a response it
+     * keeps again, after 'Hide related videos' and the 'Classic Two-Rows' action bar changed it in place.
+     * The serialized size of the response saved by the first read is then wrong, so it cannot be serialized.
+     * Synchronized on itself.
+     */
+    private static final WeakReference<?>[] readWatchNextResponses = new WeakReference<?>[8];
+    private static int readWatchNextResponseIndex;
+
+
     public enum ActionButton {
         UNKNOWN(false),
         ASK(
@@ -92,6 +94,7 @@ public final class ActionButtonsFilter extends Filter {
         CLIP(Settings.HIDE_CLIP_BUTTON.get()),
         COMMENTS(
                 Settings.HIDE_COMMENTS_BUTTON.get(),
+                269,
                 "yt_outline_experimental_text_bubble",
                 "yt_outline_message_bubble",
                 "yt_outline_message_bubble_right"
@@ -130,16 +133,19 @@ public final class ActionButtonsFilter extends Filter {
         ),
         SHARE(
                 Settings.HIDE_SHARE_BUTTON.get(),
+                251,
                 "yt_outline_experimental_share",
                 "yt_outline_share"
         ),
         SHOP(
                 Settings.HIDE_SHOP_BUTTON.get(),
+                109,
                 "yt_outline_experimental_bag",
                 "yt_outline_bag"
         ),
         STOP_ADS(
                 Settings.HIDE_STOP_ADS_BUTTON.get(),
+                137,
                 "yt_outline_experimental_circle_slash",
                 "yt_outline_slash_circle_left"
         ),
@@ -150,16 +156,25 @@ public final class ActionButtonsFilter extends Filter {
         );
 
         public final boolean shouldHide;
+        /**
+         * The number of the icon, which the server sends instead of the icon name to some app versions,
+         * or 0 if not known.
+         */
+        public final int iconNumber;
         @NonNull
         public final List<String> iconNames;
 
         ActionButton(boolean shouldHide) {
-            this.shouldHide = shouldHide;
-            this.iconNames = Collections.emptyList();
+            this(shouldHide, 0);
         }
 
         ActionButton(boolean shouldHide, @NonNull String... iconNames) {
+            this(shouldHide, 0, iconNames);
+        }
+
+        ActionButton(boolean shouldHide, int iconNumber, @NonNull String... iconNames) {
             this.shouldHide = shouldHide;
+            this.iconNumber = iconNumber;
             this.iconNames = Arrays.asList(iconNames);
         }
     }
@@ -254,7 +269,17 @@ public final class ActionButtonsFilter extends Filter {
         return StringUtils.startsWithAny(identifier, COMPACTIFY_VIDEO_ACTION_BAR_PREFIX, VIDEO_ACTION_BAR_PREFIX);
     }
 
-    private static ActionButton getActionButton(@NonNull String iconName) {
+    private static ActionButton getActionButton(@NonNull String iconName, int iconNumber) {
+        // Buttons without an icon name have the number of their icon. The number is checked first,
+        // as the classic layout gives a button without an icon name the icon of another button,
+        // such as the flag of the Report button to the Stop ads button.
+        if (iconNumber != 0) {
+            for (ActionButton button : ActionButton.values()) {
+                if (iconNumber == button.iconNumber) {
+                    return button;
+                }
+            }
+        }
         for (ActionButton button : ActionButton.values()) {
             for (String icon : button.iconNames) {
                 if (iconName.contains(icon)) {
@@ -371,9 +396,28 @@ public final class ActionButtonsFilter extends Filter {
             return;
         }
 
+        synchronized (readWatchNextResponses) {
+            for (WeakReference<?> reference : readWatchNextResponses) {
+                if (reference != null && reference.get() == messageLite) {
+                    return;
+                }
+            }
+            readWatchNextResponses[readWatchNextResponseIndex] = new WeakReference<>(messageLite);
+            readWatchNextResponseIndex = (readWatchNextResponseIndex + 1) % readWatchNextResponses.length;
+        }
+
+        byte[] bytes;
+        try {
+            bytes = messageLite.toByteArray();
+        } catch (RuntimeException ex) {
+            // A response read before, which is no longer in the array of read responses.
+            Logger.printDebug(() -> "Watch next response was changed in place and cannot be serialized", ex);
+            return;
+        }
+
         synchronized (actionButtonLookup) {
             try {
-                var singleColumnWatchNextResults = SingleColumnWatchNextResults.parseFrom(messageLite.toByteArray());
+                var singleColumnWatchNextResults = SingleColumnWatchNextResults.parseFrom(bytes);
                 var primaryResults = singleColumnWatchNextResults.getPrimaryResults();
                 var secondaryResults = primaryResults.getSecondaryResults();
 
@@ -432,9 +476,12 @@ public final class ActionButtonsFilter extends Filter {
                     var primaryButtonViewModel = buttons.getPrimaryButtonViewModel();
 
                     if (primaryButtonViewModel.hasSecondaryButtonViewModel()) {
-                        String iconName = primaryButtonViewModel.getSecondaryButtonViewModel().getIconName();
+                        var buttonViewModel = primaryButtonViewModel.getSecondaryButtonViewModel();
+                        String iconName = buttonViewModel.getIconName();
+                        final int iconNumber = buttonViewModel.getImage().getSourcesCount() == 0 ? 0
+                                : buttonViewModel.getImage().getSources(0).getType().getIcon().getNumber().getValue();
                         if (iconName != null) {
-                            actionButton = getActionButton(iconName);
+                            actionButton = getActionButton(iconName, iconNumber);
                             if (actionButton == ActionButton.UNKNOWN) {
                                 Logger.printDebug(() -> "Unknown iconName: " + iconName + ", videoId: " + videoId);
                             }

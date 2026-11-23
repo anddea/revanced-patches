@@ -9,6 +9,7 @@
  * - inotia00 (https://github.com/inotia00)
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-21.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -45,6 +46,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.chipCloud
 import app.morphe.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.morphe.patches.music.utils.resourceid.playerOverlayChip
@@ -54,7 +56,6 @@ import app.morphe.patches.music.utils.resourceid.topBarMenuItemImageView
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -118,6 +119,23 @@ internal object HistoryMenuItemOfflineTabFingerprint : Fingerprint(
     filters = listOf(
         resourceLiteral(ResourceType.ID, "offline_settings_menu_item"),
         resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
+    )
+)
+
+// 9.40: the offline-tab menu method (gmn.b) looks up three menu items and calls setVisible
+// on each non-null item (offline settings, offline fallback, history), so the history
+// setVisible is the third call before return-void.
+internal object HistoryMenuItemOfflineTabV940Fingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Landroid/view/Menu;"),
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "offline_settings_menu_item"),
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
         methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
         opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
     )
@@ -214,6 +232,18 @@ internal val tasteBuilderSyntheticFingerprint = legacyFingerprint(
     name = "tasteBuilderSyntheticFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
+    parameters = listOf("L", "Ljava/lang/Object;"),
+    opcodes = listOf(
+        Opcode.IF_NEZ,
+        Opcode.IGET_OBJECT
+    )
+)
+
+// 9.40: the taste builder bind method (jdo.d) is now "public final bridge synthetic" instead of "public final synthetic".
+internal val tasteBuilderSyntheticV940Fingerprint = legacyFingerprint(
+    name = "tasteBuilderSyntheticV940Fingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.BRIDGE or AccessFlags.SYNTHETIC,
     parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.IF_NEZ,

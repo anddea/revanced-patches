@@ -132,7 +132,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             AbstractPreferenceFragment.settingImportInProgress = true;
             final boolean rebootNeeded = Setting.importFromJSON(context, replacementSettings);
             if (rebootNeeded) {
-                AbstractPreferenceFragment.showRestartDialog(context);
+                AbstractPreferenceFragment.setRestartNeeded();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "importSettings failure", ex);

@@ -4,6 +4,8 @@
  * https://github.com/MorpheApp/morphe-patches
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ *
+ * Modified by lavinhoque33, 2026-10-21.
  */
 
 package app.morphe.patches.youtube.player.seekbar
@@ -16,6 +18,10 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.numberOfParameterRegisters
+import app.morphe.patcher.util.numberOfParameterRegistersLogical
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
@@ -59,24 +65,24 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.findFreeRegister
+import app.morphe.util.findMutableMethodOf
 import app.morphe.util.findMethodsOrThrow
+import app.morphe.util.findMutableMethodOf // 21.39 large seekbar reader hook
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
-import app.morphe.util.numberOfParameterRegisters
-import app.morphe.util.numberOfParameterRegistersLogical
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -156,6 +162,32 @@ val seekbarComponentsPatch = bytecodePatch(
                     )
                 }
             }
+
+            // A tap opens the scrub when the finger touches the time bar, and the scrub is closed
+            // when the finger is lifted. The time bar ignores the touch events while it is disabled,
+            // such as while the video length is unknown, so a tap left the scrub open. Then the
+            // player kept acting as if the time bar was still scrubbed, for example the "More videos"
+            // button in fullscreen did nothing until the device was rotated.
+            // The scrub is completed the same way the time bar does when the player controls are hidden.
+            TimeBarCompleteHiddenScrubFingerprint.match().let {
+                val isScrubbingMethod = it.instructionMatches.first().methodReference
+                val completeScrubMethod = it.instructionMatches[3].methodReference
+
+                it.method.addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static { p0, p1 }, $PLAYER_CLASS_DESCRIPTOR->shouldCompleteScrub(Landroid/view/View;Landroid/view/MotionEvent;)Z
+                        move-result v0
+                        if-eqz v0, :ignore
+                        invoke-virtual { p0 }, $isScrubbingMethod
+                        move-result v0
+                        if-eqz v0, :ignore
+                        invoke-virtual { p0 }, $completeScrubMethod
+                        :ignore
+                        nop
+                    """
+                )
+            }
         } else {
             SeekbarTappingFingerprint.method.apply {
                 val pointIndex = indexOfPointInstruction(this)
@@ -228,6 +260,49 @@ val seekbarComponentsPatch = bytecodePatch(
         // endregion
 
         // region patch for append time stamps information
+
+        // The native timestamp listener is assigned by callers of the time counter.
+        // Wrap their listeners, only the timestamp container enables the menu behavior.
+        val timeCounterClass = totalTimeFingerprint.methodOrThrow().definingClass
+        var timestampListenerCount = 0
+        classDefForEach { classDef ->
+            classDef.methods.forEach { method ->
+                val instructions = method.implementation?.instructions?.toList()
+                    ?: return@forEach
+
+                if (instructions.none { instruction ->
+                        instruction.getReference<FieldReference>()?.definingClass == timeCounterClass
+                    }) return@forEach
+
+                val listenerIndices = instructions.withIndex().filter { (_, instruction) ->
+                    instruction.getReference<MethodReference>()?.let {
+                        it.name == "setOnClickListener" &&
+                            it.parameterTypes == listOf($$"Landroid/view/View$OnClickListener;")
+                    } == true
+                }
+
+                if (listenerIndices.isEmpty()) return@forEach
+                val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
+
+                listenerIndices.forEach { (index, instruction) ->
+                    timestampListenerCount++
+                    val call = $$"$$PLAYER_CLASS_DESCRIPTOR->setTimestampClickListener(Landroid/view/View;Landroid/view/View$OnClickListener;)V"
+
+                    val replacement = if (instruction is RegisterRangeInstruction) {
+                        "invoke-static/range {v${instruction.startRegister} .. v${instruction.startRegister + 1}}, $call"
+                    } else {
+                        val registers = instruction as FiveRegisterInstruction
+                        "invoke-static {v${registers.registerC}, v${registers.registerD}}, $call"
+                    }
+
+                    mutableMethod.replaceInstruction(index, replacement)
+                }
+            }
+        }
+
+        if (timestampListenerCount == 0) {
+            throw PatchException("Timestamp click listener not found")
+        }
 
         totalTimeFingerprint.methodOrThrow().apply {
             val charSequenceIndex = indexOfFirstInstructionOrThrow {
@@ -596,7 +671,68 @@ val seekbarComponentsPatch = bytecodePatch(
         // region patch for fullscreen large seekbar
 
         if (is_20_28_or_greater) {
-            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+            // 21.39: the feature flag (45691569) no longer exists in the app (the behavior was
+            // removed/hardcoded), so there is nothing to hook. Skip instead of failing the patch.
+            val largeSeekbarMatches = runCatching {
+                FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll()
+            }.getOrNull().orEmpty()
+
+            if (largeSeekbarMatches.isEmpty()) {
+                // 21.39: flag removed; the large style is a boolean field on the seekbar state class
+                // (Larco;->B), written by FullscreenLargeSeekbarStateWriterFingerprint. It is true only in
+                // fullscreen, so every reader keeps it only when the setting is on.
+                val stateWriter = runCatching {
+                    FullscreenLargeSeekbarStateWriterFingerprint.matchAll()
+                }.getOrNull().orEmpty().singleOrNull()
+
+                if (stateWriter == null) {
+                    printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
+                } else {
+                    val stateFieldReference = stateWriter.method.getInstruction<ReferenceInstruction>(
+                        stateWriter.instructionMatches[9].index
+                    ).reference.toString()
+
+                    val readers = mutableListOf<Pair<com.android.tools.smali.dexlib2.iface.ClassDef, com.android.tools.smali.dexlib2.iface.Method>>()
+                    classDefForEach { classDef ->
+                        classDef.methods.forEach { method ->
+                            if (method.implementation?.instructions?.any {
+                                    it.opcode == Opcode.IGET_BOOLEAN &&
+                                            it.getReference<FieldReference>()?.toString() == stateFieldReference
+                                } == true
+                            ) {
+                                readers += classDef to method
+                            }
+                        }
+                    }
+
+                    if (readers.isEmpty()) {
+                        printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
+                    }
+
+                    readers.forEach { (classDef, method) ->
+                        mutableClassDefBy(classDef).findMutableMethodOf(method).apply {
+                            val readerIndices = implementation!!.instructions.withIndex().filter { (_, instruction) ->
+                                instruction.opcode == Opcode.IGET_BOOLEAN &&
+                                        instruction.getReference<FieldReference>()?.toString() == stateFieldReference
+                            }.map { it.index }
+
+                            // Reverse order so earlier indices stay valid.
+                            readerIndices.asReversed().forEach { index ->
+                                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+                                addInstructions(
+                                    index + 1,
+                                    """
+                                        invoke-static/range { v$register .. v$register }, $PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbarState(Z)Z
+                                        move-result v$register
+                                    """
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            largeSeekbarMatches.forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"
@@ -696,6 +832,22 @@ val seekbarComponentsPatch = bytecodePatch(
                     "setFineScrubbingPreviewBitmap(Landroid/graphics/Bitmap;)V"
         )
 
+        // The app cuts storyboard frames with the frame size of the storyboard spec,
+        // which can be smaller than the frames of the storyboard image.
+        StoryboardFrameRegionFingerprint.let {
+            it.method.apply {
+                val rectIndex = it.instructionMatches[1].index
+                val rectRegister = it.instructionMatches[1].getInstruction<OneRegisterInstruction>().registerA
+                val decoderRegister = it.instructionMatches[2].getInstruction<FiveRegisterInstruction>().registerC
+
+                addInstruction(
+                    rectIndex + 1,
+                    "invoke-static { v$rectRegister, v$decoderRegister }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                            "fixStoryboardFrameRect(Landroid/graphics/Rect;Landroid/graphics/BitmapRegionDecoder;)V"
+                )
+            }
+        }
+
         seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
@@ -719,6 +871,30 @@ val seekbarComponentsPatch = bytecodePatch(
             """
         )
 
+        // The full screen seek preview fits in the player, also when the video is zoomed to fill the screen.
+        // Scale it to the video when it is shown.
+        SeekbarBigBoardsScrubFingerprint.let {
+            val previewField = it.classDef.fields.single { field ->
+                field.type == "Landroid/widget/ImageView;"
+            }
+            val seekMethod = it.instructionMatches.first().getInstruction<ReferenceInstruction>().reference
+
+            it.method.apply {
+                val index = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>() == seekMethod
+                }
+                val register = findFreeRegister(index)
+
+                addInstructions(
+                    index,
+                    """
+                        iget-object v$register, p0, $previewField
+                        invoke-static { v$register }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->setBigBoardScale(Landroid/widget/ImageView;)V
+                    """
+                )
+            }
+        }
+
         if (is_21_21_or_greater) {
             ShortsDisableSeekbarThumbnailsFeatureFlagFingerprint.matchAll().forEach {
                 it.method.insertLiteralOverride(
@@ -729,6 +905,28 @@ val seekbarComponentsPatch = bytecodePatch(
         }
 
         // endregion
+
+        // Replace the circle after the other seekbar hooks so they draw below the custom thumb.
+        CustomSeekbarThumbOnDrawFingerprint.clearMatch()
+        CustomSeekbarThumbOnDrawFingerprint.let {
+            it.method.apply {
+                val drawCircleIndex = it.instructionMatches.last().index
+                val drawCircle = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
+                replaceInstruction(
+                    drawCircleIndex,
+                    "invoke-static { v${drawCircle.registerC}, v${drawCircle.registerD}, " +
+                            "v${drawCircle.registerE}, v${drawCircle.registerF}, v${drawCircle.registerG} }, " +
+                            "Lapp/morphe/extension/youtube/patches/CustomSeekbarThumbPatch;->" +
+                            "drawCircle(Landroid/graphics/Canvas;FFFLandroid/graphics/Paint;)V"
+                )
+                addInstruction(
+                    0,
+                    "invoke-static/range { p0 .. p0 }, " +
+                            "Lapp/morphe/extension/youtube/patches/CustomSeekbarThumbPatch;->" +
+                            "setSeekbarView(Landroid/view/View;)V"
+                )
+            }
+        }
 
         // region add settings
 

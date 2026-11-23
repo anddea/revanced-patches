@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/3412
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.extension.youtube.swipecontrols.views
 
 import android.annotation.SuppressLint
@@ -22,6 +30,7 @@ import app.morphe.extension.shared.utils.ResourceUtils.getIdentifier
 import app.morphe.extension.shared.utils.StringRef.str
 import app.morphe.extension.shared.utils.Utils.dipToPixels
 import app.morphe.extension.shared.utils.Utils.getTimeStamp
+import app.morphe.extension.youtube.patches.SoundBoostPatch
 import app.morphe.extension.youtube.shared.VideoInformation
 import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.morphe.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
@@ -29,6 +38,9 @@ import java.util.Locale
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.round
+
+private const val VOLUME_BOOST_PERCENT_PER_STEP = 25
+private const val VOLUME_BOOST_PROGRESS_COLOR = 0xBFFF7043.toInt()
 
 /**
  * Convert dp to pixels based on system display density.
@@ -259,7 +271,7 @@ class SwipeControlsOverlayLayout(
     /**
      * Displays the progress bar with the appropriate value, icon, and type (brightness, volume, speed, or seek).
      */
-    private fun showFeedbackView(value: String, progress: Int, max: Int, icon: Drawable, type: FeedbackType) {
+    private fun showFeedbackView(value: String, progress: Int, max: Int, icon: Drawable, type: FeedbackType, isBoosted: Boolean = false) {
         feedbackHideHandler.removeCallbacks(feedbackHideCallback)
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
 
@@ -274,16 +286,14 @@ class SwipeControlsOverlayLayout(
         }
         viewToShow.apply {
             // Set the appropriate progress color
-            if (this is CircularProgressView || this is HorizontalProgressView) {
-                setProgressColor(
-                    when (type) {
-                        FeedbackType.BRIGHTNESS -> config.overlayBrightnessProgressColor
-                        FeedbackType.VOLUME -> config.overlayVolumeProgressColor
-                        FeedbackType.SPEED -> config.overlaySpeedProgressColor
-                        FeedbackType.SEEK -> config.overlaySeekProgressColor
-                    }
-                )
-            }
+            setProgressColor(
+                when (type) {
+                    FeedbackType.BRIGHTNESS -> config.overlayBrightnessProgressColor
+                    FeedbackType.VOLUME -> if (isBoosted) VOLUME_BOOST_PROGRESS_COLOR else config.overlayVolumeProgressColor
+                    FeedbackType.SPEED -> config.overlaySpeedProgressColor
+                    FeedbackType.SEEK -> config.overlaySeekProgressColor
+                }
+            )
             setProgress(progress, max, value, isBrightness, isSeek)
             this.icon = icon
             visibility = VISIBLE
@@ -291,21 +301,30 @@ class SwipeControlsOverlayLayout(
     }
 
     // Handle volume change.
-    override fun onVolumeChanged(newVolume: Int, maximumVolume: Int) {
+    override fun onVolumeChanged(newVolume: Int, maximumVolume: Int, boostStep: Int) {
+        val isBoosted = boostStep > 0
+        val volumePercentage = (newVolume.toFloat() / maximumVolume) * 100
+        // Levels above 100% only exist when volume boost is allowed, so it is the only case
+        // where the level is shown as a percentage, and it fills the bar.
+        val text = when {
+            isBoosted -> "${100 + boostStep * VOLUME_BOOST_PERCENT_PER_STEP}%"
+            SoundBoostPatch.isBoostAllowed() -> "${round(volumePercentage).toInt()}%"
+            else -> "$newVolume"
+        }
+
         if (isLegacyStyles) {
             showLegacyFeedbackView(
-                "$newVolume",
+                text,
                 if (newVolume > 0) normalVolumeIcon else mutedVolumeIcon,
             )
         } else {
-            val volumePercentage = (newVolume.toFloat() / maximumVolume) * 100
             val icon = when {
                 newVolume == 0 -> mutedVolumeIcon
                 volumePercentage < 25 -> lowVolumeIcon
                 volumePercentage < 50 -> normalVolumeIcon
                 else -> fullVolumeIcon
             }
-            showFeedbackView("$newVolume", newVolume, maximumVolume, icon, FeedbackType.VOLUME)
+            showFeedbackView(text, newVolume, maximumVolume, icon, FeedbackType.VOLUME, isBoosted)
         }
     }
 

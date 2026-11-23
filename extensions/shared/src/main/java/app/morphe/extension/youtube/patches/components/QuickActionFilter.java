@@ -78,7 +78,9 @@ public final class QuickActionFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ASK_BUTTON,
                         "yt_fill_experimental_spark",
-                        "yt_fill_spark"
+                        "yt_fill_spark",
+                        // Some fullscreen Ask buttons have no icon name.
+                        "PAyouchat"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_QUICK_ACTIONS_COMMENT_BUTTON,

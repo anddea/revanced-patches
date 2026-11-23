@@ -1,4 +1,20 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2524
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.requests;
+
+import android.content.Context;
+import androidx.annotation.NonNull;
+import java.util.Locale;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,8 +33,32 @@ import app.morphe.extension.shared.utils.PackageUtils;
 @SuppressWarnings("unused")
 public class Requester {
     public static final int HTTP_STATUS_CODE_SUCCESS = 200;
+    public static final int HTTP_STATUS_CODE_BAD_REQUEST = 400;
+    public static final int HTTP_STATUS_CODE_FORBIDDEN = 403;
+    public static final int HTTP_STATUS_CODE_NOT_FOUND = 404;
+    public static final int HTTP_STATUS_CODE_CONFLICT = 409;
+    public static final int HTTP_STATUS_CODE_TOO_MANY_REQUESTS = 429;
 
     private Requester() {
+    }
+
+    /**
+     * @return The locale the app itself is configured with, which differs from the system one
+     *         when the user picks another language inside the app. Request bodies send the
+     *         language and the country of it as their hl and gl fields.
+     */
+    @NonNull
+    public static Locale getAppLocale() {
+        try {
+            Context context = Utils.getContext();
+            if (context != null) {
+                return context.getResources().getConfiguration().getLocales().get(0);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "getAppLocale failure", ex);
+        }
+
+        return Locale.getDefault();
     }
 
     public static HttpURLConnection openConnection(String url) throws IOException {

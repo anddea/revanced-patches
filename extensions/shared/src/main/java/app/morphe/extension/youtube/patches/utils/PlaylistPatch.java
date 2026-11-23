@@ -39,14 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.extension.youtube.patches.utils;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -177,7 +169,7 @@ public class PlaylistPatch {
                 String videoId = lastVideoIds.inverseBidiMap().get(setVideoId);
                 if (videoId != null) {
                     lastVideoIds.remove(videoId, setVideoId);
-                    EditPlaylistRequest.clearVideoId(videoId);
+
                     Logger.printDebug(() -> "Video removed by YouTube flyout menu: " + videoId);
                 }
             }
@@ -250,9 +242,8 @@ public class PlaylistPatch {
         Map<String, String> requestHeader = AuthUtils.getRequestHeader();
         try {
             Logger.printDebug(() -> "Creating temporary queue from " + videoIds.size() + " videos");
-            CreatePlaylistRequest.fetchRequestIfNeeded(videoIds, requestHeader);
+            CreatePlaylistRequest request = CreatePlaylistRequest.fetchRequestIfNeeded(videoIds, requestHeader);
             runOnMainThreadDelayed(() -> {
-                CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoIds(videoIds);
                 if (request != null) {
                     Pair<String, String> playlistIds = request.getPlaylistId();
                     if (playlistIds != null) {
@@ -264,7 +255,7 @@ public class PlaylistPatch {
                                 lastVideoIds.clear();
                                 lastVideoIds.put(firstVideoId, setVideoId);
                             }
-                            EditPlaylistRequest.clear();
+
                             showToast(fetchSucceededCreate);
                             openQueue();
                             return;
@@ -310,10 +301,9 @@ public class PlaylistPatch {
             synchronized (lastVideoIds) {
                 if (currentPlaylistId.isEmpty()) { // Queue is empty, create new playlist.
                     Logger.printDebug(() -> "fetchQueue: currentPlaylistId is empty, starting CreatePlaylistRequest");
-                    CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, AuthUtils.getRequestHeader());
+                    CreatePlaylistRequest request = CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, AuthUtils.getRequestHeader());
                     runOnMainThreadDelayed(() -> {
                         Logger.printDebug(() -> "fetchQueue delayed callback (create) running. currentVideoId=" + currentVideoId);
-                        CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoId(currentVideoId);
                         Logger.printDebug(() -> "fetchQueue delayed callback (create): request=" + request);
                         if (request != null) {
                             Pair<String, String> playlistIds = request.getPlaylistId();
@@ -343,11 +333,10 @@ public class PlaylistPatch {
                     String setVideoId = lastVideoIds.get(currentVideoId);
                     Logger.printDebug(() -> "fetchQueue: currentPlaylistId is not empty, setVideoId="
                             + setVideoId + ", starting EditPlaylistRequest");
-                    EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, AuthUtils.getRequestHeader());
+                    EditPlaylistRequest request = EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, AuthUtils.getRequestHeader());
 
                     runOnMainThreadDelayed(() -> {
                         Logger.printDebug(() -> "fetchQueue delayed callback (edit) running. currentVideoId=" + currentVideoId);
-                        EditPlaylistRequest request = EditPlaylistRequest.getRequestForVideoId(currentVideoId);
                         Logger.printDebug(() -> "fetchQueue delayed callback (edit): request=" + request);
                         if (request != null) {
                             String fetchedSetVideoId = request.getResult();
@@ -355,7 +344,7 @@ public class PlaylistPatch {
                             if (remove) { // Remove from queue.
                                 if ("".equals(fetchedSetVideoId)) {
                                     lastVideoIds.remove(currentVideoId, setVideoId);
-                                    EditPlaylistRequest.clearVideoId(currentVideoId);
+
                                     showToast(fetchSucceededRemove);
                                     if (openPlaylist) {
                                         openQueue(currentVideoId, openVideo, reload);
@@ -366,7 +355,7 @@ public class PlaylistPatch {
                             } else { // Add to queue.
                                 if (fetchedSetVideoId != null && !fetchedSetVideoId.isEmpty()) {
                                     lastVideoIds.putIfAbsent(currentVideoId, fetchedSetVideoId);
-                                    EditPlaylistRequest.clearVideoId(currentVideoId);
+
                                     showToast(fetchSucceededAdd);
                                     Logger.printInfo(() -> "Video successfully added, setVideoId: " + fetchedSetVideoId);
                                     if (openPlaylist) {
@@ -491,15 +480,14 @@ public class PlaylistPatch {
                 handleCheckError(checkFailedPlaylistId);
                 return;
             }
-            SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, AuthUtils.getRequestHeader());
+            SavePlaylistRequest request = SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, AuthUtils.getRequestHeader());
 
             runOnMainThreadDelayed(() -> {
-                SavePlaylistRequest request = SavePlaylistRequest.getRequestForLibraryId(libraryId);
                 if (request != null) {
                     Boolean result = request.getResult();
                     if (BooleanUtils.isTrue(result)) {
                         showToast(String.format(fetchSucceededSave, libraryTitle));
-                        SavePlaylistRequest.clear();
+
                         return;
                     }
                     showToast(fetchFailedSave);
@@ -527,11 +515,11 @@ public class PlaylistPatch {
                         synchronized (lastVideoIds) {
                             lastVideoIds.clear();
                         }
-                        CreatePlaylistRequest.clear();
+
                         DeletePlaylistRequest.clear();
-                        EditPlaylistRequest.clear();
+
                         GetPlaylistsRequest.clear();
-                        SavePlaylistRequest.clear();
+
                         showToast(fetchSucceededDelete);
                         return;
                     }

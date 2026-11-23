@@ -17,11 +17,9 @@ import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_HAPTIC_FEEDBACK
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val PLAYER_CLASS_DESCRIPTOR_PREFIX = "$PLAYER_PATH/PlayerPatch"
 
@@ -76,7 +74,7 @@ val hapticFeedbackPatch = bytecodePatch(
         }
 
         val vibratorField = TapAndHoldHapticsHandlerFingerprint.match()
-            .instructionMatches.last().instruction.getReference<FieldReference>()!!
+            .instructionMatches.last().fieldReference
 
         val tapAndHoldHapticsFingerprint = Fingerprint(
             accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),

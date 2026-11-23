@@ -458,4 +458,9 @@ public class ExternalDownloaderVideoPreference extends CustomDialogListPreferenc
 
         return true;
     }
+
+    @Override
+    public boolean tracksNewEntries() {
+        return false; // Entries depend on the installed apps.
+    }
 }

@@ -13,6 +13,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.patch.PatchList.SPONSORBLOCK
@@ -31,8 +33,6 @@ import app.morphe.patches.music.video.information.videoIdHook
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.music.video.information.videoTimeHook
 import app.morphe.util.adoptChild
-import app.morphe.util.findFreeRegister
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode

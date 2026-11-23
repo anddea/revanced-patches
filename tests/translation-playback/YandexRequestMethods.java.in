@@ -1,0 +1,74 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.utils.Logger;
+
+class YandexRequestBoundaries extends YandexPauseMethods {
+    static int audioStarts, uploads, waits;
+    static String startedUrl, fallbackUrl;
+    static boolean uploadError;
+    static Runnable duringUpload = () -> {};
+    static void startAudioPlayback(long requestId, String videoId, String url, String fallback) {
+        if (!isCurrentTranslationRequest(requestId, videoId)) return;
+        audioStarts++; startedUrl = url; fallbackUrl = fallback;
+    }
+    static void sendAudioRequestedAudio(VotAudioUploadState state, String id, String url, String translationId) {
+        if (state == null || !id.equals("a") || !url.equals("https://youtu.be/a") || !translationId.equals("translation")) throw new AssertionError("upload identity");
+        uploads++;
+        duringUpload.run();
+        if (uploadError) throw new IllegalStateException("upload");
+    }
+    static void setTranslationRequestWaiting(long requestId, String id, int seconds) { waits = seconds; }
+    static String formatRemainingSeconds(int seconds) { return seconds + " sec"; }
+    static String str(String key, Object... args) { return "localized:" + key + java.util.Arrays.toString(args); }
+    static class VotApiClient {
+        static final int STATUS_FAILED = 0, STATUS_FINISHED = 1, STATUS_WAITING = 2,
+            STATUS_LONG_WAITING = 3, STATUS_PART_CONTENT = 4, STATUS_AUDIO_REQUESTED = 5,
+            STATUS_SESSION_REQUIRED = 6;
+        record TranslationResult(int status, String audioUrl, int remainingTime, String message, String translationId) {}
+        interface PollHandler {
+            boolean isCancelled();
+            void onAudioReady(TranslationResult result);
+            void onAudioRequested(String url, String translationId);
+            boolean onFailed(TranslationResult result);
+            void onSessionRequired();
+            void onWaiting(int wait, boolean first);
+        }
+        static TranslationResult response;
+        static int pollAction, requests, polls;
+        static boolean error, livelyUnavailable, cancelled, retry;
+        static int waitTime;
+        static PollHandler handler;
+        static Runnable beforeReturn = () -> {};
+        static TranslationResult requestTranslation(String url, double duration, String source, String target, String title) {
+            if (!url.equals("https://youtu.be/a") || duration != 123 || !source.equals("en") || !target.equals("ru") || !title.equals("title")) throw new AssertionError("request metadata");
+            requests++;
+            if (error) throw new IllegalStateException("request");
+            beforeReturn.run();
+            return response;
+        }
+        static boolean isLivelyVoiceUnavailableError(String message) { return livelyUnavailable && "no speech".equals(message); }
+        static String toProxyAudioUrl(String url) { return "proxy:" + url; }
+        static TranslationResult pollUntilReady(String url, double duration, String source, String target,
+                String title, int wait, boolean live, PollHandler handler) {
+            if (!url.equals("https://youtu.be/a") || duration != 123 || !source.equals("en") || !target.equals("ru") || !title.equals("title") || live) throw new AssertionError("poll metadata");
+            polls++; waitTime = wait;
+            VotApiClient.handler = handler;
+            cancelled = handler.isCancelled();
+            if (cancelled) return null;
+            switch (pollAction) {
+                case 1 -> retry = handler.onFailed(response);
+                case 2 -> handler.onSessionRequired();
+                case 3 -> handler.onAudioReady(response);
+                case 4 -> handler.onAudioRequested(url, "translation");
+                case 5 -> handler.onWaiting(12, true);
+            }
+            return pollAction == 0 ? null : response;
+        }
+    }
+}
+
+public class YandexRequestMethods extends YandexRequestBoundaries {
+    // PRODUCTION_METHODS
+}

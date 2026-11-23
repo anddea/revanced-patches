@@ -3,6 +3,7 @@ package app.morphe.patches.youtube.shorts.components
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
 import app.morphe.patcher.literal
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.resourceid.reelDynRemix
 import app.morphe.patches.youtube.utils.resourceid.reelDynShare
 import app.morphe.patches.youtube.utils.resourceid.reelFeedbackLike
@@ -14,7 +15,6 @@ import app.morphe.patches.youtube.utils.resourceid.reelRightDislikeIcon
 import app.morphe.patches.youtube.utils.resourceid.reelRightLikeIcon
 import app.morphe.patches.youtube.utils.resourceid.rightComment
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -77,10 +77,30 @@ internal val liveHeaderElementsContainerFingerprint = legacyFingerprint(
     },
 )
 
-fun indexOfAddLiveHeaderElementsContainerInstruction(method: Method) =
-    method.indexOfFirstInstruction {
+// YouTube 21.39 inlined the live header `c(ViewGroup, renderer)` method into LiveHeaderController.t(Z)V,
+// which also contains unrelated addView calls. Search for addView only after the
+// "Header renderer is null" string (the elements container is filled right after that check).
+fun indexOfAddLiveHeaderElementsContainerInstruction(method: Method): Int {
+    val rendererNullStringIndex = method.indexOfFirstInstruction {
+        getReference<com.android.tools.smali.dexlib2.iface.reference.StringReference>()?.string ==
+            "Header renderer is null, header cannot be presented."
+    }
+    return method.indexOfFirstInstruction(maxOf(rendererNullStringIndex, 0)) {
         getReference<MethodReference>()?.name == "addView"
     }
+}
+
+// YouTube 21.39: the "Header container is null" string is gone and the method is now t(Z)V.
+internal val liveHeaderElementsContainerFingerprint2139 = legacyFingerprint(
+    name = "liveHeaderElementsContainerFingerprint2139",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z"),
+    strings = listOf("Header renderer is null, header cannot be presented."),
+    customFingerprint = { method, _ ->
+        indexOfAddLiveHeaderElementsContainerInstruction(method) >= 0
+    },
+)
 
 internal val reelEnumConstructorFingerprint = legacyFingerprint(
     name = "reelEnumConstructorFingerprint",

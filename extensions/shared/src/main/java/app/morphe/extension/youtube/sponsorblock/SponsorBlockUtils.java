@@ -418,7 +418,7 @@ public class SponsorBlockUtils {
         Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.save(totalTimeSkipped);
         Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.save(Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.get() + 1);
 
-        if (Settings.SB_TRACK_SKIP_COUNT.get()) {
+        if (Settings.SB_TRACK_SKIP_COUNT.get() && Utils.isNetworkConnected()) {
             Utils.runOnBackgroundThread(() -> SBRequester.sendSegmentSkippedViewedRequest(segment));
         }
     }

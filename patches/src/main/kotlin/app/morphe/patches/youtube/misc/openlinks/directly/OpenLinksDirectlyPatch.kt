@@ -3,6 +3,7 @@ package app.morphe.patches.youtube.misc.openlinks.directly
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
@@ -15,7 +16,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.Opcode

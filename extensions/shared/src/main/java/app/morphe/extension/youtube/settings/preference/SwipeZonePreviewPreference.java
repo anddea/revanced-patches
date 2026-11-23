@@ -201,7 +201,7 @@ public final class SwipeZonePreviewPreference extends Preference {
         private final String seekLabel = str("revanced_swipe_zone_label_seek");
         private final String speedLabel = str("revanced_swipe_zone_label_speed");
         private final String offLabel = str("morphe_playback_in_feeds_entry_off");
-        private final String defaultLabel = str("revanced_change_form_factor_entry_1");
+        private final String defaultLabel = str("morphe_app_refresh_rate_default");
 
         ZoneView(Context context, boolean horizontal) {
             super(context);

@@ -7,12 +7,52 @@ import app.morphe.extension.shared.utils.Utils;
 import java.util.concurrent.atomic.*;
 
 class YandexPauseBoundaries {
-    static String pendingVideoId = "a";
+    static String pendingVideoId = "a", pendingVideoTitle = "title", toast;
+    static long pendingVideoLength = 100000;
+    static boolean pendingIsLive;
     static AtomicLong translationRequestGeneration = new AtomicLong(1);
     static AtomicBoolean isTranslating = new AtomicBoolean();
     static boolean shortsPlaybackPaused, active;
     static int clears, notified, requests, toggles;
     static long requestGeneration;
+    static double requestedDuration;
+    static String requestedId, requestedTitle, requestedSource, requestedTarget;
+    static AtomicReference<MediaPlayer> mediaPlayer = new AtomicReference<>();
+    static boolean isPaused;
+    static Handler mainHandler = new Handler();
+    static Runnable proxyPrepareTimeoutRunnable = () -> {};
+
+    static class Handler {
+        int removed;
+        void removeCallbacks(Runnable r) { removed++; }
+    }
+
+    static class MediaPlayer {
+        boolean playing;
+        int starts, pauses, position, speedUpdates, seeks;
+        float volume;
+        boolean isPlaying() { return playing; }
+        int getDuration() { return 1000000; }
+        void start() { starts++; playing = true; }
+        void pause() { pauses++; playing = false; }
+        void seekTo(int time) { seeks++; position = time; }
+        void setVolume(float left, float right) { volume = left; }
+    }
+
+    static void applyPlaybackSpeedToPlayer(MediaPlayer player) {
+        player.speedUpdates++;
+        // Android setPlaybackParams can start a prepared or paused MediaPlayer.
+        player.playing = true;
+    }
+
+    static void stopAudioPlayback() {
+        if (mediaPlayer.get() != null) mediaPlayer.get().playing = false;
+        mediaPlayer.set(null);
+        active = false;
+        notifyTranslationStateChanged();
+    }
+    static String str(String key) { return "localized:" + key; }
+    static void showToastShort(String message) { toast = message; }
 
     static void clearTranslationRequestProgress() {
         clears++;
@@ -33,6 +73,8 @@ class YandexPauseBoundaries {
         if (state == null) throw new AssertionError("Missing request state");
         requests++;
         requestGeneration = generation;
+        requestedDuration = duration;
+        requestedId = id; requestedTitle = title; requestedSource = source; requestedTarget = target;
     }
 
     static boolean isTranslationActive() {
@@ -43,9 +85,6 @@ class YandexPauseBoundaries {
         return isTranslating.get();
     }
 
-    static void toggleTranslation() {
-        toggles++;
-    }
 
     static class VotAudioUploadState {}
 

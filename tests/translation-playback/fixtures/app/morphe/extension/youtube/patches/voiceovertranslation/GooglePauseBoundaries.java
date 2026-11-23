@@ -10,8 +10,12 @@ class TranscriptSegment {
 
 class TtsPrefetcher {
     static long time;
-    static int updates, clears;
+    static int updates, clears, rescans;
     static String video;
+
+    static void triggerRescan() {
+        rescans++;
+    }
 
     static void updateTime(long t) {
         time = t;
@@ -55,5 +59,22 @@ class TtsCache {
         return id.equals(v) && index == i && voice.equals(vc) && lang.equals(l) && text.equals(t)
                 ? audio
                 : null;
+    }
+}
+
+/** Deterministic voice-discovery boundaries; these fixtures never contact Microsoft. */
+class VoiceCatalog {
+    static boolean available = true;
+
+    static String resolve(String lang, String preferred) {
+        return available ? "edge" : null;
+    }
+}
+
+class EdgeTtsVoiceRepository {
+    static Runnable callback;
+
+    static void load(Object context, Runnable onUpdate) {
+        callback = onUpdate;
     }
 }

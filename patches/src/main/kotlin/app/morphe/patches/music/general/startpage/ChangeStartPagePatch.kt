@@ -47,6 +47,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.music.utils.patch.PatchList.CHANGE_START_PAGE
@@ -58,7 +59,6 @@ import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.util.addEntryValues
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode

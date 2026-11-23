@@ -15,6 +15,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.registersUsed
 import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.morphe.patches.shared.spoof.guide.addClientInfoHook
@@ -26,15 +29,11 @@ import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_FORM_FACTOR
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_30_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.findFreeRegister
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -64,7 +63,7 @@ val changeFormFactorPatch = bytecodePatch(
 
         val formFactorEnumClass = formFactorEnumConstructorFingerprint.originalClassDef.type
 
-        createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
+        createPlayerRequestBodyWithModelFingerprint.method.apply {
             val ordinalIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<FieldReference>()
                 opcode == Opcode.IGET &&
@@ -118,17 +117,27 @@ val changeFormFactorPatch = bytecodePatch(
             }
         }
 
+        // Responsive container size classes were introduced in 21.30.
+        if (is_21_30_or_greater) {
+            getResponsiveContainerPropertiesFingerprint().method.addInstructions(
+                0,
+                """
+                    invoke-static/range { p1 .. p1 }, $EXTENSION_CLASS_DESCRIPTOR->getResponsiveContainerWidth(I)I
+                    move-result p1
+                """
+            )
+        }
+
         // region add settings
 
-        val preferences = mutableListOf(
-            "PREFERENCE_SCREEN: GENERAL",
-            "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
-            "SETTINGS: CHANGE_FORM_FACTOR",
+        addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: GENERAL",
+                "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
+                "SETTINGS: CHANGE_FORM_FACTOR",
+            ),
+            CHANGE_FORM_FACTOR
         )
-        if (is_20_31_or_greater) {
-            preferences += "SETTINGS: TABLET_LAYOUT_IN_PLAYER"
-        }
-        addPreference(preferences.toTypedArray(), CHANGE_FORM_FACTOR)
 
         // endregion
 

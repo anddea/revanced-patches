@@ -451,7 +451,7 @@ public class ReturnYouTubeDislikePatch {
      */
     private static boolean regularActionButtonCountOverlaysAreUnsupported() {
         return Settings.DISABLE_LAYOUT_UPDATES.get()
-                || Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()
+                || app.morphe.extension.youtube.patches.RestoreOldVideoActionBarPatch.usesClassicLayout()
                 // Segmented/old layouts already receive the count through onLithoTextLoaded().
                 || ActionButtonsFilter.hasCurrentVideoActionButton(ActionButton.LIKE_DISLIKE);
     }
@@ -1484,7 +1484,8 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
-            // Do not load RYD for Shorts, including Shorts viewed in the regular player.
+            // Do not preload RYD for Shorts. Shorts opened in the regular player are fetched by
+            // newVideoLoaded() once the active player is known, without fetching Shorts shelf items.
             // YouTube removed the Shorts dislike button in 2026, and RYD estimates for Shorts
             // are unreliable because API submissions can still heavily bias the ratio toward likes.
             if (VideoInformation.lastPlayerResponseIsShort()) {
@@ -1538,17 +1539,10 @@ public class ReturnYouTubeDislikePatch {
             synchronized (playerResponseVideoIds) {
                 // All video ids except those in the regular video player have been prefetched.
                 // Video ids not present in 'playerResponseVideoIds' are video ads from the regular video player.
-                Boolean playerResponseVideoIdIsShort = playerResponseVideoIds.get(videoId);
-                if (playerResponseVideoIdIsShort == null) {
+                if (!playerResponseVideoIds.containsKey(videoId)) {
                     // When a regular video player video ad is fetched,
                     // the dislike count of the video ad is used instead of the dislike count of the original video.
                     Logger.printDebug(() -> "Skip video ads: " + videoId);
-                    return;
-                }
-                if (playerResponseVideoIdIsShort) {
-                    Logger.printDebug(() -> "Ignoring short video id: " + videoId);
-                    currentVideoData = null;
-                    removeRegularActionButtonCountOverlays();
                     return;
                 }
             }
@@ -1562,8 +1556,8 @@ public class ReturnYouTubeDislikePatch {
 
             Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
 
-            // Shorts are rejected above using the player response state. If preloading missed a
-            // regular video, create the fetch here so the action-button counts still appear.
+            // The player-type guard excludes the Shorts feed. Fetch on demand here so Shorts
+            // opened in the regular player also receive counts even though they were not prefetched.
             regularActionButtonCountSearchExhausted = false;
             currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
 

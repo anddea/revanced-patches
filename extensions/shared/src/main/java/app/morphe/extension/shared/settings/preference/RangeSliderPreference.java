@@ -290,7 +290,7 @@ public class RangeSliderPreference extends ResettableEditTextPreference {
             interactionFinished[0] = true;
             AbstractPreferenceFragment.setSliderInteractionInProgress(false);
             if (changed[0] && setting.rebootApp) {
-                AbstractPreferenceFragment.showRestartDialog(getContext());
+                AbstractPreferenceFragment.setRestartNeeded();
             }
             notifyChanged();
         });

@@ -15,4 +15,14 @@ public final class Optional<T> {
         return null;
     }
 
+    /**
+     * Returns an empty {@code Optional} instance.
+     *
+     * @param <T> the type of the non-existent value
+     * @return an empty {@code Optional}
+     */
+    public static <T> Optional<T> empty() {
+        return null;
+    }
+
 }

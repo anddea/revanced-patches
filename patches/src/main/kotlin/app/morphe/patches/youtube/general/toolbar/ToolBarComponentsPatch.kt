@@ -39,17 +39,6 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
-/*
- * Portions of this file are ported from Morphe:
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * Original hard forked code:
- * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
- */
-
 package app.morphe.patches.youtube.general.toolbar
 
 import app.morphe.patcher.Fingerprint
@@ -64,8 +53,11 @@ import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
 import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
@@ -97,8 +89,6 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -168,6 +158,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
     dependsOn(
         castButtonPatch,
+        fixProtoLibraryPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
@@ -515,16 +506,16 @@ val toolBarComponentsPatch = bytecodePatch(
 
         if (is_20_15_or_greater) {
             val searchSuggestionEndpointField = SearchSuggestionEndpoint2021Fingerprint
-                .instructionMatches.first().instruction.getReference<FieldReference>()!!
+                .instructionMatches.first().fieldReference
             val searchSuggestionEndpointClass = searchSuggestionEndpointField.definingClass
 
             SearchBoxTypingStringFingerprint.let {
                 it.method.apply {
                     // Includes trending searches ("You may like") and search history.
                     val searchSuggestionCollectionField =
-                        it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                        it.instructionMatches.first().fieldReference
                     val typedStringField =
-                        it.instructionMatches[2].instruction.getReference<FieldReference>()!!
+                        it.instructionMatches[2].fieldReference
 
                     val helperMethod = ImmutableMethod(
                         definingClass,
@@ -727,6 +718,32 @@ val toolBarComponentsPatch = bytecodePatch(
 
         hookToolBar("$NAVIGATION_CLASS_DESCRIPTOR->setToolbarSettingsOnClickListener")
 
+        // Some pages have their own toolbar, such as the You tab and the channel pages, which the swap
+        // of the create button and the fix of its upload button do not change in the toolbar of the guide.
+        // The toolbar buttons of all pages are created with their renderer.
+        ToolBarButtonFingerprint.let {
+            val instructions = it.method.implementation!!.instructions.toList()
+            val setShowAsActionIndex = instructions.indexOfFirst { instruction ->
+                instruction.getReference<MethodReference>()?.name == "setShowAsAction"
+            }
+            val rendererField = instructions.drop(setShowAsActionIndex).first { instruction ->
+                instruction.opcode == Opcode.IGET_OBJECT
+            }.getReference<FieldReference>()!!
+            val rendererType = rendererField.type
+
+            it.classDef.methods.first { method -> MethodUtil.isConstructor(method) }.apply {
+                val rendererRegister = parameterTypes.indexOfFirst { type -> type.toString() == rendererType } + 1
+                addInstructions(
+                    0,
+                    """
+                        invoke-static/range { p$rendererRegister .. p$rendererRegister }, $NAVIGATION_CLASS_DESCRIPTOR->getToolbarButtonRenderer(Lcom/google/protobuf/MessageLite;)Lcom/google/protobuf/MessageLite;
+                        move-result-object p$rendererRegister
+                        check-cast p$rendererRegister, $rendererType
+                    """
+                )
+            }
+        }
+
         TopBarRendererSecondaryFilterFingerprint.let {
             it.method.apply {
                 var buttonsClass: String? = null
@@ -745,6 +762,37 @@ val toolBarComponentsPatch = bytecodePatch(
                 val freeRegisters = getFreeRegisterProvider(protoListIndex, 2)
                 val protoListFreeRegister = freeRegisters.getFreeRegister()
                 val buttonByteRegister = freeRegisters.getFreeRegister()
+
+                // The commands of the buttons are extensions, which are parsed only with the extension registry.
+                val parseByteArrayMethod = parseByteArrayMethodRef.get()!!
+                mutableClassDefBy(parseByteArrayMethod.definingClass).methods.firstOrNull { method ->
+                    method.name == "parseFrom" && method.parameterTypes.map { type -> type.toString() } == listOf(
+                        parseByteArrayMethod.parameterTypes.first().toString(),
+                        "[B",
+                        "Lcom/google/protobuf/ExtensionRegistryLite;"
+                    )
+                }?.let { parseWithRegistryMethod ->
+                    val messageType = parseWithRegistryMethod.parameterTypes.first()
+                    val extensionMethods = mutableClassDefBy(NAVIGATION_CLASS_DESCRIPTOR).methods
+                    extensionMethods.first { method -> method.name == "getGeneratedRegistry" }.addInstructions(
+                        0,
+                        """
+                            invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
+                            move-result-object v0
+                            return-object v0
+                        """
+                    )
+                    extensionMethods.first { method -> method.name == "parseWithRegistry" }.addInstructions(
+                        0,
+                        """
+                            check-cast p0, $messageType
+                            invoke-static { p0, p1, p2 }, $parseWithRegistryMethod
+                            move-result-object p0
+                            check-cast p0, Lcom/google/protobuf/MessageLite;
+                            return-object p0
+                        """
+                    )
+                }
 
                 addInstructionsWithLabels(
                     protoListIndex,
