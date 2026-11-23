@@ -1,3 +1,10 @@
+# [4.4.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.8...v4.4.0-dev.9) (2026-11-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Avoid class initialization deadlock between Settings and ExtendedUtils ([#1949](https://github.com/anddea/revanced-patches/issues/1949)) ([60372f9](https://github.com/anddea/revanced-patches/commit/60372f9ba26f55e77921c64afc157559cb73dae4))
+
 # [4.4.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.7...v4.4.0-dev.8) (2026-11-20)
 
 
