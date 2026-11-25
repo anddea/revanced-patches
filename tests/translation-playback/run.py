@@ -33,7 +33,11 @@ KOTLIN_DEPENDENCIES = [
     ('org/jetbrains/annotations/13.0/annotations-13.0.jar', 'ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478'),
 ]
 EXTRACTED = {
-    'YandexAudioMethods': ('VoiceOverTranslationPatch', ['setVideoTime', 'pauseAudio', 'resumeAudio', 'shouldPlayTranslationAudio', 'applyPlaybackSpeedToPlayer', 'onAudioCompleted']),
+    'YandexAudioMethods': ('VoiceOverTranslationPatch', [
+        'setVideoTime', 'pauseAudio', 'resumeAudio', 'startPlaybackAfterSeek', 'cancelPendingSeekStart',
+        'isCurrentTranslationRequest', 'isCurrentTranslationRequestGeneration',
+        'shouldPlayTranslationAudio', 'applyPlaybackSpeedToPlayer', 'onAudioCompleted',
+    ]),
     'YandexRequestMethods': ('VoiceOverTranslationPatch', ['requestTranslation', 'pollTranslation', 'handleAudioRequested']),
     'NativePlaybackMethods': ('../../shared/VideoInformation', ['isPlayerPlaying']),
     'TtsPlaybackMethods': ('TtsEngine', ['pause', 'resume', 'startPlayer', 'setPlaybackRate', 'startPreparedPlayback', 'onPlaybackCompleted']),
@@ -49,6 +53,7 @@ EXTRACTED = {
         'shouldPlayTranslationAudio', 'startAutomaticTranslation',
         'resumeAudio', 'pauseAudio', 'toggleTranslation', 'isTranslationRequested',
         'startTranslation', 'isOngoingLive', 'translationFailed', 'suspendTranslation',
+        'handleAudioPlaybackError', 'startPlaybackAfterSeek', 'cancelPendingSeekStart',
     ]),
 }
 # Exclude deterministic stand-ins, harness entry points, and two logging lambdas.

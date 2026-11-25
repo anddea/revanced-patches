@@ -104,7 +104,8 @@ public class PreferenceChangeMethodsTest {
     public void restartPromptDoesNotPreventCurrentVideoUpdate() {
         prefs.settings.get(service).rebootApp = true;
         prefs.change(service);
-        assertEquals(1, prefs.dialogs);
+        assertEquals(0, prefs.dialogs);
+        assertEquals(1, prefs.restarts);
         assertEquals(1, GoogleVoiceOverTranslationPatch.reloads);
     }
 }

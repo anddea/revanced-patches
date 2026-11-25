@@ -2,6 +2,7 @@ package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
+import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 import java.util.concurrent.atomic.*;
@@ -12,6 +13,9 @@ class YandexPauseBoundaries {
     static boolean pendingIsLive;
     static AtomicLong translationRequestGeneration = new AtomicLong(1);
     static AtomicBoolean isTranslating = new AtomicBoolean();
+    static AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("a");
+    static long playbackRecoveryRequestId = -1L;
+    static MediaPlayer pendingSeekStartPlayer;
     static boolean shortsPlaybackPaused, active;
     static int clears, notified, requests, toggles;
     static long requestGeneration;
@@ -28,14 +32,31 @@ class YandexPauseBoundaries {
     }
 
     static class MediaPlayer {
-        boolean playing;
-        int starts, pauses, position, speedUpdates, seeks;
+        java.util.function.Consumer<MediaPlayer> seekCompleted;
+        boolean playing, delaySeek, failSeek;
+        int starts, pauses, position, speedUpdates, seeks, pendingSeekPosition;
         float volume;
         boolean isPlaying() { return playing; }
         int getDuration() { return 1000000; }
         void start() { starts++; playing = true; }
         void pause() { pauses++; playing = false; }
-        void seekTo(int time) { seeks++; position = time; }
+        void setOnSeekCompleteListener(java.util.function.Consumer<MediaPlayer> listener) { seekCompleted = listener; }
+        void seekTo(int time) {
+            if (failSeek) throw new IllegalStateException("seek");
+            seeks++;
+            if (delaySeek) {
+                pendingSeekPosition = time;
+            } else {
+                position = time;
+                if (seekCompleted != null) seekCompleted.accept(this);
+            }
+        }
+        void finishSeek() {
+            if (!delaySeek) throw new AssertionError("No delayed seek pending");
+            delaySeek = false;
+            position = pendingSeekPosition;
+            if (seekCompleted != null) seekCompleted.accept(this);
+        }
         void setVolume(float left, float right) { volume = left; }
     }
 
@@ -46,10 +67,18 @@ class YandexPauseBoundaries {
     }
 
     static void stopAudioPlayback() {
+        pendingSeekStartPlayer = null;
         if (mediaPlayer.get() != null) mediaPlayer.get().playing = false;
         mediaPlayer.set(null);
         active = false;
         notifyTranslationStateChanged();
+    }
+    static int fallbackStarts;
+    static String fallbackAudioUrl;
+    static void startAudioPlayback(long requestId, String videoId, String audioUrl, String fallbackUrl) {
+        fallbackStarts++;
+        fallbackAudioUrl = audioUrl;
+        active = true;
     }
     static String str(String key) { return "localized:" + key; }
     static void showToastShort(String message) { toast = message; }

@@ -88,6 +88,10 @@ public class VoiceOverTranslationPatch {
     private static final AtomicBoolean isTranslating = new AtomicBoolean(false);
     private static final AtomicLong translationRequestGeneration = new AtomicLong();
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
+    /** Request generation of the sole automatic recovery attempt for this translation session. */
+    private static long playbackRecoveryRequestId = -1L;
+    /** Player whose delayed seek is allowed to start speech, guarded by request generation. */
+    private static MediaPlayer pendingSeekStartPlayer;
     private static volatile long translationWaitStartedAtMs = 0L;
     private static volatile long translationWaitDurationMs = 0L;
     private static volatile boolean isPaused = false;
@@ -233,6 +237,7 @@ public class VoiceOverTranslationPatch {
         final String videoId = pendingVideoId;
         final String videoTitle = pendingVideoTitle;
         final double durationSeconds = pendingVideoLength / 1000.0;
+        playbackRecoveryRequestId = -1L;
         if (!startTranslationRequest(videoId, videoTitle, sourceLang, targetLang, durationSeconds, true)) return;
         showToastShort(str("revanced_vot_started"));
     }
@@ -430,6 +435,7 @@ public class VoiceOverTranslationPatch {
         if (!sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang) && sourceLang.equals(targetLang)) return;
 
         invalidateTranslationRequest(false);
+        playbackRecoveryRequestId = -1L;
         double durationSeconds = pendingVideoLength / 1000.0;
         startTranslationRequest(videoId, pendingVideoTitle, sourceLang, targetLang, durationSeconds, true);
     }
@@ -483,6 +489,34 @@ public class VoiceOverTranslationPatch {
         if (!isCurrentTranslationRequestGeneration(requestId, videoId)) return;
         invalidateTranslationRequest(true);
         showToastShort(str(messageKey));
+    }
+
+    /**
+     * Recreates a failed audio session once through the same request path as a manual restart.
+     * Native playback is intentionally left alone and the existing request spinner remains visible.
+     */
+    private static void handleAudioPlaybackError(long requestId, String videoId, String fallbackUrl) {
+        if (!isCurrentTranslationRequest(requestId, videoId)) return;
+        stopAudioPlayback();
+        if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
+            startAudioPlayback(requestId, videoId, fallbackUrl, null);
+            return;
+        }
+        if (playbackRecoveryRequestId == requestId) {
+            translationFailed(requestId, videoId, "revanced_vot_playback_error");
+            return;
+        }
+
+        String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
+        String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
+        double durationSeconds = pendingVideoLength / 1000.0;
+        if (startTranslationRequest(
+                videoId, pendingVideoTitle, sourceLang, targetLang, durationSeconds, false)) {
+            playbackRecoveryRequestId = translationRequestGeneration.get();
+            Logger.printDebug(() -> "VOT audio playback failed; retrying once");
+        } else {
+            translationFailed(requestId, videoId, "revanced_vot_playback_error");
+        }
     }
 
     private static void requestTranslation(
@@ -813,21 +847,25 @@ public class VoiceOverTranslationPatch {
                 float vol = Settings.VOT_TRANSLATION_VOLUME.get() / 100.0f;
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
-                if (videoTime > 0) player.seekTo((int) videoTime);
                 resumeVideoAfterTranslationReady(videoId, requestId);
                 if (shouldPlayTranslationAudio()) {
-                    applyPlaybackSpeedToPlayer(player);
-                    player.start();
+                    if (videoTime > 0) {
+                        startPlaybackAfterSeek(player, videoTime, requestId, videoId);
+                    } else {
+                        applyPlaybackSpeedToPlayer(player);
+                        player.start();
+                        isPaused = false;
+                    }
                 } else {
+                    if (videoTime > 0) player.seekTo((int) videoTime);
                     isPaused = true;
                 }
             }));
             mp.setOnErrorListener((p, what, extra) -> {
                 Logger.printDebug(() -> "VOT MediaPlayer error: what=" + what + " extra=" + extra);
                 Utils.runOnMainThread(() -> {
-                    if (!isCurrentTranslationRequest(requestId, videoId) || mediaPlayer.get() != p) return;
-                    stopAudioPlayback();
-                    translationFailed(requestId, videoId, "revanced_vot_playback_error");
+                    if (mediaPlayer.get() != p) return;
+                    handleAudioPlaybackError(requestId, videoId, null);
                 });
                 return true;
             });
@@ -889,26 +927,25 @@ public class VoiceOverTranslationPatch {
                 float vol = Settings.VOT_TRANSLATION_VOLUME.get() / 100.0f;
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
-                if (videoTime > 0) player.seekTo((int) videoTime);
-
                 resumeVideoAfterTranslationReady(videoId, requestId);
                 if (shouldPlayTranslationAudio()) {
-                    applyPlaybackSpeedToPlayer(player);
-                    player.start();
+                    if (videoTime > 0) {
+                        startPlaybackAfterSeek(player, videoTime, requestId, videoId);
+                    } else {
+                        applyPlaybackSpeedToPlayer(player);
+                        player.start();
+                        isPaused = false;
+                    }
                 } else {
+                    if (videoTime > 0) player.seekTo((int) videoTime);
                     isPaused = true;
                 }
             }));
             mp.setOnErrorListener((p, what, extra) -> {
                 Logger.printDebug(() -> "VOT MediaPlayer error: what=" + what + " extra=" + extra + " url=" + audioUrl);
                 Utils.runOnMainThread(() -> {
-                    if (!isCurrentTranslationRequest(requestId, videoId) || mediaPlayer.get() != p) return;
-                    stopAudioPlayback();
-                    if (fallback != null && !fallback.isEmpty()) {
-                        startAudioPlayback(requestId, videoId, fallback, null);
-                    } else {
-                        translationFailed(requestId, videoId, "revanced_vot_playback_error");
-                    }
+                    if (mediaPlayer.get() != p) return;
+                    handleAudioPlaybackError(requestId, videoId, fallback);
                 });
                 return true;
             });
@@ -945,7 +982,37 @@ public class VoiceOverTranslationPatch {
         }
     }
 
+    /** Starts speech only after the requested seek has completed on this same player. */
+    private static void startPlaybackAfterSeek(
+            MediaPlayer mp, long position, long requestId, String videoId) {
+        if (mp == null || pendingSeekStartPlayer == mp) return;
+        pendingSeekStartPlayer = mp;
+        isPaused = true;
+        // These players are created on the main thread, so their seek callbacks arrive there too.
+        mp.setOnSeekCompleteListener(player -> {
+            if (pendingSeekStartPlayer != player || mediaPlayer.get() != player) return;
+            pendingSeekStartPlayer = null;
+            if (!isCurrentTranslationRequest(requestId, videoId) || !shouldPlayTranslationAudio()) {
+                isPaused = true;
+                return;
+            }
+            applyPlaybackSpeedToPlayer(player);
+            player.start();
+            isPaused = false;
+        });
+        try {
+            mp.seekTo((int) position);
+        } catch (Exception ignored) {
+            if (pendingSeekStartPlayer == mp) pendingSeekStartPlayer = null;
+        }
+    }
+
+    private static void cancelPendingSeekStart() {
+        pendingSeekStartPlayer = null;
+    }
+
     public static void stopAudioPlayback() {
+        cancelPendingSeekStart();
         mainHandler.removeCallbacks(pauseCheckRunnable);
         mainHandler.removeCallbacks(proxyPrepareTimeoutRunnable);
         boolean wasActive = isTranslationActive();
@@ -966,6 +1033,7 @@ public class VoiceOverTranslationPatch {
     }
 
     public static void pauseAudio() {
+        cancelPendingSeekStart();
         MediaPlayer mp = mediaPlayer.get();
         if (mp != null) {
             try {
@@ -984,10 +1052,9 @@ public class VoiceOverTranslationPatch {
         try {
             long position = videoTimeMillis >= 0 ? videoTimeMillis : VideoInformation.getVideoTime();
             if (position < 0 || position >= mp.getDuration()) return;
-            mp.seekTo((int) position);
-            applyPlaybackSpeedToPlayer(mp);
-            mp.start();
-            isPaused = false;
+            long requestId = translationRequestGeneration.get();
+            String videoId = currentTranslatedVideoId.get();
+            startPlaybackAfterSeek(mp, position, requestId, videoId);
         } catch (Exception ignored) { }
     }
 

@@ -10,10 +10,15 @@ public class YandexAudioMethodsTest {
     @Before public void before() {
         Settings.VOT_ENABLED.value = true;
         mediaPlayer.set(audio = new MediaPlayer());
+        translationRequestGeneration.set(1);
+        currentTranslatedVideoId.set("a");
+        pendingVideoId = "a";
+        pendingSeekStartPlayer = null;
         mainHandler = new Handler();
         isPaused = shortsPlaybackPaused = RootView.shorts = false;
         lastAppliedPlaybackSpeed = 1;
         lastVideoTimeMs = -1;
+        VideoInformation.id = "a";
         VideoInformation.time = 0;
         VideoInformation.length = 100000;
         VideoInformation.speed = VideoInformation.cachedSpeed = 1;
@@ -262,5 +267,97 @@ public class YandexAudioMethodsTest {
             assertEquals(c[1], lastVideoTimeMs);
             assertEquals(c[3] == 1 ? c[1] : c[2], audio.position);
         }
+    }
+
+    @Test public void delayedResumeWaitsForSeekCompletionBeforeStarting() {
+        audio.playing = false;
+        audio.delaySeek = true;
+        isPaused = true;
+        resumeAudio(5000);
+        assertEquals(1, audio.seeks);
+        assertEquals(0, audio.starts);
+        assertFalse(audio.playing);
+        assertTrue(isPaused);
+        audio.finishSeek();
+        assertEquals(5000, audio.position);
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+        assertFalse(isPaused);
+    }
+
+    @Test public void seekCompletionCannotOverrideAPauseOrStartWithoutALaterResume() {
+        audio.playing = false;
+        audio.delaySeek = true;
+        isPaused = true;
+        resumeAudio(5000);
+        VideoInformation.playing = false;
+        audio.finishSeek();
+        assertEquals(0, audio.starts);
+        assertFalse(audio.playing);
+        assertTrue(isPaused);
+        VideoInformation.playing = true;
+        resumeAudio(6000);
+        assertEquals(6000, audio.position);
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+    }
+
+    @Test public void delayedSeekCannotStartAReplacementOrRetiredPlayer() {
+        for (boolean retireGeneration : new boolean[] {false, true}) {
+            before();
+            audio.playing = false;
+            audio.delaySeek = true;
+            isPaused = true;
+            resumeAudio(5000);
+            MediaPlayer replacement = new MediaPlayer();
+            replacement.playing = false;
+            if (retireGeneration) translationRequestGeneration.incrementAndGet();
+            else mediaPlayer.set(replacement);
+            audio.finishSeek();
+            assertEquals(0, audio.starts);
+            assertFalse(audio.playing);
+            assertEquals(0, replacement.starts);
+            assertFalse(replacement.playing);
+        }
+    }
+
+    @Test public void nullAndDuplicateSeekStartsDoNotQueueExtraWork() {
+        startPlaybackAfterSeek(null, 0, 1, "a");
+        audio.playing = false;
+        audio.delaySeek = true;
+        isPaused = true;
+        startPlaybackAfterSeek(audio, 1000, 1, "a");
+        startPlaybackAfterSeek(audio, 2000, 1, "a");
+        assertEquals(1, audio.seeks);
+        audio.finishSeek();
+        assertEquals(1000, audio.position);
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+    }
+
+    @Test public void anotherPendingPlayerDoesNotBlockTheNewSeekStart() {
+        pendingSeekStartPlayer = new MediaPlayer();
+        audio.playing = false;
+        audio.delaySeek = true;
+        isPaused = true;
+        startPlaybackAfterSeek(audio, 1000, 1, "a");
+        assertSame(audio, pendingSeekStartPlayer);
+        audio.finishSeek();
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+    }
+
+    @Test public void failedSeekDoesNotStartOrBlockALaterRetry() {
+        audio.playing = false;
+        audio.failSeek = true;
+        isPaused = true;
+        resumeAudio(0);
+        assertNull(pendingSeekStartPlayer);
+        assertEquals(0, audio.starts);
+        assertFalse(audio.playing);
+        audio.failSeek = false;
+        resumeAudio(0);
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
     }
 }

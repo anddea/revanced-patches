@@ -6,7 +6,7 @@ import java.util.*;
 /** Real preference listener with deterministic storage/UI boundaries. */
 public class PreferenceChangeMethods {
     boolean updatingPreference, sliderInteractionInProgress, settingImportInProgress, showingUserDialogMessage;
-    int uiSyncs, cacheSyncs, dialogs;
+    int uiSyncs, cacheSyncs, dialogs, restarts;
     final Map<String, Setting<?>> settings = new HashMap<>();
     final Map<String, Preference> preferences = new HashMap<>();
     interface SharedPreferences {
@@ -42,6 +42,7 @@ public class PreferenceChangeMethods {
     boolean prefIsSetToDefault(Preference pref, Setting<?> setting) { return false; }
     void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) { dialogs++; }
     void showRestartDialog(Object context) { dialogs++; }
+    static void setRestartNeeded() { Setting.owner.restarts++; }
     Object getActivity() { return null; }
     Object getPreferenceScreen() { return null; }
     void updatePreferencesWithKey(Object screen, String key, Setting<?> setting) { uiSyncs++; }
