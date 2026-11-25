@@ -26,6 +26,11 @@ public class YandexPauseMethodsTest {
         YandexPauseMethods.pendingVideoId = "a";
         YandexPauseMethods.translationRequestGeneration.set(1);
         YandexPauseMethods.isTranslating.set(false);
+        YandexPauseMethods.currentTranslatedVideoId.set("a");
+        YandexPauseMethods.playbackRecoveryRequestId = -1L;
+        YandexPauseMethods.pendingSeekStartPlayer = null;
+        YandexPauseMethods.fallbackStarts = 0;
+        YandexPauseMethods.fallbackAudioUrl = null;
         YandexPauseMethods.shortsPlaybackPaused =
                 YandexPauseMethods.active = YandexPauseMethods.RootView.shorts = false;
         YandexPauseMethods.clears =
@@ -603,5 +608,234 @@ public class YandexPauseMethodsTest {
         assertEquals("example", YandexPauseMethods.requestedTitle);
         assertEquals("en", YandexPauseMethods.requestedSource);
         assertEquals("ru", YandexPauseMethods.requestedTarget);
+    }
+
+    @Test
+    public void firstPlaybackErrorStartsOneRecoveryWithoutPausingOrFinalToast() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        VideoInformation.playing = true;
+        var audio = new YandexPauseMethods.MediaPlayer();
+        audio.playing = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        assertFalse(audio.playing);
+        assertNull(YandexPauseMethods.mediaPlayer.get());
+        assertTrue(YandexPauseMethods.isTranslating.get());
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(2, YandexPauseMethods.playbackRecoveryRequestId);
+        assertFalse(held());
+        assertTrue(VideoInformation.playing);
+        assertNull(YandexPauseMethods.toast);
+        assertEquals(1, Utils.background.size());
+        Utils.background.remove().run();
+        assertEquals(1, YandexPauseMethods.requests);
+        assertEquals(2, YandexPauseMethods.requestGeneration);
+        assertEquals(100, YandexPauseMethods.requestedDuration, 0);
+        assertEquals("title", YandexPauseMethods.requestedTitle);
+        assertEquals("auto", YandexPauseMethods.requestedSource);
+        assertEquals("ru", YandexPauseMethods.requestedTarget);
+    }
+
+    @Test
+    public void secondPlaybackErrorUsesFinalFailureInsteadOfLooping() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        VideoInformation.playing = true;
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        Utils.background.remove().run();
+        YandexPauseMethods.isTranslating.set(false);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(2, "a", null);
+        assertEquals(3, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(1, YandexPauseMethods.requests);
+        assertTrue(Utils.background.isEmpty());
+        assertEquals("localized:revanced_vot_playback_error", YandexPauseMethods.toast);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+        assertTrue(VideoInformation.playing);
+    }
+
+    @Test
+    public void stalePlaybackErrorCannotCancelRecovery() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(1, Utils.background.size());
+        assertNull(YandexPauseMethods.toast);
+        assertTrue(YandexPauseMethods.isTranslating.get());
+    }
+
+    @Test
+    public void cancellationDuringRecoveryPreventsAnotherRetry() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        Utils.background.remove().run();
+        YandexPauseMethods.toggleTranslation();
+        YandexPauseMethods.handleAudioPlaybackError(2, "a", null);
+        assertEquals(3, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(1, YandexPauseMethods.requests);
+        assertTrue(Utils.background.isEmpty());
+        assertEquals("localized:revanced_vot_stopped", YandexPauseMethods.toast);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+    }
+
+    @Test
+    public void proxyFallbackRunsBeforeAutomaticRecovery() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", "direct");
+        assertEquals(1, YandexPauseMethods.fallbackStarts);
+        assertEquals("direct", YandexPauseMethods.fallbackAudioUrl);
+        assertEquals(1, YandexPauseMethods.translationRequestGeneration.get());
+        assertTrue(Utils.background.isEmpty());
+        assertEquals(-1L, YandexPauseMethods.playbackRecoveryRequestId);
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", "");
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(1, Utils.background.size());
+    }
+
+    @Test
+    public void preparedSpeechWaitsForDelayedSeekCompletion() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            VideoInformation.time = 5000;
+            var audio = new YandexPauseMethods.MediaPlayer();
+            audio.delaySeek = true;
+            YandexPauseMethods.mediaPlayer.set(audio);
+            prepare(file, audio);
+            assertEquals(1, audio.seeks);
+            assertEquals(0, audio.starts);
+            assertFalse(audio.playing);
+            assertTrue(YandexPauseMethods.isPaused);
+            audio.finishSeek();
+            assertEquals(5000, audio.position);
+            assertEquals(1, audio.starts);
+            assertTrue(audio.playing);
+            assertFalse(YandexPauseMethods.isPaused);
+        }
+    }
+
+    @Test
+    public void delayedPreparedSeekCannotStartAfterCancellation() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            VideoInformation.time = 5000;
+            var audio = new YandexPauseMethods.MediaPlayer();
+            audio.delaySeek = true;
+            YandexPauseMethods.mediaPlayer.set(audio);
+            prepare(file, audio);
+            YandexPauseMethods.active = true;
+            YandexPauseMethods.toggleTranslation();
+            audio.finishSeek();
+            assertEquals(0, audio.starts);
+            assertFalse(audio.playing);
+            assertFalse(YandexPauseMethods.isTranslationRequested());
+        }
+    }
+
+    @Test
+    public void recoveryStartFailureUsesFinalError() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.isTranslating.set(true);
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(0, YandexPauseMethods.requests);
+        assertTrue(Utils.background.isEmpty());
+        assertEquals("localized:revanced_vot_playback_error", YandexPauseMethods.toast);
+        assertFalse(YandexPauseMethods.isTranslating.get());
+    }
+
+    @Test
+    public void explicitStartAllowsOneRecoveryPerNewSession() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(1, "a", null);
+        Utils.background.remove().run();
+        YandexPauseMethods.isTranslating.set(false);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(2, "a", null);
+        assertEquals(3, YandexPauseMethods.translationRequestGeneration.get());
+        YandexPauseMethods.startTranslation();
+        assertEquals(-1L, YandexPauseMethods.playbackRecoveryRequestId);
+        assertEquals(4, YandexPauseMethods.translationRequestGeneration.get());
+        Utils.background.remove().run();
+        YandexPauseMethods.isTranslating.set(false);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.handleAudioPlaybackError(4, "a", null);
+        assertEquals(5, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals(5, YandexPauseMethods.playbackRecoveryRequestId);
+        assertEquals(2, YandexPauseMethods.requests);
+    }
+
+    @Test
+    public void nullDuplicateAndFailedSeekStartsAreSafe() throws Exception {
+        VideoInformation.playing = true;
+        YandexPauseMethods.startPlaybackAfterSeek(null, 0, 1, "a");
+        var audio = new YandexPauseMethods.MediaPlayer();
+        audio.delaySeek = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.startPlaybackAfterSeek(audio, 1000, 1, "a");
+        YandexPauseMethods.startPlaybackAfterSeek(audio, 2000, 1, "a");
+        assertEquals(1, audio.seeks);
+        assertSame(audio, YandexPauseMethods.pendingSeekStartPlayer);
+        assertNotNull(audio.seekCompleted);
+        assertTrue(YandexPauseMethods.isCurrentTranslationRequest(1, "a"));
+        assertTrue(YandexPauseMethods.shouldPlayTranslationAudio());
+        audio.finishSeek();
+        assertEquals(1000, audio.position);
+        assertEquals(1, audio.starts);
+        before();
+        VideoInformation.playing = true;
+        audio = new YandexPauseMethods.MediaPlayer();
+        audio.failSeek = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.isPaused = true;
+        YandexPauseMethods.resumeAudio(0);
+        assertNull(YandexPauseMethods.pendingSeekStartPlayer);
+        assertEquals(0, audio.starts);
+        audio.failSeek = false;
+        YandexPauseMethods.resumeAudio(0);
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+    }
+
+    @Test
+    public void anotherPendingPlayerDoesNotBlockTheNewSeekStart() {
+        VideoInformation.playing = true;
+        YandexPauseMethods.pendingSeekStartPlayer = new YandexPauseMethods.MediaPlayer();
+        var audio = new YandexPauseMethods.MediaPlayer();
+        audio.delaySeek = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.startPlaybackAfterSeek(audio, 1000, 1, "a");
+        assertSame(audio, YandexPauseMethods.pendingSeekStartPlayer);
+        audio.finishSeek();
+        assertEquals(1, audio.starts);
+        assertTrue(audio.playing);
+    }
+
+    @Test
+    public void preparedSeekCompletionCannotOverridePauseOrReplacement() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            for (boolean pause : new boolean[] {false, true}) {
+                before();
+                VideoInformation.time = 5000;
+                var audio = new YandexPauseMethods.MediaPlayer();
+                audio.delaySeek = true;
+                YandexPauseMethods.mediaPlayer.set(audio);
+                prepare(file, audio);
+                var replacement = new YandexPauseMethods.MediaPlayer();
+                if (pause) VideoInformation.playing = false;
+                else YandexPauseMethods.mediaPlayer.set(replacement);
+                audio.finishSeek();
+                assertEquals(0, audio.starts);
+                assertFalse(audio.playing);
+                assertEquals(0, replacement.starts);
+                assertFalse(replacement.playing);
+            }
+        }
     }
 }

@@ -24,22 +24,19 @@ The fixtures control scheduling, synthesis completion, cached audio, player stat
 
 ## Baseline result
 
-329 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 1,839 mutations: 1,804 killed, 35 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
+349 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 2,017 mutations: 1,948 killed, 69 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
 
 The surviving mutations were reviewed, not hidden by a percentage threshold:
 
 | Area | Count | Why the behavior tests do not distinguish them |
 | --- | ---: | --- |
-| State clears / guards | 7 | `resume` is not observable when `waiting` is false; clearing or gating that dormant value does not change playback, and selection/new-video logic overwrites it before another hold. The deferred-resume waiting check is defensive because every path that arms a hold clears the deferred value. |
-| Controller guards | 2 | Retired directors are checked again inside the queued callback. The Google provider check in `pauseEnabled` is defensive for the valid ownership states exercised here; `NONE` cannot own a hold. |
-| Google null checks | 5 | The receiver is already required by a preceding access or null guard. A missing duration still reaches the same caught failure when the explicit null check is removed. |
-| Google error logging | 2 | Removing the log does not change the failed-request release. |
-| Native/audio null guards | 6 | Removing the guard reaches an access inside an existing exception handler and leaves playback stopped. The native reader still returns false. |
-| Audio error logging | 3 | Removing a diagnostic does not change the handling of a released audio player. |
-| Automatic Yandex duplicate guard | 2 | `startTranslationRequest` still rejects the same in-flight request with `compareAndSet`; the request and hold are unchanged. |
-| Yandex null-response/audio guards | 2 | Dereferencing the null response or audio URL reaches the existing catch block, which queues the same generation-checked failure. |
-| Yandex audio controls | 3 | Removing a null guard reaches an access inside an existing exception handler and leaves playback stopped. |
-| Yandex speed clamp boundaries | 2 | Clamping a value already equal to the limit assigns the same value. |
-| Kotlin generated null check | 1 | `Class.getName()` cannot return null; removing the compiler-inserted check leaves the same accessibility class name. |
+| `GooglePauseMethods` | 20 | Existing Google startup/player null, state, and logging branches. Removing a defensive check reaches an existing caught failure or an unobservable dormant value; these paths were not changed by the Yandex recovery work. |
+| Controller, state, native/shared audio | 13 | `TranslationPlaybackController` / `TranslationPlaybackState` guards and native/shared-audio null handling retain the same caught-failure or stopped result. Deferred state values are overwritten by valid transitions. |
+| `YandexAudioMethods` | 16 | Speed clamps that assign an already bounded value, request-identity guards, and seek/pause/resume guards. The tests exercise delayed, duplicate, replacement, canceled, and failed seeks; the surviving condition forms do not add a new observable failure. |
+| `YandexPauseMethods` | 17 | Prepared-callback identity checks, seek/pause/resume guards, and the automatic duplicate-request guard. Delayed and canceled starts remain blocked, and a second playback failure still uses the final failure path. |
+| `YandexRequestMethods` | 2 | Dereferencing a null response or audio URL reaches the existing catch block and generation-checked failure. |
+| Kotlin generated null check | 1 | `Class.getName()` cannot return null; removing the compiler-inserted check does not change accessibility. |
+
+Four of the surviving conditions are in `startPlaybackAfterSeek` (two per extracted class), covering its initial pending-player guard and failed-seek cleanup. The delayed, duplicate, replacement, cancellation, and failed-seek tests execute these lines, but those particular rewrites do not produce a distinct failing assertion.
 
 A surviving mutation is not proof of correctness. Keep these limits visible, and re-review the XML report when the implementation or fixtures change.

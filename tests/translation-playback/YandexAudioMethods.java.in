@@ -2,10 +2,14 @@ package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import app.morphe.extension.youtube.settings.Settings;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.*;
 
 class YandexAudioBoundaries {
     static AtomicReference<MediaPlayer> mediaPlayer = new AtomicReference<>();
+    static AtomicLong translationRequestGeneration = new AtomicLong(1);
+    static AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("a");
+    static String pendingVideoId = "a";
+    static MediaPlayer pendingSeekStartPlayer;
     static boolean isPaused, shortsPlaybackPaused;
     static float lastAppliedPlaybackSpeed = 1;
     static long lastVideoTimeMs = -1;
@@ -35,8 +39,10 @@ class YandexAudioBoundaries {
     }
     static class VideoInformation {
         static boolean playing = true;
+        static String id = "a";
         static long time, length = 100000;
         static float speed = 1, cachedSpeed = 1;
+        static String getVideoId() { return id; }
         static boolean isPlayerPlaying() { return playing; }
         static boolean isAtEndOfVideo() { return length > 0 && time >= length; }
         static long getVideoTime() { return time; }
@@ -49,9 +55,12 @@ class YandexAudioBoundaries {
         void setSpeed(float value) { speed = value; }
     }
     static class MediaPlayer {
-        java.util.function.Consumer<MediaPlayer> completed;
+        java.util.function.Consumer<MediaPlayer> completed, seekCompleted;
         void setOnCompletionListener(java.util.function.Consumer<MediaPlayer> listener) { completed = listener; }
+        void setOnSeekCompleteListener(java.util.function.Consumer<MediaPlayer> listener) { seekCompleted = listener; }
         boolean playing = true, complete, fail, finishBeforeRateChange, finishAfterRead, failRate, failPosition;
+        boolean delaySeek, failSeek;
+        int pendingSeekPosition;
         int starts, pauses, seeks, rateChanges, position, duration = 100000;
         float speed = 1;
         boolean isPlaying() {
@@ -62,7 +71,23 @@ class YandexAudioBoundaries {
         }
         int getDuration() { return duration; }
         int getCurrentPosition() { if (failPosition) throw new IllegalStateException(); return position; }
-        void seekTo(int value) { seeks++; position = value; complete = false; }
+        void seekTo(int value) {
+            if (failSeek) throw new IllegalStateException("seek");
+            seeks++;
+            complete = false;
+            if (delaySeek) {
+                pendingSeekPosition = value;
+            } else {
+                position = value;
+                if (seekCompleted != null) seekCompleted.accept(this);
+            }
+        }
+        void finishSeek() {
+            if (!delaySeek) throw new AssertionError("No delayed seek pending");
+            delaySeek = false;
+            position = pendingSeekPosition;
+            if (seekCompleted != null) seekCompleted.accept(this);
+        }
         void start() {
             starts++;
             if (complete) position = 0;
