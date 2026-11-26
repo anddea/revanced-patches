@@ -70,6 +70,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
 
@@ -327,7 +328,7 @@ public class GeminiUtils {
             }
 
             URL url = new URL(BASE_API_URL + attempt.model + (requestSpec.streaming ? STREAM_ACTION : GENERATE_ACTION) + attempt.apiKey);
-            connection = (HttpURLConnection) url.openConnection();
+            connection = Requester.openHttpConnection(url);
             configureConnection(connection, requestSpec.streaming);
 
             if (requestSpec.streaming) {

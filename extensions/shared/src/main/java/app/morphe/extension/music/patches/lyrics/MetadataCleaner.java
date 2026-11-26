@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 
 import app.morphe.extension.music.patches.lyrics.requests.LyricsRequests;
 import app.morphe.extension.music.patches.lyrics.requests.CharactersConverter;
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 
 /**
@@ -304,7 +305,7 @@ public final class MetadataCleaner {
 
     @NonNull
     private static String download(String urlStr) throws Exception {
-        HttpURLConnection conn = (HttpURLConnection) new URL(urlStr).openConnection();
+        HttpURLConnection conn = Requester.openHttpConnection(urlStr);
         conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
         conn.setReadTimeout(READ_TIMEOUT_MS);
         conn.setRequestProperty("User-Agent", "MorpheMusic/1.0");

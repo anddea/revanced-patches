@@ -78,7 +78,7 @@ public final class LunaProvider extends ScoredSongProvider {
     @Nullable
     private static HttpURLConnection openConnection(String url, String userAgent) {
         try {
-            HttpURLConnection connection = (HttpURLConnection) new java.net.URL(url).openConnection();
+            HttpURLConnection connection = Requester.openHttpConnection(url);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("User-Agent", userAgent);
             connection.setRequestProperty("Accept", "*/*");

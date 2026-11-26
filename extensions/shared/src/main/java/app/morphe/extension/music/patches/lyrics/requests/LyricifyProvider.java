@@ -30,6 +30,7 @@ import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.patches.lyrics.requests.LyricifyParser;
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 
 public final class LyricifyProvider implements LyricsProvider {
@@ -50,7 +51,7 @@ public final class LyricifyProvider implements LyricsProvider {
 
     private static HttpURLConnection openApi(String url) throws IOException {
         final HttpURLConnection conn =
-                (HttpURLConnection) new java.net.URL(url).openConnection();
+                Requester.openHttpConnection(url);
         conn.setRequestMethod("GET");
         conn.setRequestProperty("User-Agent", USER_AGENT);
         conn.setRequestProperty("Accept", "application/json");
@@ -66,7 +67,7 @@ public final class LyricifyProvider implements LyricsProvider {
         try {
             final String url = "https://api.credits.fm/v1/resolve/track";
             LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
-            connection = (HttpURLConnection) new java.net.URL(url).openConnection();
+            connection = Requester.openHttpConnection(url);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Accept", "application/json");

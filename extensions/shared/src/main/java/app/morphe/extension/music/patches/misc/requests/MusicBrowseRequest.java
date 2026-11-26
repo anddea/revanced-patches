@@ -15,7 +15,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -78,7 +77,7 @@ public final class MusicBrowseRequest {
             throws IOException, JSONException {
         String version = version(context);
         String url = "https://youtubei.googleapis.com/youtubei/v1/" + endpoint + "?prettyPrint=false" + query;
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection connection = Requester.openHttpConnection(url);
         try {
             connection.setRequestMethod("POST");
             connection.setConnectTimeout(15_000);

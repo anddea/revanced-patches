@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -27,6 +26,7 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -131,7 +131,7 @@ final class EdgeTtsVoiceRepository {
                 + "&Sec-MS-GEC=" + EdgeTtsV2Token.generate(System.currentTimeMillis(), token)
                 + "&Sec-MS-GEC-Version=" + EdgeTtsConfig.SEC_MS_GEC_VERSION;
 
-        HttpURLConnection conn = (HttpURLConnection) new URL(query).openConnection();
+        HttpURLConnection conn = Requester.openHttpConnection(query);
         conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
         conn.setReadTimeout(READ_TIMEOUT_MS);
         conn.setRequestProperty("User-Agent", EdgeTtsConfig.USER_AGENT);
