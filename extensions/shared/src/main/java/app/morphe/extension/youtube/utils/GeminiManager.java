@@ -89,6 +89,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.IntentUtils;
@@ -1251,7 +1252,7 @@ public final class GeminiManager {
             try {
                 String oembedUrl = "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=" + videoId + "&format=json";
                 URL url = new URL(oembedUrl);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                HttpURLConnection conn = Requester.openHttpConnection(url);
                 conn.setConnectTimeout(5000);
                 conn.setReadTimeout(5000);
 

@@ -65,6 +65,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
@@ -736,7 +737,7 @@ public class VoiceOverTranslationPatch {
             FileOutputStream fos = null;
             try {
                 URL url = new URL(urlToFetch);
-                conn = (HttpURLConnection) url.openConnection();
+                conn = Requester.openHttpConnection(url);
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Range", "bytes=0-");
                 conn.setRequestProperty("User-Agent", PROXY_USER_AGENT);

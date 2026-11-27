@@ -69,6 +69,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -454,7 +455,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
     private static String fetchDisplayName(@NonNull String token) {
         try {
             String url = "https://login.yandex.ru/info?format=json";
-            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+            HttpURLConnection conn = Requester.openHttpConnection(url);
             try {
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Authorization", "OAuth " + token);
@@ -526,7 +527,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
         Utils.runOnBackgroundThread(() -> {
             try {
                 URL url = new URL(avatarUrl);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                HttpURLConnection conn = Requester.openHttpConnection(url);
                 try {
                     conn.setRequestMethod("GET");
                     conn.setConnectTimeout(CONNECT_TIMEOUT_MS);

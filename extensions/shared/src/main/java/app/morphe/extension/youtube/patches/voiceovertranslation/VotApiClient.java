@@ -101,6 +101,7 @@ import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
 
@@ -924,7 +925,7 @@ public class VotApiClient {
         String workerUrl = "https://" + workerHost + path;
         Logger.printDebug(() -> "VOT sendWorkerRequest: " + method + " " + workerUrl);
 
-        HttpURLConnection connection = (HttpURLConnection) new URL(workerUrl).openConnection();
+        HttpURLConnection connection = Requester.openHttpConnection(workerUrl);
         try {
             connection.setRequestMethod(method);
             // These are the headers for the outer worker request. The Yandex headers are
@@ -975,7 +976,7 @@ public class VotApiClient {
         byte[] payloadBytes = proxy ? wrapJsonWorkerRequest(jsonBody, headers)
                 : jsonBody.getBytes(StandardCharsets.UTF_8);
 
-        HttpURLConnection connection = (HttpURLConnection) new URL(workerUrl).openConnection();
+        HttpURLConnection connection = Requester.openHttpConnection(workerUrl);
         try {
             connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-Type", "application/json");
@@ -1039,7 +1040,7 @@ public class VotApiClient {
     public static String fetchLatestProxyWorkerHost() {
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(VOT_USER_SCRIPT_URL).openConnection();
+            connection = Requester.openHttpConnection(VOT_USER_SCRIPT_URL);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("User-Agent", USER_AGENT);
             connection.setConnectTimeout(CONNECT_TIMEOUT_MS);
@@ -1136,7 +1137,7 @@ public class VotApiClient {
         if (token.equals(lastValidatedToken)) return tokenIsValid;
         try {
             String url = "https://login.yandex.ru/info?format=json";
-            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+            HttpURLConnection conn = Requester.openHttpConnection(url);
             try {
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Authorization", "OAuth " + token);

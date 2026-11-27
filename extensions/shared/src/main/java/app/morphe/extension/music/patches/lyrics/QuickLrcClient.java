@@ -56,7 +56,7 @@ public final class QuickLrcClient {
             KeyCheck result;
             HttpURLConnection conn = null;
             try {
-                conn = (HttpURLConnection) new URL(ENDPOINT).openConnection();
+                conn = Requester.openHttpConnection(ENDPOINT);
                 conn.setRequestMethod("POST");
                 conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
                 conn.setReadTimeout(READ_TIMEOUT_MS);
@@ -207,7 +207,7 @@ public final class QuickLrcClient {
     private static Attempt sendOnce(String url, String json, String apiKey) throws IOException {
         HttpURLConnection conn = null;
         try {
-            conn = (HttpURLConnection) new URL(url).openConnection();
+            conn = Requester.openHttpConnection(url);
             conn.setRequestMethod("POST");
             conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
             conn.setReadTimeout(READ_TIMEOUT_MS);

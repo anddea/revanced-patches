@@ -335,7 +335,7 @@ public final class JavaScriptManager {
             final long start = System.currentTimeMillis();
             content = Utils.submitOnBackgroundThread(() -> {
                 final int connectionTimeoutMillis = 5000;
-                HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                HttpURLConnection connection = Requester.openHttpConnection(url);
                 connection.setFixedLengthStreamingMode(0);
                 connection.setRequestMethod("GET");
                 connection.setRequestProperty("User-Agent", USER_AGENT);

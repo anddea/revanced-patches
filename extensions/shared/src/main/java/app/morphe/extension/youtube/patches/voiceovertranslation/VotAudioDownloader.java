@@ -82,13 +82,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotAudioSourceCache.Source;
 import app.morphe.extension.shared.innertube.utils.AuthUtils;
 import java.util.Objects;
@@ -332,7 +332,7 @@ public final class VotAudioDownloader {
     }
 
     private static HttpURLConnection openAudioConnection(String audioUrl, long start, long end, String userAgent) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(audioUrl).openConnection();
+        HttpURLConnection connection = Requester.openHttpConnection(audioUrl);
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Range", "bytes=" + start + "-" + end);
         connection.setRequestProperty("Accept", "*/*");

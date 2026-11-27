@@ -61,8 +61,29 @@ public class Requester {
         return Locale.getDefault();
     }
 
+    /**
+     * Opens a connection that tries the IPv6 and IPv4 addresses of the host at the same time,
+     * so an address that does not answer does not hold up the request. No header is set.
+     *
+     * @see OkHttpURLConnection
+     */
+    public static HttpURLConnection openHttpConnection(URL url) throws IOException {
+        String protocol = url.getProtocol();
+        if ("https".equalsIgnoreCase(protocol) || "http".equalsIgnoreCase(protocol)) {
+            return new OkHttpURLConnection(url);
+        }
+        return (HttpURLConnection) url.openConnection();
+    }
+
+    /**
+     * @see #openHttpConnection(URL)
+     */
+    public static HttpURLConnection openHttpConnection(String url) throws IOException {
+        return openHttpConnection(new URL(url));
+    }
+
     public static HttpURLConnection openConnection(String url) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection connection = openHttpConnection(url);
         String agentString = System.getProperty("http.agent")
                 + "; RVX/" + PackageUtils.getAppVersionName();
         connection.setRequestProperty("User-Agent", agentString);
@@ -75,7 +96,7 @@ public class Requester {
 
     public static HttpURLConnection getConnectionFromCompiledRoute(String apiUrl, Route.CompiledRoute route) throws IOException {
         String url = apiUrl + route.getCompiledRoute();
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection connection = openHttpConnection(url);
         // Request data is in the URL parameters and no body is sent.
         // The calling code must set a length if using a request body.
         connection.setFixedLengthStreamingMode(0);

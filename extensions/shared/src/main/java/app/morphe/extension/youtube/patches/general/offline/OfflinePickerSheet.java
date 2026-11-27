@@ -40,11 +40,11 @@ import androidx.annotation.Nullable;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Consumer;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -271,7 +271,7 @@ final class OfflinePickerSheet {
     private static Bitmap fetchThumbnail(String url) {
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection = Requester.openHttpConnection(url);
             connection.setConnectTimeout(10_000);
             connection.setReadTimeout(10_000);
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) return null;

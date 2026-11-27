@@ -13,11 +13,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
 
 import app.morphe.extension.music.patches.misc.requests.MusicBrowseRequest;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.ThumbnailEntry;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.VideoDetails;
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -105,7 +105,7 @@ final class TrackMetadata {
     private static byte[] artwork(String videoId, String url) {
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection = Requester.openHttpConnection(url);
             connection.setConnectTimeout(15_000);
             connection.setReadTimeout(30_000);
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {

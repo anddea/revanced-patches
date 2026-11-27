@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
 
 import app.morphe.extension.music.patches.lyrics.LyricsDirectories;
+import app.morphe.extension.shared.requests.Requester;
 
 /**
  * What the two reading dictionaries have in common: how they are fetched and how the settings row
@@ -60,7 +60,7 @@ public final class RomanizationDict {
         File partial = new File(target.getPath() + DOWNLOAD_SUFFIX);
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection = Requester.openHttpConnection(url);
             connection.setConnectTimeout(CONNECT_TIMEOUT_MS);
             connection.setReadTimeout(READ_TIMEOUT_MS);
             connection.setRequestProperty("User-Agent", "MorpheMusic");

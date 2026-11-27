@@ -28,6 +28,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.utils.Logger;
 
 public final class OpenAIClient {
@@ -141,7 +142,7 @@ public final class OpenAIClient {
             // Validate with the same body the feature will send, so what works here works there.
             applyExtraBody(body);
 
-            conn = (HttpURLConnection) new URL(chatUrl(baseUrl)).openConnection();
+            conn = Requester.openHttpConnection(chatUrl(baseUrl));
             conn.setRequestMethod("POST");
             conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
             conn.setReadTimeout(READ_TIMEOUT_MS);
@@ -214,7 +215,7 @@ public final class OpenAIClient {
             return null;
         }
         try {
-            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+            HttpURLConnection conn = Requester.openHttpConnection(url);
             try {
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
@@ -480,7 +481,7 @@ public final class OpenAIClient {
             byte[] payload = body.toString().getBytes(StandardCharsets.UTF_8);
 
             URL url = new URL(chatUrl(baseUrl));
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = Requester.openHttpConnection(url);
             try {
                 conn.setRequestMethod("POST");
                 conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
